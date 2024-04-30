@@ -1,0 +1,704 @@
+:NewParser
+:ParseOnly
+
+:lhInHaskell
+:lhGenOCaml
+testSlow n = if n < 0 then [] else concat [ testSlow (n - 1) | x <- [1..n] ]
+testSlow $ primId 10
+//│ ||
+//│ Parsed: {}
+//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ testSlow_lh_₁^77(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = case lss⁰ of {
+//│ 	LH_C h¹ t¹ => mappend_lh_₁^34(h¹, concat_lh_₁^37(t¹))
+//│ 	| LH_N  => [LH_N]}
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₁^19((a⁰ + 1), b⁰)] else [LH_N]
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁^3(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testSlow_lh_₁(_lh_testSlow_arg1⁰) = if (_lh_testSlow_arg1⁰ < 0) then [LH_N] else concat_lh_₁^50(
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
+//│ 		LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁^52((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
+//│ 		| LH_N  => [LH_N]})
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁^67(1, _lh_testSlow_arg1⁰)))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mappend_lh__d1 xs_0 ys_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `LH_C(h_0, t_0) -> 
+//│ 		      (`LH_C(h_0, ((mappend_lh__d1 t_0) ys_0)))
+//│ 		    | `LH_N -> 
+//│ 		      ys_0);;
+//│ 		let rec concat_lh__d1 lss_0 =
+//│ 		  (match lss_0 with
+//│ 		    | `LH_C(h_1, t_1) -> 
+//│ 		      ((mappend_lh__d1 h_1) (concat_lh__d1 t_1))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec enumFromTo_lh__d1 a_0 b_0 =
+//│ 		  (if (a_0 <= b_0) then
+//│ 		    (`LH_C(a_0, ((enumFromTo_lh__d1 (a_0 + 1)) b_0)))
+//│ 		  else
+//│ 		    (`LH_N));;
+//│ 		let rec testSlow_lh__d1 _lh_testSlow_arg1_0 =
+//│ 		  (if (_lh_testSlow_arg1_0 < 0) then
+//│ 		    (`LH_N)
+//│ 		  else
+//│ 		    (concat_lh__d1 (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
+//│ 		      (match _lh_listcomp_fun_para_0 with
+//│ 		        | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
+//│ 		          (`LH_C((testSlow_lh__d1 (_lh_testSlow_arg1_0 - 1)), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+//│ 		        | `LH_N -> 
+//│ 		          (`LH_N))) in
+//│ 		      (_lh_listcomp_fun_0 ((enumFromTo_lh__d1 1) _lh_testSlow_arg1_0)))));;
+//│ 		(testSlow_lh__d1 10)
+//│ 		---------- unoptimized ocaml gen ----------
+//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion matches >>>>>>>
+//│ [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 29 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 41 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_N]: 49 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ [LH_N]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ ------------------
+//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10 --->
+//│ 	[LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8
+//│ 	[LH_N]: 41
+//│ 	[LH_N]: 49
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42 --->
+//│ 	[LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62
+//│ 	[LH_N]: 63
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28
+//│ 	[LH_N]: 29
+//│ <<<<<<< fusion matches <<<<<<<
+//│ 
+//│ >>>>>>> new fusion strategy >>>>>>>
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 29 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ [LH_N]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ ------------------
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42 --->
+//│ 	[LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62
+//│ 	[LH_N]: 63
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testSlow_lh_₁((_lh_testSlow_arg1⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28
+//│ 	[LH_N]: 29
+//│ <<<<<<< new fusion strategy <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ testSlow_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss¹) = lss¹(99)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then 
+//│ 	let _lh_listcomp_fun_ls_t¹ = enumFromTo_lh_₁((a¹ + 1), b¹)
+//│ 	in let _lh_listcomp_fun_ls_h¹ = a¹
+//│ 	in (fun _lh_listcomp_fun¹ -> (fun _lh_testSlow_arg1¹ -> 
+//│ 		let t² = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)
+//│ 		in let h² = testSlow_lh_₁((_lh_testSlow_arg1¹ - 1))
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h², concat_lh_₁(t²))))) else (fun _lh_listcomp_fun² -> (fun _lh_testSlow_arg1² -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys¹)]
+//│ 	| LH_N  => ys¹}
+//│ def testSlow_lh_₁(_lh_testSlow_arg1³) = if (_lh_testSlow_arg1³ < 0) then [LH_N] else concat_lh_₁(
+//│ 	let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun³, _lh_testSlow_arg1³))
+//│ 	in _lh_listcomp_fun³(enumFromTo_lh_₁(1, _lh_testSlow_arg1³)))
+//│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>> consumer ids >>>>>>>
+//│ testSlow_lh_₁, concat_lh_₁
+//│ <<<<<<< consumer ids <<<<<<<
+//│ 
+//│ >>>>>>> floating out info >>>>>>>
+//│ enumFromTo_lh_₁ -> 2
+//│ <<<<<<< floating out info <<<<<<<
+//│ 
+//│ >>>>>>> after inlining >>>>>>>
+//│ if (primId⁰(10) < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰, primId⁰(10)))
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁(1, primId⁰(10)))(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun¹ -> (fun _lh_testSlow_arg1⁰ -> 
+//│ 		let t¹ = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = if ((_lh_testSlow_arg1⁰ - 1) < 0) then [LH_N] else 
+//│ 			let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun², (_lh_testSlow_arg1⁰ - 1)))
+//│ 			in _lh_listcomp_fun²(enumFromTo_lh_₁(1, (_lh_testSlow_arg1⁰ - 1)))(99)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99))))) else (fun _lh_listcomp_fun³ -> (fun _lh_testSlow_arg1¹ -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testSlow_lh_₁(_lh_testSlow_arg1²) = if (_lh_testSlow_arg1² < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun⁴, _lh_testSlow_arg1²))
+//│ 	in _lh_listcomp_fun⁴(enumFromTo_lh_₁(1, _lh_testSlow_arg1²))(99)
+//│ <<<<<<< after inlining <<<<<<<
+//│ 
+//│ >>>>>>> after floating out >>>>>>>
+//│ if (primId⁰(10) < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰, primId⁰(10)))
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁(1, primId⁰(10)))(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun¹ -> (fun _lh_testSlow_arg1⁰ -> 
+//│ 		let t¹ = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = if ((_lh_testSlow_arg1⁰ - 1) < 0) then [LH_N] else 
+//│ 			let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun², (_lh_testSlow_arg1⁰ - 1)))
+//│ 			in _lh_listcomp_fun²(enumFromTo_lh_₁(1, (_lh_testSlow_arg1⁰ - 1)))(99)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99))))) else (fun _lh_listcomp_fun³ -> (fun _lh_testSlow_arg1¹ -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testSlow_lh_₁(_lh_testSlow_arg1²) = if (_lh_testSlow_arg1² < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun⁴, _lh_testSlow_arg1²))
+//│ 	in _lh_listcomp_fun⁴(enumFromTo_lh_₁(1, _lh_testSlow_arg1²))(99)
+//│ <<<<<<< after floating out <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
+
+:lhInHaskell
+:lhGenOCaml
+testNotSlow2 n = if n < 0 then [] else concat [ testNotSlow2 (x - 1) | x <- [1..n] ]
+testNotSlow2 $ primId 23
+//│ ||
+//│ Parsed: {}
+//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ testNotSlow2_lh_₁^77(primId⁰(23))
+//│ def concat_lh_₁(lss⁰) = case lss⁰ of {
+//│ 	LH_C h¹ t¹ => mappend_lh_₁^34(h¹, concat_lh_₁^37(t¹))
+//│ 	| LH_N  => [LH_N]}
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₁^19((a⁰ + 1), b⁰)] else [LH_N]
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁^3(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow2_lh_₁(_lh_testNotSlow2_arg1⁰) = if (_lh_testNotSlow2_arg1⁰ < 0) then [LH_N] else concat_lh_₁^50(
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
+//│ 		LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁^52((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
+//│ 		| LH_N  => [LH_N]})
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁^67(1, _lh_testNotSlow2_arg1⁰)))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mappend_lh__d1 xs_0 ys_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `LH_C(h_0, t_0) -> 
+//│ 		      (`LH_C(h_0, ((mappend_lh__d1 t_0) ys_0)))
+//│ 		    | `LH_N -> 
+//│ 		      ys_0);;
+//│ 		let rec concat_lh__d1 lss_0 =
+//│ 		  (match lss_0 with
+//│ 		    | `LH_C(h_1, t_1) -> 
+//│ 		      ((mappend_lh__d1 h_1) (concat_lh__d1 t_1))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec enumFromTo_lh__d1 a_0 b_0 =
+//│ 		  (if (a_0 <= b_0) then
+//│ 		    (`LH_C(a_0, ((enumFromTo_lh__d1 (a_0 + 1)) b_0)))
+//│ 		  else
+//│ 		    (`LH_N));;
+//│ 		let rec testNotSlow2_lh__d1 _lh_testNotSlow2_arg1_0 =
+//│ 		  (if (_lh_testNotSlow2_arg1_0 < 0) then
+//│ 		    (`LH_N)
+//│ 		  else
+//│ 		    (concat_lh__d1 (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
+//│ 		      (match _lh_listcomp_fun_para_0 with
+//│ 		        | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
+//│ 		          (`LH_C((testNotSlow2_lh__d1 (_lh_listcomp_fun_ls_h_0 - 1)), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+//│ 		        | `LH_N -> 
+//│ 		          (`LH_N))) in
+//│ 		      (_lh_listcomp_fun_0 ((enumFromTo_lh__d1 1) _lh_testNotSlow2_arg1_0)))));;
+//│ 		(testNotSlow2_lh__d1 23)
+//│ 		---------- unoptimized ocaml gen ----------
+//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion matches >>>>>>>
+//│ [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 29 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 41 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_N]: 49 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ [LH_N]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ ------------------
+//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10 --->
+//│ 	[LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8
+//│ 	[LH_N]: 41
+//│ 	[LH_N]: 49
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42 --->
+//│ 	[LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62
+//│ 	[LH_N]: 63
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28
+//│ 	[LH_N]: 29
+//│ <<<<<<< fusion matches <<<<<<<
+//│ 
+//│ >>>>>>> new fusion strategy >>>>>>>
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_N]: 29 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64
+//│ [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ [LH_N]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42
+//│ ------------------
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 42 --->
+//│ 	[LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 62
+//│ 	[LH_N]: 63
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h⁰ - 1)) _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 64 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 28
+//│ 	[LH_N]: 29
+//│ <<<<<<< new fusion strategy <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ testNotSlow2_lh_₁(primId⁰(23))
+//│ def concat_lh_₁(lss¹) = lss¹(99)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then 
+//│ 	let _lh_listcomp_fun_ls_t¹ = enumFromTo_lh_₁((a¹ + 1), b¹)
+//│ 	in let _lh_listcomp_fun_ls_h¹ = a¹
+//│ 	in (fun _lh_listcomp_fun¹ -> 
+//│ 		let t² = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)
+//│ 		in let h² = testNotSlow2_lh_₁((_lh_listcomp_fun_ls_h¹ - 1))
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h², concat_lh_₁(t²)))) else (fun _lh_listcomp_fun² -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys¹)]
+//│ 	| LH_N  => ys¹}
+//│ def testNotSlow2_lh_₁(_lh_testNotSlow2_arg1¹) = if (_lh_testNotSlow2_arg1¹ < 0) then [LH_N] else concat_lh_₁(
+//│ 	let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun³))
+//│ 	in _lh_listcomp_fun³(enumFromTo_lh_₁(1, _lh_testNotSlow2_arg1¹)))
+//│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>> consumer ids >>>>>>>
+//│ testNotSlow2_lh_₁, concat_lh_₁
+//│ <<<<<<< consumer ids <<<<<<<
+//│ 
+//│ >>>>>>> floating out info >>>>>>>
+//│ enumFromTo_lh_₁ -> 2
+//│ <<<<<<< floating out info <<<<<<<
+//│ 
+//│ >>>>>>> after inlining >>>>>>>
+//│ if (primId⁰(23) < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰))
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁(1, primId⁰(23)))(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun¹ -> 
+//│ 		let t¹ = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = if ((_lh_listcomp_fun_ls_h⁰ - 1) < 0) then [LH_N] else 
+//│ 			let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun²))
+//│ 			in _lh_listcomp_fun²(enumFromTo_lh_₁(1, (_lh_listcomp_fun_ls_h⁰ - 1)))(99)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99)))) else (fun _lh_listcomp_fun³ -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow2_lh_₁(_lh_testNotSlow2_arg1⁰) = if (_lh_testNotSlow2_arg1⁰ < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun⁴))
+//│ 	in _lh_listcomp_fun⁴(enumFromTo_lh_₁(1, _lh_testNotSlow2_arg1⁰))(99)
+//│ <<<<<<< after inlining <<<<<<<
+//│ 
+//│ >>>>>>> after floating out >>>>>>>
+//│ if (primId⁰(23) < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰))
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₁(1, primId⁰(23)))(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun¹ -> 
+//│ 		let t¹ = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = if ((_lh_listcomp_fun_ls_h⁰ - 1) < 0) then [LH_N] else 
+//│ 			let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun²))
+//│ 			in _lh_listcomp_fun²(enumFromTo_lh_₁(1, (_lh_listcomp_fun_ls_h⁰ - 1)))(99)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99)))) else (fun _lh_listcomp_fun³ -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow2_lh_₁(_lh_testNotSlow2_arg1⁰) = if (_lh_testNotSlow2_arg1⁰ < 0) then [LH_N] else 
+//│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun⁴))
+//│ 	in _lh_listcomp_fun⁴(enumFromTo_lh_₁(1, _lh_testNotSlow2_arg1⁰))(99)
+//│ <<<<<<< after floating out <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
+
+:lhInHaskell
+:lhGenOCaml
+testNotSlow3 n = if n < 0 then [] else let tmp = testNotSlow3 (n - 1) in concat [ tmp | x <- [1..n] ]
+testNotSlow3 $ primId 10
+//│ ||
+//│ Parsed: {}
+//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ testNotSlow3_lh_₁^79(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = case lss⁰ of {
+//│ 	LH_C h¹ t¹ => mappend_lh_₁^14(h¹, concat_lh_₁^17(t¹))
+//│ 	| LH_N  => [LH_N]}
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₁^30((a⁰ + 1), b⁰)] else [LH_N]
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁^3(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow3_lh_₁(_lh_testNotSlow3_arg1⁰) = if (_lh_testNotSlow3_arg1⁰ < 0) then [LH_N] else 
+//│ 	let tmp⁰ = testNotSlow3_lh_₁^50((_lh_testNotSlow3_arg1⁰ - 1))
+//│ 	in concat_lh_₁^57(
+//│ 		let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
+//│ 			LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
+//│ 			| LH_N  => [LH_N]})
+//│ 		in _lh_listcomp_fun⁰(enumFromTo_lh_₁^68(1, _lh_testNotSlow3_arg1⁰)))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec enumFromTo_lh__d1 a_0 b_0 =
+//│ 		  (if (a_0 <= b_0) then
+//│ 		    (`LH_C(a_0, ((enumFromTo_lh__d1 (a_0 + 1)) b_0)))
+//│ 		  else
+//│ 		    (`LH_N));;
+//│ 		let rec mappend_lh__d1 xs_0 ys_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `LH_C(h_0, t_0) -> 
+//│ 		      (`LH_C(h_0, ((mappend_lh__d1 t_0) ys_0)))
+//│ 		    | `LH_N -> 
+//│ 		      ys_0);;
+//│ 		let rec concat_lh__d1 lss_0 =
+//│ 		  (match lss_0 with
+//│ 		    | `LH_C(h_1, t_1) -> 
+//│ 		      ((mappend_lh__d1 h_1) (concat_lh__d1 t_1))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec testNotSlow3_lh__d1 _lh_testNotSlow3_arg1_0 =
+//│ 		  (if (_lh_testNotSlow3_arg1_0 < 0) then
+//│ 		    (`LH_N)
+//│ 		  else
+//│ 		    (let rec tmp_0 = (testNotSlow3_lh__d1 (_lh_testNotSlow3_arg1_0 - 1)) in
+//│ 		      (concat_lh__d1 (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
+//│ 		        (match _lh_listcomp_fun_para_0 with
+//│ 		          | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
+//│ 		            (`LH_C(tmp_0, (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+//│ 		          | `LH_N -> 
+//│ 		            (`LH_N))) in
+//│ 		        (_lh_listcomp_fun_0 ((enumFromTo_lh__d1 1) _lh_testNotSlow3_arg1_0))))));;
+//│ 		(testNotSlow3_lh__d1 10)
+//│ 		---------- unoptimized ocaml gen ----------
+//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion matches >>>>>>>
+//│ [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_N]: 21 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 39 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65
+//│ [LH_N]: 40 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65
+//│ [LH_N]: 49 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22
+//│ [LH_N]: 64 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22
+//│ ------------------
+//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10 --->
+//│ 	[LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8
+//│ 	[LH_N]: 21
+//│ 	[LH_N]: 49
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22 --->
+//│ 	[LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 63
+//│ 	[LH_N]: 64
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 39
+//│ 	[LH_N]: 40
+//│ <<<<<<< fusion matches <<<<<<<
+//│ 
+//│ >>>>>>> new fusion strategy >>>>>>>
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 39 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65
+//│ [LH_N]: 40 --->
+//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65
+//│ [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 63 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22
+//│ [LH_N]: 64 --->
+//│ 	case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22
+//│ ------------------
+//│ case lss⁰ of {LH_C h¹ t¹ => mappend_lh_₁(h¹, concat_lh_₁(t¹)) | LH_N  => [LH_N]}: 22 --->
+//│ 	[LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 63
+//│ 	[LH_N]: 64
+//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C tmp⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 65 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 39
+//│ 	[LH_N]: 40
+//│ <<<<<<< new fusion strategy <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ testNotSlow3_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss¹) = lss¹(99)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then 
+//│ 	let _lh_listcomp_fun_ls_t¹ = enumFromTo_lh_₁((a¹ + 1), b¹)
+//│ 	in let _lh_listcomp_fun_ls_h¹ = a¹
+//│ 	in (fun _lh_listcomp_fun¹ -> (fun tmp¹ -> 
+//│ 		let t² = _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)
+//│ 		in let h² = tmp¹
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h², concat_lh_₁(t²))))) else (fun _lh_listcomp_fun² -> (fun tmp² -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys¹)]
+//│ 	| LH_N  => ys¹}
+//│ def testNotSlow3_lh_₁(_lh_testNotSlow3_arg1¹) = if (_lh_testNotSlow3_arg1¹ < 0) then [LH_N] else 
+//│ 	let tmp³ = testNotSlow3_lh_₁((_lh_testNotSlow3_arg1¹ - 1))
+//│ 	in concat_lh_₁(
+//│ 		let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun³, tmp³))
+//│ 		in _lh_listcomp_fun³(enumFromTo_lh_₁(1, _lh_testNotSlow3_arg1¹)))
+//│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>> consumer ids >>>>>>>
+//│ recursive consumer: testNotSlow3_lh_₁
+//│ concat_lh_₁
+//│ <<<<<<< consumer ids <<<<<<<
+//│ 
+//│ >>>>>>> floating out info >>>>>>>
+//│ enumFromTo_lh_₁ -> 2
+//│ <<<<<<< floating out info <<<<<<<
+//│ 
+//│ >>>>>>> after inlining >>>>>>>
+//│ testNotSlow3_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun⁰ -> (fun tmp⁰ -> 
+//│ 		let t¹ = _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = tmp⁰
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99))))) else (fun _lh_listcomp_fun¹ -> (fun tmp¹ -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow3_lh_₁(_lh_testNotSlow3_arg1⁰) = if (_lh_testNotSlow3_arg1⁰ < 0) then [LH_N] else 
+//│ 	let tmp² = testNotSlow3_lh_₁((_lh_testNotSlow3_arg1⁰ - 1))
+//│ 	in let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun², tmp²))
+//│ 		in _lh_listcomp_fun²(enumFromTo_lh_₁(1, _lh_testNotSlow3_arg1⁰))(99)
+//│ <<<<<<< after inlining <<<<<<<
+//│ 
+//│ >>>>>>> after floating out >>>>>>>
+//│ testNotSlow3_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in (fun _lh_listcomp_fun⁰ -> (fun tmp⁰ -> 
+//│ 		let t¹ = _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)
+//│ 		in let h¹ = tmp⁰
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h¹, t¹(99))))) else (fun _lh_listcomp_fun¹ -> (fun tmp¹ -> (fun _lh_dummy¹ -> [LH_N])))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow3_lh_₁(_lh_testNotSlow3_arg1⁰) = if (_lh_testNotSlow3_arg1⁰ < 0) then [LH_N] else 
+//│ 	let tmp² = testNotSlow3_lh_₁((_lh_testNotSlow3_arg1⁰ - 1))
+//│ 	in let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun², tmp²))
+//│ 		in _lh_listcomp_fun²(enumFromTo_lh_₁(1, _lh_testNotSlow3_arg1⁰))(99)
+//│ <<<<<<< after floating out <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
+
+:lhInHaskell
+:lhGenOCaml
+f n ls = map (\x -> testNotSlow (n - 1)) ls
+testNotSlow n = if n < 0 then [] else concat (f n [1..n])
+testNotSlow $ primId 10
+//│ ||
+//│ Parsed: {}
+//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ testNotSlow_lh_₁^91(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = case lss⁰ of {
+//│ 	LH_C h² t² => mappend_lh_₁^28(h², concat_lh_₁^31(t²))
+//│ 	| LH_N  => [LH_N]}
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₁^58((a⁰ + 1), b⁰)] else [LH_N]
+//│ def f_lh_₁(_lh_f_arg1⁰, _lh_f_arg2⁰) = map_lh_₁^38((fun x⁰ -> testNotSlow_lh_₁^39((_lh_f_arg1⁰ - 1))), _lh_f_arg2⁰)
+//│ def map_lh_₁(f⁰, ls⁰) = case ls⁰ of {
+//│ 	LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁^17(f⁰, t¹)]
+//│ 	| LH_N  => [LH_N]}
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁^3(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow_lh_₁(_lh_testNotSlow_arg1⁰) = if (_lh_testNotSlow_arg1⁰ < 0) then [LH_N] else concat_lh_₁^78(f_lh_₁^79(_lh_testNotSlow_arg1⁰, enumFromTo_lh_₁^82(1, _lh_testNotSlow_arg1⁰)))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec map_lh__d1 f_0 ls_0 =
+//│ 		  (match ls_0 with
+//│ 		    | `LH_C(h_1, t_1) -> 
+//│ 		      (`LH_C((f_0 h_1), ((map_lh__d1 f_0) t_1)))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec enumFromTo_lh__d1 a_0 b_0 =
+//│ 		  (if (a_0 <= b_0) then
+//│ 		    (`LH_C(a_0, ((enumFromTo_lh__d1 (a_0 + 1)) b_0)))
+//│ 		  else
+//│ 		    (`LH_N));;
+//│ 		let rec mappend_lh__d1 xs_0 ys_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `LH_C(h_0, t_0) -> 
+//│ 		      (`LH_C(h_0, ((mappend_lh__d1 t_0) ys_0)))
+//│ 		    | `LH_N -> 
+//│ 		      ys_0);;
+//│ 		let rec concat_lh__d1 lss_0 =
+//│ 		  (match lss_0 with
+//│ 		    | `LH_C(h_2, t_2) -> 
+//│ 		      ((mappend_lh__d1 h_2) (concat_lh__d1 t_2))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec f_lh__d1 _lh_f_arg1_0 _lh_f_arg2_0 =
+//│ 		  ((map_lh__d1 (fun x_0 -> 
+//│ 		    (testNotSlow_lh__d1 (_lh_f_arg1_0 - 1)))) _lh_f_arg2_0)
+//│ 		and
+//│ 		testNotSlow_lh__d1 _lh_testNotSlow_arg1_0 =
+//│ 		  (if (_lh_testNotSlow_arg1_0 < 0) then
+//│ 		    (`LH_N)
+//│ 		  else
+//│ 		    (concat_lh__d1 ((f_lh__d1 _lh_testNotSlow_arg1_0) ((enumFromTo_lh__d1 1) _lh_testNotSlow_arg1_0))));;
+//│ 		(testNotSlow_lh__d1 10)
+//│ 		---------- unoptimized ocaml gen ----------
+//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion matches >>>>>>>
+//│ [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)]: 22 --->
+//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36
+//│ [LH_N]: 23 --->
+//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36
+//│ [LH_N]: 35 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 67 --->
+//│ 	case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24
+//│ [LH_N]: 68 --->
+//│ 	case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24
+//│ [LH_N]: 77 --->
+//│ 	NoCons
+//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
+//│ ------------------
+//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)] | LH_N  => ys⁰}: 10 --->
+//│ 	[LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]: 8
+//│ 	[LH_N]: 35
+//│ 	[LH_N]: 77
+//│ case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 67
+//│ 	[LH_N]: 68
+//│ case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36 --->
+//│ 	[LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)]: 22
+//│ 	[LH_N]: 23
+//│ <<<<<<< fusion matches <<<<<<<
+//│ 
+//│ >>>>>>> new fusion strategy >>>>>>>
+//│ [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)]: 22 --->
+//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36
+//│ [LH_N]: 23 --->
+//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36
+//│ [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 67 --->
+//│ 	case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24
+//│ [LH_N]: 68 --->
+//│ 	case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24
+//│ ------------------
+//│ case ls⁰ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 24 --->
+//│ 	[LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b⁰)]: 67
+//│ 	[LH_N]: 68
+//│ case lss⁰ of {LH_C h² t² => mappend_lh_₁(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 36 --->
+//│ 	[LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)]: 22
+//│ 	[LH_N]: 23
+//│ <<<<<<< new fusion strategy <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ testNotSlow_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss¹) = lss¹(99)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then 
+//│ 	let t³ = enumFromTo_lh_₁((a¹ + 1), b¹)
+//│ 	in let h³ = a¹
+//│ 	in (fun f² -> 
+//│ 		let t⁴ = map_lh_₁(f², t³)
+//│ 		in let h⁴ = f²(h³)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h⁴, concat_lh_₁(t⁴)))) else (fun f³ -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def f_lh_₁(_lh_f_arg1¹, _lh_f_arg2¹) = map_lh_₁((fun x¹ -> testNotSlow_lh_₁((_lh_f_arg1¹ - 1))), _lh_f_arg2¹)
+//│ def map_lh_₁(f¹, ls¹) = ls¹(f¹)
+//│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys¹)]
+//│ 	| LH_N  => ys¹}
+//│ def testNotSlow_lh_₁(_lh_testNotSlow_arg1¹) = if (_lh_testNotSlow_arg1¹ < 0) then [LH_N] else concat_lh_₁(f_lh_₁(_lh_testNotSlow_arg1¹, enumFromTo_lh_₁(1, _lh_testNotSlow_arg1¹)))
+//│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>> consumer ids >>>>>>>
+//│ concat_lh_₁, map_lh_₁
+//│ <<<<<<< consumer ids <<<<<<<
+//│ 
+//│ >>>>>>> floating out info >>>>>>>
+//│ enumFromTo_lh_₁ -> 2
+//│ <<<<<<< floating out info <<<<<<<
+//│ 
+//│ >>>>>>> after inlining >>>>>>>
+//│ testNotSlow_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let t¹ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let h¹ = a⁰
+//│ 	in (fun f¹ -> 
+//│ 		let t² = t¹(f¹)
+//│ 		in let h² = f¹(h¹)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h², t²(99)))) else (fun f² -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def f_lh_₁(_lh_f_arg1⁰, _lh_f_arg2⁰) = _lh_f_arg2⁰((fun x⁰ -> testNotSlow_lh_₁((_lh_f_arg1⁰ - 1))))
+//│ def map_lh_₁(f⁰, ls⁰) = ls⁰(f⁰)
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow_lh_₁(_lh_testNotSlow_arg1⁰) = if (_lh_testNotSlow_arg1⁰ < 0) then [LH_N] else f_lh_₁(_lh_testNotSlow_arg1⁰, enumFromTo_lh_₁(1, _lh_testNotSlow_arg1⁰), 99)
+//│ <<<<<<< after inlining <<<<<<<
+//│ 
+//│ >>>>>>> after floating out >>>>>>>
+//│ testNotSlow_lh_₁(primId⁰(10))
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def enumFromTo_lh_₁(a⁰, b⁰) = if (a⁰ <= b⁰) then 
+//│ 	let t¹ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let h¹ = a⁰
+//│ 	in (fun f¹ -> 
+//│ 		let t² = t¹(f¹)
+//│ 		in let h² = f¹(h¹)
+//│ 		in (fun _lh_dummy⁰ -> mappend_lh_₁(h², t²(99)))) else (fun f² -> (fun _lh_dummy¹ -> [LH_N]))
+//│ def f_lh_₁(_lh_f_arg1⁰, _lh_f_arg2⁰) = _lh_f_arg2⁰((fun x⁰ -> testNotSlow_lh_₁((_lh_f_arg1⁰ - 1))))
+//│ def map_lh_₁(f⁰, ls⁰) = ls⁰(f⁰)
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def testNotSlow_lh_₁(_lh_testNotSlow_arg1⁰) = if (_lh_testNotSlow_arg1⁰ < 0) then [LH_N] else f_lh_₁(_lh_testNotSlow_arg1⁰, enumFromTo_lh_₁(1, _lh_testNotSlow_arg1⁰), 99)
+//│ <<<<<<< after floating out <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
+
