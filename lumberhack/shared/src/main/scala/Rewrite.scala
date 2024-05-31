@@ -1066,7 +1066,6 @@ trait ProgramRewrite { this: Program =>
         assert(p.p.nonEmpty)
         val identKey = p.p.last match
           case PathElem.Normal(ref) => initContext(ref.id)
-          case PathElem.Star(elms) => ???
         val newBody: Expr = copiedOriginalProgram.defAndExpr._1(identKey)
           .rewriteExpand(using initContext, p, newd, pathToIdent, refMaps, Some(id))
         L(ProgDef(id, newBody))
