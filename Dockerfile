@@ -18,4 +18,5 @@ RUN git submodule update --init --recursive \
     && ./build.py -o libtree-sitter -v ../tree-sitter-haskell \
     && cp ./libtree-sitter.so /lib/libjava-tree-sitter-ocaml-haskell.so
 WORKDIR /root
+RUN echo "eval \$(opam env 2> /dev/null)" >> ./.bashrc
 CMD /bin/bash
