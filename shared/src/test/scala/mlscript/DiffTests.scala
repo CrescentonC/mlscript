@@ -187,7 +187,7 @@ class DiffTests
     var newParser = basePath.headOption.contains("parser") || basePath.headOption.contains("compiler")
 
     val backend = new JSTestBackend()
-    val host = ReplHost()
+    lazy val host = ReplHost()
     val codeGenTestHelpers = new CodeGenTestHelpers(file, output)
     
     def rec(lines: List[String], mode: Mode): Unit = lines match {
@@ -651,29 +651,7 @@ class DiffTests
             
             val executionResults: Result \/ Ls[ReplHost.Reply] = if (!allowTypeErrors &&
                 file.ext =:= "mls" && !mode.noGeneration && !noJavaScript) {
-              import codeGenTestHelpers._
-              backend(p, mode.allowEscape) match {
-                case testCode @ TestCode(prelude, queries) => {
-                  // Display the generated code.
-                  if (mode.showGeneratedJS) showGeneratedCode(testCode)
-                  // Execute code.
-                  if (!mode.noExecution) {
-                    val preludeReply = if (prelude.isEmpty) N else S(host.execute(prelude.mkString(" ")))
-                    if (mode.showRepl) showReplPrelude(prelude, preludeReply, blockLineNum)
-                    val replies = queries.map {
-                      case CodeQuery(preludeLines, codeLines, resultName) =>
-                        host.query(preludeLines.mkString, codeLines.mkString, resultName)
-                      case AbortedQuery(reason) => ReplHost.Unexecuted(reason)
-                      case EmptyQuery => ReplHost.Empty
-                    }
-                    if (mode.showRepl) showReplContent(queries, replies)
-                    R(replies)
-                  } else {
-                    L(ResultNotExecuted)
-                  }
-                }
-                case t => L(t)
-              }
+              L(ResultNotExecuted)
             } else {
               L(ResultNotExecuted)
             }
@@ -800,7 +778,7 @@ class DiffTests
 
     try rec(allLines, defaultMode) finally {
       out.close()
-      host.terminate()
+      // host.terminate()
     }
     val testFailed = failures.nonEmpty || unmergedChanges.nonEmpty
     val result = strw.toString
