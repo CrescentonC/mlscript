@@ -283,12 +283,9 @@ class Deforest(var debug: Boolean) {
     }
     exprToProdType.get(e.uid) match {
       case None => {
-        // assert(s.s.euid == e.uid)
         exprToProdType += e.uid -> s
         s
       }
-      // case Some(value) =>
-      //   lastWords(s"${e.pp(using InitPpConfig.showEuidOn)} registered two prod strategies:\n already has ${value.pp(using InitPpConfig)}, but got ${s.pp(using InitPpConfig)}")
       case Some(value) =>
         if eq(value, s) then
           value
@@ -297,17 +294,11 @@ class Deforest(var debug: Boolean) {
     }
   }
 
-  // NOTE: the thing is that, to get recursive knots, we need the program to tyoe check, but to make a polymorphic program to
-  // type check, we need to do the duplication of multiple-usage definitions, so seems that these two things has to be done in two steps
   def process(e: Expr, isTail: Boolean)(using ctx: Ctx, calls: mutable.Set[Ref]): ProdStrat = trace(s"process ${e.uid}: ${e.pp(using InitPpConfig)}") {
     if isTail then tailPosExprIds += e.uid else ()
     val res: ProdStratEnum = e match
       case Call(primFun@Ref(lazyOrForce), e) if Set("lazy", "force", "lumberhack_obj_magic")(lazyOrForce.tree.name) =>
-        // registerExprToType(primFun, freshVar("_lh_rigid_error_var")(using e.uid)._1.toStrat())
-        // treat the above annotations as identity functions to keep fusion
         process(e, false).s
-      // adding exprid here to the mkctor types changes the knot tying result and makes type checking slow because
-      // the `recursiveConstr` later will be changed, since mkctor type's eq test and hashCode value relies on the exprId
       case Call(Ref(fromLargeStr), Const(StrLit(largeStr))) if fromLargeStr.tree.name == "from_large_str" =>
         NoProd()(using e.uid)
       case Call(Ref(z_of_string), Const(StrLit(largeInt))) if z_of_string.tree.name == "z_of_string" =>
@@ -430,7 +421,6 @@ class Deforest(var debug: Boolean) {
         process(fst, false)
         process(snd, true && isTail).s
 
-    // res.toStrat()
     registerExprToType(e, res.toStrat())
   }(r => s"=> ${r.pp(using InitPpConfig)}")
 
@@ -462,7 +452,6 @@ class Deforest(var debug: Boolean) {
   
   def constrain(prod: ProdStrat, cons: ConsStrat): Unit = {
     (prod.s, cons.s) match
-      // case (NoProd(), _) | (_, NoCons()) => ()
       case (p, c) => constraints ::= (prod, cons)
   }
   
@@ -475,7 +464,6 @@ class Deforest(var debug: Boolean) {
         case _ => false
       }
   
-  // type Cache = Map[Cnstr, Cnstr -> Int]
   type Cache = scala.collection.mutable.Map[Cnstr, Cnstr -> Int]
 
 
@@ -503,56 +491,29 @@ class Deforest(var debug: Boolean) {
       val prod = c._1
       val cons = c._2
 
-      // if errorTypes.contains(prod.s) || errorTypes.contains(cons.s) then return
       cache.get(c) match
         case S(inCache) =>
           log(s">> done [${prod.pp(using InitPpConfig)} : ${cons.pp(using InitPpConfig)}]")
           log(s">> with [${inCache._1._1.pp(using InitPpConfig)} : ${inCache._1._2.pp(using InitPpConfig)}]")
           return ()
         case N => ()
-      // (prod.s, cons.s) match
-      //   case (_: ProdVar, _) | (_, _: ConsVar) => cache.get(c) match
-      //     case S(inCache) =>
-      //       log(s">> done [${prod.pp(using InitPpConfig)} : ${cons.pp(using InitPpConfig)}]")
-      //       log(s">> with [${inCache._1._1.pp(using InitPpConfig)} : ${inCache._1._2.pp(using InitPpConfig)}]")
-      //       // register knots that actually pass through type ctors
-      //       if inCache._2 < numOfTypeCtor || true then {
-      //         recursiveConstr.updateWith(c) {
-      //           case Some(m) =>
-      //             m += (prod.path.rev ::: cons.path) -> (inCache._1._1.path.rev ::: inCache._1._2.path)
-      //             Some(m)
-      //           case None => Some({
-      //             val m = mutable.Set.empty[Path -> Path]
-      //             m += (prod.path.rev ::: cons.path) -> (inCache._1._1.path.rev ::: inCache._1._2.path)
-      //             m
-      //           })
-      //         }
-      //       }
-      //       return
-      //     case N => ()
-      //   case _ => ()
 
-      // given Cache = cache + (c -> (c -> numOfTypeCtor))
       cache += (c -> (c -> numOfTypeCtor))
 
       (prod.s, cons.s) match
         case (ProdVar(v, pn), ConsVar(w, cn))
           if v === w || pn == "_lh_rigid_error_var" || cn == "_lh_rigid_error_var" => ()
         case (np@NoProd(), NoCons()) =>
-          // isNotDead += np
         case (np@NoProd(), ConsFun(l, r)) =>
-          // isNotDead += np
           given Int = numOfTypeCtor + 1
           handle(l -> NoCons()(using noExprId).toStrat())
           handle(NoProd()(using noExprId).toStrat() -> r)
         case (prodFun@ProdFun(l, r), NoCons()) =>
-          // isNotDead += prodFun
           given Int = numOfTypeCtor + 1
           handle(r -> NoCons()(using noExprId).toStrat())
           handle(NoProd()(using noExprId).toStrat() -> l)
         case (np@NoProd(), dtor@Destruct(ds)) =>
           isNotDeadBranch.update(dtor, (0 until ds.length).toSet)
-          // isNotDead += np
           given Int = numOfTypeCtor + 1
           if this.isRealCtorOrDtor(dtor.euid) then {
             dtorSources += dtor -> (dtorSources(dtor) + prod.s)
@@ -561,7 +522,6 @@ class Deforest(var debug: Boolean) {
             argCons foreach { c => handle(prod, c) }
           }
         case (ctorType@MkCtor(ctor, args), NoCons()) =>
-          // isNotDead += ctorType
           given Int = numOfTypeCtor + 1
           if this.isRealCtorOrDtor(ctorType.euid) then {
             ctorDestinations += ctorType -> (ctorDestinations(ctorType) + cons.s)
@@ -586,13 +546,11 @@ class Deforest(var debug: Boolean) {
           lowerBounds += v -> ((cv.asInPath.getOrElse(Path.empty), prod) :: lowerBounds(v))
           upperBounds(v).foreach((ub_path, ub_strat) => handle(prod -> ub_strat))
         case (prodFun@ProdFun(lhs1, rhs1), ConsFun(lhs2, rhs2)) =>
-          // isNotDead += prodFun
           given Int = numOfTypeCtor + 1
           handle(lhs2 -> lhs1)
           handle(rhs1 -> rhs2)
         case (mkctor@MkCtor(ctor, args), dtors@Destruct(ds)) =>
-          // isNotDead += mkctor
-          // these three primitive types are handled differently: they do not need to be fused or so
+          // these three primitive types are handled differently: they do not need to be fused
           if (ctor.name != "Int") && (ctor.name != "Char") && (ctor.name != "Float") then {
             given Int = numOfTypeCtor + 1
             (ds.indexWhere {case Destructor(ds_ctor, argCons) => ds_ctor == ctor || ds_ctor.name == "_"}) match {
@@ -601,14 +559,6 @@ class Deforest(var debug: Boolean) {
                   case None => Some(Set(-1))
                   case Some(idxs) => Some(idxs + (-1))
                 }
-                // if (this.isRealCtorOrDtor(prod.s.euid) && this.isRealCtorOrDtor(cons.s.euid)) then {
-                //   fusionMatch.updateWith(prod.s.euid)(_.map(_ + cons.s.euid).orElse(Some(Set(cons.s.euid))))
-                //   dtorSources += cons.s.asInstanceOf[Destruct] -> (dtorSources(cons.s.asInstanceOf[Destruct]) + prod.s)
-                //   ctorDestinations += prod.s.asInstanceOf[MkCtor] -> (ctorDestinations(prod.s.asInstanceOf[MkCtor]) + cons.s)
-                // }
-                // lastWords(s"type error ${prod.pp(using InitPpConfig)} <: ${cons.pp(using InitPpConfig)}")
-                // errorTypes += prod.s
-                // errorTypes += cons.s
               case armIndex => {
                 isNotDeadBranch.updateWith(dtors) {
                   case None => Some(Set(armIndex))
@@ -636,12 +586,8 @@ class Deforest(var debug: Boolean) {
             }
           } else {
             if ds.exists(d => d.ctor != ctor && d.ctor.name != "_") then ()
-              // errorTypes += prod.s
-              // errorTypes += cons.s
-              // lastWords(s"type error ${prod.pp(using InitPpConfig)} <: ${cons.pp(using InitPpConfig)}")
           }
         case (sum@Sum(ctors), Destruct(ds)) =>
-          // isNotDead += sum
           given Int = numOfTypeCtor + 1
           ctors.foreach { ctorStrat => ctorStrat.s match
             case MkCtor(ctor, args) => {
@@ -657,35 +603,23 @@ class Deforest(var debug: Boolean) {
                       handle(a, c)
                     }
                   }
-                case _ => // lastWords(s"${ctor.name} cannot be found in $ds")
-                  // errorTypes += prod.s
-                  // errorTypes += cons.s
+                case _ => ()
               }
             }
           }
         case (sum@Sum(ctors), NoCons()) =>
-          // isNotDead += sum
           ctors.foreach(handle(_, cons))
-        // allow function to be the scrutinee, haskell and ocaml also allows it
         case (f: ProdFun, Destruct(ds)) if ds.find(_.ctor.name == "_").isDefined =>
           val dtor = ds.find(_.ctor.name == "_").get
           (prod :: Nil) lazyZip dtor.argCons foreach { case (a, c) =>
             handle(a, c)
           }
-        case _ =>
-          // println(s"type error ${prod.pp(using InitPpConfig)} <: ${cons.pp(using InitPpConfig)}")
-          // if {errCnt += 1; errCnt} > 1000 then
-          //   lastWords(s"type error ${prod.pp(using InitPpConfig)} <: ${cons.pp(using InitPpConfig)}")
-          // errorTypes += prod.s
-          // errorTypes += cons.s
+        case _ => ()
     }()
     
     given Cache = scala.collection.mutable.Map.empty
-    // given Cache = Map.empty
     given Int = 0
     
-    // import scala.util.Random.shuffle
-    // shuffle(constraints) foreach handle
     constraints foreach handle
     assert(lowerBounds.values.flatten.forall(!_._2.s.isInstanceOf[ProdVar]))
     propagateDeadCodeConsProd
@@ -750,16 +684,6 @@ class Deforest(var debug: Boolean) {
 
 }
 
-
-enum CallTree(val info: Str) {
-  case Knot(current: Path, prev: Path)(info: Str) extends CallTree(info)
-  case Continue(current: Path, calls: CallTrees)(info: Str) extends CallTree(info)
-
-}
-case class CallTrees(calls: List[CallTree]) {
-}
-object CallTree {
-}
 
 object Deforest {
   lazy val lumberhackKeywords: Set[String] =
