@@ -116,7 +116,6 @@ trait RefTrait { this: Expr.Ref =>
     case _ => false
   }
   override def hashCode(): Int = (this.id, this.uid).hashCode()
-  def toPath(pol: PathElemPol = PathElemPol.In): Path = Path(PathElem.Normal(this)(pol) :: Nil)
 }
 trait MatchTrait { this: Expr.Match =>
   def isDuplicateOf(other: Expr.Match) =

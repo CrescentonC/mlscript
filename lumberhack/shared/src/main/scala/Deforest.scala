@@ -11,52 +11,12 @@ import mlscript.lumberhack.utils.InitPpConfig
 import mlscript.lumberhack.utils.{toSubscript, toSuperscript}
 
 type TypeVar
-type NormalPathElem
-type PathElemType = NormalPathElem
 type ExprId = Uid[Expr]
 type TypeVarId = Uid[TypeVar]
 type Cnstr = ProdStrat -> ConsStrat
 type ProdStrat = Strat[ProdStratEnum]
 type ConsStrat = Strat[ConsStratEnum]
 
-enum PathElemPol {
-  case In
-  case Out
-  lazy val neg = this match
-    case In => Out
-    case Out => In
-  lazy val pp = this match
-    case In => "+"
-    case Out => "-"
-  def canCancel(other: PathElemPol) = (this, other) match
-    case (In, Out) | (Out, In) => true
-    case _ => false
-}
-enum PathElem[+T <: PathElemType] {
-  case Normal(r: Ref)(val pol: PathElemPol = PathElemPol.In) extends PathElem[NormalPathElem]
-
-  def neg: PathElem[T] = this match
-    case n: Normal => n.copy()(pol = n.pol.neg)
-  def rev: PathElem[T] = this match
-    case n: Normal => n
-  def pp(using config: PrettyPrintConfig): Str = this match
-    case n@Normal(r@Ref(Ident(_, Var(nme), uid))) =>
-      (if config.showPolarity then n.pol.pp else "")
-      + nme
-      + (if config.showIuid then s":$uid" else "")
-      + (if config.showRefEuid then s"^${r.uid}" else "")
-  def canCancel[V <: PathElemType](other: PathElem[V]): Boolean = (this, other) match
-    case (n: Normal, o: Normal) => (n == o) && (n.pol.canCancel(o.pol))
-}
-case class Path(p: Ls[PathElem[PathElemType]]) {
-  def pp(using config: PrettyPrintConfig): Str = if !config.pathAsIdent
-    then s"[${p.map(_.pp).mkString(" · ")}]"
-    else p.map(_.pp(using InitPpConfig.showRefEuidOn)).mkString("_")
-
-}
-object Path {
-  lazy val empty = Path(Nil)
-}
 case class Strat[+T <: (ProdStratEnum | ConsStratEnum)](val s: T) {
   def pp(using config: PrettyPrintConfig): Str = s.pp
 }
