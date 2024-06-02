@@ -16,7 +16,7 @@ RUN git submodule update --init --recursive \
     && git checkout f8a1f98a214a6961b55b201fbea957eacec182d4 \
     && sed -i "s/if cpp/if cpp or True/g" ./build.py \
     && ./build.py -o libtree-sitter -v ../tree-sitter-haskell \
-    && cp ./libtree-sitter.so /lib/libjava-tree-sitter-ocaml-haskell.so
+    && cp ./libtree-sitter.so /lib/libjava-tree-sitter-haskell.so
 WORKDIR /root
 RUN echo "eval \$(opam env 2> /dev/null)" >> ./.bashrc
 CMD /bin/bash
