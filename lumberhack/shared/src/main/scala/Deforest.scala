@@ -12,8 +12,7 @@ import mlscript.lumberhack.utils.{toSubscript, toSuperscript}
 
 type TypeVar
 type NormalPathElem
-type StarPathElem
-type PathElemType = NormalPathElem | StarPathElem
+type PathElemType = NormalPathElem
 type ExprId = Uid[Expr]
 type TypeVarId = Uid[TypeVar]
 type Cnstr = ProdStrat -> ConsStrat
@@ -97,20 +96,7 @@ object Path {
   lazy val empty = Path(Nil)
 }
 case class Strat[+T <: (ProdStratEnum | ConsStratEnum)](val s: T)(val path: Path) {
-  def updatePath(newPath: Path): Strat[T] = this.copy()(path = newPath)
-  def addPath(newPath: Path): Strat[T] = this.updatePath(newPath ::: this.path)
   def pp(using config: PrettyPrintConfig): Str = if config.showPath then s"(${path.pp}: ${s.pp})" else s.pp
-  lazy val negPath = this.copy()(path = path.neg)
-  lazy val asInPath: Option[Path] = this.s match {
-    case pv: ProdStratEnum.ProdVar => pv.asInPath
-    case cv: ConsStratEnum.ConsVar => cv.asInPath
-    case _ => None
-  }
-  lazy val asOutPath: Option[Path] = this.s match {
-    case pv: ProdStratEnum.ProdVar => pv.asOutPath
-    case cv: ConsStratEnum.ConsVar => cv.asOutPath
-    case _ => None
-  }
 }
 trait ToStrat[+T <: (ProdStratEnum | ConsStratEnum)] { self: T =>
   def toStrat(p: Path = Path(Nil)): Strat[T] = Strat(this)(p)
@@ -595,13 +581,13 @@ class Deforest(var debug: Boolean) {
         case (np@NoProd(), ConsFun(l, r)) =>
           // isNotDead += np
           given Int = numOfTypeCtor + 1
-          handle(l.addPath(cons.path.neg) -> NoCons()(using noExprId).toStrat(prod.path.neg))
-          handle(NoProd()(using noExprId).toStrat(prod.path) -> r.addPath(cons.path))
+          handle(l -> NoCons()(using noExprId).toStrat(prod.path.neg))
+          handle(NoProd()(using noExprId).toStrat(prod.path) -> r)
         case (prodFun@ProdFun(l, r), NoCons()) =>
           // isNotDead += prodFun
           given Int = numOfTypeCtor + 1
-          handle(r.addPath(prod.path) -> NoCons()(using noExprId).toStrat(cons.path))
-          handle(NoProd()(using noExprId).toStrat(cons.path.neg) -> l.addPath(prod.path.neg))
+          handle(r -> NoCons()(using noExprId).toStrat(cons.path))
+          handle(NoProd()(using noExprId).toStrat(cons.path.neg) -> l)
         case (np@NoProd(), dtor@Destruct(ds)) =>
           isNotDeadBranch.update(dtor, (0 until ds.length).toSet)
           // isNotDead += np
@@ -610,7 +596,7 @@ class Deforest(var debug: Boolean) {
             dtorSources += dtor -> (dtorSources(dtor) + prod.s)
           }
           ds foreach { case Destructor(ctor, argCons) =>
-            argCons foreach { c => handle(prod, c.addPath(cons.path)) }
+            argCons foreach { c => handle(prod, c) }
           }
         case (ctorType@MkCtor(ctor, args), NoCons()) =>
           // isNotDead += ctorType
@@ -618,7 +604,7 @@ class Deforest(var debug: Boolean) {
           if this.isRealCtorOrDtor(ctorType.euid) then {
             ctorDestinations += ctorType -> (ctorDestinations(ctorType) + cons.s)
           }
-          args foreach { p => handle(p.addPath(prod.path), cons) }
+          args foreach { p => handle(p, cons) }
         case (pv@ProdVar(v, n), _) if n == "_lh_rigid_error_var" => ()
         case (_, cv@ConsVar(v, n)) if n == "_lh_rigid_error_var" => ()
         case (pv@ProdVar(v, _), _) =>
@@ -629,9 +615,7 @@ class Deforest(var debug: Boolean) {
           }
           upperBounds += v -> ((pv.asOutPath.getOrElse(Path.empty) ::: prod.path.rev, cons) :: upperBounds(v))
           // upperBounds += v -> (upperBounds(v) + ((pv.asOutPath.getOrElse(Path.empty) ::: prod.path.rev) -> cons))
-          lowerBounds(v).foreach((lb_path, lb_strat) => handle({
-            lb_strat.addPath(lb_path) -> cons.addPath(prod.path.rev).addPath(pv.asOutPath.getOrElse(Path.empty))
-          }))
+          lowerBounds(v).foreach((lb_path, lb_strat) => handle(lb_strat -> cons))
         case (_, cv@ConsVar(v, _)) =>
           prod.s match {
             case ctor: MkCtor if upperBounds(v).isEmpty && this.isRealCtorOrDtor(ctor.euid) =>
@@ -640,14 +624,12 @@ class Deforest(var debug: Boolean) {
           }
           lowerBounds += v -> ((cv.asInPath.getOrElse(Path.empty) ::: cons.path.rev, prod) :: lowerBounds(v))
           // lowerBounds += v -> (lowerBounds(v) + ((cv.asInPath.getOrElse(Path.empty) ::: cons.path.rev) -> prod))
-          upperBounds(v).foreach((ub_path, ub_strat) => handle({
-            prod.addPath(cons.path.rev).addPath(cv.asInPath.getOrElse(Path.empty)) -> ub_strat.addPath(ub_path)
-          }))
+          upperBounds(v).foreach((ub_path, ub_strat) => handle(prod -> ub_strat))
         case (prodFun@ProdFun(lhs1, rhs1), ConsFun(lhs2, rhs2)) =>
           // isNotDead += prodFun
           given Int = numOfTypeCtor + 1
-          handle(lhs2.addPath(cons.path.neg) -> lhs1.addPath(prod.path.neg))
-          handle(rhs1.addPath(prod.path) -> rhs2.addPath(cons.path))
+          handle(lhs2 -> lhs1)
+          handle(rhs1 -> rhs2)
         case (mkctor@MkCtor(ctor, args), dtors@Destruct(ds)) =>
           // isNotDead += mkctor
           // these three primitive types are handled differently: they do not need to be fused or so
@@ -677,12 +659,12 @@ class Deforest(var debug: Boolean) {
                   assert(args.size == argCons.size)
                   // register the fusion match
                   args lazyZip argCons foreach { case (a, c) =>
-                    handle(a.addPath(prod.path), c.addPath(cons.path))
+                    handle(a, c)
                   }
 
                 } else if ds_ctor.name == "_" then { // both wildcard pattern and id pattern
                   (prod :: Nil) lazyZip argCons foreach { case (a, c) =>
-                    handle(a.addPath(prod.path), c.addPath(cons.path))
+                    handle(a, c)
                   }
                 }
                 if (this.isRealCtorOrDtor(prod.s.euid) && this.isRealCtorOrDtor(cons.s.euid)) then {
@@ -708,11 +690,11 @@ class Deforest(var debug: Boolean) {
                   val d = value
                   if d.ctor.name == "_" then {
                     args lazyZip d.argCons foreach {
-                      case (a, c) => handle(a.addPath(prod.path ::: ctorStrat.path), c.addPath(cons.path))
+                      case (a, c) => handle(a, c)
                     }
                   } else {
                     (prod :: Nil) lazyZip d.argCons foreach { case (a, c) =>
-                      handle(a.addPath(prod.path ::: ctorStrat.path), c.addPath(cons.path))
+                      handle(a, c)
                     }
                   }
                 case _ => // lastWords(s"${ctor.name} cannot be found in $ds")
@@ -728,7 +710,7 @@ class Deforest(var debug: Boolean) {
         case (f: ProdFun, Destruct(ds)) if ds.find(_.ctor.name == "_").isDefined =>
           val dtor = ds.find(_.ctor.name == "_").get
           (prod :: Nil) lazyZip dtor.argCons foreach { case (a, c) =>
-            handle(a.addPath(prod.path), c.addPath(cons.path))
+            handle(a, c)
           }
         case _ =>
           // println(s"type error ${prod.pp(using InitPpConfig)} <: ${cons.pp(using InitPpConfig)}")
