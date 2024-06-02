@@ -10,7 +10,6 @@ import scala.collection.mutable.Set as MutSet
 import lumberhack.utils.*
 import ConsStratEnum.*
 import ProdStratEnum.*
-import mlscript.lumberhack.CallTree.callTreeWithoutKnotTying
 
 type RewriteCtx = Map[Ident, Ident]
 class FusionStrategy(d: Deforest) {

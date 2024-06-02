@@ -156,20 +156,6 @@ class DiffTestLumberhack extends DiffTests {
   ): (Program, Deforest, FusionStrategy) = {
     d.resolveConstraints
 
-    if mode.stdout || mode.verbose then {
-      output("\n>>>>>>> type variable bounds >>>>>>>")
-      val tvs = d.upperBounds.keySet ++ d.lowerBounds.keySet
-      tvs.foreach { tv =>
-        val ub = d.upperBounds(tv).map(u => s"${u._1.pp(using InitPpConfig.showPolarityOn)} < ${u._2.pp(using InitPpConfig.showPathOn)}")
-        val lb = d.lowerBounds(tv).map(l => s"${l._2.pp(using InitPpConfig.showPathOn)} < ${l._1.rev.pp(using InitPpConfig.showPolarityOn)}")
-        val tvName = d.varsName(tv)
-        output(tvName + ":")
-        ub.foreach(u => output(s"\t${tvName}${u}"))
-        lb.foreach(l => output(s"\t${l}${tvName}"))
-        output("--------------")
-      }
-      output("<<<<<<< type variable bounds <<<<<<<")
-    }
 
     val fusionStrategy = FusionStrategy(d)
     if mode.stdout || mode.verbose then {

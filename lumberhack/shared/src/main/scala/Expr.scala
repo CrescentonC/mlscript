@@ -31,36 +31,6 @@ case class Program(contents: Ls[ProgDef \/ Expr])(using val d: Deforest) extends
       case R(e) => e.pp
     }.mkString("\n")
   
-  def pp(callTree: CallTrees)(using config: PrettyPrintConfig): Str = {
-    def rec(tree: CallTree, defs: Map[Ident, Expr]): Str = tree match {
-      case CallTree.Continue(current, calls) => {
-        val currentIdentStr = callTree.store(current)
-        val currentFunBody = {
-          val tmp = this.defAndExpr._1.filterKeys(_ == currentIdentStr).toSet
-          assert(tmp.size == 1)
-          tmp.head
-        }
-        val (currentFunParam, currentFunInnerBody) = takeParamsOut(currentFunBody._2)
-        val currentFunPp = currentFunInnerBody match {
-          case e: (Expr.LetIn | Expr.Sequence | Expr.LetGroup) => e.pp.linesIterator.filter(_.nonEmpty).map(_.drop(1)).mkString("\n")
-          case e => e.pp
-        }
-        val nextMods = calls.calls.map(rec(_, defs)).filter(_.nonEmpty).mkString("\n").linesIterator.map("\t" + _).mkString("\n")
-        s"def ${currentIdentStr.pp(using InitPpConfig)}${
-          val ps = currentFunParam.map(_.pp).mkString(", ")
-          if ps.nonEmpty then s"($ps)" else ""
-        } = \n" +
-        s"${currentFunPp.linesIterator.map("\t" + _).mkString("\n")}" +
-        (if nextMods.isEmpty() then "" else s"\n\twhere\n$nextMods")
-      }
-      // case CallTree.Knot(current, prev) => s"module ${callTree.store(current).pp(using InitPpConfig)} = {${callTree.store(prev).pp(using InitPpConfig)}}"
-      case CallTree.Knot(current, prev) => ""
-    }
-    
-    val topLevelExprsPp = this.defAndExpr._2.map(_.pp).mkString("\n")
-    val newDefsPp = callTree.calls.map(rec(_, this.defAndExpr._1)).mkString("\n")
-    topLevelExprsPp + "\n" + newDefsPp
-  }
   
   lazy val defAndExpr: (Map[Ident, Expr], List[Expr]) = contents.partitionMap(identity).mapFirst(_.map(pd => pd.id -> pd.body).toMap)
 
@@ -76,7 +46,6 @@ case class Program(contents: Ls[ProgDef \/ Expr])(using val d: Deforest) extends
     getAllCalls(this.d.callsInfo._1.map(_._1).toSet)
   }
 
-  lazy val callSpanningForestWithCycle = CallTree.callTreeWithoutKnotTying(this.d)
 
   lazy val topLevelDefsOrder: List[List[Ident]] = {
     val callGraph = d.callsInfo._2.map(_.mapSecond(_.map(_.id))).toMap
