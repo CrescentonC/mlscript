@@ -57,21 +57,12 @@ case class Path(p: Ls[PathElem[PathElemType]]) {
 object Path {
   lazy val empty = Path(Nil)
 }
-case class Strat[+T <: (ProdStratEnum | ConsStratEnum)](val s: T)(val path: Path) {
-  def pp(using config: PrettyPrintConfig): Str = if config.showPath then s"(${path.pp}: ${s.pp})" else s.pp
+case class Strat[+T <: (ProdStratEnum | ConsStratEnum)](val s: T) {
+  def pp(using config: PrettyPrintConfig): Str = s.pp
 }
 trait ToStrat[+T <: (ProdStratEnum | ConsStratEnum)] { self: T =>
-  def toStrat(p: Path = Path(Nil)): Strat[T] = Strat(this)(p)
+  def toStrat(): Strat[T] = Strat(this)
   def pp(using config: PrettyPrintConfig): Str
-}
-trait TypevarWithBoundary(val boundary: Option[Ref]) { this: (ProdStratEnum.ProdVar | ConsStratEnum.ConsVar) =>
-  lazy val asInPath: Option[Path] = this.boundary.map(_.toPath(PathElemPol.In))
-  lazy val asOutPath: Option[Path] = this.boundary.map(_.toPath(PathElemPol.Out))
-  def printBoundary(config: PrettyPrintConfig) = boundary.map {
-    case r@Ref(Ident(_, Var(nme), uid)) =>
-      (if config.showIuid then s"_${uid}" else "") +
-      (if config.showRefEuid then s"^${r.uid}" else "")
-  }.getOrElse("")
 }
 trait MkCtorTrait { this: ProdStratEnum.MkCtor =>
   override def equals(x: Any): Boolean = x match {
@@ -94,10 +85,9 @@ enum ProdStratEnum(using val euid: ExprId) extends ToStrat[ProdStratEnum] {
     with MkCtorTrait
   case Sum(ctors: Ls[Strat[MkCtor]])(using ExprId) extends ProdStratEnum with ToStrat[Sum]
   case ProdFun(lhs: ConsStrat, rhs: ProdStrat)(using ExprId) extends ProdStratEnum with ToStrat[ProdFun]
-  case ProdVar(uid: TypeVarId, name: String)(boundary: Option[Ref] = None)(using ExprId)
+  case ProdVar(uid: TypeVarId, name: String)(using ExprId)
     extends ProdStratEnum
     with ToStrat[ProdVar]
-    with TypevarWithBoundary(boundary)
   case DeadCodeProd()(using ExprId) extends ProdStratEnum with ToStrat[DeadCodeProd]
 
   def pp(using config: PrettyPrintConfig): Str = this match
@@ -107,29 +97,8 @@ enum ProdStratEnum(using val euid: ExprId) extends ToStrat[ProdStratEnum] {
     case Sum(ls) => s"Sum[${ls.map(_.pp).mkString(", ")}]"
     case ProdFun(l, r) => s"${l.pp} => ${r.pp}"
     case pv@ProdVar(uid, n) =>
-      (if config.showVuid then s"$uid" else "") +
-      s"'$n" +
-      (if config.showVboundary then pv.printBoundary else "")
+      (if config.showVuid then s"$uid" else "") + s"'$n"
     case DeadCodeProd() => "DeadCodeProd"
-
-  def representsDeadCode(using d: Deforest, cache: Set[TypeVarId] = Set()): Boolean = {
-    if !(d.exprs.isDefinedAt(this.euid)) then
-      false
-    else
-      this match {
-        case p: (MkCtor | NoProd | Sum | ProdFun) => !d.isNotDead.contains(p)
-        case v: ProdVar =>
-          if cache(v.uid) then
-            true
-          else
-            d.upperBounds(v.uid).forall { case (_, s) => s.s match {
-              case ConsStratEnum.DeadCodeCons() => true
-              case ConsStratEnum.ConsVar(uid, name) => ProdVar(uid, name)().representsDeadCode(using d, cache + v.uid)
-              case _ => false
-            }}
-        case DeadCodeProd() => lastWords("deadcodeprod cannot associate with an expr")
-      }
-  }
 
 }
 enum ConsStratEnum(using val euid: ExprId) extends ToStrat[ConsStratEnum] {
@@ -138,10 +107,9 @@ enum ConsStratEnum(using val euid: ExprId) extends ToStrat[ConsStratEnum] {
     with ToStrat[Destruct]
     with DestructTrait
   case ConsFun(lhs: ProdStrat, rhs: ConsStrat)(using ExprId) extends ConsStratEnum with ToStrat[ConsFun]
-  case ConsVar(uid: TypeVarId, name: String)(boundary: Option[Ref] = None)(using ExprId)
+  case ConsVar(uid: TypeVarId, name: String)(using ExprId)
     extends ConsStratEnum
     with ToStrat[ConsVar]
-    with TypevarWithBoundary(boundary)
   case DeadCodeCons()(using ExprId) extends ConsStratEnum with ToStrat[DeadCodeCons]
 
   def pp(using config: PrettyPrintConfig): Str = this match
@@ -150,9 +118,7 @@ enum ConsStratEnum(using val euid: ExprId) extends ToStrat[ConsStratEnum] {
     case Destruct(x) => s"Destruct(${x.map(_.pp).mkString(", ")})"
     case ConsFun(l, r) => s"${l.pp} => ${r.pp}"
     case cv@ConsVar(uid, n) =>
-      (if config.showVuid then s"$uid" else "") +
-      s"'$n" +
-      (if config.showVboundary then cv.printBoundary else "")
+      (if config.showVuid then s"$uid" else "") + s"'$n"
 }
 import ProdStratEnum.*, ConsStratEnum.*, Expr.*
 case class Destructor(ctor: Var, argCons: Ls[Strat[ConsVar]]) {
@@ -167,11 +133,6 @@ object ProdStratEnum {
   def prodFloat(using ExprId) = MkCtor(Var("Float"), Nil)
   def prodChar(using ExprId) = MkCtor(Var("Char"), Nil)
   def prodString(using d: Deforest, euid: ExprId): ProdStratEnum = {
-    // val v = d.freshVar("_lh_string")
-    // val nil = MkCtor(Var("LH_N"), Nil)
-    // val cons = MkCtor(Var("LH_C"), prodChar.toStrat() :: v._1.toStrat() :: Nil)
-    // d.constrain(nil.toStrat(), v._2.toStrat())
-    // d.constrain(cons.toStrat(), v._2.toStrat())
     NoProd()(using euid)
   }
   def prodString(s: Str)(using ExprId): MkCtor = s.headOption match {
@@ -254,14 +215,14 @@ class Deforest(var debug: Boolean) {
   val noExprId = euid.nextUid
   def nextIdent(isDef: Bool, name: Var): Ident = Ident(isDef, name, iuid.nextUid(name.name))
 
-  def freshVar(n: String)(using ExprId): ((ProdStratEnum & ToStrat[ProdVar] & TypevarWithBoundary), (ConsStratEnum & ToStrat[ConsVar] & TypevarWithBoundary)) =
+  def freshVar(n: String)(using ExprId): ((ProdStratEnum & ToStrat[ProdVar]), (ConsStratEnum & ToStrat[ConsVar])) =
     val vid = vuid.nextUid
-    val pv = ProdVar(vid, n)()
-    val cv = ConsVar(vid, n)()
+    val pv = ProdVar(vid, n)
+    val cv = ConsVar(vid, n)
     varsName += vid -> n
     log(s"fresh var '$n")
     (pv, cv)
-  def freshVar(n: Ident)(using ExprId): ((ProdStratEnum & ToStrat[ProdVar] & TypevarWithBoundary), (ConsStratEnum & ToStrat[ConsVar] & TypevarWithBoundary)) =
+  def freshVar(n: Ident)(using ExprId): ((ProdStratEnum & ToStrat[ProdVar]), (ConsStratEnum & ToStrat[ConsVar])) =
     freshVar(n.pp(using InitPpConfig.showIuidOn))
   
   val tailPosExprIds = mutable.Set.empty[ExprId]
@@ -350,10 +311,11 @@ class Deforest(var debug: Boolean) {
         else
           lastWords("lazy, force and lumberhack_obj_magic should not be handled here")
       }
-      case r @ Ref(id) => if id.isDef then {
-        calls.add(r)
-        ctx(id).s.copy()(Some(r))(using e.uid)
-      } else ctx(id).s.copy()(None)(using e.uid)
+      case r @ Ref(id) =>
+        if id.isDef then {
+          calls.add(r)
+        }
+        ctx(id).s.copy()(using e.uid)
       case Call(f, a) =>
         val fp = process(f, false)
         val ap = process(a, false)
@@ -437,7 +399,7 @@ class Deforest(var debug: Boolean) {
         val calls = mutable.Set.empty[Ref]
         val p = process(body, true)(using ctx, calls)
         val v = vars(id).s
-        constrain(p, ConsVar(v.uid, v.name)()(using noExprId).toStrat())
+        constrain(p, ConsVar(v.uid, v.name)(using noExprId).toStrat())
         callsInfo._2.addOne(id -> calls.toSet)
       }
       case R(e) => {
@@ -467,12 +429,9 @@ class Deforest(var debug: Boolean) {
   type Cache = scala.collection.mutable.Map[Cnstr, Cnstr -> Int]
 
 
-  val recursiveConstr = mutable.Map.empty[Cnstr, mutable.Set[Path -> Path]]
   val fusionMatch = mutable.Map.empty[ExprId, Set[ExprId]]
-  val upperBounds = mutable.Map.empty[TypeVarId, Ls[(Path, ConsStrat)]].withDefaultValue(Nil)
-  val lowerBounds = mutable.Map.empty[TypeVarId, Ls[(Path, ProdStrat)]].withDefaultValue(Nil)
-  // val upperBounds = mutable.Map.empty[TypeVarId, Set[(Path, ConsStrat)]].withDefaultValue(Set.empty)
-  // val lowerBounds = mutable.Map.empty[TypeVarId, Set[(Path, ProdStrat)]].withDefaultValue(Set.empty)
+  val upperBounds = mutable.Map.empty[TypeVarId, Ls[ConsStrat]].withDefaultValue(Nil)
+  val lowerBounds = mutable.Map.empty[TypeVarId, Ls[ProdStrat]].withDefaultValue(Nil)
   val ctorDestinations = mutable.Map.empty[ProdStratEnum.MkCtor, Set[ConsStratEnum]].withDefaultValue(Set())
   val dtorSources = mutable.Map.empty[ConsStratEnum.Destruct, Set[ProdStratEnum]].withDefaultValue(Set())
   val isNotDead = mutable.Set.empty[
@@ -483,7 +442,6 @@ class Deforest(var debug: Boolean) {
   ]
   val isNotDeadBranch = mutable.Map.empty[Destruct, Set[Int]]
   val errorTypes = scala.collection.mutable.Set.empty[ProdStratEnum | ConsStratEnum]
-  // var errCnt = 0
   def resolveConstraints: Unit = {
     // if constraint resolver has already been executed, do not execute it more than once
     if lowerBounds.keys.nonEmpty || upperBounds.keys.nonEmpty then return ()
@@ -535,16 +493,16 @@ class Deforest(var debug: Boolean) {
               dtorSources += dtor -> (dtorSources(dtor) + pv)
             case _ => ()
           }
-          upperBounds += v -> ((pv.asOutPath.getOrElse(Path.empty), cons) :: upperBounds(v))
-          lowerBounds(v).foreach((lb_path, lb_strat) => handle(lb_strat -> cons))
+          upperBounds += v -> (cons :: upperBounds(v))
+          lowerBounds(v).foreach(lb_strat => handle(lb_strat -> cons))
         case (_, cv@ConsVar(v, _)) =>
           prod.s match {
             case ctor: MkCtor if upperBounds(v).isEmpty && this.isRealCtorOrDtor(ctor.euid) =>
               ctorDestinations += ctor -> (ctorDestinations(ctor) + cv)
             case _ => ()
           }
-          lowerBounds += v -> ((cv.asInPath.getOrElse(Path.empty), prod) :: lowerBounds(v))
-          upperBounds(v).foreach((ub_path, ub_strat) => handle(prod -> ub_strat))
+          lowerBounds += v -> (prod :: lowerBounds(v))
+          upperBounds(v).foreach(ub_strat => handle(prod -> ub_strat))
         case (prodFun@ProdFun(lhs1, rhs1), ConsFun(lhs2, rhs2)) =>
           given Int = numOfTypeCtor + 1
           handle(lhs2 -> lhs1)
@@ -621,7 +579,7 @@ class Deforest(var debug: Boolean) {
     given Int = 0
     
     constraints foreach handle
-    assert(lowerBounds.values.flatten.forall(!_._2.s.isInstanceOf[ProdVar]))
+    assert(lowerBounds.values.flatten.forall(!_.s.isInstanceOf[ProdVar]))
     propagateDeadCodeConsProd
   }
   
@@ -650,8 +608,8 @@ class Deforest(var debug: Boolean) {
             handleCons(l)
             handleProd(r)
           case ProdVar(uid, n) =>
-            upperBounds += uid -> ((Path.empty, emptyPathDeadCodeCons.toStrat()) :: upperBounds(uid))
-            lowerBounds(uid).foreach(l => handleProd(l._2))
+            upperBounds += uid -> (emptyPathDeadCodeCons.toStrat() :: upperBounds(uid))
+            lowerBounds(uid).foreach(l => handleProd(l))
         }
     }
     def handleCons(c: ConsStrat): Unit = {
@@ -665,8 +623,8 @@ class Deforest(var debug: Boolean) {
             ds.foreach { case Destructor(_, args) => args.foreach(a => handleCons(a)) }
           }
           case ConsVar(uid, n) =>
-            lowerBounds += uid -> ((Path.empty, emptyPathDeadCodeProd.toStrat()) :: lowerBounds(uid))
-            upperBounds(uid).foreach(u => handleCons(u._2))
+            lowerBounds += uid -> (emptyPathDeadCodeProd.toStrat() :: lowerBounds(uid))
+            upperBounds(uid).foreach(u => handleCons(u))
           case ConsFun(l, r) =>
             handleCons(r)
             handleProd(l)
@@ -674,11 +632,11 @@ class Deforest(var debug: Boolean) {
     }
     varsName.keys.foreach { uid =>
       if upperBounds(uid).isEmpty then
-        upperBounds += uid -> ((Path.empty, emptyPathDeadCodeCons.toStrat()) :: upperBounds(uid))
-        lowerBounds(uid).foreach(l => handleProd(l._2))
+        upperBounds += uid -> (emptyPathDeadCodeCons.toStrat() :: upperBounds(uid))
+        lowerBounds(uid).foreach(l => handleProd(l))
       if lowerBounds(uid).isEmpty then
-        lowerBounds += uid -> ((Path.empty, emptyPathDeadCodeProd.toStrat()) :: lowerBounds(uid))
-        upperBounds(uid).foreach(u => handleCons(u._2))
+        lowerBounds += uid -> (emptyPathDeadCodeProd.toStrat() :: lowerBounds(uid))
+        upperBounds(uid).foreach(u => handleCons(u))
     }
   }
 

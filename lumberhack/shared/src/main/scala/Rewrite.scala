@@ -13,7 +13,7 @@ import ProdStratEnum.*
 
 type RewriteCtx = Map[Ident, Ident]
 class FusionStrategy(d: Deforest) {
-  val (upperBounds, lowerBounds) = d.upperBounds.map{(id, ls) => (id, ls.map(_._2))}.toMap -> d.lowerBounds.map{(id, ls) => (id, ls.map(_._2))}.toMap
+  val (upperBounds, lowerBounds) = d.upperBounds.toMap -> d.lowerBounds.toMap
   
   val involvedDtors = d.fusionMatch.values.flatten.toSet
   val involvedCtors = d.fusionMatch.keySet
@@ -28,31 +28,16 @@ class FusionStrategy(d: Deforest) {
   }
   private def findToEndProd(v: ProdVar): Set[ProdVar] = {
     def find(vuid: TypeVarId, cache: Set[TypeVarId]): Set[TypeVarId] = {
-      // if lowerBounds.get(vuid).nonEmpty then
-      //   Set()
-      // else
       val realLowerBounds = upperBounds.filter { (_, ubs) => ubs.exists { ub =>
         ub.s match {
           case ConsVar(uid, name) => uid == vuid && !cache(uid)
           case _ => false
         }
       }}.keySet
-      // ++ (lowerBounds.getOrElse(vuid, Nil).flatMap { _.s match {
-      //   case ProdVar(uid, _) => Some(uid)
-      //   case _ => None
-      // }})
-      // assert(realLowerBounds.isEmpty)
       (if realLowerBounds.isEmpty then Set(vuid) else realLowerBounds.flatMap(b => find(b, cache + vuid)))
         .filter(lowerBounds.get(_).isEmpty)
     }
-    find(v.uid, Set()).map(id => ProdVar(id, d.varsName(id))()(using d.noExprId))
-    // if lowerBounds.get(v.uid) match { case None => true; case Some(v) => v.isEmpty } then Set(v)
-    // else lowerBounds(v.uid).foldLeft(Set()){(acc, lb) => lb.s match {
-    //   // case pv: ProdVar if cache(pv) => acc
-    //   // case pv: ProdVar => acc ++ findToEndProd(pv, cache + pv)
-    //   case pv: ProdVar => ??? // lowerBounds cannot have any prodvar
-    //   case _ => acc
-    // }}
+    find(v.uid, Set()).map(id => ProdVar(id, d.varsName(id))(using d.noExprId))
   }
 
 
@@ -149,30 +134,10 @@ class FusionStrategy(d: Deforest) {
     }).keySet.asInstanceOf[Set[ProdStratEnum]]
     val res1 = removeCtor(res._1, res._2, toRmCtor)
 
-    // TODO: also needs to remember the merging, and change its subsequent calls
-    // val ctorDests = res._1
-    // val allDtors = ctorDests.values.flatten.filter(d => d.isInstanceOf[Destruct]).map(dtor => d.exprs(dtor.euid))
-    // val disjointSetsOfDtors = {
-    //   val repsToElems = MutMap.empty[Expr, Set[Expr]]
-    //   val elemToReps = MutMap.empty[Expr, Expr]
-    //   allDtors.foreach( dtor =>
-    //     repsToElems.keys.find(rep => dtor.alphaRenamingCheck(rep)) match {
-    //       case None => repsToElems += (dtor -> Set(dtor)); elemToReps += (dtor -> dtor)
-    //       case Some(rep) => repsToElems.update(rep, repsToElems(rep) + dtor); elemToReps += (dtor -> rep)
-    //     }
-    //   )
-    //   repsToElems.toMap -> elemToReps.toMap
-    // }
     
     // remove those ctors with multiple dtors
     val toRmCtor1 = res1._1.filter(_._2.size > 1).keySet.asInstanceOf[Set[ProdStratEnum]]
-    // val toRmCtor1 = res1._1.filter(
-    //   _._2.filterNot(_.isInstanceOf[DeadCodeCons]).size > 1
-    // ).keySet.asInstanceOf[Set[ProdStratEnum]]
-    removeCtor(res1._1, res1._2, toRmCtor1)/* .mapFirst { ctorDests =>
-      // filter out DeadCodeCons just for later processing not crash
-      ctorDests.mapValues(_.filterNot(_.isInstanceOf[DeadCodeCons])).toMap
-    } */
+    removeCtor(res1._1, res1._2, toRmCtor1)
   }
 
   // assume that there is already no multiple match clashes, can be more efficient
@@ -191,14 +156,6 @@ class FusionStrategy(d: Deforest) {
           case me@Match(scrut: Expr, arms: Ls[(Var, Ls[Ident], Expr)]) => {
             val dtorType = d.dtorExprToType(me.uid)
             afterRemoveMultipleMatch._2.get(dtorType) match {
-              // if there is a match, only the scrut will be possibly exposed to further fusion possibilities
-              // case Some(_) => getCtorsInExpr(scrut)
-              // case Some(ctors) => getCtorsInExpr(scrut) ++ (ctors.flatMap { ctor =>
-              //   val alsoCheckedCtor = ctor.asInstanceOf[MkCtor]
-              //   // val ctorExpr = d.
-              //   getCtorsInExpr(arms.find(_._1 == alsoCheckedCtor.ctor).get._3)
-              //   // arms.find(_._1 == alsoCheckedCtor.ctor).flat
-              // })
               case _ => getCtorsInExpr(scrut) ++ arms.flatMap(a => getCtorsInExpr(a._3))
             }
           }
@@ -213,7 +170,6 @@ class FusionStrategy(d: Deforest) {
       val res = d.exprs(dtor.euid).asInstanceOf[Expr.Match].arms.find(a => a._1 == ctor.ctor || a._1.name == "_").map { m =>
         getCtorsInExpr(m._3)
       }.getOrElse(Set())
-      // getCtorsInExpr(matchingArm._3)
       res
     }
 
@@ -243,32 +199,11 @@ class FusionStrategy(d: Deforest) {
     res
   }
 
-  // val afterRemoveIdpatternAndWildcardPattern = {
-  //   val toRmCtor = afterRemoveRecursiveStrategies._1.filterNot { case (ctor, dtors) =>
-  //     assert(dtors.size == 1)
-  //     dtors.forall(ds => ds.asInstanceOf[ConsStratEnum.Destruct].destrs.exists(d => d.ctor == ctor.ctor))
-  //   }.keys
-  //   removeCtor(afterRemoveRecursiveStrategies._1, afterRemoveRecursiveStrategies._2, toRmCtor.toSet)
-  // }
   
   val finallyFilteredStrategies = afterRemoveRecursiveStrategies
   val scopeExtrusionInfo: Map[ExprId, List[Ident]] = {
-    // val dtorExprs = finallyFilteredStrategies._2.keys.flatMap { de =>
-    //   val expr = d.exprs(de.euid).asInstanceOf[Expr.Match]
-    //   expr.inDef.map(expr -> d.prgm.get.defAndExpr._1(_))
-    // }
-    // dtorExprs.map { (me, _) =>
-    //   me.uid -> me.arms.flatMap { (_, ids, body) =>
-    //     body.outOfScopeIds(using (ids ++ d.prgm.get.defAndExpr._1.keys).toSet)
-    //   }
-    // }.toMap
     finallyFilteredStrategies._2.keys.map { de =>
       val expr = d.exprs(de.euid).asInstanceOf[Expr.Match]
-      // expr.uid -> (finallyFilteredStrategies._2(de).flatMap {
-      //   case MkCtor(c, _) =>
-      //     val (_, ids, body) = expr.arms.find(c == _._1).getOrElse(expr.arms.find(_._1.name == "_").get)
-      //     body.outOfScopeIds(using (ids ++ d.prgm.get.defAndExpr._1.keys).toSet)
-      // }).toList
       expr.uid -> (expr.arms.flatMap { (_, ids, body) =>
         body.outOfScopeIds(using (ids ++ d.prgm.get.defAndExpr._1.keys).toSet)
       }.distinct)
@@ -366,7 +301,6 @@ trait ExprRewrite { this: Expr =>
     newd: Deforest,
     inDef: Option[Ident],
     scopeExtrusionInfo: Map[ExprId, List[Ident]],
-    // goesIntoDeadCodeCons: Set[ExprId]
   ): Expr = this.deforest.Trace.trace(s"fusion handling ${this.pp(using InitPpConfig)}"){
     def inexpensiveMatchingArmBody(e: Expr): Boolean = e match {
       case _: (Function | Const) => true
@@ -404,7 +338,6 @@ trait ExprRewrite { this: Expr =>
       case Ref(id) => 
         val mappedId = ctx.getOrElse(id, id)
         if needForce(mappedId) then
-          // Call(Ref(newd.lumberhackKeywordsIds("force")), Ref(mappedId))
           Ref(mappedId)
         else
           Ref(mappedId)
@@ -421,12 +354,10 @@ trait ExprRewrite { this: Expr =>
           if extrudedIds.isEmpty && (!noNeedThunking) then
             Call(scrut.rewriteFusion, Const(IntLit(99)))
           else
-            // val extrudedIds = scopeExtrusionInfo.getOrElse(this.uid, Nil)
             extrudedIds.foldLeft(scrut.rewriteFusion){
               (acc, id) =>
                 val mappedId = ctx.getOrElse(id, id)
                 val maybeForcedId = if needForce(mappedId) then
-                  // Call(Ref(newd.lumberhackKeywordsIds("force")), Ref(mappedId))
                   Ref(mappedId)
                 else
                   Ref(mappedId)
@@ -473,13 +404,8 @@ trait ExprRewrite { this: Expr =>
             res
         }
         val fused = (newIds zip newArgs).foldLeft[Expr](inner){case (acc, ((_, param), argExpr)) => 
-          // LetIn(param, Call(Ref(newd.lumberhackKeywordsIds("lazy")), argExpr.rewriteFusion), acc)
           LetIn(param, argExpr.rewriteFusion, acc)
         }
-        // if goesIntoDeadCodeCons(this.uid) then
-        //   Call(Ref(newd.lumberhackKeywordsIds("lumberhack_obj_magic")), fused)
-        // else
-        //   fused
         fused
       }.getOrElse(Ctor(name, args.map(_.rewriteFusion)))
     }
@@ -751,10 +677,6 @@ trait ProgramRewrite { this: Program =>
       assert(dtors.size == 1 && dtors.head.isInstanceOf[Destruct])
       ctor.euid -> dtors.head.euid
     }
-    // given goesIntoDeadCodeCons: Set[ExprId] = fusionStrategy.finallyFilteredStrategies._1.keys.filter { k =>
-    //   fusionStrategy.ctorFinalDestinations(k).exists(_.isInstanceOf[DeadCodeCons])
-    // }.map(_.euid).toSet
-    // given Map[ExprId, List[Ident]] = Map.empty.withDefaultValue(Nil)
     given Map[ExprId, List[Ident]] = fusionStrategy.scopeExtrusionInfo
     Program(
       this.defAndExpr._2.map { e => given Option[Ident] = None; R(e.rewriteFusion(using Map.empty, Set.empty)) }
