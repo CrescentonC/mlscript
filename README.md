@@ -16,20 +16,37 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 ### Executing the Artifact
 
-To perform the Lumberhack optimization on the `nofib` benchmark tests we presented in the paper, run
+- To perform and test Lumberhack's optimization on the `nofib` benchmark tests we presented in the paper:
+
+  run
 `sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'`.
-The output OCaml programs are located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
-These sub-directories contain both the unoptimized programs and the optimized ones. Each sub-directory also includes a `main.ml` that contains codes
+The output OCaml programs will be located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
+These sub-directories contain both the unoptimized programs and the optimized ones, and each of the sub-directories also includes a `main.ml` that contains codes
 utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
 benchmark both the original program and the optimized ones and show the execution time and GC data.
 
-We have provided a script `bench.sh` to run all the generated OCaml programs.
-Some programs require a longer running time to enable `core_bench` to report
-a reliable 95% confidence interval for the execution time, their test durations
+  After OCaml programs are generated, the script `bench.sh` can be used to run all of them.
+Some programs require longer running time to enable `core_bench` to report
+reliable 95% confidence intervals, and their test durations
 are adjusted accordingly in `bench.sh`.
 Depending on the machine executing the tests, the numbers may need to be further adjusted.
 
-[TODO: to run each individual program, cd to the corresponding directory and `eval $(head -2 ./mail.ml | tail -1)`, may also need to change time]
+-  [TODO: to run each nofib program individually, cd to the corresponding directory and `eval $(head -2 ./mail.ml | tail -1)`, may also need to change time]
+
+- To write your own programs and test Lumberhack's optimization on them
+  
+  The testing infrastructure is set up so that if there are any unstaged changes (as determined by `git`) in any test file
+(those in `lumberhack/shared/src/test/resources`), only the corresponding files will be tested.
+So you can make select modifications to some test files and run the test command again,
+and it will only run your modified tests. There is an `Empty.mls` file for you to start.
+Currently, we support the MLscript (explained below) syntax and a subset of Haskell syntax (so that we can port
+the `nofib` benchmarks). To use the Haskell syntax, add `:lhInHaskell` at the beginning of
+your Haskell programs.
+  - [TODO: describe MLscript syntax]
+  - [TODO: describe Haskell syntax (and no empty lines allowed)]
+
+
+
 
 -----
 
