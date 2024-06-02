@@ -101,11 +101,11 @@ class DiffTestLumberhack extends DiffTests {
                   }).emptyOrElse(newp.hashCode().toString())
                   import sys.process.*
                   import java.io._
-                  val pathPrefix = if benchName.contains("_nofib") then s"./new-nofib-haskell-input-extract/$benchName" else s"./haskell-input-extract/$benchName"
-                  s"mkdir -p $pathPrefix".!
-                  val fw = new FileWriter(s"$pathPrefix/$benchName.hs", false)
-                  fw.write(prgmStr.mkString("\n") + "\n")
-                  fw.close()
+                  // val pathPrefix = if benchName.contains("_nofib") then s"./new-nofib-haskell-input-extract/$benchName" else s"./haskell-input-extract/$benchName"
+                  // s"mkdir -p $pathPrefix".!
+                  // val fw = new FileWriter(s"$pathPrefix/$benchName.hs", false)
+                  // fw.write(prgmStr.mkString("\n") + "\n")
+                  // fw.close()
                 }
                 newp
               else originalProgram
@@ -469,7 +469,7 @@ ${if !useZarith then "end;;" else "let string_of_z z = listToTaggedList (explode
     ) ::
     originalDefsString ::
     restMergedDefsString :::
-    (mainFileString :: mainFileStringReversed :: Nil)).foreach { case (fileName, fileContent) =>
+    (mainFileString :: Nil)).foreach { case (fileName, fileContent) =>
       // s"touch $pathPrefix/$fileName.ml".!
       val fw = new FileWriter(s"$pathPrefix/$fileName.ml", false)
       fw.write(fileContent + "\n")
