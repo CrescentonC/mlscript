@@ -111,8 +111,8 @@ class DiffTestLumberhack extends DiffTests {
               else originalProgram
             }) ::
             (if mode.lhInHaskell then Some("lumberhack_only_expanded" -> originalProgram) else None) ::
-            Some("lumberhack" -> deforestRes._1.deadCodeToMagic) :: 
-            Some("lumberhack_float_out" -> deforestRes._1.deadCodeToMagic.popOutLambdas(using mode.lhLessExpansion)._1) ::
+            Some("lumberhack" -> deforestRes._1) :: 
+            Some("lumberhack_float_out" -> deforestRes._1.floatOutLambdas._1) ::
             Nil
           ).flatten, mode.lhUseZarith)
           output("benchmark file generated")
@@ -120,7 +120,7 @@ class DiffTestLumberhack extends DiffTests {
           output(s"cannot generate benchmark files: ${e.getMessage()}\n")
           // e.printStackTrace()
           // output(s"cannot generate benchmark files: ${e.getMessage()}\n${e.getStackTrace().mkString("\n")}")
-          val progStr = ocamlGen(deforestRes._1.deadCodeToMagic)
+          val progStr = ocamlGen(deforestRes._1)
           // val clipboard = java.awt.Toolkit.getDefaultToolkit.getSystemClipboard
           // val declClipboard = new java.awt.datatransfer.StringSelection(decl ++ ";;")
           // val mainExprClipboard = new java.awt.datatransfer.StringSelection(mainExpr)

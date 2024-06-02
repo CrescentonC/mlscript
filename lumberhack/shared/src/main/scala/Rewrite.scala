@@ -284,45 +284,8 @@ enum CalledInfo {
   case LinearlyCalledWith(i: Int)
 }
 trait ExprRewrite { this: Expr =>
-  // ctx should initially contain the keywords and the ids of original function definitions
-  def rewriteExpand(using ctx: RewriteCtx, currentPath: Path, newd: Deforest, pathToIdent: Map[Path, Ident], refMap: Map[Expr.Ref, Expr.Ref], inDef: Option[Ident]): Expr = {
-    this match {
-      case Const(lit) => Const(lit)
-      case Call(lhs, rhs) => Call(lhs.rewriteExpand, rhs.rewriteExpand)
-      case Sequence(f, s) => Sequence(f.rewriteExpand, s.rewriteExpand)
-      case Ctor(name, args) => Ctor(name, args.map(_.rewriteExpand))
-      case LetIn(id, rhs, body) =>
-        val newId = id.copyToNewDeforest
-        LetIn(newId, rhs.rewriteExpand(using ctx + (id -> newId)), body.rewriteExpand(using ctx + (id -> newId)))
-      case LetGroup(defs, body) =>
-        val newIdsMap = (defs.keys.map(i => i -> i.copyToNewDeforest)).toMap
-        val newCtx = ctx ++ newIdsMap
-        LetGroup(
-          defs.map { case (d, rhs) =>
-            newIdsMap(d) -> rhs.rewriteExpand(using newCtx)
-          },
-          body.rewriteExpand(using newCtx)
-        )
-      case Match(scrut, arms) =>
-        Match(scrut.rewriteExpand, arms.map {(ctor, args, body) =>
-          val newArgs = args.map(a => a -> a.copyToNewDeforest)
-          given RewriteCtx = ctx ++ newArgs
-          (ctor, newArgs.map(_._2), body.rewriteExpand)
-        })
-      case IfThenElse(s, t, e) => IfThenElse(s.rewriteExpand, t.rewriteExpand, e.rewriteExpand)
-      case Function(param, body) =>
-        val newParam = param.copyToNewDeforest
-        Function(newParam, body.rewriteExpand(using ctx + (param -> newParam)))
-      case ref@Ref(id) => if id.isDef then { // a function def
-        pathToIdent.get(currentPath ::: refMap(ref).toPath()) match {
-          case Some(id) => Ref(id)            // either a knot or a new def
-          case None => Ref(ctx(id)) // hopeless to continue, should use the original definition
-        } 
-      } else Ref(ctx(id)) // a parameter or match binder or builtin keyword
-    } 
-  }
 
-  def rewriteExpandTwo(using
+  def rewriteExpandWithLimit(using
     ctx: Map[Ident, Ident],
     currentPath: List[Ref],
     pathToIdent: Map[List[Ref], Ident],
@@ -337,32 +300,32 @@ trait ExprRewrite { this: Expr =>
       else
         Ref(ctx(id))
     case Const(lit) => Const(lit)
-    case IfThenElse(s, t, e) => IfThenElse(s.rewriteExpandTwo, t.rewriteExpandTwo, e.rewriteExpandTwo)
-    case Call(lhs, rhs) => Call(lhs.rewriteExpandTwo, rhs.rewriteExpandTwo)
-    case Sequence(f, s) => Sequence(f.rewriteExpandTwo, s.rewriteExpandTwo)
-    case Ctor(name, args) => Ctor(name, args.map(_.rewriteExpandTwo))
+    case IfThenElse(s, t, e) => IfThenElse(s.rewriteExpandWithLimit, t.rewriteExpandWithLimit, e.rewriteExpandWithLimit)
+    case Call(lhs, rhs) => Call(lhs.rewriteExpandWithLimit, rhs.rewriteExpandWithLimit)
+    case Sequence(f, s) => Sequence(f.rewriteExpandWithLimit, s.rewriteExpandWithLimit)
+    case Ctor(name, args) => Ctor(name, args.map(_.rewriteExpandWithLimit))
     case LetIn(id, rhs, body) =>
       val newId = id.copyToNewDeforest
       val newCtx = ctx + (id -> newId)
-      LetIn(newId, rhs.rewriteExpandTwo(using newCtx), body.rewriteExpandTwo(using newCtx))
+      LetIn(newId, rhs.rewriteExpandWithLimit(using newCtx), body.rewriteExpandWithLimit(using newCtx))
     case LetGroup(defs, body) =>
       val newIdsMap = (defs.keys.map(i => i -> i.copyToNewDeforest)).toMap
       val newCtx = ctx ++ newIdsMap
       LetGroup(
         defs.map { case (d, rhs) =>
-          newIdsMap(d) -> rhs.rewriteExpandTwo(using newCtx)
+          newIdsMap(d) -> rhs.rewriteExpandWithLimit(using newCtx)
         },
-        body.rewriteExpandTwo(using newCtx)
+        body.rewriteExpandWithLimit(using newCtx)
       )
     case Match(scrut, arms) =>
-      Match(scrut.rewriteExpandTwo, arms.map {(ctor, args, body) =>
+      Match(scrut.rewriteExpandWithLimit, arms.map {(ctor, args, body) =>
         val newArgs = args.map(a => a -> a.copyToNewDeforest)
         val newCtx = ctx ++ newArgs
-        (ctor, newArgs.map(_._2), body.rewriteExpandTwo(using newCtx))
+        (ctor, newArgs.map(_._2), body.rewriteExpandWithLimit(using newCtx))
       })
     case Function(param, body) =>
       val newParam = param.copyToNewDeforest
-      Function(newParam, body.rewriteExpandTwo(using ctx + (param -> newParam)))
+      Function(newParam, body.rewriteExpandWithLimit(using ctx + (param -> newParam)))
   }
 
   def copyWithDeadDefElim(using ctx: RewriteCtx, newd: Deforest): Expr = {
@@ -397,7 +360,6 @@ trait ExprRewrite { this: Expr =>
     } 
   }
 
-  // TODO: add lazy to let bindings introduced by fusion
   def rewriteFusion(using
     ctx: RewriteCtx,
     needForce: Set[Ident],
@@ -556,7 +518,7 @@ trait ExprRewrite { this: Expr =>
     case Sequence(f, s) => Sequence(f.substId, s.substId)
     case Function(p, body) => Function(p, body.substId(using ctx.filterKeys(_ != p).toMap))
   }
-  def popOutLambdas(using
+  def floatOutLambdas(using
     newd: Deforest,
     inDef: Option[Ident],
   ): Expr = {
@@ -574,29 +536,29 @@ trait ExprRewrite { this: Expr =>
     }
     this match {
       case e: (Call | Const | Ref | Ctor) => e
-      case Function(param, body) => Function(param, body.popOutLambdas)
-      case LetIn(id, v, body) => body.popOutLambdas match {
+      case Function(param, body) => Function(param, body.floatOutLambdas)
+      case LetIn(id, v, body) => body.floatOutLambdas match {
         case f: Function => {
           val (allArg, fBody) = f.takeParamsOut
           allArg.foldRight[Expr](LetIn(id, v, fBody))(Function(_, _))
         }
         case _ => this
       }
-      case LetGroup(defs, body) => body.popOutLambdas match {
+      case LetGroup(defs, body) => body.floatOutLambdas match {
         case f: Function => {
           val (allArg, fBody) = f.takeParamsOut
           allArg.foldRight[Expr](LetGroup(defs, fBody))(Function(_, _))
         }
         case _ => this
       }
-      case Sequence(fst, snd) => snd.popOutLambdas match {
+      case Sequence(fst, snd) => snd.floatOutLambdas match {
         case f: Function => {
           val (allArg, fBody) = f.takeParamsOut
           allArg.foldRight[Expr](Sequence(fst, fBody))(Function(_, _))
         }
         case _ => this
       }
-      case IfThenElse(b, t, e) => (t.popOutLambdas, e.popOutLambdas) match {
+      case IfThenElse(b, t, e) => (t.floatOutLambdas, e.floatOutLambdas) match {
         case (f1: Function, f2: Function) => {
           val mergeRes = mergeFunctionsInDifferentBranches(f1 :: f2 :: Nil)
           mergeRes._1.foldRight[Expr](IfThenElse(b, mergeRes._2(0), mergeRes._2(1)))(Function(_, _))
@@ -604,7 +566,7 @@ trait ExprRewrite { this: Expr =>
         case (t, e) => IfThenElse(b, t, e)
       }
       case Match(s, arms) => {
-        val armsPoppedOut = arms.map(_._3.popOutLambdas)
+        val armsPoppedOut = arms.map(_._3.floatOutLambdas)
         if armsPoppedOut.forall(_.isInstanceOf[Function]) then
           val mergeRes = mergeFunctionsInDifferentBranches(armsPoppedOut.asInstanceOf[List[Function]])
           val newMatchArms = arms.zip(mergeRes._2).map { case (ctor, vars, _) -> newBody =>
@@ -617,39 +579,6 @@ trait ExprRewrite { this: Expr =>
     }
   }
 
-  def deadCodeToMagic(using d: Deforest): Expr =
-    this match {
-      case Ref(lazyOrForceOrMagic) if Set("lazy", "force", "lumberhack_obj_magic")(lazyOrForceOrMagic.tree.name)
-        => Ref(lazyOrForceOrMagic)
-      case _ if d.exprToProdType.getOrElse(this.uid, lastWords(s"${d.exprs(this.uid).pp(using InitPpConfig)}")).s.representsDeadCode
-        => Call(Ref(d.lumberhackKeywordsIds("lumberhack_obj_magic")), Const(IntLit(99)))
-      case Call(f, x) => Call(f.deadCodeToMagic, x.deadCodeToMagic)
-      case Const(x) => Const(x)
-      case Ctor(ctor, args) => Ctor(ctor, args.map(_.deadCodeToMagic))
-      case Function(x, body) => Function(x, body.deadCodeToMagic)
-      case IfThenElse(scrut, thenn, elze) => IfThenElse(scrut.deadCodeToMagic, thenn.deadCodeToMagic, elze.deadCodeToMagic)
-      case LetGroup(lets, body) => LetGroup(
-        lets.mapValues(_.deadCodeToMagic).toMap,
-        body.deadCodeToMagic
-      )
-      case LetIn(id, rhs, body) => LetIn(id, rhs.deadCodeToMagic, body.deadCodeToMagic)
-      case Match(scrut, arms) => {
-        val nonDeadBranches = d.dtorExprToType.get(this.uid).flatMap { dtor =>
-          d.isNotDeadBranch.get(dtor)
-        }.getOrElse((0 until arms.length).toSet)
-        Match(
-          scrut.deadCodeToMagic,
-          arms.zipWithIndex.map { case ((ctor, ids, body), idx) =>
-            if nonDeadBranches(idx) then
-              (ctor, ids, body.deadCodeToMagic)
-            else
-              (ctor, ids, Call(Ref(d.lumberhackKeywordsIds("lumberhack_obj_magic")), Const(IntLit(99))))
-          }
-        )
-      }
-      case Ref(id) => Ref(id)
-      case Sequence(fst, snd) => Sequence(fst.deadCodeToMagic, snd.deadCodeToMagic)
-    }
 
   def primIdize(using d: Deforest, inDef: Option[Ident]): Expr =
     Call(
@@ -666,253 +595,6 @@ trait ExprRewrite { this: Expr =>
         case Function(p, body) => Function(p, body.primIdize)
       }
     )
-
-  def inlineSomeFunctions(using shouldInline: Map[Ident, Expr], d: Deforest, inDef: Option[Ident]): Expr = {
-    def applyOneArg(f: Expr, a: Expr): Expr = {
-      f match {
-        case Function(para, body) => body.subst(using Map(para -> a), d, inDef)
-        case IfThenElse(b, t, f) => IfThenElse(b, applyOneArg(t, a), applyOneArg(f, a))
-        case LetGroup(lets, body) => LetGroup(lets, applyOneArg(body, a))
-        case LetIn(id, let, body) => LetIn(id, let, applyOneArg(body, a))
-        case Match(scrut, arms) => Match(scrut, arms.map { case (ctor, params, body) => (ctor, params, applyOneArg(body, a)) })
-        case Sequence(fst, snd) => Sequence(fst, applyOneArg(snd, a))
-        case other => Call(other, a)
-      }
-    }
-    this match
-      case Const(c) => Const(c)
-      case Ref(r) => Ref(r)
-      case call: Call => {
-        // print("\n")
-        // println(call.pp(using InitPpConfig))
-        val (f, args) = call.takeArgumentsOut
-        // println(f.pp(using InitPpConfig))
-        // println(args.map(_.pp(using InitPpConfig)).mkString(" | "))
-
-        val res = f match {
-          case Ref(id) if shouldInline.contains(id) => {
-            val funcBody = shouldInline(id)
-            args.foldRight(funcBody){ case (a, f) => applyOneArg(f, a.inlineSomeFunctions) }.inlineSomeFunctions
-          }
-          case _ =>
-            val res = args.foldRight(f.inlineSomeFunctions)((a, f) => Call(f, a.inlineSomeFunctions))
-            // println(res.pp(using InitPpConfig))
-            res
-        }
-        // print("\n")
-        res
-      }
-      case Ctor(ctor, args) => Ctor(ctor, args.map(_.inlineSomeFunctions))
-      case LetIn(id, rhs, body) => LetIn(id, rhs.inlineSomeFunctions, body.inlineSomeFunctions)
-      case LetGroup(lets, body) => LetGroup(lets.map(_.mapSecond(_.inlineSomeFunctions)), body.inlineSomeFunctions)
-      case Match(scrut, arms) => Match(scrut.inlineSomeFunctions, arms.map { case (ctor, params, body) => (ctor, params, body.inlineSomeFunctions) })
-      case IfThenElse(b, t, f) => IfThenElse(b.inlineSomeFunctions, t.inlineSomeFunctions, f.inlineSomeFunctions)
-      case Function(param, body) => Function(param, body.inlineSomeFunctions)
-      case Sequence(fst, snd) => Sequence(fst.inlineSomeFunctions, snd.inlineSomeFunctions)
-  }
-
-
-  // Return None means not always called; "Some(v)" mean always called, and for each call site at least v args are applied
-  import CalledInfo.*
-  def approxLinearlyAlwaysCalledNumOfArgsLet(using id: Ident, willBeCalledWith: Int): CalledInfo = {
-    def aggregateInfo(l: List[CalledInfo]): CalledInfo = {
-      var neverCalledCnt = 0
-      var notAlwaysCalledCnt = 0
-      var alwaysCalled = 0
-      var alwaysCalledInfo: Option[CalledInfo.LinearlyCalledWith] = None
-      l foreach {
-        case NeverCalled => neverCalledCnt += 1
-        case NotLinearlyCalled => notAlwaysCalledCnt += 1
-        case i@LinearlyCalledWith(v) => alwaysCalled += 1; alwaysCalledInfo = Some(i)
-      }
-      if notAlwaysCalledCnt == 0 && alwaysCalled == 0 then
-        NeverCalled
-      else if alwaysCalled == 1 && notAlwaysCalledCnt == 0 then
-        alwaysCalledInfo.get
-      else // either there exists notalwayscalled or multiple always called
-        NotLinearlyCalled
-    }
-    def aggregateBranchInfo(armsInfos: List[CalledInfo]): CalledInfo = {
-      if armsInfos.forall(_.isInstanceOf[NeverCalled.type]) then
-        NeverCalled
-      else if armsInfos.exists(_.isInstanceOf[LinearlyCalledWith]) && armsInfos.forall(!_.isInstanceOf[NotLinearlyCalled.type]) then
-        LinearlyCalledWith(
-          armsInfos.collect{ case LinearlyCalledWith(i) => i }.min
-        )
-      else
-        NotLinearlyCalled
-    }
-    this match {
-      case Const(_) => NeverCalled
-      case Ref(r) => if r == id then LinearlyCalledWith(0) else NeverCalled
-      case call: Call => {
-        val (f, argsRev) = call.takeArgumentsOut
-        f match {
-          case Ref(caller)
-            if caller == id && argsRev.forall(_.approxLinearlyAlwaysCalledNumOfArgsLet == NeverCalled) =>
-            LinearlyCalledWith(argsRev.length)
-          case _ =>
-            val info = (f :: argsRev).map(_.approxLinearlyAlwaysCalledNumOfArgsLet)
-            aggregateInfo(info)
-        }
-      }
-      case Ctor(_, args) => aggregateInfo(args.map(_.approxLinearlyAlwaysCalledNumOfArgsLet))
-      case LetIn(name, rhs, body) =>
-        rhs match {
-          case call: Call =>
-            val (f, argsRev) = call.takeArgumentsOut
-            f match {
-              case Ref(r) if r == id =>
-                val info = body.approxLinearlyAlwaysCalledNumOfArgsLet(using name, Int.MaxValue)
-                val bodyInfo = body.approxLinearlyAlwaysCalledNumOfArgsLet
-                (info, bodyInfo) match
-                  case (NeverCalled, NeverCalled) => LinearlyCalledWith(argsRev.length)
-                  case (NeverCalled, NotLinearlyCalled) => NotLinearlyCalled
-                  case (NeverCalled, LinearlyCalledWith(i)) => NotLinearlyCalled
-                  case (NotLinearlyCalled, NeverCalled) => NotLinearlyCalled
-                  case (NotLinearlyCalled, NotLinearlyCalled) => NotLinearlyCalled
-                  case (NotLinearlyCalled, LinearlyCalledWith(i)) => NotLinearlyCalled
-                  case (LinearlyCalledWith(i), NeverCalled) => LinearlyCalledWith(i + argsRev.length)
-                  case (LinearlyCalledWith(i), NotLinearlyCalled) => NotLinearlyCalled
-                  case (LinearlyCalledWith(i1), LinearlyCalledWith(i2)) => NotLinearlyCalled
-              case _ => aggregateInfo(List(rhs, body).map(_.approxLinearlyAlwaysCalledNumOfArgsLet))
-            }
-          case _ => aggregateInfo(List(rhs, body).map(_.approxLinearlyAlwaysCalledNumOfArgsLet))
-        }
-        
-      case LetGroup(lets, body) => aggregateInfo(
-        (body :: lets.map(_._2).toList).map(_.approxLinearlyAlwaysCalledNumOfArgsLet)
-      )
-      case Match(scrut, arms) => {
-        val scrutInfo = scrut.approxLinearlyAlwaysCalledNumOfArgsLet
-        val armsInfo = aggregateBranchInfo(arms.map(_._3.approxLinearlyAlwaysCalledNumOfArgsLet))
-        aggregateInfo(scrutInfo :: armsInfo :: Nil)
-      }
-      case IfThenElse(b, t, f) =>
-        val scrutInfo = b.approxLinearlyAlwaysCalledNumOfArgsLet
-        val branchesInfo = aggregateBranchInfo(List(t, f).map(_.approxLinearlyAlwaysCalledNumOfArgsLet))
-        aggregateInfo(scrutInfo :: branchesInfo :: Nil)
-      case Function(_, body) => {
-        body.approxLinearlyAlwaysCalledNumOfArgsLet(using id, willBeCalledWith - 1)
-        // if willBeCalledWith > 0 then
-        //   body.approxLinearlyAlwaysCalledNumOfArgsLet(using id, willBeCalledWith - 1)
-        // else
-        //   NeverCalled
-      }
-      case Sequence(f, s) => aggregateInfo(List(f, s).map(_.approxLinearlyAlwaysCalledNumOfArgsLet))
-    }
-  }
-
-  def approxAlwaysCalledNumOfArgs(using id: Ident, willBeCalledWith: Option[Int]): Option[Int] = {
-    def minOption(a: Option[Int], b: Option[Int]) =
-      (a, b) match
-        case (Some(a), Some(b)) => Some(if a < b then a else b)
-        case (Some(v), None) => Some(v)
-        case (None, Some(v)) => Some(v)
-        case _ => None
-    def minExprList(es: List[Expr], init: Option[Int] = None) = es.foldLeft(init) { case (acc, e) =>
-      val tmp = e.approxAlwaysCalledNumOfArgs
-      minOption(tmp, acc)
-    }
-    this match
-      case Const(c) => None
-      case Ref(i) => if i == id then Some(0) else None
-      case call: Call => {
-        val (f, argsRev) = call.takeArgumentsOut
-        f match {
-          case Ref(caller) if caller == id =>
-            minExprList(argsRev, Some(argsRev.length))
-          case _ => minExprList(f :: argsRev)
-        }
-      }
-      case LetIn(name, rhs, body) => {
-        rhs match {
-          case call: Call =>
-            val (f, argsRev) = call.takeArgumentsOut
-            f match {
-              case Ref(caller) if caller == id =>
-                val info = body.approxLinearlyAlwaysCalledNumOfArgsLet(using name, Int.MaxValue)
-                val bodyInfo = body.approxAlwaysCalledNumOfArgs
-                (info, bodyInfo) match {
-                  case (NeverCalled, None) => Some(argsRev.length)
-                  case (NotLinearlyCalled, None) => Some(argsRev.length)
-                  case (LinearlyCalledWith(v), None) => Some(argsRev.length + v)
-                  case (NeverCalled, Some(v)) => Some(List(v, argsRev.length).min)
-                  case (NotLinearlyCalled, Some(v)) => Some(List(v, argsRev.length).min)
-                  case (LinearlyCalledWith(v1), Some(v2)) => Some(List(v2, argsRev.length + v1).min)
-                }
-              case _ => minExprList(List(rhs, body))
-            }
-          case _ => minExprList(List(rhs, body))
-        }
-      }
-      case Function(param, body) => 
-        body.approxAlwaysCalledNumOfArgs(using id, willBeCalledWith.map(_ - 1))
-        // willBeCalledWith match {
-        //   case None => body.approxAlwaysCalledNumOfArgs
-        //   case Some(i) =>
-        //     if i >= 1 then
-        //       body.approxAlwaysCalledNumOfArgs(using id, Some(i - 1))
-        //     else
-        //       None
-        // }
-      // can be improved to be like `Let`
-      case LetGroup(lets, body) =>
-        minExprList(body :: (lets.map(_._2).toList))
-      case Ctor(_, args) => minExprList(args)
-      case Match(scrut, arms) => minExprList(scrut :: arms.map(_._3))
-      case IfThenElse(b, t, f) => minExprList(List(b, t, f))
-      case Sequence(fst, snd) => minExprList(List(fst, snd))
-  }
-  
-
-  // def approxAlwaysCalledNumOfArgs(using expect: Int, id: Ident, willBeCalledWith: Option[Int]): Int = this match
-  //   case Const(c) => expect
-  //   case Ref(i) => if i == id then 0 else expect
-  //   case call: Call => {
-  //     val (f, argsRev) = call.takeArgumentsOut
-  //     f match {
-  //       case Ref(i) if i == id =>
-  //         (expect :: argsRev.length :: (argsRev.map(_.approxAlwaysCalledNumOfArgs))).min
-  //       case _ => (expect :: f.approxAlwaysCalledNumOfArgs :: argsRev.map(_.approxAlwaysCalledNumOfArgs)).min
-  //     }
-  //   }
-  //   case LetIn(i, rhs, body) =>
-  //     // TODO: can be the tail of rhs
-  //     rhs match {
-  //       case call: Call =>
-  //         val (f, argsRev) = call.takeArgumentsOut
-  //         f match {
-  //           case Ref(caller) if caller == id =>
-  //             val additional = body.approxAlwaysCalledNumOfArgs(using Int.MaxValue, i)
-  //             (expect
-  //               :: additional + argsRev.length
-  //               :: body.approxAlwaysCalledNumOfArgs
-  //               :: argsRev.map(_.approxAlwaysCalledNumOfArgs)
-  //             ).min
-  //           case _ => (expect :: rhs.approxAlwaysCalledNumOfArgs :: body.approxAlwaysCalledNumOfArgs :: Nil).min
-  //         }
-  //       case _ => (expect :: rhs.approxAlwaysCalledNumOfArgs :: body.approxAlwaysCalledNumOfArgs :: Nil).min
-  //     }
-  //   // TODO: later
-  //   case LetGroup(lets, body) =>
-  //     (expect :: body.approxAlwaysCalledNumOfArgs :: lets.map(_._2.approxAlwaysCalledNumOfArgs).toList).min
-  //     // if lets.filter(_._1 == id).nonEmpty then
-  //     //   ???
-  //     // else
-  //   case Ctor(ctor, args) => (expect :: args.map(_.approxAlwaysCalledNumOfArgs)).min
-  //   case Match(scrut, arms) => (expect :: scrut.approxAlwaysCalledNumOfArgs :: arms.map { _._3.approxAlwaysCalledNumOfArgs }).min
-  //   case IfThenElse(b, t, f) => (expect :: List(b, t, f).map(_.approxAlwaysCalledNumOfArgs)).min
-  //   case Function(p, body) =>
-  //     willBeCalledWith match {
-  //       case Some(i) =>
-  //         if i >= 0 then
-  //           body.approxAlwaysCalledNumOfArgs(using expect, id, Some(i - 1))
-  //         else
-  //           expect
-  //       case None => body.approxAlwaysCalledNumOfArgs
-  //     }
-  //   case Sequence(fst, snd) => (expect :: fst.approxAlwaysCalledNumOfArgs :: snd.approxAlwaysCalledNumOfArgs :: Nil).min
 }
 
 trait ProgramRewrite { this: Program =>
@@ -1007,7 +689,6 @@ trait ProgramRewrite { this: Program =>
 
   def expandedWithLimit(
     lim: Int,
-    knots: Option[Map[Path, Set[Path]]] = None
   ): Program -> Deforest = {
     given newd: Deforest(false)
     // val copiedOriginalProgam -> refMaps -> initContext = this.copyDefsToNewDeforest
@@ -1025,12 +706,12 @@ trait ProgramRewrite { this: Program =>
     val newDefs = res._1.map { case path -> id =>
       Left(ProgDef(
         id,
-        this.defAndExpr._1(path.head.id).rewriteExpandTwo(
+        this.defAndExpr._1(path.head.id).rewriteExpandWithLimit(
           using initCtx, path, res._1.toMap, res._2, newd, Some(id)
         )
       ))
     }
-    val newTopLevelExprs = this.defAndExpr._2.map(e => Right(e.rewriteExpandTwo(
+    val newTopLevelExprs = this.defAndExpr._2.map(e => Right(e.rewriteExpandWithLimit(
       using initCtx, Nil, res._1.toMap, res._2, newd, None
     )))
 
@@ -1045,40 +726,6 @@ trait ProgramRewrite { this: Program =>
     Program(newDefs ::: newTopLevelExprs)(using newd) -> newd
   }
 
-  def expandedWithNewDeforest(callTrees: CallTrees): Program -> Deforest = {
-    given newd: Deforest(false)
-    val copiedOriginalProgram -> refMaps -> initContext = this.copyDefsToNewDeforest
-    val pathToIdent = callTrees.generatePathToIdent
-    assert({
-      val a = pathToIdent.values.map(_.pp(using InitPpConfig)).toSet
-      val b = pathToIdent.values.map(_.pp(using InitPpConfig.showIuidOn)).toSet
-      b.size == a.size
-    })
-    
-    val newDefs = {
-      var defined = List.empty[Ident -> Path]
-      pathToIdent.keys.foreach { p =>
-        // make sure to only register those that are real new defs
-        // if p.pp(using InitPpConfig.showRefEuidOn.pathAsIdentOn) == pathToIdent(p).pp(using InitPpConfig.showRefEuidOn.pathAsIdentOn)
-        if callTrees.originalDefs(p) then defined = (pathToIdent(p) -> p) :: defined
-      }
-      val res = defined.map { (id, p) =>
-        assert(p.p.nonEmpty)
-        val identKey = p.p.last match
-          case PathElem.Normal(ref) => initContext(ref.id)
-        val newBody: Expr = copiedOriginalProgram.defAndExpr._1(identKey)
-          .rewriteExpand(using initContext, p, newd, pathToIdent, refMaps, Some(id))
-        L(ProgDef(id, newBody))
-      }
-      res
-    }
-    Program(
-      copiedOriginalProgram.defAndExpr._2.map(e => R(e.rewriteExpand(using initContext, Path(Nil), newd, pathToIdent, refMaps, None)))
-      // ++ copiedOriginalProgram.defAndExpr._1.iterator.map((id, body) => L(ProgDef(id, body)))
-      ++ newDefs
-    ) -> newd
-    
-  }
 
   lazy val copyToNewDeforestWithDeadDefElim = {
     given newd: Deforest(false)
@@ -1119,26 +766,20 @@ trait ProgramRewrite { this: Program =>
     )
   }
 
-  def popOutLambdas(using lessExpansion: Boolean = false): Program -> Deforest = {
+  def floatOutLambdas: Program -> Deforest = {
     val newd: Deforest = Deforest(false)
     val copied -> _ -> _ = this.copyDefsToNewDeforest(using newd)
-    val (newProg, finalD) =
-      if lessExpansion then
-        (copied, newd)
-      else
-        newd(copied)
-        copied.expandedWithNewDeforest(CallTree.callTreeWithoutKnotTying(newd))
-    
-    // println("\n")
+    val (newProg, finalD) = (copied, newd)
+
     val prgm = Program(
-      newProg.defAndExpr._2.map { e => given Option[Ident] = None; R(e.popOutLambdas(using finalD)) }
+      newProg.defAndExpr._2.map { e => given Option[Ident] = None; R(e.floatOutLambdas(using finalD)) }
       ::: newProg.defAndExpr._1.map { case (id, body) =>
         given Option[Ident] = Some(id)
         val preLambdaCnt = body match {
           case f: Function => f.takeParamsOut._1.length
           case _ => 0
         }
-        val afterPoppedOut = body.popOutLambdas(using finalD)
+        val afterPoppedOut = body.floatOutLambdas(using finalD)
         val afterLambdaCnt = afterPoppedOut match {
           case f: Function => f.takeParamsOut._1.length
           case _ => 0
@@ -1152,99 +793,4 @@ trait ProgramRewrite { this: Program =>
     prgm -> finalD
   }
 
-  def floatOutSomeLambdas(info: Map[Ident, Int]): Program -> Deforest = {
-    // println("\n")
-    val prgm = Program(
-      this.defAndExpr._2.map { e => given Option[Ident] = None; R(e.popOutLambdas(using d)) }
-      ::: this.defAndExpr._1.map { case (id, body) =>
-        given Option[Ident] = Some(id)
-        val preLambdaCnt = body match {
-          case f: Function => f.takeParamsOut._1.length
-          case _ => 0
-        }
-        val afterPoppedOut = body.popOutLambdas(using d)
-        val afterLambdaCnt = afterPoppedOut match {
-          case f: Function => f.takeParamsOut._1.length
-          case _ => 0
-        }
-        // if afterLambdaCnt > preLambdaCnt then
-        //   println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt") else ()
-        L(ProgDef(id, if afterLambdaCnt <= info.getOrElse(id, 0) then afterPoppedOut else body))
-      }.toList
-    )(using d)
-
-    val newD = Deforest(false)
-    val newP = prgm.copyDefsToNewDeforest(using newD)._1._1
-    newD(newP)
-    newP -> newD
-  }
-
-  lazy val deadCodeToMagic: Program = {
-    this
-    // this.d.resolveConstraints
-    // val locallyElimiated = Program(this.contents.map {
-    //   case Left(deff) => Left(ProgDef(
-    //     deff.id,
-    //     deff.body.deadCodeToMagic
-    //   ))
-    //   case Right(expr) => Right(expr.deadCodeToMagic)
-    // })/* .copyDefsToNewDeforest(using Deforest(this.d.debug))._1._1
-    // locallyElimiated.d(locallyElimiated)
-    // // locallyElimiated
-
-    // val (res, resd) = locallyElimiated.expandedWithNewDeforest(callTreeWithoutKnotTying(locallyElimiated.d))
-    // resd(res)
-    // res */
-    // locallyElimiated
-  }
-
-  // assume `shouldInline` will not cause infinite inlining of recursive functions
-  def inlineSomeFunctions(using shouldInline: Set[String]): Program = {
-    val shouldInlineFunctionDefs = shouldInline.map { funName =>
-      val tmpRes = this.defAndExpr._1.filterKeys(_.tree.name == funName)
-      assert(tmpRes.size == 1)
-      assert(tmpRes.values.head.isInstanceOf[Expr.Function], tmpRes.values.head.pp(using InitPpConfig))
-      tmpRes.keys.head -> tmpRes.values.head
-    }.toMap
-    val tmpProgram = Program(
-      this.contents.map {
-        case Left(ProgDef(id, body)) => Left(ProgDef(id, body.inlineSomeFunctions(using shouldInlineFunctionDefs, this.d, Some(id))))
-        case Right(expr) => Right(expr.inlineSomeFunctions(using shouldInlineFunctionDefs, this.d, None))
-      }
-    )
-    val newD = Deforest(false)
-    val newP = tmpProgram.copyDefsToNewDeforest(using newD)._1._1
-    newD(newP)
-    newP
-  }
-
-  def handleFloatingOutCandidates(candidates: Set[String]): Map[Ident, Int] = {
-    val initCandidateInfo = this.defAndExpr._1.filterKeys(k => candidates.contains(k.tree.name))
-    
-    val res = initCandidateInfo.map { case (id, initExpr) =>
-      val initArity = initExpr match {
-        case f: Function => f.takeParamsOut._1.length
-        case _ => 0
-      }
-      val willBeCalledWithNonRec =
-        try {
-          (
-            this.defAndExpr._2.map(_.approxAlwaysCalledNumOfArgs(using id, None)) :::
-            this.defAndExpr._1.filterKeys(_ != id).map(_._2.approxAlwaysCalledNumOfArgs(using id, None)).toList
-          ).flatten.min
-        } catch {
-          case _ => lastWords(id.pp(using InitPpConfig) + " not called!?")
-        }
-      val willBeCalledWithRec =
-        this.defAndExpr._1(id).approxAlwaysCalledNumOfArgs(using id, Some(willBeCalledWithNonRec))
-      id -> {
-        willBeCalledWithRec match {
-          case Some(v) if v < willBeCalledWithNonRec => v
-          case _ => willBeCalledWithNonRec
-        }
-      }
-    }.toMap
-
-    res
-  }
 }
