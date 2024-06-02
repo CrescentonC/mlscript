@@ -705,8 +705,9 @@ trait ProgramRewrite { this: Program =>
           case f: Function => f.takeParamsOut._1.length
           case _ => 0
         }
-        if afterLambdaCnt > preLambdaCnt then
-          println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt") else ()
+        if afterLambdaCnt > preLambdaCnt then {
+          // println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt") else ()
+        }
         L(ProgDef(id, afterPoppedOut))
       }.toList
     )(using finalD)
