@@ -1,4 +1,64 @@
-# MLscript
+# ICFP 2024 Artifact
+
+Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique for Removing Intermediate Data Structures
+
+## Artifact Instructions
+
+### Setting up the Artifact
+
+- Using the Docker Image
+  
+  TODO:
+
+- Setting up from Scratch
+
+  TODO:
+
+### Executing the Artifact
+
+To perform the Lumberhack optimization on the `nofib` benchmark tests we presented in the paper, run
+`sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'`.
+The output OCaml programs are located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
+These sub-directories contain both the unoptimized programs and the optimized ones. Each sub-directory also includes a `main.ml` that contains codes
+utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
+benchmark both the original program and the optimized ones and show the execution time and GC data.
+
+We have provided a script `bench.sh` to run all the generated OCaml programs.
+Some programs require a longer running time to enable `core_bench` to report
+a reliable 95% confidence interval for the execution time, their test durations
+are adjusted accordingly in `bench.sh`.
+Depending on the machine executing the tests, the numbers may need to be further adjusted.
+
+[TODO: to run each individual program, cd to the corresponding directory and `eval $(head -2 ./mail.ml | tail -1)`, may also need to change time]
+
+-----
+
+## Project Structure
+
+In this artifact, the implementation of Lumberhack is intertwined with MLscript,
+a nascent functional programming language intended for real-world usage. This allows
+Lumberhack to leverage the DiffTests utility implemented for MLscript.
+Additionally, this also makes it possible for Lumberhack to take MLscript
+programs as inputs and perform optimization on them.
+Although the support for generating MLscript programs is not available yet, it is
+anticipated that Lumberhack will be integrated into the MLscript compiler in the future.
+[TODO: the examples in the introduction section of the paper are written in MLscript in this artifact]
+
+
+The `lumberhack` directory contains the sources of implementation of Lumberhack
+[TODO:]
+
+The `shared` directory contains the sources for MLscript.
+
+- The `shared/src/main/scala/mlscript` directory contains the sources of the MLscript compiler.
+- The `shared/src/test/scala/mlscript` directory contains the sources of the testing infrastructure.
+[TODO:]
+
+
+
+
+
+<!-- # MLscript
 
 What would TypeScript look like if it had been designed with type inference and soundness in mind?
 
@@ -89,4 +149,4 @@ You can make changes to the type inference code
 in `shared/src/main/scala/mlscript`,
 have it compile to JavaScript on file change with command
 `sbt ~fastOptJS`,
-and immediately see the results in your browser by refreshing the page with `F5`.
+and immediately see the results in your browser by refreshing the page with `F5`. -->
