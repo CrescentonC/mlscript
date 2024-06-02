@@ -1,6 +1,5 @@
 import Wart._
 
-enablePlugins(ScalaJSPlugin)
 
 ThisBuild / scalaVersion     := "2.13.9"
 ThisBuild / version          := "0.1.0-SNAPSHOT"
@@ -14,7 +13,7 @@ lazy val root = project.in(file("."))
     publishLocal := {},
   )
 
-lazy val mlscript = crossProject(JSPlatform, JVMPlatform).in(file("."))
+lazy val mlscript = crossProject(JVMPlatform).in(file("."))
   .settings(
     name := "mlscript",
     scalacOptions ++= Seq(
@@ -48,13 +47,8 @@ lazy val mlscript = crossProject(JSPlatform, JVMPlatform).in(file("."))
       sourceDirectory.value.getParentFile().getParentFile()/"shared/src/test/diff", "*.mls", NothingFilter),
     Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oC"),
   )
-  .jsSettings(
-    scalaJSUseMainModuleInitializer := true,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.1.0",
-  )
 
 lazy val mlscriptJVM = mlscript.jvm
-lazy val mlscriptJS = mlscript.js
 
 
 lazy val lumberhack = crossProject(JVMPlatform).in(file("lumberhack"))
