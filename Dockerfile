@@ -1,4 +1,4 @@
-FROM sbtscala/scala-sbt:17.0.2_1.6.2_3.1.3
+FROM sbtscala/scala-sbt:eclipse-temurin-jammy-11.0.22_7_1.9.9_3.3.3
 RUN apt update \
     && apt install -y build-essential python3-distutils libgmp-dev opam \
     && opam init --disable-sandboxing -y \
