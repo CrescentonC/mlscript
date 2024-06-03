@@ -12,7 +12,38 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 - Setting up from Scratch
 
-  TODO:
+  You need [JDK supported by Scala][supported-jdk-versions], [sbt][sbt], [`java-tree-sitter`][java-tree-sitter] (Java binding of tree-sitter)
+  and [`tree-sitter-haskell`][tree-sitter-haskell] (Haskell syntax for tree-sitter)
+  to compile the project and run the tests. The `java-tree-sitter` and `tree-sitter-haskell` is needed to
+  parse input Haskell programs into our core language AST so that Lumberhack can perform optimization on them.
+
+  We recommend you to install JDK and `sbt` via [coursier][coursier].
+
+  After cloning the `java-tree-sitter` and `tree-sitter-haskell` from GitHub,
+  some modifications are needed before we start to compile the tree-sitter library due to some compatibility issues.
+  - Always enable c++ compilation for `java-tree-sitter` (explained at point 3 from [this issue](https://github.com/serenadeai/java-tree-sitter/pull/18)).
+    This can be done by `sed -i "s/if cpp/if cpp or True/g" ./build.py` at the root directory of `java-tree-sitter`
+  - Checkout to commit `b6ec26f181dd059eedd506fa5fbeae1b8e5556c8` for `tree-sitter-haskell`
+
+  After the above changes are made, run `./build.py -o libtree-sitter -v ../tree-sitter-haskell` at the root
+  directory of `java-tree-sitter` to compile the dynamic library. Then move the output file to
+  one of the `java.library.path` (which can be shown by executing `java -XshowSettings:properties`).
+
+  After installing the prerequisites, change your working directory to the root of this repository and
+  launch the SBT shell by typing `sbt` in the terminal.
+
+  ----
+
+  You need []
+  
+
+  [supported-jdk-versions]: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
+  [sbt]: https://www.scala-sbt.org/
+  [coursier]: https://get-coursier.io/
+  [java-tree-sitter]: https://github.com/serenadeai/java-tree-sitter
+  [tree-sitter-haskell]: https://github.com/tree-sitter/tree-sitter-haskell
+
+
 
 ### Executing the Artifact
 
