@@ -59,7 +59,7 @@ trait ToExprable {
   def toExpr(using ctx: Expr.Ctx, inDef: Option[Ident], d: Deforest, output: Str => Unit, prgmStr: Str): Expr
 }
 
-// NOTE: expecting dynamic library "libjava-tree-sitter-ocaml-haskell" in java.library.path
+// NOTE: expecting dynamic library "libjava-tree-sitter-haskell" in java.library.path
 object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
   def apply(program: Str)(using d: Deforest, output: Str => Unit): Program = {
     val parser = new Parser()

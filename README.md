@@ -8,49 +8,87 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 - Using the Docker Image
   
-  TODO:
+  We have built Docker images containing all necessary dependencies
+  compiled for both `amd64` and `arm64` platforms and pushed them to
+  [DockerHub](https://hub.docker.com/r/crescentonc/lumberhack-docker/tags).
+  One can pull the `amd64` image and launch a container with the following command:
+
+  ```
+  docker pull crescentonc/lumberhack-docker:v0-amd64
+  docker run -it --rm crescentonc/lumberhack-docker:v0-amd64
+  ```
+  
+  If one wants to use the `arm64` image, the commands are:
+  
+  ```
+  docker pull crescentonc/lumberhack-docker:v0-arm64
+  docker run -it --rm crescentonc/lumberhack-docker:v0-arm64
+  ```
+  
+  The user will be attached to the shell of the container after the image gets
+  pulled and the container is launched.
+  Please `cd` to `mlscript/` and launch the SBT shell by typing `sbt`.
 
 - Setting up from Scratch
 
-  You need [JDK supported by Scala][supported-jdk-versions], [sbt][sbt], [`java-tree-sitter`][java-tree-sitter] (Java binding of tree-sitter)
-  and [`tree-sitter-haskell`][tree-sitter-haskell] (Haskell syntax for tree-sitter)
-  to compile the project and run the tests. The `java-tree-sitter` and `tree-sitter-haskell` is needed to
+  1. **To compile the project and run the tests**: you need [JDK (≥11) supported by Scala][supported-jdk-versions], [`sbt`][sbt], [`java-tree-sitter`][java-tree-sitter] (Java binding of tree-sitter)
+  and [`tree-sitter-haskell`][tree-sitter-haskell] (Haskell syntax for tree-sitter). The `java-tree-sitter` and `tree-sitter-haskell` are needed to
   parse input Haskell programs into our core language AST so that Lumberhack can perform optimization on them.
 
-  We recommend you to install JDK and `sbt` via [coursier][coursier].
+      We recommend you install JDK and `sbt` via [coursier][coursier].
 
-  After cloning the `java-tree-sitter` and `tree-sitter-haskell` from GitHub,
-  some modifications are needed before we start to compile the tree-sitter library due to some compatibility issues.
-  - Always enable c++ compilation for `java-tree-sitter` (explained at point 3 from [this issue](https://github.com/serenadeai/java-tree-sitter/pull/18)).
-    This can be done by `sed -i "s/if cpp/if cpp or True/g" ./build.py` at the root directory of `java-tree-sitter`
-  - Checkout to commit `b6ec26f181dd059eedd506fa5fbeae1b8e5556c8` for `tree-sitter-haskell`
+      Then, install `java-tree-sitter` (including its submodules) and `tree-sitter-haskell` by cloning them from GitHub.
+      After that, some modifications are needed before we start to compile the tree-sitter library due to some compatibility issues.
+      The changes are:
+      - Enabling c++ compilation for `java-tree-sitter` (explained at point 3 from [this PR](https://github.com/serenadeai/java-tree-sitter/pull/18)).
+      This can be done by executing
+        ```
+        sed -i "s/if cpp/if cpp or True/g" ./build.py
+        ```
+        at the root directory of `java-tree-sitter`
+      - Checking out to commit `b6ec26f181dd059eedd506fa5fbeae1b8e5556c8` for `tree-sitter-haskell`
 
-  After the above changes are made, run `./build.py -o libtree-sitter -v ../tree-sitter-haskell` at the root
-  directory of `java-tree-sitter` to compile the dynamic library. Then move the output file to
-  one of the `java.library.path` (which can be shown by executing `java -XshowSettings:properties`).
+      After the above changes are made, run
+      ```
+      ./build.py -o libjava-tree-sitter-haskell -v ../tree-sitter-haskell
+      ``` 
+      at the root
+      directory of `java-tree-sitter` to compile the dynamic library. Then move the output file to
+      `java.library.path` (which can be shown by executing `java -XshowSettings:properties`).
 
-  After installing the prerequisites, change your working directory to the root of this repository and
-  launch the SBT shell by typing `sbt` in the terminal.
+      After installing the prerequisites, change your working directory to the root of this repository and
+      launch the SBT shell by typing `sbt` in the terminal.
 
-  ----
+  2. **To compile the output OCaml programs and run the benchmarks**: you need the
+  [optimizing OCaml compiler flambda][flambda] (the version we use is 5.0.0),
+  the library [core_bench][core_bench] and [zarith][zarith].
 
-  You need []
-  
+      We recommend you install the above dependencies via `opam`:
+      ```sh
+      opam switch create artifact --packages=ocaml-variants.5.0.0+options,ocaml-option-flambda -y
+      eval $(opam env)
+      opam install zarith core_bench -y
+      ```
+
+  3. **To generate the figure we used in paper**: [TODO:]
 
   [supported-jdk-versions]: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
   [sbt]: https://www.scala-sbt.org/
   [coursier]: https://get-coursier.io/
   [java-tree-sitter]: https://github.com/serenadeai/java-tree-sitter
   [tree-sitter-haskell]: https://github.com/tree-sitter/tree-sitter-haskell
+  [flambda]: https://opam.ocaml.org/packages/ocaml-option-flambda/#
+  [core_bench]: https://opam.ocaml.org/packages/core_bench/
+  [zarith]: https://opam.ocaml.org/packages/zarith/
 
 
 
-### Executing the Artifact
+### Evaluation Instructions
 
 - To perform and test Lumberhack's optimization on the `nofib` benchmark tests we presented in the paper:
 
   run
-`sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'`.
+`sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'`. [TODO: mention the warnings or remove them]
 The output OCaml programs will be located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
 These sub-directories contain both the unoptimized programs and the optimized ones, and each of the sub-directories also includes a `main.ml` that contains codes
 utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
@@ -76,12 +114,12 @@ your Haskell programs.
   - [TODO: describe MLscript syntax]
   - [TODO: describe Haskell syntax (and no empty lines allowed)]
 
-
+- [TODO: To generate the figures we have in the paper]
 
 
 -----
 
-## Project Structure
+## Additional Artifact Description
 
 In this artifact, the implementation of Lumberhack is intertwined with MLscript,
 a nascent functional programming language intended for real-world usage. This allows
