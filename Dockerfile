@@ -19,6 +19,6 @@ RUN git submodule update --init --recursive \
     && cp ./libtree-sitter.so /lib/libjava-tree-sitter-haskell.so
 WORKDIR /root
 RUN echo "eval \$(opam env 2> /dev/null)" >> ./.bashrc
-RUN apt install r-base \
+RUN apt install r-base -y \
     && R -e "install.packages(c('RColorBrewer', 'ggplot2', 'gridExtra'), repos='http://cran.rstudio.com/')"
 CMD /bin/bash
