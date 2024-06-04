@@ -177,14 +177,14 @@ class DiffTests
     }
     val defaultMode = Mode()
     
-    var parseOnly = basePath.headOption.contains("parser") || basePath.headOption.contains("compiler")
+    var parseOnly = basePath.headOption.contains("parser") || basePath.headOption.contains("compiler") || true
     var allowTypeErrors = false
     var allowParseErrors = false // TODO use
     var showRelativeLineNums = false
     var noJavaScript = false
     var noProvs = false
     var allowRuntimeErrors = false
-    var newParser = basePath.headOption.contains("parser") || basePath.headOption.contains("compiler")
+    var newParser = basePath.headOption.contains("parser") || basePath.headOption.contains("compiler") || true
 
     val backend = new JSTestBackend()
     lazy val host = ReplHost()
