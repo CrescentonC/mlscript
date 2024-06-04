@@ -31,7 +31,7 @@ testAtom_nofib n = concat [(show state) ++ "n" | state <- (take_lz n $ runExperi
 testAtom_nofib $ primId 1000
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testAtom_nofib_lh_₁^410(primId⁰(1000))
 //│ def concat_lh_₁(lss¹) = case lss¹ of {
 //│ 	LH_C h⁴ t⁴ => mappend_lh_₃^261(h⁴, concat_lh_₁^264(t⁴))
@@ -299,7 +299,7 @@ testAtom_nofib $ primId 1000
 //│ 		    (_lh_listcomp_fun_1 ((take_lz_lh__d1 _lh_testAtom_nofib_arg1_0) ((((runExperiment_lh__d1 testforce_lh__d1) 0.02) (`LH_C(1.0, (`LH_N)))) (`State((`LH_C(1.0, (`LH_N))), (`LH_C(0.0, (`LH_N))))))))));;
 //│ 		(testAtom_nofib_lh__d1 1000)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁰ mappend_lh_₄(t⁰, ys⁰)]: 92 --->

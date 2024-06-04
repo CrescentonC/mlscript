@@ -69,7 +69,7 @@ testTreejoin_nofib dummy =
 testTreejoin_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testTreejoin_nofib_lh_₁^952(primId⁰(0))
 //│ def dropWhile_lh_₁(_lh_dropWhile_arg1¹, _lh_dropWhile_arg2¹) = case _lh_dropWhile_arg2¹ of {
 //│ 	LH_N  => [LH_N]
@@ -524,7 +524,7 @@ testTreejoin_nofib $ primId 0
 //│ 		          (((join_lh__d1 a_0) b_0) (`Empty))))));;
 //│ 		(testTreejoin_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [Just _lh_lookupT_Leaf_1⁰]: 212 --->

@@ -225,7 +225,7 @@ testLambda_nofib n = (mainSimple [n], mainMonad [n])
 testLambda_nofib $ primId 80
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testLambda_nofib_lh_₁^2913(primId⁰(80))
 //│ def apply_lh_₁(_lh_apply_arg1⁰, _lh_apply_arg2⁰) = case _lh_apply_arg1⁰ of {
 //│ 	Thunk _lh_apply_Thunk_0⁰ _lh_apply_Thunk_1⁰ => case _lh_apply_Thunk_0⁰ of {
@@ -1253,7 +1253,7 @@ testLambda_nofib $ primId 80
 //│ 		  (`LH_P2((mainSimple_lh__d1 (`LH_C(_lh_testLambda_nofib_arg1_0, (`LH_N)))), (mainMonad_lh__d1 (`LH_C(_lh_testLambda_nofib_arg1_0, (`LH_N))))));;
 //│ 		(testLambda_nofib_lh__d1 80)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [MyState (fun s⁰ -> let _lh_matchIdent¹ = myRunState_lh_₁(_lh_myBind_arg1⁰, s⁰)

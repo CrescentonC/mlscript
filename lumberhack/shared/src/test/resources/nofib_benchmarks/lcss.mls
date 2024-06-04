@@ -36,7 +36,7 @@ testLCSS_nofib _ = lcssMain 1 2 60 30 31 90
 testLCSS_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testLCSS_nofib_lh_₁^1016(primId⁰(0))
 //│ def algb1_lh_₁(_lh_algb1_arg1², _lh_algb1_arg2²) = case _lh_algb1_arg1² of {
 //│ 	LH_N  => map_lh_₁^154(snd_lh_₁^155, _lh_algb1_arg2²)
@@ -526,7 +526,7 @@ testLCSS_nofib $ primId 0
 //│ 		  ((((((lcssMain_lh__d1 1) 2) 60) 30) 31) 90);;
 //│ 		(testLCSS_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h² a¹]: 112 --->

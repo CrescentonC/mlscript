@@ -302,7 +302,7 @@ run num_bits num_cycles =
 testCircsim_nofib $ primId 40
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCircsim_nofib_lh_₁^3875(primId⁰(40))
 //│ def acknowledge_lh_₁(_lh_acknowledge_arg1¹, _lh_acknowledge_arg2¹) = 
 //│ 	let check_requests¹ = (fun _lh_check_requests_arg1¹ -> or_lh_₂^2456(map_lh_₈^2457(check_lr_requests¹, _lh_check_requests_arg1¹)))
@@ -2587,7 +2587,7 @@ testCircsim_nofib $ primId 40
 //│ 		  ((run_lh__d1 8) _lh_testCircsim_nofib_arg1_0);;
 //│ 		(testCircsim_nofib_lh__d1 40)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P2 downsweep_lh_₁(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_0¹, _lh_downsweep_Node_1⁰) downsweep_lh_₁(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_1¹, _lh_downsweep_Node_2⁰)]: 113 --->

@@ -74,7 +74,7 @@ testClausify_nofib n = let xs = (copy n "(a = a = a) = (a = a = a) = (a = a = a)
 testClausify_nofib $ primId 10
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testClausify_nofib_lh_₁^1295(primId⁰(10))
 //│ def clauseHelper_lh_₁(_lh_clauseHelper_arg1⁰, _lh_clauseHelper_arg2⁰) = case _lh_clauseHelper_arg1⁰ of {
 //│ 	Dis _lh_clauseHelper_Dis_0⁰ _lh_clauseHelper_Dis_1⁰ => clauseHelper_lh_₁^111(_lh_clauseHelper_Dis_0⁰, clauseHelper_lh_₁^114(_lh_clauseHelper_Dis_1⁰, _lh_clauseHelper_arg2⁰))
@@ -1066,7 +1066,7 @@ testClausify_nofib $ primId 10
 //│ 		    (concat_lh__d1 ((map_lh__d1 clauses_lh__d1) xs_5)));;
 //│ 		(testClausify_nofib_lh__d1 10)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h¹ mappend_lh_₅(t¹, ys⁰)]: 617 --->

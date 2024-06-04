@@ -74,7 +74,7 @@ testCalendar_nofib n = map (\n -> length $ cal n) $ primId [1993..(1993+n)]
 testCalendar_nofib $ primId 100
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCalendar_nofib_lh_₁^1498(primId⁰(100))
 //│ def block_lh_₁(_lh_block_arg1¹, _lh_funcomp_x²) = (fun _lh_funcomp_x³ -> stack_lh_₁^1154(map_lh_₃^1155(spread_lh_₁^1156, _lh_funcomp_x³)))(groop_lh_₁^1162(_lh_block_arg1¹, _lh_funcomp_x²))
 //│ def block_lh_₂(_lh_block_arg1⁰, _lh_funcomp_x⁰) = (fun _lh_funcomp_x¹ -> stack_lh_₂^810(map_lh_₆^811(spread_lh_₂^812, _lh_funcomp_x¹)))(groop_lh_₂^818(_lh_block_arg1⁰, _lh_funcomp_x⁰))
@@ -661,7 +661,7 @@ testCalendar_nofib $ primId 100
 //│ 		    (length_lh__d1 (cal_lh__d1 n_1)))) ((enumFromTo_lh__d1 1993) (1993 + _lh_testCalendar_nofib_arg1_0)));;
 //│ 		(testCalendar_nofib_lh__d1 100)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C _lh_copy_arg2¹ copy_lh_₅((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)]: 149 --->

@@ -112,7 +112,7 @@ testPower_nofib p =
 testPower_nofib $ primId 14
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testPower_nofib_lh_₁^2029(primId⁰(14))
 //│ def addPs_lh_₁(_lh_addPs_arg1⁵, _lh_addPs_arg2⁵) = lazy⁰(
 //│ 	let _lh_matchIdent⁴⁶ = force⁰(_lh_addPs_arg1⁵)
@@ -1146,7 +1146,7 @@ testPower_nofib $ primId 14
 //│ 		  (`LH_C(((extract_lh__d1 _lh_testPower_nofib_arg1_0) ((minusPs_lh__d1 (sinx_lh__d2 0)) (sqrtPs_lh__d1 ((minusPs_lh__d3 (fromIntegerPs_lh__d1 1)) ((powerPs_lh__d1 (cosx_lh__d2 0)) 2))))), (`LH_C(((extract_lh__d3 _lh_testPower_nofib_arg1_0) ((minusPs_lh__d2 ((divPs_lh__d1 (sinx_lh__d1 0)) (cosx_lh__d1 0))) (revert_lh__d1 (integral_lh__d1 ((divPs_lh__d2 (fromIntegerPs_lh__d3 1)) ((addPs_lh__d1 (fromIntegerPs_lh__d2 1)) ((powerPs_lh__d2 x_lh__d1) 2))))))), (`LH_C(((extract_lh__d4 _lh_testPower_nofib_arg1_0) ts_lh__d1), (`LH_C(((extract_lh__d2 _lh_testPower_nofib_arg1_0) tree_lh__d1), (`LH_N)))))))));;
 //│ 		(testPower_nofib_lh__d1 14)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [Pz]: 608 --->

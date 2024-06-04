@@ -198,7 +198,7 @@ testPara_nofib dummy =
 testPara_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testPara_nofib_lh_₁^1942(primId⁰(0))
 //│ def break_lh_₁(_lh_break_arg1², _lh_break_arg2²) = case _lh_break_arg2² of {
 //│ 	LH_N  => [LH_P2 [LH_N] [LH_N]]
@@ -1430,7 +1430,7 @@ testPara_nofib $ primId 0
 //│ 		      (fmt_lh__d1 test_0)));;
 //│ 		(testPara_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁶ mappend_lh_₁₅(t⁶, ys¹)]: 189 --->

@@ -424,7 +424,7 @@ testMate_nofib dummy =
 testMate_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testMate_nofib_lh_₁^6649(primId⁰(0))
 //│ def abs_lh_₁(_lh_abs_arg1⁶) = if (_lh_abs_arg1⁶ < 0) then (0 - _lh_abs_arg1⁶) else _lh_abs_arg1⁶
 //│ def abs_lh_₂(_lh_abs_arg1⁵) = if (_lh_abs_arg1⁵ < 0) then (0 - _lh_abs_arg1⁵) else _lh_abs_arg1⁵
@@ -3580,7 +3580,7 @@ testMate_nofib $ primId 0
 //│ 		            (failwith "error")))));;
 //│ 		(testMate_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_N]: 261 --->

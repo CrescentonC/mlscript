@@ -78,7 +78,7 @@ testLife_nofib n = length (force (last (generations n)))
 testLife_nofib $ primId 29
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testLife_nofib_lh_₁^1359(primId⁰(29))
 //│ def append_lz_lh_₁(_lh_append_lz_arg1⁰, _lh_append_lz_arg2⁰) = 
 //│ 	let _lh_matchIdent¹⁹ = _lh_append_lz_arg1⁰
@@ -820,7 +820,7 @@ testLife_nofib $ primId 29
 //│ 		  (length_lh__d1 (Lazy.force (last_lh__d1 (generations_lh__d1 _lh_testLife_nofib_arg1_0))));;
 //│ 		(testLife_nofib_lh__d1 29)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁴ mappend_lh_₁₀(t⁴, ys²)]: 54 --->

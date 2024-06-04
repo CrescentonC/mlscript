@@ -391,7 +391,7 @@ testRewrite_nofib n = all result (copy n ("I(a * b)", "I(b) * I(a)"))
 testRewrite_nofib $ primId 50
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testRewrite_nofib_lh_₁^4684(primId⁰(50))
 //│ def all_lh_₁(_lh_all_arg1⁵, _lh_all_arg2⁵) = case _lh_all_arg2⁵ of {
 //│ 	LH_N  => [True]
@@ -3329,7 +3329,7 @@ testRewrite_nofib $ primId 50
 //│ 		  ((all_lh__d1 result_lh__d1) ((copy_lh__d1 _lh_testRewrite_nofib_arg1_0) (`LH_P2((`LH_C('I', (`LH_C('(', (`LH_C('a', (`LH_C(' ', (`LH_C('*', (`LH_C(' ', (`LH_C('b', (`LH_C(')', (`LH_N))))))))))))))))), (`LH_C('I', (`LH_C('(', (`LH_C('b', (`LH_C(')', (`LH_C(' ', (`LH_C('*', (`LH_C(' ', (`LH_C('I', (`LH_C('(', (`LH_C('a', (`LH_C(')', (`LH_N)))))))))))))))))))))))))));;
 //│ 		(testRewrite_nofib_lh__d1 50)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [Nothing]: 457 --->

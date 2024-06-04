@@ -155,7 +155,7 @@ testPretty_nofib dummy =
 testPretty_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testPretty_nofib_lh_₁^1249(primId⁰(0))
 //│ def andL_lh_₁(_lh_andL_arg1⁶, _lh_andL_arg2⁶) = case _lh_andL_arg1⁶ of {
 //│ 	False  => [False]
@@ -876,7 +876,7 @@ testPretty_nofib $ primId 0
 //│ 		    ((mappend_lh__d1 ((ppShow_lh__d1 80) pretty_stuff_0)) (`LH_C('|', (`LH_N)))));;
 //│ 		(testPretty_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P2 _lh_flatten_arg1⁰ _lh_flatten_CAppend_1⁰]: 67 --->

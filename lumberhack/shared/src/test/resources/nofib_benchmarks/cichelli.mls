@@ -111,7 +111,7 @@ testCichelli_nofib n = prog n
 testCichelli_nofib $ primId 6
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCichelli_nofib_lh_₁^2530(primId⁰(6))
 //│ def all_lh_₁(_lh_all_arg1⁰, _lh_all_arg2⁰) = case _lh_all_arg2⁰ of {
 //│ 	LH_N  => [True]
@@ -1003,7 +1003,7 @@ testCichelli_nofib $ primId 6
 //│ 		  (prog_lh__d1 _lh_testCichelli_nofib_arg1_0);;
 //│ 		(testCichelli_nofib_lh__d1 6)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C f²(h⁴) map_lh_₂(f², t⁴)]: 458 --->

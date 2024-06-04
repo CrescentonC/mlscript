@@ -133,7 +133,7 @@ testPuzzle_nofib x =
 testPuzzle_nofib $ primId [2]
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testPuzzle_nofib_lh_₁^1903(primId⁰([LH_C 2 [LH_N]]))
 //│ def adamPos_lh_₁(_lh_adamPos_arg1²) = case _lh_adamPos_arg1² of {
 //│ 	State _lh_adamPos_State_0² _lh_adamPos_State_1² _lh_adamPos_State_2² _lh_adamPos_State_3² => _lh_adamPos_State_3²
@@ -955,7 +955,7 @@ testPuzzle_nofib $ primId [2]
 //│ 		        (((writeSolutions_lh__d1 mins_1) 1) (`LH_N)))));;
 //│ 		(testPuzzle_nofib_lh__d1 (`LH_C(2, (`LH_N))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h² a⁰]: 769 --->

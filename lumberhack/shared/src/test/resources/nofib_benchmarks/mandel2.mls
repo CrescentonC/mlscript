@@ -156,7 +156,7 @@ testMandel2_nofib n =
 testMandel2_nofib $ primId [60]
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testMandel2_nofib_lh_₁^1339(primId⁰([LH_C 60 [LH_N]]))
 //│ def build_tree_lh_₁(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰) = 
 //│ 	let _lh_matchIdent⁴ = _lh_build_tree_arg1⁰
@@ -684,7 +684,7 @@ testMandel2_nofib $ primId [60]
 //│ 		      (finite_lh__d1 tree_0)));;
 //│ 		(testMandel2_nofib_lh__d1 (`LH_C(60, (`LH_N))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P2 0 1]: 692 --->

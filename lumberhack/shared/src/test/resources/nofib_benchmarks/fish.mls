@@ -111,7 +111,7 @@ testFish_nofib n =
 testFish_nofib $ primId 30
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testFish_nofib_lh_₁^2359(primId⁰(30))
 //│ def above_lh_₁(_lh_above_arg1⁰, _lh_above_arg2⁰, _lh_above_arg3⁰, _lh_above_arg4⁰, _lh_above_arg5⁰, _lh_above_arg6⁰, _lh_above_arg7⁰) = mappend_lh_₂₀^1259(_lh_above_arg3⁰(vec_add_lh_₇^1261(_lh_above_arg5⁰, scale_vec2_lh_₁^1264(_lh_above_arg7⁰, _lh_above_arg2⁰, (_lh_above_arg1⁰ + _lh_above_arg2⁰))), _lh_above_arg6⁰, scale_vec2_lh_₁^1279(_lh_above_arg7⁰, _lh_above_arg1⁰, (_lh_above_arg2⁰ + _lh_above_arg1⁰))), _lh_above_arg4⁰(_lh_above_arg5⁰, _lh_above_arg6⁰, scale_vec2_lh_₁^1297(_lh_above_arg7⁰, _lh_above_arg2⁰, (_lh_above_arg1⁰ + _lh_above_arg2⁰))))
 //│ def beside_lh_₁(_lh_beside_arg1¹, _lh_beside_arg2¹, _lh_beside_arg3¹, _lh_beside_arg4¹, _lh_beside_arg5¹, _lh_beside_arg6¹, _lh_beside_arg7¹) = mappend_lh_₂₀^1201(_lh_beside_arg3¹(_lh_beside_arg5¹, scale_vec2_lh_₁^1205(_lh_beside_arg6¹, _lh_beside_arg1¹, (_lh_beside_arg1¹ + _lh_beside_arg2¹)), _lh_beside_arg7¹), _lh_beside_arg4¹(vec_add_lh_₇^1221(_lh_beside_arg5¹, scale_vec2_lh_₁^1224(_lh_beside_arg6¹, _lh_beside_arg1¹, (_lh_beside_arg1¹ + _lh_beside_arg2¹))), scale_vec2_lh_₁^1237(_lh_beside_arg6¹, _lh_beside_arg2¹, (_lh_beside_arg2¹ + _lh_beside_arg1¹)), _lh_beside_arg7¹))
@@ -763,7 +763,7 @@ testFish_nofib $ primId 30
 //│ 		      (length_lh__d1 (fmt_lh__d1 (((pseudolimit_lh__d1 (`LH_P2(0, 0))) (`LH_P2((640 + n_0), 0))) (`LH_P2(0, (640 + n_0))))))))) ((enumFromTo_lh__d1 0) _lh_testFish_nofib_arg1_0));;
 //│ 		(testFish_nofib_lh__d1 30)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P4 0 0 4 2]: 86 --->

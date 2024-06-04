@@ -140,7 +140,7 @@ testCse_nofib n = map (\i -> (map cse (take (i `mod` 6) [(example0), (example1),
 testCse_nofib $ primId 1000
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCse_nofib_lh_₁^880(primId⁰(1000))
 //│ def a_lh_₁ = [Node [LH_C 'a' [LH_N]] [LH_N]]
 //│ def a_lh_₂ = [Node [LH_C 'a' [LH_N]] [LH_N]]
@@ -630,7 +630,7 @@ testCse_nofib $ primId 1000
 //│ 		    ((map_lh__d1 cse_lh__d1) ((take_lh__d1 (i_1 mod 6)) (`LH_C(example0_lh__d1, (`LH_C(example1_lh__d1, (`LH_C(example2_lh__d1, (`LH_C(example3_lh__d1, (`LH_C(example4_lh__d1, (`LH_C(example5_lh__d1, (`LH_N))))))))))))))))) ((enumFromTo_lh__d1 1) _lh_testCse_nofib_arg1_0));;
 //│ 		(testCse_nofib_lh__d1 1000)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P2 _lh_update_arg1⁰(s⁰) s⁰]: 17 --->

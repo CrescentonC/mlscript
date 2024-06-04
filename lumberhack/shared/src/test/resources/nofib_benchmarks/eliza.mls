@@ -198,7 +198,7 @@ initial = ([(words k, cycle rs) | (k,rs) <-respMsgs], cycle repeatMsgs)
 testEliza_nofib $ primId 20
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testEliza_nofib_lh_₁^9501(primId⁰(20))
 //│ def answer_lh_₁(_lh_answer_arg1⁰, _lh_answer_arg2⁰) = 
 //│ 	let cons¹ = (fun _lh_cons_arg1⁰ -> (fun _lh_cons_arg2⁰ -> case _lh_cons_arg2⁰ of {
@@ -1477,7 +1477,7 @@ testEliza_nofib $ primId 20
 //│ 		            (words_lh__d1 (trim_lh__d1 _lh_funcomp_x_1_2)))) _lh_funcomp_x_8))) ((take_lh__d1 (i_2 mod 20)) _lh_funcomp_x_7))) input_0))) ((enumFromTo_lh__d1 1) _lh_testEliza_nofib_arg1_0)));;
 //│ 		(testEliza_nofib_lh__d1 20)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁰ mappend_lh_₁₃(t⁰, ys⁰)]: 8 --->

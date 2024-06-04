@@ -56,7 +56,7 @@ testMandel_nofib dummy =
 testMandel_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testMandel_nofib_lh_₁^463(primId⁰(0))
 //│ def comp_magnitude_lh_₁(_lh_comp_magnitude_arg1⁰) = case _lh_comp_magnitude_arg1⁰ of {
 //│ 	Complex _lh_comp_magnitude_Complex_0⁰ _lh_comp_magnitude_Complex_1⁰ => ((_lh_comp_magnitude_Complex_0⁰ *. _lh_comp_magnitude_Complex_0⁰) +. (_lh_comp_magnitude_Complex_1⁰ *. _lh_comp_magnitude_Complex_1⁰))
@@ -254,7 +254,7 @@ testMandel_nofib $ primId 0
 //│ 		                (((((((mandelset_lh__d1 minx_0) miny_0) maxx_0) maxy_0) screenX_0) screenY_0) limit_0))))))));;
 //│ 		(testMandel_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [Complex ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_0¹) -. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_1¹)) ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_1¹) +. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_0¹))]: 65 --->

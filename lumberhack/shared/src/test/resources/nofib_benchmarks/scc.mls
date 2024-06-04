@@ -44,7 +44,7 @@ testScc_nofib dummy =
 testScc_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testScc_nofib_lh_₁^422(primId⁰(0))
 //│ def dfs_lh_₁(_lh_dfs_arg1¹, _lh_dfs_arg2¹, _lh_dfs_arg3¹) = case _lh_dfs_arg2¹ of {
 //│ 	LH_P2 _lh_dfs_LH_P2_0² _lh_dfs_LH_P2_1² => case _lh_dfs_arg3¹ of {
@@ -285,7 +285,7 @@ testScc_nofib $ primId 0
 //│ 		                    ((stronglyConnComp_lh__d1 edges_0) vertices_0))))))))));;
 //│ 		(testScc_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ 

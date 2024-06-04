@@ -264,7 +264,7 @@ testSphere_nofib n = run n
 testSphere_nofib $ primId 30
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testSphere_nofib_lh_₁^3304(primId⁰(30))
 //│ def ambientsurf_lh_₁(_lh_ambientsurf_arg1⁰) = head_lh_₄^1556(mappend_lh_₂^1557(
 //│ 	let _lh_listcomp_fun⁸ = (fun _lh_listcomp_fun_para⁸ -> case _lh_listcomp_fun_para⁸ of {
@@ -1731,7 +1731,7 @@ testSphere_nofib $ primId 30
 //│ 		  (run_lh__d1 _lh_testSphere_nofib_arg1_0);;
 //│ 		(testSphere_nofib_lh__d1 30)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P3 vecscale_lh_₁₅(_lh_refractray_arg3⁰, (0.0 -. 1.0)) (0.0 -. dotp⁰) (1.0 /. _lh_refractray_arg1⁰)]: 39 --->

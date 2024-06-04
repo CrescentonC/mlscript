@@ -249,7 +249,7 @@ testBoyer_nofib n = all test0 (replicate n (Var X))
 testBoyer_nofib $ primId 5
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testBoyer_nofib_lh_₁^2796(primId⁰(5))
 //│ def all_lh_₁(_lh_all_arg1⁰, _lh_all_arg2⁰) = case _lh_all_arg2⁰ of {
 //│ 	LH_N  => [True]
@@ -1264,7 +1264,7 @@ testBoyer_nofib $ primId 5
 //│ 		  ((all_lh__d1 test0_lh__d1) ((replicate_lh__d1 _lh_testBoyer_nofib_arg1_0) (`Var((`X)))));;
 //│ 		(testBoyer_nofib_lh__d1 5)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_N]: 7 --->

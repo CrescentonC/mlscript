@@ -54,7 +54,7 @@ testAnsi_nofib n = (foldr (\f g -> f . g) (\x -> x) ((copy n (program)))) ("test
 testAnsi_nofib $ primId 8
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testAnsi_nofib_lh_₁^1624(primId⁰(8))
 //│ def at_lh_₁(_lh_at_arg1⁵, _lh_at_arg2⁵) = case _lh_at_arg1⁵ of {
 //│ 	LH_P2 _lh_at_LH_P2_0⁵ _lh_at_LH_P2_1⁵ => mappend_lh_₃^910(goto_lh_₁^911(_lh_at_LH_P2_0⁵, _lh_at_LH_P2_1⁵), _lh_at_arg2⁵)
@@ -507,7 +507,7 @@ testAnsi_nofib $ primId 8
 //│ 		    x_0)) ((copy_lh__d1 _lh_testAnsi_nofib_arg1_0) program_lh__d1)) (`LH_C('t', (`LH_C('e', (`LH_C('s', (`LH_C('t', (`LH_C('t', (`LH_C('e', (`LH_C('s', (`LH_C('t', (`LH_C('t', (`LH_C('e', (`LH_C('s', (`LH_C('t', (`LH_N))))))))))))))))))))))))));;
 //│ 		(testAnsi_nofib_lh__d1 8)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁰ a⁰]: 7 --->

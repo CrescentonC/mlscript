@@ -154,7 +154,7 @@ testSorting_nofib dummy =
 testSorting_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testSorting_nofib_lh_₁^3051(primId⁰(0))
 //│ def break_lh_₁(_lh_break_arg1⁰, _lh_break_arg2⁰) = case _lh_break_arg2⁰ of {
 //│ 	LH_N  => [LH_P2 [LH_N] [LH_N]]
@@ -1174,7 +1174,7 @@ testSorting_nofib $ primId 0
 //│ 		    (hash_lh__d1 (mangle_lh__d1 f_6)));;
 //│ 		(testSorting_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_N]: 262 --->

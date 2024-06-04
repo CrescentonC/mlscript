@@ -55,7 +55,7 @@ testAwards_nofib n = map (\x -> findallawards (competitors (x `mod` 100))) (prim
 testAwards_nofib $ primId 500
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testAwards_nofib_lh_₁^844(primId⁰(500))
 //│ def awards_lh_₁(_lh_awards_arg1⁰) = 
 //│ 	let sumscores⁰ = map_lh_₃^499((fun p⁰ -> [LH_P2 sum_lh_₁^500(p⁰) p⁰]), perms_lh_₁^507(3, _lh_awards_arg1⁰))
@@ -427,7 +427,7 @@ testAwards_nofib $ primId 500
 //│ 		    (findallawards_lh__d1 (competitors_lh__d1 (x_2 mod 100))))) ((enumFromTo_lh__d1 1) _lh_testAwards_nofib_arg1_0));;
 //│ 		(testAwards_nofib_lh__d1 500)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C _lh_rqpart_arg2⁰ qsort_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg5⁰, _lh_rqpart_arg6⁰)]: 15 --->

@@ -135,7 +135,7 @@ testCryptarithm2_nofib n =
 testCryptarithm2_nofib $ primId 1500
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCryptarithm2_nofib_lh_₁^1534(primId⁰(1500))
 //│ def bind_lh_₁(_lh_bind_arg1⁵, _lh_bind_arg2⁵) = [StateT (fun s¹⁶ -> concat_lh_₄^779(map_lh_₄^780((fun as⁵ -> 
 //│ 	let _lh_matchIdent⁹ = as⁵
@@ -1083,7 +1083,7 @@ testCryptarithm2_nofib $ primId 1500
 //│ 		    ((puzzle_lh__d1 args_0) (`LH_C('N', (`LH_C('I', (`LH_C('N', (`LH_C('E', (`LH_C('T', (`LH_C('Y', (`LH_N)))))))))))))));;
 //│ 		(testCryptarithm2_nofib_lh__d1 1500)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C f⁰(h⁰) map_lh_₇(f⁰, t⁰)]: 65 --->

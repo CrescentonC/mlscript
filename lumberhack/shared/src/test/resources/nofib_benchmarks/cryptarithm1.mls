@@ -14,7 +14,7 @@ testCryptarithm_nofib n = map (\i -> let p0 = (take 10 [0..9+i]) in (filter cond
 testCryptarithm_nofib $ primId 1
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testCryptarithm_nofib_lh_₁^425(primId⁰(1))
 //│ def addj_lh_₁(_lh_addj_arg1⁰, _lh_addj_arg2⁰) = case _lh_addj_arg2⁰ of {
 //│ 	LH_N  => [LH_C [LH_C _lh_addj_arg1⁰ [LH_N]] [LH_N]]
@@ -203,7 +203,7 @@ testCryptarithm_nofib $ primId 1
 //│ 		      ((filter_lh__d1 condition_lh__d1) (permutations_lh__d1 p0_0))))) ((enumFromTo_lh__d1 1) _lh_testCryptarithm_nofib_arg1_0));;
 //│ 		(testCryptarithm_nofib_lh__d1 1)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)]: 193 --->

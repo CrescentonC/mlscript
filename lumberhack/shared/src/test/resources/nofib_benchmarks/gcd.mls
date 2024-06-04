@@ -31,7 +31,7 @@ testGcd_nofib x = test x
 testGcd_nofib $ primId (z_of_int 400)
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testGcd_nofib_lh_₁^338(primId⁰(z_of_int⁰(400)))
 //│ def abs_lh_₁(_lh_abs_arg1⁰) = if z_lt⁰(_lh_abs_arg1⁰, const0_lh_₆^101) then z_sub⁰(const0_lh_₅^104, _lh_abs_arg1⁰) else _lh_abs_arg1⁰
 //│ def const0_lh_₁ = z_of_int⁰(0)
@@ -236,7 +236,7 @@ testGcd_nofib $ primId (z_of_int 400)
 //│ 		  (test_lh__d1 _lh_testGcd_nofib_arg1_0);;
 //│ 		(testGcd_nofib_lh__d1 (Z.of_int 400))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_P2 z_div⁰(_lh_quotRem_arg1⁰, _lh_quotRem_arg2⁰) z_mod⁰(_lh_quotRem_arg1⁰, _lh_quotRem_arg2⁰)]: 14 --->

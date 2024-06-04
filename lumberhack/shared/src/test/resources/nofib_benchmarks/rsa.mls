@@ -39,7 +39,7 @@ testRsa_nofib _ = hash (encrypt
 testRsa_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testRsa_nofib_lh_₁^398(primId⁰(0))
 //│ def code_lh_₁(_lh_code_arg1⁰) = foldl_lh_₂^240((fun x⁰ -> (fun y⁰ -> z_add⁰(z_mul⁰(const128_lh_₁^243, x⁰), z_of_int⁰(int_of_char⁰(y⁰))))), const0_lh_₃^257, _lh_code_arg1⁰)
 //│ def collect_lh_₁(_lh_collect_arg1⁰, _lh_collect_arg2⁰) = case _lh_collect_arg1⁰ of {
@@ -230,7 +230,7 @@ testRsa_nofib $ primId 0
 //│ 		  (hash_lh__d1 (((encrypt_lh__d1 lh_large_int_0) lh_large_int_1) input_lh__d1));;
 //│ 		(testRsa_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]: 8 --->

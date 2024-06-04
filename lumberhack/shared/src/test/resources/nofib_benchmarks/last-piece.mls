@@ -369,7 +369,7 @@ testLastPiece_nofib dummy =
 testLastPiece_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> Original >>>>>>>>>>
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
 //│ testLastPiece_nofib_lh_₁^7013(primId⁰(0))
 //│ def addIntInt_lh_₁(_lh_addIntInt_arg1¹, _lh_addIntInt_arg2¹) = case _lh_addIntInt_arg1¹ of {
 //│ 	LH_P2 _lh_addIntInt_LH_P2_0² _lh_addIntInt_LH_P2_1² => case _lh_addIntInt_arg2¹ of {
@@ -2969,7 +2969,7 @@ testLastPiece_nofib $ primId 0
 //│ 		      (printDoc_0 (display_0 solutions_0))));;
 //│ 		(testLastPiece_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< Original <<<<<<<<<<
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion strategies >>>>>>>
 //│ [GT]: 8 --->
