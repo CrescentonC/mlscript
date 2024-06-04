@@ -1,0 +1,368 @@
+:NewParser
+:ParseOnly
+
+
+// 1. Introduction: Fig. 1
+let rec map(f, xs) =
+  if xs is
+    Nil then Nil
+    Cons(x, xs) then Cons(f(x), map(f, xs))
+let incr(x) = x + 1
+let double(x) = x * 2
+let main(ls) = map(incr, map(double, ls))
+main(primId(Cons(1, Nil)))
+//│ |#let| |#rec| |map|(|f|,| |xs|)| |#=|→|#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|←|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |double|(|x|)| |#=| |x| |*| |2|↵|#let| |main|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|main|(|primId|(|Cons|(|1|,| |Nil|)|)|)|
+//│ Parsed: {let rec map = f, xs, => {if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›}; let incr = x, => + (x,) (1,); let double = x, => * (x,) (2,); let main = ls, => map (incr, map (double, ls,),); main (primId (Cons (1, Nil,),),)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^51(primId⁰([Cons 1 [Nil]]))
+//│ def double_lh_₁(x⁰) = (x⁰ * 2)
+//│ def incr_lh_₁(x²) = (x² + 1)
+//│ def main_lh_₁(ls⁰) = map_lh_₂^41(incr_lh_₁^42, map_lh_₁^44(double_lh_₁^45, ls⁰))
+//│ def map_lh_₁(f¹, xs²) = case xs² of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x³ xs³ => [Cons f¹(x³) map_lh_₁^32(f¹, xs³)]}
+//│ def map_lh_₂(f⁰, xs⁰) = case xs⁰ of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂^12(f⁰, xs¹)]}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Nil]: 28 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18
+//│ [Cons f¹(x³) map_lh_₁(f¹, xs³)]: 37 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18
+//│ ------------------
+//│ case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18 --->
+//│ 	[Nil]: 28
+//│ 	[Cons f¹(x³) map_lh_₁(f¹, xs³)]: 37
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primId⁰([Cons 1 [Nil]]))
+//│ def double_lh_₁(x⁰) = (x⁰ * 2)
+//│ def incr_lh_₁(x¹) = (x¹ + 1)
+//│ def main_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
+//│ def map_lh_₁(f¹, xs¹, _lh_floatOutId_0⁰) = case xs¹ of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x² xs² => 
+//│ 		let xs³ = map_lh_₁(f¹, xs²)
+//│ 		in let x³ = f¹(x²)
+//│ 		in [Cons _lh_floatOutId_0⁰(x³) map_lh_₂(_lh_floatOutId_0⁰, xs³)]}
+//│ def map_lh_₂(f⁰, xs⁰) = xs⁰(f⁰)
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.1 Inlining in Anger: Fig. 2
+let foo = primitive
+let bar = primitive
+let consumer(x) =
+  foo(
+    if x is
+      Some(v) then v + 1
+      None then 0
+  )
+let producer(y) = if y then Some(123) else None
+let main = consumer(producer(bar))
+main
+//│ |#let| |foo| |#=| |primitive|↵|#let| |bar| |#=| |primitive|↵|#let| |consumer|(|x|)| |#=|→|foo|(|→|#if| |x| |is|→|Some|(|v|)| |#then| |v| |+| |1|↵|None| |#then| |0|←|←|↵|)|←|↵|#let| |producer|(|y|)| |#=| |#if| |y| |#then| |Some|(|123|)| |#else| |None|↵|#let| |main| |#=| |consumer|(|producer|(|bar|)|)|↵|main|
+//│ Parsed: {let foo = primitive; let bar = primitive; let consumer = x, => {foo (if x is ‹(Some (v,)) then + (v,) (1,); (None) then 0›,)}; let producer = y, => if (y) then Some (123,) else None; let main = consumer (producer (bar,),); main}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^25
+//│ def bar_lh_₁ = primitive⁰
+//│ def consumer_lh_₁(x⁰) = foo_lh_₁^8(case x⁰ of {
+//│ 	Some v⁰ => (v⁰ + 1)
+//│ 	| None  => 0})
+//│ def foo_lh_₁ = primitive⁰
+//│ def main_lh_₁ = consumer_lh_₁^20(producer_lh_₁^21(bar_lh_₁^22))
+//│ def producer_lh_₁(y⁰) = if y⁰ then [Some 123] else [None]
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Some 123]: 4 --->
+//│ 	case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
+//│ [None]: 5 --->
+//│ 	case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
+//│ ------------------
+//│ case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16 --->
+//│ 	[Some 123]: 4
+//│ 	[None]: 5
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁
+//│ def bar_lh_₁ = primitive⁰
+//│ def consumer_lh_₁(x⁰) = foo_lh_₁(x⁰([lh_Unit]))
+//│ def foo_lh_₁ = primitive⁰
+//│ def main_lh_₁ = consumer_lh_₁(producer_lh_₁(bar_lh_₁))
+//│ def producer_lh_₁(y⁰, _lh_floatOutId_0⁰) = if y⁰ then 
+//│ 	let v⁰ = 123
+//│ 	in (v⁰ + 1) else 0
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.3 Preserving Call-By-Value Evaluation Order
+let foo(x, y) =
+  if x then
+    if y is
+      Unit then error(Unit)
+  else
+    0
+let main(x) = foo(x, Unit)
+main(primitive)
+//│ |#let| |foo|(|x|,| |y|)| |#=|→|#if| |x| |#then|→|#if| |y| |is|→|Unit| |#then| |error|(|Unit|)|←|←|↵|#else|→|0|←|←|↵|#let| |main|(|x|)| |#=| |foo|(|x|,| |Unit|)|↵|main|(|primitive|)|
+//│ Parsed: {let foo = x, y, => {if (x) then {if y is ‹(Unit) then error (Unit,)›} else {0}}; let main = x, => foo (x, Unit,); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^17(primitive⁰)
+//│ def foo_lh_₁(x⁰, y⁰) = if x⁰ then case y⁰ of {
+//│ 	Unit  => error⁰([Unit])} else 0
+//│ def main_lh_₁(x¹) = foo_lh_₁^11(x¹, [Unit])
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Unit]: 14 --->
+//│ 	case y⁰ of {Unit  => error⁰([Unit])}: 6
+//│ ------------------
+//│ case y⁰ of {Unit  => error⁰([Unit])}: 6 --->
+//│ 	[Unit]: 14
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def foo_lh_₁(x⁰, y⁰) = if x⁰ then y⁰([lh_Unit]) else 0
+//│ def main_lh_₁(x¹) = foo_lh_₁(x¹, (fun _lh_dummy⁰ -> error⁰([Unit])))
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.4 Fusing Recursive Functions
+let rec enumerate(n) = if n >= 0 then Cons(n, enumerate(n - 1)) else Nil
+let rec sum(xs) = if xs is
+  Nil then 0
+  Cons(x, xs) then x + sum(xs)
+let main(x) = sum(enumerate(x))
+main(primitive)
+//│ |#let| |#rec| |enumerate|(|n|)| |#=| |#if| |n| |>=| |0| |#then| |Cons|(|n|,| |enumerate|(|n| |-| |1|)|)| |#else| |Nil|↵|#let| |#rec| |sum|(|xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |0|↵|Cons|(|x|,| |xs|)| |#then| |x| |+| |sum|(|xs|)|←|↵|#let| |main|(|x|)| |#=| |sum|(|enumerate|(|x|)|)|↵|main|(|primitive|)|
+//│ Parsed: {let rec enumerate = n, => if (>= (n,) (0,)) then Cons (n, enumerate (- (n,) (1,),),) else Nil; let rec sum = xs, => if xs is ‹(Nil) then 0; (Cons (x, xs,)) then + (x,) (sum (xs,),)›; let main = x, => sum (enumerate (x,),); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^35(primitive⁰)
+//│ def enumerate_lh_₁(n⁰) = if (n⁰ >= 0) then [Cons n⁰ enumerate_lh_₁^18((n⁰ - 1))] else [Nil]
+//│ def main_lh_₁(x¹) = sum_lh_₁^29(enumerate_lh_₁^30(x¹))
+//│ def sum_lh_₁(xs⁰) = case xs⁰ of {
+//│ 	Nil  => 0
+//│ 	| Cons x⁰ xs¹ => (x⁰ + sum_lh_₁^6(xs¹))}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Cons n⁰ enumerate_lh_₁((n⁰ - 1))]: 25 --->
+//│ 	case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10
+//│ [Nil]: 26 --->
+//│ 	case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10
+//│ ------------------
+//│ case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10 --->
+//│ 	[Cons n⁰ enumerate_lh_₁((n⁰ - 1))]: 25
+//│ 	[Nil]: 26
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def enumerate_lh_₁(n⁰, _lh_floatOutId_0⁰) = if (n⁰ >= 0) then 
+//│ 	let xs¹ = enumerate_lh_₁((n⁰ - 1))
+//│ 	in let x⁰ = n⁰
+//│ 	in (x⁰ + sum_lh_₁(xs¹)) else 0
+//│ def main_lh_₁(x¹) = sum_lh_₁(enumerate_lh_₁(x¹))
+//│ def sum_lh_₁(xs⁰) = xs⁰([lh_Unit])
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.5 Computations with Free Variables
+let incr = primitive
+let double = primitive
+let rec map(f, xs) = if xs is
+  Nil then Nil
+  Cons(x, xs) then Cons(f(x), map(f, xs))
+let main(ls) = map(incr, map(double, ls))
+main(primitive)
+//│ |#let| |incr| |#=| |primitive|↵|#let| |double| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |main|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|main|(|primitive|)|
+//│ Parsed: {let incr = primitive; let double = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let main = ls, => map (incr, map (double, ls,),); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^41(primitive⁰)
+//│ def double_lh_₁ = primitive⁰
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(ls⁰) = map_lh_₂^31(incr_lh_₁^32, map_lh_₁^34(double_lh_₁^35, ls⁰))
+//│ def map_lh_₁(f¹, xs²) = case xs² of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x¹ xs³ => [Cons f¹(x¹) map_lh_₁^21(f¹, xs³)]}
+//│ def map_lh_₂(f⁰, xs⁰) = case xs⁰ of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂^7(f⁰, xs¹)]}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Nil]: 17 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13
+//│ [Cons f¹(x¹) map_lh_₁(f¹, xs³)]: 26 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13
+//│ ------------------
+//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13 --->
+//│ 	[Nil]: 17
+//│ 	[Cons f¹(x¹) map_lh_₁(f¹, xs³)]: 26
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def double_lh_₁ = primitive⁰
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
+//│ def map_lh_₁(f¹, xs¹, _lh_floatOutId_0⁰) = case xs¹ of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x⁰ xs² => 
+//│ 		let xs³ = map_lh_₁(f¹, xs²)
+//│ 		in let x¹ = f¹(x⁰)
+//│ 		in [Cons _lh_floatOutId_0⁰(x¹) map_lh_₂(_lh_floatOutId_0⁰, xs³)]}
+//│ def map_lh_₂(f⁰, xs⁰) = xs⁰(f⁰)
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.6.2 Nonfusible Programs
+let incr = primitive
+let rec map(f, xs) = if xs is
+  Nil then Nil
+  Cons(x, xs) then Cons(f(x), map(f, xs))
+let rec rev(xs, acc) = if xs is
+  Cons(x, xs) then rev(xs, Cons(x, acc))
+  Nil then acc
+let main(xs) = map(incr, rev(xs, Nil))
+main(primitive)
+//│ |#let| |incr| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |main|(|xs|)| |#=| |map|(|incr|,| |rev|(|xs|,| |Nil|)|)|↵|main|(|primitive|)|
+//│ Parsed: {let incr = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let main = xs, => map (incr, rev (xs, Nil,),); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^38(primitive⁰)
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(xs⁴) = map_lh_₁^28(incr_lh_₁^29, rev_lh_₁^31(xs⁴, [Nil]))
+//│ def map_lh_₁(f⁰, xs²) = case xs² of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁^19(f⁰, xs³)]}
+//│ def rev_lh_₁(xs⁰, acc⁰) = case xs⁰ of {
+//│ 	Cons x⁰ xs¹ => rev_lh_₁^2(xs¹, [Cons x⁰ acc⁰])
+//│ 	| Nil  => acc⁰}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Cons x⁰ acc⁰]: 7 --->
+//│ 	case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25
+//│ [Nil]: 34 --->
+//│ 	case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25
+//│ ------------------
+//│ case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25 --->
+//│ 	[Cons x⁰ acc⁰]: 7
+//│ 	[Nil]: 34
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(xs⁴) = map_lh_₁(incr_lh_₁, rev_lh_₁(xs⁴, (fun f² -> [Nil])))
+//│ def map_lh_₁(f¹, xs³) = xs³(f¹)
+//│ def rev_lh_₁(xs⁰, acc⁰) = case xs⁰ of {
+//│ 	Cons x⁰ xs¹ => rev_lh_₁(xs¹, 
+//│ 		let xs² = acc⁰
+//│ 		in let x¹ = x⁰
+//│ 		in (fun f⁰ -> [Cons f⁰(x¹) map_lh_₁(f⁰, xs²)]))
+//│ 	| Nil  => acc⁰}
+//│ <<<<<<< after fusion <<<<<<<
+
+
+
+// 2.6.2 Nonfusible Programs: "`rev (map incr xs) []` fuses just fine in Lumberhack"
+let incr = primitive
+let rec map(f, xs) = if xs is
+  Nil then Nil
+  Cons(x, xs) then Cons(f(x), map(f, xs))
+let rec rev(xs, acc) = if xs is
+  Cons(x, xs) then rev(xs, Cons(x, acc))
+  Nil then acc
+let main(xs) = rev(map(incr, xs), Nil)
+main(primitive)
+//│ |#let| |incr| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |main|(|xs|)| |#=| |rev|(|map|(|incr|,| |xs|)|,| |Nil|)|↵|main|(|primitive|)|
+//│ Parsed: {let incr = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let main = xs, => rev (map (incr, xs,), Nil,); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^38(primitive⁰)
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(xs⁴) = rev_lh_₁^28(map_lh_₁^29(incr_lh_₁^30, xs⁴), [Nil])
+//│ def map_lh_₁(f⁰, xs⁰) = case xs⁰ of {
+//│ 	Nil  => [Nil]
+//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁^6(f⁰, xs¹)]}
+//│ def rev_lh_₁(xs², acc⁰) = case xs² of {
+//│ 	Cons x¹ xs³ => rev_lh_₁^17(xs³, [Cons x¹ acc⁰])
+//│ 	| Nil  => acc⁰}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ [Nil]: 2 --->
+//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25
+//│ [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11 --->
+//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25
+//│ ------------------
+//│ case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25 --->
+//│ 	[Nil]: 2
+//│ 	[Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def incr_lh_₁ = primitive⁰
+//│ def main_lh_₁(xs⁴) = rev_lh_₁(map_lh_₁(incr_lh_₁, xs⁴), [Nil])
+//│ def map_lh_₁(f⁰, xs⁰, _lh_floatOutId_0⁰) = case xs⁰ of {
+//│ 	Nil  => _lh_floatOutId_0⁰
+//│ 	| Cons x⁰ xs¹ => 
+//│ 		let xs² = map_lh_₁(f⁰, xs¹)
+//│ 		in let x¹ = f⁰(x⁰)
+//│ 		in rev_lh_₁(xs², [Cons x¹ _lh_floatOutId_0⁰])}
+//│ def rev_lh_₁(xs³, acc²) = xs³(acc²)
+//│ <<<<<<< after fusion <<<<<<<
+
+
+// 2.6.3 Misaligned and Conflicting Producer/Consumer Pairs
+let pair_up(xs) =
+  if xs is
+    Cons(x, xss) then
+      if xss is
+        Cons(y, xs) then Cons(Pair(x, y), pair_up(xs))
+        _ then Nil
+    _ then Nil
+let rec mk(n) = if n > 0 then Cons(n - 1, Cons(n, Cons(n + 1, mk(n - 1)))) else Nil
+let main(x) = pair_up(mk(x))
+main(primitive)
+//│ |#let| |pair_up|(|xs|)| |#=|→|#if| |xs| |is|→|Cons|(|x|,| |xss|)| |#then|→|#if| |xss| |is|→|Cons|(|y|,| |xs|)| |#then| |Cons|(|Pair|(|x|,| |y|)|,| |pair_up|(|xs|)|)|↵|_| |#then| |Nil|←|←|↵|_| |#then| |Nil|←|←|↵|#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |>| |0| |#then| |Cons|(|n| |-| |1|,| |Cons|(|n|,| |Cons|(|n| |+| |1|,| |mk|(|n| |-| |1|)|)|)|)| |#else| |Nil|↵|#let| |main|(|x|)| |#=| |pair_up|(|mk|(|x|)|)|↵|main|(|primitive|)|
+//│ Parsed: {let pair_up = xs, => {if xs is ‹(Cons (x, xss,)) then {if xss is ‹(Cons (y, xs,)) then Cons (Pair (x, y,), pair_up (xs,),); (_) then Nil›}; (_) then Nil›}; let rec mk = n, => if (> (n,) (0,)) then Cons (- (n,) (1,), Cons (n, Cons (+ (n,) (1,), mk (- (n,) (1,),),),),) else Nil; let main = x, => pair_up (mk (x,),); main (primitive,)}
+//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ main_lh_₁^50(primitive⁰)
+//│ def main_lh_₁(x¹) = pair_up_lh_₁^44(mk_lh_₁^45(x¹))
+//│ def mk_lh_₁(n⁰) = if (n⁰ > 0) then [Cons (n⁰ - 1) [Cons n⁰ [Cons (n⁰ + 1) mk_lh_₁^17((n⁰ - 1))]]] else [Nil]
+//│ def pair_up_lh_₁(xs⁰) = case xs⁰ of {
+//│ 	Cons x⁰ xss⁰ => case xss⁰ of {
+//│ 		Cons y⁰ xs¹ => [Cons [Pair x⁰ y⁰] pair_up_lh_₁^35(xs¹)]
+//│ 		| _  => [Nil]}
+//│ 	| _  => [Nil]}
+//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ 
+//│ >>>>>>> fusion strategies >>>>>>>
+//│ 
+//│ ------------------
+//│ 
+//│ <<<<<<< fusion strategies <<<<<<<
+//│ 
+//│ >>>>>>> after fusion >>>>>>>
+//│ main_lh_₁(primitive⁰)
+//│ def main_lh_₁(x¹) = pair_up_lh_₁(mk_lh_₁(x¹))
+//│ def mk_lh_₁(n⁰) = if (n⁰ > 0) then [Cons (n⁰ - 1) [Cons n⁰ [Cons (n⁰ + 1) mk_lh_₁((n⁰ - 1))]]] else [Nil]
+//│ def pair_up_lh_₁(xs⁰) = case xs⁰ of {
+//│ 	Cons x⁰ xss⁰ => case xss⁰ of {
+//│ 		Cons y⁰ xs¹ => [Cons [Pair x⁰ y⁰] pair_up_lh_₁(xs¹)]
+//│ 		| _  => [Nil]}
+//│ 	| _  => [Nil]}
+//│ <<<<<<< after fusion <<<<<<<
