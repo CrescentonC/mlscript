@@ -14,14 +14,14 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
   One can pull the `amd64` image and launch a container with the following command:
 
   ```
-  docker pull crescentonc/lumberhack-docker:v0-amd64
+  docker pull crescentonc/lumberhack-docker:v0-amd64 [FIXME: change tag later]
   docker run -it --rm crescentonc/lumberhack-docker:v0-amd64
   ```
   
   If one wants to use the `arm64` image, the commands are:
   
   ```
-  docker pull crescentonc/lumberhack-docker:v0-arm64
+  docker pull crescentonc/lumberhack-docker:v0-arm64 [FIXME: change tag later]
   docker run -it --rm crescentonc/lumberhack-docker:v0-arm64
   ```
   
@@ -70,7 +70,14 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
       opam install zarith core_bench -y
       ```
 
-  3. **To generate the figure we used in paper**: [TODO:]
+  3. **To generate the figures we used in paper**: you need [R (≥3.5)][R] and
+  R packages [ggplot2][ggplot2], [RColorBrewer][], [gridExtra][gridExtra].
+
+      After install R, run the following command in your shell to install the required packages:
+      ```sh
+      R -e "install.packages(c('RColorBrewer', 'ggplot2', 'gridExtra'), repos='http://cran.rstudio.com/')"
+      ```
+
 
   [supported-jdk-versions]: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
   [sbt]: https://www.scala-sbt.org/
@@ -80,6 +87,10 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
   [flambda]: https://opam.ocaml.org/packages/ocaml-option-flambda/#
   [core_bench]: https://opam.ocaml.org/packages/core_bench/
   [zarith]: https://opam.ocaml.org/packages/zarith/
+  [R]: https://www.r-project.org/
+  [ggplot2]: https://cran.r-project.org/web/packages/ggplot2/index.html
+  [gridExtra]: https://cran.r-project.org/web/packages/gridExtra/index.html
+  [RColorBrewer]: https://cran.r-project.org/web/packages/RColorBrewer/index.html
 
 
 
@@ -94,27 +105,64 @@ These sub-directories contain both the unoptimized programs and the optimized on
 utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
 benchmark both the original program and the optimized ones and show the execution time and GC data.
 
-  After OCaml programs are generated, the script `bench.sh` can be used to run all of them.
+  After OCaml programs are generated, run the following command
+  to start executing the OCaml benchmarks.
+  ```sh
+  ./bench.sh
+  ```
+  The raw output from [`core_bench`] about the execution stats and the compiled
+  binary size information will be printed to stdout, `plot/time.txt` and `plot/size.txt`.
 Some programs require longer running time to enable `core_bench` to report
 reliable 95% confidence intervals, and their test durations
 are adjusted accordingly in `bench.sh`.
 Depending on the machine executing the tests, the numbers may need to be further adjusted.
 
--  [TODO: to run each nofib program individually, cd to the corresponding directory and `eval $(head -2 ./mail.ml | tail -1)`, may also need to change time]
+- To test output OCaml benchmark programs individually,
+  `cd` to the corresponding sub-directory in `new-nofib-ocaml-gen`
+  and run the following command to show the suggested command for
+  compiling and running the generated OCaml programs.
+  ```sh
+  echo $(head -2 ./main.ml | tail -1)
+  ```
+  The suggested command is composed of two commands, the first
+  compiles the OCaml programs using `ocamlopt -O3` to produce
+  an executable `<benchmark name>.out`, the second launches
+  the generated executable `./<benchmark name>.out +time`.
+  The `+time` flag tells `core_bench` to measure the
+  95% confidence interval. The default benchmarking
+  duration is 10 seconds, and it can be changed by passing
+  `-q <time in seconds>` to the executable. More options
+  are also provided by `core_bench`, they can be listed by
+  running `./<benchmark name>.out --help`.
+  
 
 - To write your own programs and test Lumberhack's optimization on them
   
-  The testing infrastructure is set up so that if there are any unstaged changes (as determined by `git`) in any test file
+  The testing infrastructure for Lumberhack is set up so that
+  if there are any unstaged changes (as determined by `git`) in any test file
 (those in `lumberhack/shared/src/test/resources`), only the corresponding files will be tested.
 So you can make select modifications to some test files and run the test command again,
 and it will only run your modified tests. There is an `Empty.mls` file for you to start.
 Currently, we support the MLscript (explained below) syntax and a subset of Haskell syntax (so that we can port
-the `nofib` benchmarks). To use the Haskell syntax, add `:lhInHaskell` at the beginning of
-your Haskell programs.
+the `nofib` benchmarks). To use the Haskell syntax, add `:lhInHaskell` at the first line of
+your Haskell programs (examples can be seen in `lumberhack/shared/src/test/resources/nofib_benchmarks`)
   - [TODO: describe MLscript syntax]
   - [TODO: describe Haskell syntax (and no empty lines allowed)]
 
-- [TODO: To generate the figures we have in the paper]
+- To generate figures in the paper
+
+  After the execution of `bench.sh`, `plot/time.txt` and `plot/size.txt`
+  should be ready. Then run
+  ```bash
+  ./plot.sh
+  ```
+  The scripts in `plot` will be automatically called, and the figures
+  will be generated as `size.pdf` and `plot.pdf`. `size.csv` and `time.csv`
+  will also be generated along the way as intermediate files, which
+  collect information in `csv` formate from the raw outputs from `core_bench`.
+
+  Additionally, to generate the tables we present in Appendix D
+  (table 1 and table 2) in `csv` format, run `table.csv`.
 
 
 -----
