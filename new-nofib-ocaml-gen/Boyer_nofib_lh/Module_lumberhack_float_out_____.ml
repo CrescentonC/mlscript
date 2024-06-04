@@ -6,14 +6,14 @@ open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_lumberhack_float_out_____(LH_Dum: sig end): sig val run: unit -> int end = struct
 let rec all_lh__d1 _lh_all_arg1_2 _lh_all_arg2_0 =
   (_lh_all_arg2_0 _lh_all_arg1_2);;
-let rec replicate_lh__d1 _lh_replicate_arg1_0 _lh_replicate_arg2_0 _lh_popOutId_0_0 =
+let rec replicate_lh__d1 _lh_replicate_arg1_0 _lh_replicate_arg2_0 _lh_floatOutId_0_0 =
   (if (_lh_replicate_arg1_0 = 0) then
     true
   else
     (let rec _lh_all_LH_C_1_0 = ((replicate_lh__d1 (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0) in
       (let rec _lh_all_LH_C_0_0 = _lh_replicate_arg2_0 in
-        (if (_lh_popOutId_0_0 _lh_all_LH_C_0_0) then
-          ((all_lh__d1 _lh_popOutId_0_0) _lh_all_LH_C_1_0)
+        (if (_lh_floatOutId_0_0 _lh_all_LH_C_0_0) then
+          ((all_lh__d1 _lh_floatOutId_0_0) _lh_all_LH_C_1_0)
         else
           false))));;
 let rec find_lh__d1 _lh_find_arg1_5 _lh_find_arg2_0 =

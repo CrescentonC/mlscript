@@ -45,7 +45,7 @@ let rec concat_lh__d2 lss_1 =
   (lss_1 99);;
 let rec mappend_lh__d2 xs_2 ys_1_1 =
   (xs_2 ys_1_1);;
-let rec map_lh__d2 f_4 ls_1 _lh_popOutId_0_1 =
+let rec map_lh__d2 f_4 ls_1 _lh_floatOutId_0_1 =
   (match ls_1 with
     | `LH_C(h_1_0, t_1_0) -> 
       (let rec t_1_1 = ((map_lh__d2 f_4) t_1_0) in
@@ -687,12 +687,12 @@ let rec clauses_lh__d1 _lh_clauses_arg1_0 =
             ((fun _lh_funcomp_x_7 -> 
               ((fun _lh_funcomp_x_8 -> 
                 (concat_lh__d2 ((map_lh__d2 disp_lh__d1) _lh_funcomp_x_8))) (unicl_lh__d1 _lh_funcomp_x_7))) (split_lh__d1 _lh_funcomp_x_6))) (disin_lh__d1 _lh_funcomp_x_5))) (negin_lh__d1 _lh_funcomp_x_4))) (elim_lh__d1 _lh_funcomp_x_3))) (parse_lh__d1 _lh_funcomp_x_2))) _lh_clauses_arg1_0);;
-let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_popOutId_0_0 _lh_popOutId_1_0 =
+let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (if (_lh_copy_arg1_0 > 0) then
     (let rec t_0 = ((copy_lh__d1 (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0) in
       (let rec h_0 = _lh_copy_arg2_0 in
-        (let rec t_1 = ((map_lh__d1 _lh_popOutId_0_0) t_0) in
-          (let rec h_1 = (_lh_popOutId_0_0 h_0) in
+        (let rec t_1 = ((map_lh__d1 _lh_floatOutId_0_0) t_0) in
+          (let rec h_1 = (_lh_floatOutId_0_0 h_0) in
             ((mappend_lh__d1 h_1) (concat_lh__d1 t_1))))))
   else
     (`LH_N));;

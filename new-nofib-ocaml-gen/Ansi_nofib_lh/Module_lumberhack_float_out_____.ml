@@ -428,13 +428,13 @@ let rec program_lh__d1 _lh_program_arg1_0 =
         (let rec h_4_8 = 'I' in
           (fun ys_4_3 -> 
             (`LH_C(h_4_8, ((mappend_lh__d5 t_3_5) ys_4_3))))))) (pressAnyKey_lh__d2 end_lh__d1))))))))) _lh_program_arg1_0);;
-let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_popOutId_0_0 _lh_popOutId_1_0 =
+let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (if (_lh_copy_arg1_0 > 0) then
     (let rec t_5_5 = ((copy_lh__d1 (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0) in
       (let rec h_5_5 = _lh_copy_arg2_0 in
-        ((_lh_popOutId_0_0 h_5_5) (((foldr_lh__d1 _lh_popOutId_0_0) _lh_popOutId_1_0) t_5_5))))
+        ((_lh_floatOutId_0_0 h_5_5) (((foldr_lh__d1 _lh_floatOutId_0_0) _lh_floatOutId_1_0) t_5_5))))
   else
-    _lh_popOutId_1_0);;
+    _lh_floatOutId_1_0);;
 let rec testAnsi_nofib_lh__d1 _lh_testAnsi_nofib_arg1_0 =
   ((((foldr_lh__d1 (fun f_0 g_0 _lh_funcomp_x_0 -> 
     (f_0 (g_0 _lh_funcomp_x_0)))) (fun x_0 -> 

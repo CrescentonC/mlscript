@@ -271,7 +271,7 @@ let rec mappend_lh__d1_d2 xs_1_3 ys_2_2 =
       (`LH_C(h_3_4, ((mappend_lh__d1_d2 t_3_4) ys_2_2)))
     | `LH_N -> 
       ys_2_2);;
-let rec map_lh__d5 f_2_4 ls_6 _lh_popOutId_0_2 =
+let rec map_lh__d5 f_2_4 ls_6 _lh_floatOutId_0_2 =
   (match ls_6 with
     | `LH_C(h_1_2, t_1_2) -> 
       (let rec t_1_3 = ((map_lh__d5 f_2_4) t_1_2) in
@@ -301,14 +301,14 @@ let rec drop_lh__d1 _lh_drop_arg1_0 _lh_drop_arg2_0 =
         _lh_drop_LH_C_1_0)
     | _ -> 
       (failwith "error"));;
-let rec groop_lh__d2 _lh_groop_arg1_0 _lh_groop_arg2_0 _lh_popOutId_0_0 =
+let rec groop_lh__d2 _lh_groop_arg1_0 _lh_groop_arg2_0 _lh_floatOutId_0_0 =
   (match _lh_groop_arg2_0 with
     | `LH_N -> 
       (`LH_N)
     | _ -> 
       (let rec t_2 = ((groop_lh__d2 _lh_groop_arg1_0) ((drop_lh__d1 _lh_groop_arg1_0) _lh_groop_arg2_0)) in
         (let rec h_2 = ((take_lh__d1 _lh_groop_arg1_0) _lh_groop_arg2_0) in
-          (`LH_C((_lh_popOutId_0_0 h_2), ((map_lh__d6 _lh_popOutId_0_0) t_2))))));;
+          (`LH_C((_lh_floatOutId_0_0 h_2), ((map_lh__d6 _lh_floatOutId_0_0) t_2))))));;
 let rec foldr_lh__d1 f_1_9 i_0 ls_1 =
   (match ls_1 with
     | `LH_C(h_5, t_5) -> 
@@ -376,14 +376,14 @@ let rec stack_lh__d1 _lh_stack_arg1_0 =
     ((mappend_lh__d1_d2 a_6) b_5))) _lh_stack_arg1_0);;
 let rec map_lh__d3 f_3_9 ls_8 =
   (ls_8 f_3_9);;
-let rec groop_lh__d1 _lh_groop_arg1_1 _lh_groop_arg2_1 _lh_popOutId_0_4 =
+let rec groop_lh__d1 _lh_groop_arg1_1 _lh_groop_arg2_1 _lh_floatOutId_0_4 =
   (match _lh_groop_arg2_1 with
     | `LH_N -> 
       (`LH_N)
     | _ -> 
       (let rec t_3_3 = ((groop_lh__d1 _lh_groop_arg1_1) ((drop_lh__d1 _lh_groop_arg1_1) _lh_groop_arg2_1)) in
         (let rec h_3_3 = ((take_lh__d1 _lh_groop_arg1_1) _lh_groop_arg2_1) in
-          (`LH_C((_lh_popOutId_0_4 h_3_3), ((map_lh__d3 _lh_popOutId_0_4) t_3_3))))));;
+          (`LH_C((_lh_floatOutId_0_4 h_3_3), ((map_lh__d3 _lh_floatOutId_0_4) t_3_3))))));;
 let rec spread_lh__d1 _lh_spread_arg1_1 =
   ((foldr1_lh__d1 (fun a_5 b_4 -> 
     (((zipWith_lh__d2 mappend_lh__d1_d2) a_5) b_4))) _lh_spread_arg1_1);;
@@ -392,11 +392,11 @@ let rec block_lh__d1 _lh_block_arg1_0 _lh_funcomp_x_0 =
     (stack_lh__d1 ((map_lh__d3 spread_lh__d1) _lh_funcomp_x_1))) ((groop_lh__d1 _lh_block_arg1_0) _lh_funcomp_x_0));;
 let rec map_lh__d4 f_4_0 ls_1_0 =
   (ls_1_0 f_4_0);;
-let rec enumFromTo_lh__d2 a_0 b_0 _lh_popOutId_0_1 =
+let rec enumFromTo_lh__d2 a_0 b_0 _lh_floatOutId_0_1 =
   (if (a_0 <= b_0) then
     (let rec t_4 = ((enumFromTo_lh__d2 (a_0 + 1)) b_0) in
       (let rec h_4 = a_0 in
-        (`LH_C((_lh_popOutId_0_1 h_4), ((map_lh__d4 _lh_popOutId_0_1) t_4)))))
+        (`LH_C((_lh_floatOutId_0_1 h_4), ((map_lh__d4 _lh_floatOutId_0_1) t_4)))))
   else
     (`LH_N));;
 let rec rjustify_lh__d1 _lh_rjustify_arg1_0 _lh_rjustify_arg2_0 =
@@ -423,13 +423,13 @@ let rec mappend_lh__d4 xs_1_0 ys_1_0 =
   (xs_1_0 ys_1_0);;
 let rec map_lh__d2 f_2_2 ls_4 =
   (ls_4 f_2_2);;
-let rec copy_lh__d5 _lh_copy_arg1_2 _lh_copy_arg2_2 _lh_popOutId_0_3 =
+let rec copy_lh__d5 _lh_copy_arg1_2 _lh_copy_arg2_2 _lh_floatOutId_0_3 =
   (if (_lh_copy_arg1_2 > 0) then
     (let rec t_1_5 = ((copy_lh__d5 (_lh_copy_arg1_2 - 1)) _lh_copy_arg2_2) in
       (let rec h_1_5 = _lh_copy_arg2_2 in
-        (`LH_C(h_1_5, ((mappend_lh__d2 t_1_5) _lh_popOutId_0_3)))))
+        (`LH_C(h_1_5, ((mappend_lh__d2 t_1_5) _lh_floatOutId_0_3)))))
   else
-    _lh_popOutId_0_3);;
+    _lh_floatOutId_0_3);;
 let rec monthLengths_lh__d1 _lh_monthLengths_arg1_1 _lh_zip3_LH_C_0_6_0 _lh_zip3_LH_C_0_6_1 _lh_zip3_LH_C_1_6_0 _lh_zip3_LH_C_1_6_1 f_3_8 =
   (let rec feb_1 = (if (leap_lh__d1 _lh_monthLengths_arg1_1) then
     29

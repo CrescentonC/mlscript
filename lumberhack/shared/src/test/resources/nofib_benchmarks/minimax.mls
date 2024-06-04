@@ -2192,70 +2192,70 @@ testMinimax_nofib $ primId "180000"
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMinimax_nofib_lh_₁(primId⁰([LH_C '1' [LH_C '8' [LH_C '0' [LH_C '0' [LH_C '0' [LH_C '0' [LH_N]]]]]]]))
-//│ def alternate_lh_₁(_lh_alternate_arg1¹, _lh_alternate_arg2², _lh_alternate_arg3², _lh_alternate_arg4¹) = if fullBoard_lh_₁(_lh_alternate_arg4¹) then (fun f¹⁷ -> (fun _lh_dummy⁵⁴ -> (fun _lh_dummy⁵³ -> 0))) else if polyEq⁰(static_lh_₁(_lh_alternate_arg4¹), [XWin]) then (fun f¹⁸ -> (fun _lh_dummy⁵⁶ -> (fun _lh_dummy⁵⁵ -> 0))) else if polyEq⁰(static_lh_₂(_lh_alternate_arg4¹), [OWin]) then (fun f¹⁹ -> (fun _lh_dummy⁵⁸ -> (fun _lh_dummy⁵⁷ -> 0))) else 
-//│ 	let opposition² = opposite_lh_₁(_lh_alternate_arg1¹)
-//│ 	in let possibles¹ = newPositions_lh_₁(_lh_alternate_arg1¹, _lh_alternate_arg4¹)
-//│ 	in let scores¹ = map_lh_₂(bestMove_lh_₁(opposition², _lh_alternate_arg3², _lh_alternate_arg2²), possibles¹)
-//│ 	in let boardd_eval¹ = best_lh_₁(_lh_alternate_arg2², possibles¹, scores¹)
-//│ 	in let _lh_matchIdent¹¹ = boardd_eval¹
-//│ 	in _lh_matchIdent¹¹(_lh_alternate_arg2², _lh_alternate_arg3², opposition²)
-//│ def and_lh_₁(_lh_and_arg1¹) = _lh_and_arg1¹(99)
-//│ def bestMove_lh_₁(_lh_bestMove_arg1¹, _lh_bestMove_arg2¹, _lh_bestMove_arg3¹, _lh_funcomp_x³) = (fun _lh_funcomp_x⁴ -> mise_lh_₁(_lh_bestMove_arg2¹, _lh_bestMove_arg3¹, cropTree_lh_₁(_lh_funcomp_x⁴)))((fun _lh_funcomp_x⁵ -> mapTree_lh_₁(static_lh_₃, searchTree_lh_₁(_lh_bestMove_arg1¹, _lh_funcomp_x⁵)))(_lh_funcomp_x³))
-//│ def best_lh_₁(_lh_best_arg1¹, _lh_best_arg2¹, _lh_best_arg3¹) = case _lh_best_arg2¹ of {
-//│ 	LH_C _lh_best_LH_C_0⁰ _lh_best_LH_C_1⁰ => case _lh_best_arg3¹ of {
+//│ def alternate_lh_₁(_lh_alternate_arg1⁰, _lh_alternate_arg2¹, _lh_alternate_arg3¹, _lh_alternate_arg4⁰) = if fullBoard_lh_₁(_lh_alternate_arg4⁰) then (fun f¹⁰ -> (fun _lh_dummy⁵³ -> (fun _lh_dummy⁵⁴ -> 0))) else if polyEq⁰(static_lh_₁(_lh_alternate_arg4⁰), [XWin]) then (fun f¹¹ -> (fun _lh_dummy⁵⁵ -> (fun _lh_dummy⁵⁶ -> 0))) else if polyEq⁰(static_lh_₂(_lh_alternate_arg4⁰), [OWin]) then (fun f¹² -> (fun _lh_dummy⁵⁷ -> (fun _lh_dummy⁵⁸ -> 0))) else 
+//│ 	let opposition¹ = opposite_lh_₁(_lh_alternate_arg1⁰)
+//│ 	in let possibles⁰ = newPositions_lh_₁(_lh_alternate_arg1⁰, _lh_alternate_arg4⁰)
+//│ 	in let scores⁰ = map_lh_₂(bestMove_lh_₁(opposition¹, _lh_alternate_arg3¹, _lh_alternate_arg2¹), possibles⁰)
+//│ 	in let boardd_eval⁰ = best_lh_₁(_lh_alternate_arg2¹, possibles⁰, scores⁰)
+//│ 	in let _lh_matchIdent⁵ = boardd_eval⁰
+//│ 	in _lh_matchIdent⁵(_lh_alternate_arg2¹, _lh_alternate_arg3¹, opposition¹)
+//│ def and_lh_₁(_lh_and_arg1⁰) = _lh_and_arg1⁰(99)
+//│ def bestMove_lh_₁(_lh_bestMove_arg1⁰, _lh_bestMove_arg2⁰, _lh_bestMove_arg3⁰, _lh_funcomp_x⁰) = (fun _lh_funcomp_x¹ -> mise_lh_₁(_lh_bestMove_arg2⁰, _lh_bestMove_arg3⁰, cropTree_lh_₁(_lh_funcomp_x¹)))((fun _lh_funcomp_x² -> mapTree_lh_₁(static_lh_₃, searchTree_lh_₁(_lh_bestMove_arg1⁰, _lh_funcomp_x²)))(_lh_funcomp_x⁰))
+//│ def best_lh_₁(_lh_best_arg1⁰, _lh_best_arg2⁰, _lh_best_arg3⁰) = case _lh_best_arg2⁰ of {
+//│ 	LH_C _lh_best_LH_C_0⁰ _lh_best_LH_C_1⁰ => case _lh_best_arg3⁰ of {
 //│ 		LH_C _lh_best_LH_C_0¹ _lh_best_LH_C_1¹ => 
-//│ 			let best'¹ = (fun b⁵ -> (fun s¹ -> (fun ls1¹ -> (fun ls2¹ -> 
-//│ 				let _lh_matchIdent⁸ = ls1¹
-//│ 				in case _lh_matchIdent⁸ of {
+//│ 			let best'⁰ = (fun b² -> (fun s⁰ -> (fun ls1⁰ -> (fun ls2⁰ -> 
+//│ 				let _lh_matchIdent² = ls1⁰
+//│ 				in case _lh_matchIdent² of {
 //│ 					LH_N  => 
-//│ 						let _lh_matchIdent⁹ = ls2¹
-//│ 						in case _lh_matchIdent⁹ of {
+//│ 						let _lh_matchIdent³ = ls2⁰
+//│ 						in case _lh_matchIdent³ of {
 //│ 							LH_N  => 
-//│ 								let _lh_alternate_LH_P2_1¹ = s¹
-//│ 								in let _lh_alternate_LH_P2_0¹ = b⁵
-//│ 								in (fun _lh_alternate_arg2¹ -> (fun _lh_alternate_arg3¹ -> (fun opposition¹ -> 
-//│ 									let t²⁷⁶ = alternate_lh_₁(opposition¹, _lh_alternate_arg3¹, _lh_alternate_arg2¹, _lh_alternate_LH_P2_0¹)
-//│ 									in let h²⁷⁶ = 	
-//│ 										let _lh_showMove_LH_P2_1¹ = _lh_alternate_LH_P2_1¹
-//│ 										in let _lh_showMove_LH_P2_0¹ = _lh_alternate_LH_P2_0¹
-//│ 										in (fun _lh_dummy⁵² -> mappend_lh_₃(mappend_lh_₄(showEvaluation_lh_₁(_lh_showMove_LH_P2_1¹), 
-//│ 											let t²⁷⁸ = (fun ys²⁶⁵ -> ys²⁶⁵)
-//│ 											in let h²⁷⁸ = '|'
-//│ 											in (fun ys²⁶³ -> 
-//│ 												let t²⁷⁹ = mappend_lh_₃(t²⁷⁸, ys²⁶³)
-//│ 												in let h²⁷⁹ = h²⁷⁸
-//│ 												in (fun ys²⁶⁴ -> 
-//│ 													let t²⁸⁰ = mappend_lh_₅(t²⁷⁹, ys²⁶⁴)
-//│ 													in let h²⁸⁰ = h²⁷⁹
-//│ 													in (fun _lh_dummy⁵¹ -> (1 + length_lh_₁(t²⁸⁰)))))), showBoard_lh_₁(_lh_showMove_LH_P2_0¹)))
-//│ 									in (fun f¹⁶ -> 
-//│ 										let t²⁷⁷ = map_lh_₁(f¹⁶, t²⁷⁶)
-//│ 										in let h²⁷⁷ = f¹⁶(h²⁷⁶)
-//│ 										in (fun _lh_dummy⁵⁰ -> mappend_lh_₅(h²⁷⁷, concat_lh_₁(t²⁷⁷)))))))
+//│ 								let _lh_alternate_LH_P2_1⁰ = s⁰
+//│ 								in let _lh_alternate_LH_P2_0⁰ = b²
+//│ 								in (fun _lh_alternate_arg2⁰ -> (fun _lh_alternate_arg3⁰ -> (fun opposition⁰ -> 
+//│ 									let t²⁵³ = alternate_lh_₁(opposition⁰, _lh_alternate_arg3⁰, _lh_alternate_arg2⁰, _lh_alternate_LH_P2_0⁰)
+//│ 									in let h²⁵³ = 	
+//│ 										let _lh_showMove_LH_P2_1⁰ = _lh_alternate_LH_P2_1⁰
+//│ 										in let _lh_showMove_LH_P2_0⁰ = _lh_alternate_LH_P2_0⁰
+//│ 										in (fun _lh_dummy⁵⁰ -> mappend_lh_₃(mappend_lh_₄(showEvaluation_lh_₁(_lh_showMove_LH_P2_1⁰), 
+//│ 											let t²⁵⁴ = (fun ys²⁴² -> ys²⁴²)
+//│ 											in let h²⁵⁴ = '|'
+//│ 											in (fun ys²⁴³ -> 
+//│ 												let t²⁵⁵ = mappend_lh_₃(t²⁵⁴, ys²⁴³)
+//│ 												in let h²⁵⁵ = h²⁵⁴
+//│ 												in (fun ys²⁴⁴ -> 
+//│ 													let t²⁵⁶ = mappend_lh_₅(t²⁵⁵, ys²⁴⁴)
+//│ 													in let h²⁵⁶ = h²⁵⁵
+//│ 													in (fun _lh_dummy⁵¹ -> (1 + length_lh_₁(t²⁵⁶)))))), showBoard_lh_₁(_lh_showMove_LH_P2_0⁰)))
+//│ 									in (fun f⁹ -> 
+//│ 										let t²⁵⁷ = map_lh_₁(f⁹, t²⁵³)
+//│ 										in let h²⁵⁷ = f⁹(h²⁵³)
+//│ 										in (fun _lh_dummy⁵² -> mappend_lh_₅(h²⁵⁷, concat_lh_₁(t²⁵⁷)))))))
 //│ 							| _  => error⁰}
 //│ 					| LH_C _lh_best_LH_C_0² _lh_best_LH_C_1² => 
-//│ 						let _lh_matchIdent¹⁰ = ls2¹
-//│ 						in case _lh_matchIdent¹⁰ of {
-//│ 							LH_C _lh_best_LH_C_0³ _lh_best_LH_C_1³ => if polyEq⁰(s¹, _lh_best_arg1¹(s¹, _lh_best_LH_C_0³)) then best'¹(b⁵, s¹, _lh_best_LH_C_1², _lh_best_LH_C_1³) else best'¹(_lh_best_LH_C_0², _lh_best_LH_C_0³, _lh_best_LH_C_1², _lh_best_LH_C_1³)
+//│ 						let _lh_matchIdent⁴ = ls2⁰
+//│ 						in case _lh_matchIdent⁴ of {
+//│ 							LH_C _lh_best_LH_C_0³ _lh_best_LH_C_1³ => if polyEq⁰(s⁰, _lh_best_arg1⁰(s⁰, _lh_best_LH_C_0³)) then best'⁰(b², s⁰, _lh_best_LH_C_1², _lh_best_LH_C_1³) else best'⁰(_lh_best_LH_C_0², _lh_best_LH_C_0³, _lh_best_LH_C_1², _lh_best_LH_C_1³)
 //│ 							| _  => error⁰}
 //│ 					| _  => error⁰}))))
-//│ 			in best'¹(_lh_best_LH_C_0⁰, _lh_best_LH_C_0¹, _lh_best_LH_C_1⁰, _lh_best_LH_C_1¹)
+//│ 			in best'⁰(_lh_best_LH_C_0⁰, _lh_best_LH_C_0¹, _lh_best_LH_C_1⁰, _lh_best_LH_C_1¹)
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def concat_lh_₁(lss⁵) = lss⁵(99)
-//│ def concat_lh_₂(lss⁴) = case lss⁴ of {
-//│ 	LH_C h¹⁵ t¹⁵ => mappend_lh_₂₁(h¹⁵, concat_lh_₂(t¹⁵))
+//│ def concat_lh_₁(lss²) = lss²(99)
+//│ def concat_lh_₂(lss¹) = case lss¹ of {
+//│ 	LH_C h³⁶ t³⁶ => mappend_lh_₂₁(h³⁶, concat_lh_₂(t³⁶))
 //│ 	| LH_N  => [LH_N]}
-//│ def concat_lh_₃(lss³) = lss³(99)
-//│ def cropTree_lh_₁(_lh_cropTree_arg1¹) = case _lh_cropTree_arg1¹ of {
+//│ def concat_lh_₃(lss⁰) = lss⁰(99)
+//│ def cropTree_lh_₁(_lh_cropTree_arg1⁰) = case _lh_cropTree_arg1⁰ of {
 //│ 	Branch _lh_cropTree_Branch_0⁰ _lh_cropTree_Branch_1⁰ => case _lh_cropTree_Branch_1⁰ of {
 //│ 		LH_N  => [Branch _lh_cropTree_Branch_0⁰ [LH_N]]
 //│ 		| _  => case _lh_cropTree_Branch_0⁰ of {
 //│ 			Score _lh_cropTree_Score_0⁰ => [Branch [Score _lh_cropTree_Score_0⁰] map_lh_₆(cropTree_lh_₁, _lh_cropTree_Branch_1⁰)]
 //│ 			| _  => [Branch _lh_cropTree_Branch_0⁰ [LH_N]]}}
 //│ 	| _  => error⁰}
-//│ def empty'_lh_₁(_lh_empty'_arg1¹, _lh_empty'_arg2¹) = case _lh_empty'_arg1¹ of {
-//│ 	1  => case _lh_empty'_arg2¹ of {
+//│ def empty'_lh_₁(_lh_empty'_arg1⁰, _lh_empty'_arg2⁰) = case _lh_empty'_arg1⁰ of {
+//│ 	1  => case _lh_empty'_arg2⁰ of {
 //│ 		LH_C _lh_empty'_LH_C_0⁰ _lh_empty'_LH_C_1⁰ => case _lh_empty'_LH_C_0⁰ of {
 //│ 			Empty  => case _lh_empty'_LH_C_1⁰ of {
 //│ 				LH_C _lh_empty'_LH_C_0¹ _lh_empty'_LH_C_1¹ => case _lh_empty'_LH_C_1¹ of {
@@ -2266,7 +2266,7 @@ testMinimax_nofib $ primId "180000"
 //│ 				| _  => [False]}
 //│ 			| _  => [False]}
 //│ 		| _  => [False]}
-//│ 	| 2  => case _lh_empty'_arg2¹ of {
+//│ 	| 2  => case _lh_empty'_arg2⁰ of {
 //│ 		LH_C _lh_empty'_LH_C_0³ _lh_empty'_LH_C_1³ => case _lh_empty'_LH_C_1³ of {
 //│ 			LH_C _lh_empty'_LH_C_0⁴ _lh_empty'_LH_C_1⁴ => case _lh_empty'_LH_C_0⁴ of {
 //│ 				Empty  => case _lh_empty'_LH_C_1⁴ of {
@@ -2277,7 +2277,7 @@ testMinimax_nofib $ primId "180000"
 //│ 				| _  => [False]}
 //│ 			| _  => [False]}
 //│ 		| _  => [False]}
-//│ 	| 3  => case _lh_empty'_arg2¹ of {
+//│ 	| 3  => case _lh_empty'_arg2⁰ of {
 //│ 		LH_C _lh_empty'_LH_C_0⁶ _lh_empty'_LH_C_1⁶ => case _lh_empty'_LH_C_1⁶ of {
 //│ 			LH_C _lh_empty'_LH_C_0⁷ _lh_empty'_LH_C_1⁷ => case _lh_empty'_LH_C_1⁷ of {
 //│ 				LH_C _lh_empty'_LH_C_0⁸ _lh_empty'_LH_C_1⁸ => case _lh_empty'_LH_C_0⁸ of {
@@ -2289,9 +2289,9 @@ testMinimax_nofib $ primId "180000"
 //│ 			| _  => [False]}
 //│ 		| _  => [False]}
 //│ 	| _  => [False]}
-//│ def empty_lh_₁(_lh_empty_arg1¹, _lh_empty_arg2¹) = case _lh_empty_arg1¹ of {
+//│ def empty_lh_₁(_lh_empty_arg1⁰, _lh_empty_arg2⁰) = case _lh_empty_arg1⁰ of {
 //│ 	LH_P2 _lh_empty_LH_P2_0⁰ _lh_empty_LH_P2_1⁰ => case _lh_empty_LH_P2_0⁰ of {
-//│ 		1  => case _lh_empty_arg2¹ of {
+//│ 		1  => case _lh_empty_arg2⁰ of {
 //│ 			LH_C _lh_empty_LH_C_0⁰ _lh_empty_LH_C_1⁰ => case _lh_empty_LH_C_1⁰ of {
 //│ 				LH_C _lh_empty_LH_C_0¹ _lh_empty_LH_C_1¹ => case _lh_empty_LH_C_1¹ of {
 //│ 					LH_C _lh_empty_LH_C_0² _lh_empty_LH_C_1² => case _lh_empty_LH_C_1² of {
@@ -2300,7 +2300,7 @@ testMinimax_nofib $ primId "180000"
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
-//│ 		| 2  => case _lh_empty_arg2¹ of {
+//│ 		| 2  => case _lh_empty_arg2⁰ of {
 //│ 			LH_C _lh_empty_LH_C_0³ _lh_empty_LH_C_1³ => case _lh_empty_LH_C_1³ of {
 //│ 				LH_C _lh_empty_LH_C_0⁴ _lh_empty_LH_C_1⁴ => case _lh_empty_LH_C_1⁴ of {
 //│ 					LH_C _lh_empty_LH_C_0⁵ _lh_empty_LH_C_1⁵ => case _lh_empty_LH_C_1⁵ of {
@@ -2309,7 +2309,7 @@ testMinimax_nofib $ primId "180000"
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
-//│ 		| 3  => case _lh_empty_arg2¹ of {
+//│ 		| 3  => case _lh_empty_arg2⁰ of {
 //│ 			LH_C _lh_empty_LH_C_0⁶ _lh_empty_LH_C_1⁶ => case _lh_empty_LH_C_1⁶ of {
 //│ 				LH_C _lh_empty_LH_C_0⁷ _lh_empty_LH_C_1⁷ => case _lh_empty_LH_C_1⁷ of {
 //│ 					LH_C _lh_empty_LH_C_0⁸ _lh_empty_LH_C_1⁸ => case _lh_empty_LH_C_1⁸ of {
@@ -2320,192 +2320,189 @@ testMinimax_nofib $ primId "180000"
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def enumFromTo_lh_₁(a⁴, b⁴) = if (a⁴ <= b⁴) then 
-//│ 	let _lh_listcomp_fun_ls_t³ = enumFromTo_lh_₁((a⁴ + 1), b⁴)
-//│ 	in let _lh_listcomp_fun_ls_h³ = a⁴
-//│ 	in (fun _lh_listcomp_fun_ls_h⁴ -> (fun _lh_listcomp_fun⁶ -> (fun _lh_listcomp_fun_ls_t⁴ -> (fun _lh_listcomp_fun⁷ -> 
-//│ 		let t²⁰³ = _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t³)
-//│ 		in let h²⁰³ = [LH_P2 _lh_listcomp_fun_ls_h⁴ _lh_listcomp_fun_ls_h³]
-//│ 		in (fun f¹³ -> 
-//│ 			let t²⁰⁴ = map_lh_₅(f¹³, t²⁰³)
-//│ 			in let h²⁰⁴ = f¹³(h²⁰³)
-//│ 			in (fun _lh_dummy³⁶ -> mappend_lh_₂₁(h²⁰⁴, concat_lh_₃(t²⁰⁴)))))))) else (fun _lh_listcomp_fun_ls_h⁵ -> (fun _lh_listcomp_fun⁸ -> (fun _lh_listcomp_fun_ls_t⁵ -> (fun _lh_listcomp_fun⁹ -> _lh_listcomp_fun⁹(_lh_listcomp_fun_ls_t⁵)))))
-//│ def enumFromTo_lh_₂(a³, b³) = if (a³ <= b³) then 
-//│ 	let _lh_listcomp_fun_ls_t² = enumFromTo_lh_₂((a³ + 1), b³)
-//│ 	in let _lh_listcomp_fun_ls_h² = a³
-//│ 	in (fun _lh_listcomp_fun³ -> 
-//│ 		let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para³ -> _lh_listcomp_fun_para³(_lh_listcomp_fun_ls_h², _lh_listcomp_fun⁴, _lh_listcomp_fun_ls_t², _lh_listcomp_fun³))
-//│ 		in _lh_listcomp_fun⁴(enumFromTo_lh_₁(1, 3))) else (fun _lh_listcomp_fun⁵ -> (fun f⁸ -> (fun _lh_dummy¹⁰ -> [LH_N])))
-//│ def eval_lh_₁(_lh_eval_arg1¹) = if (_lh_eval_arg1¹ == 3) then [XWin] else if (_lh_eval_arg1¹ == (0 - 3)) then [OWin] else [Score _lh_eval_arg1¹]
-//│ def foldr_lh_₁(f⁹, i¹, ls¹¹) = case ls¹¹ of {
-//│ 	LH_C h¹ t¹ => f⁹(h¹, foldr_lh_₁(f⁹, i¹, t¹))
-//│ 	| LH_N  => i¹}
-//│ def fullBoard_lh_₁(_lh_fullBoard_arg1¹) = and_lh_₁(map_lh_₄((fun x¹ -> not⁰(polyEq⁰(x¹, [Empty]))), concat_lh_₂(_lh_fullBoard_arg1¹)))
-//│ def insert_lh_₁(_lh_insert_arg1¹, _lh_insert_arg2¹, _lh_insert_arg3¹) = case _lh_insert_arg2¹ of {
+//│ def enumFromTo_lh_₁(a¹, b¹, _lh_floatOutId_0², _lh_floatOutId_1⁰, _lh_floatOutId_2⁰, _lh_floatOutId_3⁰) = if (a¹ <= b¹) then (fun f⁶ -> (fun _lh_dummy³⁶ -> 
+//│ 	let _lh_listcomp_fun_ls_t¹ = enumFromTo_lh_₁((a¹ + 1), b¹)
+//│ 	in let _lh_listcomp_fun_ls_h¹ = a¹
+//│ 	in let t¹⁷⁹ = _lh_floatOutId_1⁰(_lh_listcomp_fun_ls_t¹)
+//│ 	in let h¹⁷⁹ = [LH_P2 _lh_floatOutId_0² _lh_listcomp_fun_ls_h¹]
+//│ 	in let t¹⁸⁰ = map_lh_₅(f⁶, t¹⁷⁹)
+//│ 	in let h¹⁸⁰ = f⁶(h¹⁷⁹)
+//│ 	in mappend_lh_₂₁(h¹⁸⁰, concat_lh_₃(t¹⁸⁰)))) else _lh_floatOutId_3⁰(_lh_floatOutId_2⁰)
+//│ def enumFromTo_lh_₂(a⁰, b⁰, _lh_floatOutId_0¹) = if (a⁰ <= b⁰) then 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₂((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun_ls_h⁰, _lh_listcomp_fun², _lh_listcomp_fun_ls_t⁰, _lh_floatOutId_0¹))
+//│ 	in _lh_listcomp_fun²(enumFromTo_lh_₁(1, 3)) else (fun f¹ -> (fun _lh_dummy¹⁰ -> [LH_N]))
+//│ def eval_lh_₁(_lh_eval_arg1⁰) = if (_lh_eval_arg1⁰ == 3) then [XWin] else if (_lh_eval_arg1⁰ == (0 - 3)) then [OWin] else [Score _lh_eval_arg1⁰]
+//│ def foldr_lh_₁(f², i⁰, ls¹) = case ls¹ of {
+//│ 	LH_C h³⁷ t³⁷ => f²(h³⁷, foldr_lh_₁(f², i⁰, t³⁷))
+//│ 	| LH_N  => i⁰}
+//│ def fullBoard_lh_₁(_lh_fullBoard_arg1⁰) = and_lh_₁(map_lh_₄((fun x⁰ -> not⁰(polyEq⁰(x⁰, [Empty]))), concat_lh_₂(_lh_fullBoard_arg1⁰)))
+//│ def insert_lh_₁(_lh_insert_arg1⁰, _lh_insert_arg2⁰, _lh_insert_arg3⁰) = case _lh_insert_arg2⁰ of {
 //│ 	LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰ => case _lh_insert_LH_C_1⁰ of {
 //│ 		LH_C _lh_insert_LH_C_0¹ _lh_insert_LH_C_1¹ => case _lh_insert_LH_C_1¹ of {
 //│ 			LH_C _lh_insert_LH_C_0² _lh_insert_LH_C_1² => case _lh_insert_LH_C_1² of {
-//│ 				LH_N  => case _lh_insert_arg3¹ of {
-//│ 					1  => [LH_C _lh_insert_arg1¹ [LH_C _lh_insert_LH_C_0¹ [LH_C _lh_insert_LH_C_0² [LH_N]]]]
-//│ 					| 2  => [LH_C _lh_insert_LH_C_0⁰ [LH_C _lh_insert_arg1¹ [LH_C _lh_insert_LH_C_0² [LH_N]]]]
-//│ 					| 3  => [LH_C _lh_insert_LH_C_0⁰ [LH_C _lh_insert_LH_C_0¹ [LH_C _lh_insert_arg1¹ [LH_N]]]]
+//│ 				LH_N  => case _lh_insert_arg3⁰ of {
+//│ 					1  => [LH_C _lh_insert_arg1⁰ [LH_C _lh_insert_LH_C_0¹ [LH_C _lh_insert_LH_C_0² [LH_N]]]]
+//│ 					| 2  => [LH_C _lh_insert_LH_C_0⁰ [LH_C _lh_insert_arg1⁰ [LH_C _lh_insert_LH_C_0² [LH_N]]]]
+//│ 					| 3  => [LH_C _lh_insert_LH_C_0⁰ [LH_C _lh_insert_LH_C_0¹ [LH_C _lh_insert_arg1⁰ [LH_N]]]]
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def interpret_lh_₁(_lh_interpret_arg1¹², _lh_interpret_arg2³) = _lh_interpret_arg2³(_lh_interpret_arg1¹²)
-//│ def interpret_lh_₂(_lh_interpret_arg1², _lh_interpret_arg2²) = case _lh_interpret_arg2² of {
-//│ 	LH_N  => [Score _lh_interpret_arg1²]
+//│ def interpret_lh_₁(_lh_interpret_arg1¹⁰, _lh_interpret_arg2¹) = _lh_interpret_arg2¹(_lh_interpret_arg1¹⁰)
+//│ def interpret_lh_₂(_lh_interpret_arg1⁰, _lh_interpret_arg2⁰) = case _lh_interpret_arg2⁰ of {
+//│ 	LH_N  => [Score _lh_interpret_arg1⁰]
 //│ 	| LH_C _lh_interpret_LH_C_0⁰ _lh_interpret_LH_C_1⁰ => case _lh_interpret_LH_C_0⁰ of {
-//│ 		Score _lh_interpret_Score_0⁰ => interpret_lh_₂((_lh_interpret_arg1² + _lh_interpret_Score_0⁰), _lh_interpret_LH_C_1⁰)
+//│ 		Score _lh_interpret_Score_0⁰ => interpret_lh_₂((_lh_interpret_arg1⁰ + _lh_interpret_Score_0⁰), _lh_interpret_LH_C_1⁰)
 //│ 		| XWin  => [XWin]
 //│ 		| OWin  => [OWin]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def length_lh_₁(ls¹⁸) = ls¹⁸(99)
-//│ def map2_lh_₁(_lh_map2_arg1¹, _lh_map2_arg2¹, _lh_map2_arg3¹) = case _lh_map2_arg2¹ of {
+//│ def length_lh_₁(ls⁸) = ls⁸(99)
+//│ def map2_lh_₁(_lh_map2_arg1⁰, _lh_map2_arg2⁰, _lh_map2_arg3⁰) = case _lh_map2_arg2⁰ of {
 //│ 	LH_N  => [LH_N]
-//│ 	| _  => case _lh_map2_arg3¹ of {
+//│ 	| _  => case _lh_map2_arg3⁰ of {
 //│ 		LH_N  => [LH_N]
-//│ 		| _  => case _lh_map2_arg2¹ of {
-//│ 			LH_C _lh_map2_LH_C_0⁰ _lh_map2_LH_C_1⁰ => case _lh_map2_arg3¹ of {
-//│ 				LH_C _lh_map2_LH_C_0¹ _lh_map2_LH_C_1¹ => [LH_C _lh_map2_arg1¹(_lh_map2_LH_C_0⁰, _lh_map2_LH_C_0¹) map2_lh_₁(_lh_map2_arg1¹, _lh_map2_LH_C_1⁰, _lh_map2_LH_C_1¹)]
+//│ 		| _  => case _lh_map2_arg2⁰ of {
+//│ 			LH_C _lh_map2_LH_C_0⁰ _lh_map2_LH_C_1⁰ => case _lh_map2_arg3⁰ of {
+//│ 				LH_C _lh_map2_LH_C_0¹ _lh_map2_LH_C_1¹ => [LH_C _lh_map2_arg1⁰(_lh_map2_LH_C_0⁰, _lh_map2_LH_C_0¹) map2_lh_₁(_lh_map2_arg1⁰, _lh_map2_LH_C_1⁰, _lh_map2_LH_C_1¹)]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}}}
-//│ def mapTree_lh_₁(_lh_mapTree_arg1¹, _lh_mapTree_arg2¹) = case _lh_mapTree_arg2¹ of {
-//│ 	Branch _lh_mapTree_Branch_0⁰ _lh_mapTree_Branch_1⁰ => [Branch _lh_mapTree_arg1¹(_lh_mapTree_Branch_0⁰) map_lh_₆(mapTree_lh_₁(_lh_mapTree_arg1¹), _lh_mapTree_Branch_1⁰)]
+//│ def mapTree_lh_₁(_lh_mapTree_arg1⁰, _lh_mapTree_arg2⁰) = case _lh_mapTree_arg2⁰ of {
+//│ 	Branch _lh_mapTree_Branch_0⁰ _lh_mapTree_Branch_1⁰ => [Branch _lh_mapTree_arg1⁰(_lh_mapTree_Branch_0⁰) map_lh_₆(mapTree_lh_₁(_lh_mapTree_arg1⁰), _lh_mapTree_Branch_1⁰)]
 //│ 	| _  => error⁰}
-//│ def map_lh_₁(f¹², ls¹⁵) = ls¹⁵(f¹²)
-//│ def map_lh_₂(f¹¹, ls¹⁴) = case ls¹⁴ of {
-//│ 	LH_C h²⁴ t²⁴ => [LH_C f¹¹(h²⁴) map_lh_₂(f¹¹, t²⁴)]
+//│ def map_lh_₁(f⁵, ls⁵) = ls⁵(f⁵)
+//│ def map_lh_₂(f⁴, ls⁴) = case ls⁴ of {
+//│ 	LH_C h¹⁷⁷ t¹⁷⁷ => [LH_C f⁴(h¹⁷⁷) map_lh_₂(f⁴, t¹⁷⁷)]
 //│ 	| LH_N  => [LH_N]}
-//│ def map_lh_₃(f¹⁵, ls¹⁹) = ls¹⁹(f¹⁵)
-//│ def map_lh_₄(f⁷, ls¹⁰) = case ls¹⁰ of {
-//│ 	LH_C h¹⁶ t¹⁶ => 
-//│ 		let _lh_and_LH_C_1¹ = map_lh_₄(f⁷, t¹⁶)
-//│ 		in let _lh_and_LH_C_0¹ = f⁷(h¹⁶)
-//│ 		in (fun _lh_dummy⁰ -> if _lh_and_LH_C_0¹ then and_lh_₁(_lh_and_LH_C_1¹) else [False])
-//│ 	| LH_N  => (fun _lh_dummy¹ -> [True])}
-//│ def map_lh_₅(f¹⁴, ls¹⁷) = ls¹⁷(f¹⁴)
-//│ def map_lh_₆(f¹⁰, ls¹³) = case ls¹³ of {
-//│ 	LH_C h¹² t¹² => [LH_C f¹⁰(h¹²) map_lh_₆(f¹⁰, t¹²)]
+//│ def map_lh_₃(f⁸, ls⁹) = ls⁹(f⁸)
+//│ def map_lh_₄(f⁰, ls⁰, _lh_floatOutId_0⁰) = case ls⁰ of {
+//│ 	LH_C h⁰ t⁰ => 
+//│ 		let _lh_and_LH_C_1⁰ = map_lh_₄(f⁰, t⁰)
+//│ 		in let _lh_and_LH_C_0⁰ = f⁰(h⁰)
+//│ 		in if _lh_and_LH_C_0⁰ then and_lh_₁(_lh_and_LH_C_1⁰) else [False]
+//│ 	| LH_N  => [True]}
+//│ def map_lh_₅(f⁷, ls⁷) = ls⁷(f⁷)
+//│ def map_lh_₆(f³, ls³) = case ls³ of {
+//│ 	LH_C h¹⁷² t¹⁷² => [LH_C f³(h¹⁷²) map_lh_₆(f³, t¹⁷²)]
 //│ 	| LH_N  => [LH_N]}
-//│ def mappend_lh_₁(xs²⁴, ys³⁹) = xs²⁴(ys³⁹)
-//│ def mappend_lh_₁₀(xs³⁰, ys⁷⁸) = case xs³⁰ of {
-//│ 	LH_C h¹⁹ t¹⁹ => 
-//│ 		let t⁸¹ = mappend_lh_₁₀(t¹⁹, ys⁷⁸)
-//│ 		in let h⁸¹ = h¹⁹
-//│ 		in (fun ys⁷⁹ -> 
-//│ 			let t⁸² = mappend_lh_₉(t⁸¹, ys⁷⁹)
-//│ 			in let h⁸² = h⁸¹
-//│ 			in (fun ys⁸⁰ -> 
-//│ 				let t⁸³ = mappend_lh_₈(t⁸², ys⁸⁰)
-//│ 				in let h⁸³ = h⁸²
-//│ 				in (fun ys⁸¹ -> 
-//│ 					let t⁸⁴ = mappend_lh_₇(t⁸³, ys⁸¹)
-//│ 					in let h⁸⁴ = h⁸³
-//│ 					in (fun ys⁸² -> 
-//│ 						let t⁸⁵ = mappend_lh_₆(t⁸⁴, ys⁸²)
-//│ 						in let h⁸⁵ = h⁸⁴
-//│ 						in (fun ys⁸³ -> 
-//│ 							let t⁸⁶ = mappend_lh_₅(t⁸⁵, ys⁸³)
-//│ 							in let h⁸⁶ = h⁸⁵
-//│ 							in (fun _lh_dummy¹³ -> (1 + length_lh_₁(t⁸⁶))))))))
-//│ 	| LH_N  => ys⁷⁸}
-//│ def mappend_lh_₁₁(xs³⁴, ys¹¹⁸) = xs³⁴(ys¹¹⁸)
-//│ def mappend_lh_₁₂(xs⁴¹, ys²⁶⁷) = xs⁴¹(ys²⁶⁷)
-//│ def mappend_lh_₁₃(xs³⁷, ys¹⁹²) = xs³⁷(ys¹⁹²)
-//│ def mappend_lh_₁₄(xs³², ys⁹¹) = xs³²(ys⁹¹)
-//│ def mappend_lh_₁₅(xs³⁹, ys¹⁹⁴) = xs³⁹(ys¹⁹⁴)
-//│ def mappend_lh_₁₆(xs²¹, ys²¹) = xs²¹(ys²¹)
-//│ def mappend_lh_₁₇(xs⁴⁰, ys²⁶⁶) = xs⁴⁰(ys²⁶⁶)
-//│ def mappend_lh_₁₈(xs²⁵, ys⁵⁰) = xs²⁵(ys⁵⁰)
-//│ def mappend_lh_₁₉(xs²⁷, ys⁶¹) = xs²⁷(ys⁶¹)
-//│ def mappend_lh_₂(xs²⁹, ys⁷⁷) = xs²⁹(ys⁷⁷)
-//│ def mappend_lh_₂₀(xs³⁶, ys¹⁹¹) = case xs³⁶ of {
-//│ 	LH_C h³ t³ => [LH_C h³ mappend_lh_₂₀(t³, ys¹⁹¹)]
-//│ 	| LH_N  => ys¹⁹¹}
-//│ def mappend_lh_₂₁(xs²², ys²²) = case xs²² of {
-//│ 	LH_C h² t² => [LH_C h² mappend_lh_₂₁(t², ys²²)]
-//│ 	| LH_N  => ys²²}
-//│ def mappend_lh_₃(xs²³, ys²³) = xs²³(ys²³)
-//│ def mappend_lh_₄(xs³⁵, ys¹⁸⁸) = case xs³⁵ of {
-//│ 	LH_C h²⁶ t²⁶ => 
-//│ 		let t²⁰⁰ = mappend_lh_₄(t²⁶, ys¹⁸⁸)
-//│ 		in let h²⁰⁰ = h²⁶
-//│ 		in (fun ys¹⁸⁹ -> 
-//│ 			let t²⁰¹ = mappend_lh_₃(t²⁰⁰, ys¹⁸⁹)
-//│ 			in let h²⁰¹ = h²⁰⁰
-//│ 			in (fun ys¹⁹⁰ -> 
-//│ 				let t²⁰² = mappend_lh_₅(t²⁰¹, ys¹⁹⁰)
-//│ 				in let h²⁰² = h²⁰¹
-//│ 				in (fun _lh_dummy³⁵ -> (1 + length_lh_₁(t²⁰²)))))
-//│ 	| LH_N  => ys¹⁸⁸}
-//│ def mappend_lh_₅(xs³¹, ys⁹⁰) = xs³¹(ys⁹⁰)
-//│ def mappend_lh_₆(xs³³, ys¹¹⁷) = xs³³(ys¹¹⁷)
-//│ def mappend_lh_₇(xs²⁸, ys⁷⁶) = xs²⁸(ys⁷⁶)
-//│ def mappend_lh_₈(xs²⁶, ys⁶⁰) = xs²⁶(ys⁶⁰)
-//│ def mappend_lh_₉(xs³⁸, ys¹⁹³) = xs³⁸(ys¹⁹³)
-//│ def max'_lh_₁(_lh_max'_arg1¹, _lh_max'_arg2¹) = case _lh_max'_arg1¹ of {
+//│ def mappend_lh_₁(xs³, ys¹⁸) = xs³(ys¹⁸)
+//│ def mappend_lh_₁₀(xs⁹, ys⁵⁷) = case xs⁹ of {
+//│ 	LH_C h⁵² t⁵² => 
+//│ 		let t⁵³ = mappend_lh_₁₀(t⁵², ys⁵⁷)
+//│ 		in let h⁵³ = h⁵²
+//│ 		in (fun ys⁵⁸ -> 
+//│ 			let t⁵⁴ = mappend_lh_₉(t⁵³, ys⁵⁸)
+//│ 			in let h⁵⁴ = h⁵³
+//│ 			in (fun ys⁵⁹ -> 
+//│ 				let t⁵⁵ = mappend_lh_₈(t⁵⁴, ys⁵⁹)
+//│ 				in let h⁵⁵ = h⁵⁴
+//│ 				in (fun ys⁶⁰ -> 
+//│ 					let t⁵⁶ = mappend_lh_₇(t⁵⁵, ys⁶⁰)
+//│ 					in let h⁵⁶ = h⁵⁵
+//│ 					in (fun ys⁶¹ -> 
+//│ 						let t⁵⁷ = mappend_lh_₆(t⁵⁶, ys⁶¹)
+//│ 						in let h⁵⁷ = h⁵⁶
+//│ 						in (fun ys⁶² -> 
+//│ 							let t⁵⁸ = mappend_lh_₅(t⁵⁷, ys⁶²)
+//│ 							in let h⁵⁸ = h⁵⁷
+//│ 							in (fun _lh_dummy¹³ -> (1 + length_lh_₁(t⁵⁸))))))))
+//│ 	| LH_N  => ys⁵⁷}
+//│ def mappend_lh_₁₁(xs¹³, ys⁹⁷) = xs¹³(ys⁹⁷)
+//│ def mappend_lh_₁₂(xs²⁰, ys²⁴⁶) = xs²⁰(ys²⁴⁶)
+//│ def mappend_lh_₁₃(xs¹⁶, ys¹⁷¹) = xs¹⁶(ys¹⁷¹)
+//│ def mappend_lh_₁₄(xs¹¹, ys⁷⁰) = xs¹¹(ys⁷⁰)
+//│ def mappend_lh_₁₅(xs¹⁸, ys¹⁷³) = xs¹⁸(ys¹⁷³)
+//│ def mappend_lh_₁₆(xs⁰, ys⁰) = xs⁰(ys⁰)
+//│ def mappend_lh_₁₇(xs¹⁹, ys²⁴⁵) = xs¹⁹(ys²⁴⁵)
+//│ def mappend_lh_₁₈(xs⁴, ys²⁹) = xs⁴(ys²⁹)
+//│ def mappend_lh_₁₉(xs⁶, ys⁴⁰) = xs⁶(ys⁴⁰)
+//│ def mappend_lh_₂(xs⁸, ys⁵⁶) = xs⁸(ys⁵⁶)
+//│ def mappend_lh_₂₀(xs¹⁵, ys¹⁷⁰) = case xs¹⁵ of {
+//│ 	LH_C h¹⁷⁸ t¹⁷⁸ => [LH_C h¹⁷⁸ mappend_lh_₂₀(t¹⁷⁸, ys¹⁷⁰)]
+//│ 	| LH_N  => ys¹⁷⁰}
+//│ def mappend_lh_₂₁(xs¹, ys¹) = case xs¹ of {
+//│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₂₁(t¹, ys¹)]
+//│ 	| LH_N  => ys¹}
+//│ def mappend_lh_₃(xs², ys²) = xs²(ys²)
+//│ def mappend_lh_₄(xs¹⁴, ys¹⁶⁷) = case xs¹⁴ of {
+//│ 	LH_C h¹⁷³ t¹⁷³ => 
+//│ 		let t¹⁷⁴ = mappend_lh_₄(t¹⁷³, ys¹⁶⁷)
+//│ 		in let h¹⁷⁴ = h¹⁷³
+//│ 		in (fun ys¹⁶⁸ -> 
+//│ 			let t¹⁷⁵ = mappend_lh_₃(t¹⁷⁴, ys¹⁶⁸)
+//│ 			in let h¹⁷⁵ = h¹⁷⁴
+//│ 			in (fun ys¹⁶⁹ -> 
+//│ 				let t¹⁷⁶ = mappend_lh_₅(t¹⁷⁵, ys¹⁶⁹)
+//│ 				in let h¹⁷⁶ = h¹⁷⁵
+//│ 				in (fun _lh_dummy³⁵ -> (1 + length_lh_₁(t¹⁷⁶)))))
+//│ 	| LH_N  => ys¹⁶⁷}
+//│ def mappend_lh_₅(xs¹⁰, ys⁶⁹) = xs¹⁰(ys⁶⁹)
+//│ def mappend_lh_₆(xs¹², ys⁹⁶) = xs¹²(ys⁹⁶)
+//│ def mappend_lh_₇(xs⁷, ys⁵⁵) = xs⁷(ys⁵⁵)
+//│ def mappend_lh_₈(xs⁵, ys³⁹) = xs⁵(ys³⁹)
+//│ def mappend_lh_₉(xs¹⁷, ys¹⁷²) = xs¹⁷(ys¹⁷²)
+//│ def max'_lh_₁(_lh_max'_arg1⁰, _lh_max'_arg2⁰) = case _lh_max'_arg1⁰ of {
 //│ 	XWin  => [XWin]
-//│ 	| _  => case _lh_max'_arg2¹ of {
+//│ 	| _  => case _lh_max'_arg2⁰ of {
 //│ 		XWin  => [XWin]
-//│ 		| _  => case _lh_max'_arg2¹ of {
-//│ 			OWin  => _lh_max'_arg1¹
-//│ 			| _  => case _lh_max'_arg1¹ of {
-//│ 				OWin  => _lh_max'_arg2¹
-//│ 				| _  => case _lh_max'_arg1¹ of {
-//│ 					Score _lh_max'_Score_0⁰ => case _lh_max'_arg2¹ of {
+//│ 		| _  => case _lh_max'_arg2⁰ of {
+//│ 			OWin  => _lh_max'_arg1⁰
+//│ 			| _  => case _lh_max'_arg1⁰ of {
+//│ 				OWin  => _lh_max'_arg2⁰
+//│ 				| _  => case _lh_max'_arg1⁰ of {
+//│ 					Score _lh_max'_Score_0⁰ => case _lh_max'_arg2⁰ of {
 //│ 						Score _lh_max'_Score_0¹ => if (_lh_max'_Score_0⁰ > _lh_max'_Score_0¹) then [Score _lh_max'_Score_0⁰] else [Score _lh_max'_Score_0¹]
 //│ 						| _  => error⁰}
 //│ 					| _  => error⁰}}}}}
-//│ def min'_lh_₁(_lh_min'_arg1¹, _lh_min'_arg2¹) = case _lh_min'_arg1¹ of {
+//│ def min'_lh_₁(_lh_min'_arg1⁰, _lh_min'_arg2⁰) = case _lh_min'_arg1⁰ of {
 //│ 	OWin  => [OWin]
-//│ 	| _  => case _lh_min'_arg2¹ of {
+//│ 	| _  => case _lh_min'_arg2⁰ of {
 //│ 		OWin  => [OWin]
-//│ 		| _  => case _lh_min'_arg2¹ of {
-//│ 			XWin  => _lh_min'_arg1¹
-//│ 			| _  => case _lh_min'_arg1¹ of {
-//│ 				XWin  => _lh_min'_arg2¹
-//│ 				| _  => case _lh_min'_arg1¹ of {
-//│ 					Score _lh_min'_Score_0⁰ => case _lh_min'_arg2¹ of {
+//│ 		| _  => case _lh_min'_arg2⁰ of {
+//│ 			XWin  => _lh_min'_arg1⁰
+//│ 			| _  => case _lh_min'_arg1⁰ of {
+//│ 				XWin  => _lh_min'_arg2⁰
+//│ 				| _  => case _lh_min'_arg1⁰ of {
+//│ 					Score _lh_min'_Score_0⁰ => case _lh_min'_arg2⁰ of {
 //│ 						Score _lh_min'_Score_0¹ => if (_lh_min'_Score_0⁰ < _lh_min'_Score_0¹) then [Score _lh_min'_Score_0⁰] else [Score _lh_min'_Score_0¹]
 //│ 						| _  => error⁰}
 //│ 					| _  => error⁰}}}}}
-//│ def mise_lh_₁(_lh_mise_arg1¹, _lh_mise_arg2¹, _lh_mise_arg3¹) = case _lh_mise_arg3¹ of {
+//│ def mise_lh_₁(_lh_mise_arg1⁰, _lh_mise_arg2⁰, _lh_mise_arg3⁰) = case _lh_mise_arg3⁰ of {
 //│ 	Branch _lh_mise_Branch_0⁰ _lh_mise_Branch_1⁰ => case _lh_mise_Branch_1⁰ of {
 //│ 		LH_N  => _lh_mise_Branch_0⁰
-//│ 		| _  => foldr_lh_₁(_lh_mise_arg1¹, _lh_mise_arg2¹([OWin], [XWin]), map_lh_₆(mise_lh_₁(_lh_mise_arg2¹, _lh_mise_arg1¹), _lh_mise_Branch_1⁰))}
+//│ 		| _  => foldr_lh_₁(_lh_mise_arg1⁰, _lh_mise_arg2⁰([OWin], [XWin]), map_lh_₆(mise_lh_₁(_lh_mise_arg2⁰, _lh_mise_arg1⁰), _lh_mise_Branch_1⁰))}
 //│ 	| _  => error⁰}
-//│ def newPositions_lh_₁(_lh_newPositions_arg1¹, _lh_newPositions_arg2¹) = concat_lh_₃(map_lh_₅(placePiece_lh_₁(_lh_newPositions_arg1¹, _lh_newPositions_arg2¹), 
-//│ 	let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun²))
-//│ 	in _lh_listcomp_fun²(enumFromTo_lh_₂(1, 3))))
-//│ def opposite_lh_₁(_lh_opposite_arg1¹) = case _lh_opposite_arg1¹ of {
+//│ def newPositions_lh_₁(_lh_newPositions_arg1⁰, _lh_newPositions_arg2⁰) = concat_lh_₃(map_lh_₅(placePiece_lh_₁(_lh_newPositions_arg1⁰, _lh_newPositions_arg2⁰), 
+//│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰))
+//│ 	in _lh_listcomp_fun⁰(enumFromTo_lh_₂(1, 3))))
+//│ def opposite_lh_₁(_lh_opposite_arg1⁰) = case _lh_opposite_arg1⁰ of {
 //│ 	X  => [O]
 //│ 	| O  => [X]
 //│ 	| _  => error⁰}
-//│ def placePiece_lh_₁(_lh_placePiece_arg1¹, _lh_placePiece_arg2¹, _lh_placePiece_arg3¹) = if not⁰(empty_lh_₁(_lh_placePiece_arg3¹, _lh_placePiece_arg2¹)) then [LH_N] else 
-//│ 	let _lh_matchIdent⁶ = _lh_placePiece_arg2¹
-//│ 	in case _lh_matchIdent⁶ of {
+//│ def placePiece_lh_₁(_lh_placePiece_arg1⁰, _lh_placePiece_arg2⁰, _lh_placePiece_arg3⁰) = if not⁰(empty_lh_₁(_lh_placePiece_arg3⁰, _lh_placePiece_arg2⁰)) then [LH_N] else 
+//│ 	let _lh_matchIdent⁰ = _lh_placePiece_arg2⁰
+//│ 	in case _lh_matchIdent⁰ of {
 //│ 		LH_C _lh_placePiece_LH_C_0⁰ _lh_placePiece_LH_C_1⁰ => case _lh_placePiece_LH_C_1⁰ of {
 //│ 			LH_C _lh_placePiece_LH_C_0¹ _lh_placePiece_LH_C_1¹ => case _lh_placePiece_LH_C_1¹ of {
 //│ 				LH_C _lh_placePiece_LH_C_0² _lh_placePiece_LH_C_1² => case _lh_placePiece_LH_C_1² of {
 //│ 					LH_N  => 
-//│ 						let _lh_matchIdent⁷ = _lh_placePiece_arg3¹
-//│ 						in case _lh_matchIdent⁷ of {
+//│ 						let _lh_matchIdent¹ = _lh_placePiece_arg3⁰
+//│ 						in case _lh_matchIdent¹ of {
 //│ 							LH_P2 _lh_placePiece_LH_P2_0⁰ _lh_placePiece_LH_P2_1⁰ => case _lh_placePiece_LH_P2_0⁰ of {
-//│ 								1  => [LH_C [LH_C insert_lh_₁(_lh_placePiece_arg1¹, _lh_placePiece_LH_C_0⁰, _lh_placePiece_LH_P2_1⁰) [LH_C _lh_placePiece_LH_C_0¹ [LH_C _lh_placePiece_LH_C_0² [LH_N]]]] [LH_N]]
-//│ 								| 2  => [LH_C [LH_C _lh_placePiece_LH_C_0⁰ [LH_C insert_lh_₁(_lh_placePiece_arg1¹, _lh_placePiece_LH_C_0¹, _lh_placePiece_LH_P2_1⁰) [LH_C _lh_placePiece_LH_C_0² [LH_N]]]] [LH_N]]
-//│ 								| 3  => [LH_C [LH_C _lh_placePiece_LH_C_0⁰ [LH_C _lh_placePiece_LH_C_0¹ [LH_C insert_lh_₁(_lh_placePiece_arg1¹, _lh_placePiece_LH_C_0², _lh_placePiece_LH_P2_1⁰) [LH_N]]]] [LH_N]]
+//│ 								1  => [LH_C [LH_C insert_lh_₁(_lh_placePiece_arg1⁰, _lh_placePiece_LH_C_0⁰, _lh_placePiece_LH_P2_1⁰) [LH_C _lh_placePiece_LH_C_0¹ [LH_C _lh_placePiece_LH_C_0² [LH_N]]]] [LH_N]]
+//│ 								| 2  => [LH_C [LH_C _lh_placePiece_LH_C_0⁰ [LH_C insert_lh_₁(_lh_placePiece_arg1⁰, _lh_placePiece_LH_C_0¹, _lh_placePiece_LH_P2_1⁰) [LH_C _lh_placePiece_LH_C_0² [LH_N]]]] [LH_N]]
+//│ 								| 3  => [LH_C [LH_C _lh_placePiece_LH_C_0⁰ [LH_C _lh_placePiece_LH_C_0¹ [LH_C insert_lh_₁(_lh_placePiece_arg1⁰, _lh_placePiece_LH_C_0², _lh_placePiece_LH_P2_1⁰) [LH_N]]]] [LH_N]]
 //│ 								| _  => error⁰}
 //│ 							| _  => error⁰}
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ def prog_lh_₁(_lh_prog_arg1¹) = 
-//│ 	let board¹ = (fun _lh_board_arg1¹ -> case _lh_board_arg1¹ of {
+//│ def prog_lh_₁(_lh_prog_arg1⁰) = 
+//│ 	let board⁰ = (fun _lh_board_arg1⁰ -> case _lh_board_arg1⁰ of {
 //│ 		LH_C _lh_board_LH_C_0⁰ _lh_board_LH_C_1⁰ => case _lh_board_LH_C_0⁰ of {
 //│ 			'd'  => case _lh_board_LH_C_1⁰ of {
 //│ 				LH_C _lh_board_LH_C_0¹ _lh_board_LH_C_1¹ => case _lh_board_LH_C_0¹ of {
@@ -2560,807 +2557,807 @@ testMinimax_nofib $ primId "180000"
 //│ 				| _  => testBoard_lh_₁₇}
 //│ 			| _  => testBoard_lh_₄}
 //│ 		| _  => testBoard_lh_₁₃})
-//│ 	in let game¹ = alternate_lh_₁([X], max'_lh_₁, min'_lh_₁, board¹(_lh_prog_arg1¹))
+//│ 	in let game⁰ = alternate_lh_₁([X], max'_lh_₁, min'_lh_₁, board⁰(_lh_prog_arg1⁰))
 //│ 	in mappend_lh_₁(
-//│ 		let t²³² = 	
-//│ 			let t²³⁴ = 	
-//│ 				let t²³⁶ = 	
-//│ 					let t²³⁸ = (fun ys²²⁶ -> ys²²⁶)
-//│ 					in let h²³⁸ = '|'
-//│ 					in (fun ys²²⁵ -> 
-//│ 						let t²³⁹ = mappend_lh_₁(t²³⁸, ys²²⁵)
-//│ 						in let h²³⁹ = h²³⁸
-//│ 						in (fun _lh_dummy⁴³ -> (1 + length_lh_₁(t²³⁹))))
-//│ 				in let h²³⁶ = 'O'
-//│ 				in (fun ys²²⁴ -> 
-//│ 					let t²³⁷ = mappend_lh_₁(t²³⁶, ys²²⁴)
-//│ 					in let h²³⁷ = h²³⁶
-//│ 					in (fun _lh_dummy⁴² -> (1 + length_lh_₁(t²³⁷))))
-//│ 			in let h²³⁴ = 'X'
-//│ 			in (fun ys²²³ -> 
-//│ 				let t²³⁵ = mappend_lh_₁(t²³⁴, ys²²³)
-//│ 				in let h²³⁵ = h²³⁴
-//│ 				in (fun _lh_dummy⁴¹ -> (1 + length_lh_₁(t²³⁵))))
-//│ 		in let h²³² = 'O'
-//│ 		in (fun ys²²² -> 
-//│ 			let t²³³ = mappend_lh_₁(t²³², ys²²²)
-//│ 			in let h²³³ = h²³²
-//│ 			in (fun _lh_dummy⁴⁰ -> (1 + length_lh_₁(t²³³)))), concat_lh_₁(map_lh_₁(showMove_lh_₁, game¹)))
-//│ def prune_lh_₁(_lh_prune_arg1¹, _lh_prune_arg2¹) = case _lh_prune_arg1¹ of {
-//│ 	0  => case _lh_prune_arg2¹ of {
+//│ 		let t²⁰⁹ = 	
+//│ 			let t²¹⁰ = 	
+//│ 				let t²¹¹ = 	
+//│ 					let t²¹² = (fun ys²⁰¹ -> ys²⁰¹)
+//│ 					in let h²⁰⁹ = '|'
+//│ 					in (fun ys²⁰² -> 
+//│ 						let t²¹³ = mappend_lh_₁(t²¹², ys²⁰²)
+//│ 						in let h²¹⁰ = h²⁰⁹
+//│ 						in (fun _lh_dummy⁴⁰ -> (1 + length_lh_₁(t²¹³))))
+//│ 				in let h²¹¹ = 'O'
+//│ 				in (fun ys²⁰³ -> 
+//│ 					let t²¹⁴ = mappend_lh_₁(t²¹¹, ys²⁰³)
+//│ 					in let h²¹² = h²¹¹
+//│ 					in (fun _lh_dummy⁴¹ -> (1 + length_lh_₁(t²¹⁴))))
+//│ 			in let h²¹³ = 'X'
+//│ 			in (fun ys²⁰⁴ -> 
+//│ 				let t²¹⁵ = mappend_lh_₁(t²¹⁰, ys²⁰⁴)
+//│ 				in let h²¹⁴ = h²¹³
+//│ 				in (fun _lh_dummy⁴² -> (1 + length_lh_₁(t²¹⁵))))
+//│ 		in let h²¹⁵ = 'O'
+//│ 		in (fun ys²⁰⁵ -> 
+//│ 			let t²¹⁶ = mappend_lh_₁(t²⁰⁹, ys²⁰⁵)
+//│ 			in let h²¹⁶ = h²¹⁵
+//│ 			in (fun _lh_dummy⁴³ -> (1 + length_lh_₁(t²¹⁶)))), concat_lh_₁(map_lh_₁(showMove_lh_₁, game⁰)))
+//│ def prune_lh_₁(_lh_prune_arg1⁰, _lh_prune_arg2⁰) = case _lh_prune_arg1⁰ of {
+//│ 	0  => case _lh_prune_arg2⁰ of {
 //│ 		Branch _lh_prune_Branch_0⁰ _lh_prune_Branch_1⁰ => [Branch _lh_prune_Branch_0⁰ [LH_N]]
-//│ 		| _  => case _lh_prune_arg2¹ of {
-//│ 			Branch _lh_prune_Branch_0¹ _lh_prune_Branch_1¹ => if (_lh_prune_arg1¹ < 0) then error⁰([LH_C 'T' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C '.' [LH_C 'p' [LH_C 'r' [LH_C 'u' [LH_C 'n' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]]]]]]]]]]]]) else [Branch _lh_prune_Branch_0¹ map_lh_₆(prune_lh_₁((_lh_prune_arg1¹ - 1)), _lh_prune_Branch_1¹)]
+//│ 		| _  => case _lh_prune_arg2⁰ of {
+//│ 			Branch _lh_prune_Branch_0¹ _lh_prune_Branch_1¹ => if (_lh_prune_arg1⁰ < 0) then error⁰([LH_C 'T' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C '.' [LH_C 'p' [LH_C 'r' [LH_C 'u' [LH_C 'n' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]]]]]]]]]]]]) else [Branch _lh_prune_Branch_0¹ map_lh_₆(prune_lh_₁((_lh_prune_arg1⁰ - 1)), _lh_prune_Branch_1¹)]
 //│ 			| _  => error⁰}}
-//│ 	| _  => case _lh_prune_arg2¹ of {
-//│ 		Branch _lh_prune_Branch_0² _lh_prune_Branch_1² => if (_lh_prune_arg1¹ < 0) then error⁰([LH_C 'T' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C '.' [LH_C 'p' [LH_C 'r' [LH_C 'u' [LH_C 'n' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]]]]]]]]]]]]) else [Branch _lh_prune_Branch_0² map_lh_₆(prune_lh_₁((_lh_prune_arg1¹ - 1)), _lh_prune_Branch_1²)]
+//│ 	| _  => case _lh_prune_arg2⁰ of {
+//│ 		Branch _lh_prune_Branch_0² _lh_prune_Branch_1² => if (_lh_prune_arg1⁰ < 0) then error⁰([LH_C 'T' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C '.' [LH_C 'p' [LH_C 'r' [LH_C 'u' [LH_C 'n' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]]]]]]]]]]]]) else [Branch _lh_prune_Branch_0² map_lh_₆(prune_lh_₁((_lh_prune_arg1⁰ - 1)), _lh_prune_Branch_1²)]
 //│ 		| _  => error⁰}}
-//│ def repTree_lh_₁(_lh_repTree_arg1¹, _lh_repTree_arg2¹, _lh_repTree_arg3¹) = [Branch _lh_repTree_arg3¹ map_lh_₆(repTree_lh_₁(_lh_repTree_arg2¹, _lh_repTree_arg1¹), _lh_repTree_arg1¹(_lh_repTree_arg3¹))]
-//│ def scorePiece_lh_₁(_lh_scorePiece_arg1¹, _lh_scorePiece_arg2¹) = case _lh_scorePiece_arg1¹ of {
-//│ 	X  => _lh_scorePiece_arg2¹
+//│ def repTree_lh_₁(_lh_repTree_arg1⁰, _lh_repTree_arg2⁰, _lh_repTree_arg3⁰) = [Branch _lh_repTree_arg3⁰ map_lh_₆(repTree_lh_₁(_lh_repTree_arg2⁰, _lh_repTree_arg1⁰), _lh_repTree_arg1⁰(_lh_repTree_arg3⁰))]
+//│ def scorePiece_lh_₁(_lh_scorePiece_arg1⁰, _lh_scorePiece_arg2⁰) = case _lh_scorePiece_arg1⁰ of {
+//│ 	X  => _lh_scorePiece_arg2⁰
 //│ 	| Empty  => 0
-//│ 	| O  => (0 - _lh_scorePiece_arg2¹)
+//│ 	| O  => (0 - _lh_scorePiece_arg2⁰)
 //│ 	| _  => error⁰}
-//│ def score_lh_₁(_lh_score_arg1², _lh_score_arg2²) = eval_lh_₁(sum_lh_₁(map_lh_₆(sum_lh_₁, map2_lh_₁(map2_lh_₁(scorePiece_lh_₁), _lh_score_arg1², _lh_score_arg2²))))
-//│ def score_lh_₂(_lh_score_arg1³, _lh_score_arg2³) = eval_lh_₁(sum_lh_₁(map_lh_₆(sum_lh_₁, map2_lh_₁(map2_lh_₁(scorePiece_lh_₁), _lh_score_arg1³, _lh_score_arg2³))))
-//│ def searchTree_lh_₁(_lh_searchTree_arg1¹, _lh_searchTree_arg2¹) = prune_lh_₁(5, repTree_lh_₁(newPositions_lh_₁(_lh_searchTree_arg1¹), newPositions_lh_₁(opposite_lh_₁(_lh_searchTree_arg1¹)), _lh_searchTree_arg2¹))
-//│ def showBoard_lh_₁(_lh_showBoard_arg1¹) = case _lh_showBoard_arg1¹ of {
+//│ def score_lh_₁(_lh_score_arg1⁰, _lh_score_arg2⁰) = eval_lh_₁(sum_lh_₁(map_lh_₆(sum_lh_₁, map2_lh_₁(map2_lh_₁(scorePiece_lh_₁), _lh_score_arg1⁰, _lh_score_arg2⁰))))
+//│ def score_lh_₂(_lh_score_arg1¹, _lh_score_arg2¹) = eval_lh_₁(sum_lh_₁(map_lh_₆(sum_lh_₁, map2_lh_₁(map2_lh_₁(scorePiece_lh_₁), _lh_score_arg1¹, _lh_score_arg2¹))))
+//│ def searchTree_lh_₁(_lh_searchTree_arg1⁰, _lh_searchTree_arg2⁰) = prune_lh_₁(5, repTree_lh_₁(newPositions_lh_₁(_lh_searchTree_arg1⁰), newPositions_lh_₁(opposite_lh_₁(_lh_searchTree_arg1⁰)), _lh_searchTree_arg2⁰))
+//│ def showBoard_lh_₁(_lh_showBoard_arg1⁰) = case _lh_showBoard_arg1⁰ of {
 //│ 	LH_C _lh_showBoard_LH_C_0⁰ _lh_showBoard_LH_C_1⁰ => case _lh_showBoard_LH_C_1⁰ of {
 //│ 		LH_C _lh_showBoard_LH_C_0¹ _lh_showBoard_LH_C_1¹ => case _lh_showBoard_LH_C_1¹ of {
 //│ 			LH_C _lh_showBoard_LH_C_0² _lh_showBoard_LH_C_1² => case _lh_showBoard_LH_C_1² of {
 //│ 				LH_N  => mappend_lh_₆(mappend_lh_₇(mappend_lh_₈(mappend_lh_₉(mappend_lh_₁₀(showRow_lh_₃(_lh_showBoard_LH_C_0⁰), 
-//│ 					let t¹¹⁶ = 	
-//│ 						let t¹²² = 	
-//│ 							let t¹²⁸ = 	
-//│ 								let t¹³⁴ = 	
-//│ 									let t¹⁴⁰ = 	
-//│ 										let t¹⁴⁶ = 	
-//│ 											let t¹⁵² = 	
-//│ 												let t¹⁵⁸ = (fun ys¹⁵⁹ -> ys¹⁵⁹)
-//│ 												in let h¹⁵⁸ = '|'
-//│ 												in (fun ys¹⁵⁴ -> 
-//│ 													let t¹⁵⁹ = mappend_lh_₉(t¹⁵⁸, ys¹⁵⁴)
-//│ 													in let h¹⁵⁹ = h¹⁵⁸
-//│ 													in (fun ys¹⁵⁵ -> 
-//│ 														let t¹⁶⁰ = mappend_lh_₈(t¹⁵⁹, ys¹⁵⁵)
-//│ 														in let h¹⁶⁰ = h¹⁵⁹
-//│ 														in (fun ys¹⁵⁶ -> 
-//│ 															let t¹⁶¹ = mappend_lh_₇(t¹⁶⁰, ys¹⁵⁶)
-//│ 															in let h¹⁶¹ = h¹⁶⁰
-//│ 															in (fun ys¹⁵⁷ -> 
-//│ 																let t¹⁶² = mappend_lh_₆(t¹⁶¹, ys¹⁵⁷)
-//│ 																in let h¹⁶² = h¹⁶¹
-//│ 																in (fun ys¹⁵⁸ -> 
-//│ 																	let t¹⁶³ = mappend_lh_₅(t¹⁶², ys¹⁵⁸)
-//│ 																	in let h¹⁶³ = h¹⁶²
-//│ 																	in (fun _lh_dummy²⁴ -> (1 + length_lh_₁(t¹⁶³))))))))
-//│ 											in let h¹⁵² = '-'
-//│ 											in (fun ys¹⁴⁹ -> 
-//│ 												let t¹⁵³ = mappend_lh_₉(t¹⁵², ys¹⁴⁹)
-//│ 												in let h¹⁵³ = h¹⁵²
-//│ 												in (fun ys¹⁵⁰ -> 
-//│ 													let t¹⁵⁴ = mappend_lh_₈(t¹⁵³, ys¹⁵⁰)
-//│ 													in let h¹⁵⁴ = h¹⁵³
-//│ 													in (fun ys¹⁵¹ -> 
-//│ 														let t¹⁵⁵ = mappend_lh_₇(t¹⁵⁴, ys¹⁵¹)
-//│ 														in let h¹⁵⁵ = h¹⁵⁴
-//│ 														in (fun ys¹⁵² -> 
-//│ 															let t¹⁵⁶ = mappend_lh_₆(t¹⁵⁵, ys¹⁵²)
-//│ 															in let h¹⁵⁶ = h¹⁵⁵
-//│ 															in (fun ys¹⁵³ -> 
-//│ 																let t¹⁵⁷ = mappend_lh_₅(t¹⁵⁶, ys¹⁵³)
-//│ 																in let h¹⁵⁷ = h¹⁵⁶
-//│ 																in (fun _lh_dummy²³ -> (1 + length_lh_₁(t¹⁵⁷))))))))
-//│ 										in let h¹⁴⁶ = '-'
-//│ 										in (fun ys¹⁴⁴ -> 
-//│ 											let t¹⁴⁷ = mappend_lh_₉(t¹⁴⁶, ys¹⁴⁴)
-//│ 											in let h¹⁴⁷ = h¹⁴⁶
-//│ 											in (fun ys¹⁴⁵ -> 
-//│ 												let t¹⁴⁸ = mappend_lh_₈(t¹⁴⁷, ys¹⁴⁵)
-//│ 												in let h¹⁴⁸ = h¹⁴⁷
-//│ 												in (fun ys¹⁴⁶ -> 
-//│ 													let t¹⁴⁹ = mappend_lh_₇(t¹⁴⁸, ys¹⁴⁶)
-//│ 													in let h¹⁴⁹ = h¹⁴⁸
-//│ 													in (fun ys¹⁴⁷ -> 
-//│ 														let t¹⁵⁰ = mappend_lh_₆(t¹⁴⁹, ys¹⁴⁷)
-//│ 														in let h¹⁵⁰ = h¹⁴⁹
-//│ 														in (fun ys¹⁴⁸ -> 
-//│ 															let t¹⁵¹ = mappend_lh_₅(t¹⁵⁰, ys¹⁴⁸)
-//│ 															in let h¹⁵¹ = h¹⁵⁰
-//│ 															in (fun _lh_dummy²² -> (1 + length_lh_₁(t¹⁵¹))))))))
-//│ 									in let h¹⁴⁰ = '-'
-//│ 									in (fun ys¹³⁹ -> 
-//│ 										let t¹⁴¹ = mappend_lh_₉(t¹⁴⁰, ys¹³⁹)
-//│ 										in let h¹⁴¹ = h¹⁴⁰
-//│ 										in (fun ys¹⁴⁰ -> 
-//│ 											let t¹⁴² = mappend_lh_₈(t¹⁴¹, ys¹⁴⁰)
-//│ 											in let h¹⁴² = h¹⁴¹
-//│ 											in (fun ys¹⁴¹ -> 
-//│ 												let t¹⁴³ = mappend_lh_₇(t¹⁴², ys¹⁴¹)
-//│ 												in let h¹⁴³ = h¹⁴²
-//│ 												in (fun ys¹⁴² -> 
-//│ 													let t¹⁴⁴ = mappend_lh_₆(t¹⁴³, ys¹⁴²)
-//│ 													in let h¹⁴⁴ = h¹⁴³
-//│ 													in (fun ys¹⁴³ -> 
-//│ 														let t¹⁴⁵ = mappend_lh_₅(t¹⁴⁴, ys¹⁴³)
-//│ 														in let h¹⁴⁵ = h¹⁴⁴
-//│ 														in (fun _lh_dummy²¹ -> (1 + length_lh_₁(t¹⁴⁵))))))))
-//│ 								in let h¹³⁴ = '-'
-//│ 								in (fun ys¹³⁴ -> 
-//│ 									let t¹³⁵ = mappend_lh_₉(t¹³⁴, ys¹³⁴)
-//│ 									in let h¹³⁵ = h¹³⁴
-//│ 									in (fun ys¹³⁵ -> 
-//│ 										let t¹³⁶ = mappend_lh_₈(t¹³⁵, ys¹³⁵)
-//│ 										in let h¹³⁶ = h¹³⁵
-//│ 										in (fun ys¹³⁶ -> 
-//│ 											let t¹³⁷ = mappend_lh_₇(t¹³⁶, ys¹³⁶)
-//│ 											in let h¹³⁷ = h¹³⁶
-//│ 											in (fun ys¹³⁷ -> 
-//│ 												let t¹³⁸ = mappend_lh_₆(t¹³⁷, ys¹³⁷)
-//│ 												in let h¹³⁸ = h¹³⁷
-//│ 												in (fun ys¹³⁸ -> 
-//│ 													let t¹³⁹ = mappend_lh_₅(t¹³⁸, ys¹³⁸)
-//│ 													in let h¹³⁹ = h¹³⁸
-//│ 													in (fun _lh_dummy²⁰ -> (1 + length_lh_₁(t¹³⁹))))))))
-//│ 							in let h¹²⁸ = '-'
-//│ 							in (fun ys¹²⁹ -> 
-//│ 								let t¹²⁹ = mappend_lh_₉(t¹²⁸, ys¹²⁹)
-//│ 								in let h¹²⁹ = h¹²⁸
-//│ 								in (fun ys¹³⁰ -> 
-//│ 									let t¹³⁰ = mappend_lh_₈(t¹²⁹, ys¹³⁰)
-//│ 									in let h¹³⁰ = h¹²⁹
-//│ 									in (fun ys¹³¹ -> 
-//│ 										let t¹³¹ = mappend_lh_₇(t¹³⁰, ys¹³¹)
-//│ 										in let h¹³¹ = h¹³⁰
-//│ 										in (fun ys¹³² -> 
-//│ 											let t¹³² = mappend_lh_₆(t¹³¹, ys¹³²)
-//│ 											in let h¹³² = h¹³¹
-//│ 											in (fun ys¹³³ -> 
-//│ 												let t¹³³ = mappend_lh_₅(t¹³², ys¹³³)
-//│ 												in let h¹³³ = h¹³²
-//│ 												in (fun _lh_dummy¹⁹ -> (1 + length_lh_₁(t¹³³))))))))
-//│ 						in let h¹²² = '-'
-//│ 						in (fun ys¹²⁴ -> 
-//│ 							let t¹²³ = mappend_lh_₉(t¹²², ys¹²⁴)
-//│ 							in let h¹²³ = h¹²²
-//│ 							in (fun ys¹²⁵ -> 
-//│ 								let t¹²⁴ = mappend_lh_₈(t¹²³, ys¹²⁵)
-//│ 								in let h¹²⁴ = h¹²³
-//│ 								in (fun ys¹²⁶ -> 
-//│ 									let t¹²⁵ = mappend_lh_₇(t¹²⁴, ys¹²⁶)
-//│ 									in let h¹²⁵ = h¹²⁴
-//│ 									in (fun ys¹²⁷ -> 
-//│ 										let t¹²⁶ = mappend_lh_₆(t¹²⁵, ys¹²⁷)
-//│ 										in let h¹²⁶ = h¹²⁵
-//│ 										in (fun ys¹²⁸ -> 
-//│ 											let t¹²⁷ = mappend_lh_₅(t¹²⁶, ys¹²⁸)
-//│ 											in let h¹²⁷ = h¹²⁶
-//│ 											in (fun _lh_dummy¹⁸ -> (1 + length_lh_₁(t¹²⁷))))))))
-//│ 					in let h¹¹⁶ = '|'
-//│ 					in (fun ys¹¹⁹ -> 
-//│ 						let t¹¹⁷ = mappend_lh_₉(t¹¹⁶, ys¹¹⁹)
-//│ 						in let h¹¹⁷ = h¹¹⁶
-//│ 						in (fun ys¹²⁰ -> 
-//│ 							let t¹¹⁸ = mappend_lh_₈(t¹¹⁷, ys¹²⁰)
-//│ 							in let h¹¹⁸ = h¹¹⁷
-//│ 							in (fun ys¹²¹ -> 
-//│ 								let t¹¹⁹ = mappend_lh_₇(t¹¹⁸, ys¹²¹)
+//│ 					let t⁸⁸ = 	
+//│ 						let t⁸⁹ = 	
+//│ 							let t⁹⁰ = 	
+//│ 								let t⁹¹ = 	
+//│ 									let t⁹² = 	
+//│ 										let t⁹³ = 	
+//│ 											let t⁹⁴ = 	
+//│ 												let t⁹⁵ = (fun ys⁹⁸ -> ys⁹⁸)
+//│ 												in let h⁸⁸ = '|'
+//│ 												in (fun ys⁹⁹ -> 
+//│ 													let t⁹⁶ = mappend_lh_₉(t⁹⁵, ys⁹⁹)
+//│ 													in let h⁸⁹ = h⁸⁸
+//│ 													in (fun ys¹⁰⁰ -> 
+//│ 														let t⁹⁷ = mappend_lh_₈(t⁹⁶, ys¹⁰⁰)
+//│ 														in let h⁹⁰ = h⁸⁹
+//│ 														in (fun ys¹⁰¹ -> 
+//│ 															let t⁹⁸ = mappend_lh_₇(t⁹⁷, ys¹⁰¹)
+//│ 															in let h⁹¹ = h⁹⁰
+//│ 															in (fun ys¹⁰² -> 
+//│ 																let t⁹⁹ = mappend_lh_₆(t⁹⁸, ys¹⁰²)
+//│ 																in let h⁹² = h⁹¹
+//│ 																in (fun ys¹⁰³ -> 
+//│ 																	let t¹⁰⁰ = mappend_lh_₅(t⁹⁹, ys¹⁰³)
+//│ 																	in let h⁹³ = h⁹²
+//│ 																	in (fun _lh_dummy¹⁷ -> (1 + length_lh_₁(t¹⁰⁰))))))))
+//│ 											in let h⁹⁴ = '-'
+//│ 											in (fun ys¹⁰⁴ -> 
+//│ 												let t¹⁰¹ = mappend_lh_₉(t⁹⁴, ys¹⁰⁴)
+//│ 												in let h⁹⁵ = h⁹⁴
+//│ 												in (fun ys¹⁰⁵ -> 
+//│ 													let t¹⁰² = mappend_lh_₈(t¹⁰¹, ys¹⁰⁵)
+//│ 													in let h⁹⁶ = h⁹⁵
+//│ 													in (fun ys¹⁰⁶ -> 
+//│ 														let t¹⁰³ = mappend_lh_₇(t¹⁰², ys¹⁰⁶)
+//│ 														in let h⁹⁷ = h⁹⁶
+//│ 														in (fun ys¹⁰⁷ -> 
+//│ 															let t¹⁰⁴ = mappend_lh_₆(t¹⁰³, ys¹⁰⁷)
+//│ 															in let h⁹⁸ = h⁹⁷
+//│ 															in (fun ys¹⁰⁸ -> 
+//│ 																let t¹⁰⁵ = mappend_lh_₅(t¹⁰⁴, ys¹⁰⁸)
+//│ 																in let h⁹⁹ = h⁹⁸
+//│ 																in (fun _lh_dummy¹⁸ -> (1 + length_lh_₁(t¹⁰⁵))))))))
+//│ 										in let h¹⁰⁰ = '-'
+//│ 										in (fun ys¹⁰⁹ -> 
+//│ 											let t¹⁰⁶ = mappend_lh_₉(t⁹³, ys¹⁰⁹)
+//│ 											in let h¹⁰¹ = h¹⁰⁰
+//│ 											in (fun ys¹¹⁰ -> 
+//│ 												let t¹⁰⁷ = mappend_lh_₈(t¹⁰⁶, ys¹¹⁰)
+//│ 												in let h¹⁰² = h¹⁰¹
+//│ 												in (fun ys¹¹¹ -> 
+//│ 													let t¹⁰⁸ = mappend_lh_₇(t¹⁰⁷, ys¹¹¹)
+//│ 													in let h¹⁰³ = h¹⁰²
+//│ 													in (fun ys¹¹² -> 
+//│ 														let t¹⁰⁹ = mappend_lh_₆(t¹⁰⁸, ys¹¹²)
+//│ 														in let h¹⁰⁴ = h¹⁰³
+//│ 														in (fun ys¹¹³ -> 
+//│ 															let t¹¹⁰ = mappend_lh_₅(t¹⁰⁹, ys¹¹³)
+//│ 															in let h¹⁰⁵ = h¹⁰⁴
+//│ 															in (fun _lh_dummy¹⁹ -> (1 + length_lh_₁(t¹¹⁰))))))))
+//│ 									in let h¹⁰⁶ = '-'
+//│ 									in (fun ys¹¹⁴ -> 
+//│ 										let t¹¹¹ = mappend_lh_₉(t⁹², ys¹¹⁴)
+//│ 										in let h¹⁰⁷ = h¹⁰⁶
+//│ 										in (fun ys¹¹⁵ -> 
+//│ 											let t¹¹² = mappend_lh_₈(t¹¹¹, ys¹¹⁵)
+//│ 											in let h¹⁰⁸ = h¹⁰⁷
+//│ 											in (fun ys¹¹⁶ -> 
+//│ 												let t¹¹³ = mappend_lh_₇(t¹¹², ys¹¹⁶)
+//│ 												in let h¹⁰⁹ = h¹⁰⁸
+//│ 												in (fun ys¹¹⁷ -> 
+//│ 													let t¹¹⁴ = mappend_lh_₆(t¹¹³, ys¹¹⁷)
+//│ 													in let h¹¹⁰ = h¹⁰⁹
+//│ 													in (fun ys¹¹⁸ -> 
+//│ 														let t¹¹⁵ = mappend_lh_₅(t¹¹⁴, ys¹¹⁸)
+//│ 														in let h¹¹¹ = h¹¹⁰
+//│ 														in (fun _lh_dummy²⁰ -> (1 + length_lh_₁(t¹¹⁵))))))))
+//│ 								in let h¹¹² = '-'
+//│ 								in (fun ys¹¹⁹ -> 
+//│ 									let t¹¹⁶ = mappend_lh_₉(t⁹¹, ys¹¹⁹)
+//│ 									in let h¹¹³ = h¹¹²
+//│ 									in (fun ys¹²⁰ -> 
+//│ 										let t¹¹⁷ = mappend_lh_₈(t¹¹⁶, ys¹²⁰)
+//│ 										in let h¹¹⁴ = h¹¹³
+//│ 										in (fun ys¹²¹ -> 
+//│ 											let t¹¹⁸ = mappend_lh_₇(t¹¹⁷, ys¹²¹)
+//│ 											in let h¹¹⁵ = h¹¹⁴
+//│ 											in (fun ys¹²² -> 
+//│ 												let t¹¹⁹ = mappend_lh_₆(t¹¹⁸, ys¹²²)
+//│ 												in let h¹¹⁶ = h¹¹⁵
+//│ 												in (fun ys¹²³ -> 
+//│ 													let t¹²⁰ = mappend_lh_₅(t¹¹⁹, ys¹²³)
+//│ 													in let h¹¹⁷ = h¹¹⁶
+//│ 													in (fun _lh_dummy²¹ -> (1 + length_lh_₁(t¹²⁰))))))))
+//│ 							in let h¹¹⁸ = '-'
+//│ 							in (fun ys¹²⁴ -> 
+//│ 								let t¹²¹ = mappend_lh_₉(t⁹⁰, ys¹²⁴)
 //│ 								in let h¹¹⁹ = h¹¹⁸
-//│ 								in (fun ys¹²² -> 
-//│ 									let t¹²⁰ = mappend_lh_₆(t¹¹⁹, ys¹²²)
+//│ 								in (fun ys¹²⁵ -> 
+//│ 									let t¹²² = mappend_lh_₈(t¹²¹, ys¹²⁵)
 //│ 									in let h¹²⁰ = h¹¹⁹
-//│ 									in (fun ys¹²³ -> 
-//│ 										let t¹²¹ = mappend_lh_₅(t¹²⁰, ys¹²³)
+//│ 									in (fun ys¹²⁶ -> 
+//│ 										let t¹²³ = mappend_lh_₇(t¹²², ys¹²⁶)
 //│ 										in let h¹²¹ = h¹²⁰
-//│ 										in (fun _lh_dummy¹⁷ -> (1 + length_lh_₁(t¹²¹))))))))), showRow_lh_₂(_lh_showBoard_LH_C_0¹)), 
-//│ 					let t¹⁶⁴ = 	
-//│ 						let t¹⁶⁸ = 	
-//│ 							let t¹⁷² = 	
-//│ 								let t¹⁷⁶ = 	
-//│ 									let t¹⁸⁰ = 	
-//│ 										let t¹⁸⁴ = 	
-//│ 											let t¹⁸⁸ = 	
-//│ 												let t¹⁹² = (fun ys¹⁸⁴ -> ys¹⁸⁴)
-//│ 												in let h¹⁹² = '|'
-//│ 												in (fun ys¹⁸¹ -> 
-//│ 													let t¹⁹³ = mappend_lh_₇(t¹⁹², ys¹⁸¹)
-//│ 													in let h¹⁹³ = h¹⁹²
-//│ 													in (fun ys¹⁸² -> 
-//│ 														let t¹⁹⁴ = mappend_lh_₆(t¹⁹³, ys¹⁸²)
-//│ 														in let h¹⁹⁴ = h¹⁹³
-//│ 														in (fun ys¹⁸³ -> 
-//│ 															let t¹⁹⁵ = mappend_lh_₅(t¹⁹⁴, ys¹⁸³)
-//│ 															in let h¹⁹⁵ = h¹⁹⁴
-//│ 															in (fun _lh_dummy³² -> (1 + length_lh_₁(t¹⁹⁵))))))
-//│ 											in let h¹⁸⁸ = '-'
-//│ 											in (fun ys¹⁷⁸ -> 
-//│ 												let t¹⁸⁹ = mappend_lh_₇(t¹⁸⁸, ys¹⁷⁸)
-//│ 												in let h¹⁸⁹ = h¹⁸⁸
-//│ 												in (fun ys¹⁷⁹ -> 
-//│ 													let t¹⁹⁰ = mappend_lh_₆(t¹⁸⁹, ys¹⁷⁹)
-//│ 													in let h¹⁹⁰ = h¹⁸⁹
-//│ 													in (fun ys¹⁸⁰ -> 
-//│ 														let t¹⁹¹ = mappend_lh_₅(t¹⁹⁰, ys¹⁸⁰)
-//│ 														in let h¹⁹¹ = h¹⁹⁰
-//│ 														in (fun _lh_dummy³¹ -> (1 + length_lh_₁(t¹⁹¹))))))
-//│ 										in let h¹⁸⁴ = '-'
-//│ 										in (fun ys¹⁷⁵ -> 
-//│ 											let t¹⁸⁵ = mappend_lh_₇(t¹⁸⁴, ys¹⁷⁵)
-//│ 											in let h¹⁸⁵ = h¹⁸⁴
-//│ 											in (fun ys¹⁷⁶ -> 
-//│ 												let t¹⁸⁶ = mappend_lh_₆(t¹⁸⁵, ys¹⁷⁶)
-//│ 												in let h¹⁸⁶ = h¹⁸⁵
-//│ 												in (fun ys¹⁷⁷ -> 
-//│ 													let t¹⁸⁷ = mappend_lh_₅(t¹⁸⁶, ys¹⁷⁷)
-//│ 													in let h¹⁸⁷ = h¹⁸⁶
-//│ 													in (fun _lh_dummy³⁰ -> (1 + length_lh_₁(t¹⁸⁷))))))
-//│ 									in let h¹⁸⁰ = '-'
-//│ 									in (fun ys¹⁷² -> 
-//│ 										let t¹⁸¹ = mappend_lh_₇(t¹⁸⁰, ys¹⁷²)
-//│ 										in let h¹⁸¹ = h¹⁸⁰
-//│ 										in (fun ys¹⁷³ -> 
-//│ 											let t¹⁸² = mappend_lh_₆(t¹⁸¹, ys¹⁷³)
-//│ 											in let h¹⁸² = h¹⁸¹
-//│ 											in (fun ys¹⁷⁴ -> 
-//│ 												let t¹⁸³ = mappend_lh_₅(t¹⁸², ys¹⁷⁴)
-//│ 												in let h¹⁸³ = h¹⁸²
-//│ 												in (fun _lh_dummy²⁹ -> (1 + length_lh_₁(t¹⁸³))))))
-//│ 								in let h¹⁷⁶ = '-'
-//│ 								in (fun ys¹⁶⁹ -> 
-//│ 									let t¹⁷⁷ = mappend_lh_₇(t¹⁷⁶, ys¹⁶⁹)
-//│ 									in let h¹⁷⁷ = h¹⁷⁶
-//│ 									in (fun ys¹⁷⁰ -> 
-//│ 										let t¹⁷⁸ = mappend_lh_₆(t¹⁷⁷, ys¹⁷⁰)
-//│ 										in let h¹⁷⁸ = h¹⁷⁷
-//│ 										in (fun ys¹⁷¹ -> 
-//│ 											let t¹⁷⁹ = mappend_lh_₅(t¹⁷⁸, ys¹⁷¹)
-//│ 											in let h¹⁷⁹ = h¹⁷⁸
-//│ 											in (fun _lh_dummy²⁸ -> (1 + length_lh_₁(t¹⁷⁹))))))
-//│ 							in let h¹⁷² = '-'
-//│ 							in (fun ys¹⁶⁶ -> 
-//│ 								let t¹⁷³ = mappend_lh_₇(t¹⁷², ys¹⁶⁶)
-//│ 								in let h¹⁷³ = h¹⁷²
-//│ 								in (fun ys¹⁶⁷ -> 
-//│ 									let t¹⁷⁴ = mappend_lh_₆(t¹⁷³, ys¹⁶⁷)
-//│ 									in let h¹⁷⁴ = h¹⁷³
-//│ 									in (fun ys¹⁶⁸ -> 
-//│ 										let t¹⁷⁵ = mappend_lh_₅(t¹⁷⁴, ys¹⁶⁸)
-//│ 										in let h¹⁷⁵ = h¹⁷⁴
-//│ 										in (fun _lh_dummy²⁷ -> (1 + length_lh_₁(t¹⁷⁵))))))
-//│ 						in let h¹⁶⁸ = '-'
-//│ 						in (fun ys¹⁶³ -> 
-//│ 							let t¹⁶⁹ = mappend_lh_₇(t¹⁶⁸, ys¹⁶³)
-//│ 							in let h¹⁶⁹ = h¹⁶⁸
-//│ 							in (fun ys¹⁶⁴ -> 
-//│ 								let t¹⁷⁰ = mappend_lh_₆(t¹⁶⁹, ys¹⁶⁴)
-//│ 								in let h¹⁷⁰ = h¹⁶⁹
-//│ 								in (fun ys¹⁶⁵ -> 
-//│ 									let t¹⁷¹ = mappend_lh_₅(t¹⁷⁰, ys¹⁶⁵)
-//│ 									in let h¹⁷¹ = h¹⁷⁰
-//│ 									in (fun _lh_dummy²⁶ -> (1 + length_lh_₁(t¹⁷¹))))))
+//│ 										in (fun ys¹²⁷ -> 
+//│ 											let t¹²⁴ = mappend_lh_₆(t¹²³, ys¹²⁷)
+//│ 											in let h¹²² = h¹²¹
+//│ 											in (fun ys¹²⁸ -> 
+//│ 												let t¹²⁵ = mappend_lh_₅(t¹²⁴, ys¹²⁸)
+//│ 												in let h¹²³ = h¹²²
+//│ 												in (fun _lh_dummy²² -> (1 + length_lh_₁(t¹²⁵))))))))
+//│ 						in let h¹²⁴ = '-'
+//│ 						in (fun ys¹²⁹ -> 
+//│ 							let t¹²⁶ = mappend_lh_₉(t⁸⁹, ys¹²⁹)
+//│ 							in let h¹²⁵ = h¹²⁴
+//│ 							in (fun ys¹³⁰ -> 
+//│ 								let t¹²⁷ = mappend_lh_₈(t¹²⁶, ys¹³⁰)
+//│ 								in let h¹²⁶ = h¹²⁵
+//│ 								in (fun ys¹³¹ -> 
+//│ 									let t¹²⁸ = mappend_lh_₇(t¹²⁷, ys¹³¹)
+//│ 									in let h¹²⁷ = h¹²⁶
+//│ 									in (fun ys¹³² -> 
+//│ 										let t¹²⁹ = mappend_lh_₆(t¹²⁸, ys¹³²)
+//│ 										in let h¹²⁸ = h¹²⁷
+//│ 										in (fun ys¹³³ -> 
+//│ 											let t¹³⁰ = mappend_lh_₅(t¹²⁹, ys¹³³)
+//│ 											in let h¹²⁹ = h¹²⁸
+//│ 											in (fun _lh_dummy²³ -> (1 + length_lh_₁(t¹³⁰))))))))
+//│ 					in let h¹³⁰ = '|'
+//│ 					in (fun ys¹³⁴ -> 
+//│ 						let t¹³¹ = mappend_lh_₉(t⁸⁸, ys¹³⁴)
+//│ 						in let h¹³¹ = h¹³⁰
+//│ 						in (fun ys¹³⁵ -> 
+//│ 							let t¹³² = mappend_lh_₈(t¹³¹, ys¹³⁵)
+//│ 							in let h¹³² = h¹³¹
+//│ 							in (fun ys¹³⁶ -> 
+//│ 								let t¹³³ = mappend_lh_₇(t¹³², ys¹³⁶)
+//│ 								in let h¹³³ = h¹³²
+//│ 								in (fun ys¹³⁷ -> 
+//│ 									let t¹³⁴ = mappend_lh_₆(t¹³³, ys¹³⁷)
+//│ 									in let h¹³⁴ = h¹³³
+//│ 									in (fun ys¹³⁸ -> 
+//│ 										let t¹³⁵ = mappend_lh_₅(t¹³⁴, ys¹³⁸)
+//│ 										in let h¹³⁵ = h¹³⁴
+//│ 										in (fun _lh_dummy²⁴ -> (1 + length_lh_₁(t¹³⁵))))))))), showRow_lh_₂(_lh_showBoard_LH_C_0¹)), 
+//│ 					let t¹³⁶ = 	
+//│ 						let t¹³⁷ = 	
+//│ 							let t¹³⁸ = 	
+//│ 								let t¹³⁹ = 	
+//│ 									let t¹⁴⁰ = 	
+//│ 										let t¹⁴¹ = 	
+//│ 											let t¹⁴² = 	
+//│ 												let t¹⁴³ = (fun ys¹³⁹ -> ys¹³⁹)
+//│ 												in let h¹³⁶ = '|'
+//│ 												in (fun ys¹⁴⁰ -> 
+//│ 													let t¹⁴⁴ = mappend_lh_₇(t¹⁴³, ys¹⁴⁰)
+//│ 													in let h¹³⁷ = h¹³⁶
+//│ 													in (fun ys¹⁴¹ -> 
+//│ 														let t¹⁴⁵ = mappend_lh_₆(t¹⁴⁴, ys¹⁴¹)
+//│ 														in let h¹³⁸ = h¹³⁷
+//│ 														in (fun ys¹⁴² -> 
+//│ 															let t¹⁴⁶ = mappend_lh_₅(t¹⁴⁵, ys¹⁴²)
+//│ 															in let h¹³⁹ = h¹³⁸
+//│ 															in (fun _lh_dummy²⁵ -> (1 + length_lh_₁(t¹⁴⁶))))))
+//│ 											in let h¹⁴⁰ = '-'
+//│ 											in (fun ys¹⁴³ -> 
+//│ 												let t¹⁴⁷ = mappend_lh_₇(t¹⁴², ys¹⁴³)
+//│ 												in let h¹⁴¹ = h¹⁴⁰
+//│ 												in (fun ys¹⁴⁴ -> 
+//│ 													let t¹⁴⁸ = mappend_lh_₆(t¹⁴⁷, ys¹⁴⁴)
+//│ 													in let h¹⁴² = h¹⁴¹
+//│ 													in (fun ys¹⁴⁵ -> 
+//│ 														let t¹⁴⁹ = mappend_lh_₅(t¹⁴⁸, ys¹⁴⁵)
+//│ 														in let h¹⁴³ = h¹⁴²
+//│ 														in (fun _lh_dummy²⁶ -> (1 + length_lh_₁(t¹⁴⁹))))))
+//│ 										in let h¹⁴⁴ = '-'
+//│ 										in (fun ys¹⁴⁶ -> 
+//│ 											let t¹⁵⁰ = mappend_lh_₇(t¹⁴¹, ys¹⁴⁶)
+//│ 											in let h¹⁴⁵ = h¹⁴⁴
+//│ 											in (fun ys¹⁴⁷ -> 
+//│ 												let t¹⁵¹ = mappend_lh_₆(t¹⁵⁰, ys¹⁴⁷)
+//│ 												in let h¹⁴⁶ = h¹⁴⁵
+//│ 												in (fun ys¹⁴⁸ -> 
+//│ 													let t¹⁵² = mappend_lh_₅(t¹⁵¹, ys¹⁴⁸)
+//│ 													in let h¹⁴⁷ = h¹⁴⁶
+//│ 													in (fun _lh_dummy²⁷ -> (1 + length_lh_₁(t¹⁵²))))))
+//│ 									in let h¹⁴⁸ = '-'
+//│ 									in (fun ys¹⁴⁹ -> 
+//│ 										let t¹⁵³ = mappend_lh_₇(t¹⁴⁰, ys¹⁴⁹)
+//│ 										in let h¹⁴⁹ = h¹⁴⁸
+//│ 										in (fun ys¹⁵⁰ -> 
+//│ 											let t¹⁵⁴ = mappend_lh_₆(t¹⁵³, ys¹⁵⁰)
+//│ 											in let h¹⁵⁰ = h¹⁴⁹
+//│ 											in (fun ys¹⁵¹ -> 
+//│ 												let t¹⁵⁵ = mappend_lh_₅(t¹⁵⁴, ys¹⁵¹)
+//│ 												in let h¹⁵¹ = h¹⁵⁰
+//│ 												in (fun _lh_dummy²⁸ -> (1 + length_lh_₁(t¹⁵⁵))))))
+//│ 								in let h¹⁵² = '-'
+//│ 								in (fun ys¹⁵² -> 
+//│ 									let t¹⁵⁶ = mappend_lh_₇(t¹³⁹, ys¹⁵²)
+//│ 									in let h¹⁵³ = h¹⁵²
+//│ 									in (fun ys¹⁵³ -> 
+//│ 										let t¹⁵⁷ = mappend_lh_₆(t¹⁵⁶, ys¹⁵³)
+//│ 										in let h¹⁵⁴ = h¹⁵³
+//│ 										in (fun ys¹⁵⁴ -> 
+//│ 											let t¹⁵⁸ = mappend_lh_₅(t¹⁵⁷, ys¹⁵⁴)
+//│ 											in let h¹⁵⁵ = h¹⁵⁴
+//│ 											in (fun _lh_dummy²⁹ -> (1 + length_lh_₁(t¹⁵⁸))))))
+//│ 							in let h¹⁵⁶ = '-'
+//│ 							in (fun ys¹⁵⁵ -> 
+//│ 								let t¹⁵⁹ = mappend_lh_₇(t¹³⁸, ys¹⁵⁵)
+//│ 								in let h¹⁵⁷ = h¹⁵⁶
+//│ 								in (fun ys¹⁵⁶ -> 
+//│ 									let t¹⁶⁰ = mappend_lh_₆(t¹⁵⁹, ys¹⁵⁶)
+//│ 									in let h¹⁵⁸ = h¹⁵⁷
+//│ 									in (fun ys¹⁵⁷ -> 
+//│ 										let t¹⁶¹ = mappend_lh_₅(t¹⁶⁰, ys¹⁵⁷)
+//│ 										in let h¹⁵⁹ = h¹⁵⁸
+//│ 										in (fun _lh_dummy³⁰ -> (1 + length_lh_₁(t¹⁶¹))))))
+//│ 						in let h¹⁶⁰ = '-'
+//│ 						in (fun ys¹⁵⁸ -> 
+//│ 							let t¹⁶² = mappend_lh_₇(t¹³⁷, ys¹⁵⁸)
+//│ 							in let h¹⁶¹ = h¹⁶⁰
+//│ 							in (fun ys¹⁵⁹ -> 
+//│ 								let t¹⁶³ = mappend_lh_₆(t¹⁶², ys¹⁵⁹)
+//│ 								in let h¹⁶² = h¹⁶¹
+//│ 								in (fun ys¹⁶⁰ -> 
+//│ 									let t¹⁶⁴ = mappend_lh_₅(t¹⁶³, ys¹⁶⁰)
+//│ 									in let h¹⁶³ = h¹⁶²
+//│ 									in (fun _lh_dummy³¹ -> (1 + length_lh_₁(t¹⁶⁴))))))
 //│ 					in let h¹⁶⁴ = '|'
-//│ 					in (fun ys¹⁶⁰ -> 
-//│ 						let t¹⁶⁵ = mappend_lh_₇(t¹⁶⁴, ys¹⁶⁰)
+//│ 					in (fun ys¹⁶¹ -> 
+//│ 						let t¹⁶⁵ = mappend_lh_₇(t¹³⁶, ys¹⁶¹)
 //│ 						in let h¹⁶⁵ = h¹⁶⁴
-//│ 						in (fun ys¹⁶¹ -> 
-//│ 							let t¹⁶⁶ = mappend_lh_₆(t¹⁶⁵, ys¹⁶¹)
+//│ 						in (fun ys¹⁶² -> 
+//│ 							let t¹⁶⁶ = mappend_lh_₆(t¹⁶⁵, ys¹⁶²)
 //│ 							in let h¹⁶⁶ = h¹⁶⁵
-//│ 							in (fun ys¹⁶² -> 
-//│ 								let t¹⁶⁷ = mappend_lh_₅(t¹⁶⁶, ys¹⁶²)
+//│ 							in (fun ys¹⁶³ -> 
+//│ 								let t¹⁶⁷ = mappend_lh_₅(t¹⁶⁶, ys¹⁶³)
 //│ 								in let h¹⁶⁷ = h¹⁶⁶
-//│ 								in (fun _lh_dummy²⁵ -> (1 + length_lh_₁(t¹⁶⁷))))))), showRow_lh_₁(_lh_showBoard_LH_C_0²)), 
-//│ 					let t¹⁹⁶ = 	
-//│ 						let t¹⁹⁸ = (fun ys¹⁸⁷ -> ys¹⁸⁷)
-//│ 						in let h¹⁹⁸ = '|'
-//│ 						in (fun ys¹⁸⁶ -> 
-//│ 							let t¹⁹⁹ = mappend_lh_₅(t¹⁹⁸, ys¹⁸⁶)
-//│ 							in let h¹⁹⁹ = h¹⁹⁸
-//│ 							in (fun _lh_dummy³⁴ -> (1 + length_lh_₁(t¹⁹⁹))))
-//│ 					in let h¹⁹⁶ = '|'
-//│ 					in (fun ys¹⁸⁵ -> 
-//│ 						let t¹⁹⁷ = mappend_lh_₅(t¹⁹⁶, ys¹⁸⁵)
-//│ 						in let h¹⁹⁷ = h¹⁹⁶
-//│ 						in (fun _lh_dummy³³ -> (1 + length_lh_₁(t¹⁹⁷)))))
+//│ 								in (fun _lh_dummy³² -> (1 + length_lh_₁(t¹⁶⁷))))))), showRow_lh_₁(_lh_showBoard_LH_C_0²)), 
+//│ 					let t¹⁶⁸ = 	
+//│ 						let t¹⁶⁹ = (fun ys¹⁶⁴ -> ys¹⁶⁴)
+//│ 						in let h¹⁶⁸ = '|'
+//│ 						in (fun ys¹⁶⁵ -> 
+//│ 							let t¹⁷⁰ = mappend_lh_₅(t¹⁶⁹, ys¹⁶⁵)
+//│ 							in let h¹⁶⁹ = h¹⁶⁸
+//│ 							in (fun _lh_dummy³³ -> (1 + length_lh_₁(t¹⁷⁰))))
+//│ 					in let h¹⁷⁰ = '|'
+//│ 					in (fun ys¹⁶⁶ -> 
+//│ 						let t¹⁷¹ = mappend_lh_₅(t¹⁶⁸, ys¹⁶⁶)
+//│ 						in let h¹⁷¹ = h¹⁷⁰
+//│ 						in (fun _lh_dummy³⁴ -> (1 + length_lh_₁(t¹⁷¹)))))
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showEvaluation_lh_₁(_lh_showEvaluation_arg1¹) = case _lh_showEvaluation_arg1¹ of {
+//│ def showEvaluation_lh_₁(_lh_showEvaluation_arg1⁰) = case _lh_showEvaluation_arg1⁰ of {
 //│ 	XWin  => [LH_C 'X' [LH_C 'W' [LH_C 'i' [LH_C 'n' [LH_N]]]]]
 //│ 	| OWin  => [LH_C 'O' [LH_C 'W' [LH_C 'i' [LH_C 'n' [LH_N]]]]]
 //│ 	| Score _lh_showEvaluation_Score_0⁰ => mappend_lh_₁₁(
-//│ 		let t⁸⁷ = 	
-//│ 			let t⁸⁸ = 	
-//│ 				let t⁸⁹ = 	
-//│ 					let t⁹⁰ = 	
-//│ 						let t⁹¹ = (fun ys⁸⁹ -> ys⁸⁹)
-//│ 						in let h⁹¹ = 'e'
-//│ 						in (fun ys⁸⁸ -> [LH_C h⁹¹ mappend_lh_₁₁(t⁹¹, ys⁸⁸)])
-//│ 					in let h⁹⁰ = 'r'
-//│ 					in (fun ys⁸⁷ -> [LH_C h⁹⁰ mappend_lh_₁₁(t⁹⁰, ys⁸⁷)])
-//│ 				in let h⁸⁹ = 'o'
-//│ 				in (fun ys⁸⁶ -> [LH_C h⁸⁹ mappend_lh_₁₁(t⁸⁹, ys⁸⁶)])
-//│ 			in let h⁸⁸ = 'c'
-//│ 			in (fun ys⁸⁵ -> [LH_C h⁸⁸ mappend_lh_₁₁(t⁸⁸, ys⁸⁵)])
-//│ 		in let h⁸⁷ = 'S'
-//│ 		in (fun ys⁸⁴ -> [LH_C h⁸⁷ mappend_lh_₁₁(t⁸⁷, ys⁸⁴)]), string_of_int⁰(_lh_showEvaluation_Score_0⁰))
+//│ 		let t⁵⁹ = 	
+//│ 			let t⁶⁰ = 	
+//│ 				let t⁶¹ = 	
+//│ 					let t⁶² = 	
+//│ 						let t⁶³ = (fun ys⁶³ -> ys⁶³)
+//│ 						in let h⁵⁹ = 'e'
+//│ 						in (fun ys⁶⁴ -> [LH_C h⁵⁹ mappend_lh_₁₁(t⁶³, ys⁶⁴)])
+//│ 					in let h⁶⁰ = 'r'
+//│ 					in (fun ys⁶⁵ -> [LH_C h⁶⁰ mappend_lh_₁₁(t⁶², ys⁶⁵)])
+//│ 				in let h⁶¹ = 'o'
+//│ 				in (fun ys⁶⁶ -> [LH_C h⁶¹ mappend_lh_₁₁(t⁶¹, ys⁶⁶)])
+//│ 			in let h⁶² = 'c'
+//│ 			in (fun ys⁶⁷ -> [LH_C h⁶² mappend_lh_₁₁(t⁶⁰, ys⁶⁷)])
+//│ 		in let h⁶³ = 'S'
+//│ 		in (fun ys⁶⁸ -> [LH_C h⁶³ mappend_lh_₁₁(t⁵⁹, ys⁶⁸)]), string_of_int⁰(_lh_showEvaluation_Score_0⁰))
 //│ 	| _  => error⁰}
-//│ def showMove_lh_₁(_lh_showMove_arg1¹) = _lh_showMove_arg1¹(99)
-//│ def showPiece_lh_₁(_lh_showPiece_arg1¹⁶) = case _lh_showPiece_arg1¹⁶ of {
+//│ def showMove_lh_₁(_lh_showMove_arg1⁰) = _lh_showMove_arg1⁰(99)
+//│ def showPiece_lh_₁(_lh_showPiece_arg1⁷) = case _lh_showPiece_arg1⁷ of {
 //│ 	X  => 
-//│ 		let t²⁴⁰ = (fun ys²³³ -> ys²³³)
-//│ 		in let h²⁴⁰ = 'X'
-//│ 		in (fun ys²²⁷ -> 
-//│ 			let t²⁴¹ = mappend_lh_₁₄(t²⁴⁰, ys²²⁷)
-//│ 			in let h²⁴¹ = h²⁴⁰
-//│ 			in (fun ys²²⁸ -> 
-//│ 				let t²⁴² = mappend_lh_₁₅(t²⁴¹, ys²²⁸)
-//│ 				in let h²⁴² = h²⁴¹
-//│ 				in (fun ys²²⁹ -> 
-//│ 					let t²⁴³ = mappend_lh_₁₃(t²⁴², ys²²⁹)
-//│ 					in let h²⁴³ = h²⁴²
-//│ 					in (fun ys²³⁰ -> 
-//│ 						let t²⁴⁴ = mappend_lh_₁₂(t²⁴³, ys²³⁰)
-//│ 						in let h²⁴⁴ = h²⁴³
-//│ 						in (fun ys²³¹ -> 
-//│ 							let t²⁴⁵ = mappend_lh_₆(t²⁴⁴, ys²³¹)
-//│ 							in let h²⁴⁵ = h²⁴⁴
-//│ 							in (fun ys²³² -> 
-//│ 								let t²⁴⁶ = mappend_lh_₅(t²⁴⁵, ys²³²)
-//│ 								in let h²⁴⁶ = h²⁴⁵
-//│ 								in (fun _lh_dummy⁴⁴ -> (1 + length_lh_₁(t²⁴⁶)))))))))
+//│ 		let t²¹⁷ = (fun ys²⁰⁶ -> ys²⁰⁶)
+//│ 		in let h²¹⁷ = 'X'
+//│ 		in (fun ys²⁰⁷ -> 
+//│ 			let t²¹⁸ = mappend_lh_₁₄(t²¹⁷, ys²⁰⁷)
+//│ 			in let h²¹⁸ = h²¹⁷
+//│ 			in (fun ys²⁰⁸ -> 
+//│ 				let t²¹⁹ = mappend_lh_₁₅(t²¹⁸, ys²⁰⁸)
+//│ 				in let h²¹⁹ = h²¹⁸
+//│ 				in (fun ys²⁰⁹ -> 
+//│ 					let t²²⁰ = mappend_lh_₁₃(t²¹⁹, ys²⁰⁹)
+//│ 					in let h²²⁰ = h²¹⁹
+//│ 					in (fun ys²¹⁰ -> 
+//│ 						let t²²¹ = mappend_lh_₁₂(t²²⁰, ys²¹⁰)
+//│ 						in let h²²¹ = h²²⁰
+//│ 						in (fun ys²¹¹ -> 
+//│ 							let t²²² = mappend_lh_₆(t²²¹, ys²¹¹)
+//│ 							in let h²²² = h²²¹
+//│ 							in (fun ys²¹² -> 
+//│ 								let t²²³ = mappend_lh_₅(t²²², ys²¹²)
+//│ 								in let h²²³ = h²²²
+//│ 								in (fun _lh_dummy⁴⁴ -> (1 + length_lh_₁(t²²³)))))))))
 //│ 	| O  => 
-//│ 		let t²⁴⁷ = (fun ys²⁴⁰ -> ys²⁴⁰)
-//│ 		in let h²⁴⁷ = 'O'
-//│ 		in (fun ys²³⁴ -> 
-//│ 			let t²⁴⁸ = mappend_lh_₁₄(t²⁴⁷, ys²³⁴)
-//│ 			in let h²⁴⁸ = h²⁴⁷
-//│ 			in (fun ys²³⁵ -> 
-//│ 				let t²⁴⁹ = mappend_lh_₁₅(t²⁴⁸, ys²³⁵)
-//│ 				in let h²⁴⁹ = h²⁴⁸
-//│ 				in (fun ys²³⁶ -> 
-//│ 					let t²⁵⁰ = mappend_lh_₁₃(t²⁴⁹, ys²³⁶)
-//│ 					in let h²⁵⁰ = h²⁴⁹
-//│ 					in (fun ys²³⁷ -> 
-//│ 						let t²⁵¹ = mappend_lh_₁₂(t²⁵⁰, ys²³⁷)
-//│ 						in let h²⁵¹ = h²⁵⁰
-//│ 						in (fun ys²³⁸ -> 
-//│ 							let t²⁵² = mappend_lh_₆(t²⁵¹, ys²³⁸)
-//│ 							in let h²⁵² = h²⁵¹
-//│ 							in (fun ys²³⁹ -> 
-//│ 								let t²⁵³ = mappend_lh_₅(t²⁵², ys²³⁹)
-//│ 								in let h²⁵³ = h²⁵²
-//│ 								in (fun _lh_dummy⁴⁵ -> (1 + length_lh_₁(t²⁵³)))))))))
+//│ 		let t²²⁴ = (fun ys²¹³ -> ys²¹³)
+//│ 		in let h²²⁴ = 'O'
+//│ 		in (fun ys²¹⁴ -> 
+//│ 			let t²²⁵ = mappend_lh_₁₄(t²²⁴, ys²¹⁴)
+//│ 			in let h²²⁵ = h²²⁴
+//│ 			in (fun ys²¹⁵ -> 
+//│ 				let t²²⁶ = mappend_lh_₁₅(t²²⁵, ys²¹⁵)
+//│ 				in let h²²⁶ = h²²⁵
+//│ 				in (fun ys²¹⁶ -> 
+//│ 					let t²²⁷ = mappend_lh_₁₃(t²²⁶, ys²¹⁶)
+//│ 					in let h²²⁷ = h²²⁶
+//│ 					in (fun ys²¹⁷ -> 
+//│ 						let t²²⁸ = mappend_lh_₁₂(t²²⁷, ys²¹⁷)
+//│ 						in let h²²⁸ = h²²⁷
+//│ 						in (fun ys²¹⁸ -> 
+//│ 							let t²²⁹ = mappend_lh_₆(t²²⁸, ys²¹⁸)
+//│ 							in let h²²⁹ = h²²⁸
+//│ 							in (fun ys²¹⁹ -> 
+//│ 								let t²³⁰ = mappend_lh_₅(t²²⁹, ys²¹⁹)
+//│ 								in let h²³⁰ = h²²⁹
+//│ 								in (fun _lh_dummy⁴⁵ -> (1 + length_lh_₁(t²³⁰)))))))))
 //│ 	| Empty  => 
-//│ 		let t²⁵⁴ = (fun ys²⁴⁷ -> ys²⁴⁷)
-//│ 		in let h²⁵⁴ = ' '
-//│ 		in (fun ys²⁴¹ -> 
-//│ 			let t²⁵⁵ = mappend_lh_₁₄(t²⁵⁴, ys²⁴¹)
-//│ 			in let h²⁵⁵ = h²⁵⁴
-//│ 			in (fun ys²⁴² -> 
-//│ 				let t²⁵⁶ = mappend_lh_₁₅(t²⁵⁵, ys²⁴²)
-//│ 				in let h²⁵⁶ = h²⁵⁵
-//│ 				in (fun ys²⁴³ -> 
-//│ 					let t²⁵⁷ = mappend_lh_₁₃(t²⁵⁶, ys²⁴³)
-//│ 					in let h²⁵⁷ = h²⁵⁶
-//│ 					in (fun ys²⁴⁴ -> 
-//│ 						let t²⁵⁸ = mappend_lh_₁₂(t²⁵⁷, ys²⁴⁴)
-//│ 						in let h²⁵⁸ = h²⁵⁷
-//│ 						in (fun ys²⁴⁵ -> 
-//│ 							let t²⁵⁹ = mappend_lh_₆(t²⁵⁸, ys²⁴⁵)
-//│ 							in let h²⁵⁹ = h²⁵⁸
-//│ 							in (fun ys²⁴⁶ -> 
-//│ 								let t²⁶⁰ = mappend_lh_₅(t²⁵⁹, ys²⁴⁶)
-//│ 								in let h²⁶⁰ = h²⁵⁹
-//│ 								in (fun _lh_dummy⁴⁶ -> (1 + length_lh_₁(t²⁶⁰)))))))))
+//│ 		let t²³¹ = (fun ys²²⁰ -> ys²²⁰)
+//│ 		in let h²³¹ = ' '
+//│ 		in (fun ys²²¹ -> 
+//│ 			let t²³² = mappend_lh_₁₄(t²³¹, ys²²¹)
+//│ 			in let h²³² = h²³¹
+//│ 			in (fun ys²²² -> 
+//│ 				let t²³³ = mappend_lh_₁₅(t²³², ys²²²)
+//│ 				in let h²³³ = h²³²
+//│ 				in (fun ys²²³ -> 
+//│ 					let t²³⁴ = mappend_lh_₁₃(t²³³, ys²²³)
+//│ 					in let h²³⁴ = h²³³
+//│ 					in (fun ys²²⁴ -> 
+//│ 						let t²³⁵ = mappend_lh_₁₂(t²³⁴, ys²²⁴)
+//│ 						in let h²³⁵ = h²³⁴
+//│ 						in (fun ys²²⁵ -> 
+//│ 							let t²³⁶ = mappend_lh_₆(t²³⁵, ys²²⁵)
+//│ 							in let h²³⁶ = h²³⁵
+//│ 							in (fun ys²²⁶ -> 
+//│ 								let t²³⁷ = mappend_lh_₅(t²³⁶, ys²²⁶)
+//│ 								in let h²³⁷ = h²³⁶
+//│ 								in (fun _lh_dummy⁴⁶ -> (1 + length_lh_₁(t²³⁷)))))))))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₂(_lh_showPiece_arg1⁹) = case _lh_showPiece_arg1⁹ of {
+//│ def showPiece_lh_₂(_lh_showPiece_arg1⁰) = case _lh_showPiece_arg1⁰ of {
 //│ 	X  => 
-//│ 		let t³³ = (fun ys²⁸ -> ys²⁸)
-//│ 		in let h³³ = 'X'
-//│ 		in (fun ys²⁴ -> 
-//│ 			let t³⁴ = mappend_lh_₁₃(t³³, ys²⁴)
-//│ 			in let h³⁴ = h³³
-//│ 			in (fun ys²⁵ -> 
-//│ 				let t³⁵ = mappend_lh_₁₂(t³⁴, ys²⁵)
-//│ 				in let h³⁵ = h³⁴
-//│ 				in (fun ys²⁶ -> 
-//│ 					let t³⁶ = mappend_lh_₆(t³⁵, ys²⁶)
-//│ 					in let h³⁶ = h³⁵
-//│ 					in (fun ys²⁷ -> 
-//│ 						let t³⁷ = mappend_lh_₅(t³⁶, ys²⁷)
-//│ 						in let h³⁷ = h³⁶
-//│ 						in (fun _lh_dummy² -> (1 + length_lh_₁(t³⁷)))))))
+//│ 		let t² = (fun ys³ -> ys³)
+//│ 		in let h² = 'X'
+//│ 		in (fun ys⁴ -> 
+//│ 			let t³ = mappend_lh_₁₃(t², ys⁴)
+//│ 			in let h³ = h²
+//│ 			in (fun ys⁵ -> 
+//│ 				let t⁴ = mappend_lh_₁₂(t³, ys⁵)
+//│ 				in let h⁴ = h³
+//│ 				in (fun ys⁶ -> 
+//│ 					let t⁵ = mappend_lh_₆(t⁴, ys⁶)
+//│ 					in let h⁵ = h⁴
+//│ 					in (fun ys⁷ -> 
+//│ 						let t⁶ = mappend_lh_₅(t⁵, ys⁷)
+//│ 						in let h⁶ = h⁵
+//│ 						in (fun _lh_dummy² -> (1 + length_lh_₁(t⁶)))))))
 //│ 	| O  => 
-//│ 		let t³⁸ = (fun ys³³ -> ys³³)
-//│ 		in let h³⁸ = 'O'
-//│ 		in (fun ys²⁹ -> 
-//│ 			let t³⁹ = mappend_lh_₁₃(t³⁸, ys²⁹)
-//│ 			in let h³⁹ = h³⁸
-//│ 			in (fun ys³⁰ -> 
-//│ 				let t⁴⁰ = mappend_lh_₁₂(t³⁹, ys³⁰)
-//│ 				in let h⁴⁰ = h³⁹
-//│ 				in (fun ys³¹ -> 
-//│ 					let t⁴¹ = mappend_lh_₆(t⁴⁰, ys³¹)
-//│ 					in let h⁴¹ = h⁴⁰
-//│ 					in (fun ys³² -> 
-//│ 						let t⁴² = mappend_lh_₅(t⁴¹, ys³²)
-//│ 						in let h⁴² = h⁴¹
-//│ 						in (fun _lh_dummy³ -> (1 + length_lh_₁(t⁴²)))))))
+//│ 		let t⁷ = (fun ys⁸ -> ys⁸)
+//│ 		in let h⁷ = 'O'
+//│ 		in (fun ys⁹ -> 
+//│ 			let t⁸ = mappend_lh_₁₃(t⁷, ys⁹)
+//│ 			in let h⁸ = h⁷
+//│ 			in (fun ys¹⁰ -> 
+//│ 				let t⁹ = mappend_lh_₁₂(t⁸, ys¹⁰)
+//│ 				in let h⁹ = h⁸
+//│ 				in (fun ys¹¹ -> 
+//│ 					let t¹⁰ = mappend_lh_₆(t⁹, ys¹¹)
+//│ 					in let h¹⁰ = h⁹
+//│ 					in (fun ys¹² -> 
+//│ 						let t¹¹ = mappend_lh_₅(t¹⁰, ys¹²)
+//│ 						in let h¹¹ = h¹⁰
+//│ 						in (fun _lh_dummy³ -> (1 + length_lh_₁(t¹¹)))))))
 //│ 	| Empty  => 
-//│ 		let t⁴³ = (fun ys³⁸ -> ys³⁸)
-//│ 		in let h⁴³ = ' '
+//│ 		let t¹² = (fun ys¹³ -> ys¹³)
+//│ 		in let h¹² = ' '
+//│ 		in (fun ys¹⁴ -> 
+//│ 			let t¹³ = mappend_lh_₁₃(t¹², ys¹⁴)
+//│ 			in let h¹³ = h¹²
+//│ 			in (fun ys¹⁵ -> 
+//│ 				let t¹⁴ = mappend_lh_₁₂(t¹³, ys¹⁵)
+//│ 				in let h¹⁴ = h¹³
+//│ 				in (fun ys¹⁶ -> 
+//│ 					let t¹⁵ = mappend_lh_₆(t¹⁴, ys¹⁶)
+//│ 					in let h¹⁵ = h¹⁴
+//│ 					in (fun ys¹⁷ -> 
+//│ 						let t¹⁶ = mappend_lh_₅(t¹⁵, ys¹⁷)
+//│ 						in let h¹⁶ = h¹⁵
+//│ 						in (fun _lh_dummy⁴ -> (1 + length_lh_₁(t¹⁶)))))))
+//│ 	| _  => error⁰}
+//│ def showPiece_lh_₃(_lh_showPiece_arg1¹) = case _lh_showPiece_arg1¹ of {
+//│ 	X  => 
+//│ 		let t²⁷ = (fun ys³⁰ -> ys³⁰)
+//│ 		in let h²⁷ = 'X'
+//│ 		in (fun ys³¹ -> 
+//│ 			let t²⁸ = mappend_lh_₆(t²⁷, ys³¹)
+//│ 			in let h²⁸ = h²⁷
+//│ 			in (fun ys³² -> 
+//│ 				let t²⁹ = mappend_lh_₅(t²⁸, ys³²)
+//│ 				in let h²⁹ = h²⁸
+//│ 				in (fun _lh_dummy⁷ -> (1 + length_lh_₁(t²⁹)))))
+//│ 	| O  => 
+//│ 		let t³⁰ = (fun ys³³ -> ys³³)
+//│ 		in let h³⁰ = 'O'
 //│ 		in (fun ys³⁴ -> 
-//│ 			let t⁴⁴ = mappend_lh_₁₃(t⁴³, ys³⁴)
-//│ 			in let h⁴⁴ = h⁴³
+//│ 			let t³¹ = mappend_lh_₆(t³⁰, ys³⁴)
+//│ 			in let h³¹ = h³⁰
 //│ 			in (fun ys³⁵ -> 
-//│ 				let t⁴⁵ = mappend_lh_₁₂(t⁴⁴, ys³⁵)
-//│ 				in let h⁴⁵ = h⁴⁴
-//│ 				in (fun ys³⁶ -> 
-//│ 					let t⁴⁶ = mappend_lh_₆(t⁴⁵, ys³⁶)
-//│ 					in let h⁴⁶ = h⁴⁵
-//│ 					in (fun ys³⁷ -> 
-//│ 						let t⁴⁷ = mappend_lh_₅(t⁴⁶, ys³⁷)
-//│ 						in let h⁴⁷ = h⁴⁶
-//│ 						in (fun _lh_dummy⁴ -> (1 + length_lh_₁(t⁴⁷)))))))
-//│ 	| _  => error⁰}
-//│ def showPiece_lh_₃(_lh_showPiece_arg1¹⁰) = case _lh_showPiece_arg1¹⁰ of {
-//│ 	X  => 
-//│ 		let t⁵⁸ = (fun ys⁵³ -> ys⁵³)
-//│ 		in let h⁵⁸ = 'X'
-//│ 		in (fun ys⁵¹ -> 
-//│ 			let t⁵⁹ = mappend_lh_₆(t⁵⁸, ys⁵¹)
-//│ 			in let h⁵⁹ = h⁵⁸
-//│ 			in (fun ys⁵² -> 
-//│ 				let t⁶⁰ = mappend_lh_₅(t⁵⁹, ys⁵²)
-//│ 				in let h⁶⁰ = h⁵⁹
-//│ 				in (fun _lh_dummy⁷ -> (1 + length_lh_₁(t⁶⁰)))))
-//│ 	| O  => 
-//│ 		let t⁶¹ = (fun ys⁵⁶ -> ys⁵⁶)
-//│ 		in let h⁶¹ = 'O'
-//│ 		in (fun ys⁵⁴ -> 
-//│ 			let t⁶² = mappend_lh_₆(t⁶¹, ys⁵⁴)
-//│ 			in let h⁶² = h⁶¹
-//│ 			in (fun ys⁵⁵ -> 
-//│ 				let t⁶³ = mappend_lh_₅(t⁶², ys⁵⁵)
-//│ 				in let h⁶³ = h⁶²
-//│ 				in (fun _lh_dummy⁸ -> (1 + length_lh_₁(t⁶³)))))
+//│ 				let t³² = mappend_lh_₅(t³¹, ys³⁵)
+//│ 				in let h³² = h³¹
+//│ 				in (fun _lh_dummy⁸ -> (1 + length_lh_₁(t³²)))))
 //│ 	| Empty  => 
-//│ 		let t⁶⁴ = (fun ys⁵⁹ -> ys⁵⁹)
-//│ 		in let h⁶⁴ = ' '
-//│ 		in (fun ys⁵⁷ -> 
-//│ 			let t⁶⁵ = mappend_lh_₆(t⁶⁴, ys⁵⁷)
-//│ 			in let h⁶⁵ = h⁶⁴
-//│ 			in (fun ys⁵⁸ -> 
-//│ 				let t⁶⁶ = mappend_lh_₅(t⁶⁵, ys⁵⁸)
-//│ 				in let h⁶⁶ = h⁶⁵
-//│ 				in (fun _lh_dummy⁹ -> (1 + length_lh_₁(t⁶⁶)))))
+//│ 		let t³³ = (fun ys³⁶ -> ys³⁶)
+//│ 		in let h³³ = ' '
+//│ 		in (fun ys³⁷ -> 
+//│ 			let t³⁴ = mappend_lh_₆(t³³, ys³⁷)
+//│ 			in let h³⁴ = h³³
+//│ 			in (fun ys³⁸ -> 
+//│ 				let t³⁵ = mappend_lh_₅(t³⁴, ys³⁸)
+//│ 				in let h³⁵ = h³⁴
+//│ 				in (fun _lh_dummy⁹ -> (1 + length_lh_₁(t³⁵)))))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₄(_lh_showPiece_arg1¹³) = case _lh_showPiece_arg1¹³ of {
+//│ def showPiece_lh_₄(_lh_showPiece_arg1⁴) = case _lh_showPiece_arg1⁴ of {
 //│ 	X  => 
-//│ 		let t⁹⁵ = (fun ys¹⁰² -> ys¹⁰²)
-//│ 		in let h⁹⁵ = 'X'
-//│ 		in (fun ys⁹⁶ -> 
-//│ 			let t⁹⁶ = mappend_lh_₁₇(t⁹⁵, ys⁹⁶)
-//│ 			in let h⁹⁶ = h⁹⁵
-//│ 			in (fun ys⁹⁷ -> 
-//│ 				let t⁹⁷ = mappend_lh_₁₈(t⁹⁶, ys⁹⁷)
-//│ 				in let h⁹⁷ = h⁹⁶
-//│ 				in (fun ys⁹⁸ -> 
-//│ 					let t⁹⁸ = mappend_lh_₈(t⁹⁷, ys⁹⁸)
-//│ 					in let h⁹⁸ = h⁹⁷
-//│ 					in (fun ys⁹⁹ -> 
-//│ 						let t⁹⁹ = mappend_lh_₇(t⁹⁸, ys⁹⁹)
-//│ 						in let h⁹⁹ = h⁹⁸
-//│ 						in (fun ys¹⁰⁰ -> 
-//│ 							let t¹⁰⁰ = mappend_lh_₆(t⁹⁹, ys¹⁰⁰)
-//│ 							in let h¹⁰⁰ = h⁹⁹
-//│ 							in (fun ys¹⁰¹ -> 
-//│ 								let t¹⁰¹ = mappend_lh_₅(t¹⁰⁰, ys¹⁰¹)
-//│ 								in let h¹⁰¹ = h¹⁰⁰
-//│ 								in (fun _lh_dummy¹⁴ -> (1 + length_lh_₁(t¹⁰¹)))))))))
+//│ 		let t⁶⁷ = (fun ys⁷⁵ -> ys⁷⁵)
+//│ 		in let h⁶⁷ = 'X'
+//│ 		in (fun ys⁷⁶ -> 
+//│ 			let t⁶⁸ = mappend_lh_₁₇(t⁶⁷, ys⁷⁶)
+//│ 			in let h⁶⁸ = h⁶⁷
+//│ 			in (fun ys⁷⁷ -> 
+//│ 				let t⁶⁹ = mappend_lh_₁₈(t⁶⁸, ys⁷⁷)
+//│ 				in let h⁶⁹ = h⁶⁸
+//│ 				in (fun ys⁷⁸ -> 
+//│ 					let t⁷⁰ = mappend_lh_₈(t⁶⁹, ys⁷⁸)
+//│ 					in let h⁷⁰ = h⁶⁹
+//│ 					in (fun ys⁷⁹ -> 
+//│ 						let t⁷¹ = mappend_lh_₇(t⁷⁰, ys⁷⁹)
+//│ 						in let h⁷¹ = h⁷⁰
+//│ 						in (fun ys⁸⁰ -> 
+//│ 							let t⁷² = mappend_lh_₆(t⁷¹, ys⁸⁰)
+//│ 							in let h⁷² = h⁷¹
+//│ 							in (fun ys⁸¹ -> 
+//│ 								let t⁷³ = mappend_lh_₅(t⁷², ys⁸¹)
+//│ 								in let h⁷³ = h⁷²
+//│ 								in (fun _lh_dummy¹⁴ -> (1 + length_lh_₁(t⁷³)))))))))
 //│ 	| O  => 
-//│ 		let t¹⁰² = (fun ys¹⁰⁹ -> ys¹⁰⁹)
-//│ 		in let h¹⁰² = 'O'
-//│ 		in (fun ys¹⁰³ -> 
-//│ 			let t¹⁰³ = mappend_lh_₁₇(t¹⁰², ys¹⁰³)
-//│ 			in let h¹⁰³ = h¹⁰²
-//│ 			in (fun ys¹⁰⁴ -> 
-//│ 				let t¹⁰⁴ = mappend_lh_₁₈(t¹⁰³, ys¹⁰⁴)
-//│ 				in let h¹⁰⁴ = h¹⁰³
-//│ 				in (fun ys¹⁰⁵ -> 
-//│ 					let t¹⁰⁵ = mappend_lh_₈(t¹⁰⁴, ys¹⁰⁵)
-//│ 					in let h¹⁰⁵ = h¹⁰⁴
-//│ 					in (fun ys¹⁰⁶ -> 
-//│ 						let t¹⁰⁶ = mappend_lh_₇(t¹⁰⁵, ys¹⁰⁶)
-//│ 						in let h¹⁰⁶ = h¹⁰⁵
-//│ 						in (fun ys¹⁰⁷ -> 
-//│ 							let t¹⁰⁷ = mappend_lh_₆(t¹⁰⁶, ys¹⁰⁷)
-//│ 							in let h¹⁰⁷ = h¹⁰⁶
-//│ 							in (fun ys¹⁰⁸ -> 
-//│ 								let t¹⁰⁸ = mappend_lh_₅(t¹⁰⁷, ys¹⁰⁸)
-//│ 								in let h¹⁰⁸ = h¹⁰⁷
-//│ 								in (fun _lh_dummy¹⁵ -> (1 + length_lh_₁(t¹⁰⁸)))))))))
+//│ 		let t⁷⁴ = (fun ys⁸² -> ys⁸²)
+//│ 		in let h⁷⁴ = 'O'
+//│ 		in (fun ys⁸³ -> 
+//│ 			let t⁷⁵ = mappend_lh_₁₇(t⁷⁴, ys⁸³)
+//│ 			in let h⁷⁵ = h⁷⁴
+//│ 			in (fun ys⁸⁴ -> 
+//│ 				let t⁷⁶ = mappend_lh_₁₈(t⁷⁵, ys⁸⁴)
+//│ 				in let h⁷⁶ = h⁷⁵
+//│ 				in (fun ys⁸⁵ -> 
+//│ 					let t⁷⁷ = mappend_lh_₈(t⁷⁶, ys⁸⁵)
+//│ 					in let h⁷⁷ = h⁷⁶
+//│ 					in (fun ys⁸⁶ -> 
+//│ 						let t⁷⁸ = mappend_lh_₇(t⁷⁷, ys⁸⁶)
+//│ 						in let h⁷⁸ = h⁷⁷
+//│ 						in (fun ys⁸⁷ -> 
+//│ 							let t⁷⁹ = mappend_lh_₆(t⁷⁸, ys⁸⁷)
+//│ 							in let h⁷⁹ = h⁷⁸
+//│ 							in (fun ys⁸⁸ -> 
+//│ 								let t⁸⁰ = mappend_lh_₅(t⁷⁹, ys⁸⁸)
+//│ 								in let h⁸⁰ = h⁷⁹
+//│ 								in (fun _lh_dummy¹⁵ -> (1 + length_lh_₁(t⁸⁰)))))))))
 //│ 	| Empty  => 
-//│ 		let t¹⁰⁹ = (fun ys¹¹⁶ -> ys¹¹⁶)
-//│ 		in let h¹⁰⁹ = ' '
-//│ 		in (fun ys¹¹⁰ -> 
-//│ 			let t¹¹⁰ = mappend_lh_₁₇(t¹⁰⁹, ys¹¹⁰)
-//│ 			in let h¹¹⁰ = h¹⁰⁹
-//│ 			in (fun ys¹¹¹ -> 
-//│ 				let t¹¹¹ = mappend_lh_₁₈(t¹¹⁰, ys¹¹¹)
-//│ 				in let h¹¹¹ = h¹¹⁰
-//│ 				in (fun ys¹¹² -> 
-//│ 					let t¹¹² = mappend_lh_₈(t¹¹¹, ys¹¹²)
-//│ 					in let h¹¹² = h¹¹¹
-//│ 					in (fun ys¹¹³ -> 
-//│ 						let t¹¹³ = mappend_lh_₇(t¹¹², ys¹¹³)
-//│ 						in let h¹¹³ = h¹¹²
-//│ 						in (fun ys¹¹⁴ -> 
-//│ 							let t¹¹⁴ = mappend_lh_₆(t¹¹³, ys¹¹⁴)
-//│ 							in let h¹¹⁴ = h¹¹³
-//│ 							in (fun ys¹¹⁵ -> 
-//│ 								let t¹¹⁵ = mappend_lh_₅(t¹¹⁴, ys¹¹⁵)
-//│ 								in let h¹¹⁵ = h¹¹⁴
-//│ 								in (fun _lh_dummy¹⁶ -> (1 + length_lh_₁(t¹¹⁵)))))))))
+//│ 		let t⁸¹ = (fun ys⁸⁹ -> ys⁸⁹)
+//│ 		in let h⁸¹ = ' '
+//│ 		in (fun ys⁹⁰ -> 
+//│ 			let t⁸² = mappend_lh_₁₇(t⁸¹, ys⁹⁰)
+//│ 			in let h⁸² = h⁸¹
+//│ 			in (fun ys⁹¹ -> 
+//│ 				let t⁸³ = mappend_lh_₁₈(t⁸², ys⁹¹)
+//│ 				in let h⁸³ = h⁸²
+//│ 				in (fun ys⁹² -> 
+//│ 					let t⁸⁴ = mappend_lh_₈(t⁸³, ys⁹²)
+//│ 					in let h⁸⁴ = h⁸³
+//│ 					in (fun ys⁹³ -> 
+//│ 						let t⁸⁵ = mappend_lh_₇(t⁸⁴, ys⁹³)
+//│ 						in let h⁸⁵ = h⁸⁴
+//│ 						in (fun ys⁹⁴ -> 
+//│ 							let t⁸⁶ = mappend_lh_₆(t⁸⁵, ys⁹⁴)
+//│ 							in let h⁸⁶ = h⁸⁵
+//│ 							in (fun ys⁹⁵ -> 
+//│ 								let t⁸⁷ = mappend_lh_₅(t⁸⁶, ys⁹⁵)
+//│ 								in let h⁸⁷ = h⁸⁶
+//│ 								in (fun _lh_dummy¹⁶ -> (1 + length_lh_₁(t⁸⁷)))))))))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₅(_lh_showPiece_arg1¹⁵) = case _lh_showPiece_arg1¹⁵ of {
+//│ def showPiece_lh_₅(_lh_showPiece_arg1⁶) = case _lh_showPiece_arg1⁶ of {
 //│ 	X  => 
-//│ 		let t²⁰⁵ = (fun ys²⁰³ -> ys²⁰³)
-//│ 		in let h²⁰⁵ = 'X'
-//│ 		in (fun ys¹⁹⁵ -> 
-//│ 			let t²⁰⁶ = mappend_lh_₁₉(t²⁰⁵, ys¹⁹⁵)
-//│ 			in let h²⁰⁶ = h²⁰⁵
-//│ 			in (fun ys¹⁹⁶ -> 
-//│ 				let t²⁰⁷ = mappend_lh_₁₆(t²⁰⁶, ys¹⁹⁶)
-//│ 				in let h²⁰⁷ = h²⁰⁶
-//│ 				in (fun ys¹⁹⁷ -> 
-//│ 					let t²⁰⁸ = mappend_lh_₁₇(t²⁰⁷, ys¹⁹⁷)
-//│ 					in let h²⁰⁸ = h²⁰⁷
-//│ 					in (fun ys¹⁹⁸ -> 
-//│ 						let t²⁰⁹ = mappend_lh_₁₈(t²⁰⁸, ys¹⁹⁸)
-//│ 						in let h²⁰⁹ = h²⁰⁸
-//│ 						in (fun ys¹⁹⁹ -> 
-//│ 							let t²¹⁰ = mappend_lh_₈(t²⁰⁹, ys¹⁹⁹)
-//│ 							in let h²¹⁰ = h²⁰⁹
-//│ 							in (fun ys²⁰⁰ -> 
-//│ 								let t²¹¹ = mappend_lh_₇(t²¹⁰, ys²⁰⁰)
-//│ 								in let h²¹¹ = h²¹⁰
-//│ 								in (fun ys²⁰¹ -> 
-//│ 									let t²¹² = mappend_lh_₆(t²¹¹, ys²⁰¹)
-//│ 									in let h²¹² = h²¹¹
-//│ 									in (fun ys²⁰² -> 
-//│ 										let t²¹³ = mappend_lh_₅(t²¹², ys²⁰²)
-//│ 										in let h²¹³ = h²¹²
-//│ 										in (fun _lh_dummy³⁷ -> (1 + length_lh_₁(t²¹³)))))))))))
+//│ 		let t¹⁸¹ = (fun ys¹⁷⁴ -> ys¹⁷⁴)
+//│ 		in let h¹⁸¹ = 'X'
+//│ 		in (fun ys¹⁷⁵ -> 
+//│ 			let t¹⁸² = mappend_lh_₁₉(t¹⁸¹, ys¹⁷⁵)
+//│ 			in let h¹⁸² = h¹⁸¹
+//│ 			in (fun ys¹⁷⁶ -> 
+//│ 				let t¹⁸³ = mappend_lh_₁₆(t¹⁸², ys¹⁷⁶)
+//│ 				in let h¹⁸³ = h¹⁸²
+//│ 				in (fun ys¹⁷⁷ -> 
+//│ 					let t¹⁸⁴ = mappend_lh_₁₇(t¹⁸³, ys¹⁷⁷)
+//│ 					in let h¹⁸⁴ = h¹⁸³
+//│ 					in (fun ys¹⁷⁸ -> 
+//│ 						let t¹⁸⁵ = mappend_lh_₁₈(t¹⁸⁴, ys¹⁷⁸)
+//│ 						in let h¹⁸⁵ = h¹⁸⁴
+//│ 						in (fun ys¹⁷⁹ -> 
+//│ 							let t¹⁸⁶ = mappend_lh_₈(t¹⁸⁵, ys¹⁷⁹)
+//│ 							in let h¹⁸⁶ = h¹⁸⁵
+//│ 							in (fun ys¹⁸⁰ -> 
+//│ 								let t¹⁸⁷ = mappend_lh_₇(t¹⁸⁶, ys¹⁸⁰)
+//│ 								in let h¹⁸⁷ = h¹⁸⁶
+//│ 								in (fun ys¹⁸¹ -> 
+//│ 									let t¹⁸⁸ = mappend_lh_₆(t¹⁸⁷, ys¹⁸¹)
+//│ 									in let h¹⁸⁸ = h¹⁸⁷
+//│ 									in (fun ys¹⁸² -> 
+//│ 										let t¹⁸⁹ = mappend_lh_₅(t¹⁸⁸, ys¹⁸²)
+//│ 										in let h¹⁸⁹ = h¹⁸⁸
+//│ 										in (fun _lh_dummy³⁷ -> (1 + length_lh_₁(t¹⁸⁹)))))))))))
 //│ 	| O  => 
-//│ 		let t²¹⁴ = (fun ys²¹² -> ys²¹²)
-//│ 		in let h²¹⁴ = 'O'
-//│ 		in (fun ys²⁰⁴ -> 
-//│ 			let t²¹⁵ = mappend_lh_₁₉(t²¹⁴, ys²⁰⁴)
-//│ 			in let h²¹⁵ = h²¹⁴
-//│ 			in (fun ys²⁰⁵ -> 
-//│ 				let t²¹⁶ = mappend_lh_₁₆(t²¹⁵, ys²⁰⁵)
-//│ 				in let h²¹⁶ = h²¹⁵
-//│ 				in (fun ys²⁰⁶ -> 
-//│ 					let t²¹⁷ = mappend_lh_₁₇(t²¹⁶, ys²⁰⁶)
-//│ 					in let h²¹⁷ = h²¹⁶
-//│ 					in (fun ys²⁰⁷ -> 
-//│ 						let t²¹⁸ = mappend_lh_₁₈(t²¹⁷, ys²⁰⁷)
-//│ 						in let h²¹⁸ = h²¹⁷
-//│ 						in (fun ys²⁰⁸ -> 
-//│ 							let t²¹⁹ = mappend_lh_₈(t²¹⁸, ys²⁰⁸)
-//│ 							in let h²¹⁹ = h²¹⁸
-//│ 							in (fun ys²⁰⁹ -> 
-//│ 								let t²²⁰ = mappend_lh_₇(t²¹⁹, ys²⁰⁹)
-//│ 								in let h²²⁰ = h²¹⁹
-//│ 								in (fun ys²¹⁰ -> 
-//│ 									let t²²¹ = mappend_lh_₆(t²²⁰, ys²¹⁰)
-//│ 									in let h²²¹ = h²²⁰
-//│ 									in (fun ys²¹¹ -> 
-//│ 										let t²²² = mappend_lh_₅(t²²¹, ys²¹¹)
-//│ 										in let h²²² = h²²¹
-//│ 										in (fun _lh_dummy³⁸ -> (1 + length_lh_₁(t²²²)))))))))))
+//│ 		let t¹⁹⁰ = (fun ys¹⁸³ -> ys¹⁸³)
+//│ 		in let h¹⁹⁰ = 'O'
+//│ 		in (fun ys¹⁸⁴ -> 
+//│ 			let t¹⁹¹ = mappend_lh_₁₉(t¹⁹⁰, ys¹⁸⁴)
+//│ 			in let h¹⁹¹ = h¹⁹⁰
+//│ 			in (fun ys¹⁸⁵ -> 
+//│ 				let t¹⁹² = mappend_lh_₁₆(t¹⁹¹, ys¹⁸⁵)
+//│ 				in let h¹⁹² = h¹⁹¹
+//│ 				in (fun ys¹⁸⁶ -> 
+//│ 					let t¹⁹³ = mappend_lh_₁₇(t¹⁹², ys¹⁸⁶)
+//│ 					in let h¹⁹³ = h¹⁹²
+//│ 					in (fun ys¹⁸⁷ -> 
+//│ 						let t¹⁹⁴ = mappend_lh_₁₈(t¹⁹³, ys¹⁸⁷)
+//│ 						in let h¹⁹⁴ = h¹⁹³
+//│ 						in (fun ys¹⁸⁸ -> 
+//│ 							let t¹⁹⁵ = mappend_lh_₈(t¹⁹⁴, ys¹⁸⁸)
+//│ 							in let h¹⁹⁵ = h¹⁹⁴
+//│ 							in (fun ys¹⁸⁹ -> 
+//│ 								let t¹⁹⁶ = mappend_lh_₇(t¹⁹⁵, ys¹⁸⁹)
+//│ 								in let h¹⁹⁶ = h¹⁹⁵
+//│ 								in (fun ys¹⁹⁰ -> 
+//│ 									let t¹⁹⁷ = mappend_lh_₆(t¹⁹⁶, ys¹⁹⁰)
+//│ 									in let h¹⁹⁷ = h¹⁹⁶
+//│ 									in (fun ys¹⁹¹ -> 
+//│ 										let t¹⁹⁸ = mappend_lh_₅(t¹⁹⁷, ys¹⁹¹)
+//│ 										in let h¹⁹⁸ = h¹⁹⁷
+//│ 										in (fun _lh_dummy³⁸ -> (1 + length_lh_₁(t¹⁹⁸)))))))))))
 //│ 	| Empty  => 
-//│ 		let t²²³ = (fun ys²²¹ -> ys²²¹)
-//│ 		in let h²²³ = ' '
-//│ 		in (fun ys²¹³ -> 
-//│ 			let t²²⁴ = mappend_lh_₁₉(t²²³, ys²¹³)
-//│ 			in let h²²⁴ = h²²³
-//│ 			in (fun ys²¹⁴ -> 
-//│ 				let t²²⁵ = mappend_lh_₁₆(t²²⁴, ys²¹⁴)
-//│ 				in let h²²⁵ = h²²⁴
-//│ 				in (fun ys²¹⁵ -> 
-//│ 					let t²²⁶ = mappend_lh_₁₇(t²²⁵, ys²¹⁵)
-//│ 					in let h²²⁶ = h²²⁵
-//│ 					in (fun ys²¹⁶ -> 
-//│ 						let t²²⁷ = mappend_lh_₁₈(t²²⁶, ys²¹⁶)
-//│ 						in let h²²⁷ = h²²⁶
-//│ 						in (fun ys²¹⁷ -> 
-//│ 							let t²²⁸ = mappend_lh_₈(t²²⁷, ys²¹⁷)
-//│ 							in let h²²⁸ = h²²⁷
-//│ 							in (fun ys²¹⁸ -> 
-//│ 								let t²²⁹ = mappend_lh_₇(t²²⁸, ys²¹⁸)
-//│ 								in let h²²⁹ = h²²⁸
-//│ 								in (fun ys²¹⁹ -> 
-//│ 									let t²³⁰ = mappend_lh_₆(t²²⁹, ys²¹⁹)
-//│ 									in let h²³⁰ = h²²⁹
-//│ 									in (fun ys²²⁰ -> 
-//│ 										let t²³¹ = mappend_lh_₅(t²³⁰, ys²²⁰)
-//│ 										in let h²³¹ = h²³⁰
-//│ 										in (fun _lh_dummy³⁹ -> (1 + length_lh_₁(t²³¹)))))))))))
+//│ 		let t¹⁹⁹ = (fun ys¹⁹² -> ys¹⁹²)
+//│ 		in let h¹⁹⁹ = ' '
+//│ 		in (fun ys¹⁹³ -> 
+//│ 			let t²⁰⁰ = mappend_lh_₁₉(t¹⁹⁹, ys¹⁹³)
+//│ 			in let h²⁰⁰ = h¹⁹⁹
+//│ 			in (fun ys¹⁹⁴ -> 
+//│ 				let t²⁰¹ = mappend_lh_₁₆(t²⁰⁰, ys¹⁹⁴)
+//│ 				in let h²⁰¹ = h²⁰⁰
+//│ 				in (fun ys¹⁹⁵ -> 
+//│ 					let t²⁰² = mappend_lh_₁₇(t²⁰¹, ys¹⁹⁵)
+//│ 					in let h²⁰² = h²⁰¹
+//│ 					in (fun ys¹⁹⁶ -> 
+//│ 						let t²⁰³ = mappend_lh_₁₈(t²⁰², ys¹⁹⁶)
+//│ 						in let h²⁰³ = h²⁰²
+//│ 						in (fun ys¹⁹⁷ -> 
+//│ 							let t²⁰⁴ = mappend_lh_₈(t²⁰³, ys¹⁹⁷)
+//│ 							in let h²⁰⁴ = h²⁰³
+//│ 							in (fun ys¹⁹⁸ -> 
+//│ 								let t²⁰⁵ = mappend_lh_₇(t²⁰⁴, ys¹⁹⁸)
+//│ 								in let h²⁰⁵ = h²⁰⁴
+//│ 								in (fun ys¹⁹⁹ -> 
+//│ 									let t²⁰⁶ = mappend_lh_₆(t²⁰⁵, ys¹⁹⁹)
+//│ 									in let h²⁰⁶ = h²⁰⁵
+//│ 									in (fun ys²⁰⁰ -> 
+//│ 										let t²⁰⁷ = mappend_lh_₅(t²⁰⁶, ys²⁰⁰)
+//│ 										in let h²⁰⁷ = h²⁰⁶
+//│ 										in (fun _lh_dummy³⁹ -> (1 + length_lh_₁(t²⁰⁷)))))))))))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₆(_lh_showPiece_arg1¹⁷) = case _lh_showPiece_arg1¹⁷ of {
+//│ def showPiece_lh_₆(_lh_showPiece_arg1⁸) = case _lh_showPiece_arg1⁸ of {
 //│ 	X  => 
-//│ 		let t²⁶¹ = (fun ys²⁵² -> ys²⁵²)
-//│ 		in let h²⁶¹ = 'X'
-//│ 		in (fun ys²⁴⁸ -> 
-//│ 			let t²⁶² = mappend_lh_₈(t²⁶¹, ys²⁴⁸)
-//│ 			in let h²⁶² = h²⁶¹
-//│ 			in (fun ys²⁴⁹ -> 
-//│ 				let t²⁶³ = mappend_lh_₇(t²⁶², ys²⁴⁹)
-//│ 				in let h²⁶³ = h²⁶²
-//│ 				in (fun ys²⁵⁰ -> 
-//│ 					let t²⁶⁴ = mappend_lh_₆(t²⁶³, ys²⁵⁰)
-//│ 					in let h²⁶⁴ = h²⁶³
-//│ 					in (fun ys²⁵¹ -> 
-//│ 						let t²⁶⁵ = mappend_lh_₅(t²⁶⁴, ys²⁵¹)
-//│ 						in let h²⁶⁵ = h²⁶⁴
-//│ 						in (fun _lh_dummy⁴⁷ -> (1 + length_lh_₁(t²⁶⁵)))))))
+//│ 		let t²³⁸ = (fun ys²²⁷ -> ys²²⁷)
+//│ 		in let h²³⁸ = 'X'
+//│ 		in (fun ys²²⁸ -> 
+//│ 			let t²³⁹ = mappend_lh_₈(t²³⁸, ys²²⁸)
+//│ 			in let h²³⁹ = h²³⁸
+//│ 			in (fun ys²²⁹ -> 
+//│ 				let t²⁴⁰ = mappend_lh_₇(t²³⁹, ys²²⁹)
+//│ 				in let h²⁴⁰ = h²³⁹
+//│ 				in (fun ys²³⁰ -> 
+//│ 					let t²⁴¹ = mappend_lh_₆(t²⁴⁰, ys²³⁰)
+//│ 					in let h²⁴¹ = h²⁴⁰
+//│ 					in (fun ys²³¹ -> 
+//│ 						let t²⁴² = mappend_lh_₅(t²⁴¹, ys²³¹)
+//│ 						in let h²⁴² = h²⁴¹
+//│ 						in (fun _lh_dummy⁴⁷ -> (1 + length_lh_₁(t²⁴²)))))))
 //│ 	| O  => 
-//│ 		let t²⁶⁶ = (fun ys²⁵⁷ -> ys²⁵⁷)
-//│ 		in let h²⁶⁶ = 'O'
-//│ 		in (fun ys²⁵³ -> 
-//│ 			let t²⁶⁷ = mappend_lh_₈(t²⁶⁶, ys²⁵³)
-//│ 			in let h²⁶⁷ = h²⁶⁶
-//│ 			in (fun ys²⁵⁴ -> 
-//│ 				let t²⁶⁸ = mappend_lh_₇(t²⁶⁷, ys²⁵⁴)
-//│ 				in let h²⁶⁸ = h²⁶⁷
-//│ 				in (fun ys²⁵⁵ -> 
-//│ 					let t²⁶⁹ = mappend_lh_₆(t²⁶⁸, ys²⁵⁵)
-//│ 					in let h²⁶⁹ = h²⁶⁸
-//│ 					in (fun ys²⁵⁶ -> 
-//│ 						let t²⁷⁰ = mappend_lh_₅(t²⁶⁹, ys²⁵⁶)
-//│ 						in let h²⁷⁰ = h²⁶⁹
-//│ 						in (fun _lh_dummy⁴⁸ -> (1 + length_lh_₁(t²⁷⁰)))))))
+//│ 		let t²⁴³ = (fun ys²³² -> ys²³²)
+//│ 		in let h²⁴³ = 'O'
+//│ 		in (fun ys²³³ -> 
+//│ 			let t²⁴⁴ = mappend_lh_₈(t²⁴³, ys²³³)
+//│ 			in let h²⁴⁴ = h²⁴³
+//│ 			in (fun ys²³⁴ -> 
+//│ 				let t²⁴⁵ = mappend_lh_₇(t²⁴⁴, ys²³⁴)
+//│ 				in let h²⁴⁵ = h²⁴⁴
+//│ 				in (fun ys²³⁵ -> 
+//│ 					let t²⁴⁶ = mappend_lh_₆(t²⁴⁵, ys²³⁵)
+//│ 					in let h²⁴⁶ = h²⁴⁵
+//│ 					in (fun ys²³⁶ -> 
+//│ 						let t²⁴⁷ = mappend_lh_₅(t²⁴⁶, ys²³⁶)
+//│ 						in let h²⁴⁷ = h²⁴⁶
+//│ 						in (fun _lh_dummy⁴⁸ -> (1 + length_lh_₁(t²⁴⁷)))))))
 //│ 	| Empty  => 
-//│ 		let t²⁷¹ = (fun ys²⁶² -> ys²⁶²)
-//│ 		in let h²⁷¹ = ' '
-//│ 		in (fun ys²⁵⁸ -> 
-//│ 			let t²⁷² = mappend_lh_₈(t²⁷¹, ys²⁵⁸)
-//│ 			in let h²⁷² = h²⁷¹
-//│ 			in (fun ys²⁵⁹ -> 
-//│ 				let t²⁷³ = mappend_lh_₇(t²⁷², ys²⁵⁹)
-//│ 				in let h²⁷³ = h²⁷²
-//│ 				in (fun ys²⁶⁰ -> 
-//│ 					let t²⁷⁴ = mappend_lh_₆(t²⁷³, ys²⁶⁰)
-//│ 					in let h²⁷⁴ = h²⁷³
-//│ 					in (fun ys²⁶¹ -> 
-//│ 						let t²⁷⁵ = mappend_lh_₅(t²⁷⁴, ys²⁶¹)
-//│ 						in let h²⁷⁵ = h²⁷⁴
-//│ 						in (fun _lh_dummy⁴⁹ -> (1 + length_lh_₁(t²⁷⁵)))))))
+//│ 		let t²⁴⁸ = (fun ys²³⁷ -> ys²³⁷)
+//│ 		in let h²⁴⁸ = ' '
+//│ 		in (fun ys²³⁸ -> 
+//│ 			let t²⁴⁹ = mappend_lh_₈(t²⁴⁸, ys²³⁸)
+//│ 			in let h²⁴⁹ = h²⁴⁸
+//│ 			in (fun ys²³⁹ -> 
+//│ 				let t²⁵⁰ = mappend_lh_₇(t²⁴⁹, ys²³⁹)
+//│ 				in let h²⁵⁰ = h²⁴⁹
+//│ 				in (fun ys²⁴⁰ -> 
+//│ 					let t²⁵¹ = mappend_lh_₆(t²⁵⁰, ys²⁴⁰)
+//│ 					in let h²⁵¹ = h²⁵⁰
+//│ 					in (fun ys²⁴¹ -> 
+//│ 						let t²⁵² = mappend_lh_₅(t²⁵¹, ys²⁴¹)
+//│ 						in let h²⁵² = h²⁵¹
+//│ 						in (fun _lh_dummy⁴⁹ -> (1 + length_lh_₁(t²⁵²)))))))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₇(_lh_showPiece_arg1¹⁴) = case _lh_showPiece_arg1¹⁴ of {
+//│ def showPiece_lh_₇(_lh_showPiece_arg1⁵) = case _lh_showPiece_arg1⁵ of {
 //│ 	X  => [LH_C 'X' [LH_N]]
 //│ 	| O  => [LH_C 'O' [LH_N]]
 //│ 	| Empty  => [LH_C ' ' [LH_N]]
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₈(_lh_showPiece_arg1¹²) = case _lh_showPiece_arg1¹² of {
+//│ def showPiece_lh_₈(_lh_showPiece_arg1³) = case _lh_showPiece_arg1³ of {
 //│ 	X  => [LH_C 'X' [LH_N]]
 //│ 	| O  => [LH_C 'O' [LH_N]]
 //│ 	| Empty  => [LH_C ' ' [LH_N]]
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₉(_lh_showPiece_arg1¹¹) = case _lh_showPiece_arg1¹¹ of {
+//│ def showPiece_lh_₉(_lh_showPiece_arg1²) = case _lh_showPiece_arg1² of {
 //│ 	X  => [LH_C 'X' [LH_N]]
 //│ 	| O  => [LH_C 'O' [LH_N]]
 //│ 	| Empty  => [LH_C ' ' [LH_N]]
 //│ 	| _  => error⁰}
-//│ def showRow_lh_₁(_lh_showRow_arg1³) = case _lh_showRow_arg1³ of {
-//│ 	LH_C _lh_showRow_LH_C_0⁶ _lh_showRow_LH_C_1⁶ => case _lh_showRow_LH_C_1⁶ of {
-//│ 		LH_C _lh_showRow_LH_C_0⁷ _lh_showRow_LH_C_1⁷ => case _lh_showRow_LH_C_1⁷ of {
-//│ 			LH_C _lh_showRow_LH_C_0⁸ _lh_showRow_LH_C_1⁸ => case _lh_showRow_LH_C_1⁸ of {
-//│ 				LH_N  => mappend_lh_₁₂(mappend_lh_₁₃(mappend_lh_₁₅(mappend_lh_₁₄(showPiece_lh_₁(_lh_showRow_LH_C_0⁶), 
-//│ 					let t⁴⁸ = (fun ys⁴⁵ -> ys⁴⁵)
-//│ 					in let h⁴⁸ = '|'
-//│ 					in (fun ys⁴⁰ -> 
-//│ 						let t⁴⁹ = mappend_lh_₁₅(t⁴⁸, ys⁴⁰)
-//│ 						in let h⁴⁹ = h⁴⁸
-//│ 						in (fun ys⁴¹ -> 
-//│ 							let t⁵⁰ = mappend_lh_₁₃(t⁴⁹, ys⁴¹)
-//│ 							in let h⁵⁰ = h⁴⁹
-//│ 							in (fun ys⁴² -> 
-//│ 								let t⁵¹ = mappend_lh_₁₂(t⁵⁰, ys⁴²)
-//│ 								in let h⁵¹ = h⁵⁰
-//│ 								in (fun ys⁴³ -> 
-//│ 									let t⁵² = mappend_lh_₆(t⁵¹, ys⁴³)
-//│ 									in let h⁵² = h⁵¹
-//│ 									in (fun ys⁴⁴ -> 
-//│ 										let t⁵³ = mappend_lh_₅(t⁵², ys⁴⁴)
-//│ 										in let h⁵³ = h⁵²
-//│ 										in (fun _lh_dummy⁵ -> (1 + length_lh_₁(t⁵³))))))))), showPiece_lh_₂(_lh_showRow_LH_C_0⁷)), 
-//│ 					let t⁵⁴ = (fun ys⁴⁹ -> ys⁴⁹)
-//│ 					in let h⁵⁴ = '|'
-//│ 					in (fun ys⁴⁶ -> 
-//│ 						let t⁵⁵ = mappend_lh_₁₂(t⁵⁴, ys⁴⁶)
-//│ 						in let h⁵⁵ = h⁵⁴
-//│ 						in (fun ys⁴⁷ -> 
-//│ 							let t⁵⁶ = mappend_lh_₆(t⁵⁵, ys⁴⁷)
-//│ 							in let h⁵⁶ = h⁵⁵
-//│ 							in (fun ys⁴⁸ -> 
-//│ 								let t⁵⁷ = mappend_lh_₅(t⁵⁶, ys⁴⁸)
-//│ 								in let h⁵⁷ = h⁵⁶
-//│ 								in (fun _lh_dummy⁶ -> (1 + length_lh_₁(t⁵⁷))))))), showPiece_lh_₃(_lh_showRow_LH_C_0⁸))
+//│ def showRow_lh_₁(_lh_showRow_arg1⁰) = case _lh_showRow_arg1⁰ of {
+//│ 	LH_C _lh_showRow_LH_C_0⁰ _lh_showRow_LH_C_1⁰ => case _lh_showRow_LH_C_1⁰ of {
+//│ 		LH_C _lh_showRow_LH_C_0¹ _lh_showRow_LH_C_1¹ => case _lh_showRow_LH_C_1¹ of {
+//│ 			LH_C _lh_showRow_LH_C_0² _lh_showRow_LH_C_1² => case _lh_showRow_LH_C_1² of {
+//│ 				LH_N  => mappend_lh_₁₂(mappend_lh_₁₃(mappend_lh_₁₅(mappend_lh_₁₄(showPiece_lh_₁(_lh_showRow_LH_C_0⁰), 
+//│ 					let t¹⁷ = (fun ys¹⁹ -> ys¹⁹)
+//│ 					in let h¹⁷ = '|'
+//│ 					in (fun ys²⁰ -> 
+//│ 						let t¹⁸ = mappend_lh_₁₅(t¹⁷, ys²⁰)
+//│ 						in let h¹⁸ = h¹⁷
+//│ 						in (fun ys²¹ -> 
+//│ 							let t¹⁹ = mappend_lh_₁₃(t¹⁸, ys²¹)
+//│ 							in let h¹⁹ = h¹⁸
+//│ 							in (fun ys²² -> 
+//│ 								let t²⁰ = mappend_lh_₁₂(t¹⁹, ys²²)
+//│ 								in let h²⁰ = h¹⁹
+//│ 								in (fun ys²³ -> 
+//│ 									let t²¹ = mappend_lh_₆(t²⁰, ys²³)
+//│ 									in let h²¹ = h²⁰
+//│ 									in (fun ys²⁴ -> 
+//│ 										let t²² = mappend_lh_₅(t²¹, ys²⁴)
+//│ 										in let h²² = h²¹
+//│ 										in (fun _lh_dummy⁵ -> (1 + length_lh_₁(t²²))))))))), showPiece_lh_₂(_lh_showRow_LH_C_0¹)), 
+//│ 					let t²³ = (fun ys²⁵ -> ys²⁵)
+//│ 					in let h²³ = '|'
+//│ 					in (fun ys²⁶ -> 
+//│ 						let t²⁴ = mappend_lh_₁₂(t²³, ys²⁶)
+//│ 						in let h²⁴ = h²³
+//│ 						in (fun ys²⁷ -> 
+//│ 							let t²⁵ = mappend_lh_₆(t²⁴, ys²⁷)
+//│ 							in let h²⁵ = h²⁴
+//│ 							in (fun ys²⁸ -> 
+//│ 								let t²⁶ = mappend_lh_₅(t²⁵, ys²⁸)
+//│ 								in let h²⁶ = h²⁵
+//│ 								in (fun _lh_dummy⁶ -> (1 + length_lh_₁(t²⁶))))))), showPiece_lh_₃(_lh_showRow_LH_C_0²))
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showRow_lh_₂(_lh_showRow_arg1⁴) = case _lh_showRow_arg1⁴ of {
+//│ def showRow_lh_₂(_lh_showRow_arg1¹) = case _lh_showRow_arg1¹ of {
 //│ 	LH_C _lh_showRow_LH_C_0³ _lh_showRow_LH_C_1³ => case _lh_showRow_LH_C_1³ of {
 //│ 		LH_C _lh_showRow_LH_C_0⁴ _lh_showRow_LH_C_1⁴ => case _lh_showRow_LH_C_1⁴ of {
 //│ 			LH_C _lh_showRow_LH_C_0⁵ _lh_showRow_LH_C_1⁵ => case _lh_showRow_LH_C_1⁵ of {
 //│ 				LH_N  => mappend_lh_₁₈(mappend_lh_₁₇(mappend_lh_₁₆(mappend_lh_₁₉(showPiece_lh_₅(_lh_showRow_LH_C_0³), 
-//│ 					let t⁶⁷ = (fun ys⁶⁹ -> ys⁶⁹)
-//│ 					in let h⁶⁷ = '|'
-//│ 					in (fun ys⁶² -> 
-//│ 						let t⁶⁸ = mappend_lh_₁₆(t⁶⁷, ys⁶²)
-//│ 						in let h⁶⁸ = h⁶⁷
-//│ 						in (fun ys⁶³ -> 
-//│ 							let t⁶⁹ = mappend_lh_₁₇(t⁶⁸, ys⁶³)
-//│ 							in let h⁶⁹ = h⁶⁸
-//│ 							in (fun ys⁶⁴ -> 
-//│ 								let t⁷⁰ = mappend_lh_₁₈(t⁶⁹, ys⁶⁴)
-//│ 								in let h⁷⁰ = h⁶⁹
-//│ 								in (fun ys⁶⁵ -> 
-//│ 									let t⁷¹ = mappend_lh_₈(t⁷⁰, ys⁶⁵)
-//│ 									in let h⁷¹ = h⁷⁰
-//│ 									in (fun ys⁶⁶ -> 
-//│ 										let t⁷² = mappend_lh_₇(t⁷¹, ys⁶⁶)
-//│ 										in let h⁷² = h⁷¹
-//│ 										in (fun ys⁶⁷ -> 
-//│ 											let t⁷³ = mappend_lh_₆(t⁷², ys⁶⁷)
-//│ 											in let h⁷³ = h⁷²
-//│ 											in (fun ys⁶⁸ -> 
-//│ 												let t⁷⁴ = mappend_lh_₅(t⁷³, ys⁶⁸)
-//│ 												in let h⁷⁴ = h⁷³
-//│ 												in (fun _lh_dummy¹¹ -> (1 + length_lh_₁(t⁷⁴))))))))))), showPiece_lh_₄(_lh_showRow_LH_C_0⁴)), 
-//│ 					let t⁷⁵ = (fun ys⁷⁵ -> ys⁷⁵)
-//│ 					in let h⁷⁵ = '|'
-//│ 					in (fun ys⁷⁰ -> 
-//│ 						let t⁷⁶ = mappend_lh_₁₈(t⁷⁵, ys⁷⁰)
-//│ 						in let h⁷⁶ = h⁷⁵
-//│ 						in (fun ys⁷¹ -> 
-//│ 							let t⁷⁷ = mappend_lh_₈(t⁷⁶, ys⁷¹)
-//│ 							in let h⁷⁷ = h⁷⁶
-//│ 							in (fun ys⁷² -> 
-//│ 								let t⁷⁸ = mappend_lh_₇(t⁷⁷, ys⁷²)
-//│ 								in let h⁷⁸ = h⁷⁷
-//│ 								in (fun ys⁷³ -> 
-//│ 									let t⁷⁹ = mappend_lh_₆(t⁷⁸, ys⁷³)
-//│ 									in let h⁷⁹ = h⁷⁸
-//│ 									in (fun ys⁷⁴ -> 
-//│ 										let t⁸⁰ = mappend_lh_₅(t⁷⁹, ys⁷⁴)
-//│ 										in let h⁸⁰ = h⁷⁹
-//│ 										in (fun _lh_dummy¹² -> (1 + length_lh_₁(t⁸⁰))))))))), showPiece_lh_₆(_lh_showRow_LH_C_0⁵))
+//│ 					let t³⁸ = (fun ys⁴¹ -> ys⁴¹)
+//│ 					in let h³⁸ = '|'
+//│ 					in (fun ys⁴² -> 
+//│ 						let t³⁹ = mappend_lh_₁₆(t³⁸, ys⁴²)
+//│ 						in let h³⁹ = h³⁸
+//│ 						in (fun ys⁴³ -> 
+//│ 							let t⁴⁰ = mappend_lh_₁₇(t³⁹, ys⁴³)
+//│ 							in let h⁴⁰ = h³⁹
+//│ 							in (fun ys⁴⁴ -> 
+//│ 								let t⁴¹ = mappend_lh_₁₈(t⁴⁰, ys⁴⁴)
+//│ 								in let h⁴¹ = h⁴⁰
+//│ 								in (fun ys⁴⁵ -> 
+//│ 									let t⁴² = mappend_lh_₈(t⁴¹, ys⁴⁵)
+//│ 									in let h⁴² = h⁴¹
+//│ 									in (fun ys⁴⁶ -> 
+//│ 										let t⁴³ = mappend_lh_₇(t⁴², ys⁴⁶)
+//│ 										in let h⁴³ = h⁴²
+//│ 										in (fun ys⁴⁷ -> 
+//│ 											let t⁴⁴ = mappend_lh_₆(t⁴³, ys⁴⁷)
+//│ 											in let h⁴⁴ = h⁴³
+//│ 											in (fun ys⁴⁸ -> 
+//│ 												let t⁴⁵ = mappend_lh_₅(t⁴⁴, ys⁴⁸)
+//│ 												in let h⁴⁵ = h⁴⁴
+//│ 												in (fun _lh_dummy¹¹ -> (1 + length_lh_₁(t⁴⁵))))))))))), showPiece_lh_₄(_lh_showRow_LH_C_0⁴)), 
+//│ 					let t⁴⁶ = (fun ys⁴⁹ -> ys⁴⁹)
+//│ 					in let h⁴⁶ = '|'
+//│ 					in (fun ys⁵⁰ -> 
+//│ 						let t⁴⁷ = mappend_lh_₁₈(t⁴⁶, ys⁵⁰)
+//│ 						in let h⁴⁷ = h⁴⁶
+//│ 						in (fun ys⁵¹ -> 
+//│ 							let t⁴⁸ = mappend_lh_₈(t⁴⁷, ys⁵¹)
+//│ 							in let h⁴⁸ = h⁴⁷
+//│ 							in (fun ys⁵² -> 
+//│ 								let t⁴⁹ = mappend_lh_₇(t⁴⁸, ys⁵²)
+//│ 								in let h⁴⁹ = h⁴⁸
+//│ 								in (fun ys⁵³ -> 
+//│ 									let t⁵⁰ = mappend_lh_₆(t⁴⁹, ys⁵³)
+//│ 									in let h⁵⁰ = h⁴⁹
+//│ 									in (fun ys⁵⁴ -> 
+//│ 										let t⁵¹ = mappend_lh_₅(t⁵⁰, ys⁵⁴)
+//│ 										in let h⁵¹ = h⁵⁰
+//│ 										in (fun _lh_dummy¹² -> (1 + length_lh_₁(t⁵¹))))))))), showPiece_lh_₆(_lh_showRow_LH_C_0⁵))
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showRow_lh_₃(_lh_showRow_arg1⁵) = case _lh_showRow_arg1⁵ of {
-//│ 	LH_C _lh_showRow_LH_C_0⁰ _lh_showRow_LH_C_1⁰ => case _lh_showRow_LH_C_1⁰ of {
-//│ 		LH_C _lh_showRow_LH_C_0¹ _lh_showRow_LH_C_1¹ => case _lh_showRow_LH_C_1¹ of {
-//│ 			LH_C _lh_showRow_LH_C_0² _lh_showRow_LH_C_1² => case _lh_showRow_LH_C_1² of {
-//│ 				LH_N  => mappend_lh_₂₁(mappend_lh_₂₀(mappend_lh_₂₁(mappend_lh_₂₁(showPiece_lh_₇(_lh_showRow_LH_C_0⁰), [LH_C '|' [LH_N]]), showPiece_lh_₉(_lh_showRow_LH_C_0¹)), [LH_C '|' [LH_N]]), showPiece_lh_₈(_lh_showRow_LH_C_0²))
+//│ def showRow_lh_₃(_lh_showRow_arg1²) = case _lh_showRow_arg1² of {
+//│ 	LH_C _lh_showRow_LH_C_0⁶ _lh_showRow_LH_C_1⁶ => case _lh_showRow_LH_C_1⁶ of {
+//│ 		LH_C _lh_showRow_LH_C_0⁷ _lh_showRow_LH_C_1⁷ => case _lh_showRow_LH_C_1⁷ of {
+//│ 			LH_C _lh_showRow_LH_C_0⁸ _lh_showRow_LH_C_1⁸ => case _lh_showRow_LH_C_1⁸ of {
+//│ 				LH_N  => mappend_lh_₂₁(mappend_lh_₂₀(mappend_lh_₂₁(mappend_lh_₂₁(showPiece_lh_₇(_lh_showRow_LH_C_0⁶), [LH_C '|' [LH_N]]), showPiece_lh_₉(_lh_showRow_LH_C_0⁷)), [LH_C '|' [LH_N]]), showPiece_lh_₈(_lh_showRow_LH_C_0⁸))
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def static_lh_₁(_lh_static_arg1³) = interpret_lh_₁(0, map_lh_₃(score_lh_₁(_lh_static_arg1³), wins_lh_₁))
-//│ def static_lh_₂(_lh_static_arg1⁴) = interpret_lh_₂(0, map_lh_₆(score_lh_₂(_lh_static_arg1⁴), wins_lh_₂))
-//│ def static_lh_₃(_lh_static_arg1⁵) = interpret_lh_₂(0, map_lh_₆(score_lh_₂(_lh_static_arg1⁵), wins_lh_₂))
-//│ def sumAux_lh_₁(ls¹⁶, a⁵) = case ls¹⁶ of {
-//│ 	LH_N  => a⁵
-//│ 	| LH_C h⁰ t⁰ => sumAux_lh_₁(t⁰, (a⁵ + h⁰))}
-//│ def sum_lh_₁(ls¹²) = sumAux_lh_₁(ls¹², 0)
+//│ def static_lh_₁(_lh_static_arg1⁰) = interpret_lh_₁(0, map_lh_₃(score_lh_₁(_lh_static_arg1⁰), wins_lh_₁))
+//│ def static_lh_₂(_lh_static_arg1¹) = interpret_lh_₂(0, map_lh_₆(score_lh_₂(_lh_static_arg1¹), wins_lh_₂))
+//│ def static_lh_₃(_lh_static_arg1²) = interpret_lh_₂(0, map_lh_₆(score_lh_₂(_lh_static_arg1²), wins_lh_₂))
+//│ def sumAux_lh_₁(ls⁶, a²) = case ls⁶ of {
+//│ 	LH_N  => a²
+//│ 	| LH_C h²⁰⁸ t²⁰⁸ => sumAux_lh_₁(t²⁰⁸, (a² + h²⁰⁸))}
+//│ def sum_lh_₁(ls²) = sumAux_lh_₁(ls², 0)
 //│ def testBoard_lh_₁ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₁₀ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₁₁ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
@@ -3380,16 +3377,16 @@ testMinimax_nofib $ primId "180000"
 //│ def testBoard_lh_₂₄ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₂₅ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₂₆ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
-//│ def testBoard_lh_₂₇ = 
-//│ 	let t⁹² = 	
-//│ 		let t⁹³ = 	
-//│ 			let t⁹⁴ = (fun ys⁹⁵ -> ys⁹⁵)
-//│ 			in let h⁹⁴ = [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]]
-//│ 			in (fun ys⁹⁴ -> [LH_C h⁹⁴ mappend_lh_₂(t⁹⁴, ys⁹⁴)])
-//│ 		in let h⁹³ = [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]]
-//│ 		in (fun ys⁹³ -> [LH_C h⁹³ mappend_lh_₂(t⁹³, ys⁹³)])
-//│ 	in let h⁹² = [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]]
-//│ 	in (fun ys⁹² -> [LH_C h⁹² mappend_lh_₂(t⁹², ys⁹²)])
+//│ def testBoard_lh_₂₇(ys⁷⁴) = 
+//│ 	let t⁶⁴ = 	
+//│ 		let t⁶⁵ = 	
+//│ 			let t⁶⁶ = (fun ys⁷¹ -> ys⁷¹)
+//│ 			in let h⁶⁴ = [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]]
+//│ 			in (fun ys⁷² -> [LH_C h⁶⁴ mappend_lh_₂(t⁶⁶, ys⁷²)])
+//│ 		in let h⁶⁵ = [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]]
+//│ 		in (fun ys⁷³ -> [LH_C h⁶⁵ mappend_lh_₂(t⁶⁵, ys⁷³)])
+//│ 	in let h⁶⁶ = [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]]
+//│ 	in [LH_C h⁶⁶ mappend_lh_₂(t⁶⁴, ys⁷⁴)]
 //│ def testBoard_lh_₂₈ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₂₉ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₃ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
@@ -3399,7 +3396,7 @@ testMinimax_nofib $ primId "180000"
 //│ def testBoard_lh_₇ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₈ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
 //│ def testBoard_lh_₉ = [LH_C [LH_C [Empty] [LH_C [O] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [X] [LH_C [Empty] [LH_N]]]] [LH_C [LH_C [Empty] [LH_C [Empty] [LH_C [Empty] [LH_N]]]] [LH_N]]]]
-//│ def testMinimax_nofib_lh_₁(_lh_testMinimax_nofib_arg1¹) = length_lh_₁(prog_lh_₁(_lh_testMinimax_nofib_arg1¹))
+//│ def testMinimax_nofib_lh_₁(_lh_testMinimax_nofib_arg1⁰) = length_lh_₁(prog_lh_₁(_lh_testMinimax_nofib_arg1⁰))
 //│ def win1_lh_₁ = [LH_C [LH_C 1 [LH_C 1 [LH_C 1 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_N]]]]
 //│ def win2_lh_₁ = [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_C [LH_C 1 [LH_C 1 [LH_C 1 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_N]]]]
 //│ def win3_lh_₁ = [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_C [LH_C 1 [LH_C 1 [LH_C 1 [LH_N]]]] [LH_N]]]]
@@ -3408,87 +3405,86 @@ testMinimax_nofib $ primId "180000"
 //│ def win6_lh_₁ = [LH_C [LH_C 0 [LH_C 0 [LH_C 1 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 1 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 1 [LH_N]]]] [LH_N]]]]
 //│ def win7_lh_₁ = [LH_C [LH_C 1 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_C [LH_C 0 [LH_C 1 [LH_C 0 [LH_N]]]] [LH_C [LH_C 0 [LH_C 0 [LH_C 1 [LH_N]]]] [LH_N]]]]
 //│ def win8_lh_₁ = [LH_C [LH_C 0 [LH_C 0 [LH_C 1 [LH_N]]]] [LH_C [LH_C 0 [LH_C 1 [LH_C 0 [LH_N]]]] [LH_C [LH_C 1 [LH_C 0 [LH_C 0 [LH_N]]]] [LH_N]]]]
-//│ def wins_lh_₁ = 
-//│ 	let t²⁸¹ = 	
-//│ 		let t²⁸² = 	
-//│ 			let t²⁸³ = 	
-//│ 				let t²⁸⁴ = 	
-//│ 					let t²⁸⁵ = 	
-//│ 						let t²⁸⁶ = 	
-//│ 							let t²⁸⁷ = 	
-//│ 								let t²⁸⁸ = (fun f²⁸ -> (fun _lh_interpret_arg1¹¹ -> [Score _lh_interpret_arg1¹¹]))
-//│ 								in let h²⁸⁸ = win8_lh_₁
-//│ 								in (fun f²⁷ -> 
-//│ 									let _lh_interpret_LH_C_1⁹ = map_lh_₃(f²⁷, t²⁸⁸)
-//│ 									in let _lh_interpret_LH_C_0⁹ = f²⁷(h²⁸⁸)
-//│ 									in (fun _lh_interpret_arg1¹⁰ -> case _lh_interpret_LH_C_0⁹ of {
-//│ 										Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1¹⁰ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁹)
+//│ def wins_lh_₁(f²¹, _lh_interpret_arg1⁹) = 
+//│ 	let t²⁵⁸ = 	
+//│ 		let t²⁵⁹ = 	
+//│ 			let t²⁶⁰ = 	
+//│ 				let t²⁶¹ = 	
+//│ 					let t²⁶² = 	
+//│ 						let t²⁶³ = 	
+//│ 							let t²⁶⁴ = 	
+//│ 								let t²⁶⁵ = (fun f¹³ -> (fun _lh_interpret_arg1¹ -> [Score _lh_interpret_arg1¹]))
+//│ 								in let h²⁵⁸ = win8_lh_₁
+//│ 								in (fun f¹⁴ -> 
+//│ 									let _lh_interpret_LH_C_1¹ = map_lh_₃(f¹⁴, t²⁶⁵)
+//│ 									in let _lh_interpret_LH_C_0¹ = f¹⁴(h²⁵⁸)
+//│ 									in (fun _lh_interpret_arg1² -> case _lh_interpret_LH_C_0¹ of {
+//│ 										Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1² + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1¹)
 //│ 										| XWin  => [XWin]
 //│ 										| OWin  => [OWin]
 //│ 										| _  => error⁰}))
-//│ 							in let h²⁸⁷ = win7_lh_₁
-//│ 							in (fun f²⁶ -> 
-//│ 								let _lh_interpret_LH_C_1⁸ = map_lh_₃(f²⁶, t²⁸⁷)
-//│ 								in let _lh_interpret_LH_C_0⁸ = f²⁶(h²⁸⁷)
-//│ 								in (fun _lh_interpret_arg1⁹ -> case _lh_interpret_LH_C_0⁸ of {
-//│ 									Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁹ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁸)
+//│ 							in let h²⁵⁹ = win7_lh_₁
+//│ 							in (fun f¹⁵ -> 
+//│ 								let _lh_interpret_LH_C_1² = map_lh_₃(f¹⁵, t²⁶⁴)
+//│ 								in let _lh_interpret_LH_C_0² = f¹⁵(h²⁵⁹)
+//│ 								in (fun _lh_interpret_arg1³ -> case _lh_interpret_LH_C_0² of {
+//│ 									Score _lh_interpret_Score_0² => interpret_lh_₁((_lh_interpret_arg1³ + _lh_interpret_Score_0²), _lh_interpret_LH_C_1²)
 //│ 									| XWin  => [XWin]
 //│ 									| OWin  => [OWin]
 //│ 									| _  => error⁰}))
-//│ 						in let h²⁸⁶ = win6_lh_₁
-//│ 						in (fun f²⁵ -> 
-//│ 							let _lh_interpret_LH_C_1⁷ = map_lh_₃(f²⁵, t²⁸⁶)
-//│ 							in let _lh_interpret_LH_C_0⁷ = f²⁵(h²⁸⁶)
-//│ 							in (fun _lh_interpret_arg1⁸ -> case _lh_interpret_LH_C_0⁷ of {
-//│ 								Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁸ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁷)
+//│ 						in let h²⁶⁰ = win6_lh_₁
+//│ 						in (fun f¹⁶ -> 
+//│ 							let _lh_interpret_LH_C_1³ = map_lh_₃(f¹⁶, t²⁶³)
+//│ 							in let _lh_interpret_LH_C_0³ = f¹⁶(h²⁶⁰)
+//│ 							in (fun _lh_interpret_arg1⁴ -> case _lh_interpret_LH_C_0³ of {
+//│ 								Score _lh_interpret_Score_0³ => interpret_lh_₁((_lh_interpret_arg1⁴ + _lh_interpret_Score_0³), _lh_interpret_LH_C_1³)
 //│ 								| XWin  => [XWin]
 //│ 								| OWin  => [OWin]
 //│ 								| _  => error⁰}))
-//│ 					in let h²⁸⁵ = win5_lh_₁
-//│ 					in (fun f²⁴ -> 
-//│ 						let _lh_interpret_LH_C_1⁶ = map_lh_₃(f²⁴, t²⁸⁵)
-//│ 						in let _lh_interpret_LH_C_0⁶ = f²⁴(h²⁸⁵)
-//│ 						in (fun _lh_interpret_arg1⁷ -> case _lh_interpret_LH_C_0⁶ of {
-//│ 							Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁷ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁶)
+//│ 					in let h²⁶¹ = win5_lh_₁
+//│ 					in (fun f¹⁷ -> 
+//│ 						let _lh_interpret_LH_C_1⁴ = map_lh_₃(f¹⁷, t²⁶²)
+//│ 						in let _lh_interpret_LH_C_0⁴ = f¹⁷(h²⁶¹)
+//│ 						in (fun _lh_interpret_arg1⁵ -> case _lh_interpret_LH_C_0⁴ of {
+//│ 							Score _lh_interpret_Score_0⁴ => interpret_lh_₁((_lh_interpret_arg1⁵ + _lh_interpret_Score_0⁴), _lh_interpret_LH_C_1⁴)
 //│ 							| XWin  => [XWin]
 //│ 							| OWin  => [OWin]
 //│ 							| _  => error⁰}))
-//│ 				in let h²⁸⁴ = win4_lh_₁
-//│ 				in (fun f²³ -> 
-//│ 					let _lh_interpret_LH_C_1⁵ = map_lh_₃(f²³, t²⁸⁴)
-//│ 					in let _lh_interpret_LH_C_0⁵ = f²³(h²⁸⁴)
+//│ 				in let h²⁶² = win4_lh_₁
+//│ 				in (fun f¹⁸ -> 
+//│ 					let _lh_interpret_LH_C_1⁵ = map_lh_₃(f¹⁸, t²⁶¹)
+//│ 					in let _lh_interpret_LH_C_0⁵ = f¹⁸(h²⁶²)
 //│ 					in (fun _lh_interpret_arg1⁶ -> case _lh_interpret_LH_C_0⁵ of {
-//│ 						Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁶ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁵)
+//│ 						Score _lh_interpret_Score_0⁵ => interpret_lh_₁((_lh_interpret_arg1⁶ + _lh_interpret_Score_0⁵), _lh_interpret_LH_C_1⁵)
 //│ 						| XWin  => [XWin]
 //│ 						| OWin  => [OWin]
 //│ 						| _  => error⁰}))
-//│ 			in let h²⁸³ = win3_lh_₁
-//│ 			in (fun f²² -> 
-//│ 				let _lh_interpret_LH_C_1⁴ = map_lh_₃(f²², t²⁸³)
-//│ 				in let _lh_interpret_LH_C_0⁴ = f²²(h²⁸³)
-//│ 				in (fun _lh_interpret_arg1⁵ -> case _lh_interpret_LH_C_0⁴ of {
-//│ 					Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁵ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1⁴)
+//│ 			in let h²⁶³ = win3_lh_₁
+//│ 			in (fun f¹⁹ -> 
+//│ 				let _lh_interpret_LH_C_1⁶ = map_lh_₃(f¹⁹, t²⁶⁰)
+//│ 				in let _lh_interpret_LH_C_0⁶ = f¹⁹(h²⁶³)
+//│ 				in (fun _lh_interpret_arg1⁷ -> case _lh_interpret_LH_C_0⁶ of {
+//│ 					Score _lh_interpret_Score_0⁶ => interpret_lh_₁((_lh_interpret_arg1⁷ + _lh_interpret_Score_0⁶), _lh_interpret_LH_C_1⁶)
 //│ 					| XWin  => [XWin]
 //│ 					| OWin  => [OWin]
 //│ 					| _  => error⁰}))
-//│ 		in let h²⁸² = win2_lh_₁
-//│ 		in (fun f²¹ -> 
-//│ 			let _lh_interpret_LH_C_1³ = map_lh_₃(f²¹, t²⁸²)
-//│ 			in let _lh_interpret_LH_C_0³ = f²¹(h²⁸²)
-//│ 			in (fun _lh_interpret_arg1⁴ -> case _lh_interpret_LH_C_0³ of {
-//│ 				Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1⁴ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1³)
+//│ 		in let h²⁶⁴ = win2_lh_₁
+//│ 		in (fun f²⁰ -> 
+//│ 			let _lh_interpret_LH_C_1⁷ = map_lh_₃(f²⁰, t²⁵⁹)
+//│ 			in let _lh_interpret_LH_C_0⁷ = f²⁰(h²⁶⁴)
+//│ 			in (fun _lh_interpret_arg1⁸ -> case _lh_interpret_LH_C_0⁷ of {
+//│ 				Score _lh_interpret_Score_0⁷ => interpret_lh_₁((_lh_interpret_arg1⁸ + _lh_interpret_Score_0⁷), _lh_interpret_LH_C_1⁷)
 //│ 				| XWin  => [XWin]
 //│ 				| OWin  => [OWin]
 //│ 				| _  => error⁰}))
-//│ 	in let h²⁸¹ = win1_lh_₁
-//│ 	in (fun f²⁰ -> 
-//│ 		let _lh_interpret_LH_C_1² = map_lh_₃(f²⁰, t²⁸¹)
-//│ 		in let _lh_interpret_LH_C_0² = f²⁰(h²⁸¹)
-//│ 		in (fun _lh_interpret_arg1³ -> case _lh_interpret_LH_C_0² of {
-//│ 			Score _lh_interpret_Score_0¹ => interpret_lh_₁((_lh_interpret_arg1³ + _lh_interpret_Score_0¹), _lh_interpret_LH_C_1²)
-//│ 			| XWin  => [XWin]
-//│ 			| OWin  => [OWin]
-//│ 			| _  => error⁰}))
+//│ 	in let h²⁶⁵ = win1_lh_₁
+//│ 	in let _lh_interpret_LH_C_1⁸ = map_lh_₃(f²¹, t²⁵⁸)
+//│ 	in let _lh_interpret_LH_C_0⁸ = f²¹(h²⁶⁵)
+//│ 	in case _lh_interpret_LH_C_0⁸ of {
+//│ 		Score _lh_interpret_Score_0⁸ => interpret_lh_₁((_lh_interpret_arg1⁹ + _lh_interpret_Score_0⁸), _lh_interpret_LH_C_1⁸)
+//│ 		| XWin  => [XWin]
+//│ 		| OWin  => [OWin]
+//│ 		| _  => error⁰}
 //│ def wins_lh_₂ = [LH_C win1_lh_₁ [LH_C win2_lh_₁ [LH_C win3_lh_₁ [LH_C win4_lh_₁ [LH_C win5_lh_₁ [LH_C win6_lh_₁ [LH_C win7_lh_₁ [LH_C win8_lh_₁ [LH_N]]]]]]]]]
 //│ <<<<<<< after fusion <<<<<<<
 //│ 

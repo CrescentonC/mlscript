@@ -210,15 +210,15 @@ let rec lift_lh__d1 _lh_lift_arg1_0 _lh_lift_arg2_0 =
       (failwith "error"));;
 let rec inList_lh__d2 _lh_inList_arg1_2_4 _lh_inList_arg2_1 =
   (_lh_inList_arg2_1 _lh_inList_arg1_2_4);;
-let rec map_lh__d7 f_5 ls_2 _lh_popOutId_0_0 =
+let rec map_lh__d7 f_5 ls_2 _lh_floatOutId_0_0 =
   (match ls_2 with
     | `LH_C(h_3, t_8) -> 
       (let rec _lh_inList_LH_C_1_0 = ((map_lh__d7 f_5) t_8) in
         (let rec _lh_inList_LH_C_0_0 = (f_5 h_3) in
-          (if (_lh_popOutId_0_0 = _lh_inList_LH_C_0_0) then
+          (if (_lh_floatOutId_0_0 = _lh_inList_LH_C_0_0) then
             true
           else
-            ((inList_lh__d2 _lh_popOutId_0_0) _lh_inList_LH_C_1_0))))
+            ((inList_lh__d2 _lh_floatOutId_0_0) _lh_inList_LH_C_1_0))))
     | `LH_N -> 
       false);;
 let rec geRewrite_lh__d3 _lh_geRewrite_arg1_0 _lh_geRewrite_arg2_0 _lh_geRewrite_arg3_0 =
@@ -435,12 +435,12 @@ let rec mappend_lh__d1 xs_2 ys_2 =
   (xs_2 ys_2);;
 let rec map_lh__d4 f_4_2 ls_1_9 =
   (ls_1_9 f_4_2);;
-let rec map_lh__d1_d1 f_6 ls_3 _lh_popOutId_0_1 =
+let rec map_lh__d1_d1 f_6 ls_3 _lh_floatOutId_0_1 =
   (match ls_3 with
     | `LH_C(h_4, t_9) -> 
       (let rec t_1_0 = ((map_lh__d1_d1 f_6) t_9) in
         (let rec h_5 = (f_6 h_4) in
-          (`LH_C((_lh_popOutId_0_1 h_5), ((map_lh__d4 _lh_popOutId_0_1) t_1_0)))))
+          (`LH_C((_lh_floatOutId_0_1 h_5), ((map_lh__d4 _lh_floatOutId_0_1) t_1_0)))))
     | `LH_N -> 
       (`LH_N));;
 let rec simplify_lh__d3 _lh_simplify_arg1_3 =
@@ -740,14 +740,14 @@ let rec quant_lh__d2 _lh_quant_arg1_2 _lh_quant_arg2_2 _lh_quant_arg3_2 _lh_quan
     ((_lh_quant_arg1_2 p_2) _lh_quant_arg4_2));;
 let rec all_lh__d1 _lh_all_arg1_6 _lh_all_arg2_4 =
   (_lh_all_arg2_4 _lh_all_arg1_6);;
-let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_popOutId_0_2 =
+let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_floatOutId_0_2 =
   (if (_lh_copy_arg1_0 <= 0) then
     true
   else
     (let rec _lh_all_LH_C_1_1 = ((copy_lh__d1 (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0) in
       (let rec _lh_all_LH_C_0_1 = _lh_copy_arg2_0 in
-        (if (_lh_popOutId_0_2 _lh_all_LH_C_0_1) then
-          ((all_lh__d1 _lh_popOutId_0_2) _lh_all_LH_C_1_1)
+        (if (_lh_floatOutId_0_2 _lh_all_LH_C_0_1) then
+          ((all_lh__d1 _lh_floatOutId_0_2) _lh_all_LH_C_1_1)
         else
           false))));;
 let rec the_lh__d1 _lh_the_arg1_0 =
@@ -985,14 +985,14 @@ let rec quant_lh__d1 _lh_quant_arg1_5 _lh_quant_arg2_5 _lh_quant_arg3_5 _lh_quan
   (let rec p_5 = (fun x_2_3 -> 
     ((_lh_quant_arg2_5 x_2_3) _lh_quant_arg3_5)) in
     ((_lh_quant_arg1_5 p_5) _lh_quant_arg4_5));;
-let rec map_lh__d5 f_3_9 ls_1_6 _lh_popOutId_0_3 =
+let rec map_lh__d5 f_3_9 ls_1_6 _lh_floatOutId_0_3 =
   (match ls_1_6 with
     | `LH_C(h_3_5, t_4_3) -> 
       (let rec t_4_4 = ((map_lh__d5 f_3_9) t_4_3) in
         (let rec h_3_6 = (f_3_9 h_3_5) in
-          (`LH_C(h_3_6, ((mappend_lh__d5 t_4_4) _lh_popOutId_0_3)))))
+          (`LH_C(h_3_6, ((mappend_lh__d5 t_4_4) _lh_floatOutId_0_3)))))
     | `LH_N -> 
-      _lh_popOutId_0_3);;
+      _lh_floatOutId_0_3);;
 let rec lift_lh__d2 _lh_lift_arg1_8 _lh_lift_arg2_8 =
   (match _lh_lift_arg2_8 with
     | `Nothing -> 

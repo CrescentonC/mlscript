@@ -153,14 +153,14 @@ let rec map_lh__d6 f_9 ls_6 =
       (`LH_C((f_9 h_8), ((map_lh__d6 f_9) t_8)))
     | `LH_N -> 
       (`LH_N));;
-let rec map_lh__d5 f_1_8 ls_8 _lh_popOutId_0_1 =
+let rec map_lh__d5 f_1_8 ls_8 _lh_floatOutId_0_1 =
   (match ls_8 with
     | `LH_C(h_1_6, t_1_6) -> 
       (let rec t_1_7 = ((map_lh__d5 f_1_8) t_1_6) in
         (let rec h_1_7 = (f_1_8 h_1_6) in
-          (`LH_C(h_1_7, ((mappend_lh__d3 t_1_7) _lh_popOutId_0_1)))))
+          (`LH_C(h_1_7, ((mappend_lh__d3 t_1_7) _lh_floatOutId_0_1)))))
     | `LH_N -> 
-      _lh_popOutId_0_1);;
+      _lh_floatOutId_0_1);;
 let rec perms_lh__d1 _lh_perms_arg1_0 _lh_perms_arg2_0 =
   (match _lh_perms_arg2_0 with
     | `LH_N -> 
@@ -193,15 +193,15 @@ let rec sum_lh__d1 ls_5 =
   ((sumAux_lh__d1 ls_5) 0);;
 let rec filter_lh__d1 f_2_0 ls_9 =
   (ls_9 f_2_0);;
-let rec map_lh__d3 f_2 ls_2 _lh_popOutId_0_0 =
+let rec map_lh__d3 f_2 ls_2 _lh_floatOutId_0_0 =
   (match ls_2 with
     | `LH_C(h_2, t_2) -> 
       (let rec t_3 = ((map_lh__d3 f_2) t_2) in
         (let rec h_3 = (f_2 h_2) in
-          (if (_lh_popOutId_0_0 h_3) then
-            (`LH_C(h_3, ((filter_lh__d1 _lh_popOutId_0_0) t_3)))
+          (if (_lh_floatOutId_0_0 h_3) then
+            (`LH_C(h_3, ((filter_lh__d1 _lh_floatOutId_0_0) t_3)))
           else
-            ((filter_lh__d1 _lh_popOutId_0_0) t_3))))
+            ((filter_lh__d1 _lh_floatOutId_0_0) t_3))))
     | `LH_N -> 
       (`LH_N));;
 let rec awards_lh__d1 _lh_awards_arg1_0 =

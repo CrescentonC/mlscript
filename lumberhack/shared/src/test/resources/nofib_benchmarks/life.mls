@@ -1321,701 +1321,701 @@ testLife_nofib $ primId 29
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testLife_nofib_lh_₁(primId⁰(29))
-//│ def append_lz_lh_₁(_lh_append_lz_arg1¹, _lh_append_lz_arg2¹⁷) = 
-//│ 	let _lh_matchIdent²² = _lh_append_lz_arg1¹
-//│ 	in _lh_matchIdent²²(_lh_append_lz_arg2¹⁷)
-//│ def append_lz_lz_lh_₁(_lh_append_lz_lz_arg1¹, _lh_append_lz_lz_arg2⁴⁵) = 
-//│ 	let _lh_matchIdent³⁶ = force⁰(_lh_append_lz_lz_arg1¹)
-//│ 	in _lh_matchIdent³⁶(_lh_append_lz_lz_arg2⁴⁵)
-//│ def concat_lh_₁(lss¹) = lss¹(99)
-//│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = case _lh_copy_arg1¹ of {
+//│ def append_lz_lh_₁(_lh_append_lz_arg1⁰, _lh_append_lz_arg2¹⁶) = 
+//│ 	let _lh_matchIdent¹ = _lh_append_lz_arg1⁰
+//│ 	in _lh_matchIdent¹(_lh_append_lz_arg2¹⁶)
+//│ def append_lz_lz_lh_₁(_lh_append_lz_lz_arg1⁰, _lh_append_lz_lz_arg2⁴⁴) = 
+//│ 	let _lh_matchIdent¹⁵ = force⁰(_lh_append_lz_lz_arg1⁰)
+//│ 	in _lh_matchIdent¹⁵(_lh_append_lz_lz_arg2⁴⁴)
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def copy_lh_₁(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = case _lh_copy_arg1⁰ of {
 //│ 	0  => [LH_N]
-//│ 	| _  => [LH_C _lh_copy_arg2¹ copy_lh_₁((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)]}
-//│ def copy_lz_lh_₁(_lh_copy_lz_arg1⁴, _lh_copy_lz_arg2⁴) = if (_lh_copy_lz_arg1⁴ == 0) then lazy⁰((fun _lh_append_lz_lz_arg2⁴³ -> _lh_append_lz_lz_arg2⁴³)) else lazy⁰(
-//│ 	let _lh_append_lz_lz_LH_C_1²⁸ = copy_lz_lh_₁((_lh_copy_lz_arg1⁴ - 1), _lh_copy_lz_arg2⁴)
-//│ 	in let _lh_append_lz_lz_LH_C_0²⁸ = _lh_copy_lz_arg2⁴
-//│ 	in (fun _lh_append_lz_lz_arg2⁴⁴ -> lazy⁰(
-//│ 		let t¹⁰⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁸, _lh_append_lz_lz_arg2⁴⁴)
-//│ 		in let h¹⁰⁶ = _lh_append_lz_lz_LH_C_0²⁸
-//│ 		in (fun n⁴⁷ -> [LH_C h¹⁰⁶ take_lz_lh_₂((n⁴⁷ - 1), t¹⁰⁶)]))))
-//│ def copy_lz_lh_₂(_lh_copy_lz_arg1³, _lh_copy_lz_arg2³) = if (_lh_copy_lz_arg1³ == 0) then lazy⁰((fun n⁴⁵ -> [LH_N])) else lazy⁰(
-//│ 	let t¹⁰⁵ = copy_lz_lh_₂((_lh_copy_lz_arg1³ - 1), _lh_copy_lz_arg2³)
-//│ 	in let h¹⁰⁵ = _lh_copy_lz_arg2³
-//│ 	in (fun n⁴⁶ -> [LH_C h¹⁰⁵ take_lz_lh_₂((n⁴⁶ - 1), t¹⁰⁵)]))
-//│ def copy_lz_lh_₃(_lh_copy_lz_arg1⁵, _lh_copy_lz_arg2⁵) = if (_lh_copy_lz_arg1⁵ == 0) then lazy⁰((fun f²⁹ -> (fun n⁴⁸ -> [LH_N]))) else lazy⁰(
-//│ 	let t¹⁰⁸ = copy_lz_lh_₃((_lh_copy_lz_arg1⁵ - 1), _lh_copy_lz_arg2⁵)
-//│ 	in let h¹⁰⁸ = _lh_copy_lz_arg2⁵
-//│ 	in (fun f³⁰ -> 
-//│ 		let t¹⁰⁹ = map_lz_lh_₂(f³⁰, t¹⁰⁸)
-//│ 		in let h¹⁰⁹ = f³⁰(h¹⁰⁸)
-//│ 		in (fun n⁴⁹ -> [LH_C h¹⁰⁹ take_lz_lh_₁((n⁴⁹ - 1), t¹⁰⁹)])))
-//│ def disp_lh_₁(_lh_disp_arg1¹) = _lh_disp_arg1¹(99)
-//│ def elt_lh_₁(_lh_elt_arg1¹, _lh_elt_arg2², _lh_elt_arg3²) = _lh_elt_arg1¹(_lh_elt_arg2², _lh_elt_arg3²)
-//│ def enumFrom_lh_₁(a¹) = lazy⁰(
-//│ 	let t¹¹¹ = enumFrom_lh_₁((a¹ + 1))
-//│ 	in let h¹¹¹ = a¹
-//│ 	in (fun f³⁶ -> 
-//│ 		let tx¹ = map_lz_lh_₁(f³⁶, t¹¹¹)
-//│ 		in let hx¹ = f³⁶(h¹¹¹)
-//│ 		in (fun hy³ -> (fun ty³ -> 
-//│ 			let t¹¹² = zip_lz_nl_lh_₁(tx¹, ty³)
-//│ 			in let h¹¹² = 	
-//│ 				let _lh_disp_LH_P2_1¹ = hy³
-//│ 				in let _lh_disp_LH_P2_0¹ = hx¹
-//│ 				in (fun _lh_dummy¹¹ -> lazy⁰(mappend_lh_₂(mappend_lh_₁(_lh_disp_LH_P2_0¹, 
-//│ 					let t¹¹³ = 	
-//│ 						let t¹¹⁵ = (fun ys⁴⁷ -> ys⁴⁷)
-//│ 						in let h¹¹⁵ = 'n'
-//│ 						in (fun ys⁴⁶ -> 
-//│ 							let t¹¹⁶ = mappend_lh_₂(t¹¹⁵, ys⁴⁶)
-//│ 							in let h¹¹⁶ = h¹¹⁵
-//│ 							in (fun _lh_dummy⁸ -> (1 + length_lh_₁(t¹¹⁶))))
-//│ 					in let h¹¹³ = 'n'
-//│ 					in (fun ys⁴⁵ -> 
-//│ 						let t¹¹⁴ = mappend_lh_₂(t¹¹³, ys⁴⁵)
-//│ 						in let h¹¹⁴ = h¹¹³
-//│ 						in (fun _lh_dummy⁷ -> (1 + length_lh_₁(t¹¹⁴))))), (fun _lh_funcomp_x¹⁰ -> foldr_lh_₁(glue_lh_₁(
-//│ 					let t¹¹⁷ = (fun ys⁴⁹ -> ys⁴⁹)
-//│ 					in let h¹¹⁷ = 'n'
-//│ 					in (fun ys⁴⁸ -> 
-//│ 						let t¹¹⁸ = mappend_lh_₄(t¹¹⁷, ys⁴⁸)
-//│ 						in let h¹¹⁸ = h¹¹⁷
-//│ 						in (fun _lh_dummy⁹ -> (1 + length_lh_₁(t¹¹⁸))))), (fun _lh_dummy¹⁰ -> 0), map_lh_₄((fun _lh_funcomp_x¹¹ -> concat_lh_₁(map_lh_₃(star_lh_₁, _lh_funcomp_x¹¹))), _lh_funcomp_x¹⁰)))(_lh_disp_LH_P2_1¹))))
-//│ 			in (fun f³⁷ -> [LH_C f³⁷(h¹¹²) map_lh_₁(f³⁷, t¹¹²)])))))
-//│ def foldr_lh_₁(f²⁶, i¹, ls¹⁶) = ls¹⁶(f²⁶, i¹)
-//│ def gen_lh_₁(_lh_gen_arg1¹, _lh_gen_arg2¹) = map_lh_₂(row_lh_₁, shift_lh_₁(copy_lh_₁(_lh_gen_arg1¹, 0), _lh_gen_arg2¹))
-//│ def generations_lh_₁(_lh_generations_arg1¹) = (fun _lh_funcomp_x⁶ -> (fun _lh_funcomp_x⁷ -> (fun _lh_funcomp_x⁸ -> map_lh_₁(disp_lh_₁, zip_lz_nl_lh_₁(map_lz_lh_₁(string_of_int⁰, enumFrom_lh_₁(0)), _lh_funcomp_x⁸)))(limit_lh_₁(_lh_funcomp_x⁷)))(iterate_lh_₁(gen_lh_₁(_lh_generations_arg1¹), _lh_funcomp_x⁶)))(take_lz_lh_₁(_lh_generations_arg1¹, map_lz_lh_₂((fun _lh_funcomp_x⁹ -> (fun l² -> take_lz_lh_₂(_lh_generations_arg1¹, l²))((fun l³ -> append_lz_lz_lh_₁(l³, copy_lz_lh_₂(_lh_generations_arg1¹, 0)))(_lh_funcomp_x⁹))), append_lz_lh_₁(start_lh_₁, copy_lz_lh_₃(_lh_generations_arg1¹, copy_lz_lh_₁(_lh_generations_arg1¹, 0))))))
-//│ def glue_lh_₁(_lh_glue_arg1¹, _lh_glue_arg2¹, _lh_glue_arg3¹) = mappend_lh_₄(mappend_lh_₅(_lh_glue_arg2¹, _lh_glue_arg1¹), _lh_glue_arg3¹)
-//│ def init_lh_₁(_lh_init_arg1⁴) = case _lh_init_arg1⁴ of {
-//│ 	LH_C _lh_init_LH_C_0² _lh_init_LH_C_1² => case _lh_init_LH_C_1² of {
-//│ 		LH_N  => (fun _lh_zip3_arg2⁶ -> (fun _lh_zip3_arg3⁶ -> (fun f³⁴ -> [LH_N])))
-//│ 		| _  => 
-//│ 			let _lh_zip3_LH_C_1³³ = init_lh_₁(_lh_init_LH_C_1²)
-//│ 			in let _lh_zip3_LH_C_0³³ = _lh_init_LH_C_0²
-//│ 			in (fun _lh_zip3_arg2⁷ -> (fun _lh_zip3_arg3⁷ -> 
-//│ 				let _lh_matchIdent³³ = _lh_zip3_arg2⁷
-//│ 				in case _lh_matchIdent³³ of {
-//│ 					LH_C _lh_zip3_LH_C_0¹⁰ _lh_zip3_LH_C_1¹⁰ => 
-//│ 						let _lh_matchIdent³⁴ = _lh_zip3_arg3⁷
-//│ 						in _lh_matchIdent³⁴(_lh_zip3_LH_C_0¹⁰, _lh_zip3_LH_C_0³³, _lh_zip3_LH_C_1¹⁰, _lh_zip3_LH_C_1³³)
-//│ 					| LH_N  => (fun f³⁵ -> [LH_N])
-//│ 					| _  => error⁰}))}
-//│ 	| _  => error⁰}
-//│ def init_lh_₂(_lh_init_arg1⁵) = case _lh_init_arg1⁵ of {
+//│ 	| _  => [LH_C _lh_copy_arg2⁰ copy_lh_₁((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)]}
+//│ def copy_lz_lh_₁(_lh_copy_lz_arg1¹, _lh_copy_lz_arg2¹) = if (_lh_copy_lz_arg1¹ == 0) then lazy⁰((fun _lh_append_lz_lz_arg2⁴² -> _lh_append_lz_lz_arg2⁴²)) else lazy⁰(
+//│ 	let _lh_append_lz_lz_LH_C_1²⁷ = copy_lz_lh_₁((_lh_copy_lz_arg1¹ - 1), _lh_copy_lz_arg2¹)
+//│ 	in let _lh_append_lz_lz_LH_C_0²⁷ = _lh_copy_lz_arg2¹
+//│ 	in (fun _lh_append_lz_lz_arg2⁴³ -> lazy⁰(
+//│ 		let t⁸² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁷, _lh_append_lz_lz_arg2⁴³)
+//│ 		in let h⁸² = _lh_append_lz_lz_LH_C_0²⁷
+//│ 		in (fun n⁴⁵ -> [LH_C h⁸² take_lz_lh_₂((n⁴⁵ - 1), t⁸²)]))))
+//│ def copy_lz_lh_₂(_lh_copy_lz_arg1⁰, _lh_copy_lz_arg2⁰) = if (_lh_copy_lz_arg1⁰ == 0) then lazy⁰((fun n⁴³ -> [LH_N])) else lazy⁰(
+//│ 	let t⁸¹ = copy_lz_lh_₂((_lh_copy_lz_arg1⁰ - 1), _lh_copy_lz_arg2⁰)
+//│ 	in let h⁸¹ = _lh_copy_lz_arg2⁰
+//│ 	in (fun n⁴⁴ -> [LH_C h⁸¹ take_lz_lh_₂((n⁴⁴ - 1), t⁸¹)]))
+//│ def copy_lz_lh_₃(_lh_copy_lz_arg1², _lh_copy_lz_arg2²) = if (_lh_copy_lz_arg1² == 0) then lazy⁰((fun f²¹ -> (fun n⁴⁶ -> [LH_N]))) else lazy⁰(
+//│ 	let t⁸⁴ = copy_lz_lh_₃((_lh_copy_lz_arg1² - 1), _lh_copy_lz_arg2²)
+//│ 	in let h⁸⁴ = _lh_copy_lz_arg2²
+//│ 	in (fun f²² -> 
+//│ 		let t⁸⁵ = map_lz_lh_₂(f²², t⁸⁴)
+//│ 		in let h⁸⁵ = f²²(h⁸⁴)
+//│ 		in (fun n⁴⁷ -> [LH_C h⁸⁵ take_lz_lh_₁((n⁴⁷ - 1), t⁸⁵)])))
+//│ def disp_lh_₁(_lh_disp_arg1⁰) = _lh_disp_arg1⁰(99)
+//│ def elt_lh_₁(_lh_elt_arg1⁰, _lh_elt_arg2¹, _lh_elt_arg3¹) = _lh_elt_arg1⁰(_lh_elt_arg2¹, _lh_elt_arg3¹)
+//│ def enumFrom_lh_₁(a⁰) = lazy⁰(
+//│ 	let t⁹¹ = enumFrom_lh_₁((a⁰ + 1))
+//│ 	in let h⁹¹ = a⁰
+//│ 	in (fun f²⁸ -> 
+//│ 		let tx⁰ = map_lz_lh_₁(f²⁸, t⁹¹)
+//│ 		in let hx⁰ = f²⁸(h⁹¹)
+//│ 		in (fun hy² -> (fun ty² -> 
+//│ 			let t⁹² = zip_lz_nl_lh_₁(tx⁰, ty²)
+//│ 			in let h⁹² = 	
+//│ 				let _lh_disp_LH_P2_1⁰ = hy²
+//│ 				in let _lh_disp_LH_P2_0⁰ = hx⁰
+//│ 				in (fun _lh_dummy⁷ -> lazy⁰(mappend_lh_₂(mappend_lh_₁(_lh_disp_LH_P2_0⁰, 
+//│ 					let t⁹³ = 	
+//│ 						let t⁹⁴ = (fun ys³² -> ys³²)
+//│ 						in let h⁹³ = 'n'
+//│ 						in (fun ys³³ -> 
+//│ 							let t⁹⁵ = mappend_lh_₂(t⁹⁴, ys³³)
+//│ 							in let h⁹⁴ = h⁹³
+//│ 							in (fun _lh_dummy⁸ -> (1 + length_lh_₁(t⁹⁵))))
+//│ 					in let h⁹⁵ = 'n'
+//│ 					in (fun ys³⁴ -> 
+//│ 						let t⁹⁶ = mappend_lh_₂(t⁹³, ys³⁴)
+//│ 						in let h⁹⁶ = h⁹⁵
+//│ 						in (fun _lh_dummy⁹ -> (1 + length_lh_₁(t⁹⁶))))), (fun _lh_funcomp_x⁴ -> foldr_lh_₁(glue_lh_₁(
+//│ 					let t⁹⁷ = (fun ys³⁵ -> ys³⁵)
+//│ 					in let h⁹⁷ = 'n'
+//│ 					in (fun ys³⁶ -> 
+//│ 						let t⁹⁸ = mappend_lh_₄(t⁹⁷, ys³⁶)
+//│ 						in let h⁹⁸ = h⁹⁷
+//│ 						in (fun _lh_dummy¹⁰ -> (1 + length_lh_₁(t⁹⁸))))), (fun _lh_dummy¹¹ -> 0), map_lh_₄((fun _lh_funcomp_x⁵ -> concat_lh_₁(map_lh_₃(star_lh_₁, _lh_funcomp_x⁵))), _lh_funcomp_x⁴)))(_lh_disp_LH_P2_1⁰))))
+//│ 			in (fun f²⁹ -> [LH_C f²⁹(h⁹²) map_lh_₁(f²⁹, t⁹²)])))))
+//│ def foldr_lh_₁(f¹⁸, i⁰, ls²) = ls²(f¹⁸, i⁰)
+//│ def gen_lh_₁(_lh_gen_arg1⁰, _lh_gen_arg2⁰) = map_lh_₂(row_lh_₁, shift_lh_₁(copy_lh_₁(_lh_gen_arg1⁰, 0), _lh_gen_arg2⁰))
+//│ def generations_lh_₁(_lh_generations_arg1⁰) = (fun _lh_funcomp_x⁰ -> (fun _lh_funcomp_x¹ -> (fun _lh_funcomp_x² -> map_lh_₁(disp_lh_₁, zip_lz_nl_lh_₁(map_lz_lh_₁(string_of_int⁰, enumFrom_lh_₁(0)), _lh_funcomp_x²)))(limit_lh_₁(_lh_funcomp_x¹)))(iterate_lh_₁(gen_lh_₁(_lh_generations_arg1⁰), _lh_funcomp_x⁰)))(take_lz_lh_₁(_lh_generations_arg1⁰, map_lz_lh_₂((fun _lh_funcomp_x³ -> (fun l⁰ -> take_lz_lh_₂(_lh_generations_arg1⁰, l⁰))((fun l¹ -> append_lz_lz_lh_₁(l¹, copy_lz_lh_₂(_lh_generations_arg1⁰, 0)))(_lh_funcomp_x³))), append_lz_lh_₁(start_lh_₁, copy_lz_lh_₃(_lh_generations_arg1⁰, copy_lz_lh_₁(_lh_generations_arg1⁰, 0))))))
+//│ def glue_lh_₁(_lh_glue_arg1⁰, _lh_glue_arg2⁰, _lh_glue_arg3⁰) = mappend_lh_₄(mappend_lh_₅(_lh_glue_arg2⁰, _lh_glue_arg1⁰), _lh_glue_arg3⁰)
+//│ def init_lh_₁(_lh_init_arg1¹) = case _lh_init_arg1¹ of {
 //│ 	LH_C _lh_init_LH_C_0¹ _lh_init_LH_C_1¹ => case _lh_init_LH_C_1¹ of {
-//│ 		LH_N  => (fun _lh_zip3_arg2⁹ -> (fun _lh_zip3_arg3⁹ -> (fun _lh_zipWith3_LH_C_0¹⁰ -> (fun _lh_zipWith3_LH_C_0¹¹ -> (fun _lh_zipWith3_LH_C_1¹⁰ -> (fun _lh_zipWith3_LH_C_1¹¹ -> (fun _lh_zipWith3_arg1⁷ -> [LH_N])))))))
+//│ 		LH_N  => (fun _lh_zip3_arg2² -> (fun _lh_zip3_arg3² -> (fun f²⁶ -> [LH_N])))
 //│ 		| _  => 
-//│ 			let _lh_zip3_LH_C_1³⁴ = init_lh_₂(_lh_init_LH_C_1¹)
-//│ 			in let _lh_zip3_LH_C_0³⁴ = _lh_init_LH_C_0¹
-//│ 			in (fun _lh_zip3_arg2¹⁰ -> (fun _lh_zip3_arg3¹⁰ -> 
-//│ 				let _lh_matchIdent³⁷ = _lh_zip3_arg2¹⁰
-//│ 				in case _lh_matchIdent³⁷ of {
-//│ 					LH_C _lh_zip3_LH_C_0⁷ _lh_zip3_LH_C_1⁷ => 
-//│ 						let _lh_matchIdent³⁸ = _lh_zip3_arg3¹⁰
-//│ 						in _lh_matchIdent³⁸(_lh_zip3_LH_C_0³⁴, _lh_zip3_LH_C_0⁷, _lh_zip3_LH_C_1³⁴, _lh_zip3_LH_C_1⁷)
-//│ 					| LH_N  => (fun _lh_zipWith3_LH_C_0¹² -> (fun _lh_zipWith3_LH_C_0¹³ -> (fun _lh_zipWith3_LH_C_1¹² -> (fun _lh_zipWith3_LH_C_1¹³ -> (fun _lh_zipWith3_arg1⁸ -> [LH_N])))))
+//│ 			let _lh_zip3_LH_C_1²³ = init_lh_₁(_lh_init_LH_C_1¹)
+//│ 			in let _lh_zip3_LH_C_0²³ = _lh_init_LH_C_0¹
+//│ 			in (fun _lh_zip3_arg2³ -> (fun _lh_zip3_arg3³ -> 
+//│ 				let _lh_matchIdent¹² = _lh_zip3_arg2³
+//│ 				in case _lh_matchIdent¹² of {
+//│ 					LH_C _lh_zip3_LH_C_0²⁴ _lh_zip3_LH_C_1²⁴ => 
+//│ 						let _lh_matchIdent¹³ = _lh_zip3_arg3³
+//│ 						in _lh_matchIdent¹³(_lh_zip3_LH_C_0²⁴, _lh_zip3_LH_C_0²³, _lh_zip3_LH_C_1²⁴, _lh_zip3_LH_C_1²³)
+//│ 					| LH_N  => (fun f²⁷ -> [LH_N])
 //│ 					| _  => error⁰}))}
 //│ 	| _  => error⁰}
-//│ def init_lh_₃(_lh_init_arg1³) = case _lh_init_arg1³ of {
+//│ def init_lh_₂(_lh_init_arg1²) = case _lh_init_arg1² of {
+//│ 	LH_C _lh_init_LH_C_0² _lh_init_LH_C_1² => case _lh_init_LH_C_1² of {
+//│ 		LH_N  => (fun _lh_zip3_arg2⁵ -> (fun _lh_zip3_arg3⁵ -> (fun _lh_zipWith3_LH_C_0⁷ -> (fun _lh_zipWith3_LH_C_0⁸ -> (fun _lh_zipWith3_LH_C_1⁷ -> (fun _lh_zipWith3_LH_C_1⁸ -> (fun _lh_zipWith3_arg1⁶ -> [LH_N])))))))
+//│ 		| _  => 
+//│ 			let _lh_zip3_LH_C_1²⁵ = init_lh_₂(_lh_init_LH_C_1²)
+//│ 			in let _lh_zip3_LH_C_0²⁵ = _lh_init_LH_C_0²
+//│ 			in (fun _lh_zip3_arg2⁶ -> (fun _lh_zip3_arg3⁶ -> 
+//│ 				let _lh_matchIdent¹⁶ = _lh_zip3_arg2⁶
+//│ 				in case _lh_matchIdent¹⁶ of {
+//│ 					LH_C _lh_zip3_LH_C_0²⁶ _lh_zip3_LH_C_1²⁶ => 
+//│ 						let _lh_matchIdent¹⁷ = _lh_zip3_arg3⁶
+//│ 						in _lh_matchIdent¹⁷(_lh_zip3_LH_C_0²⁵, _lh_zip3_LH_C_0²⁶, _lh_zip3_LH_C_1²⁵, _lh_zip3_LH_C_1²⁶)
+//│ 					| LH_N  => (fun _lh_zipWith3_LH_C_0⁹ -> (fun _lh_zipWith3_LH_C_0¹⁰ -> (fun _lh_zipWith3_LH_C_1⁹ -> (fun _lh_zipWith3_LH_C_1¹⁰ -> (fun _lh_zipWith3_arg1⁷ -> [LH_N])))))
+//│ 					| _  => error⁰}))}
+//│ 	| _  => error⁰}
+//│ def init_lh_₃(_lh_init_arg1⁰) = case _lh_init_arg1⁰ of {
 //│ 	LH_C _lh_init_LH_C_0⁰ _lh_init_LH_C_1⁰ => case _lh_init_LH_C_1⁰ of {
 //│ 		LH_N  => [LH_N]
 //│ 		| _  => [LH_C _lh_init_LH_C_0⁰ init_lh_₃(_lh_init_LH_C_1⁰)]}
 //│ 	| _  => error⁰}
-//│ def iterate_lh_₁(f³⁸, x¹) = lazy⁰([LH_C x¹ iterate_lh_₁(f³⁸, f³⁸(x¹))])
-//│ def last_lh_₁(_lh_last_arg1¹) = 
-//│ 	let _lh_matchIdent²⁵ = _lh_last_arg1¹
-//│ 	in case _lh_matchIdent²⁵ of {
+//│ def iterate_lh_₁(f³⁰, x⁰) = lazy⁰([LH_C x⁰ iterate_lh_₁(f³⁰, f³⁰(x⁰))])
+//│ def last_lh_₁(_lh_last_arg1⁰) = 
+//│ 	let _lh_matchIdent⁴ = _lh_last_arg1⁰
+//│ 	in case _lh_matchIdent⁴ of {
 //│ 		LH_C _lh_last_LH_C_0⁰ _lh_last_LH_C_1⁰ => lastt_lh_₁(_lh_last_LH_C_1⁰, _lh_last_LH_C_0⁰)
 //│ 		| _  => error⁰}
-//│ def lastt_lh_₁(_lh_lastt_arg1¹, _lh_lastt_arg2¹) = 
-//│ 	let _lh_matchIdent³² = _lh_lastt_arg1¹
-//│ 	in case _lh_matchIdent³² of {
-//│ 		LH_N  => _lh_lastt_arg2¹
+//│ def lastt_lh_₁(_lh_lastt_arg1⁰, _lh_lastt_arg2⁰) = 
+//│ 	let _lh_matchIdent¹¹ = _lh_lastt_arg1⁰
+//│ 	in case _lh_matchIdent¹¹ of {
+//│ 		LH_N  => _lh_lastt_arg2⁰
 //│ 		| LH_C _lh_lastt_LH_C_0⁰ _lh_lastt_LH_C_1⁰ => lastt_lh_₁(_lh_lastt_LH_C_1⁰, _lh_lastt_LH_C_0⁰)
 //│ 		| _  => error⁰}
-//│ def length_lh_₁(ls²²) = ls²²(99)
-//│ def limit_lh_₁(_lh_limit_arg1¹) = 
-//│ 	let _lh_matchIdent²⁸ = force⁰(_lh_limit_arg1¹)
-//│ 	in case _lh_matchIdent²⁸ of {
+//│ def length_lh_₁(ls⁸) = ls⁸(99)
+//│ def limit_lh_₁(_lh_limit_arg1⁰) = 
+//│ 	let _lh_matchIdent⁷ = force⁰(_lh_limit_arg1⁰)
+//│ 	in case _lh_matchIdent⁷ of {
 //│ 		LH_C _lh_limit_LH_C_0⁰ _lh_limit_LH_C_1⁰ => 
-//│ 			let _lh_matchIdent²⁹ = force⁰(_lh_limit_LH_C_1⁰)
-//│ 			in case _lh_matchIdent²⁹ of {
+//│ 			let _lh_matchIdent⁸ = force⁰(_lh_limit_LH_C_1⁰)
+//│ 			in case _lh_matchIdent⁸ of {
 //│ 				LH_C _lh_limit_LH_C_0¹ _lh_limit_LH_C_1¹ => if polyEq⁰(_lh_limit_LH_C_0⁰, _lh_limit_LH_C_0¹) then 
-//│ 					let ty¹ = (fun xs²¹ -> (fun f²⁷ -> [LH_N]))
+//│ 					let ty⁰ = (fun xs⁷ -> (fun f¹⁹ -> [LH_N]))
+//│ 					in let hy⁰ = _lh_limit_LH_C_0⁰
+//│ 					in (fun xs⁸ -> force⁰(xs⁸, hy⁰, ty⁰)) else 
+//│ 					let ty¹ = limit_lh_₁(lazy⁰([LH_C _lh_limit_LH_C_0¹ _lh_limit_LH_C_1¹]))
 //│ 					in let hy¹ = _lh_limit_LH_C_0⁰
-//│ 					in (fun xs²⁰ -> force⁰(xs²⁰, hy¹, ty¹)) else 
-//│ 					let ty² = limit_lh_₁(lazy⁰([LH_C _lh_limit_LH_C_0¹ _lh_limit_LH_C_1¹]))
-//│ 					in let hy² = _lh_limit_LH_C_0⁰
-//│ 					in (fun xs²² -> force⁰(xs²², hy², ty²))
+//│ 					in (fun xs⁹ -> force⁰(xs⁹, hy¹, ty¹))
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ def map_lh_₁(f³³, ls²⁰) = ls²⁰(f³³)
-//│ def map_lh_₂(f³², ls¹⁸) = ls¹⁸(f³²)
-//│ def map_lh_₃(f³⁹, ls²³) = case ls²³ of {
-//│ 	LH_C h¹⁹ t¹⁹ => 
-//│ 		let t¹¹⁹ = map_lh_₃(f³⁹, t¹⁹)
-//│ 		in let h¹¹⁹ = f³⁹(h¹⁹)
-//│ 		in (fun _lh_dummy¹² -> mappend_lh_₃(h¹¹⁹, concat_lh_₁(t¹¹⁹)))
-//│ 	| LH_N  => (fun _lh_dummy¹³ -> (fun ys⁵⁰ -> ys⁵⁰))}
-//│ def map_lh_₄(f⁴⁰, ls²⁵) = case ls²⁵ of {
-//│ 	LH_C h¹⁷ t¹⁷ => 
-//│ 		let t¹²⁰ = map_lh_₄(f⁴⁰, t¹⁷)
-//│ 		in let h¹²⁰ = f⁴⁰(h¹⁷)
-//│ 		in (fun f⁴¹ -> (fun i² -> f⁴¹(h¹²⁰, foldr_lh_₁(f⁴¹, i², t¹²⁰))))
-//│ 	| LH_N  => (fun f⁴² -> (fun i³ -> i³))}
-//│ def map_lz_lh_₁(f⁸, ls¹⁴) = lazy⁰(force⁰(ls¹⁴, f⁸))
-//│ def map_lz_lh_₂(f⁴³, ls²⁷) = lazy⁰(force⁰(ls²⁷, f⁴³))
-//│ def mappend_lh_₁(xs¹³, ys¹³) = case xs¹³ of {
-//│ 	LH_C h¹⁸ t¹⁸ => 
-//│ 		let t²⁸ = mappend_lh_₁(t¹⁸, ys¹³)
-//│ 		in let h²⁸ = h¹⁸
-//│ 		in (fun ys¹⁴ -> 
-//│ 			let t²⁹ = mappend_lh_₂(t²⁸, ys¹⁴)
-//│ 			in let h²⁹ = h²⁸
-//│ 			in (fun _lh_dummy¹ -> (1 + length_lh_₁(t²⁹))))
-//│ 	| LH_N  => ys¹³}
-//│ def mappend_lh_₁₀(xs¹⁶, ys³⁵) = case xs¹⁶ of {
-//│ 	LH_C h⁴ t⁴ => 
-//│ 		let _lh_zip3_LH_C_1²¹ = mappend_lh_₁₀(t⁴, ys³⁵)
-//│ 		in let _lh_zip3_LH_C_0²¹ = h⁴
-//│ 		in (fun _lh_zip3_LH_C_0²² -> (fun _lh_zip3_LH_C_0²³ -> (fun _lh_zip3_LH_C_1²² -> (fun _lh_zip3_LH_C_1²³ -> 
-//│ 			let _lh_zipWith3_LH_C_1⁸ = zip3_lh_₃(_lh_zip3_LH_C_1²², _lh_zip3_LH_C_1²³, _lh_zip3_LH_C_1²¹)
-//│ 			in let _lh_zipWith3_LH_C_0⁸ = 	
-//│ 				let _lh_elt_LH_P3_2⁶ = _lh_zip3_LH_C_0²¹
-//│ 				in let _lh_elt_LH_P3_1⁶ = _lh_zip3_LH_C_0²³
-//│ 				in let _lh_elt_LH_P3_0⁶ = _lh_zip3_LH_C_0²²
-//│ 				in (fun _lh_elt_arg2¹ -> (fun _lh_elt_arg3¹ -> _lh_elt_arg2¹(_lh_elt_LH_P3_0⁶, _lh_elt_LH_P3_1⁶, _lh_elt_LH_P3_2⁶, _lh_elt_arg3¹)))
-//│ 			in (fun _lh_zipWith3_arg1⁴ -> (fun _lh_zipWith3_arg3² -> (fun _lh_zipWith3_arg4² -> 
-//│ 				let _lh_matchIdent²⁶ = _lh_zipWith3_arg3²
-//│ 				in _lh_matchIdent²⁶(_lh_zipWith3_LH_C_0⁸, _lh_zipWith3_LH_C_1⁸, _lh_zipWith3_arg1⁴, _lh_zipWith3_arg4²))))))))
-//│ 	| LH_N  => ys³⁵}
-//│ def mappend_lh_₁₁(xs²⁴, ys⁴²) = xs²⁴(ys⁴²)
-//│ def mappend_lh_₁₂(xs²⁸, ys⁵²) = case xs²⁸ of {
-//│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₁₂(t¹, ys⁵²)]
-//│ 	| LH_N  => ys⁵²}
-//│ def mappend_lh_₂(xs¹⁸, ys³⁷) = xs¹⁸(ys³⁷)
-//│ def mappend_lh_₃(xs¹⁴, ys³¹) = xs¹⁴(ys³¹)
-//│ def mappend_lh_₄(xs²⁵, ys⁴³) = xs²⁵(ys⁴³)
-//│ def mappend_lh_₅(xs¹⁹, ys³⁸) = xs¹⁹(ys³⁸)
-//│ def mappend_lh_₆(xs²³, ys⁴¹) = case xs²³ of {
-//│ 	LH_C h¹⁰ t¹⁰ => 
-//│ 		let _lh_zip3_LH_C_1³⁰ = mappend_lh_₆(t¹⁰, ys⁴¹)
-//│ 		in let _lh_zip3_LH_C_0³⁰ = h¹⁰
-//│ 		in (fun _lh_zip3_LH_C_0³¹ -> (fun _lh_zip3_LH_C_0³² -> (fun _lh_zip3_LH_C_1³¹ -> (fun _lh_zip3_LH_C_1³² -> 
-//│ 			let t¹¹⁰ = zip3_lh_₁(_lh_zip3_LH_C_1³², _lh_zip3_LH_C_1³¹, _lh_zip3_LH_C_1³⁰)
-//│ 			in let h¹¹⁰ = 	
-//│ 				let _lh_row_LH_P3_2² = _lh_zip3_LH_C_0³⁰
-//│ 				in let _lh_row_LH_P3_1² = _lh_zip3_LH_C_0³¹
-//│ 				in let _lh_row_LH_P3_0² = _lh_zip3_LH_C_0³²
-//│ 				in (fun _lh_dummy⁶ -> zipWith3_lh_₁(elt_lh_₁, shift_lh_₃(0, _lh_row_LH_P3_0²), shift_lh_₄(0, _lh_row_LH_P3_1²), shift_lh_₂(0, _lh_row_LH_P3_2²)))
-//│ 			in (fun f³¹ -> [LH_C f³¹(h¹¹⁰) map_lh_₂(f³¹, t¹¹⁰)])))))
-//│ 	| LH_N  => ys⁴¹}
-//│ def mappend_lh_₇(xs¹⁷, ys³⁶) = xs¹⁷(ys³⁶)
-//│ def mappend_lh_₈(xs¹⁵, ys³²) = case xs¹⁵ of {
-//│ 	LH_C h⁷ t⁷ => 
-//│ 		let _lh_zip3_LH_C_1¹⁷ = mappend_lh_₈(t⁷, ys³²)
-//│ 		in let _lh_zip3_LH_C_0¹⁷ = h⁷
-//│ 		in (fun _lh_zip3_LH_C_0¹⁸ -> (fun _lh_zip3_LH_C_0¹⁹ -> (fun _lh_zip3_LH_C_1¹⁸ -> (fun _lh_zip3_LH_C_1¹⁹ -> 
-//│ 			let _lh_zipWith3_LH_C_1³ = zip3_lh_₂(_lh_zip3_LH_C_1¹⁸, _lh_zip3_LH_C_1¹⁹, _lh_zip3_LH_C_1¹⁷)
-//│ 			in let _lh_zipWith3_LH_C_0³ = 	
-//│ 				let _lh_elt_LH_P3_2³ = _lh_zip3_LH_C_0¹⁷
-//│ 				in let _lh_elt_LH_P3_1³ = _lh_zip3_LH_C_0¹⁹
-//│ 				in let _lh_elt_LH_P3_0³ = _lh_zip3_LH_C_0¹⁸
-//│ 				in (fun _lh_elt_LH_P3_0⁴ -> (fun _lh_elt_LH_P3_0⁵ -> (fun _lh_elt_LH_P3_1⁴ -> (fun _lh_elt_LH_P3_1⁵ -> (fun _lh_elt_LH_P3_2⁴ -> (fun _lh_elt_LH_P3_2⁵ -> 
-//│ 					let tot¹ = (((((((_lh_elt_LH_P3_0⁵ + _lh_elt_LH_P3_1⁵) + _lh_elt_LH_P3_2⁵) + _lh_elt_LH_P3_0⁴) + _lh_elt_LH_P3_2⁴) + _lh_elt_LH_P3_0³) + _lh_elt_LH_P3_1³) + _lh_elt_LH_P3_2³)
-//│ 					in if ((tot¹ < 2) || (tot¹ > 3)) then 0 else if (tot¹ == 3) then 1 else _lh_elt_LH_P3_1⁴))))))
-//│ 			in (fun _lh_zipWith3_LH_C_0⁴ -> (fun _lh_zipWith3_LH_C_0⁵ -> (fun _lh_zipWith3_LH_C_1⁴ -> (fun _lh_zipWith3_LH_C_1⁵ -> (fun _lh_zipWith3_arg1² -> [LH_C _lh_zipWith3_arg1²(_lh_zipWith3_LH_C_0⁵, _lh_zipWith3_LH_C_0⁴, _lh_zipWith3_LH_C_0³) zipWith3_lh_₁(_lh_zipWith3_arg1², _lh_zipWith3_LH_C_1⁵, _lh_zipWith3_LH_C_1⁴, _lh_zipWith3_LH_C_1³)])))))))))
-//│ 	| LH_N  => ys³²}
-//│ def mappend_lh_₉(xs²⁶, ys⁴⁴) = xs²⁶(ys⁴⁴)
-//│ def row_lh_₁(_lh_row_arg1¹) = _lh_row_arg1¹(99)
-//│ def shift_lh_₁(_lh_shift_arg1⁷, _lh_shift_arg2⁷) = zip3_lh_₁(shiftr_lh_₁(_lh_shift_arg1⁷, _lh_shift_arg2⁷), _lh_shift_arg2⁷, shiftl_lh_₁(_lh_shift_arg1⁷, _lh_shift_arg2⁷))
-//│ def shift_lh_₂(_lh_shift_arg1⁴, _lh_shift_arg2⁴) = zip3_lh_₂(shiftr_lh_₂(_lh_shift_arg1⁴, _lh_shift_arg2⁴), _lh_shift_arg2⁴, shiftl_lh_₂(_lh_shift_arg1⁴, _lh_shift_arg2⁴))
-//│ def shift_lh_₃(_lh_shift_arg1⁶, _lh_shift_arg2⁶) = zip3_lh_₃(shiftr_lh_₃(_lh_shift_arg1⁶, _lh_shift_arg2⁶), _lh_shift_arg2⁶, shiftl_lh_₃(_lh_shift_arg1⁶, _lh_shift_arg2⁶))
-//│ def shift_lh_₄(_lh_shift_arg1⁵, _lh_shift_arg2⁵) = zip3_lh_₄(shiftr_lh_₄(_lh_shift_arg1⁵, _lh_shift_arg2⁵), _lh_shift_arg2⁵, shiftl_lh_₄(_lh_shift_arg1⁵, _lh_shift_arg2⁵))
-//│ def shiftl_lh_₁(_lh_shiftl_arg1⁴, _lh_shiftl_arg2⁴) = mappend_lh_₆(tail_lh_₁(_lh_shiftl_arg2⁴), 
-//│ 	let _lh_zip3_LH_C_1¹² = (fun _lh_zip3_LH_C_0¹⁵ -> (fun _lh_zip3_LH_C_0¹⁶ -> (fun _lh_zip3_LH_C_1¹⁵ -> (fun _lh_zip3_LH_C_1¹⁶ -> (fun f¹⁰ -> [LH_N])))))
-//│ 	in let _lh_zip3_LH_C_0¹² = _lh_shiftl_arg1⁴
-//│ 	in (fun _lh_zip3_LH_C_0¹³ -> (fun _lh_zip3_LH_C_0¹⁴ -> (fun _lh_zip3_LH_C_1¹³ -> (fun _lh_zip3_LH_C_1¹⁴ -> 
-//│ 		let t²⁷ = zip3_lh_₁(_lh_zip3_LH_C_1¹⁴, _lh_zip3_LH_C_1¹³, _lh_zip3_LH_C_1¹²)
-//│ 		in let h²⁷ = 	
-//│ 			let _lh_row_LH_P3_2¹ = _lh_zip3_LH_C_0¹²
-//│ 			in let _lh_row_LH_P3_1¹ = _lh_zip3_LH_C_0¹³
-//│ 			in let _lh_row_LH_P3_0¹ = _lh_zip3_LH_C_0¹⁴
-//│ 			in (fun _lh_dummy⁰ -> zipWith3_lh_₁(elt_lh_₁, shift_lh_₃(0, _lh_row_LH_P3_0¹), shift_lh_₄(0, _lh_row_LH_P3_1¹), shift_lh_₂(0, _lh_row_LH_P3_2¹)))
-//│ 		in (fun f⁹ -> [LH_C f⁹(h²⁷) map_lh_₂(f⁹, t²⁷)]))))))
-//│ def shiftl_lh_₂(_lh_shiftl_arg1⁷, _lh_shiftl_arg2⁷) = mappend_lh_₈(tail_lh_₂(_lh_shiftl_arg2⁷), 
-//│ 	let _lh_zip3_LH_C_1³⁵ = (fun _lh_zip3_LH_C_0³⁸ -> (fun _lh_zip3_LH_C_0³⁹ -> (fun _lh_zip3_LH_C_1³⁸ -> (fun _lh_zip3_LH_C_1³⁹ -> (fun _lh_zipWith3_LH_C_0²² -> (fun _lh_zipWith3_LH_C_0²³ -> (fun _lh_zipWith3_LH_C_1²² -> (fun _lh_zipWith3_LH_C_1²³ -> (fun _lh_zipWith3_arg1¹⁴ -> [LH_N])))))))))
-//│ 	in let _lh_zip3_LH_C_0³⁵ = _lh_shiftl_arg1⁷
-//│ 	in (fun _lh_zip3_LH_C_0³⁶ -> (fun _lh_zip3_LH_C_0³⁷ -> (fun _lh_zip3_LH_C_1³⁶ -> (fun _lh_zip3_LH_C_1³⁷ -> 
-//│ 		let _lh_zipWith3_LH_C_1¹⁹ = zip3_lh_₂(_lh_zip3_LH_C_1³⁶, _lh_zip3_LH_C_1³⁷, _lh_zip3_LH_C_1³⁵)
-//│ 		in let _lh_zipWith3_LH_C_0¹⁹ = 	
-//│ 			let _lh_elt_LH_P3_2¹⁰ = _lh_zip3_LH_C_0³⁵
-//│ 			in let _lh_elt_LH_P3_1¹⁰ = _lh_zip3_LH_C_0³⁷
-//│ 			in let _lh_elt_LH_P3_0¹⁰ = _lh_zip3_LH_C_0³⁶
-//│ 			in (fun _lh_elt_LH_P3_0¹¹ -> (fun _lh_elt_LH_P3_0¹² -> (fun _lh_elt_LH_P3_1¹¹ -> (fun _lh_elt_LH_P3_1¹² -> (fun _lh_elt_LH_P3_2¹¹ -> (fun _lh_elt_LH_P3_2¹² -> 
-//│ 				let tot² = (((((((_lh_elt_LH_P3_0¹² + _lh_elt_LH_P3_1¹²) + _lh_elt_LH_P3_2¹²) + _lh_elt_LH_P3_0¹¹) + _lh_elt_LH_P3_2¹¹) + _lh_elt_LH_P3_0¹⁰) + _lh_elt_LH_P3_1¹⁰) + _lh_elt_LH_P3_2¹⁰)
-//│ 				in if ((tot² < 2) || (tot² > 3)) then 0 else if (tot² == 3) then 1 else _lh_elt_LH_P3_1¹¹))))))
-//│ 		in (fun _lh_zipWith3_LH_C_0²⁰ -> (fun _lh_zipWith3_LH_C_0²¹ -> (fun _lh_zipWith3_LH_C_1²⁰ -> (fun _lh_zipWith3_LH_C_1²¹ -> (fun _lh_zipWith3_arg1¹³ -> [LH_C _lh_zipWith3_arg1¹³(_lh_zipWith3_LH_C_0²¹, _lh_zipWith3_LH_C_0²⁰, _lh_zipWith3_LH_C_0¹⁹) zipWith3_lh_₁(_lh_zipWith3_arg1¹³, _lh_zipWith3_LH_C_1²¹, _lh_zipWith3_LH_C_1²⁰, _lh_zipWith3_LH_C_1¹⁹)]))))))))))
-//│ def shiftl_lh_₃(_lh_shiftl_arg1⁵, _lh_shiftl_arg2⁵) = mappend_lh_₁₀(tail_lh_₃(_lh_shiftl_arg2⁵), 
-//│ 	let _lh_zip3_LH_C_1²⁴ = (fun _lh_zip3_LH_C_0²⁷ -> (fun _lh_zip3_LH_C_0²⁸ -> (fun _lh_zip3_LH_C_1²⁷ -> (fun _lh_zip3_LH_C_1²⁸ -> (fun _lh_zipWith3_arg1⁶ -> (fun _lh_zipWith3_arg3⁴ -> (fun _lh_zipWith3_arg4⁴ -> [LH_N])))))))
-//│ 	in let _lh_zip3_LH_C_0²⁴ = _lh_shiftl_arg1⁵
-//│ 	in (fun _lh_zip3_LH_C_0²⁵ -> (fun _lh_zip3_LH_C_0²⁶ -> (fun _lh_zip3_LH_C_1²⁵ -> (fun _lh_zip3_LH_C_1²⁶ -> 
-//│ 		let _lh_zipWith3_LH_C_1⁹ = zip3_lh_₃(_lh_zip3_LH_C_1²⁵, _lh_zip3_LH_C_1²⁶, _lh_zip3_LH_C_1²⁴)
-//│ 		in let _lh_zipWith3_LH_C_0⁹ = 	
-//│ 			let _lh_elt_LH_P3_2⁷ = _lh_zip3_LH_C_0²⁴
-//│ 			in let _lh_elt_LH_P3_1⁷ = _lh_zip3_LH_C_0²⁶
-//│ 			in let _lh_elt_LH_P3_0⁷ = _lh_zip3_LH_C_0²⁵
-//│ 			in (fun _lh_elt_arg2³ -> (fun _lh_elt_arg3³ -> _lh_elt_arg2³(_lh_elt_LH_P3_0⁷, _lh_elt_LH_P3_1⁷, _lh_elt_LH_P3_2⁷, _lh_elt_arg3³)))
+//│ def map_lh_₁(f²⁵, ls⁶) = ls⁶(f²⁵)
+//│ def map_lh_₂(f²⁴, ls⁴) = ls⁴(f²⁴)
+//│ def map_lh_₃(f³¹, ls⁹, _lh_floatOutId_0³) = case ls⁹ of {
+//│ 	LH_C h⁹⁹ t⁹⁹ => 
+//│ 		let t¹⁰⁰ = map_lh_₃(f³¹, t⁹⁹)
+//│ 		in let h¹⁰⁰ = f³¹(h⁹⁹)
+//│ 		in mappend_lh_₃(h¹⁰⁰, concat_lh_₁(t¹⁰⁰))
+//│ 	| LH_N  => (fun ys³⁷ -> ys³⁷)}
+//│ def map_lh_₄(f³², ls¹¹, _lh_floatOutId_0⁴, _lh_floatOutId_1²) = case ls¹¹ of {
+//│ 	LH_C h¹⁰¹ t¹⁰¹ => 
+//│ 		let t¹⁰² = map_lh_₄(f³², t¹⁰¹)
+//│ 		in let h¹⁰² = f³²(h¹⁰¹)
+//│ 		in _lh_floatOutId_0⁴(h¹⁰², foldr_lh_₁(_lh_floatOutId_0⁴, _lh_floatOutId_1², t¹⁰²))
+//│ 	| LH_N  => _lh_floatOutId_1²}
+//│ def map_lz_lh_₁(f⁰, ls⁰) = lazy⁰(force⁰(ls⁰, f⁰))
+//│ def map_lz_lh_₂(f³⁵, ls¹³) = lazy⁰(force⁰(ls¹³, f³⁵))
+//│ def mappend_lh_₁(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h¹ t¹ => 
+//│ 		let t² = mappend_lh_₁(t¹, ys⁰)
+//│ 		in let h² = h¹
+//│ 		in (fun ys¹ -> 
+//│ 			let t³ = mappend_lh_₂(t², ys¹)
+//│ 			in let h³ = h²
+//│ 			in (fun _lh_dummy¹ -> (1 + length_lh_₁(t³))))
+//│ 	| LH_N  => ys⁰}
+//│ def mappend_lh_₁₀(xs³, ys²²) = case xs³ of {
+//│ 	LH_C h⁸⁰ t⁸⁰ => 
+//│ 		let _lh_zip3_LH_C_1¹⁰ = mappend_lh_₁₀(t⁸⁰, ys²²)
+//│ 		in let _lh_zip3_LH_C_0¹⁰ = h⁸⁰
+//│ 		in (fun _lh_zip3_LH_C_0¹¹ -> (fun _lh_zip3_LH_C_0¹² -> (fun _lh_zip3_LH_C_1¹¹ -> (fun _lh_zip3_LH_C_1¹² -> 
+//│ 			let _lh_zipWith3_LH_C_1⁵ = zip3_lh_₃(_lh_zip3_LH_C_1¹¹, _lh_zip3_LH_C_1¹², _lh_zip3_LH_C_1¹⁰)
+//│ 			in let _lh_zipWith3_LH_C_0⁵ = 	
+//│ 				let _lh_elt_LH_P3_2³ = _lh_zip3_LH_C_0¹⁰
+//│ 				in let _lh_elt_LH_P3_1³ = _lh_zip3_LH_C_0¹²
+//│ 				in let _lh_elt_LH_P3_0³ = _lh_zip3_LH_C_0¹¹
+//│ 				in (fun _lh_elt_arg2⁰ -> (fun _lh_elt_arg3⁰ -> _lh_elt_arg2⁰(_lh_elt_LH_P3_0³, _lh_elt_LH_P3_1³, _lh_elt_LH_P3_2³, _lh_elt_arg3⁰)))
+//│ 			in (fun _lh_zipWith3_arg1³ -> (fun _lh_zipWith3_arg3¹ -> (fun _lh_zipWith3_arg4¹ -> 
+//│ 				let _lh_matchIdent⁵ = _lh_zipWith3_arg3¹
+//│ 				in _lh_matchIdent⁵(_lh_zipWith3_LH_C_0⁵, _lh_zipWith3_LH_C_1⁵, _lh_zipWith3_arg1³, _lh_zipWith3_arg4¹))))))))
+//│ 	| LH_N  => ys²²}
+//│ def mappend_lh_₁₁(xs¹¹, ys²⁹) = xs¹¹(ys²⁹)
+//│ def mappend_lh_₁₂(xs¹⁵, ys³⁹) = case xs¹⁵ of {
+//│ 	LH_C h¹⁰⁴ t¹⁰⁴ => [LH_C h¹⁰⁴ mappend_lh_₁₂(t¹⁰⁴, ys³⁹)]
+//│ 	| LH_N  => ys³⁹}
+//│ def mappend_lh_₂(xs⁵, ys²⁴) = xs⁵(ys²⁴)
+//│ def mappend_lh_₃(xs¹, ys¹⁸) = xs¹(ys¹⁸)
+//│ def mappend_lh_₄(xs¹², ys³⁰) = xs¹²(ys³⁰)
+//│ def mappend_lh_₅(xs⁶, ys²⁵) = xs⁶(ys²⁵)
+//│ def mappend_lh_₆(xs¹⁰, ys²⁸) = case xs¹⁰ of {
+//│ 	LH_C h⁸⁶ t⁸⁶ => 
+//│ 		let _lh_zip3_LH_C_1²⁰ = mappend_lh_₆(t⁸⁶, ys²⁸)
+//│ 		in let _lh_zip3_LH_C_0²⁰ = h⁸⁶
+//│ 		in (fun _lh_zip3_LH_C_0²¹ -> (fun _lh_zip3_LH_C_0²² -> (fun _lh_zip3_LH_C_1²¹ -> (fun _lh_zip3_LH_C_1²² -> 
+//│ 			let t⁸⁷ = zip3_lh_₁(_lh_zip3_LH_C_1²², _lh_zip3_LH_C_1²¹, _lh_zip3_LH_C_1²⁰)
+//│ 			in let h⁸⁷ = 	
+//│ 				let _lh_row_LH_P3_2¹ = _lh_zip3_LH_C_0²⁰
+//│ 				in let _lh_row_LH_P3_1¹ = _lh_zip3_LH_C_0²¹
+//│ 				in let _lh_row_LH_P3_0¹ = _lh_zip3_LH_C_0²²
+//│ 				in (fun _lh_dummy⁶ -> zipWith3_lh_₁(elt_lh_₁, shift_lh_₃(0, _lh_row_LH_P3_0¹), shift_lh_₄(0, _lh_row_LH_P3_1¹), shift_lh_₂(0, _lh_row_LH_P3_2¹)))
+//│ 			in (fun f²³ -> [LH_C f²³(h⁸⁷) map_lh_₂(f²³, t⁸⁷)])))))
+//│ 	| LH_N  => ys²⁸}
+//│ def mappend_lh_₇(xs⁴, ys²³) = xs⁴(ys²³)
+//│ def mappend_lh_₈(xs², ys¹⁹) = case xs² of {
+//│ 	LH_C h⁷⁸ t⁷⁸ => 
+//│ 		let _lh_zip3_LH_C_1⁵ = mappend_lh_₈(t⁷⁸, ys¹⁹)
+//│ 		in let _lh_zip3_LH_C_0⁵ = h⁷⁸
+//│ 		in (fun _lh_zip3_LH_C_0⁶ -> (fun _lh_zip3_LH_C_0⁷ -> (fun _lh_zip3_LH_C_1⁶ -> (fun _lh_zip3_LH_C_1⁷ -> 
+//│ 			let _lh_zipWith3_LH_C_1⁰ = zip3_lh_₂(_lh_zip3_LH_C_1⁶, _lh_zip3_LH_C_1⁷, _lh_zip3_LH_C_1⁵)
+//│ 			in let _lh_zipWith3_LH_C_0⁰ = 	
+//│ 				let _lh_elt_LH_P3_2⁰ = _lh_zip3_LH_C_0⁵
+//│ 				in let _lh_elt_LH_P3_1⁰ = _lh_zip3_LH_C_0⁷
+//│ 				in let _lh_elt_LH_P3_0⁰ = _lh_zip3_LH_C_0⁶
+//│ 				in (fun _lh_elt_LH_P3_0¹ -> (fun _lh_elt_LH_P3_0² -> (fun _lh_elt_LH_P3_1¹ -> (fun _lh_elt_LH_P3_1² -> (fun _lh_elt_LH_P3_2¹ -> (fun _lh_elt_LH_P3_2² -> 
+//│ 					let tot⁰ = (((((((_lh_elt_LH_P3_0² + _lh_elt_LH_P3_1²) + _lh_elt_LH_P3_2²) + _lh_elt_LH_P3_0¹) + _lh_elt_LH_P3_2¹) + _lh_elt_LH_P3_0⁰) + _lh_elt_LH_P3_1⁰) + _lh_elt_LH_P3_2⁰)
+//│ 					in if ((tot⁰ < 2) || (tot⁰ > 3)) then 0 else if (tot⁰ == 3) then 1 else _lh_elt_LH_P3_1¹))))))
+//│ 			in (fun _lh_zipWith3_LH_C_0¹ -> (fun _lh_zipWith3_LH_C_0² -> (fun _lh_zipWith3_LH_C_1¹ -> (fun _lh_zipWith3_LH_C_1² -> (fun _lh_zipWith3_arg1¹ -> [LH_C _lh_zipWith3_arg1¹(_lh_zipWith3_LH_C_0², _lh_zipWith3_LH_C_0¹, _lh_zipWith3_LH_C_0⁰) zipWith3_lh_₁(_lh_zipWith3_arg1¹, _lh_zipWith3_LH_C_1², _lh_zipWith3_LH_C_1¹, _lh_zipWith3_LH_C_1⁰)])))))))))
+//│ 	| LH_N  => ys¹⁹}
+//│ def mappend_lh_₉(xs¹³, ys³¹) = xs¹³(ys³¹)
+//│ def row_lh_₁(_lh_row_arg1⁰) = _lh_row_arg1⁰(99)
+//│ def shift_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³) = zip3_lh_₁(shiftr_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³), _lh_shift_arg2³, shiftl_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³))
+//│ def shift_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰) = zip3_lh_₂(shiftr_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰), _lh_shift_arg2⁰, shiftl_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰))
+//│ def shift_lh_₃(_lh_shift_arg1², _lh_shift_arg2²) = zip3_lh_₃(shiftr_lh_₃(_lh_shift_arg1², _lh_shift_arg2²), _lh_shift_arg2², shiftl_lh_₃(_lh_shift_arg1², _lh_shift_arg2²))
+//│ def shift_lh_₄(_lh_shift_arg1¹, _lh_shift_arg2¹) = zip3_lh_₄(shiftr_lh_₄(_lh_shift_arg1¹, _lh_shift_arg2¹), _lh_shift_arg2¹, shiftl_lh_₄(_lh_shift_arg1¹, _lh_shift_arg2¹))
+//│ def shiftl_lh_₁(_lh_shiftl_arg1⁰, _lh_shiftl_arg2⁰) = mappend_lh_₆(tail_lh_₁(_lh_shiftl_arg2⁰), 
+//│ 	let _lh_zip3_LH_C_1⁰ = (fun _lh_zip3_LH_C_0⁰ -> (fun _lh_zip3_LH_C_0¹ -> (fun _lh_zip3_LH_C_1¹ -> (fun _lh_zip3_LH_C_1² -> (fun f¹ -> [LH_N])))))
+//│ 	in let _lh_zip3_LH_C_0² = _lh_shiftl_arg1⁰
+//│ 	in (fun _lh_zip3_LH_C_0³ -> (fun _lh_zip3_LH_C_0⁴ -> (fun _lh_zip3_LH_C_1³ -> (fun _lh_zip3_LH_C_1⁴ -> 
+//│ 		let t⁰ = zip3_lh_₁(_lh_zip3_LH_C_1⁴, _lh_zip3_LH_C_1³, _lh_zip3_LH_C_1⁰)
+//│ 		in let h⁰ = 	
+//│ 			let _lh_row_LH_P3_2⁰ = _lh_zip3_LH_C_0²
+//│ 			in let _lh_row_LH_P3_1⁰ = _lh_zip3_LH_C_0³
+//│ 			in let _lh_row_LH_P3_0⁰ = _lh_zip3_LH_C_0⁴
+//│ 			in (fun _lh_dummy⁰ -> zipWith3_lh_₁(elt_lh_₁, shift_lh_₃(0, _lh_row_LH_P3_0⁰), shift_lh_₄(0, _lh_row_LH_P3_1⁰), shift_lh_₂(0, _lh_row_LH_P3_2⁰)))
+//│ 		in (fun f² -> [LH_C f²(h⁰) map_lh_₂(f², t⁰)]))))))
+//│ def shiftl_lh_₂(_lh_shiftl_arg1³, _lh_shiftl_arg2³) = mappend_lh_₈(tail_lh_₂(_lh_shiftl_arg2³), 
+//│ 	let _lh_zip3_LH_C_1³⁰ = (fun _lh_zip3_LH_C_0³⁰ -> (fun _lh_zip3_LH_C_0³¹ -> (fun _lh_zip3_LH_C_1³¹ -> (fun _lh_zip3_LH_C_1³² -> (fun _lh_zipWith3_LH_C_0¹⁶ -> (fun _lh_zipWith3_LH_C_0¹⁷ -> (fun _lh_zipWith3_LH_C_1¹⁶ -> (fun _lh_zipWith3_LH_C_1¹⁷ -> (fun _lh_zipWith3_arg1¹² -> [LH_N])))))))))
+//│ 	in let _lh_zip3_LH_C_0³² = _lh_shiftl_arg1³
+//│ 	in (fun _lh_zip3_LH_C_0³³ -> (fun _lh_zip3_LH_C_0³⁴ -> (fun _lh_zip3_LH_C_1³³ -> (fun _lh_zip3_LH_C_1³⁴ -> 
+//│ 		let _lh_zipWith3_LH_C_1¹⁸ = zip3_lh_₂(_lh_zip3_LH_C_1³³, _lh_zip3_LH_C_1³⁴, _lh_zip3_LH_C_1³⁰)
+//│ 		in let _lh_zipWith3_LH_C_0¹⁸ = 	
+//│ 			let _lh_elt_LH_P3_2⁷ = _lh_zip3_LH_C_0³²
+//│ 			in let _lh_elt_LH_P3_1⁷ = _lh_zip3_LH_C_0³⁴
+//│ 			in let _lh_elt_LH_P3_0⁷ = _lh_zip3_LH_C_0³³
+//│ 			in (fun _lh_elt_LH_P3_0⁸ -> (fun _lh_elt_LH_P3_0⁹ -> (fun _lh_elt_LH_P3_1⁸ -> (fun _lh_elt_LH_P3_1⁹ -> (fun _lh_elt_LH_P3_2⁸ -> (fun _lh_elt_LH_P3_2⁹ -> 
+//│ 				let tot¹ = (((((((_lh_elt_LH_P3_0⁹ + _lh_elt_LH_P3_1⁹) + _lh_elt_LH_P3_2⁹) + _lh_elt_LH_P3_0⁸) + _lh_elt_LH_P3_2⁸) + _lh_elt_LH_P3_0⁷) + _lh_elt_LH_P3_1⁷) + _lh_elt_LH_P3_2⁷)
+//│ 				in if ((tot¹ < 2) || (tot¹ > 3)) then 0 else if (tot¹ == 3) then 1 else _lh_elt_LH_P3_1⁸))))))
+//│ 		in (fun _lh_zipWith3_LH_C_0¹⁹ -> (fun _lh_zipWith3_LH_C_0²⁰ -> (fun _lh_zipWith3_LH_C_1¹⁹ -> (fun _lh_zipWith3_LH_C_1²⁰ -> (fun _lh_zipWith3_arg1¹³ -> [LH_C _lh_zipWith3_arg1¹³(_lh_zipWith3_LH_C_0²⁰, _lh_zipWith3_LH_C_0¹⁹, _lh_zipWith3_LH_C_0¹⁸) zipWith3_lh_₁(_lh_zipWith3_arg1¹³, _lh_zipWith3_LH_C_1²⁰, _lh_zipWith3_LH_C_1¹⁹, _lh_zipWith3_LH_C_1¹⁸)]))))))))))
+//│ def shiftl_lh_₃(_lh_shiftl_arg1¹, _lh_shiftl_arg2¹) = mappend_lh_₁₀(tail_lh_₃(_lh_shiftl_arg2¹), 
+//│ 	let _lh_zip3_LH_C_1¹³ = (fun _lh_zip3_LH_C_0¹³ -> (fun _lh_zip3_LH_C_0¹⁴ -> (fun _lh_zip3_LH_C_1¹⁴ -> (fun _lh_zip3_LH_C_1¹⁵ -> (fun _lh_zipWith3_arg1⁴ -> (fun _lh_zipWith3_arg3² -> (fun _lh_zipWith3_arg4² -> [LH_N])))))))
+//│ 	in let _lh_zip3_LH_C_0¹⁵ = _lh_shiftl_arg1¹
+//│ 	in (fun _lh_zip3_LH_C_0¹⁶ -> (fun _lh_zip3_LH_C_0¹⁷ -> (fun _lh_zip3_LH_C_1¹⁶ -> (fun _lh_zip3_LH_C_1¹⁷ -> 
+//│ 		let _lh_zipWith3_LH_C_1⁶ = zip3_lh_₃(_lh_zip3_LH_C_1¹⁶, _lh_zip3_LH_C_1¹⁷, _lh_zip3_LH_C_1¹³)
+//│ 		in let _lh_zipWith3_LH_C_0⁶ = 	
+//│ 			let _lh_elt_LH_P3_2⁴ = _lh_zip3_LH_C_0¹⁵
+//│ 			in let _lh_elt_LH_P3_1⁴ = _lh_zip3_LH_C_0¹⁷
+//│ 			in let _lh_elt_LH_P3_0⁴ = _lh_zip3_LH_C_0¹⁶
+//│ 			in (fun _lh_elt_arg2² -> (fun _lh_elt_arg3² -> _lh_elt_arg2²(_lh_elt_LH_P3_0⁴, _lh_elt_LH_P3_1⁴, _lh_elt_LH_P3_2⁴, _lh_elt_arg3²)))
 //│ 		in (fun _lh_zipWith3_arg1⁵ -> (fun _lh_zipWith3_arg3³ -> (fun _lh_zipWith3_arg4³ -> 
-//│ 			let _lh_matchIdent²⁷ = _lh_zipWith3_arg3³
-//│ 			in _lh_matchIdent²⁷(_lh_zipWith3_LH_C_0⁹, _lh_zipWith3_LH_C_1⁹, _lh_zipWith3_arg1⁵, _lh_zipWith3_arg4³)))))))))
-//│ def shiftl_lh_₄(_lh_shiftl_arg1⁶, _lh_shiftl_arg2⁶) = mappend_lh_₁₂(tail_lh_₄(_lh_shiftl_arg2⁶), [LH_C _lh_shiftl_arg1⁶ [LH_N]])
-//│ def shiftr_lh_₁(_lh_shiftr_arg1⁶, _lh_shiftr_arg2⁶) = mappend_lh_₇(
-//│ 	let t¹⁰⁷ = (fun ys⁴⁰ -> ys⁴⁰)
-//│ 	in let h¹⁰⁷ = _lh_shiftr_arg1⁶
-//│ 	in (fun ys³⁹ -> 
-//│ 		let _lh_zip3_LH_C_1²⁹ = mappend_lh_₇(t¹⁰⁷, ys³⁹)
-//│ 		in let _lh_zip3_LH_C_0²⁹ = h¹⁰⁷
-//│ 		in (fun _lh_zip3_arg2⁵ -> (fun _lh_zip3_arg3⁵ -> 
-//│ 			let _lh_matchIdent³⁰ = _lh_zip3_arg2⁵
-//│ 			in case _lh_matchIdent³⁰ of {
-//│ 				LH_C _lh_zip3_LH_C_0¹⁰ _lh_zip3_LH_C_1¹⁰ => 
-//│ 					let _lh_matchIdent³¹ = _lh_zip3_arg3⁵
-//│ 					in _lh_matchIdent³¹(_lh_zip3_LH_C_0¹⁰, _lh_zip3_LH_C_0²⁹, _lh_zip3_LH_C_1¹⁰, _lh_zip3_LH_C_1²⁹)
-//│ 				| LH_N  => (fun f²⁸ -> [LH_N])
-//│ 				| _  => error⁰}))), init_lh_₁(_lh_shiftr_arg2⁶))
-//│ def shiftr_lh_₂(_lh_shiftr_arg1⁵, _lh_shiftr_arg2⁵) = mappend_lh_₉(
-//│ 	let t¹⁰⁴ = (fun ys³⁴ -> ys³⁴)
-//│ 	in let h¹⁰⁴ = _lh_shiftr_arg1⁵
-//│ 	in (fun ys³³ -> 
-//│ 		let _lh_zip3_LH_C_1²⁰ = mappend_lh_₉(t¹⁰⁴, ys³³)
-//│ 		in let _lh_zip3_LH_C_0²⁰ = h¹⁰⁴
-//│ 		in (fun _lh_zip3_arg2⁴ -> (fun _lh_zip3_arg3⁴ -> 
-//│ 			let _lh_matchIdent²³ = _lh_zip3_arg2⁴
-//│ 			in case _lh_matchIdent²³ of {
-//│ 				LH_C _lh_zip3_LH_C_0⁷ _lh_zip3_LH_C_1⁷ => 
-//│ 					let _lh_matchIdent²⁴ = _lh_zip3_arg3⁴
-//│ 					in _lh_matchIdent²⁴(_lh_zip3_LH_C_0²⁰, _lh_zip3_LH_C_0⁷, _lh_zip3_LH_C_1²⁰, _lh_zip3_LH_C_1⁷)
-//│ 				| LH_N  => (fun _lh_zipWith3_LH_C_0⁶ -> (fun _lh_zipWith3_LH_C_0⁷ -> (fun _lh_zipWith3_LH_C_1⁶ -> (fun _lh_zipWith3_LH_C_1⁷ -> (fun _lh_zipWith3_arg1³ -> [LH_N])))))
-//│ 				| _  => error⁰}))), init_lh_₂(_lh_shiftr_arg2⁵))
-//│ def shiftr_lh_₃(_lh_shiftr_arg1⁴, _lh_shiftr_arg2⁴) = mappend_lh_₁₁(
-//│ 	let t³⁰ = (fun ys¹⁶ -> ys¹⁶)
-//│ 	in let h³⁰ = _lh_shiftr_arg1⁴
-//│ 	in (fun ys¹⁵ -> [LH_C h³⁰ mappend_lh_₁₁(t³⁰, ys¹⁵)]), init_lh_₃(_lh_shiftr_arg2⁴))
-//│ def shiftr_lh_₄(_lh_shiftr_arg1⁷, _lh_shiftr_arg2⁷) = mappend_lh_₁₂([LH_C _lh_shiftr_arg1⁷ [LH_N]], init_lh_₃(_lh_shiftr_arg2⁷))
-//│ def star_lh_₁(_lh_star_arg1¹) = case _lh_star_arg1¹ of {
+//│ 			let _lh_matchIdent⁶ = _lh_zipWith3_arg3³
+//│ 			in _lh_matchIdent⁶(_lh_zipWith3_LH_C_0⁶, _lh_zipWith3_LH_C_1⁶, _lh_zipWith3_arg1⁵, _lh_zipWith3_arg4³)))))))))
+//│ def shiftl_lh_₄(_lh_shiftl_arg1², _lh_shiftl_arg2²) = mappend_lh_₁₂(tail_lh_₄(_lh_shiftl_arg2²), [LH_C _lh_shiftl_arg1² [LH_N]])
+//│ def shiftr_lh_₁(_lh_shiftr_arg1², _lh_shiftr_arg2²) = mappend_lh_₇(
+//│ 	let t⁸³ = (fun ys²⁶ -> ys²⁶)
+//│ 	in let h⁸³ = _lh_shiftr_arg1²
+//│ 	in (fun ys²⁷ -> 
+//│ 		let _lh_zip3_LH_C_1¹⁸ = mappend_lh_₇(t⁸³, ys²⁷)
+//│ 		in let _lh_zip3_LH_C_0¹⁸ = h⁸³
+//│ 		in (fun _lh_zip3_arg2¹ -> (fun _lh_zip3_arg3¹ -> 
+//│ 			let _lh_matchIdent⁹ = _lh_zip3_arg2¹
+//│ 			in case _lh_matchIdent⁹ of {
+//│ 				LH_C _lh_zip3_LH_C_0¹⁹ _lh_zip3_LH_C_1¹⁹ => 
+//│ 					let _lh_matchIdent¹⁰ = _lh_zip3_arg3¹
+//│ 					in _lh_matchIdent¹⁰(_lh_zip3_LH_C_0¹⁹, _lh_zip3_LH_C_0¹⁸, _lh_zip3_LH_C_1¹⁹, _lh_zip3_LH_C_1¹⁸)
+//│ 				| LH_N  => (fun f²⁰ -> [LH_N])
+//│ 				| _  => error⁰}))), init_lh_₁(_lh_shiftr_arg2²))
+//│ def shiftr_lh_₂(_lh_shiftr_arg1¹, _lh_shiftr_arg2¹) = mappend_lh_₉(
+//│ 	let t⁷⁹ = (fun ys²⁰ -> ys²⁰)
+//│ 	in let h⁷⁹ = _lh_shiftr_arg1¹
+//│ 	in (fun ys²¹ -> 
+//│ 		let _lh_zip3_LH_C_1⁸ = mappend_lh_₉(t⁷⁹, ys²¹)
+//│ 		in let _lh_zip3_LH_C_0⁸ = h⁷⁹
+//│ 		in (fun _lh_zip3_arg2⁰ -> (fun _lh_zip3_arg3⁰ -> 
+//│ 			let _lh_matchIdent² = _lh_zip3_arg2⁰
+//│ 			in case _lh_matchIdent² of {
+//│ 				LH_C _lh_zip3_LH_C_0⁹ _lh_zip3_LH_C_1⁹ => 
+//│ 					let _lh_matchIdent³ = _lh_zip3_arg3⁰
+//│ 					in _lh_matchIdent³(_lh_zip3_LH_C_0⁸, _lh_zip3_LH_C_0⁹, _lh_zip3_LH_C_1⁸, _lh_zip3_LH_C_1⁹)
+//│ 				| LH_N  => (fun _lh_zipWith3_LH_C_0³ -> (fun _lh_zipWith3_LH_C_0⁴ -> (fun _lh_zipWith3_LH_C_1³ -> (fun _lh_zipWith3_LH_C_1⁴ -> (fun _lh_zipWith3_arg1² -> [LH_N])))))
+//│ 				| _  => error⁰}))), init_lh_₂(_lh_shiftr_arg2¹))
+//│ def shiftr_lh_₃(_lh_shiftr_arg1⁰, _lh_shiftr_arg2⁰) = mappend_lh_₁₁(
+//│ 	let t⁴ = (fun ys² -> ys²)
+//│ 	in let h⁴ = _lh_shiftr_arg1⁰
+//│ 	in (fun ys³ -> [LH_C h⁴ mappend_lh_₁₁(t⁴, ys³)]), init_lh_₃(_lh_shiftr_arg2⁰))
+//│ def shiftr_lh_₄(_lh_shiftr_arg1³, _lh_shiftr_arg2³) = mappend_lh_₁₂([LH_C _lh_shiftr_arg1³ [LH_N]], init_lh_₃(_lh_shiftr_arg2³))
+//│ def star_lh_₁(_lh_star_arg1⁰) = case _lh_star_arg1⁰ of {
 //│ 	0  => 
-//│ 		let t³¹ = 	
-//│ 			let t³⁵ = (fun ys²³ -> ys²³)
-//│ 			in let h³⁵ = ' '
-//│ 			in (fun ys²⁰ -> 
-//│ 				let t³⁶ = mappend_lh_₃(t³⁵, ys²⁰)
-//│ 				in let h³⁶ = h³⁵
-//│ 				in (fun ys²¹ -> 
-//│ 					let t³⁷ = mappend_lh_₅(t³⁶, ys²¹)
-//│ 					in let h³⁷ = h³⁶
-//│ 					in (fun ys²² -> 
-//│ 						let t³⁸ = mappend_lh_₄(t³⁷, ys²²)
-//│ 						in let h³⁸ = h³⁷
-//│ 						in (fun _lh_dummy³ -> (1 + length_lh_₁(t³⁸))))))
-//│ 		in let h³¹ = ' '
-//│ 		in (fun ys¹⁷ -> 
-//│ 			let t³² = mappend_lh_₃(t³¹, ys¹⁷)
-//│ 			in let h³² = h³¹
-//│ 			in (fun ys¹⁸ -> 
-//│ 				let t³³ = mappend_lh_₅(t³², ys¹⁸)
-//│ 				in let h³³ = h³²
-//│ 				in (fun ys¹⁹ -> 
-//│ 					let t³⁴ = mappend_lh_₄(t³³, ys¹⁹)
-//│ 					in let h³⁴ = h³³
-//│ 					in (fun _lh_dummy² -> (1 + length_lh_₁(t³⁴))))))
+//│ 		let t⁵ = 	
+//│ 			let t⁶ = (fun ys⁴ -> ys⁴)
+//│ 			in let h⁵ = ' '
+//│ 			in (fun ys⁵ -> 
+//│ 				let t⁷ = mappend_lh_₃(t⁶, ys⁵)
+//│ 				in let h⁶ = h⁵
+//│ 				in (fun ys⁶ -> 
+//│ 					let t⁸ = mappend_lh_₅(t⁷, ys⁶)
+//│ 					in let h⁷ = h⁶
+//│ 					in (fun ys⁷ -> 
+//│ 						let t⁹ = mappend_lh_₄(t⁸, ys⁷)
+//│ 						in let h⁸ = h⁷
+//│ 						in (fun _lh_dummy² -> (1 + length_lh_₁(t⁹))))))
+//│ 		in let h⁹ = ' '
+//│ 		in (fun ys⁸ -> 
+//│ 			let t¹⁰ = mappend_lh_₃(t⁵, ys⁸)
+//│ 			in let h¹⁰ = h⁹
+//│ 			in (fun ys⁹ -> 
+//│ 				let t¹¹ = mappend_lh_₅(t¹⁰, ys⁹)
+//│ 				in let h¹¹ = h¹⁰
+//│ 				in (fun ys¹⁰ -> 
+//│ 					let t¹² = mappend_lh_₄(t¹¹, ys¹⁰)
+//│ 					in let h¹² = h¹¹
+//│ 					in (fun _lh_dummy³ -> (1 + length_lh_₁(t¹²))))))
 //│ 	| 1  => 
-//│ 		let t³⁹ = 	
-//│ 			let t⁴³ = (fun ys³⁰ -> ys³⁰)
-//│ 			in let h⁴³ = 'o'
-//│ 			in (fun ys²⁷ -> 
-//│ 				let t⁴⁴ = mappend_lh_₃(t⁴³, ys²⁷)
-//│ 				in let h⁴⁴ = h⁴³
-//│ 				in (fun ys²⁸ -> 
-//│ 					let t⁴⁵ = mappend_lh_₅(t⁴⁴, ys²⁸)
-//│ 					in let h⁴⁵ = h⁴⁴
-//│ 					in (fun ys²⁹ -> 
-//│ 						let t⁴⁶ = mappend_lh_₄(t⁴⁵, ys²⁹)
-//│ 						in let h⁴⁶ = h⁴⁵
-//│ 						in (fun _lh_dummy⁵ -> (1 + length_lh_₁(t⁴⁶))))))
-//│ 		in let h³⁹ = ' '
-//│ 		in (fun ys²⁴ -> 
-//│ 			let t⁴⁰ = mappend_lh_₃(t³⁹, ys²⁴)
-//│ 			in let h⁴⁰ = h³⁹
-//│ 			in (fun ys²⁵ -> 
-//│ 				let t⁴¹ = mappend_lh_₅(t⁴⁰, ys²⁵)
-//│ 				in let h⁴¹ = h⁴⁰
-//│ 				in (fun ys²⁶ -> 
-//│ 					let t⁴² = mappend_lh_₄(t⁴¹, ys²⁶)
-//│ 					in let h⁴² = h⁴¹
-//│ 					in (fun _lh_dummy⁴ -> (1 + length_lh_₁(t⁴²))))))
+//│ 		let t¹³ = 	
+//│ 			let t¹⁴ = (fun ys¹¹ -> ys¹¹)
+//│ 			in let h¹³ = 'o'
+//│ 			in (fun ys¹² -> 
+//│ 				let t¹⁵ = mappend_lh_₃(t¹⁴, ys¹²)
+//│ 				in let h¹⁴ = h¹³
+//│ 				in (fun ys¹³ -> 
+//│ 					let t¹⁶ = mappend_lh_₅(t¹⁵, ys¹³)
+//│ 					in let h¹⁵ = h¹⁴
+//│ 					in (fun ys¹⁴ -> 
+//│ 						let t¹⁷ = mappend_lh_₄(t¹⁶, ys¹⁴)
+//│ 						in let h¹⁶ = h¹⁵
+//│ 						in (fun _lh_dummy⁴ -> (1 + length_lh_₁(t¹⁷))))))
+//│ 		in let h¹⁷ = ' '
+//│ 		in (fun ys¹⁵ -> 
+//│ 			let t¹⁸ = mappend_lh_₃(t¹³, ys¹⁵)
+//│ 			in let h¹⁸ = h¹⁷
+//│ 			in (fun ys¹⁶ -> 
+//│ 				let t¹⁹ = mappend_lh_₅(t¹⁸, ys¹⁶)
+//│ 				in let h¹⁹ = h¹⁸
+//│ 				in (fun ys¹⁷ -> 
+//│ 					let t²⁰ = mappend_lh_₄(t¹⁹, ys¹⁷)
+//│ 					in let h²⁰ = h¹⁹
+//│ 					in (fun _lh_dummy⁵ -> (1 + length_lh_₁(t²⁰))))))
 //│ 	| _  => error⁰}
-//│ def start_lh_₁ = 
-//│ 	let _lh_append_lz_LH_C_1¹ = 	
-//│ 		let _lh_append_lz_LH_C_1² = 	
-//│ 			let _lh_append_lz_LH_C_1³ = 	
-//│ 				let _lh_append_lz_LH_C_1⁴ = 	
-//│ 					let _lh_append_lz_LH_C_1⁵ = 	
-//│ 						let _lh_append_lz_LH_C_1⁶ = 	
-//│ 							let _lh_append_lz_LH_C_1⁷ = 	
-//│ 								let _lh_append_lz_LH_C_1⁸ = 	
-//│ 									let _lh_append_lz_LH_C_1⁹ = 	
-//│ 										let _lh_append_lz_LH_C_1¹⁰ = 	
-//│ 											let _lh_append_lz_LH_C_1¹¹ = 	
-//│ 												let _lh_append_lz_LH_C_1¹² = 	
-//│ 													let _lh_append_lz_LH_C_1¹³ = 	
-//│ 														let _lh_append_lz_LH_C_1¹⁴ = 	
-//│ 															let _lh_append_lz_LH_C_1¹⁵ = (fun _lh_append_lz_arg2¹⁶ -> _lh_append_lz_arg2¹⁶)
-//│ 															in let _lh_append_lz_LH_C_0¹⁵ = lazy⁰(
-//│ 																let _lh_append_lz_lz_LH_C_1¹ = lazy⁰(
-//│ 																	let _lh_append_lz_lz_LH_C_1² = lazy⁰(
-//│ 																		let _lh_append_lz_lz_LH_C_1³ = lazy⁰(
-//│ 																			let _lh_append_lz_lz_LH_C_1⁴ = lazy⁰(
-//│ 																				let _lh_append_lz_lz_LH_C_1⁵ = lazy⁰(
-//│ 																					let _lh_append_lz_lz_LH_C_1⁶ = lazy⁰(
-//│ 																						let _lh_append_lz_lz_LH_C_1⁷ = lazy⁰(
-//│ 																							let _lh_append_lz_lz_LH_C_1⁸ = lazy⁰(
-//│ 																								let _lh_append_lz_lz_LH_C_1⁹ = lazy⁰(
-//│ 																									let _lh_append_lz_lz_LH_C_1¹⁰ = lazy⁰(
-//│ 																										let _lh_append_lz_lz_LH_C_1¹¹ = lazy⁰(
-//│ 																											let _lh_append_lz_lz_LH_C_1¹² = lazy⁰(
-//│ 																												let _lh_append_lz_lz_LH_C_1¹³ = lazy⁰(
-//│ 																													let _lh_append_lz_lz_LH_C_1¹⁴ = lazy⁰(
-//│ 																														let _lh_append_lz_lz_LH_C_1¹⁵ = lazy⁰(
-//│ 																															let _lh_append_lz_lz_LH_C_1¹⁶ = lazy⁰(
-//│ 																																let _lh_append_lz_lz_LH_C_1¹⁷ = lazy⁰(
-//│ 																																	let _lh_append_lz_lz_LH_C_1¹⁸ = lazy⁰(
-//│ 																																		let _lh_append_lz_lz_LH_C_1¹⁹ = lazy⁰(
-//│ 																																			let _lh_append_lz_lz_LH_C_1²⁰ = lazy⁰(
-//│ 																																				let _lh_append_lz_lz_LH_C_1²¹ = lazy⁰(
-//│ 																																					let _lh_append_lz_lz_LH_C_1²² = lazy⁰(
-//│ 																																						let _lh_append_lz_lz_LH_C_1²³ = lazy⁰(
-//│ 																																							let _lh_append_lz_lz_LH_C_1²⁴ = lazy⁰(
-//│ 																																								let _lh_append_lz_lz_LH_C_1²⁵ = lazy⁰(
-//│ 																																									let _lh_append_lz_lz_LH_C_1²⁶ = lazy⁰(
-//│ 																																										let _lh_append_lz_lz_LH_C_1²⁷ = lazy⁰((fun _lh_append_lz_lz_arg2⁴² -> _lh_append_lz_lz_arg2⁴²))
-//│ 																																										in let _lh_append_lz_lz_LH_C_0²⁷ = 0
-//│ 																																										in (fun _lh_append_lz_lz_arg2⁴¹ -> lazy⁰(
-//│ 																																											let t¹⁰³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁷, _lh_append_lz_lz_arg2⁴¹)
-//│ 																																											in let h¹⁰³ = _lh_append_lz_lz_LH_C_0²⁷
-//│ 																																											in (fun n⁴⁴ -> [LH_C h¹⁰³ take_lz_lh_₂((n⁴⁴ - 1), t¹⁰³)]))))
-//│ 																																									in let _lh_append_lz_lz_LH_C_0²⁶ = 1
-//│ 																																									in (fun _lh_append_lz_lz_arg2⁴⁰ -> lazy⁰(
-//│ 																																										let t¹⁰² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁶, _lh_append_lz_lz_arg2⁴⁰)
-//│ 																																										in let h¹⁰² = _lh_append_lz_lz_LH_C_0²⁶
-//│ 																																										in (fun n⁴³ -> [LH_C h¹⁰² take_lz_lh_₂((n⁴³ - 1), t¹⁰²)]))))
-//│ 																																								in let _lh_append_lz_lz_LH_C_0²⁵ = 1
-//│ 																																								in (fun _lh_append_lz_lz_arg2³⁹ -> lazy⁰(
-//│ 																																									let t¹⁰¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁵, _lh_append_lz_lz_arg2³⁹)
-//│ 																																									in let h¹⁰¹ = _lh_append_lz_lz_LH_C_0²⁵
-//│ 																																									in (fun n⁴² -> [LH_C h¹⁰¹ take_lz_lh_₂((n⁴² - 1), t¹⁰¹)]))))
-//│ 																																							in let _lh_append_lz_lz_LH_C_0²⁴ = 1
-//│ 																																							in (fun _lh_append_lz_lz_arg2³⁸ -> lazy⁰(
-//│ 																																								let t¹⁰⁰ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁴, _lh_append_lz_lz_arg2³⁸)
-//│ 																																								in let h¹⁰⁰ = _lh_append_lz_lz_LH_C_0²⁴
-//│ 																																								in (fun n⁴¹ -> [LH_C h¹⁰⁰ take_lz_lh_₂((n⁴¹ - 1), t¹⁰⁰)]))))
-//│ 																																						in let _lh_append_lz_lz_LH_C_0²³ = 1
-//│ 																																						in (fun _lh_append_lz_lz_arg2³⁷ -> lazy⁰(
-//│ 																																							let t⁹⁹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²³, _lh_append_lz_lz_arg2³⁷)
-//│ 																																							in let h⁹⁹ = _lh_append_lz_lz_LH_C_0²³
-//│ 																																							in (fun n⁴⁰ -> [LH_C h⁹⁹ take_lz_lh_₂((n⁴⁰ - 1), t⁹⁹)]))))
-//│ 																																					in let _lh_append_lz_lz_LH_C_0²² = 1
-//│ 																																					in (fun _lh_append_lz_lz_arg2³⁶ -> lazy⁰(
-//│ 																																						let t⁹⁸ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²², _lh_append_lz_lz_arg2³⁶)
-//│ 																																						in let h⁹⁸ = _lh_append_lz_lz_LH_C_0²²
-//│ 																																						in (fun n³⁹ -> [LH_C h⁹⁸ take_lz_lh_₂((n³⁹ - 1), t⁹⁸)]))))
-//│ 																																				in let _lh_append_lz_lz_LH_C_0²¹ = 0
-//│ 																																				in (fun _lh_append_lz_lz_arg2³⁵ -> lazy⁰(
-//│ 																																					let t⁹⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²¹, _lh_append_lz_lz_arg2³⁵)
-//│ 																																					in let h⁹⁷ = _lh_append_lz_lz_LH_C_0²¹
-//│ 																																					in (fun n³⁸ -> [LH_C h⁹⁷ take_lz_lh_₂((n³⁸ - 1), t⁹⁷)]))))
-//│ 																																			in let _lh_append_lz_lz_LH_C_0²⁰ = 1
-//│ 																																			in (fun _lh_append_lz_lz_arg2³⁴ -> lazy⁰(
-//│ 																																				let t⁹⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁰, _lh_append_lz_lz_arg2³⁴)
-//│ 																																				in let h⁹⁶ = _lh_append_lz_lz_LH_C_0²⁰
-//│ 																																				in (fun n³⁷ -> [LH_C h⁹⁶ take_lz_lh_₂((n³⁷ - 1), t⁹⁶)]))))
-//│ 																																		in let _lh_append_lz_lz_LH_C_0¹⁹ = 1
-//│ 																																		in (fun _lh_append_lz_lz_arg2³³ -> lazy⁰(
-//│ 																																			let t⁹⁵ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁹, _lh_append_lz_lz_arg2³³)
-//│ 																																			in let h⁹⁵ = _lh_append_lz_lz_LH_C_0¹⁹
-//│ 																																			in (fun n³⁶ -> [LH_C h⁹⁵ take_lz_lh_₂((n³⁶ - 1), t⁹⁵)]))))
-//│ 																																	in let _lh_append_lz_lz_LH_C_0¹⁸ = 1
-//│ 																																	in (fun _lh_append_lz_lz_arg2³² -> lazy⁰(
-//│ 																																		let t⁹⁴ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁸, _lh_append_lz_lz_arg2³²)
-//│ 																																		in let h⁹⁴ = _lh_append_lz_lz_LH_C_0¹⁸
-//│ 																																		in (fun n³⁵ -> [LH_C h⁹⁴ take_lz_lh_₂((n³⁵ - 1), t⁹⁴)]))))
-//│ 																																in let _lh_append_lz_lz_LH_C_0¹⁷ = 1
-//│ 																																in (fun _lh_append_lz_lz_arg2³¹ -> lazy⁰(
-//│ 																																	let t⁹³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁷, _lh_append_lz_lz_arg2³¹)
-//│ 																																	in let h⁹³ = _lh_append_lz_lz_LH_C_0¹⁷
-//│ 																																	in (fun n³⁴ -> [LH_C h⁹³ take_lz_lh_₂((n³⁴ - 1), t⁹³)]))))
-//│ 																															in let _lh_append_lz_lz_LH_C_0¹⁶ = 1
-//│ 																															in (fun _lh_append_lz_lz_arg2³⁰ -> lazy⁰(
-//│ 																																let t⁹² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁶, _lh_append_lz_lz_arg2³⁰)
-//│ 																																in let h⁹² = _lh_append_lz_lz_LH_C_0¹⁶
-//│ 																																in (fun n³³ -> [LH_C h⁹² take_lz_lh_₂((n³³ - 1), t⁹²)]))))
-//│ 																														in let _lh_append_lz_lz_LH_C_0¹⁵ = 0
-//│ 																														in (fun _lh_append_lz_lz_arg2²⁹ -> lazy⁰(
-//│ 																															let t⁹¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁵, _lh_append_lz_lz_arg2²⁹)
-//│ 																															in let h⁹¹ = _lh_append_lz_lz_LH_C_0¹⁵
-//│ 																															in (fun n³² -> [LH_C h⁹¹ take_lz_lh_₂((n³² - 1), t⁹¹)]))))
-//│ 																													in let _lh_append_lz_lz_LH_C_0¹⁴ = 1
-//│ 																													in (fun _lh_append_lz_lz_arg2²⁸ -> lazy⁰(
-//│ 																														let t⁹⁰ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁴, _lh_append_lz_lz_arg2²⁸)
-//│ 																														in let h⁹⁰ = _lh_append_lz_lz_LH_C_0¹⁴
-//│ 																														in (fun n³¹ -> [LH_C h⁹⁰ take_lz_lh_₂((n³¹ - 1), t⁹⁰)]))))
-//│ 																												in let _lh_append_lz_lz_LH_C_0¹³ = 1
-//│ 																												in (fun _lh_append_lz_lz_arg2²⁷ -> lazy⁰(
-//│ 																													let t⁸⁹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹³, _lh_append_lz_lz_arg2²⁷)
-//│ 																													in let h⁸⁹ = _lh_append_lz_lz_LH_C_0¹³
-//│ 																													in (fun n³⁰ -> [LH_C h⁸⁹ take_lz_lh_₂((n³⁰ - 1), t⁸⁹)]))))
-//│ 																											in let _lh_append_lz_lz_LH_C_0¹² = 1
-//│ 																											in (fun _lh_append_lz_lz_arg2²⁶ -> lazy⁰(
-//│ 																												let t⁸⁸ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹², _lh_append_lz_lz_arg2²⁶)
-//│ 																												in let h⁸⁸ = _lh_append_lz_lz_LH_C_0¹²
-//│ 																												in (fun n²⁹ -> [LH_C h⁸⁸ take_lz_lh_₂((n²⁹ - 1), t⁸⁸)]))))
-//│ 																										in let _lh_append_lz_lz_LH_C_0¹¹ = 1
-//│ 																										in (fun _lh_append_lz_lz_arg2²⁵ -> lazy⁰(
-//│ 																											let t⁸⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹¹, _lh_append_lz_lz_arg2²⁵)
-//│ 																											in let h⁸⁷ = _lh_append_lz_lz_LH_C_0¹¹
-//│ 																											in (fun n²⁸ -> [LH_C h⁸⁷ take_lz_lh_₂((n²⁸ - 1), t⁸⁷)]))))
-//│ 																									in let _lh_append_lz_lz_LH_C_0¹⁰ = 1
-//│ 																									in (fun _lh_append_lz_lz_arg2²⁴ -> lazy⁰(
-//│ 																										let t⁸⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁰, _lh_append_lz_lz_arg2²⁴)
-//│ 																										in let h⁸⁶ = _lh_append_lz_lz_LH_C_0¹⁰
-//│ 																										in (fun n²⁷ -> [LH_C h⁸⁶ take_lz_lh_₂((n²⁷ - 1), t⁸⁶)]))))
-//│ 																								in let _lh_append_lz_lz_LH_C_0⁹ = 0
-//│ 																								in (fun _lh_append_lz_lz_arg2²³ -> lazy⁰(
-//│ 																									let t⁸⁵ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁹, _lh_append_lz_lz_arg2²³)
-//│ 																									in let h⁸⁵ = _lh_append_lz_lz_LH_C_0⁹
-//│ 																									in (fun n²⁶ -> [LH_C h⁸⁵ take_lz_lh_₂((n²⁶ - 1), t⁸⁵)]))))
-//│ 																							in let _lh_append_lz_lz_LH_C_0⁸ = 1
-//│ 																							in (fun _lh_append_lz_lz_arg2²² -> lazy⁰(
-//│ 																								let t⁸⁴ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁸, _lh_append_lz_lz_arg2²²)
-//│ 																								in let h⁸⁴ = _lh_append_lz_lz_LH_C_0⁸
-//│ 																								in (fun n²⁵ -> [LH_C h⁸⁴ take_lz_lh_₂((n²⁵ - 1), t⁸⁴)]))))
-//│ 																						in let _lh_append_lz_lz_LH_C_0⁷ = 1
+//│ def start_lh_₁(_lh_append_lz_arg2¹⁵) = 
+//│ 	let _lh_append_lz_LH_C_1⁰ = 	
+//│ 		let _lh_append_lz_LH_C_1¹ = 	
+//│ 			let _lh_append_lz_LH_C_1² = 	
+//│ 				let _lh_append_lz_LH_C_1³ = 	
+//│ 					let _lh_append_lz_LH_C_1⁴ = 	
+//│ 						let _lh_append_lz_LH_C_1⁵ = 	
+//│ 							let _lh_append_lz_LH_C_1⁶ = 	
+//│ 								let _lh_append_lz_LH_C_1⁷ = 	
+//│ 									let _lh_append_lz_LH_C_1⁸ = 	
+//│ 										let _lh_append_lz_LH_C_1⁹ = 	
+//│ 											let _lh_append_lz_LH_C_1¹⁰ = 	
+//│ 												let _lh_append_lz_LH_C_1¹¹ = 	
+//│ 													let _lh_append_lz_LH_C_1¹² = 	
+//│ 														let _lh_append_lz_LH_C_1¹³ = 	
+//│ 															let _lh_append_lz_LH_C_1¹⁴ = (fun _lh_append_lz_arg2⁰ -> _lh_append_lz_arg2⁰)
+//│ 															in let _lh_append_lz_LH_C_0⁰ = lazy⁰(
+//│ 																let _lh_append_lz_lz_LH_C_1⁰ = lazy⁰(
+//│ 																	let _lh_append_lz_lz_LH_C_1¹ = lazy⁰(
+//│ 																		let _lh_append_lz_lz_LH_C_1² = lazy⁰(
+//│ 																			let _lh_append_lz_lz_LH_C_1³ = lazy⁰(
+//│ 																				let _lh_append_lz_lz_LH_C_1⁴ = lazy⁰(
+//│ 																					let _lh_append_lz_lz_LH_C_1⁵ = lazy⁰(
+//│ 																						let _lh_append_lz_lz_LH_C_1⁶ = lazy⁰(
+//│ 																							let _lh_append_lz_lz_LH_C_1⁷ = lazy⁰(
+//│ 																								let _lh_append_lz_lz_LH_C_1⁸ = lazy⁰(
+//│ 																									let _lh_append_lz_lz_LH_C_1⁹ = lazy⁰(
+//│ 																										let _lh_append_lz_lz_LH_C_1¹⁰ = lazy⁰(
+//│ 																											let _lh_append_lz_lz_LH_C_1¹¹ = lazy⁰(
+//│ 																												let _lh_append_lz_lz_LH_C_1¹² = lazy⁰(
+//│ 																													let _lh_append_lz_lz_LH_C_1¹³ = lazy⁰(
+//│ 																														let _lh_append_lz_lz_LH_C_1¹⁴ = lazy⁰(
+//│ 																															let _lh_append_lz_lz_LH_C_1¹⁵ = lazy⁰(
+//│ 																																let _lh_append_lz_lz_LH_C_1¹⁶ = lazy⁰(
+//│ 																																	let _lh_append_lz_lz_LH_C_1¹⁷ = lazy⁰(
+//│ 																																		let _lh_append_lz_lz_LH_C_1¹⁸ = lazy⁰(
+//│ 																																			let _lh_append_lz_lz_LH_C_1¹⁹ = lazy⁰(
+//│ 																																				let _lh_append_lz_lz_LH_C_1²⁰ = lazy⁰(
+//│ 																																					let _lh_append_lz_lz_LH_C_1²¹ = lazy⁰(
+//│ 																																						let _lh_append_lz_lz_LH_C_1²² = lazy⁰(
+//│ 																																							let _lh_append_lz_lz_LH_C_1²³ = lazy⁰(
+//│ 																																								let _lh_append_lz_lz_LH_C_1²⁴ = lazy⁰(
+//│ 																																									let _lh_append_lz_lz_LH_C_1²⁵ = lazy⁰(
+//│ 																																										let _lh_append_lz_lz_LH_C_1²⁶ = lazy⁰((fun _lh_append_lz_lz_arg2⁰ -> _lh_append_lz_lz_arg2⁰))
+//│ 																																										in let _lh_append_lz_lz_LH_C_0⁰ = 0
+//│ 																																										in (fun _lh_append_lz_lz_arg2¹ -> lazy⁰(
+//│ 																																											let t²¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁶, _lh_append_lz_lz_arg2¹)
+//│ 																																											in let h²¹ = _lh_append_lz_lz_LH_C_0⁰
+//│ 																																											in (fun n¹ -> [LH_C h²¹ take_lz_lh_₂((n¹ - 1), t²¹)]))))
+//│ 																																									in let _lh_append_lz_lz_LH_C_0¹ = 1
+//│ 																																									in (fun _lh_append_lz_lz_arg2² -> lazy⁰(
+//│ 																																										let t²² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁵, _lh_append_lz_lz_arg2²)
+//│ 																																										in let h²² = _lh_append_lz_lz_LH_C_0¹
+//│ 																																										in (fun n² -> [LH_C h²² take_lz_lh_₂((n² - 1), t²²)]))))
+//│ 																																								in let _lh_append_lz_lz_LH_C_0² = 1
+//│ 																																								in (fun _lh_append_lz_lz_arg2³ -> lazy⁰(
+//│ 																																									let t²³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁴, _lh_append_lz_lz_arg2³)
+//│ 																																									in let h²³ = _lh_append_lz_lz_LH_C_0²
+//│ 																																									in (fun n³ -> [LH_C h²³ take_lz_lh_₂((n³ - 1), t²³)]))))
+//│ 																																							in let _lh_append_lz_lz_LH_C_0³ = 1
+//│ 																																							in (fun _lh_append_lz_lz_arg2⁴ -> lazy⁰(
+//│ 																																								let t²⁴ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²³, _lh_append_lz_lz_arg2⁴)
+//│ 																																								in let h²⁴ = _lh_append_lz_lz_LH_C_0³
+//│ 																																								in (fun n⁴ -> [LH_C h²⁴ take_lz_lh_₂((n⁴ - 1), t²⁴)]))))
+//│ 																																						in let _lh_append_lz_lz_LH_C_0⁴ = 1
+//│ 																																						in (fun _lh_append_lz_lz_arg2⁵ -> lazy⁰(
+//│ 																																							let t²⁵ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²², _lh_append_lz_lz_arg2⁵)
+//│ 																																							in let h²⁵ = _lh_append_lz_lz_LH_C_0⁴
+//│ 																																							in (fun n⁵ -> [LH_C h²⁵ take_lz_lh_₂((n⁵ - 1), t²⁵)]))))
+//│ 																																					in let _lh_append_lz_lz_LH_C_0⁵ = 1
+//│ 																																					in (fun _lh_append_lz_lz_arg2⁶ -> lazy⁰(
+//│ 																																						let t²⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²¹, _lh_append_lz_lz_arg2⁶)
+//│ 																																						in let h²⁶ = _lh_append_lz_lz_LH_C_0⁵
+//│ 																																						in (fun n⁶ -> [LH_C h²⁶ take_lz_lh_₂((n⁶ - 1), t²⁶)]))))
+//│ 																																				in let _lh_append_lz_lz_LH_C_0⁶ = 0
+//│ 																																				in (fun _lh_append_lz_lz_arg2⁷ -> lazy⁰(
+//│ 																																					let t²⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1²⁰, _lh_append_lz_lz_arg2⁷)
+//│ 																																					in let h²⁷ = _lh_append_lz_lz_LH_C_0⁶
+//│ 																																					in (fun n⁷ -> [LH_C h²⁷ take_lz_lh_₂((n⁷ - 1), t²⁷)]))))
+//│ 																																			in let _lh_append_lz_lz_LH_C_0⁷ = 1
+//│ 																																			in (fun _lh_append_lz_lz_arg2⁸ -> lazy⁰(
+//│ 																																				let t²⁸ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁹, _lh_append_lz_lz_arg2⁸)
+//│ 																																				in let h²⁸ = _lh_append_lz_lz_LH_C_0⁷
+//│ 																																				in (fun n⁸ -> [LH_C h²⁸ take_lz_lh_₂((n⁸ - 1), t²⁸)]))))
+//│ 																																		in let _lh_append_lz_lz_LH_C_0⁸ = 1
+//│ 																																		in (fun _lh_append_lz_lz_arg2⁹ -> lazy⁰(
+//│ 																																			let t²⁹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁸, _lh_append_lz_lz_arg2⁹)
+//│ 																																			in let h²⁹ = _lh_append_lz_lz_LH_C_0⁸
+//│ 																																			in (fun n⁹ -> [LH_C h²⁹ take_lz_lh_₂((n⁹ - 1), t²⁹)]))))
+//│ 																																	in let _lh_append_lz_lz_LH_C_0⁹ = 1
+//│ 																																	in (fun _lh_append_lz_lz_arg2¹⁰ -> lazy⁰(
+//│ 																																		let t³⁰ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁷, _lh_append_lz_lz_arg2¹⁰)
+//│ 																																		in let h³⁰ = _lh_append_lz_lz_LH_C_0⁹
+//│ 																																		in (fun n¹⁰ -> [LH_C h³⁰ take_lz_lh_₂((n¹⁰ - 1), t³⁰)]))))
+//│ 																																in let _lh_append_lz_lz_LH_C_0¹⁰ = 1
+//│ 																																in (fun _lh_append_lz_lz_arg2¹¹ -> lazy⁰(
+//│ 																																	let t³¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁶, _lh_append_lz_lz_arg2¹¹)
+//│ 																																	in let h³¹ = _lh_append_lz_lz_LH_C_0¹⁰
+//│ 																																	in (fun n¹¹ -> [LH_C h³¹ take_lz_lh_₂((n¹¹ - 1), t³¹)]))))
+//│ 																															in let _lh_append_lz_lz_LH_C_0¹¹ = 1
+//│ 																															in (fun _lh_append_lz_lz_arg2¹² -> lazy⁰(
+//│ 																																let t³² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁵, _lh_append_lz_lz_arg2¹²)
+//│ 																																in let h³² = _lh_append_lz_lz_LH_C_0¹¹
+//│ 																																in (fun n¹² -> [LH_C h³² take_lz_lh_₂((n¹² - 1), t³²)]))))
+//│ 																														in let _lh_append_lz_lz_LH_C_0¹² = 0
+//│ 																														in (fun _lh_append_lz_lz_arg2¹³ -> lazy⁰(
+//│ 																															let t³³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁴, _lh_append_lz_lz_arg2¹³)
+//│ 																															in let h³³ = _lh_append_lz_lz_LH_C_0¹²
+//│ 																															in (fun n¹³ -> [LH_C h³³ take_lz_lh_₂((n¹³ - 1), t³³)]))))
+//│ 																													in let _lh_append_lz_lz_LH_C_0¹³ = 1
+//│ 																													in (fun _lh_append_lz_lz_arg2¹⁴ -> lazy⁰(
+//│ 																														let t³⁴ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹³, _lh_append_lz_lz_arg2¹⁴)
+//│ 																														in let h³⁴ = _lh_append_lz_lz_LH_C_0¹³
+//│ 																														in (fun n¹⁴ -> [LH_C h³⁴ take_lz_lh_₂((n¹⁴ - 1), t³⁴)]))))
+//│ 																												in let _lh_append_lz_lz_LH_C_0¹⁴ = 1
+//│ 																												in (fun _lh_append_lz_lz_arg2¹⁵ -> lazy⁰(
+//│ 																													let t³⁵ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹², _lh_append_lz_lz_arg2¹⁵)
+//│ 																													in let h³⁵ = _lh_append_lz_lz_LH_C_0¹⁴
+//│ 																													in (fun n¹⁵ -> [LH_C h³⁵ take_lz_lh_₂((n¹⁵ - 1), t³⁵)]))))
+//│ 																											in let _lh_append_lz_lz_LH_C_0¹⁵ = 1
+//│ 																											in (fun _lh_append_lz_lz_arg2¹⁶ -> lazy⁰(
+//│ 																												let t³⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹¹, _lh_append_lz_lz_arg2¹⁶)
+//│ 																												in let h³⁶ = _lh_append_lz_lz_LH_C_0¹⁵
+//│ 																												in (fun n¹⁶ -> [LH_C h³⁶ take_lz_lh_₂((n¹⁶ - 1), t³⁶)]))))
+//│ 																										in let _lh_append_lz_lz_LH_C_0¹⁶ = 1
+//│ 																										in (fun _lh_append_lz_lz_arg2¹⁷ -> lazy⁰(
+//│ 																											let t³⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹⁰, _lh_append_lz_lz_arg2¹⁷)
+//│ 																											in let h³⁷ = _lh_append_lz_lz_LH_C_0¹⁶
+//│ 																											in (fun n¹⁷ -> [LH_C h³⁷ take_lz_lh_₂((n¹⁷ - 1), t³⁷)]))))
+//│ 																									in let _lh_append_lz_lz_LH_C_0¹⁷ = 1
+//│ 																									in (fun _lh_append_lz_lz_arg2¹⁸ -> lazy⁰(
+//│ 																										let t³⁸ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁹, _lh_append_lz_lz_arg2¹⁸)
+//│ 																										in let h³⁸ = _lh_append_lz_lz_LH_C_0¹⁷
+//│ 																										in (fun n¹⁸ -> [LH_C h³⁸ take_lz_lh_₂((n¹⁸ - 1), t³⁸)]))))
+//│ 																								in let _lh_append_lz_lz_LH_C_0¹⁸ = 0
+//│ 																								in (fun _lh_append_lz_lz_arg2¹⁹ -> lazy⁰(
+//│ 																									let t³⁹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁸, _lh_append_lz_lz_arg2¹⁹)
+//│ 																									in let h³⁹ = _lh_append_lz_lz_LH_C_0¹⁸
+//│ 																									in (fun n¹⁹ -> [LH_C h³⁹ take_lz_lh_₂((n¹⁹ - 1), t³⁹)]))))
+//│ 																							in let _lh_append_lz_lz_LH_C_0¹⁹ = 1
+//│ 																							in (fun _lh_append_lz_lz_arg2²⁰ -> lazy⁰(
+//│ 																								let t⁴⁰ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁷, _lh_append_lz_lz_arg2²⁰)
+//│ 																								in let h⁴⁰ = _lh_append_lz_lz_LH_C_0¹⁹
+//│ 																								in (fun n²⁰ -> [LH_C h⁴⁰ take_lz_lh_₂((n²⁰ - 1), t⁴⁰)]))))
+//│ 																						in let _lh_append_lz_lz_LH_C_0²⁰ = 1
 //│ 																						in (fun _lh_append_lz_lz_arg2²¹ -> lazy⁰(
-//│ 																							let t⁸³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁷, _lh_append_lz_lz_arg2²¹)
-//│ 																							in let h⁸³ = _lh_append_lz_lz_LH_C_0⁷
-//│ 																							in (fun n²⁴ -> [LH_C h⁸³ take_lz_lh_₂((n²⁴ - 1), t⁸³)]))))
-//│ 																					in let _lh_append_lz_lz_LH_C_0⁶ = 1
-//│ 																					in (fun _lh_append_lz_lz_arg2²⁰ -> lazy⁰(
-//│ 																						let t⁸² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁶, _lh_append_lz_lz_arg2²⁰)
-//│ 																						in let h⁸² = _lh_append_lz_lz_LH_C_0⁶
-//│ 																						in (fun n²³ -> [LH_C h⁸² take_lz_lh_₂((n²³ - 1), t⁸²)]))))
-//│ 																				in let _lh_append_lz_lz_LH_C_0⁵ = 1
-//│ 																				in (fun _lh_append_lz_lz_arg2¹⁹ -> lazy⁰(
-//│ 																					let t⁸¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁵, _lh_append_lz_lz_arg2¹⁹)
-//│ 																					in let h⁸¹ = _lh_append_lz_lz_LH_C_0⁵
-//│ 																					in (fun n²² -> [LH_C h⁸¹ take_lz_lh_₂((n²² - 1), t⁸¹)]))))
-//│ 																			in let _lh_append_lz_lz_LH_C_0⁴ = 1
-//│ 																			in (fun _lh_append_lz_lz_arg2¹⁸ -> lazy⁰(
-//│ 																				let t⁸⁰ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁴, _lh_append_lz_lz_arg2¹⁸)
-//│ 																				in let h⁸⁰ = _lh_append_lz_lz_LH_C_0⁴
-//│ 																				in (fun n²¹ -> [LH_C h⁸⁰ take_lz_lh_₂((n²¹ - 1), t⁸⁰)]))))
-//│ 																		in let _lh_append_lz_lz_LH_C_0³ = 0
-//│ 																		in (fun _lh_append_lz_lz_arg2¹⁷ -> lazy⁰(
-//│ 																			let t⁷⁹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1³, _lh_append_lz_lz_arg2¹⁷)
-//│ 																			in let h⁷⁹ = _lh_append_lz_lz_LH_C_0³
-//│ 																			in (fun n²⁰ -> [LH_C h⁷⁹ take_lz_lh_₂((n²⁰ - 1), t⁷⁹)]))))
-//│ 																	in let _lh_append_lz_lz_LH_C_0² = 0
-//│ 																	in (fun _lh_append_lz_lz_arg2¹⁶ -> lazy⁰(
-//│ 																		let t⁷⁸ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1², _lh_append_lz_lz_arg2¹⁶)
-//│ 																		in let h⁷⁸ = _lh_append_lz_lz_LH_C_0²
-//│ 																		in (fun n¹⁹ -> [LH_C h⁷⁸ take_lz_lh_₂((n¹⁹ - 1), t⁷⁸)]))))
-//│ 																in let _lh_append_lz_lz_LH_C_0¹ = 0
-//│ 																in (fun _lh_append_lz_lz_arg2¹⁵ -> lazy⁰(
-//│ 																	let t⁷⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹, _lh_append_lz_lz_arg2¹⁵)
-//│ 																	in let h⁷⁷ = _lh_append_lz_lz_LH_C_0¹
-//│ 																	in (fun n¹⁸ -> [LH_C h⁷⁷ take_lz_lh_₂((n¹⁸ - 1), t⁷⁷)]))))
-//│ 															in (fun _lh_append_lz_arg2¹⁵ -> lazy⁰(
-//│ 																let t⁷⁵ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹⁵, _lh_append_lz_arg2¹⁵)
-//│ 																in let h⁷⁵ = _lh_append_lz_LH_C_0¹⁵
-//│ 																in (fun f²⁵ -> 
-//│ 																	let t⁷⁶ = map_lz_lh_₂(f²⁵, t⁷⁵)
-//│ 																	in let h⁷⁶ = f²⁵(h⁷⁵)
-//│ 																	in (fun n¹⁷ -> [LH_C h⁷⁶ take_lz_lh_₁((n¹⁷ - 1), t⁷⁶)]))))
-//│ 														in let _lh_append_lz_LH_C_0¹⁴ = lazy⁰((fun _lh_append_lz_lz_arg2¹⁴ -> _lh_append_lz_lz_arg2¹⁴))
-//│ 														in (fun _lh_append_lz_arg2¹⁴ -> lazy⁰(
-//│ 															let t⁷³ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹⁴, _lh_append_lz_arg2¹⁴)
-//│ 															in let h⁷³ = _lh_append_lz_LH_C_0¹⁴
-//│ 															in (fun f²⁴ -> 
-//│ 																let t⁷⁴ = map_lz_lh_₂(f²⁴, t⁷³)
-//│ 																in let h⁷⁴ = f²⁴(h⁷³)
-//│ 																in (fun n¹⁶ -> [LH_C h⁷⁴ take_lz_lh_₁((n¹⁶ - 1), t⁷⁴)]))))
-//│ 													in let _lh_append_lz_LH_C_0¹³ = lazy⁰((fun _lh_append_lz_lz_arg2¹³ -> _lh_append_lz_lz_arg2¹³))
-//│ 													in (fun _lh_append_lz_arg2¹³ -> lazy⁰(
-//│ 														let t⁷¹ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹³, _lh_append_lz_arg2¹³)
-//│ 														in let h⁷¹ = _lh_append_lz_LH_C_0¹³
-//│ 														in (fun f²³ -> 
-//│ 															let t⁷² = map_lz_lh_₂(f²³, t⁷¹)
-//│ 															in let h⁷² = f²³(h⁷¹)
-//│ 															in (fun n¹⁵ -> [LH_C h⁷² take_lz_lh_₁((n¹⁵ - 1), t⁷²)]))))
-//│ 												in let _lh_append_lz_LH_C_0¹² = lazy⁰((fun _lh_append_lz_lz_arg2¹² -> _lh_append_lz_lz_arg2¹²))
-//│ 												in (fun _lh_append_lz_arg2¹² -> lazy⁰(
-//│ 													let t⁶⁹ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹², _lh_append_lz_arg2¹²)
-//│ 													in let h⁶⁹ = _lh_append_lz_LH_C_0¹²
-//│ 													in (fun f²² -> 
-//│ 														let t⁷⁰ = map_lz_lh_₂(f²², t⁶⁹)
-//│ 														in let h⁷⁰ = f²²(h⁶⁹)
-//│ 														in (fun n¹⁴ -> [LH_C h⁷⁰ take_lz_lh_₁((n¹⁴ - 1), t⁷⁰)]))))
-//│ 											in let _lh_append_lz_LH_C_0¹¹ = lazy⁰((fun _lh_append_lz_lz_arg2¹¹ -> _lh_append_lz_lz_arg2¹¹))
-//│ 											in (fun _lh_append_lz_arg2¹¹ -> lazy⁰(
-//│ 												let t⁶⁷ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹¹, _lh_append_lz_arg2¹¹)
-//│ 												in let h⁶⁷ = _lh_append_lz_LH_C_0¹¹
-//│ 												in (fun f²¹ -> 
-//│ 													let t⁶⁸ = map_lz_lh_₂(f²¹, t⁶⁷)
-//│ 													in let h⁶⁸ = f²¹(h⁶⁷)
-//│ 													in (fun n¹³ -> [LH_C h⁶⁸ take_lz_lh_₁((n¹³ - 1), t⁶⁸)]))))
-//│ 										in let _lh_append_lz_LH_C_0¹⁰ = lazy⁰((fun _lh_append_lz_lz_arg2¹⁰ -> _lh_append_lz_lz_arg2¹⁰))
-//│ 										in (fun _lh_append_lz_arg2¹⁰ -> lazy⁰(
-//│ 											let t⁶⁵ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹⁰, _lh_append_lz_arg2¹⁰)
-//│ 											in let h⁶⁵ = _lh_append_lz_LH_C_0¹⁰
-//│ 											in (fun f²⁰ -> 
-//│ 												let t⁶⁶ = map_lz_lh_₂(f²⁰, t⁶⁵)
-//│ 												in let h⁶⁶ = f²⁰(h⁶⁵)
-//│ 												in (fun n¹² -> [LH_C h⁶⁶ take_lz_lh_₁((n¹² - 1), t⁶⁶)]))))
-//│ 									in let _lh_append_lz_LH_C_0⁹ = lazy⁰((fun _lh_append_lz_lz_arg2⁹ -> _lh_append_lz_lz_arg2⁹))
-//│ 									in (fun _lh_append_lz_arg2⁹ -> lazy⁰(
-//│ 										let t⁶³ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁹, _lh_append_lz_arg2⁹)
-//│ 										in let h⁶³ = _lh_append_lz_LH_C_0⁹
-//│ 										in (fun f¹⁹ -> 
-//│ 											let t⁶⁴ = map_lz_lh_₂(f¹⁹, t⁶³)
-//│ 											in let h⁶⁴ = f¹⁹(h⁶³)
-//│ 											in (fun n¹¹ -> [LH_C h⁶⁴ take_lz_lh_₁((n¹¹ - 1), t⁶⁴)]))))
-//│ 								in let _lh_append_lz_LH_C_0⁸ = lazy⁰((fun _lh_append_lz_lz_arg2⁸ -> _lh_append_lz_lz_arg2⁸))
+//│ 																							let t⁴¹ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁶, _lh_append_lz_lz_arg2²¹)
+//│ 																							in let h⁴¹ = _lh_append_lz_lz_LH_C_0²⁰
+//│ 																							in (fun n²¹ -> [LH_C h⁴¹ take_lz_lh_₂((n²¹ - 1), t⁴¹)]))))
+//│ 																					in let _lh_append_lz_lz_LH_C_0²¹ = 1
+//│ 																					in (fun _lh_append_lz_lz_arg2²² -> lazy⁰(
+//│ 																						let t⁴² = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁵, _lh_append_lz_lz_arg2²²)
+//│ 																						in let h⁴² = _lh_append_lz_lz_LH_C_0²¹
+//│ 																						in (fun n²² -> [LH_C h⁴² take_lz_lh_₂((n²² - 1), t⁴²)]))))
+//│ 																				in let _lh_append_lz_lz_LH_C_0²² = 1
+//│ 																				in (fun _lh_append_lz_lz_arg2²³ -> lazy⁰(
+//│ 																					let t⁴³ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁴, _lh_append_lz_lz_arg2²³)
+//│ 																					in let h⁴³ = _lh_append_lz_lz_LH_C_0²²
+//│ 																					in (fun n²³ -> [LH_C h⁴³ take_lz_lh_₂((n²³ - 1), t⁴³)]))))
+//│ 																			in let _lh_append_lz_lz_LH_C_0²³ = 1
+//│ 																			in (fun _lh_append_lz_lz_arg2²⁴ -> lazy⁰(
+//│ 																				let t⁴⁴ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1³, _lh_append_lz_lz_arg2²⁴)
+//│ 																				in let h⁴⁴ = _lh_append_lz_lz_LH_C_0²³
+//│ 																				in (fun n²⁴ -> [LH_C h⁴⁴ take_lz_lh_₂((n²⁴ - 1), t⁴⁴)]))))
+//│ 																		in let _lh_append_lz_lz_LH_C_0²⁴ = 0
+//│ 																		in (fun _lh_append_lz_lz_arg2²⁵ -> lazy⁰(
+//│ 																			let t⁴⁵ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1², _lh_append_lz_lz_arg2²⁵)
+//│ 																			in let h⁴⁵ = _lh_append_lz_lz_LH_C_0²⁴
+//│ 																			in (fun n²⁵ -> [LH_C h⁴⁵ take_lz_lh_₂((n²⁵ - 1), t⁴⁵)]))))
+//│ 																	in let _lh_append_lz_lz_LH_C_0²⁵ = 0
+//│ 																	in (fun _lh_append_lz_lz_arg2²⁶ -> lazy⁰(
+//│ 																		let t⁴⁶ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1¹, _lh_append_lz_lz_arg2²⁶)
+//│ 																		in let h⁴⁶ = _lh_append_lz_lz_LH_C_0²⁵
+//│ 																		in (fun n²⁶ -> [LH_C h⁴⁶ take_lz_lh_₂((n²⁶ - 1), t⁴⁶)]))))
+//│ 																in let _lh_append_lz_lz_LH_C_0²⁶ = 0
+//│ 																in (fun _lh_append_lz_lz_arg2²⁷ -> lazy⁰(
+//│ 																	let t⁴⁷ = append_lz_lz_lh_₁(_lh_append_lz_lz_LH_C_1⁰, _lh_append_lz_lz_arg2²⁷)
+//│ 																	in let h⁴⁷ = _lh_append_lz_lz_LH_C_0²⁶
+//│ 																	in (fun n²⁷ -> [LH_C h⁴⁷ take_lz_lh_₂((n²⁷ - 1), t⁴⁷)]))))
+//│ 															in (fun _lh_append_lz_arg2¹ -> lazy⁰(
+//│ 																let t⁴⁸ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹⁴, _lh_append_lz_arg2¹)
+//│ 																in let h⁴⁸ = _lh_append_lz_LH_C_0⁰
+//│ 																in (fun f³ -> 
+//│ 																	let t⁴⁹ = map_lz_lh_₂(f³, t⁴⁸)
+//│ 																	in let h⁴⁹ = f³(h⁴⁸)
+//│ 																	in (fun n²⁸ -> [LH_C h⁴⁹ take_lz_lh_₁((n²⁸ - 1), t⁴⁹)]))))
+//│ 														in let _lh_append_lz_LH_C_0¹ = lazy⁰((fun _lh_append_lz_lz_arg2²⁸ -> _lh_append_lz_lz_arg2²⁸))
+//│ 														in (fun _lh_append_lz_arg2² -> lazy⁰(
+//│ 															let t⁵⁰ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹³, _lh_append_lz_arg2²)
+//│ 															in let h⁵⁰ = _lh_append_lz_LH_C_0¹
+//│ 															in (fun f⁴ -> 
+//│ 																let t⁵¹ = map_lz_lh_₂(f⁴, t⁵⁰)
+//│ 																in let h⁵¹ = f⁴(h⁵⁰)
+//│ 																in (fun n²⁹ -> [LH_C h⁵¹ take_lz_lh_₁((n²⁹ - 1), t⁵¹)]))))
+//│ 													in let _lh_append_lz_LH_C_0² = lazy⁰((fun _lh_append_lz_lz_arg2²⁹ -> _lh_append_lz_lz_arg2²⁹))
+//│ 													in (fun _lh_append_lz_arg2³ -> lazy⁰(
+//│ 														let t⁵² = append_lz_lh_₁(_lh_append_lz_LH_C_1¹², _lh_append_lz_arg2³)
+//│ 														in let h⁵² = _lh_append_lz_LH_C_0²
+//│ 														in (fun f⁵ -> 
+//│ 															let t⁵³ = map_lz_lh_₂(f⁵, t⁵²)
+//│ 															in let h⁵³ = f⁵(h⁵²)
+//│ 															in (fun n³⁰ -> [LH_C h⁵³ take_lz_lh_₁((n³⁰ - 1), t⁵³)]))))
+//│ 												in let _lh_append_lz_LH_C_0³ = lazy⁰((fun _lh_append_lz_lz_arg2³⁰ -> _lh_append_lz_lz_arg2³⁰))
+//│ 												in (fun _lh_append_lz_arg2⁴ -> lazy⁰(
+//│ 													let t⁵⁴ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹¹, _lh_append_lz_arg2⁴)
+//│ 													in let h⁵⁴ = _lh_append_lz_LH_C_0³
+//│ 													in (fun f⁶ -> 
+//│ 														let t⁵⁵ = map_lz_lh_₂(f⁶, t⁵⁴)
+//│ 														in let h⁵⁵ = f⁶(h⁵⁴)
+//│ 														in (fun n³¹ -> [LH_C h⁵⁵ take_lz_lh_₁((n³¹ - 1), t⁵⁵)]))))
+//│ 											in let _lh_append_lz_LH_C_0⁴ = lazy⁰((fun _lh_append_lz_lz_arg2³¹ -> _lh_append_lz_lz_arg2³¹))
+//│ 											in (fun _lh_append_lz_arg2⁵ -> lazy⁰(
+//│ 												let t⁵⁶ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹⁰, _lh_append_lz_arg2⁵)
+//│ 												in let h⁵⁶ = _lh_append_lz_LH_C_0⁴
+//│ 												in (fun f⁷ -> 
+//│ 													let t⁵⁷ = map_lz_lh_₂(f⁷, t⁵⁶)
+//│ 													in let h⁵⁷ = f⁷(h⁵⁶)
+//│ 													in (fun n³² -> [LH_C h⁵⁷ take_lz_lh_₁((n³² - 1), t⁵⁷)]))))
+//│ 										in let _lh_append_lz_LH_C_0⁵ = lazy⁰((fun _lh_append_lz_lz_arg2³² -> _lh_append_lz_lz_arg2³²))
+//│ 										in (fun _lh_append_lz_arg2⁶ -> lazy⁰(
+//│ 											let t⁵⁸ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁹, _lh_append_lz_arg2⁶)
+//│ 											in let h⁵⁸ = _lh_append_lz_LH_C_0⁵
+//│ 											in (fun f⁸ -> 
+//│ 												let t⁵⁹ = map_lz_lh_₂(f⁸, t⁵⁸)
+//│ 												in let h⁵⁹ = f⁸(h⁵⁸)
+//│ 												in (fun n³³ -> [LH_C h⁵⁹ take_lz_lh_₁((n³³ - 1), t⁵⁹)]))))
+//│ 									in let _lh_append_lz_LH_C_0⁶ = lazy⁰((fun _lh_append_lz_lz_arg2³³ -> _lh_append_lz_lz_arg2³³))
+//│ 									in (fun _lh_append_lz_arg2⁷ -> lazy⁰(
+//│ 										let t⁶⁰ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁸, _lh_append_lz_arg2⁷)
+//│ 										in let h⁶⁰ = _lh_append_lz_LH_C_0⁶
+//│ 										in (fun f⁹ -> 
+//│ 											let t⁶¹ = map_lz_lh_₂(f⁹, t⁶⁰)
+//│ 											in let h⁶¹ = f⁹(h⁶⁰)
+//│ 											in (fun n³⁴ -> [LH_C h⁶¹ take_lz_lh_₁((n³⁴ - 1), t⁶¹)]))))
+//│ 								in let _lh_append_lz_LH_C_0⁷ = lazy⁰((fun _lh_append_lz_lz_arg2³⁴ -> _lh_append_lz_lz_arg2³⁴))
 //│ 								in (fun _lh_append_lz_arg2⁸ -> lazy⁰(
-//│ 									let t⁶¹ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁸, _lh_append_lz_arg2⁸)
-//│ 									in let h⁶¹ = _lh_append_lz_LH_C_0⁸
-//│ 									in (fun f¹⁸ -> 
-//│ 										let t⁶² = map_lz_lh_₂(f¹⁸, t⁶¹)
-//│ 										in let h⁶² = f¹⁸(h⁶¹)
-//│ 										in (fun n¹⁰ -> [LH_C h⁶² take_lz_lh_₁((n¹⁰ - 1), t⁶²)]))))
-//│ 							in let _lh_append_lz_LH_C_0⁷ = lazy⁰((fun _lh_append_lz_lz_arg2⁷ -> _lh_append_lz_lz_arg2⁷))
-//│ 							in (fun _lh_append_lz_arg2⁷ -> lazy⁰(
-//│ 								let t⁵⁹ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁷, _lh_append_lz_arg2⁷)
-//│ 								in let h⁵⁹ = _lh_append_lz_LH_C_0⁷
-//│ 								in (fun f¹⁷ -> 
-//│ 									let t⁶⁰ = map_lz_lh_₂(f¹⁷, t⁵⁹)
-//│ 									in let h⁶⁰ = f¹⁷(h⁵⁹)
-//│ 									in (fun n⁹ -> [LH_C h⁶⁰ take_lz_lh_₁((n⁹ - 1), t⁶⁰)]))))
-//│ 						in let _lh_append_lz_LH_C_0⁶ = lazy⁰((fun _lh_append_lz_lz_arg2⁶ -> _lh_append_lz_lz_arg2⁶))
-//│ 						in (fun _lh_append_lz_arg2⁶ -> lazy⁰(
-//│ 							let t⁵⁷ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁶, _lh_append_lz_arg2⁶)
-//│ 							in let h⁵⁷ = _lh_append_lz_LH_C_0⁶
-//│ 							in (fun f¹⁶ -> 
-//│ 								let t⁵⁸ = map_lz_lh_₂(f¹⁶, t⁵⁷)
-//│ 								in let h⁵⁸ = f¹⁶(h⁵⁷)
-//│ 								in (fun n⁸ -> [LH_C h⁵⁸ take_lz_lh_₁((n⁸ - 1), t⁵⁸)]))))
-//│ 					in let _lh_append_lz_LH_C_0⁵ = lazy⁰((fun _lh_append_lz_lz_arg2⁵ -> _lh_append_lz_lz_arg2⁵))
-//│ 					in (fun _lh_append_lz_arg2⁵ -> lazy⁰(
-//│ 						let t⁵⁵ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁵, _lh_append_lz_arg2⁵)
-//│ 						in let h⁵⁵ = _lh_append_lz_LH_C_0⁵
-//│ 						in (fun f¹⁵ -> 
-//│ 							let t⁵⁶ = map_lz_lh_₂(f¹⁵, t⁵⁵)
-//│ 							in let h⁵⁶ = f¹⁵(h⁵⁵)
-//│ 							in (fun n⁷ -> [LH_C h⁵⁶ take_lz_lh_₁((n⁷ - 1), t⁵⁶)]))))
-//│ 				in let _lh_append_lz_LH_C_0⁴ = lazy⁰((fun _lh_append_lz_lz_arg2⁴ -> _lh_append_lz_lz_arg2⁴))
-//│ 				in (fun _lh_append_lz_arg2⁴ -> lazy⁰(
-//│ 					let t⁵³ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁴, _lh_append_lz_arg2⁴)
-//│ 					in let h⁵³ = _lh_append_lz_LH_C_0⁴
+//│ 									let t⁶² = append_lz_lh_₁(_lh_append_lz_LH_C_1⁷, _lh_append_lz_arg2⁸)
+//│ 									in let h⁶² = _lh_append_lz_LH_C_0⁷
+//│ 									in (fun f¹⁰ -> 
+//│ 										let t⁶³ = map_lz_lh_₂(f¹⁰, t⁶²)
+//│ 										in let h⁶³ = f¹⁰(h⁶²)
+//│ 										in (fun n³⁵ -> [LH_C h⁶³ take_lz_lh_₁((n³⁵ - 1), t⁶³)]))))
+//│ 							in let _lh_append_lz_LH_C_0⁸ = lazy⁰((fun _lh_append_lz_lz_arg2³⁵ -> _lh_append_lz_lz_arg2³⁵))
+//│ 							in (fun _lh_append_lz_arg2⁹ -> lazy⁰(
+//│ 								let t⁶⁴ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁶, _lh_append_lz_arg2⁹)
+//│ 								in let h⁶⁴ = _lh_append_lz_LH_C_0⁸
+//│ 								in (fun f¹¹ -> 
+//│ 									let t⁶⁵ = map_lz_lh_₂(f¹¹, t⁶⁴)
+//│ 									in let h⁶⁵ = f¹¹(h⁶⁴)
+//│ 									in (fun n³⁶ -> [LH_C h⁶⁵ take_lz_lh_₁((n³⁶ - 1), t⁶⁵)]))))
+//│ 						in let _lh_append_lz_LH_C_0⁹ = lazy⁰((fun _lh_append_lz_lz_arg2³⁶ -> _lh_append_lz_lz_arg2³⁶))
+//│ 						in (fun _lh_append_lz_arg2¹⁰ -> lazy⁰(
+//│ 							let t⁶⁶ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁵, _lh_append_lz_arg2¹⁰)
+//│ 							in let h⁶⁶ = _lh_append_lz_LH_C_0⁹
+//│ 							in (fun f¹² -> 
+//│ 								let t⁶⁷ = map_lz_lh_₂(f¹², t⁶⁶)
+//│ 								in let h⁶⁷ = f¹²(h⁶⁶)
+//│ 								in (fun n³⁷ -> [LH_C h⁶⁷ take_lz_lh_₁((n³⁷ - 1), t⁶⁷)]))))
+//│ 					in let _lh_append_lz_LH_C_0¹⁰ = lazy⁰((fun _lh_append_lz_lz_arg2³⁷ -> _lh_append_lz_lz_arg2³⁷))
+//│ 					in (fun _lh_append_lz_arg2¹¹ -> lazy⁰(
+//│ 						let t⁶⁸ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁴, _lh_append_lz_arg2¹¹)
+//│ 						in let h⁶⁸ = _lh_append_lz_LH_C_0¹⁰
+//│ 						in (fun f¹³ -> 
+//│ 							let t⁶⁹ = map_lz_lh_₂(f¹³, t⁶⁸)
+//│ 							in let h⁶⁹ = f¹³(h⁶⁸)
+//│ 							in (fun n³⁸ -> [LH_C h⁶⁹ take_lz_lh_₁((n³⁸ - 1), t⁶⁹)]))))
+//│ 				in let _lh_append_lz_LH_C_0¹¹ = lazy⁰((fun _lh_append_lz_lz_arg2³⁸ -> _lh_append_lz_lz_arg2³⁸))
+//│ 				in (fun _lh_append_lz_arg2¹² -> lazy⁰(
+//│ 					let t⁷⁰ = append_lz_lh_₁(_lh_append_lz_LH_C_1³, _lh_append_lz_arg2¹²)
+//│ 					in let h⁷⁰ = _lh_append_lz_LH_C_0¹¹
 //│ 					in (fun f¹⁴ -> 
-//│ 						let t⁵⁴ = map_lz_lh_₂(f¹⁴, t⁵³)
-//│ 						in let h⁵⁴ = f¹⁴(h⁵³)
-//│ 						in (fun n⁶ -> [LH_C h⁵⁴ take_lz_lh_₁((n⁶ - 1), t⁵⁴)]))))
-//│ 			in let _lh_append_lz_LH_C_0³ = lazy⁰((fun _lh_append_lz_lz_arg2³ -> _lh_append_lz_lz_arg2³))
-//│ 			in (fun _lh_append_lz_arg2³ -> lazy⁰(
-//│ 				let t⁵¹ = append_lz_lh_₁(_lh_append_lz_LH_C_1³, _lh_append_lz_arg2³)
-//│ 				in let h⁵¹ = _lh_append_lz_LH_C_0³
-//│ 				in (fun f¹³ -> 
-//│ 					let t⁵² = map_lz_lh_₂(f¹³, t⁵¹)
-//│ 					in let h⁵² = f¹³(h⁵¹)
-//│ 					in (fun n⁵ -> [LH_C h⁵² take_lz_lh_₁((n⁵ - 1), t⁵²)]))))
-//│ 		in let _lh_append_lz_LH_C_0² = lazy⁰((fun _lh_append_lz_lz_arg2² -> _lh_append_lz_lz_arg2²))
-//│ 		in (fun _lh_append_lz_arg2² -> lazy⁰(
-//│ 			let t⁴⁹ = append_lz_lh_₁(_lh_append_lz_LH_C_1², _lh_append_lz_arg2²)
-//│ 			in let h⁴⁹ = _lh_append_lz_LH_C_0²
-//│ 			in (fun f¹² -> 
-//│ 				let t⁵⁰ = map_lz_lh_₂(f¹², t⁴⁹)
-//│ 				in let h⁵⁰ = f¹²(h⁴⁹)
-//│ 				in (fun n⁴ -> [LH_C h⁵⁰ take_lz_lh_₁((n⁴ - 1), t⁵⁰)]))))
-//│ 	in let _lh_append_lz_LH_C_0¹ = lazy⁰((fun _lh_append_lz_lz_arg2¹ -> _lh_append_lz_lz_arg2¹))
-//│ 	in (fun _lh_append_lz_arg2¹ -> lazy⁰(
-//│ 		let t⁴⁷ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹, _lh_append_lz_arg2¹)
-//│ 		in let h⁴⁷ = _lh_append_lz_LH_C_0¹
-//│ 		in (fun f¹¹ -> 
-//│ 			let t⁴⁸ = map_lz_lh_₂(f¹¹, t⁴⁷)
-//│ 			in let h⁴⁸ = f¹¹(h⁴⁷)
-//│ 			in (fun n³ -> [LH_C h⁴⁸ take_lz_lh_₁((n³ - 1), t⁴⁸)]))))
-//│ def tail_lh_₁(ls¹⁹) = case ls¹⁹ of {
-//│ 	LH_C h⁹ t⁹ => t⁹
+//│ 						let t⁷¹ = map_lz_lh_₂(f¹⁴, t⁷⁰)
+//│ 						in let h⁷¹ = f¹⁴(h⁷⁰)
+//│ 						in (fun n³⁹ -> [LH_C h⁷¹ take_lz_lh_₁((n³⁹ - 1), t⁷¹)]))))
+//│ 			in let _lh_append_lz_LH_C_0¹² = lazy⁰((fun _lh_append_lz_lz_arg2³⁹ -> _lh_append_lz_lz_arg2³⁹))
+//│ 			in (fun _lh_append_lz_arg2¹³ -> lazy⁰(
+//│ 				let t⁷² = append_lz_lh_₁(_lh_append_lz_LH_C_1², _lh_append_lz_arg2¹³)
+//│ 				in let h⁷² = _lh_append_lz_LH_C_0¹²
+//│ 				in (fun f¹⁵ -> 
+//│ 					let t⁷³ = map_lz_lh_₂(f¹⁵, t⁷²)
+//│ 					in let h⁷³ = f¹⁵(h⁷²)
+//│ 					in (fun n⁴⁰ -> [LH_C h⁷³ take_lz_lh_₁((n⁴⁰ - 1), t⁷³)]))))
+//│ 		in let _lh_append_lz_LH_C_0¹³ = lazy⁰((fun _lh_append_lz_lz_arg2⁴⁰ -> _lh_append_lz_lz_arg2⁴⁰))
+//│ 		in (fun _lh_append_lz_arg2¹⁴ -> lazy⁰(
+//│ 			let t⁷⁴ = append_lz_lh_₁(_lh_append_lz_LH_C_1¹, _lh_append_lz_arg2¹⁴)
+//│ 			in let h⁷⁴ = _lh_append_lz_LH_C_0¹³
+//│ 			in (fun f¹⁶ -> 
+//│ 				let t⁷⁵ = map_lz_lh_₂(f¹⁶, t⁷⁴)
+//│ 				in let h⁷⁵ = f¹⁶(h⁷⁴)
+//│ 				in (fun n⁴¹ -> [LH_C h⁷⁵ take_lz_lh_₁((n⁴¹ - 1), t⁷⁵)]))))
+//│ 	in let _lh_append_lz_LH_C_0¹⁴ = lazy⁰((fun _lh_append_lz_lz_arg2⁴¹ -> _lh_append_lz_lz_arg2⁴¹))
+//│ 	in lazy⁰(
+//│ 		let t⁷⁶ = append_lz_lh_₁(_lh_append_lz_LH_C_1⁰, _lh_append_lz_arg2¹⁵)
+//│ 		in let h⁷⁶ = _lh_append_lz_LH_C_0¹⁴
+//│ 		in (fun f¹⁷ -> 
+//│ 			let t⁷⁷ = map_lz_lh_₂(f¹⁷, t⁷⁶)
+//│ 			in let h⁷⁷ = f¹⁷(h⁷⁶)
+//│ 			in (fun n⁴² -> [LH_C h⁷⁷ take_lz_lh_₁((n⁴² - 1), t⁷⁷)])))
+//│ def tail_lh_₁(ls⁵) = case ls⁵ of {
+//│ 	LH_C h⁸⁹ t⁸⁹ => t⁸⁹
 //│ 	| LH_N  => error⁰}
-//│ def tail_lh_₂(ls¹⁷) = case ls¹⁷ of {
-//│ 	LH_C h⁶ t⁶ => t⁶
+//│ def tail_lh_₂(ls³) = case ls³ of {
+//│ 	LH_C h⁸⁸ t⁸⁸ => t⁸⁸
 //│ 	| LH_N  => error⁰}
-//│ def tail_lh_₃(ls²¹) = case ls²¹ of {
-//│ 	LH_C h³ t³ => t³
+//│ def tail_lh_₃(ls⁷) = case ls⁷ of {
+//│ 	LH_C h⁹⁰ t⁹⁰ => t⁹⁰
 //│ 	| LH_N  => error⁰}
-//│ def tail_lh_₄(ls²⁶) = case ls²⁶ of {
-//│ 	LH_C h⁰ t⁰ => t⁰
+//│ def tail_lh_₄(ls¹²) = case ls¹² of {
+//│ 	LH_C h¹⁰³ t¹⁰³ => t¹⁰³
 //│ 	| LH_N  => error⁰}
-//│ def take_lz_lh_₁(n⁵⁰, ls²⁴) = if (n⁵⁰ > 0) then force⁰(ls²⁴, n⁵⁰) else [LH_N]
-//│ def take_lz_lh_₂(n², ls¹⁵) = if (n² > 0) then force⁰(ls¹⁵, n²) else [LH_N]
-//│ def testLife_nofib_lh_₁(_lh_testLife_nofib_arg1¹) = length_lh_₁(force⁰(last_lh_₁(generations_lh_₁(_lh_testLife_nofib_arg1¹))))
-//│ def zip3_lh_₁(_lh_zip3_arg1⁶, _lh_zip3_arg2¹², _lh_zip3_arg3¹²) = 
-//│ 	let _lh_matchIdent⁴³ = _lh_zip3_arg1⁶
-//│ 	in _lh_matchIdent⁴³(_lh_zip3_arg2¹², _lh_zip3_arg3¹²)
-//│ def zip3_lh_₂(_lh_zip3_arg1⁴, _lh_zip3_arg2⁸, _lh_zip3_arg3⁸) = 
-//│ 	let _lh_matchIdent³⁵ = _lh_zip3_arg1⁴
-//│ 	in _lh_matchIdent³⁵(_lh_zip3_arg2⁸, _lh_zip3_arg3⁸)
-//│ def zip3_lh_₃(_lh_zip3_arg1⁷, _lh_zip3_arg2¹³, _lh_zip3_arg3¹³) = 
-//│ 	let _lh_matchIdent⁴⁴ = _lh_zip3_arg1⁷
-//│ 	in case _lh_matchIdent⁴⁴ of {
-//│ 		LH_C _lh_zip3_LH_C_0³ _lh_zip3_LH_C_1³ => 
-//│ 			let _lh_matchIdent⁴⁵ = _lh_zip3_arg2¹³
-//│ 			in case _lh_matchIdent⁴⁵ of {
-//│ 				LH_C _lh_zip3_LH_C_0⁴ _lh_zip3_LH_C_1⁴ => 
-//│ 					let _lh_matchIdent⁴⁶ = _lh_zip3_arg3¹³
-//│ 					in _lh_matchIdent⁴⁶(_lh_zip3_LH_C_0³, _lh_zip3_LH_C_0⁴, _lh_zip3_LH_C_1³, _lh_zip3_LH_C_1⁴)
-//│ 				| LH_N  => (fun _lh_zipWith3_arg1¹⁵ -> (fun _lh_zipWith3_arg3⁵ -> (fun _lh_zipWith3_arg4⁹ -> [LH_N])))
+//│ def take_lz_lh_₁(n⁴⁸, ls¹⁰) = if (n⁴⁸ > 0) then force⁰(ls¹⁰, n⁴⁸) else [LH_N]
+//│ def take_lz_lh_₂(n⁰, ls¹) = if (n⁰ > 0) then force⁰(ls¹, n⁰) else [LH_N]
+//│ def testLife_nofib_lh_₁(_lh_testLife_nofib_arg1⁰) = length_lh_₁(force⁰(last_lh_₁(generations_lh_₁(_lh_testLife_nofib_arg1⁰))))
+//│ def zip3_lh_₁(_lh_zip3_arg1², _lh_zip3_arg2⁸, _lh_zip3_arg3⁸) = 
+//│ 	let _lh_matchIdent²² = _lh_zip3_arg1²
+//│ 	in _lh_matchIdent²²(_lh_zip3_arg2⁸, _lh_zip3_arg3⁸)
+//│ def zip3_lh_₂(_lh_zip3_arg1⁰, _lh_zip3_arg2⁴, _lh_zip3_arg3⁴) = 
+//│ 	let _lh_matchIdent¹⁴ = _lh_zip3_arg1⁰
+//│ 	in _lh_matchIdent¹⁴(_lh_zip3_arg2⁴, _lh_zip3_arg3⁴)
+//│ def zip3_lh_₃(_lh_zip3_arg1³, _lh_zip3_arg2⁹, _lh_zip3_arg3⁹) = 
+//│ 	let _lh_matchIdent²³ = _lh_zip3_arg1³
+//│ 	in case _lh_matchIdent²³ of {
+//│ 		LH_C _lh_zip3_LH_C_0³⁵ _lh_zip3_LH_C_1³⁵ => 
+//│ 			let _lh_matchIdent²⁴ = _lh_zip3_arg2⁹
+//│ 			in case _lh_matchIdent²⁴ of {
+//│ 				LH_C _lh_zip3_LH_C_0³⁶ _lh_zip3_LH_C_1³⁶ => 
+//│ 					let _lh_matchIdent²⁵ = _lh_zip3_arg3⁹
+//│ 					in _lh_matchIdent²⁵(_lh_zip3_LH_C_0³⁵, _lh_zip3_LH_C_0³⁶, _lh_zip3_LH_C_1³⁵, _lh_zip3_LH_C_1³⁶)
+//│ 				| LH_N  => (fun _lh_zipWith3_arg1¹⁴ -> (fun _lh_zipWith3_arg3⁴ -> (fun _lh_zipWith3_arg4⁸ -> [LH_N])))
 //│ 				| _  => error⁰}
-//│ 		| LH_N  => (fun _lh_zipWith3_arg1¹⁶ -> (fun _lh_zipWith3_arg3⁶ -> (fun _lh_zipWith3_arg4¹⁰ -> [LH_N])))
+//│ 		| LH_N  => (fun _lh_zipWith3_arg1¹⁵ -> (fun _lh_zipWith3_arg3⁵ -> (fun _lh_zipWith3_arg4⁹ -> [LH_N])))
 //│ 		| _  => error⁰}
-//│ def zip3_lh_₄(_lh_zip3_arg1⁵, _lh_zip3_arg2¹¹, _lh_zip3_arg3¹¹) = 
-//│ 	let _lh_matchIdent³⁹ = _lh_zip3_arg1⁵
-//│ 	in case _lh_matchIdent³⁹ of {
-//│ 		LH_C _lh_zip3_LH_C_0⁰ _lh_zip3_LH_C_1⁰ => 
-//│ 			let _lh_matchIdent⁴⁰ = _lh_zip3_arg2¹¹
-//│ 			in case _lh_matchIdent⁴⁰ of {
-//│ 				LH_C _lh_zip3_LH_C_0¹ _lh_zip3_LH_C_1¹ => 
-//│ 					let _lh_matchIdent⁴¹ = _lh_zip3_arg3¹¹
-//│ 					in case _lh_matchIdent⁴¹ of {
-//│ 						LH_C _lh_zip3_LH_C_0² _lh_zip3_LH_C_1² => 
-//│ 							let _lh_zipWith3_LH_C_1¹⁴ = zip3_lh_₄(_lh_zip3_LH_C_1⁰, _lh_zip3_LH_C_1¹, _lh_zip3_LH_C_1²)
-//│ 							in let _lh_zipWith3_LH_C_0¹⁴ = 	
-//│ 								let _lh_elt_LH_P3_2⁸ = _lh_zip3_LH_C_0²
-//│ 								in let _lh_elt_LH_P3_1⁸ = _lh_zip3_LH_C_0¹
-//│ 								in let _lh_elt_LH_P3_0⁸ = _lh_zip3_LH_C_0⁰
-//│ 								in (fun _lh_elt_LH_P3_0⁹ -> (fun _lh_elt_LH_P3_1⁹ -> (fun _lh_elt_LH_P3_2⁹ -> (fun _lh_elt_arg3⁴ -> _lh_elt_arg3⁴(_lh_elt_LH_P3_0⁸, _lh_elt_LH_P3_0⁹, _lh_elt_LH_P3_1⁸, _lh_elt_LH_P3_1⁹, _lh_elt_LH_P3_2⁸, _lh_elt_LH_P3_2⁹)))))
-//│ 							in (fun _lh_zipWith3_LH_C_0¹⁵ -> (fun _lh_zipWith3_LH_C_1¹⁵ -> (fun _lh_zipWith3_arg1⁹ -> (fun _lh_zipWith3_arg4⁵ -> 
-//│ 								let _lh_matchIdent⁴² = _lh_zipWith3_arg4⁵
-//│ 								in _lh_matchIdent⁴²(_lh_zipWith3_LH_C_0¹⁴, _lh_zipWith3_LH_C_0¹⁵, _lh_zipWith3_LH_C_1¹⁴, _lh_zipWith3_LH_C_1¹⁵, _lh_zipWith3_arg1⁹)))))
-//│ 						| LH_N  => (fun _lh_zipWith3_LH_C_0¹⁶ -> (fun _lh_zipWith3_LH_C_1¹⁶ -> (fun _lh_zipWith3_arg1¹⁰ -> (fun _lh_zipWith3_arg4⁶ -> [LH_N]))))
+//│ def zip3_lh_₄(_lh_zip3_arg1¹, _lh_zip3_arg2⁷, _lh_zip3_arg3⁷) = 
+//│ 	let _lh_matchIdent¹⁸ = _lh_zip3_arg1¹
+//│ 	in case _lh_matchIdent¹⁸ of {
+//│ 		LH_C _lh_zip3_LH_C_0²⁷ _lh_zip3_LH_C_1²⁷ => 
+//│ 			let _lh_matchIdent¹⁹ = _lh_zip3_arg2⁷
+//│ 			in case _lh_matchIdent¹⁹ of {
+//│ 				LH_C _lh_zip3_LH_C_0²⁸ _lh_zip3_LH_C_1²⁸ => 
+//│ 					let _lh_matchIdent²⁰ = _lh_zip3_arg3⁷
+//│ 					in case _lh_matchIdent²⁰ of {
+//│ 						LH_C _lh_zip3_LH_C_0²⁹ _lh_zip3_LH_C_1²⁹ => 
+//│ 							let _lh_zipWith3_LH_C_1¹¹ = zip3_lh_₄(_lh_zip3_LH_C_1²⁷, _lh_zip3_LH_C_1²⁸, _lh_zip3_LH_C_1²⁹)
+//│ 							in let _lh_zipWith3_LH_C_0¹¹ = 	
+//│ 								let _lh_elt_LH_P3_2⁵ = _lh_zip3_LH_C_0²⁹
+//│ 								in let _lh_elt_LH_P3_1⁵ = _lh_zip3_LH_C_0²⁸
+//│ 								in let _lh_elt_LH_P3_0⁵ = _lh_zip3_LH_C_0²⁷
+//│ 								in (fun _lh_elt_LH_P3_0⁶ -> (fun _lh_elt_LH_P3_1⁶ -> (fun _lh_elt_LH_P3_2⁶ -> (fun _lh_elt_arg3³ -> _lh_elt_arg3³(_lh_elt_LH_P3_0⁵, _lh_elt_LH_P3_0⁶, _lh_elt_LH_P3_1⁵, _lh_elt_LH_P3_1⁶, _lh_elt_LH_P3_2⁵, _lh_elt_LH_P3_2⁶)))))
+//│ 							in (fun _lh_zipWith3_LH_C_0¹² -> (fun _lh_zipWith3_LH_C_1¹² -> (fun _lh_zipWith3_arg1⁸ -> (fun _lh_zipWith3_arg4⁴ -> 
+//│ 								let _lh_matchIdent²¹ = _lh_zipWith3_arg4⁴
+//│ 								in _lh_matchIdent²¹(_lh_zipWith3_LH_C_0¹¹, _lh_zipWith3_LH_C_0¹², _lh_zipWith3_LH_C_1¹¹, _lh_zipWith3_LH_C_1¹², _lh_zipWith3_arg1⁸)))))
+//│ 						| LH_N  => (fun _lh_zipWith3_LH_C_0¹³ -> (fun _lh_zipWith3_LH_C_1¹³ -> (fun _lh_zipWith3_arg1⁹ -> (fun _lh_zipWith3_arg4⁵ -> [LH_N]))))
 //│ 						| _  => error⁰}
-//│ 				| LH_N  => (fun _lh_zipWith3_LH_C_0¹⁷ -> (fun _lh_zipWith3_LH_C_1¹⁷ -> (fun _lh_zipWith3_arg1¹¹ -> (fun _lh_zipWith3_arg4⁷ -> [LH_N]))))
+//│ 				| LH_N  => (fun _lh_zipWith3_LH_C_0¹⁴ -> (fun _lh_zipWith3_LH_C_1¹⁴ -> (fun _lh_zipWith3_arg1¹⁰ -> (fun _lh_zipWith3_arg4⁶ -> [LH_N]))))
 //│ 				| _  => error⁰}
-//│ 		| LH_N  => (fun _lh_zipWith3_LH_C_0¹⁸ -> (fun _lh_zipWith3_LH_C_1¹⁸ -> (fun _lh_zipWith3_arg1¹² -> (fun _lh_zipWith3_arg4⁸ -> [LH_N]))))
+//│ 		| LH_N  => (fun _lh_zipWith3_LH_C_0¹⁵ -> (fun _lh_zipWith3_LH_C_1¹⁵ -> (fun _lh_zipWith3_arg1¹¹ -> (fun _lh_zipWith3_arg4⁷ -> [LH_N]))))
 //│ 		| _  => error⁰}
-//│ def zipWith3_lh_₁(_lh_zipWith3_arg1¹, _lh_zipWith3_arg2¹, _lh_zipWith3_arg3¹, _lh_zipWith3_arg4¹) = 
-//│ 	let _lh_matchIdent²¹ = _lh_zipWith3_arg2¹
-//│ 	in _lh_matchIdent²¹(_lh_zipWith3_arg1¹, _lh_zipWith3_arg3¹, _lh_zipWith3_arg4¹)
-//│ def zip_lz_nl_lh_₁(xs²⁷, ys⁵¹) = ys⁵¹(xs²⁷)
+//│ def zipWith3_lh_₁(_lh_zipWith3_arg1⁰, _lh_zipWith3_arg2⁰, _lh_zipWith3_arg3⁰, _lh_zipWith3_arg4⁰) = 
+//│ 	let _lh_matchIdent⁰ = _lh_zipWith3_arg2⁰
+//│ 	in _lh_matchIdent⁰(_lh_zipWith3_arg1⁰, _lh_zipWith3_arg3⁰, _lh_zipWith3_arg4⁰)
+//│ def zip_lz_nl_lh_₁(xs¹⁴, ys³⁸) = ys³⁸(xs¹⁴)
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

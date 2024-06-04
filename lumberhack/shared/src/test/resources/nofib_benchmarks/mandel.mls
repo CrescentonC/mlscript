@@ -307,80 +307,77 @@ testMandel_nofib $ primId 0
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMandel_nofib_lh_₁(primId⁰(0))
-//│ def comp_magnitude_lh_₁(_lh_comp_magnitude_arg1¹) = case _lh_comp_magnitude_arg1¹ of {
+//│ def comp_magnitude_lh_₁(_lh_comp_magnitude_arg1⁰) = case _lh_comp_magnitude_arg1⁰ of {
 //│ 	Complex _lh_comp_magnitude_Complex_0⁰ _lh_comp_magnitude_Complex_1⁰ => ((_lh_comp_magnitude_Complex_0⁰ *. _lh_comp_magnitude_Complex_0⁰) +. (_lh_comp_magnitude_Complex_1⁰ *. _lh_comp_magnitude_Complex_1⁰))
 //│ 	| _  => error⁰}
-//│ def comp_plus_lh_₁(_lh_comp_plus_arg1¹, _lh_comp_plus_arg2²) = _lh_comp_plus_arg1¹(_lh_comp_plus_arg2²)
-//│ def comp_times_lh_₁(_lh_comp_times_arg1¹, _lh_comp_times_arg2¹) = case _lh_comp_times_arg1¹ of {
-//│ 	Complex _lh_comp_times_Complex_0⁰ _lh_comp_times_Complex_1⁰ => case _lh_comp_times_arg2¹ of {
+//│ def comp_plus_lh_₁(_lh_comp_plus_arg1⁰, _lh_comp_plus_arg2¹) = _lh_comp_plus_arg1⁰(_lh_comp_plus_arg2¹)
+//│ def comp_times_lh_₁(_lh_comp_times_arg1⁰, _lh_comp_times_arg2⁰) = case _lh_comp_times_arg1⁰ of {
+//│ 	Complex _lh_comp_times_Complex_0⁰ _lh_comp_times_Complex_1⁰ => case _lh_comp_times_arg2⁰ of {
 //│ 		Complex _lh_comp_times_Complex_0¹ _lh_comp_times_Complex_1¹ => 
-//│ 			let _lh_comp_plus_Complex_1² = ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_1¹) +. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_0¹))
-//│ 			in let _lh_comp_plus_Complex_0² = ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_0¹) -. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_1¹))
-//│ 			in (fun _lh_comp_plus_arg2¹ -> case _lh_comp_plus_arg2¹ of {
-//│ 				Complex _lh_comp_plus_Complex_0¹ _lh_comp_plus_Complex_1¹ => [Complex (_lh_comp_plus_Complex_0² +. _lh_comp_plus_Complex_0¹) (_lh_comp_plus_Complex_1² +. _lh_comp_plus_Complex_1¹)]
+//│ 			let _lh_comp_plus_Complex_1⁰ = ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_1¹) +. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_0¹))
+//│ 			in let _lh_comp_plus_Complex_0⁰ = ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_0¹) -. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_1¹))
+//│ 			in (fun _lh_comp_plus_arg2⁰ -> case _lh_comp_plus_arg2⁰ of {
+//│ 				Complex _lh_comp_plus_Complex_0¹ _lh_comp_plus_Complex_1¹ => [Complex (_lh_comp_plus_Complex_0⁰ +. _lh_comp_plus_Complex_0¹) (_lh_comp_plus_Complex_1⁰ +. _lh_comp_plus_Complex_1¹)]
 //│ 				| _  => error⁰})
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def createPixmap_lh_₁(_lh_createPixmap_arg1¹, _lh_createPixmap_arg2¹, _lh_createPixmap_arg3¹, _lh_createPixmap_arg4¹) = [Pixmap _lh_createPixmap_arg1¹ _lh_createPixmap_arg2¹ _lh_createPixmap_arg3¹ _lh_createPixmap_arg4¹]
-//│ def diverge_lh_₁(_lh_diverge_arg1¹, _lh_diverge_arg2¹) = polyGt⁰(comp_magnitude_lh_₁(_lh_diverge_arg1¹), _lh_diverge_arg2¹)
-//│ def enumFromTo_lh_₁(a², b²) = if (a² <= b²) then 
-//│ 	let _lh_listcomp_fun_ls_t² = enumFromTo_lh_₁((a² + 1), b²)
-//│ 	in let _lh_listcomp_fun_ls_h² = a²
-//│ 	in (fun _lh_listcomp_fun_ls_h³ -> (fun _lh_listcomp_fun² -> (fun windowToViewport¹ -> (fun _lh_listcomp_fun_ls_t³ -> (fun _lh_listcomp_fun³ -> 
-//│ 		let t⁵ = _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)
-//│ 		in let h³ = windowToViewport¹(_lh_listcomp_fun_ls_h², _lh_listcomp_fun_ls_h³)
-//│ 		in (fun f⁵ -> 
-//│ 			let t⁶ = map_lh_₂(f⁵, t⁵)
-//│ 			in let h⁴ = f⁵(h³)
-//│ 			in (fun f⁶ -> [LH_C f⁶(h⁴) map_lh_₁(f⁶, t⁶)]))))))) else (fun _lh_listcomp_fun_ls_h⁴ -> (fun _lh_listcomp_fun⁴ -> (fun windowToViewport² -> (fun _lh_listcomp_fun_ls_t⁴ -> (fun _lh_listcomp_fun⁵ -> _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t⁴))))))
-//│ def enumFromTo_lh_₂(a³, b³) = if (a³ <= b³) then 
-//│ 	let _lh_listcomp_fun_ls_t⁵ = enumFromTo_lh_₂((a³ + 1), b³)
-//│ 	in let _lh_listcomp_fun_ls_h⁵ = a³
-//│ 	in (fun _lh_listcomp_fun⁶ -> (fun _lh_mandelset_arg5¹ -> (fun windowToViewport³ -> 
-//│ 		let _lh_listcomp_fun⁷ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun_ls_h⁵, _lh_listcomp_fun⁷, windowToViewport³, _lh_listcomp_fun_ls_t⁵, _lh_listcomp_fun⁶))
-//│ 		in _lh_listcomp_fun⁷(enumFromTo_lh_₁(1, _lh_mandelset_arg5¹))))) else (fun _lh_listcomp_fun⁸ -> (fun _lh_mandelset_arg5² -> (fun windowToViewport⁴ -> (fun f⁸ -> (fun f⁹ -> [LH_N])))))
-//│ def mandel_lh_₁(_lh_mandel_arg1¹) = 
-//│ 	let infiniteMandel¹ = lazy⁰([LH_C _lh_mandel_arg1¹ map_lz_lh_₁((fun z¹ -> comp_plus_lh_₁(comp_times_lh_₁(z¹, z¹), _lh_mandel_arg1¹)), infiniteMandel¹)])
-//│ 	in infiniteMandel¹
-//│ def mandelset_lh_₁(_lh_mandelset_arg1¹, _lh_mandelset_arg2¹, _lh_mandelset_arg3¹, _lh_mandelset_arg4¹, _lh_mandelset_arg5³, _lh_mandelset_arg6¹, _lh_mandelset_arg7¹) = 
-//│ 	let prettyRGB¹ = (fun s² -> 
-//│ 		let t⁷ = (_lh_mandelset_arg7¹ - s²)
-//│ 		in [LH_P3 s² t⁷ t⁷])
-//│ 	in let windowToViewport⁵ = (fun s³ -> (fun t⁸ -> [Complex (_lh_mandelset_arg1¹ +. ((float_of_int⁰(s³) *. (_lh_mandelset_arg3¹ -. _lh_mandelset_arg1¹)) /. float_of_int⁰(_lh_mandelset_arg5³))) (_lh_mandelset_arg2¹ +. ((float_of_int⁰(t⁸) *. (_lh_mandelset_arg4¹ -. _lh_mandelset_arg2¹)) /. float_of_int⁰(_lh_mandelset_arg6¹)))]))
-//│ 	in let result¹ = parallelMandel_lh_₁(
-//│ 		let _lh_listcomp_fun⁹ = (fun _lh_listcomp_fun_para³ -> _lh_listcomp_fun_para³(_lh_listcomp_fun⁹, _lh_mandelset_arg5³, windowToViewport⁵))
-//│ 		in _lh_listcomp_fun⁹(enumFromTo_lh_₂(1, _lh_mandelset_arg6¹)), _lh_mandelset_arg7¹, (myMax_lh_₁((_lh_mandelset_arg3¹ -. _lh_mandelset_arg1¹), (_lh_mandelset_arg4¹ -. _lh_mandelset_arg2¹)) /. 2.0))
-//│ 	in createPixmap_lh_₁(_lh_mandelset_arg5³, _lh_mandelset_arg6¹, _lh_mandelset_arg7¹, map_lh_₁(prettyRGB¹, result¹))
-//│ def map_lh_₁(f⁴, ls⁵) = ls⁵(f⁴)
-//│ def map_lh_₂(f³, ls⁴) = ls⁴(f³)
-//│ def map_lz_lh_₁(f⁷, ls⁶) = lazy⁰(case force⁰(ls⁶) of {
-//│ 	LH_C h⁰ t⁰ => [LH_C f⁷(h⁰) map_lz_lh_₁(f⁷, t⁰)]
+//│ def createPixmap_lh_₁(_lh_createPixmap_arg1⁰, _lh_createPixmap_arg2⁰, _lh_createPixmap_arg3⁰, _lh_createPixmap_arg4⁰) = [Pixmap _lh_createPixmap_arg1⁰ _lh_createPixmap_arg2⁰ _lh_createPixmap_arg3⁰ _lh_createPixmap_arg4⁰]
+//│ def diverge_lh_₁(_lh_diverge_arg1⁰, _lh_diverge_arg2⁰) = polyGt⁰(comp_magnitude_lh_₁(_lh_diverge_arg1⁰), _lh_diverge_arg2⁰)
+//│ def enumFromTo_lh_₁(a⁰, b⁰, _lh_floatOutId_0⁰, _lh_floatOutId_1⁰, _lh_floatOutId_2⁰, _lh_floatOutId_3⁰, _lh_floatOutId_4⁰) = if (a⁰ <= b⁰) then (fun f² -> (fun f³ -> 
+//│ 	let _lh_listcomp_fun_ls_t⁰ = enumFromTo_lh_₁((a⁰ + 1), b⁰)
+//│ 	in let _lh_listcomp_fun_ls_h⁰ = a⁰
+//│ 	in let t⁰ = _lh_floatOutId_1⁰(_lh_listcomp_fun_ls_t⁰)
+//│ 	in let h⁰ = _lh_floatOutId_2⁰(_lh_listcomp_fun_ls_h⁰, _lh_floatOutId_0⁰)
+//│ 	in let t¹ = map_lh_₂(f², t⁰)
+//│ 	in let h¹ = f²(h⁰)
+//│ 	in [LH_C f³(h¹) map_lh_₁(f³, t¹)])) else _lh_floatOutId_4⁰(_lh_floatOutId_3⁰)
+//│ def enumFromTo_lh_₂(a¹, b¹, _lh_floatOutId_0¹, _lh_floatOutId_1¹, _lh_floatOutId_2¹) = if (a¹ <= b¹) then 
+//│ 	let _lh_listcomp_fun_ls_t³ = enumFromTo_lh_₂((a¹ + 1), b¹)
+//│ 	in let _lh_listcomp_fun_ls_h³ = a¹
+//│ 	in let _lh_listcomp_fun⁵ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun_ls_h³, _lh_listcomp_fun⁵, _lh_floatOutId_2¹, _lh_listcomp_fun_ls_t³, _lh_floatOutId_0¹))
+//│ 	in _lh_listcomp_fun⁵(enumFromTo_lh_₁(1, _lh_floatOutId_1¹)) else (fun f⁵ -> (fun f⁶ -> [LH_N]))
+//│ def mandel_lh_₁(_lh_mandel_arg1⁰) = 
+//│ 	let infiniteMandel⁰ = lazy⁰([LH_C _lh_mandel_arg1⁰ map_lz_lh_₁((fun z⁰ -> comp_plus_lh_₁(comp_times_lh_₁(z⁰, z⁰), _lh_mandel_arg1⁰)), infiniteMandel⁰)])
+//│ 	in infiniteMandel⁰
+//│ def mandelset_lh_₁(_lh_mandelset_arg1⁰, _lh_mandelset_arg2⁰, _lh_mandelset_arg3⁰, _lh_mandelset_arg4⁰, _lh_mandelset_arg5², _lh_mandelset_arg6⁰, _lh_mandelset_arg7⁰) = 
+//│ 	let prettyRGB⁰ = (fun s⁰ -> 
+//│ 		let t³ = (_lh_mandelset_arg7⁰ - s⁰)
+//│ 		in [LH_P3 s⁰ t³ t³])
+//│ 	in let windowToViewport⁴ = (fun s¹ -> (fun t⁴ -> [Complex (_lh_mandelset_arg1⁰ +. ((float_of_int⁰(s¹) *. (_lh_mandelset_arg3⁰ -. _lh_mandelset_arg1⁰)) /. float_of_int⁰(_lh_mandelset_arg5²))) (_lh_mandelset_arg2⁰ +. ((float_of_int⁰(t⁴) *. (_lh_mandelset_arg4⁰ -. _lh_mandelset_arg2⁰)) /. float_of_int⁰(_lh_mandelset_arg6⁰)))]))
+//│ 	in let result⁰ = parallelMandel_lh_₁(
+//│ 		let _lh_listcomp_fun⁷ = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun⁷, _lh_mandelset_arg5², windowToViewport⁴))
+//│ 		in _lh_listcomp_fun⁷(enumFromTo_lh_₂(1, _lh_mandelset_arg6⁰)), _lh_mandelset_arg7⁰, (myMax_lh_₁((_lh_mandelset_arg3⁰ -. _lh_mandelset_arg1⁰), (_lh_mandelset_arg4⁰ -. _lh_mandelset_arg2⁰)) /. 2.0))
+//│ 	in createPixmap_lh_₁(_lh_mandelset_arg5², _lh_mandelset_arg6⁰, _lh_mandelset_arg7⁰, map_lh_₁(prettyRGB⁰, result⁰))
+//│ def map_lh_₁(f¹, ls¹) = ls¹(f¹)
+//│ def map_lh_₂(f⁰, ls⁰) = ls⁰(f⁰)
+//│ def map_lz_lh_₁(f⁴, ls²) = lazy⁰(case force⁰(ls²) of {
+//│ 	LH_C h² t² => [LH_C f⁴(h²) map_lz_lh_₁(f⁴, t²)]
 //│ 	| LH_N  => [LH_N]})
-//│ def myMax_lh_₁(_lh_myMax_arg1¹, _lh_myMax_arg2¹) = if polyGt⁰(_lh_myMax_arg1¹, _lh_myMax_arg2¹) then _lh_myMax_arg1¹ else _lh_myMax_arg2¹
-//│ def parallelMandel_lh_₁(_lh_parallelMandel_arg1¹, _lh_parallelMandel_arg2¹, _lh_parallelMandel_arg3¹) = map_lh_₂(whenDiverge_lh_₁(_lh_parallelMandel_arg2¹, _lh_parallelMandel_arg3¹), _lh_parallelMandel_arg1¹)
-//│ def take_lz_lz_lh_₁(_lh_take_lz_lz_arg1¹, _lh_take_lz_lz_arg2¹) = if (_lh_take_lz_lz_arg1¹ > 0) then 
-//│ 	let _lh_matchIdent² = force⁰(_lh_take_lz_lz_arg2¹)
-//│ 	in case _lh_matchIdent² of {
-//│ 		LH_N  => lazy⁰((fun _lh_whenDiverge_arg2¹ -> (fun walkIt¹ -> 0)))
+//│ def myMax_lh_₁(_lh_myMax_arg1⁰, _lh_myMax_arg2⁰) = if polyGt⁰(_lh_myMax_arg1⁰, _lh_myMax_arg2⁰) then _lh_myMax_arg1⁰ else _lh_myMax_arg2⁰
+//│ def parallelMandel_lh_₁(_lh_parallelMandel_arg1⁰, _lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰) = map_lh_₂(whenDiverge_lh_₁(_lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰), _lh_parallelMandel_arg1⁰)
+//│ def take_lz_lz_lh_₁(_lh_take_lz_lz_arg1⁰, _lh_take_lz_lz_arg2⁰) = if (_lh_take_lz_lz_arg1⁰ > 0) then 
+//│ 	let _lh_matchIdent⁰ = force⁰(_lh_take_lz_lz_arg2⁰)
+//│ 	in case _lh_matchIdent⁰ of {
+//│ 		LH_N  => lazy⁰((fun _lh_whenDiverge_arg2⁰ -> (fun walkIt⁰ -> 0)))
 //│ 		| LH_C _lh_take_lz_lz_LH_C_0⁰ _lh_take_lz_lz_LH_C_1⁰ => lazy⁰(
-//│ 			let _lh_whenDiverge_LH_C_1¹ = take_lz_lz_lh_₁((_lh_take_lz_lz_arg1¹ - 1), _lh_take_lz_lz_LH_C_1⁰)
-//│ 			in let _lh_whenDiverge_LH_C_0¹ = _lh_take_lz_lz_LH_C_0⁰
-//│ 			in (fun _lh_whenDiverge_arg2² -> (fun walkIt² -> if diverge_lh_₁(_lh_whenDiverge_LH_C_0¹, _lh_whenDiverge_arg2²) then 0 else (1 + walkIt²(_lh_whenDiverge_LH_C_1¹)))))
-//│ 		| _  => error⁰} else lazy⁰((fun _lh_whenDiverge_arg2³ -> (fun walkIt³ -> 0)))
-//│ def testMandel_nofib_lh_₁(_lh_testMandel_nofib_arg1¹) = 
-//│ 	let minx¹ = (0.0 -. 2.0)
-//│ 	in let miny¹ = (0.0 -. 2.0)
-//│ 	in let maxx¹ = 2.0
-//│ 	in let maxy¹ = 2.0
-//│ 	in let screenX¹ = 80
-//│ 	in let screenY¹ = 80
-//│ 	in let limit¹ = 75
-//│ 	in mandelset_lh_₁(minx¹, miny¹, maxx¹, maxy¹, screenX¹, screenY¹, limit¹)
-//│ def whenDiverge_lh_₁(_lh_whenDiverge_arg1¹, _lh_whenDiverge_arg2⁴, _lh_whenDiverge_arg3¹) = 
-//│ 	let walkIt⁴ = (fun ls⁷ -> 
-//│ 		let _lh_matchIdent³ = force⁰(ls⁷)
-//│ 		in _lh_matchIdent³(_lh_whenDiverge_arg2⁴, walkIt⁴))
-//│ 	in walkIt⁴(take_lz_lz_lh_₁(_lh_whenDiverge_arg1¹, mandel_lh_₁(_lh_whenDiverge_arg3¹)))
+//│ 			let _lh_whenDiverge_LH_C_1⁰ = take_lz_lz_lh_₁((_lh_take_lz_lz_arg1⁰ - 1), _lh_take_lz_lz_LH_C_1⁰)
+//│ 			in let _lh_whenDiverge_LH_C_0⁰ = _lh_take_lz_lz_LH_C_0⁰
+//│ 			in (fun _lh_whenDiverge_arg2¹ -> (fun walkIt¹ -> if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2¹) then 0 else (1 + walkIt¹(_lh_whenDiverge_LH_C_1⁰)))))
+//│ 		| _  => error⁰} else lazy⁰((fun _lh_whenDiverge_arg2² -> (fun walkIt² -> 0)))
+//│ def testMandel_nofib_lh_₁(_lh_testMandel_nofib_arg1⁰) = 
+//│ 	let minx⁰ = (0.0 -. 2.0)
+//│ 	in let miny⁰ = (0.0 -. 2.0)
+//│ 	in let maxx⁰ = 2.0
+//│ 	in let maxy⁰ = 2.0
+//│ 	in let screenX⁰ = 80
+//│ 	in let screenY⁰ = 80
+//│ 	in let limit⁰ = 75
+//│ 	in mandelset_lh_₁(minx⁰, miny⁰, maxx⁰, maxy⁰, screenX⁰, screenY⁰, limit⁰)
+//│ def whenDiverge_lh_₁(_lh_whenDiverge_arg1⁰, _lh_whenDiverge_arg2³, _lh_whenDiverge_arg3⁰) = 
+//│ 	let walkIt³ = (fun ls³ -> 
+//│ 		let _lh_matchIdent¹ = force⁰(ls³)
+//│ 		in _lh_matchIdent¹(_lh_whenDiverge_arg2³, walkIt³))
+//│ 	in walkIt³(take_lz_lz_lh_₁(_lh_whenDiverge_arg1⁰, mandel_lh_₁(_lh_whenDiverge_arg3⁰)))
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

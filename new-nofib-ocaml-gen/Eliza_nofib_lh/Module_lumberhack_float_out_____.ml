@@ -730,14 +730,14 @@ let rec null_lh__d3 _lh_null_arg1_0 =
       false
     | _ -> 
       (failwith "error"));;
-let rec map_lh__d3 f_2 ls_2 _lh_popOutId_0_0 _lh_popOutId_1_0 =
+let rec map_lh__d3 f_2 ls_2 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (match ls_2 with
     | `LH_C(h_2, t_2) -> 
       (let rec t_3 = ((map_lh__d3 f_2) t_2) in
         (let rec h_3 = (f_2 h_2) in
-          ((_lh_popOutId_0_0 h_3) (((foldr_lh__d2 _lh_popOutId_0_0) _lh_popOutId_1_0) t_3))))
+          ((_lh_floatOutId_0_0 h_3) (((foldr_lh__d2 _lh_floatOutId_0_0) _lh_floatOutId_1_0) t_3))))
     | `LH_N -> 
-      _lh_popOutId_1_0);;
+      _lh_floatOutId_1_0);;
 let rec head_lh__d1 ls_1_6 =
   (match ls_1_6 with
     | `LH_C(h_1_0_2, t_1_0_2) -> 

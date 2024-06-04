@@ -708,7 +708,7 @@ let rec mappend_lh__d3 xs_1 ys_1_8 =
   (xs_1 ys_1_8);;
 let rec concat_lh__d1 lss_0 =
   (lss_0 99);;
-let rec map_lh__d3 f_3_1 ls_9 _lh_popOutId_0_3 =
+let rec map_lh__d3 f_3_1 ls_9 _lh_floatOutId_0_3 =
   (match ls_9 with
     | `LH_C(h_9_9, t_9_9) -> 
       (let rec t_1_0_0 = ((map_lh__d3 f_3_1) t_9_9) in
@@ -779,14 +779,14 @@ let rec star_lh__d1 _lh_star_arg1_0 =
       (failwith "error"));;
 let rec foldr_lh__d1 f_1_8 i_0 ls_2 =
   ((ls_2 f_1_8) i_0);;
-let rec map_lh__d4 f_3_2 ls_1_1 _lh_popOutId_0_4 _lh_popOutId_1_2 =
+let rec map_lh__d4 f_3_2 ls_1_1 _lh_floatOutId_0_4 _lh_floatOutId_1_2 =
   (match ls_1_1 with
     | `LH_C(h_1_0_1, t_1_0_1) -> 
       (let rec t_1_0_2 = ((map_lh__d4 f_3_2) t_1_0_1) in
         (let rec h_1_0_2 = (f_3_2 h_1_0_1) in
-          ((_lh_popOutId_0_4 h_1_0_2) (((foldr_lh__d1 _lh_popOutId_0_4) _lh_popOutId_1_2) t_1_0_2))))
+          ((_lh_floatOutId_0_4 h_1_0_2) (((foldr_lh__d1 _lh_floatOutId_0_4) _lh_floatOutId_1_2) t_1_0_2))))
     | `LH_N -> 
-      _lh_popOutId_1_2);;
+      _lh_floatOutId_1_2);;
 let rec zip_lz_nl_lh__d1 xs_1_4 ys_3_8 =
   (ys_3_8 xs_1_4);;
 let rec glue_lh__d1 _lh_glue_arg1_0 _lh_glue_arg2_0 _lh_glue_arg3_0 =

@@ -84,19 +84,19 @@ let rec infRand_lh__d1 _lh_infRand_arg1_0 =
   (let rec f_5 = (fun x_1 -> 
     (lazy (`LH_C(((x_1 mod _lh_infRand_arg1_0) + 1), (f_5 (((97 * x_1) + 11) mod ((power_lh__d1 2) 7))))))) in
     (f_5 37));;
-let rec enumFromTo_lh__d2 a_0 b_0 _lh_popOutId_0_0 _lh_popOutId_1_0 _lh_popOutId_2_0 _lh_popOutId_3_0 =
+let rec enumFromTo_lh__d2 a_0 b_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 _lh_floatOutId_2_0 _lh_floatOutId_3_0 =
   (if (a_0 <= b_0) then
     (let rec _lh_listcomp_fun_ls_t_0 = ((enumFromTo_lh__d2 (a_0 + 1)) b_0) in
       (let rec _lh_listcomp_fun_ls_h_0 = a_0 in
-        (let rec t_1 = (_lh_popOutId_0_0 _lh_listcomp_fun_ls_t_0) in
-          (let rec h_1 = (_lh_popOutId_2_0 (infRand_lh__d1 _lh_popOutId_1_0)) in
-            (if (_lh_popOutId_3_0 h_1) then
+        (let rec t_1 = (_lh_floatOutId_0_0 _lh_listcomp_fun_ls_t_0) in
+          (let rec h_1 = (_lh_floatOutId_2_0 (infRand_lh__d1 _lh_floatOutId_1_0)) in
+            (if (_lh_floatOutId_3_0 h_1) then
               (fun _lh_dummy_0 -> 
-                (let rec t_2 = ((filter_lh__d1 _lh_popOutId_3_0) t_1) in
+                (let rec t_2 = ((filter_lh__d1 _lh_floatOutId_3_0) t_1) in
                   (let rec h_2 = h_1 in
                     (1 + (length_lh__d1 t_2)))))
             else
-              ((filter_lh__d1 _lh_popOutId_3_0) t_1))))))
+              ((filter_lh__d1 _lh_floatOutId_3_0) t_1))))))
   else
     (fun _lh_dummy_1 -> 
       0));;
@@ -134,11 +134,11 @@ let rec sim_lh__d1 _lh_sim_arg1_0 =
             (x_2 < bestk_0))) ((drop_lh__d1 _lh_sim_arg1_0) xs_0)) in
             ((`LH_C(best_0, (`LH_N))) = ((take_lh__d2 1) afterk_0))))))) in
     (((simulate_lh__d1 5000) 100) proc_0));;
-let rec enumFromTo_lh__d1 a_1 b_1 _lh_popOutId_0_1 =
+let rec enumFromTo_lh__d1 a_1 b_1 _lh_floatOutId_0_1 =
   (if (a_1 <= b_1) then
     (let rec _lh_listcomp_fun_ls_t_1 = ((enumFromTo_lh__d1 (a_1 + 1)) b_1) in
       (let rec _lh_listcomp_fun_ls_h_1 = a_1 in
-        (`LH_C((sim_lh__d1 _lh_listcomp_fun_ls_h_1), (_lh_popOutId_0_1 _lh_listcomp_fun_ls_t_1)))))
+        (`LH_C((sim_lh__d1 _lh_listcomp_fun_ls_h_1), (_lh_floatOutId_0_1 _lh_listcomp_fun_ls_t_1)))))
   else
     (`LH_N));;
 let rec testSecretary_nofib_lh__d1 _lh_testSecretary_nofib_arg1_0 =

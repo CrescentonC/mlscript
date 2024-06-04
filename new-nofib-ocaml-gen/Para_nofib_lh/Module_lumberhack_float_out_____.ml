@@ -769,13 +769,13 @@ let rec concat_lh__d2 lss_0 =
   (lss_0 99);;
 let rec map_lh__d6 f_3 ls_5 =
   (ls_5 f_3);;
-let rec map_lh__d2 f_4 ls_6 _lh_popOutId_0_0 _lh_popOutId_1_0 =
+let rec map_lh__d2 f_4 ls_6 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (match ls_6 with
     | `LH_C(h_1_7, t_1_7) -> 
       (let rec t_1_8 = ((map_lh__d2 f_4) t_1_7) in
         (let rec h_1_8 = (f_4 h_1_7) in
-          (let rec t_1_9 = ((map_lh__d6 _lh_popOutId_0_0) t_1_8) in
-            (let rec h_1_9 = (_lh_popOutId_0_0 h_1_8) in
+          (let rec t_1_9 = ((map_lh__d6 _lh_floatOutId_0_0) t_1_8) in
+            (let rec h_1_9 = (_lh_floatOutId_0_0 h_1_8) in
               ((mappend_lh__d1_d4 h_1_9) (concat_lh__d2 t_1_9))))))
     | `LH_N -> 
       (`LH_N));;

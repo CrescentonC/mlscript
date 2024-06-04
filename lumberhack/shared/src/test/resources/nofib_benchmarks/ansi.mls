@@ -763,318 +763,318 @@ testAnsi_nofib $ primId 8
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testAnsi_nofib_lh_₁(primId⁰(8))
-//│ def at_lh_₁(_lh_at_arg1⁷, _lh_at_arg2¹³) = _lh_at_arg1⁷(_lh_at_arg2¹³)
-//│ def at_lh_₂(_lh_at_arg1⁶, _lh_at_arg2⁶) = _lh_at_arg1⁶(_lh_at_arg2⁶)
-//│ def at_lh_₃(_lh_at_arg1¹¹, _lh_at_arg2¹⁷) = _lh_at_arg1¹¹(_lh_at_arg2¹⁷)
-//│ def at_lh_₄(_lh_at_arg1⁸, _lh_at_arg2¹⁴) = _lh_at_arg1⁸(_lh_at_arg2¹⁴)
-//│ def at_lh_₅(_lh_at_arg1¹⁰, _lh_at_arg2¹⁶) = _lh_at_arg1¹⁰(_lh_at_arg2¹⁶)
-//│ def at_lh_₆(_lh_at_arg1⁹, _lh_at_arg2¹⁵) = _lh_at_arg1⁹(_lh_at_arg2¹⁵)
+//│ def at_lh_₁(_lh_at_arg1¹, _lh_at_arg2⁷) = _lh_at_arg1¹(_lh_at_arg2⁷)
+//│ def at_lh_₂(_lh_at_arg1⁰, _lh_at_arg2⁰) = _lh_at_arg1⁰(_lh_at_arg2⁰)
+//│ def at_lh_₃(_lh_at_arg1⁵, _lh_at_arg2¹¹) = _lh_at_arg1⁵(_lh_at_arg2¹¹)
+//│ def at_lh_₄(_lh_at_arg1², _lh_at_arg2⁸) = _lh_at_arg1²(_lh_at_arg2⁸)
+//│ def at_lh_₅(_lh_at_arg1⁴, _lh_at_arg2¹⁰) = _lh_at_arg1⁴(_lh_at_arg2¹⁰)
+//│ def at_lh_₆(_lh_at_arg1³, _lh_at_arg2⁹) = _lh_at_arg1³(_lh_at_arg2⁹)
 //│ def cls_lh_₁ = [LH_C 'L' [LH_N]]
-//│ def concat_lh_₁(lss¹) = lss¹(99)
-//│ def copy_lh_₁(_lh_copy_arg1², _lh_copy_arg2²) = if (_lh_copy_arg1² > 0) then 
-//│ 	let t⁶⁹ = copy_lh_₁((_lh_copy_arg1² - 1), _lh_copy_arg2²)
-//│ 	in let h⁶⁹ = _lh_copy_arg2²
-//│ 	in (fun f⁴ -> (fun i² -> f⁴(h⁶⁹, foldr_lh_₁(f⁴, i², t⁶⁹)))) else (fun f⁵ -> (fun i³ -> i³))
-//│ def copy_lh_₂(_lh_copy_arg1³, _lh_copy_arg2³) = if (_lh_copy_arg1³ > 0) then [LH_C _lh_copy_arg2³ copy_lh_₂((_lh_copy_arg1³ - 1), _lh_copy_arg2³)] else [LH_N]
-//│ def delete_lh_₁(_lh_delete_arg1¹, _lh_delete_arg2¹, _lh_delete_arg3¹, _lh_delete_arg4¹) = if (_lh_delete_arg1¹ > 0) then writeString_lh_₅([LH_C 'B' [LH_C 'S' [LH_C '_' [LH_C 'B' [LH_C 'S' [LH_N]]]]]], loop_lh_₁((_lh_delete_arg1¹ - 1), tail_lh_₁(_lh_delete_arg2¹), _lh_delete_arg3¹, _lh_delete_arg4¹)) else ringBell_lh_₁(loop_lh_₁(0, [LH_N], _lh_delete_arg3¹, _lh_delete_arg4¹))
-//│ def end_lh_₁(_lh_end_arg1¹) = [LH_N]
-//│ def foldr_lh_₁(f³, i¹, ls⁸) = ls⁸(f³, i¹)
-//│ def goto_lh_₁(_lh_goto_arg1¹⁰, _lh_goto_arg2¹⁰) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹⁰), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹⁰), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₂(_lh_goto_arg1¹³, _lh_goto_arg2¹³) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹³), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹³), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₃(_lh_goto_arg1¹⁵, _lh_goto_arg2¹⁵) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹⁵), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹⁵), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₄(_lh_goto_arg1¹², _lh_goto_arg2¹²) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹²), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹²), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₅(_lh_goto_arg1¹¹, _lh_goto_arg2¹¹) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹¹), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹¹), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₆(_lh_goto_arg1⁹, _lh_goto_arg2⁹) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁹), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁹), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₇(_lh_goto_arg1¹⁷, _lh_goto_arg2¹⁷) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹⁷), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹⁷), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₈(_lh_goto_arg1¹⁴, _lh_goto_arg2¹⁴) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹⁴), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹⁴), [LH_C 'H' [LH_N]])])]]
-//│ def goto_lh_₉(_lh_goto_arg1¹⁶, _lh_goto_arg2¹⁶) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹⁶), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹⁶), [LH_C 'H' [LH_N]])])]]
-//│ def highlight_lh_₁(_lh_highlight_arg1¹) = mappend_lh_₁₂(
-//│ 	let t⁷⁰ = 	
-//│ 		let t⁷¹ = 	
-//│ 			let t⁷² = 	
-//│ 				let t⁷³ = 	
-//│ 					let t⁷⁴ = 	
-//│ 						let t⁷⁵ = (fun ys⁷⁹ -> ys⁷⁹)
-//│ 						in let h⁷⁵ = 'm'
-//│ 						in (fun ys⁷⁸ -> [LH_C h⁷⁵ mappend_lh_₁₂(t⁷⁵, ys⁷⁸)])
-//│ 					in let h⁷⁴ = '7'
-//│ 					in (fun ys⁷⁷ -> [LH_C h⁷⁴ mappend_lh_₁₂(t⁷⁴, ys⁷⁷)])
-//│ 				in let h⁷³ = '['
-//│ 				in (fun ys⁷⁶ -> [LH_C h⁷³ mappend_lh_₁₂(t⁷³, ys⁷⁶)])
-//│ 			in let h⁷² = 'C'
-//│ 			in (fun ys⁷⁵ -> [LH_C h⁷² mappend_lh_₁₂(t⁷², ys⁷⁵)])
-//│ 		in let h⁷¹ = 'S'
-//│ 		in (fun ys⁷⁴ -> [LH_C h⁷¹ mappend_lh_₁₂(t⁷¹, ys⁷⁴)])
-//│ 	in let h⁷⁰ = 'E'
-//│ 	in (fun ys⁷³ -> [LH_C h⁷⁰ mappend_lh_₁₂(t⁷⁰, ys⁷³)]), mappend_lh_₁₁(_lh_highlight_arg1¹, [LH_C 'E' [LH_C 'S' [LH_C 'C' [LH_C '[' [LH_C '0' [LH_C 'm' [LH_N]]]]]]]))
-//│ def length_lh_₁(ls⁶) = case ls⁶ of {
-//│ 	LH_C h¹⁷ t¹⁷ => (1 + length_lh_₁(t¹⁷))
+//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def copy_lh_₁(_lh_copy_arg1⁰, _lh_copy_arg2⁰, _lh_floatOutId_0⁰, _lh_floatOutId_1⁰) = if (_lh_copy_arg1⁰ > 0) then 
+//│ 	let t⁵⁵ = copy_lh_₁((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)
+//│ 	in let h⁵⁵ = _lh_copy_arg2⁰
+//│ 	in _lh_floatOutId_0⁰(h⁵⁵, foldr_lh_₁(_lh_floatOutId_0⁰, _lh_floatOutId_1⁰, t⁵⁵)) else _lh_floatOutId_1⁰
+//│ def copy_lh_₂(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ > 0) then [LH_C _lh_copy_arg2¹ copy_lh_₂((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)] else [LH_N]
+//│ def delete_lh_₁(_lh_delete_arg1⁰, _lh_delete_arg2⁰, _lh_delete_arg3⁰, _lh_delete_arg4⁰) = if (_lh_delete_arg1⁰ > 0) then writeString_lh_₅([LH_C 'B' [LH_C 'S' [LH_C '_' [LH_C 'B' [LH_C 'S' [LH_N]]]]]], loop_lh_₁((_lh_delete_arg1⁰ - 1), tail_lh_₁(_lh_delete_arg2⁰), _lh_delete_arg3⁰, _lh_delete_arg4⁰)) else ringBell_lh_₁(loop_lh_₁(0, [LH_N], _lh_delete_arg3⁰, _lh_delete_arg4⁰))
+//│ def end_lh_₁(_lh_end_arg1⁰) = [LH_N]
+//│ def foldr_lh_₁(f¹, i⁰, ls²) = ls²(f¹, i⁰)
+//│ def goto_lh_₁(_lh_goto_arg1¹, _lh_goto_arg2¹) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2¹), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1¹), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₂(_lh_goto_arg1⁴, _lh_goto_arg2⁴) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁴), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁴), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₃(_lh_goto_arg1⁶, _lh_goto_arg2⁶) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁶), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁶), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₄(_lh_goto_arg1³, _lh_goto_arg2³) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2³), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1³), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₅(_lh_goto_arg1², _lh_goto_arg2²) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2²), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1²), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₆(_lh_goto_arg1⁰, _lh_goto_arg2⁰) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁰), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁰), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₇(_lh_goto_arg1⁸, _lh_goto_arg2⁸) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁸), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁸), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₈(_lh_goto_arg1⁵, _lh_goto_arg2⁵) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁵), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁵), [LH_C 'H' [LH_N]])])]]
+//│ def goto_lh_₉(_lh_goto_arg1⁷, _lh_goto_arg2⁷) = [LH_C 'E' [LH_C '[' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg2⁷), [LH_C ';' mappend_lh_₁₄(string_of_int⁰(_lh_goto_arg1⁷), [LH_C 'H' [LH_N]])])]]
+//│ def highlight_lh_₁(_lh_highlight_arg1⁰) = mappend_lh_₁₂(
+//│ 	let t⁶² = 	
+//│ 		let t⁶³ = 	
+//│ 			let t⁶⁴ = 	
+//│ 				let t⁶⁵ = 	
+//│ 					let t⁶⁶ = 	
+//│ 						let t⁶⁷ = (fun ys⁵⁹ -> ys⁵⁹)
+//│ 						in let h⁶² = 'm'
+//│ 						in (fun ys⁶⁰ -> [LH_C h⁶² mappend_lh_₁₂(t⁶⁷, ys⁶⁰)])
+//│ 					in let h⁶³ = '7'
+//│ 					in (fun ys⁶¹ -> [LH_C h⁶³ mappend_lh_₁₂(t⁶⁶, ys⁶¹)])
+//│ 				in let h⁶⁴ = '['
+//│ 				in (fun ys⁶² -> [LH_C h⁶⁴ mappend_lh_₁₂(t⁶⁵, ys⁶²)])
+//│ 			in let h⁶⁵ = 'C'
+//│ 			in (fun ys⁶³ -> [LH_C h⁶⁵ mappend_lh_₁₂(t⁶⁴, ys⁶³)])
+//│ 		in let h⁶⁶ = 'S'
+//│ 		in (fun ys⁶⁴ -> [LH_C h⁶⁶ mappend_lh_₁₂(t⁶³, ys⁶⁴)])
+//│ 	in let h⁶⁷ = 'E'
+//│ 	in (fun ys⁶⁵ -> [LH_C h⁶⁷ mappend_lh_₁₂(t⁶², ys⁶⁵)]), mappend_lh_₁₁(_lh_highlight_arg1⁰, [LH_C 'E' [LH_C 'S' [LH_C 'C' [LH_C '[' [LH_C '0' [LH_C 'm' [LH_N]]]]]]]))
+//│ def length_lh_₁(ls⁰) = case ls⁰ of {
+//│ 	LH_C h⁰ t⁰ => (1 + length_lh_₁(t⁰))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₂(ls¹¹) = case ls¹¹ of {
-//│ 	LH_C h¹⁵ t¹⁵ => (1 + length_lh_₂(t¹⁵))
+//│ def length_lh_₂(ls⁵) = case ls⁵ of {
+//│ 	LH_C h⁶⁸ t⁶⁸ => (1 + length_lh_₂(t⁶⁸))
 //│ 	| LH_N  => 0}
-//│ def loop_lh_₁(_lh_loop_arg1¹, _lh_loop_arg2¹, _lh_loop_arg3¹, _lh_loop_arg4¹) = readChar_lh_₂(return_lh_₁(_lh_loop_arg2¹, _lh_loop_arg4¹), (fun c⁵ -> 
-//│ 	let _lh_matchIdent¹ = c⁵
-//│ 	in case _lh_matchIdent¹ of {
-//│ 		'B'  => delete_lh_₁(_lh_loop_arg1¹, _lh_loop_arg2¹, _lh_loop_arg3¹, _lh_loop_arg4¹)
-//│ 		| 'D'  => delete_lh_₁(_lh_loop_arg1¹, _lh_loop_arg2¹, _lh_loop_arg3¹, _lh_loop_arg4¹)
-//│ 		| '`'  => return_lh_₁(_lh_loop_arg2¹, _lh_loop_arg4¹)
-//│ 		| _  => if (_lh_loop_arg1¹ < _lh_loop_arg3¹) then writeChar_lh_₁(_lh_matchIdent¹, loop_lh_₁((_lh_loop_arg1¹ + 1), [LH_C _lh_matchIdent¹ _lh_loop_arg2¹], _lh_loop_arg3¹, _lh_loop_arg4¹)) else ringBell_lh_₁(loop_lh_₁(_lh_loop_arg1¹, _lh_loop_arg2¹, _lh_loop_arg3¹, _lh_loop_arg4¹))}))
-//│ def mappend_lh_₁(xs¹⁶, ys⁶⁰) = xs¹⁶(ys⁶⁰)
-//│ def mappend_lh_₁₀(xs¹⁸, ys⁶³) = case xs¹⁸ of {
-//│ 	LH_C h⁶ t⁶ => [LH_C h⁶ mappend_lh_₁₀(t⁶, ys⁶³)]
-//│ 	| LH_N  => ys⁶³}
-//│ def mappend_lh_₁₁(xs²⁴, ys⁶⁹) = xs²⁴(ys⁶⁹)
-//│ def mappend_lh_₁₂(xs¹⁴, ys⁵⁸) = xs¹⁴(ys⁵⁸)
-//│ def mappend_lh_₁₃(xs²⁶, ys⁷¹) = case xs²⁶ of {
-//│ 	LH_C h³ t³ => [LH_C h³ mappend_lh_₁₃(t³, ys⁷¹)]
-//│ 	| LH_N  => ys⁷¹}
-//│ def mappend_lh_₁₄(xs²², ys⁶⁷) = case xs²² of {
-//│ 	LH_C h² t² => [LH_C h² mappend_lh_₁₄(t², ys⁶⁷)]
-//│ 	| LH_N  => ys⁶⁷}
-//│ def mappend_lh_₂(xs²⁰, ys⁶⁵) = xs²⁰(ys⁶⁵)
-//│ def mappend_lh_₃(xs¹⁵, ys⁵⁹) = case xs¹⁵ of {
-//│ 	LH_C h¹⁴ t¹⁴ => [LH_C h¹⁴ mappend_lh_₃(t¹⁴, ys⁵⁹)]
-//│ 	| LH_N  => ys⁵⁹}
-//│ def mappend_lh_₄(xs²⁵, ys⁷⁰) = case xs²⁵ of {
-//│ 	LH_C h¹³ t¹³ => [LH_C h¹³ mappend_lh_₄(t¹³, ys⁷⁰)]
-//│ 	| LH_N  => ys⁷⁰}
-//│ def mappend_lh_₅(xs²¹, ys⁶⁶) = xs²¹(ys⁶⁶)
-//│ def mappend_lh_₆(xs²³, ys⁶⁸) = case xs²³ of {
-//│ 	LH_C h¹⁰ t¹⁰ => [LH_C h¹⁰ mappend_lh_₆(t¹⁰, ys⁶⁸)]
-//│ 	| LH_N  => ys⁶⁸}
-//│ def mappend_lh_₇(xs¹⁹, ys⁶⁴) = case xs¹⁹ of {
-//│ 	LH_C h⁹ t⁹ => [LH_C h⁹ mappend_lh_₇(t⁹, ys⁶⁴)]
-//│ 	| LH_N  => ys⁶⁴}
-//│ def mappend_lh_₈(xs¹⁷, ys⁶¹) = case xs¹⁷ of {
-//│ 	LH_C h⁸ t⁸ => [LH_C h⁸ mappend_lh_₈(t⁸, ys⁶¹)]
-//│ 	| LH_N  => ys⁶¹}
-//│ def mappend_lh_₉(xs²⁷, ys⁷²) = case xs²⁷ of {
-//│ 	LH_C h⁷ t⁷ => [LH_C h⁷ mappend_lh_₉(t⁷, ys⁷²)]
-//│ 	| LH_N  => ys⁷²}
-//│ def moveTo_lh_₁(_lh_moveTo_arg1²) = _lh_moveTo_arg1²(99)
-//│ def moveTo_lh_₂(_lh_moveTo_arg1³) = _lh_moveTo_arg1³(99)
-//│ def pressAnyKey_lh_₁(_lh_pressAnyKey_arg1³) = readChar_lh_₁(_lh_pressAnyKey_arg1³, (fun c⁴ -> _lh_pressAnyKey_arg1³))
-//│ def pressAnyKey_lh_₂(_lh_pressAnyKey_arg1²) = readChar_lh_₂(_lh_pressAnyKey_arg1², (fun c³ -> _lh_pressAnyKey_arg1²))
-//│ def program_lh_₁(_lh_program_arg1¹) = writes_lh_₁(
-//│ 	let t²⁰ = 	
-//│ 		let t²¹ = 	
-//│ 			let t⁴³ = 	
-//│ 				let t⁴⁴ = 	
-//│ 					let t⁴⁵ = 	
-//│ 						let t⁴⁶ = 	
-//│ 							let t⁴⁷ = (fun _lh_dummy⁷ -> [LH_N])
-//│ 							in let h⁴⁷ = at_lh_₃(
-//│ 								let _lh_at_LH_P2_1¹¹ = 11
-//│ 								in let _lh_at_LH_P2_0¹¹ = 17
-//│ 								in (fun _lh_at_arg2¹² -> mappend_lh_₇(goto_lh_₅(_lh_at_LH_P2_0¹¹, _lh_at_LH_P2_1¹¹), _lh_at_arg2¹²)), [LH_C 'P' [LH_C 'l' [LH_C 'e' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'e' [LH_C 's' [LH_C 's' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'y' [LH_C ' ' [LH_C 'k' [LH_C 'e' [LH_C 'y' [LH_C ' ' [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 'c' [LH_C 'o' [LH_C 'n' [LH_C 't' [LH_C 'i' [LH_C 'n' [LH_C 'u' [LH_C 'e' [LH_C ' ' [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
-//│ 							in (fun _lh_dummy⁶ -> mappend_lh_₁₄(h⁴⁷, concat_lh_₁(t⁴⁷)))
-//│ 						in let h⁴⁶ = at_lh_₁(
-//│ 							let _lh_at_LH_P2_1¹⁰ = 9
-//│ 							in let _lh_at_LH_P2_0¹⁰ = 17
-//│ 							in (fun _lh_at_arg2¹¹ -> mappend_lh_₃(goto_lh_₁(_lh_at_LH_P2_0¹⁰, _lh_at_LH_P2_1¹⁰), _lh_at_arg2¹¹)), [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C ' ' [LH_C 'H' [LH_C 'u' [LH_C 'g' [LH_C 's' [LH_C ' ' [LH_C 'f' [LH_C 'u' [LH_C 'n' [LH_C 'c' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C 'a' [LH_C 'l' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C 'm' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_C ' ' [LH_C 's' [LH_C 'y' [LH_C 's' [LH_C 't' [LH_C 'e' [LH_C 'm' [LH_C '.' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
-//│ 						in (fun _lh_dummy⁵ -> mappend_lh_₁₄(h⁴⁶, concat_lh_₁(t⁴⁶)))
-//│ 					in let h⁴⁵ = at_lh_₂(
-//│ 						let _lh_at_LH_P2_1⁹ = 8
-//│ 						in let _lh_at_LH_P2_0⁹ = 17
-//│ 						in (fun _lh_at_arg2¹⁰ -> mappend_lh_₄(goto_lh_₂(_lh_at_LH_P2_0⁹, _lh_at_LH_P2_1⁹), _lh_at_arg2¹⁰)), [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 's' [LH_C 'c' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C 'n' [LH_C '-' [LH_C 'b' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C 'd' [LH_C ' ' [LH_C 'i' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C 'a' [LH_C 'c' [LH_C 't' [LH_C 'i' [LH_C 'v' [LH_C 'e' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C 's' [LH_C ' ' [LH_C 'u' [LH_C 's' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
-//│ 					in (fun _lh_dummy⁴ -> mappend_lh_₁₄(h⁴⁵, concat_lh_₁(t⁴⁵)))
-//│ 				in let h⁴⁴ = at_lh_₄(
-//│ 					let _lh_at_LH_P2_1⁸ = 7
-//│ 					in let _lh_at_LH_P2_0⁸ = 17
-//│ 					in (fun _lh_at_arg2⁹ -> mappend_lh_₈(goto_lh_₆(_lh_at_LH_P2_0⁸, _lh_at_LH_P2_1⁸), _lh_at_arg2⁹)), [LH_C 'T' [LH_C 'h' [LH_C 'i' [LH_C 's' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C ' ' [LH_C 'i' [LH_C 'l' [LH_C 'l' [LH_C 'u' [LH_C 's' [LH_C 't' [LH_C 'r' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C ' ' [LH_C 'a' [LH_C ' ' [LH_C 's' [LH_C 'i' [LH_C 'm' [LH_C 'p' [LH_C 'l' [LH_C 'e' [LH_C ' ' [LH_C 'a' [LH_C 'p' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'a' [LH_C 'c' [LH_C 'h' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
-//│ 				in (fun _lh_dummy³ -> mappend_lh_₁₄(h⁴⁴, concat_lh_₁(t⁴⁴)))
-//│ 			in let h⁴³ = at_lh_₆(
-//│ 				let _lh_at_LH_P2_1⁷ = 5
-//│ 				in let _lh_at_LH_P2_0⁷ = 48
-//│ 				in (fun _lh_at_arg2⁸ -> mappend_lh_₁₀(goto_lh_₈(_lh_at_LH_P2_0⁷, _lh_at_LH_P2_1⁷), _lh_at_arg2⁸)), [LH_C 'V' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C ' ' [LH_C '1' [LH_C '.' [LH_C '0' [LH_N]]]]]]]]]]]])
-//│ 			in (fun _lh_dummy² -> mappend_lh_₁₄(h⁴³, concat_lh_₁(t⁴³)))
-//│ 		in let h²¹ = at_lh_₅(
-//│ 			let _lh_at_LH_P2_1⁶ = 5
-//│ 			in let _lh_at_LH_P2_0⁶ = 17
-//│ 			in (fun _lh_at_arg2⁷ -> mappend_lh_₉(goto_lh_₇(_lh_at_LH_P2_0⁶, _lh_at_LH_P2_1⁶), _lh_at_arg2⁷)), highlight_lh_₁(
-//│ 			let t²² = 	
-//│ 				let t²³ = 	
-//│ 					let t²⁴ = 	
-//│ 						let t²⁵ = 	
-//│ 							let t²⁶ = 	
-//│ 								let t²⁷ = 	
-//│ 									let t²⁸ = 	
-//│ 										let t²⁹ = 	
-//│ 											let t³⁰ = 	
-//│ 												let t³¹ = 	
-//│ 													let t³² = 	
-//│ 														let t³³ = 	
-//│ 															let t³⁴ = 	
-//│ 																let t³⁵ = 	
-//│ 																	let t³⁶ = 	
-//│ 																		let t³⁷ = 	
-//│ 																			let t³⁸ = 	
-//│ 																				let t³⁹ = 	
-//│ 																					let t⁴⁰ = 	
-//│ 																						let t⁴¹ = 	
-//│ 																							let t⁴² = (fun ys³⁵ -> ys³⁵)
-//│ 																							in let h⁴² = 'm'
-//│ 																							in (fun ys³⁴ -> [LH_C h⁴² mappend_lh_₁₁(t⁴², ys³⁴)])
-//│ 																						in let h⁴¹ = 'a'
-//│ 																						in (fun ys³³ -> [LH_C h⁴¹ mappend_lh_₁₁(t⁴¹, ys³³)])
-//│ 																					in let h⁴⁰ = 'r'
-//│ 																					in (fun ys³² -> [LH_C h⁴⁰ mappend_lh_₁₁(t⁴⁰, ys³²)])
-//│ 																				in let h³⁹ = 'g'
-//│ 																				in (fun ys³¹ -> [LH_C h³⁹ mappend_lh_₁₁(t³⁹, ys³¹)])
-//│ 																			in let h³⁸ = 'o'
-//│ 																			in (fun ys³⁰ -> [LH_C h³⁸ mappend_lh_₁₁(t³⁸, ys³⁰)])
-//│ 																		in let h³⁷ = 'r'
-//│ 																		in (fun ys²⁹ -> [LH_C h³⁷ mappend_lh_₁₁(t³⁷, ys²⁹)])
-//│ 																	in let h³⁶ = 'p'
-//│ 																	in (fun ys²⁸ -> [LH_C h³⁶ mappend_lh_₁₁(t³⁶, ys²⁸)])
-//│ 																in let h³⁵ = ' '
-//│ 																in (fun ys²⁷ -> [LH_C h³⁵ mappend_lh_₁₁(t³⁵, ys²⁷)])
-//│ 															in let h³⁴ = 'n'
-//│ 															in (fun ys²⁶ -> [LH_C h³⁴ mappend_lh_₁₁(t³⁴, ys²⁶)])
-//│ 														in let h³³ = 'o'
-//│ 														in (fun ys²⁵ -> [LH_C h³³ mappend_lh_₁₁(t³³, ys²⁵)])
-//│ 													in let h³² = 'i'
-//│ 													in (fun ys²⁴ -> [LH_C h³² mappend_lh_₁₁(t³², ys²⁴)])
-//│ 												in let h³¹ = 't'
-//│ 												in (fun ys²³ -> [LH_C h³¹ mappend_lh_₁₁(t³¹, ys²³)])
-//│ 											in let h³⁰ = 'a'
-//│ 											in (fun ys²² -> [LH_C h³⁰ mappend_lh_₁₁(t³⁰, ys²²)])
-//│ 										in let h²⁹ = 'r'
-//│ 										in (fun ys²¹ -> [LH_C h²⁹ mappend_lh_₁₁(t²⁹, ys²¹)])
-//│ 									in let h²⁸ = 't'
-//│ 									in (fun ys²⁰ -> [LH_C h²⁸ mappend_lh_₁₁(t²⁸, ys²⁰)])
-//│ 								in let h²⁷ = 's'
-//│ 								in (fun ys¹⁹ -> [LH_C h²⁷ mappend_lh_₁₁(t²⁷, ys¹⁹)])
-//│ 							in let h²⁶ = 'n'
-//│ 							in (fun ys¹⁸ -> [LH_C h²⁶ mappend_lh_₁₁(t²⁶, ys¹⁸)])
-//│ 						in let h²⁵ = 'o'
-//│ 						in (fun ys¹⁷ -> [LH_C h²⁵ mappend_lh_₁₁(t²⁵, ys¹⁷)])
-//│ 					in let h²⁴ = 'm'
-//│ 					in (fun ys¹⁶ -> [LH_C h²⁴ mappend_lh_₁₁(t²⁴, ys¹⁶)])
-//│ 				in let h²³ = 'e'
-//│ 				in (fun ys¹⁵ -> [LH_C h²³ mappend_lh_₁₁(t²³, ys¹⁵)])
-//│ 			in let h²² = 'D'
-//│ 			in (fun ys¹⁴ -> [LH_C h²² mappend_lh_₁₁(t²², ys¹⁴)])))
-//│ 		in (fun _lh_dummy¹ -> mappend_lh_₁₄(h²¹, concat_lh_₁(t²¹)))
-//│ 	in let h²⁰ = cls_lh_₁
-//│ 	in (fun _lh_dummy⁰ -> mappend_lh_₁₄(h²⁰, concat_lh_₁(t²⁰))), pressAnyKey_lh_₁(promptReadAt_lh_₁(
-//│ 	let _lh_promptReadAt_LH_P2_1¹ = 15
-//│ 	in let _lh_promptReadAt_LH_P2_0¹ = 17
-//│ 	in (fun _lh_promptReadAt_arg2¹ -> (fun _lh_promptReadAt_arg3¹ -> (fun _lh_promptReadAt_arg4¹ -> writeAt_lh_₂(
-//│ 		let _lh_writeAt_LH_P2_1³ = _lh_promptReadAt_LH_P2_1¹
-//│ 		in let _lh_writeAt_LH_P2_0³ = _lh_promptReadAt_LH_P2_0¹
-//│ 		in (fun _lh_writeAt_arg2³ -> writeString_lh_₅(mappend_lh_₁₃(goto_lh_₉(_lh_writeAt_LH_P2_0³, _lh_writeAt_LH_P2_1³), _lh_writeAt_arg2³))), _lh_promptReadAt_arg3¹, readAt_lh_₁(
-//│ 		let _lh_readAt_LH_P2_1¹ = _lh_promptReadAt_LH_P2_1¹
-//│ 		in let _lh_readAt_LH_P2_0¹ = (_lh_promptReadAt_LH_P2_0¹ + length_lh_₂(_lh_promptReadAt_arg3¹))
-//│ 		in (fun _lh_readAt_arg2¹ -> (fun _lh_readAt_arg3¹ -> writeAt_lh_₃(
-//│ 			let _lh_writeAt_LH_P2_1⁴ = _lh_readAt_LH_P2_1¹
-//│ 			in let _lh_writeAt_LH_P2_0⁴ = _lh_readAt_LH_P2_0¹
-//│ 			in (fun _lh_writeAt_arg2⁴ -> writeString_lh_₅(mappend_lh_₁₄(goto_lh_₉(_lh_writeAt_LH_P2_0⁴, _lh_writeAt_LH_P2_1⁴), _lh_writeAt_arg2⁴))), copy_lh_₂(_lh_readAt_arg2¹, '_'), moveTo_lh_₂(
-//│ 			let _lh_moveTo_LH_P2_1² = _lh_readAt_LH_P2_1¹
-//│ 			in let _lh_moveTo_LH_P2_0² = _lh_readAt_LH_P2_0¹
-//│ 			in (fun _lh_dummy⁸ -> writeString_lh_₅(goto_lh_₉(_lh_moveTo_LH_P2_0², _lh_moveTo_LH_P2_1²))), loop_lh_₁(0, [LH_N], _lh_readAt_arg2¹, _lh_readAt_arg3¹))))), _lh_promptReadAt_arg2¹, _lh_promptReadAt_arg4¹))))), 18, [LH_C 'P' [LH_C 'l' [LH_C 'e' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C ' ' [LH_C 'e' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C ' ' [LH_C 'y' [LH_C 'o' [LH_C 'u' [LH_C 'r' [LH_C ' ' [LH_C 'n' [LH_C 'a' [LH_C 'm' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]], (fun name¹ -> 
-//│ 	let reply¹ = mappend_lh_₂(
-//│ 		let t⁴⁸ = 	
-//│ 			let t⁴⁹ = 	
-//│ 				let t⁵⁰ = 	
-//│ 					let t⁵¹ = 	
-//│ 						let t⁵² = 	
-//│ 							let t⁵³ = (fun ys⁴² -> ys⁴²)
-//│ 							in let h⁵³ = ' '
-//│ 							in (fun ys⁴¹ -> [LH_C h⁵³ mappend_lh_₂(t⁵³, ys⁴¹)])
-//│ 						in let h⁵² = 'o'
-//│ 						in (fun ys⁴⁰ -> [LH_C h⁵² mappend_lh_₂(t⁵², ys⁴⁰)])
-//│ 					in let h⁵¹ = 'l'
-//│ 					in (fun ys³⁹ -> [LH_C h⁵¹ mappend_lh_₂(t⁵¹, ys³⁹)])
-//│ 				in let h⁵⁰ = 'l'
-//│ 				in (fun ys³⁸ -> [LH_C h⁵⁰ mappend_lh_₂(t⁵⁰, ys³⁸)])
-//│ 			in let h⁴⁹ = 'e'
-//│ 			in (fun ys³⁷ -> [LH_C h⁴⁹ mappend_lh_₂(t⁴⁹, ys³⁷)])
-//│ 		in let h⁴⁸ = 'H'
-//│ 		in (fun ys³⁶ -> [LH_C h⁴⁸ mappend_lh_₂(t⁴⁸, ys³⁶)]), mappend_lh_₁(name¹, [LH_C '!' [LH_N]]))
+//│ def loop_lh_₁(_lh_loop_arg1⁰, _lh_loop_arg2⁰, _lh_loop_arg3⁰, _lh_loop_arg4⁰) = readChar_lh_₂(return_lh_₁(_lh_loop_arg2⁰, _lh_loop_arg4⁰), (fun c² -> 
+//│ 	let _lh_matchIdent⁰ = c²
+//│ 	in case _lh_matchIdent⁰ of {
+//│ 		'B'  => delete_lh_₁(_lh_loop_arg1⁰, _lh_loop_arg2⁰, _lh_loop_arg3⁰, _lh_loop_arg4⁰)
+//│ 		| 'D'  => delete_lh_₁(_lh_loop_arg1⁰, _lh_loop_arg2⁰, _lh_loop_arg3⁰, _lh_loop_arg4⁰)
+//│ 		| '`'  => return_lh_₁(_lh_loop_arg2⁰, _lh_loop_arg4⁰)
+//│ 		| _  => if (_lh_loop_arg1⁰ < _lh_loop_arg3⁰) then writeChar_lh_₁(_lh_matchIdent⁰, loop_lh_₁((_lh_loop_arg1⁰ + 1), [LH_C _lh_matchIdent⁰ _lh_loop_arg2⁰], _lh_loop_arg3⁰, _lh_loop_arg4⁰)) else ringBell_lh_₁(loop_lh_₁(_lh_loop_arg1⁰, _lh_loop_arg2⁰, _lh_loop_arg3⁰, _lh_loop_arg4⁰))}))
+//│ def mappend_lh_₁(xs², ys⁴⁶) = xs²(ys⁴⁶)
+//│ def mappend_lh_₁₀(xs⁴, ys⁴⁹) = case xs⁴ of {
+//│ 	LH_C h⁵³ t⁵³ => [LH_C h⁵³ mappend_lh_₁₀(t⁵³, ys⁴⁹)]
+//│ 	| LH_N  => ys⁴⁹}
+//│ def mappend_lh_₁₁(xs¹⁰, ys⁵⁵) = xs¹⁰(ys⁵⁵)
+//│ def mappend_lh_₁₂(xs⁰, ys⁴⁴) = xs⁰(ys⁴⁴)
+//│ def mappend_lh_₁₃(xs¹², ys⁵⁷) = case xs¹² of {
+//│ 	LH_C h⁶⁰ t⁶⁰ => [LH_C h⁶⁰ mappend_lh_₁₃(t⁶⁰, ys⁵⁷)]
+//│ 	| LH_N  => ys⁵⁷}
+//│ def mappend_lh_₁₄(xs⁸, ys⁵³) = case xs⁸ of {
+//│ 	LH_C h⁵⁶ t⁵⁶ => [LH_C h⁵⁶ mappend_lh_₁₄(t⁵⁶, ys⁵³)]
+//│ 	| LH_N  => ys⁵³}
+//│ def mappend_lh_₂(xs⁶, ys⁵¹) = xs⁶(ys⁵¹)
+//│ def mappend_lh_₃(xs¹, ys⁴⁵) = case xs¹ of {
+//│ 	LH_C h⁴⁹ t⁴⁹ => [LH_C h⁴⁹ mappend_lh_₃(t⁴⁹, ys⁴⁵)]
+//│ 	| LH_N  => ys⁴⁵}
+//│ def mappend_lh_₄(xs¹¹, ys⁵⁶) = case xs¹¹ of {
+//│ 	LH_C h⁵⁸ t⁵⁸ => [LH_C h⁵⁸ mappend_lh_₄(t⁵⁸, ys⁵⁶)]
+//│ 	| LH_N  => ys⁵⁶}
+//│ def mappend_lh_₅(xs⁷, ys⁵²) = xs⁷(ys⁵²)
+//│ def mappend_lh_₆(xs⁹, ys⁵⁴) = case xs⁹ of {
+//│ 	LH_C h⁵⁷ t⁵⁷ => [LH_C h⁵⁷ mappend_lh_₆(t⁵⁷, ys⁵⁴)]
+//│ 	| LH_N  => ys⁵⁴}
+//│ def mappend_lh_₇(xs⁵, ys⁵⁰) = case xs⁵ of {
+//│ 	LH_C h⁵⁴ t⁵⁴ => [LH_C h⁵⁴ mappend_lh_₇(t⁵⁴, ys⁵⁰)]
+//│ 	| LH_N  => ys⁵⁰}
+//│ def mappend_lh_₈(xs³, ys⁴⁷) = case xs³ of {
+//│ 	LH_C h⁵⁰ t⁵⁰ => [LH_C h⁵⁰ mappend_lh_₈(t⁵⁰, ys⁴⁷)]
+//│ 	| LH_N  => ys⁴⁷}
+//│ def mappend_lh_₉(xs¹³, ys⁵⁸) = case xs¹³ of {
+//│ 	LH_C h⁶¹ t⁶¹ => [LH_C h⁶¹ mappend_lh_₉(t⁶¹, ys⁵⁸)]
+//│ 	| LH_N  => ys⁵⁸}
+//│ def moveTo_lh_₁(_lh_moveTo_arg1⁰) = _lh_moveTo_arg1⁰(99)
+//│ def moveTo_lh_₂(_lh_moveTo_arg1¹) = _lh_moveTo_arg1¹(99)
+//│ def pressAnyKey_lh_₁(_lh_pressAnyKey_arg1¹) = readChar_lh_₁(_lh_pressAnyKey_arg1¹, (fun c¹ -> _lh_pressAnyKey_arg1¹))
+//│ def pressAnyKey_lh_₂(_lh_pressAnyKey_arg1⁰) = readChar_lh_₂(_lh_pressAnyKey_arg1⁰, (fun c⁰ -> _lh_pressAnyKey_arg1⁰))
+//│ def program_lh_₁(_lh_program_arg1⁰) = writes_lh_₁(
+//│ 	let t¹ = 	
+//│ 		let t² = 	
+//│ 			let t³ = 	
+//│ 				let t⁴ = 	
+//│ 					let t⁵ = 	
+//│ 						let t⁶ = 	
+//│ 							let t⁷ = (fun _lh_dummy⁰ -> [LH_N])
+//│ 							in let h¹ = at_lh_₃(
+//│ 								let _lh_at_LH_P2_1⁰ = 11
+//│ 								in let _lh_at_LH_P2_0⁰ = 17
+//│ 								in (fun _lh_at_arg2¹ -> mappend_lh_₇(goto_lh_₅(_lh_at_LH_P2_0⁰, _lh_at_LH_P2_1⁰), _lh_at_arg2¹)), [LH_C 'P' [LH_C 'l' [LH_C 'e' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'e' [LH_C 's' [LH_C 's' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'y' [LH_C ' ' [LH_C 'k' [LH_C 'e' [LH_C 'y' [LH_C ' ' [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 'c' [LH_C 'o' [LH_C 'n' [LH_C 't' [LH_C 'i' [LH_C 'n' [LH_C 'u' [LH_C 'e' [LH_C ' ' [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+//│ 							in (fun _lh_dummy¹ -> mappend_lh_₁₄(h¹, concat_lh_₁(t⁷)))
+//│ 						in let h² = at_lh_₁(
+//│ 							let _lh_at_LH_P2_1¹ = 9
+//│ 							in let _lh_at_LH_P2_0¹ = 17
+//│ 							in (fun _lh_at_arg2² -> mappend_lh_₃(goto_lh_₁(_lh_at_LH_P2_0¹, _lh_at_LH_P2_1¹), _lh_at_arg2²)), [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C ' ' [LH_C 'H' [LH_C 'u' [LH_C 'g' [LH_C 's' [LH_C ' ' [LH_C 'f' [LH_C 'u' [LH_C 'n' [LH_C 'c' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C 'a' [LH_C 'l' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C 'm' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_C ' ' [LH_C 's' [LH_C 'y' [LH_C 's' [LH_C 't' [LH_C 'e' [LH_C 'm' [LH_C '.' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+//│ 						in (fun _lh_dummy² -> mappend_lh_₁₄(h², concat_lh_₁(t⁶)))
+//│ 					in let h³ = at_lh_₂(
+//│ 						let _lh_at_LH_P2_1² = 8
+//│ 						in let _lh_at_LH_P2_0² = 17
+//│ 						in (fun _lh_at_arg2³ -> mappend_lh_₄(goto_lh_₂(_lh_at_LH_P2_0², _lh_at_LH_P2_1²), _lh_at_arg2³)), [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 's' [LH_C 'c' [LH_C 'r' [LH_C 'e' [LH_C 'e' [LH_C 'n' [LH_C '-' [LH_C 'b' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C 'd' [LH_C ' ' [LH_C 'i' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C 'a' [LH_C 'c' [LH_C 't' [LH_C 'i' [LH_C 'v' [LH_C 'e' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C 's' [LH_C ' ' [LH_C 'u' [LH_C 's' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+//│ 					in (fun _lh_dummy³ -> mappend_lh_₁₄(h³, concat_lh_₁(t⁵)))
+//│ 				in let h⁴ = at_lh_₄(
+//│ 					let _lh_at_LH_P2_1³ = 7
+//│ 					in let _lh_at_LH_P2_0³ = 17
+//│ 					in (fun _lh_at_arg2⁴ -> mappend_lh_₈(goto_lh_₆(_lh_at_LH_P2_0³, _lh_at_LH_P2_1³), _lh_at_arg2⁴)), [LH_C 'T' [LH_C 'h' [LH_C 'i' [LH_C 's' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'g' [LH_C 'r' [LH_C 'a' [LH_C 'm' [LH_C ' ' [LH_C 'i' [LH_C 'l' [LH_C 'l' [LH_C 'u' [LH_C 's' [LH_C 't' [LH_C 'r' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C ' ' [LH_C 'a' [LH_C ' ' [LH_C 's' [LH_C 'i' [LH_C 'm' [LH_C 'p' [LH_C 'l' [LH_C 'e' [LH_C ' ' [LH_C 'a' [LH_C 'p' [LH_C 'p' [LH_C 'r' [LH_C 'o' [LH_C 'a' [LH_C 'c' [LH_C 'h' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+//│ 				in (fun _lh_dummy⁴ -> mappend_lh_₁₄(h⁴, concat_lh_₁(t⁴)))
+//│ 			in let h⁵ = at_lh_₆(
+//│ 				let _lh_at_LH_P2_1⁴ = 5
+//│ 				in let _lh_at_LH_P2_0⁴ = 48
+//│ 				in (fun _lh_at_arg2⁵ -> mappend_lh_₁₀(goto_lh_₈(_lh_at_LH_P2_0⁴, _lh_at_LH_P2_1⁴), _lh_at_arg2⁵)), [LH_C 'V' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C ' ' [LH_C '1' [LH_C '.' [LH_C '0' [LH_N]]]]]]]]]]]])
+//│ 			in (fun _lh_dummy⁵ -> mappend_lh_₁₄(h⁵, concat_lh_₁(t³)))
+//│ 		in let h⁶ = at_lh_₅(
+//│ 			let _lh_at_LH_P2_1⁵ = 5
+//│ 			in let _lh_at_LH_P2_0⁵ = 17
+//│ 			in (fun _lh_at_arg2⁶ -> mappend_lh_₉(goto_lh_₇(_lh_at_LH_P2_0⁵, _lh_at_LH_P2_1⁵), _lh_at_arg2⁶)), highlight_lh_₁(
+//│ 			let t⁸ = 	
+//│ 				let t⁹ = 	
+//│ 					let t¹⁰ = 	
+//│ 						let t¹¹ = 	
+//│ 							let t¹² = 	
+//│ 								let t¹³ = 	
+//│ 									let t¹⁴ = 	
+//│ 										let t¹⁵ = 	
+//│ 											let t¹⁶ = 	
+//│ 												let t¹⁷ = 	
+//│ 													let t¹⁸ = 	
+//│ 														let t¹⁹ = 	
+//│ 															let t²⁰ = 	
+//│ 																let t²¹ = 	
+//│ 																	let t²² = 	
+//│ 																		let t²³ = 	
+//│ 																			let t²⁴ = 	
+//│ 																				let t²⁵ = 	
+//│ 																					let t²⁶ = 	
+//│ 																						let t²⁷ = 	
+//│ 																							let t²⁸ = (fun ys⁰ -> ys⁰)
+//│ 																							in let h⁷ = 'm'
+//│ 																							in (fun ys¹ -> [LH_C h⁷ mappend_lh_₁₁(t²⁸, ys¹)])
+//│ 																						in let h⁸ = 'a'
+//│ 																						in (fun ys² -> [LH_C h⁸ mappend_lh_₁₁(t²⁷, ys²)])
+//│ 																					in let h⁹ = 'r'
+//│ 																					in (fun ys³ -> [LH_C h⁹ mappend_lh_₁₁(t²⁶, ys³)])
+//│ 																				in let h¹⁰ = 'g'
+//│ 																				in (fun ys⁴ -> [LH_C h¹⁰ mappend_lh_₁₁(t²⁵, ys⁴)])
+//│ 																			in let h¹¹ = 'o'
+//│ 																			in (fun ys⁵ -> [LH_C h¹¹ mappend_lh_₁₁(t²⁴, ys⁵)])
+//│ 																		in let h¹² = 'r'
+//│ 																		in (fun ys⁶ -> [LH_C h¹² mappend_lh_₁₁(t²³, ys⁶)])
+//│ 																	in let h¹³ = 'p'
+//│ 																	in (fun ys⁷ -> [LH_C h¹³ mappend_lh_₁₁(t²², ys⁷)])
+//│ 																in let h¹⁴ = ' '
+//│ 																in (fun ys⁸ -> [LH_C h¹⁴ mappend_lh_₁₁(t²¹, ys⁸)])
+//│ 															in let h¹⁵ = 'n'
+//│ 															in (fun ys⁹ -> [LH_C h¹⁵ mappend_lh_₁₁(t²⁰, ys⁹)])
+//│ 														in let h¹⁶ = 'o'
+//│ 														in (fun ys¹⁰ -> [LH_C h¹⁶ mappend_lh_₁₁(t¹⁹, ys¹⁰)])
+//│ 													in let h¹⁷ = 'i'
+//│ 													in (fun ys¹¹ -> [LH_C h¹⁷ mappend_lh_₁₁(t¹⁸, ys¹¹)])
+//│ 												in let h¹⁸ = 't'
+//│ 												in (fun ys¹² -> [LH_C h¹⁸ mappend_lh_₁₁(t¹⁷, ys¹²)])
+//│ 											in let h¹⁹ = 'a'
+//│ 											in (fun ys¹³ -> [LH_C h¹⁹ mappend_lh_₁₁(t¹⁶, ys¹³)])
+//│ 										in let h²⁰ = 'r'
+//│ 										in (fun ys¹⁴ -> [LH_C h²⁰ mappend_lh_₁₁(t¹⁵, ys¹⁴)])
+//│ 									in let h²¹ = 't'
+//│ 									in (fun ys¹⁵ -> [LH_C h²¹ mappend_lh_₁₁(t¹⁴, ys¹⁵)])
+//│ 								in let h²² = 's'
+//│ 								in (fun ys¹⁶ -> [LH_C h²² mappend_lh_₁₁(t¹³, ys¹⁶)])
+//│ 							in let h²³ = 'n'
+//│ 							in (fun ys¹⁷ -> [LH_C h²³ mappend_lh_₁₁(t¹², ys¹⁷)])
+//│ 						in let h²⁴ = 'o'
+//│ 						in (fun ys¹⁸ -> [LH_C h²⁴ mappend_lh_₁₁(t¹¹, ys¹⁸)])
+//│ 					in let h²⁵ = 'm'
+//│ 					in (fun ys¹⁹ -> [LH_C h²⁵ mappend_lh_₁₁(t¹⁰, ys¹⁹)])
+//│ 				in let h²⁶ = 'e'
+//│ 				in (fun ys²⁰ -> [LH_C h²⁶ mappend_lh_₁₁(t⁹, ys²⁰)])
+//│ 			in let h²⁷ = 'D'
+//│ 			in (fun ys²¹ -> [LH_C h²⁷ mappend_lh_₁₁(t⁸, ys²¹)])))
+//│ 		in (fun _lh_dummy⁶ -> mappend_lh_₁₄(h⁶, concat_lh_₁(t²)))
+//│ 	in let h²⁸ = cls_lh_₁
+//│ 	in (fun _lh_dummy⁷ -> mappend_lh_₁₄(h²⁸, concat_lh_₁(t¹))), pressAnyKey_lh_₁(promptReadAt_lh_₁(
+//│ 	let _lh_promptReadAt_LH_P2_1⁰ = 15
+//│ 	in let _lh_promptReadAt_LH_P2_0⁰ = 17
+//│ 	in (fun _lh_promptReadAt_arg2⁰ -> (fun _lh_promptReadAt_arg3⁰ -> (fun _lh_promptReadAt_arg4⁰ -> writeAt_lh_₂(
+//│ 		let _lh_writeAt_LH_P2_1⁰ = _lh_promptReadAt_LH_P2_1⁰
+//│ 		in let _lh_writeAt_LH_P2_0⁰ = _lh_promptReadAt_LH_P2_0⁰
+//│ 		in (fun _lh_writeAt_arg2⁰ -> writeString_lh_₅(mappend_lh_₁₃(goto_lh_₉(_lh_writeAt_LH_P2_0⁰, _lh_writeAt_LH_P2_1⁰), _lh_writeAt_arg2⁰))), _lh_promptReadAt_arg3⁰, readAt_lh_₁(
+//│ 		let _lh_readAt_LH_P2_1⁰ = _lh_promptReadAt_LH_P2_1⁰
+//│ 		in let _lh_readAt_LH_P2_0⁰ = (_lh_promptReadAt_LH_P2_0⁰ + length_lh_₂(_lh_promptReadAt_arg3⁰))
+//│ 		in (fun _lh_readAt_arg2⁰ -> (fun _lh_readAt_arg3⁰ -> writeAt_lh_₃(
+//│ 			let _lh_writeAt_LH_P2_1¹ = _lh_readAt_LH_P2_1⁰
+//│ 			in let _lh_writeAt_LH_P2_0¹ = _lh_readAt_LH_P2_0⁰
+//│ 			in (fun _lh_writeAt_arg2¹ -> writeString_lh_₅(mappend_lh_₁₄(goto_lh_₉(_lh_writeAt_LH_P2_0¹, _lh_writeAt_LH_P2_1¹), _lh_writeAt_arg2¹))), copy_lh_₂(_lh_readAt_arg2⁰, '_'), moveTo_lh_₂(
+//│ 			let _lh_moveTo_LH_P2_1⁰ = _lh_readAt_LH_P2_1⁰
+//│ 			in let _lh_moveTo_LH_P2_0⁰ = _lh_readAt_LH_P2_0⁰
+//│ 			in (fun _lh_dummy⁸ -> writeString_lh_₅(goto_lh_₉(_lh_moveTo_LH_P2_0⁰, _lh_moveTo_LH_P2_1⁰))), loop_lh_₁(0, [LH_N], _lh_readAt_arg2⁰, _lh_readAt_arg3⁰))))), _lh_promptReadAt_arg2⁰, _lh_promptReadAt_arg4⁰))))), 18, [LH_C 'P' [LH_C 'l' [LH_C 'e' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_C ' ' [LH_C 'e' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C ' ' [LH_C 'y' [LH_C 'o' [LH_C 'u' [LH_C 'r' [LH_C ' ' [LH_C 'n' [LH_C 'a' [LH_C 'm' [LH_C 'e' [LH_C ':' [LH_C ' ' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]], (fun name⁰ -> 
+//│ 	let reply⁰ = mappend_lh_₂(
+//│ 		let t²⁹ = 	
+//│ 			let t³⁰ = 	
+//│ 				let t³¹ = 	
+//│ 					let t³² = 	
+//│ 						let t³³ = 	
+//│ 							let t³⁴ = (fun ys²² -> ys²²)
+//│ 							in let h²⁹ = ' '
+//│ 							in (fun ys²³ -> [LH_C h²⁹ mappend_lh_₂(t³⁴, ys²³)])
+//│ 						in let h³⁰ = 'o'
+//│ 						in (fun ys²⁴ -> [LH_C h³⁰ mappend_lh_₂(t³³, ys²⁴)])
+//│ 					in let h³¹ = 'l'
+//│ 					in (fun ys²⁵ -> [LH_C h³¹ mappend_lh_₂(t³², ys²⁵)])
+//│ 				in let h³² = 'l'
+//│ 				in (fun ys²⁶ -> [LH_C h³² mappend_lh_₂(t³¹, ys²⁶)])
+//│ 			in let h³³ = 'e'
+//│ 			in (fun ys²⁷ -> [LH_C h³³ mappend_lh_₂(t³⁰, ys²⁷)])
+//│ 		in let h³⁴ = 'H'
+//│ 		in (fun ys²⁸ -> [LH_C h³⁴ mappend_lh_₂(t²⁹, ys²⁸)]), mappend_lh_₁(name⁰, [LH_C '!' [LH_N]]))
 //│ 	in writeAt_lh_₁(
-//│ 		let _lh_writeAt_LH_P2_1⁵ = 18
-//│ 		in let _lh_writeAt_LH_P2_0⁵ = (40 - div⁰(length_lh_₁(reply¹), 2))
-//│ 		in (fun _lh_writeAt_arg2⁵ -> writeString_lh_₄(mappend_lh_₆(goto_lh_₄(_lh_writeAt_LH_P2_0⁵, _lh_writeAt_LH_P2_1⁵), _lh_writeAt_arg2⁵))), reply¹, moveTo_lh_₁(
-//│ 		let _lh_moveTo_LH_P2_1³ = 23
-//│ 		in let _lh_moveTo_LH_P2_0³ = 1
-//│ 		in (fun _lh_dummy⁹ -> writeString_lh_₂(goto_lh_₃(_lh_moveTo_LH_P2_0³, _lh_moveTo_LH_P2_1³))), writeString_lh_₁(
-//│ 		let t⁵⁴ = 	
-//│ 			let t⁵⁵ = 	
-//│ 				let t⁵⁶ = 	
-//│ 					let t⁵⁷ = 	
-//│ 						let t⁵⁸ = 	
-//│ 							let t⁵⁹ = 	
-//│ 								let t⁶⁰ = 	
-//│ 									let t⁶¹ = 	
-//│ 										let t⁶² = 	
-//│ 											let t⁶³ = 	
-//│ 												let t⁶⁴ = 	
-//│ 													let t⁶⁵ = 	
-//│ 														let t⁶⁶ = 	
-//│ 															let t⁶⁷ = (fun ys⁵⁷ -> ys⁵⁷)
-//│ 															in let h⁶⁷ = '`'
-//│ 															in (fun ys⁵⁶ -> [LH_C h⁶⁷ mappend_lh_₅(t⁶⁷, ys⁵⁶)])
-//│ 														in let h⁶⁶ = '.'
-//│ 														in (fun ys⁵⁵ -> [LH_C h⁶⁶ mappend_lh_₅(t⁶⁶, ys⁵⁵)])
-//│ 													in let h⁶⁵ = '.'
-//│ 													in (fun ys⁵⁴ -> [LH_C h⁶⁵ mappend_lh_₅(t⁶⁵, ys⁵⁴)])
-//│ 												in let h⁶⁴ = '.'
-//│ 												in (fun ys⁵³ -> [LH_C h⁶⁴ mappend_lh_₅(t⁶⁴, ys⁵³)])
-//│ 											in let h⁶³ = 'g'
-//│ 											in (fun ys⁵² -> [LH_C h⁶³ mappend_lh_₅(t⁶³, ys⁵²)])
-//│ 										in let h⁶² = 'n'
-//│ 										in (fun ys⁵¹ -> [LH_C h⁶² mappend_lh_₅(t⁶², ys⁵¹)])
-//│ 									in let h⁶¹ = 'i'
-//│ 									in (fun ys⁵⁰ -> [LH_C h⁶¹ mappend_lh_₅(t⁶¹, ys⁵⁰)])
-//│ 								in let h⁶⁰ = 't'
-//│ 								in (fun ys⁴⁹ -> [LH_C h⁶⁰ mappend_lh_₅(t⁶⁰, ys⁴⁹)])
-//│ 							in let h⁵⁹ = 'i'
-//│ 							in (fun ys⁴⁸ -> [LH_C h⁵⁹ mappend_lh_₅(t⁵⁹, ys⁴⁸)])
-//│ 						in let h⁵⁸ = 'a'
-//│ 						in (fun ys⁴⁷ -> [LH_C h⁵⁸ mappend_lh_₅(t⁵⁸, ys⁴⁷)])
-//│ 					in let h⁵⁷ = 'w'
-//│ 					in (fun ys⁴⁶ -> [LH_C h⁵⁷ mappend_lh_₅(t⁵⁷, ys⁴⁶)])
-//│ 				in let h⁵⁶ = ' '
-//│ 				in (fun ys⁴⁵ -> [LH_C h⁵⁶ mappend_lh_₅(t⁵⁶, ys⁴⁵)])
-//│ 			in let h⁵⁵ = 'm'
-//│ 			in (fun ys⁴⁴ -> [LH_C h⁵⁵ mappend_lh_₅(t⁵⁵, ys⁴⁴)])
-//│ 		in let h⁵⁴ = 'I'
-//│ 		in (fun ys⁴³ -> [LH_C h⁵⁴ mappend_lh_₅(t⁵⁴, ys⁴³)]), pressAnyKey_lh_₂(end_lh_₁))))))), _lh_program_arg1¹)
-//│ def promptReadAt_lh_₁(_lh_promptReadAt_arg1¹, _lh_promptReadAt_arg2², _lh_promptReadAt_arg3², _lh_promptReadAt_arg4²) = _lh_promptReadAt_arg1¹(_lh_promptReadAt_arg2², _lh_promptReadAt_arg3², _lh_promptReadAt_arg4²)
-//│ def readAt_lh_₁(_lh_readAt_arg1¹, _lh_readAt_arg2², _lh_readAt_arg3²) = _lh_readAt_arg1¹(_lh_readAt_arg2², _lh_readAt_arg3²)
-//│ def readChar_lh_₁(_lh_readChar_arg1², _lh_readChar_arg2², _lh_readChar_arg3²) = case _lh_readChar_arg3² of {
-//│ 	LH_N  => _lh_readChar_arg1²([LH_N])
-//│ 	| LH_C _lh_readChar_LH_C_0¹ _lh_readChar_LH_C_1¹ => _lh_readChar_arg2²(_lh_readChar_LH_C_0¹, _lh_readChar_LH_C_1¹)
+//│ 		let _lh_writeAt_LH_P2_1² = 18
+//│ 		in let _lh_writeAt_LH_P2_0² = (40 - div⁰(length_lh_₁(reply⁰), 2))
+//│ 		in (fun _lh_writeAt_arg2² -> writeString_lh_₄(mappend_lh_₆(goto_lh_₄(_lh_writeAt_LH_P2_0², _lh_writeAt_LH_P2_1²), _lh_writeAt_arg2²))), reply⁰, moveTo_lh_₁(
+//│ 		let _lh_moveTo_LH_P2_1¹ = 23
+//│ 		in let _lh_moveTo_LH_P2_0¹ = 1
+//│ 		in (fun _lh_dummy⁹ -> writeString_lh_₂(goto_lh_₃(_lh_moveTo_LH_P2_0¹, _lh_moveTo_LH_P2_1¹))), writeString_lh_₁(
+//│ 		let t³⁵ = 	
+//│ 			let t³⁶ = 	
+//│ 				let t³⁷ = 	
+//│ 					let t³⁸ = 	
+//│ 						let t³⁹ = 	
+//│ 							let t⁴⁰ = 	
+//│ 								let t⁴¹ = 	
+//│ 									let t⁴² = 	
+//│ 										let t⁴³ = 	
+//│ 											let t⁴⁴ = 	
+//│ 												let t⁴⁵ = 	
+//│ 													let t⁴⁶ = 	
+//│ 														let t⁴⁷ = 	
+//│ 															let t⁴⁸ = (fun ys²⁹ -> ys²⁹)
+//│ 															in let h³⁵ = '`'
+//│ 															in (fun ys³⁰ -> [LH_C h³⁵ mappend_lh_₅(t⁴⁸, ys³⁰)])
+//│ 														in let h³⁶ = '.'
+//│ 														in (fun ys³¹ -> [LH_C h³⁶ mappend_lh_₅(t⁴⁷, ys³¹)])
+//│ 													in let h³⁷ = '.'
+//│ 													in (fun ys³² -> [LH_C h³⁷ mappend_lh_₅(t⁴⁶, ys³²)])
+//│ 												in let h³⁸ = '.'
+//│ 												in (fun ys³³ -> [LH_C h³⁸ mappend_lh_₅(t⁴⁵, ys³³)])
+//│ 											in let h³⁹ = 'g'
+//│ 											in (fun ys³⁴ -> [LH_C h³⁹ mappend_lh_₅(t⁴⁴, ys³⁴)])
+//│ 										in let h⁴⁰ = 'n'
+//│ 										in (fun ys³⁵ -> [LH_C h⁴⁰ mappend_lh_₅(t⁴³, ys³⁵)])
+//│ 									in let h⁴¹ = 'i'
+//│ 									in (fun ys³⁶ -> [LH_C h⁴¹ mappend_lh_₅(t⁴², ys³⁶)])
+//│ 								in let h⁴² = 't'
+//│ 								in (fun ys³⁷ -> [LH_C h⁴² mappend_lh_₅(t⁴¹, ys³⁷)])
+//│ 							in let h⁴³ = 'i'
+//│ 							in (fun ys³⁸ -> [LH_C h⁴³ mappend_lh_₅(t⁴⁰, ys³⁸)])
+//│ 						in let h⁴⁴ = 'a'
+//│ 						in (fun ys³⁹ -> [LH_C h⁴⁴ mappend_lh_₅(t³⁹, ys³⁹)])
+//│ 					in let h⁴⁵ = 'w'
+//│ 					in (fun ys⁴⁰ -> [LH_C h⁴⁵ mappend_lh_₅(t³⁸, ys⁴⁰)])
+//│ 				in let h⁴⁶ = ' '
+//│ 				in (fun ys⁴¹ -> [LH_C h⁴⁶ mappend_lh_₅(t³⁷, ys⁴¹)])
+//│ 			in let h⁴⁷ = 'm'
+//│ 			in (fun ys⁴² -> [LH_C h⁴⁷ mappend_lh_₅(t³⁶, ys⁴²)])
+//│ 		in let h⁴⁸ = 'I'
+//│ 		in (fun ys⁴³ -> [LH_C h⁴⁸ mappend_lh_₅(t³⁵, ys⁴³)]), pressAnyKey_lh_₂(end_lh_₁))))))), _lh_program_arg1⁰)
+//│ def promptReadAt_lh_₁(_lh_promptReadAt_arg1⁰, _lh_promptReadAt_arg2¹, _lh_promptReadAt_arg3¹, _lh_promptReadAt_arg4¹) = _lh_promptReadAt_arg1⁰(_lh_promptReadAt_arg2¹, _lh_promptReadAt_arg3¹, _lh_promptReadAt_arg4¹)
+//│ def readAt_lh_₁(_lh_readAt_arg1⁰, _lh_readAt_arg2¹, _lh_readAt_arg3¹) = _lh_readAt_arg1⁰(_lh_readAt_arg2¹, _lh_readAt_arg3¹)
+//│ def readChar_lh_₁(_lh_readChar_arg1⁰, _lh_readChar_arg2⁰, _lh_readChar_arg3⁰) = case _lh_readChar_arg3⁰ of {
+//│ 	LH_N  => _lh_readChar_arg1⁰([LH_N])
+//│ 	| LH_C _lh_readChar_LH_C_0⁰ _lh_readChar_LH_C_1⁰ => _lh_readChar_arg2⁰(_lh_readChar_LH_C_0⁰, _lh_readChar_LH_C_1⁰)
 //│ 	| _  => error⁰}
-//│ def readChar_lh_₂(_lh_readChar_arg1³, _lh_readChar_arg2³, _lh_readChar_arg3³) = case _lh_readChar_arg3³ of {
-//│ 	LH_N  => _lh_readChar_arg1³([LH_N])
-//│ 	| LH_C _lh_readChar_LH_C_0⁰ _lh_readChar_LH_C_1⁰ => _lh_readChar_arg2³(_lh_readChar_LH_C_0⁰, _lh_readChar_LH_C_1⁰)
+//│ def readChar_lh_₂(_lh_readChar_arg1¹, _lh_readChar_arg2¹, _lh_readChar_arg3¹) = case _lh_readChar_arg3¹ of {
+//│ 	LH_N  => _lh_readChar_arg1¹([LH_N])
+//│ 	| LH_C _lh_readChar_LH_C_0¹ _lh_readChar_LH_C_1¹ => _lh_readChar_arg2¹(_lh_readChar_LH_C_0¹, _lh_readChar_LH_C_1¹)
 //│ 	| _  => error⁰}
-//│ def return_lh_₁(_lh_return_arg1¹, _lh_return_arg2¹) = _lh_return_arg2¹(reverse_lh_₁(_lh_return_arg1¹))
-//│ def reverse_helper_lh_₁(ls⁷, a¹) = case ls⁷ of {
-//│ 	LH_C h⁰ t⁰ => reverse_helper_lh_₁(t⁰, 
-//│ 		let t⁶⁸ = a¹
-//│ 		in let h⁶⁸ = h⁰
-//│ 		in (fun ys⁶² -> [LH_C h⁶⁸ mappend_lh_₁(t⁶⁸, ys⁶²)]))
-//│ 	| LH_N  => a¹}
-//│ def reverse_lh_₁(ls¹⁰) = reverse_helper_lh_₁(ls¹⁰, (fun ys⁸⁰ -> ys⁸⁰))
-//│ def ringBell_lh_₁(_lh_ringBell_arg1¹, _lh_ringBell_arg2¹) = writeChar_lh_₁('B', _lh_ringBell_arg1¹, _lh_ringBell_arg2¹)
-//│ def tail_lh_₁(ls⁹) = case ls⁹ of {
-//│ 	LH_C h¹ t¹ => t¹
+//│ def return_lh_₁(_lh_return_arg1⁰, _lh_return_arg2⁰) = _lh_return_arg2⁰(reverse_lh_₁(_lh_return_arg1⁰))
+//│ def reverse_helper_lh_₁(ls¹, a⁰) = case ls¹ of {
+//│ 	LH_C h⁵¹ t⁵¹ => reverse_helper_lh_₁(t⁵¹, 
+//│ 		let t⁵² = a⁰
+//│ 		in let h⁵² = h⁵¹
+//│ 		in (fun ys⁴⁸ -> [LH_C h⁵² mappend_lh_₁(t⁵², ys⁴⁸)]))
+//│ 	| LH_N  => a⁰}
+//│ def reverse_lh_₁(ls⁴) = reverse_helper_lh_₁(ls⁴, (fun ys⁶⁶ -> ys⁶⁶))
+//│ def ringBell_lh_₁(_lh_ringBell_arg1⁰, _lh_ringBell_arg2⁰) = writeChar_lh_₁('B', _lh_ringBell_arg1⁰, _lh_ringBell_arg2⁰)
+//│ def tail_lh_₁(ls³) = case ls³ of {
+//│ 	LH_C h⁵⁹ t⁵⁹ => t⁵⁹
 //│ 	| LH_N  => error⁰}
-//│ def testAnsi_nofib_lh_₁(_lh_testAnsi_nofib_arg1¹) = foldr_lh_₁((fun f² -> (fun g¹ -> (fun _lh_funcomp_x¹ -> f²(g¹(_lh_funcomp_x¹))))), (fun x¹ -> x¹), copy_lh_₁(_lh_testAnsi_nofib_arg1¹, program_lh_₁), [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_N]]]]]]]]]]]]])
-//│ def writeAt_lh_₁(_lh_writeAt_arg1⁵, _lh_writeAt_arg2⁸) = _lh_writeAt_arg1⁵(_lh_writeAt_arg2⁸)
-//│ def writeAt_lh_₂(_lh_writeAt_arg1⁴, _lh_writeAt_arg2⁷) = _lh_writeAt_arg1⁴(_lh_writeAt_arg2⁷)
-//│ def writeAt_lh_₃(_lh_writeAt_arg1³, _lh_writeAt_arg2⁶) = _lh_writeAt_arg1³(_lh_writeAt_arg2⁶)
-//│ def writeChar_lh_₁(_lh_writeChar_arg1¹, _lh_writeChar_arg2¹, _lh_writeChar_arg3¹) = [LH_C _lh_writeChar_arg1¹ _lh_writeChar_arg2¹(_lh_writeChar_arg3¹)]
-//│ def writeString_lh_₁(_lh_writeString_arg1⁵, _lh_writeString_arg2⁵, _lh_writeString_arg3⁵) = mappend_lh_₅(_lh_writeString_arg1⁵, _lh_writeString_arg2⁵(_lh_writeString_arg3⁵))
-//│ def writeString_lh_₂(_lh_writeString_arg1⁶, _lh_writeString_arg2⁶, _lh_writeString_arg3⁶) = mappend_lh_₁₄(_lh_writeString_arg1⁶, _lh_writeString_arg2⁶(_lh_writeString_arg3⁶))
-//│ def writeString_lh_₃(_lh_writeString_arg1⁸, _lh_writeString_arg2⁸, _lh_writeString_arg3⁸) = mappend_lh_₁₄(_lh_writeString_arg1⁸, _lh_writeString_arg2⁸(_lh_writeString_arg3⁸))
-//│ def writeString_lh_₄(_lh_writeString_arg1⁷, _lh_writeString_arg2⁷, _lh_writeString_arg3⁷) = mappend_lh_₁₄(_lh_writeString_arg1⁷, _lh_writeString_arg2⁷(_lh_writeString_arg3⁷))
-//│ def writeString_lh_₅(_lh_writeString_arg1⁹, _lh_writeString_arg2⁹, _lh_writeString_arg3⁹) = mappend_lh_₁₄(_lh_writeString_arg1⁹, _lh_writeString_arg2⁹(_lh_writeString_arg3⁹))
-//│ def writes_lh_₁(_lh_writes_arg1¹) = writeString_lh_₃(concat_lh_₁(_lh_writes_arg1¹))
+//│ def testAnsi_nofib_lh_₁(_lh_testAnsi_nofib_arg1⁰) = foldr_lh_₁((fun f⁰ -> (fun g⁰ -> (fun _lh_funcomp_x⁰ -> f⁰(g⁰(_lh_funcomp_x⁰))))), (fun x⁰ -> x⁰), copy_lh_₁(_lh_testAnsi_nofib_arg1⁰, program_lh_₁), [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C 't' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_N]]]]]]]]]]]]])
+//│ def writeAt_lh_₁(_lh_writeAt_arg1², _lh_writeAt_arg2⁵) = _lh_writeAt_arg1²(_lh_writeAt_arg2⁵)
+//│ def writeAt_lh_₂(_lh_writeAt_arg1¹, _lh_writeAt_arg2⁴) = _lh_writeAt_arg1¹(_lh_writeAt_arg2⁴)
+//│ def writeAt_lh_₃(_lh_writeAt_arg1⁰, _lh_writeAt_arg2³) = _lh_writeAt_arg1⁰(_lh_writeAt_arg2³)
+//│ def writeChar_lh_₁(_lh_writeChar_arg1⁰, _lh_writeChar_arg2⁰, _lh_writeChar_arg3⁰) = [LH_C _lh_writeChar_arg1⁰ _lh_writeChar_arg2⁰(_lh_writeChar_arg3⁰)]
+//│ def writeString_lh_₁(_lh_writeString_arg1⁰, _lh_writeString_arg2⁰, _lh_writeString_arg3⁰) = mappend_lh_₅(_lh_writeString_arg1⁰, _lh_writeString_arg2⁰(_lh_writeString_arg3⁰))
+//│ def writeString_lh_₂(_lh_writeString_arg1¹, _lh_writeString_arg2¹, _lh_writeString_arg3¹) = mappend_lh_₁₄(_lh_writeString_arg1¹, _lh_writeString_arg2¹(_lh_writeString_arg3¹))
+//│ def writeString_lh_₃(_lh_writeString_arg1³, _lh_writeString_arg2³, _lh_writeString_arg3³) = mappend_lh_₁₄(_lh_writeString_arg1³, _lh_writeString_arg2³(_lh_writeString_arg3³))
+//│ def writeString_lh_₄(_lh_writeString_arg1², _lh_writeString_arg2², _lh_writeString_arg3²) = mappend_lh_₁₄(_lh_writeString_arg1², _lh_writeString_arg2²(_lh_writeString_arg3²))
+//│ def writeString_lh_₅(_lh_writeString_arg1⁴, _lh_writeString_arg2⁴, _lh_writeString_arg3⁴) = mappend_lh_₁₄(_lh_writeString_arg1⁴, _lh_writeString_arg2⁴(_lh_writeString_arg3⁴))
+//│ def writes_lh_₁(_lh_writes_arg1⁰) = writeString_lh_₃(concat_lh_₁(_lh_writes_arg1⁰))
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

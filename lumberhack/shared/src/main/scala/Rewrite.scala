@@ -450,7 +450,7 @@ trait ExprRewrite { this: Expr =>
     def mergeFunctionsInDifferentBranches(fs: List[Function]): List[Ident] -> List[Expr] = {
       val fsWithParamOut = fs.map(_.takeParamsOut)
       val minLength = fsWithParamOut.map(_._1.length).min
-      val popOutParamIds = (0 until minLength).map(i => newd.nextIdent(false, Var(s"_lh_popOutId_$i")))
+      val popOutParamIds = (0 until minLength).map(i => newd.nextIdent(false, Var(s"_lh_floatOutId_$i")))
       val newBodies = fsWithParamOut.map { case (ps, body) =>
         val psSplit = ps.splitAt(minLength)
         val mapping = psSplit._1.zip(popOutParamIds).toMap
@@ -687,7 +687,7 @@ trait ProgramRewrite { this: Program =>
     )
   }
 
-  def floatOutLambdas: Program -> Deforest = {
+  lazy val floatOutLambdas: Program -> Deforest = {
     val newd: Deforest = Deforest(false)
     val copied -> _ -> _ = this.copyDefsToNewDeforest(using newd)
     val (newProg, finalD) = (copied, newd)

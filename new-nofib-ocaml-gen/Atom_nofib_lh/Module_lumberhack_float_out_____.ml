@@ -155,13 +155,13 @@ let rec show_lh__d1 _lh_show_arg1_0 =
       (failwith "error"));;
 let rec concat_lh__d1 lss_1 =
   (lss_1 99);;
-let rec take_lz_lh__d1 n_0 ls_0 _lh_popOutId_0_1 _lh_popOutId_1_1 =
+let rec take_lz_lh__d1 n_0 ls_0 _lh_floatOutId_0_1 _lh_floatOutId_1_1 =
   (if (n_0 > 0) then
     (match (Lazy.force ls_0) with
       | `LH_C(h_8, t_8) -> 
         (let rec _lh_listcomp_fun_ls_t_1 = ((take_lz_lh__d1 (n_0 - 1)) t_8) in
           (let rec _lh_listcomp_fun_ls_h_1 = h_8 in
-            (let rec t_9 = (_lh_popOutId_0_1 _lh_listcomp_fun_ls_t_1) in
+            (let rec t_9 = (_lh_floatOutId_0_1 _lh_listcomp_fun_ls_t_1) in
               (let rec h_9 = ((mappend_lh__d1 (show_lh__d1 _lh_listcomp_fun_ls_h_1)) (let rec t_1_0 = (fun ys_1_2 -> 
                 ys_1_2) in
                 (let rec h_1_0 = 'n' in

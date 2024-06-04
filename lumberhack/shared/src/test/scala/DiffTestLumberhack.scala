@@ -43,11 +43,14 @@ class DiffTestLumberhack extends DiffTests {
         val newp = p.copyToNewDeforestWithDeadDefElim
         newp.d(newp)
         val res = newp.expandedWithLimit(newp.contents.length * 2)
-        res._2(res._1)
         res
       else
         val p = Program.fromPgrm(Pgrm(filteredEntities))(using originalD)
-        (p, p.d)
+        p.d(p)
+        val newp = p.copyToNewDeforestWithDeadDefElim
+        newp.d(newp)
+        val res = newp.expandedWithLimit(newp.contents.length * 2)
+        res
       given d: Deforest = newD
       d.debug = mode.stdout || mode.verbose
       d(originalProgram)
@@ -175,7 +178,7 @@ class DiffTestLumberhack extends DiffTests {
 
     val prgmAfterFusion = p.rewrite(d, fusionStrategy)
     output("\n>>>>>>> after fusion >>>>>>>")
-    output(prgmAfterFusion.pp(using InitPpConfig.multilineOn.showIuidOn))
+    output(prgmAfterFusion.floatOutLambdas._1.pp(using InitPpConfig.multilineOn.showIuidOn))
     output("<<<<<<< after fusion <<<<<<<")
 
 

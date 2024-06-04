@@ -65,11 +65,11 @@ let rec concat_lh__d3 lss_0 =
       ((mappend_lh__d3_d4 h_1) (concat_lh__d3 t_1))
     | `LH_N -> 
       (`LH_N));;
-let rec enumFromTo_lh__d4 a_2 b_2 _lh_popOutId_0_0 _lh_popOutId_1_0 =
+let rec enumFromTo_lh__d4 a_2 b_2 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (if (a_2 <= b_2) then
     (let rec tx_0 = ((enumFromTo_lh__d4 (a_2 + 1)) b_2) in
       (let rec hx_0 = a_2 in
-        (((_lh_popOutId_1_0 _lh_popOutId_0_0) hx_0) tx_0)))
+        (((_lh_floatOutId_1_0 _lh_floatOutId_0_0) hx_0) tx_0)))
   else
     (`LH_N));;
 let rec zipWith_lh__d2 f_1_2 xs_1_3 ys_4_2 =
@@ -260,16 +260,16 @@ let rec zipWith_lh__d1 f_3_2 xs_2_3 ys_8_4 =
   ((xs_2_3 f_3_2) ys_8_4);;
 let rec reverse_helper_lh__d2 ls_5 a_1 =
   (ls_5 a_1);;
-let rec enumFromTo_lh__d3 a_9 b_8 _lh_popOutId_0_6 =
+let rec enumFromTo_lh__d3 a_9 b_8 _lh_floatOutId_0_6 =
   (if (a_9 <= b_8) then
     (let rec t_8_1 = ((enumFromTo_lh__d3 (a_9 + 1)) b_8) in
       (let rec h_8_1 = a_9 in
-        ((reverse_helper_lh__d2 t_8_1) (let rec tx_4 = _lh_popOutId_0_6 in
+        ((reverse_helper_lh__d2 t_8_1) (let rec tx_4 = _lh_floatOutId_0_6 in
           (let rec hx_4 = h_8_1 in
             (fun f_3_4 ys_8_5 -> 
               (((ys_8_5 f_3_4) hx_4) tx_4)))))))
   else
-    _lh_popOutId_0_6);;
+    _lh_floatOutId_0_6);;
 let rec emptyBoard_lh__d1 =
   (`Board((`LH_N), (`LH_N)));;
 let rec reverse_lh__d2 ls_2_8 =
@@ -295,14 +295,14 @@ let rec mappend_lh__d2_d0 xs_1_8 ys_7_1 =
             ((f_2_3 h_6_5) (((foldr_lh__d3 f_2_3) i_1_2) t_6_5)))))
     | `LH_N -> 
       ys_7_1);;
-let rec take_lh__d1 n_2 ls_1_3 _lh_popOutId_0_4 _lh_popOutId_1_3 _lh_popOutId_2_1 _lh_popOutId_3_1 =
+let rec take_lh__d1 n_2 ls_1_3 _lh_floatOutId_0_4 _lh_floatOutId_1_3 _lh_floatOutId_2_1 _lh_floatOutId_3_1 =
   (if (n_2 > 0) then
     (match ls_1_3 with
       | `LH_C(h_5_8, t_5_8) -> 
         (let rec ty_0 = ((take_lh__d1 (n_2 - 1)) t_5_8) in
           (let rec hy_0 = h_5_8 in
-            (let rec t_5_9 = (((zipWith_lh__d1 _lh_popOutId_0_4) _lh_popOutId_2_1) ty_0) in
-              (let rec h_5_9 = ((_lh_popOutId_0_4 _lh_popOutId_1_3) hy_0) in
+            (let rec t_5_9 = (((zipWith_lh__d1 _lh_floatOutId_0_4) _lh_floatOutId_2_1) ty_0) in
+              (let rec h_5_9 = ((_lh_floatOutId_0_4 _lh_floatOutId_1_3) hy_0) in
                 ((mappend_lh__d2_d0 h_5_9) (concat_lh__d2 t_5_9))))))
       | `LH_N -> 
         (fun f_1_8 i_9 -> 
@@ -416,13 +416,13 @@ let rec map_lh__d1 f_2_4 ls_1_6 =
   (ls_1_6 f_2_4);;
 let rec foldr_lh__d1 f_9 i_5 ls_7 =
   ((ls_7 f_9) i_5);;
-let rec enumFromTo_lh__d1 a_8 b_7 _lh_popOutId_0_5 _lh_popOutId_1_4 =
+let rec enumFromTo_lh__d1 a_8 b_7 _lh_floatOutId_0_5 _lh_floatOutId_1_4 =
   (if (a_8 <= b_7) then
     (let rec t_7_8 = ((enumFromTo_lh__d1 (a_8 + 1)) b_7) in
       (let rec h_7_8 = a_8 in
-        ((_lh_popOutId_0_5 h_7_8) (((foldr_lh__d1 _lh_popOutId_0_5) _lh_popOutId_1_4) t_7_8))))
+        ((_lh_floatOutId_0_5 h_7_8) (((foldr_lh__d1 _lh_floatOutId_0_5) _lh_floatOutId_1_4) t_7_8))))
   else
-    _lh_popOutId_1_4);;
+    _lh_floatOutId_1_4);;
 let rec reverse_helper_lh__d1 ls_6 a_3 =
   (ls_6 a_3);;
 let rec reverse_lh__d1 ls_2_6 =
@@ -512,11 +512,11 @@ let rec mappend_lh__d9 xs_2_1 ys_8_2 =
 let rec unlines_lh__d1 _lh_unlines_arg1_0 =
   (concat_lh__d1 ((map_lh__d2 (fun l_0 -> 
     ((mappend_lh__d9 l_0) (`LH_C('|', (`LH_N)))))) _lh_unlines_arg1_0));;
-let rec enumFromTo_lh__d2 a_4 b_3 _lh_popOutId_0_1 =
+let rec enumFromTo_lh__d2 a_4 b_3 _lh_floatOutId_0_1 =
   (if (a_4 <= b_3) then
     (let rec t_2_8 = ((enumFromTo_lh__d2 (a_4 + 1)) b_3) in
       (let rec h_2_8 = a_4 in
-        ((reverse_helper_lh__d1 t_2_8) (let rec t_2_9 = _lh_popOutId_0_1 in
+        ((reverse_helper_lh__d1 t_2_8) (let rec t_2_9 = _lh_floatOutId_0_1 in
           (let rec h_2_9 = h_2_8 in
             (fun f_7 -> 
               (let rec t_3_0 = ((map_lh__d1 f_7) t_2_9) in
@@ -524,7 +524,7 @@ let rec enumFromTo_lh__d2 a_4 b_3 _lh_popOutId_0_1 =
                   (fun f_8 -> 
                     (`LH_C((f_8 h_3_0), ((map_lh__d2 f_8) t_3_0))))))))))))
   else
-    _lh_popOutId_0_1);;
+    _lh_floatOutId_0_1);;
 let rec showBoard_lh__d1 _lh_showBoard_arg1_0 =
   (let rec showRank_0 = (fun r_0 -> 
     (let rec consFile_0 = (fun f_1_5 s_0 -> 
@@ -1451,14 +1451,14 @@ let rec mappend_lh__d2_d2 xs_3_4 ys_1_4_4 =
       (`LH_C(h_1_3_7, ((mappend_lh__d2_d2 t_1_3_7) ys_1_4_4)))
     | `LH_N -> 
       ys_1_4_4);;
-let rec tab_lh__d1 _lh_tab_arg1_1 _lh_popOutId_0_7 =
+let rec tab_lh__d1 _lh_tab_arg1_1 _lh_floatOutId_0_7 =
   (if (_lh_tab_arg1_1 <= 0) then
-    _lh_popOutId_0_7
+    _lh_floatOutId_0_7
   else
     (fun ys_1_4_3 -> 
       (let rec t_1_3_5 = (tab_lh__d1 (_lh_tab_arg1_1 - 1)) in
         (let rec h_1_3_5 = ' ' in
-          (let rec t_1_3_6 = ((mappend_lh__d2_d1 t_1_3_5) _lh_popOutId_0_7) in
+          (let rec t_1_3_6 = ((mappend_lh__d2_d1 t_1_3_5) _lh_floatOutId_0_7) in
             (let rec h_1_3_6 = h_1_3_5 in
               (`LH_C(h_1_3_6, ((mappend_lh__d2_d4 t_1_3_6) ys_1_4_3)))))))));;
 let rec showMoves_lh__d1 _lh_showMoves_arg1_3 =

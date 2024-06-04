@@ -115,14 +115,14 @@ let rec mappend_lh__d8 xs_4 ys_1_2 =
                         (1 + (length_lh__d2 t_3_7)))))))))))
     | `LH_N -> 
       ys_1_2);;
-let rec copy_lh__d4 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_popOutId_0_1 =
+let rec copy_lh__d4 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_floatOutId_0_1 =
   (if (_lh_copy_arg1_0 <= 0) then
-    _lh_popOutId_0_1
+    _lh_floatOutId_0_1
   else
     (fun ys_6 _lh_dummy_2_7 -> 
       (let rec t_2_6 = ((copy_lh__d4 (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0) in
         (let rec h_2_6 = _lh_copy_arg2_0 in
-          (let rec t_2_7 = ((mappend_lh__d6 t_2_6) _lh_popOutId_0_1) in
+          (let rec t_2_7 = ((mappend_lh__d6 t_2_6) _lh_floatOutId_0_1) in
             (let rec h_2_7 = h_2_6 in
               (let rec t_2_8 = ((mappend_lh__d4 t_2_7) ys_6) in
                 (let rec h_2_8 = h_2_7 in
@@ -162,14 +162,14 @@ let rec mappend_lh__d1_d0 xs_7 ys_8_0 =
   (xs_7 ys_8_0);;
 let rec mappend_lh__d7 xs_8 ys_8_1 =
   (xs_8 ys_8_1);;
-let rec copy_lh__d3 _lh_copy_arg1_3 _lh_copy_arg2_3 _lh_popOutId_0_5 =
+let rec copy_lh__d3 _lh_copy_arg1_3 _lh_copy_arg2_3 _lh_floatOutId_0_5 =
   (if (_lh_copy_arg1_3 <= 0) then
-    _lh_popOutId_0_5
+    _lh_floatOutId_0_5
   else
     (fun ys_1_0_6 _lh_dummy_5_3 -> 
       (let rec t_1_4_4 = ((copy_lh__d3 (_lh_copy_arg1_3 - 1)) _lh_copy_arg2_3) in
         (let rec h_1_4_4 = _lh_copy_arg2_3 in
-          (let rec t_1_4_5 = ((mappend_lh__d7 t_1_4_4) _lh_popOutId_0_5) in
+          (let rec t_1_4_5 = ((mappend_lh__d7 t_1_4_4) _lh_floatOutId_0_5) in
             (let rec h_1_4_5 = h_1_4_4 in
               (let rec t_1_4_6 = ((mappend_lh__d4 t_1_4_5) ys_1_0_6) in
                 (let rec h_1_4_6 = h_1_4_5 in
@@ -184,14 +184,14 @@ let rec spaces_lh__d2 _lh_spaces_arg1_1 _lh_spaces_arg2_1 =
     ((copy_lh__d3 (((logTen_1 _lh_spaces_arg1_1) - (logTen_1 _lh_spaces_arg2_1)) + 1)) ' '));;
 let rec mappend_lh__d1_d3 xs_1_7 ys_9_4 =
   (xs_1_7 ys_9_4);;
-let rec copy_lh__d2 _lh_copy_arg1_2 _lh_copy_arg2_2 _lh_popOutId_0_4 =
+let rec copy_lh__d2 _lh_copy_arg1_2 _lh_copy_arg2_2 _lh_floatOutId_0_4 =
   (if (_lh_copy_arg1_2 <= 0) then
-    _lh_popOutId_0_4
+    _lh_floatOutId_0_4
   else
     (fun ys_1_0_3 _lh_dummy_5_2 -> 
       (let rec t_1_4_0 = ((copy_lh__d2 (_lh_copy_arg1_2 - 1)) _lh_copy_arg2_2) in
         (let rec h_1_4_0 = _lh_copy_arg2_2 in
-          (let rec t_1_4_1 = ((mappend_lh__d1_d2 t_1_4_0) _lh_popOutId_0_4) in
+          (let rec t_1_4_1 = ((mappend_lh__d1_d2 t_1_4_0) _lh_floatOutId_0_4) in
             (let rec h_1_4_1 = h_1_4_0 in
               (let rec t_1_4_2 = ((mappend_lh__d4 t_1_4_1) ys_1_0_3) in
                 (let rec h_1_4_2 = h_1_4_1 in
@@ -774,23 +774,23 @@ let rec repeat_lh__d2 x_1 =
           (let rec h_1_1_8 = (`LH_P2(hx_2, hy_1)) in
             (fun ys_7_7 -> 
               (`LH_C(h_1_1_8, ((mappend_lh__d1_d8 t_1_1_8) ys_7_7))))))))));;
-let rec enumFromTo_lh__d1 a_0 b_0 _lh_popOutId_0_0 _lh_popOutId_1_0 _lh_popOutId_2_0 _lh_popOutId_3_0 =
+let rec enumFromTo_lh__d1 a_0 b_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 _lh_floatOutId_2_0 _lh_floatOutId_3_0 =
   (if (a_0 <= b_0) then
     (fun f_0 ys_0 -> 
       (let rec _lh_listcomp_fun_ls_t_8 = ((enumFromTo_lh__d1 (a_0 + 1)) b_0) in
         (let rec _lh_listcomp_fun_ls_h_8 = a_0 in
-          (let rec tx_0 = (_lh_popOutId_1_0 _lh_listcomp_fun_ls_t_8) in
-            (let rec hx_0 = (`LH_P2(_lh_popOutId_0_0, _lh_listcomp_fun_ls_h_8)) in
+          (let rec tx_0 = (_lh_floatOutId_1_0 _lh_listcomp_fun_ls_t_8) in
+            (let rec hx_0 = (`LH_P2(_lh_floatOutId_0_0, _lh_listcomp_fun_ls_h_8)) in
               (((ys_0 f_0) hx_0) tx_0))))))
   else
-    (_lh_popOutId_3_0 _lh_popOutId_2_0));;
-let rec enumFromTo_lh__d2 a_1 b_1 _lh_popOutId_0_2 _lh_popOutId_1_1 =
+    (_lh_floatOutId_3_0 _lh_floatOutId_2_0));;
+let rec enumFromTo_lh__d2 a_1 b_1 _lh_floatOutId_0_2 _lh_floatOutId_1_1 =
   (if (a_1 <= b_1) then
     (let rec _lh_listcomp_fun_ls_t_2_7 = ((enumFromTo_lh__d2 (a_1 + 1)) b_1) in
       (let rec _lh_listcomp_fun_ls_h_2_7 = a_1 in
         (let rec _lh_listcomp_fun_3_5 = (fun _lh_listcomp_fun_para_3 -> 
-          ((((_lh_listcomp_fun_para_3 _lh_listcomp_fun_ls_h_2_7) _lh_listcomp_fun_3_5) _lh_listcomp_fun_ls_t_2_7) _lh_popOutId_0_2)) in
-          (_lh_listcomp_fun_3_5 ((enumFromTo_lh__d1 1) _lh_popOutId_1_1)))))
+          ((((_lh_listcomp_fun_para_3 _lh_listcomp_fun_ls_h_2_7) _lh_listcomp_fun_3_5) _lh_listcomp_fun_ls_t_2_7) _lh_floatOutId_0_2)) in
+          (_lh_listcomp_fun_3_5 ((enumFromTo_lh__d1 1) _lh_floatOutId_1_1)))))
   else
     (fun f_1 ys_7_8 xs_6 ys_7_9 -> 
       ys_7_9));;
@@ -798,16 +798,16 @@ let rec createQueue_lh__d1 =
   (`LH_N);;
 let rec zipWith_lh__d1 f_1_7 xs_2_1 ys_1_0_0 =
   ((xs_2_1 f_1_7) ys_1_0_0);;
-let rec copy_lh__d1 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_popOutId_0_3 _lh_popOutId_1_2 _lh_popOutId_2_1 _lh_popOutId_3_1 =
+let rec copy_lh__d1 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_floatOutId_0_3 _lh_floatOutId_1_2 _lh_floatOutId_2_1 _lh_floatOutId_3_1 =
   (if (_lh_copy_arg1_1 <= 0) then
     (fun ys_8_6 -> 
       ys_8_6)
   else
     (let rec ty_2 = ((copy_lh__d1 (_lh_copy_arg1_1 - 1)) _lh_copy_arg2_1) in
       (let rec hy_2 = _lh_copy_arg2_1 in
-        (let rec ty_3 = (((zipWith_lh__d1 _lh_popOutId_0_3) _lh_popOutId_2_1) ty_2) in
-          (let rec hy_3 = ((_lh_popOutId_0_3 _lh_popOutId_1_2) hy_2) in
-            (((Lazy.force _lh_popOutId_3_1) hy_3) ty_3))))));;
+        (let rec ty_3 = (((zipWith_lh__d1 _lh_floatOutId_0_3) _lh_floatOutId_2_1) ty_2) in
+          (let rec hy_3 = ((_lh_floatOutId_0_3 _lh_floatOutId_1_2) hy_2) in
+            (((Lazy.force _lh_floatOutId_3_1) hy_3) ty_3))))));;
 let rec root_lh__d1 _lh_root_arg1_2 =
   ((addAllFront_lh__d2 ((zip_lz_nl_lh__d2 (repeat_lh__d2 (1 - (_lh_root_arg1_2 * _lh_root_arg1_2)))) (((zipWith_lh__d1 startTour_lh__d1) (let rec _lh_listcomp_fun_5_2 = (fun _lh_listcomp_fun_para_1_0 -> 
     ((_lh_listcomp_fun_para_1_0 _lh_listcomp_fun_5_2) _lh_root_arg1_2)) in

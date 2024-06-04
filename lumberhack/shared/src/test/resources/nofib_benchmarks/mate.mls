@@ -4210,292 +4210,292 @@ testMate_nofib $ primId 0
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMate_nofib_lh_₁(primId⁰(0))
-//│ def abs_lh_₁(_lh_abs_arg1¹³) = if (_lh_abs_arg1¹³ < 0) then (0 - _lh_abs_arg1¹³) else _lh_abs_arg1¹³
-//│ def abs_lh_₂(_lh_abs_arg1¹⁰) = if (_lh_abs_arg1¹⁰ < 0) then (0 - _lh_abs_arg1¹⁰) else _lh_abs_arg1¹⁰
-//│ def abs_lh_₃(_lh_abs_arg1¹¹) = if (_lh_abs_arg1¹¹ < 0) then (0 - _lh_abs_arg1¹¹) else _lh_abs_arg1¹¹
-//│ def abs_lh_₄(_lh_abs_arg1¹²) = if (_lh_abs_arg1¹² < 0) then (0 - _lh_abs_arg1¹²) else _lh_abs_arg1¹²
-//│ def abs_lh_₅(_lh_abs_arg1⁹) = if (_lh_abs_arg1⁹ < 0) then (0 - _lh_abs_arg1⁹) else _lh_abs_arg1⁹
-//│ def abs_lh_₆(_lh_abs_arg1⁸) = if (_lh_abs_arg1⁸ < 0) then (0 - _lh_abs_arg1⁸) else _lh_abs_arg1⁸
-//│ def abs_lh_₇(_lh_abs_arg1⁷) = if (_lh_abs_arg1⁷ < 0) then (0 - _lh_abs_arg1⁷) else _lh_abs_arg1⁷
-//│ def any_lh_₁(_lh_any_arg1¹, _lh_any_arg2¹) = case _lh_any_arg2¹ of {
+//│ def abs_lh_₁(_lh_abs_arg1⁶) = if (_lh_abs_arg1⁶ < 0) then (0 - _lh_abs_arg1⁶) else _lh_abs_arg1⁶
+//│ def abs_lh_₂(_lh_abs_arg1³) = if (_lh_abs_arg1³ < 0) then (0 - _lh_abs_arg1³) else _lh_abs_arg1³
+//│ def abs_lh_₃(_lh_abs_arg1⁴) = if (_lh_abs_arg1⁴ < 0) then (0 - _lh_abs_arg1⁴) else _lh_abs_arg1⁴
+//│ def abs_lh_₄(_lh_abs_arg1⁵) = if (_lh_abs_arg1⁵ < 0) then (0 - _lh_abs_arg1⁵) else _lh_abs_arg1⁵
+//│ def abs_lh_₅(_lh_abs_arg1²) = if (_lh_abs_arg1² < 0) then (0 - _lh_abs_arg1²) else _lh_abs_arg1²
+//│ def abs_lh_₆(_lh_abs_arg1¹) = if (_lh_abs_arg1¹ < 0) then (0 - _lh_abs_arg1¹) else _lh_abs_arg1¹
+//│ def abs_lh_₇(_lh_abs_arg1⁰) = if (_lh_abs_arg1⁰ < 0) then (0 - _lh_abs_arg1⁰) else _lh_abs_arg1⁰
+//│ def any_lh_₁(_lh_any_arg1⁰, _lh_any_arg2⁰) = case _lh_any_arg2⁰ of {
 //│ 	LH_N  => [False]
-//│ 	| LH_C _lh_any_LH_C_0⁰ _lh_any_LH_C_1⁰ => if _lh_any_arg1¹(_lh_any_LH_C_0⁰) then [True] else any_lh_₁(_lh_any_arg1¹, _lh_any_LH_C_1⁰)
+//│ 	| LH_C _lh_any_LH_C_0⁰ _lh_any_LH_C_1⁰ => if _lh_any_arg1⁰(_lh_any_LH_C_0⁰) then [True] else any_lh_₁(_lh_any_arg1⁰, _lh_any_LH_C_1⁰)
 //│ 	| _  => error⁰}
-//│ def atIndex_lh_₁(n¹⁸, ls⁶⁰) = if (n¹⁸ < 0) then error⁰ else ls⁶⁰(n¹⁸)
-//│ def bishopmoves_lh_₁(_lh_bishopmoves_arg1¹, _lh_bishopmoves_arg2¹, _lh_bishopmoves_arg3¹) = moveLine_lh_₁(_lh_bishopmoves_arg3¹, _lh_bishopmoves_arg1¹, _lh_bishopmoves_arg2¹, (fun xy⁹ -> 
-//│ 	let _lh_matchIdent¹⁰⁶ = xy⁹
-//│ 	in case _lh_matchIdent¹⁰⁶ of {
+//│ def atIndex_lh_₁(n¹³, ls²⁹) = if (n¹³ < 0) then error⁰ else ls²⁹(n¹³)
+//│ def bishopmoves_lh_₁(_lh_bishopmoves_arg1⁰, _lh_bishopmoves_arg2⁰, _lh_bishopmoves_arg3⁰) = moveLine_lh_₁(_lh_bishopmoves_arg3⁰, _lh_bishopmoves_arg1⁰, _lh_bishopmoves_arg2⁰, (fun xy⁰ -> 
+//│ 	let _lh_matchIdent⁴⁰ = xy⁰
+//│ 	in case _lh_matchIdent⁴⁰ of {
 //│ 		LH_P2 _lh_bishopmoves_LH_P2_0⁰ _lh_bishopmoves_LH_P2_1⁰ => [LH_P2 (_lh_bishopmoves_LH_P2_0⁰ - 1) (_lh_bishopmoves_LH_P2_1⁰ + 1)]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3¹, _lh_bishopmoves_arg1¹, _lh_bishopmoves_arg2¹, (fun xy¹⁰ -> 
-//│ 	let _lh_matchIdent¹⁰⁷ = xy¹⁰
-//│ 	in case _lh_matchIdent¹⁰⁷ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3⁰, _lh_bishopmoves_arg1⁰, _lh_bishopmoves_arg2⁰, (fun xy¹ -> 
+//│ 	let _lh_matchIdent⁴¹ = xy¹
+//│ 	in case _lh_matchIdent⁴¹ of {
 //│ 		LH_P2 _lh_bishopmoves_LH_P2_0¹ _lh_bishopmoves_LH_P2_1¹ => [LH_P2 (_lh_bishopmoves_LH_P2_0¹ + 1) (_lh_bishopmoves_LH_P2_1¹ + 1)]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3¹, _lh_bishopmoves_arg1¹, _lh_bishopmoves_arg2¹, (fun xy¹¹ -> 
-//│ 	let _lh_matchIdent¹⁰⁸ = xy¹¹
-//│ 	in case _lh_matchIdent¹⁰⁸ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3⁰, _lh_bishopmoves_arg1⁰, _lh_bishopmoves_arg2⁰, (fun xy² -> 
+//│ 	let _lh_matchIdent⁴² = xy²
+//│ 	in case _lh_matchIdent⁴² of {
 //│ 		LH_P2 _lh_bishopmoves_LH_P2_0² _lh_bishopmoves_LH_P2_1² => [LH_P2 (_lh_bishopmoves_LH_P2_0² - 1) (_lh_bishopmoves_LH_P2_1² - 1)]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3¹, _lh_bishopmoves_arg1¹, _lh_bishopmoves_arg2¹, (fun xy¹² -> 
-//│ 	let _lh_matchIdent¹⁰⁹ = xy¹²
-//│ 	in case _lh_matchIdent¹⁰⁹ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_bishopmoves_arg3⁰, _lh_bishopmoves_arg1⁰, _lh_bishopmoves_arg2⁰, (fun xy³ -> 
+//│ 	let _lh_matchIdent⁴³ = xy³
+//│ 	in case _lh_matchIdent⁴³ of {
 //│ 		LH_P2 _lh_bishopmoves_LH_P2_0³ _lh_bishopmoves_LH_P2_1³ => [LH_P2 (_lh_bishopmoves_LH_P2_0³ + 1) (_lh_bishopmoves_LH_P2_1³ - 1)]
-//│ 		| _  => error⁰}), (fun x¹⁷ -> x¹⁷)))), [LH_N])
-//│ def break_lh_₁(_lh_break_arg1³, _lh_break_arg2³) = case _lh_break_arg2³ of {
-//│ 	LH_N  => [LH_P2 [LH_N] (fun _lh_dummy⁷ -> (fun f⁴⁹ -> [LH_N]))]
-//│ 	| LH_C _lh_break_LH_C_0¹ _lh_break_LH_C_1¹ => if _lh_break_arg1³(_lh_break_LH_C_0¹) then [LH_P2 [LH_N] 
-//│ 		let _lh_lines_LH_C_1¹ = _lh_break_LH_C_1¹
-//│ 		in let _lh_lines_LH_C_0¹ = _lh_break_LH_C_0¹
-//│ 		in (fun _lh_dummy⁸ -> lines_lh_₁(_lh_lines_LH_C_1¹))] else 
-//│ 		let _lh_matchIdent¹²⁵ = break_lh_₁(_lh_break_arg1³, _lh_break_LH_C_1¹)
-//│ 		in case _lh_matchIdent¹²⁵ of {
+//│ 		| _  => error⁰}), (fun x⁷ -> x⁷)))), [LH_N])
+//│ def break_lh_₁(_lh_break_arg1¹, _lh_break_arg2¹) = case _lh_break_arg2¹ of {
+//│ 	LH_N  => [LH_P2 [LH_N] (fun _lh_dummy⁷ -> (fun f³³ -> [LH_N]))]
+//│ 	| LH_C _lh_break_LH_C_0¹ _lh_break_LH_C_1¹ => if _lh_break_arg1¹(_lh_break_LH_C_0¹) then [LH_P2 [LH_N] 
+//│ 		let _lh_lines_LH_C_1⁰ = _lh_break_LH_C_1¹
+//│ 		in let _lh_lines_LH_C_0⁰ = _lh_break_LH_C_0¹
+//│ 		in (fun _lh_dummy⁸ -> lines_lh_₁(_lh_lines_LH_C_1⁰))] else 
+//│ 		let _lh_matchIdent⁵⁹ = break_lh_₁(_lh_break_arg1¹, _lh_break_LH_C_1¹)
+//│ 		in case _lh_matchIdent⁵⁹ of {
 //│ 			LH_P2 _lh_break_LH_P2_0¹ _lh_break_LH_P2_1¹ => [LH_P2 [LH_C _lh_break_LH_C_0¹ _lh_break_LH_P2_0¹] _lh_break_LH_P2_1¹]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def break_lh_₂(_lh_break_arg1², _lh_break_arg2²) = case _lh_break_arg2² of {
+//│ def break_lh_₂(_lh_break_arg1⁰, _lh_break_arg2⁰) = case _lh_break_arg2⁰ of {
 //│ 	LH_N  => [LH_P2 [LH_N] [LH_N]]
-//│ 	| LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰ => if _lh_break_arg1²(_lh_break_LH_C_0⁰) then [LH_P2 [LH_N] [LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰]] else 
-//│ 		let _lh_matchIdent⁹³ = break_lh_₂(_lh_break_arg1², _lh_break_LH_C_1⁰)
-//│ 		in case _lh_matchIdent⁹³ of {
+//│ 	| LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰ => if _lh_break_arg1⁰(_lh_break_LH_C_0⁰) then [LH_P2 [LH_N] [LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰]] else 
+//│ 		let _lh_matchIdent²⁷ = break_lh_₂(_lh_break_arg1⁰, _lh_break_LH_C_1⁰)
+//│ 		in case _lh_matchIdent²⁷ of {
 //│ 			LH_P2 _lh_break_LH_P2_0⁰ _lh_break_LH_P2_1⁰ => [LH_P2 [LH_C _lh_break_LH_C_0⁰ _lh_break_LH_P2_0⁰] _lh_break_LH_P2_1⁰]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def colourOf_lh_₁(_lh_colourOf_arg1¹) = case _lh_colourOf_arg1¹ of {
+//│ def colourOf_lh_₁(_lh_colourOf_arg1⁰) = case _lh_colourOf_arg1⁰ of {
 //│ 	LH_P2 _lh_colourOf_LH_P2_0⁰ _lh_colourOf_LH_P2_1⁰ => _lh_colourOf_LH_P2_0⁰
 //│ 	| _  => error⁰}
-//│ def comment_lh_₁(_lh_comment_arg1¹) = (polyEq⁰(_lh_comment_arg1¹, [LH_N]) || polyEq⁰(take_lh_₂(2, _lh_comment_arg1¹), [LH_C '-' [LH_C '-' [LH_N]]]))
-//│ def compact_lh_₁(_lh_compact_arg1¹) = _lh_compact_arg1¹(99)
-//│ def concat_lh_₁(lss⁵) = case lss⁵ of {
-//│ 	LH_C h⁵¹ t⁵¹ => mappend_lh_₁₀(h⁵¹, concat_lh_₁(t⁵¹))
-//│ 	| LH_N  => (fun ys¹⁷¹ -> ys¹⁷¹)}
-//│ def concat_lh_₂(lss⁴) = lss⁴(99)
-//│ def concat_lh_₃(lss³) = case lss³ of {
-//│ 	LH_C h²¹ t²¹ => mappend_lh_₃₄(h²¹, concat_lh_₃(t²¹))
+//│ def comment_lh_₁(_lh_comment_arg1⁰) = (polyEq⁰(_lh_comment_arg1⁰, [LH_N]) || polyEq⁰(take_lh_₂(2, _lh_comment_arg1⁰), [LH_C '-' [LH_C '-' [LH_N]]]))
+//│ def compact_lh_₁(_lh_compact_arg1⁰) = _lh_compact_arg1⁰(99)
+//│ def concat_lh_₁(lss²) = case lss² of {
+//│ 	LH_C h¹²² t¹²² => mappend_lh_₁₀(h¹²², concat_lh_₁(t¹²²))
+//│ 	| LH_N  => (fun ys¹³⁵ -> ys¹³⁵)}
+//│ def concat_lh_₂(lss¹) = lss¹(99)
+//│ def concat_lh_₃(lss⁰) = case lss⁰ of {
+//│ 	LH_C h¹ t¹ => mappend_lh_₃₄(h¹, concat_lh_₃(t¹))
 //│ 	| LH_N  => [LH_N]}
-//│ def dropWhile_lh_₁(_lh_dropWhile_arg1¹, _lh_dropWhile_arg2¹) = case _lh_dropWhile_arg2¹ of {
+//│ def dropWhile_lh_₁(_lh_dropWhile_arg1⁰, _lh_dropWhile_arg2⁰) = case _lh_dropWhile_arg2⁰ of {
 //│ 	LH_N  => [LH_N]
-//│ 	| LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰ => if _lh_dropWhile_arg1¹(_lh_dropWhile_LH_C_0⁰) then dropWhile_lh_₁(_lh_dropWhile_arg1¹, _lh_dropWhile_LH_C_1⁰) else [LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰]
+//│ 	| LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰ => if _lh_dropWhile_arg1⁰(_lh_dropWhile_LH_C_0⁰) then dropWhile_lh_₁(_lh_dropWhile_arg1⁰, _lh_dropWhile_LH_C_1⁰) else [LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰]
 //│ 	| _  => error⁰}
-//│ def drop_lh_₁(_lh_drop_arg1¹, _lh_drop_arg2¹) = case _lh_drop_arg2¹ of {
+//│ def drop_lh_₁(_lh_drop_arg1⁰, _lh_drop_arg2⁰) = case _lh_drop_arg2⁰ of {
 //│ 	LH_N  => (fun _lh_dummy⁹ -> error⁰)
-//│ 	| LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰ => if (_lh_drop_arg1¹ <= 0) then 
-//│ 		let _lh_parseGoal_LH_C_1¹ = _lh_drop_LH_C_1⁰
-//│ 		in let _lh_parseGoal_LH_C_0¹ = _lh_drop_LH_C_0⁰
-//│ 		in (fun _lh_dummy¹⁰ -> case _lh_parseGoal_LH_C_1¹ of {
+//│ 	| LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰ => if (_lh_drop_arg1⁰ <= 0) then 
+//│ 		let _lh_parseGoal_LH_C_1⁰ = _lh_drop_LH_C_1⁰
+//│ 		in let _lh_parseGoal_LH_C_0⁰ = _lh_drop_LH_C_0⁰
+//│ 		in (fun _lh_dummy¹⁰ -> case _lh_parseGoal_LH_C_1⁰ of {
 //│ 			LH_N  => 
-//│ 				let ws¹ = words_lh_₁(_lh_parseGoal_LH_C_0¹)
-//│ 				in let c³ = if polyEq⁰(head_lh_₁(ws¹), [LH_C 'B' [LH_C 'l' [LH_C 'a' [LH_C 'c' [LH_C 'k' [LH_N]]]]]]) then [Black] else [White]
-//│ 				in let n⁸ = 2
-//│ 				in let _lh_testMate_nofib_LH_P2_1³ = n⁸
-//│ 				in let _lh_testMate_nofib_LH_P2_0³ = c³
-//│ 				in (fun _lh_testMate_nofib_LH_P2_0⁴ -> mappend_lh_₆(mappend_lh_₇(mappend_lh_₄(mappend_lh_₃(mappend_lh_₅(mappend_lh_₁(mappend_lh_₂(showBoard_lh_₁(_lh_testMate_nofib_LH_P2_0⁴), 
-//│ 					let t¹³³ = (fun ys¹⁴⁰ -> ys¹⁴⁰)
-//│ 					in let h¹³³ = '|'
-//│ 					in (fun ys¹³⁷ -> 
-//│ 						let t¹³⁴ = mappend_lh_₁(t¹³³, ys¹³⁷)
-//│ 						in let h¹³⁴ = h¹³³
-//│ 						in (fun ys¹³⁸ -> 
-//│ 							let t¹³⁵ = mappend_lh_₅(t¹³⁴, ys¹³⁸)
-//│ 							in let h¹³⁵ = h¹³⁴
-//│ 							in (fun ys¹³⁹ -> [LH_C h¹³⁵ mappend_lh_₃(t¹³⁵, ys¹³⁹)])))), showColour_lh_₁(_lh_testMate_nofib_LH_P2_0³)), 
-//│ 					let t¹³⁶ = 	
-//│ 						let t¹³⁷ = 	
-//│ 							let t¹³⁸ = 	
-//│ 								let t¹³⁹ = 	
-//│ 									let t¹⁴⁰ = 	
-//│ 										let t¹⁴¹ = 	
-//│ 											let t¹⁴² = 	
-//│ 												let t¹⁴³ = 	
-//│ 													let t¹⁴⁴ = 	
-//│ 														let t¹⁴⁵ = 	
-//│ 															let t¹⁴⁶ = 	
-//│ 																let t¹⁴⁷ = 	
-//│ 																	let t¹⁴⁸ = 	
-//│ 																		let t¹⁴⁹ = 	
-//│ 																			let t¹⁵⁰ = 	
-//│ 																				let t¹⁵¹ = 	
-//│ 																					let t¹⁵² = 	
-//│ 																						let t¹⁵³ = 	
-//│ 																							let t¹⁵⁴ = 	
-//│ 																								let t¹⁵⁵ = 	
-//│ 																									let t¹⁵⁶ = (fun ys¹⁶² -> ys¹⁶²)
-//│ 																									in let h¹⁵⁶ = ' '
-//│ 																									in (fun ys¹⁶¹ -> [LH_C h¹⁵⁶ mappend_lh_₃(t¹⁵⁶, ys¹⁶¹)])
-//│ 																								in let h¹⁵⁵ = 'n'
-//│ 																								in (fun ys¹⁶⁰ -> [LH_C h¹⁵⁵ mappend_lh_₃(t¹⁵⁵, ys¹⁶⁰)])
-//│ 																							in let h¹⁵⁴ = 'i'
-//│ 																							in (fun ys¹⁵⁹ -> [LH_C h¹⁵⁴ mappend_lh_₃(t¹⁵⁴, ys¹⁵⁹)])
-//│ 																						in let h¹⁵³ = ' '
-//│ 																						in (fun ys¹⁵⁸ -> [LH_C h¹⁵³ mappend_lh_₃(t¹⁵³, ys¹⁵⁸)])
-//│ 																					in let h¹⁵² = 'e'
-//│ 																					in (fun ys¹⁵⁷ -> [LH_C h¹⁵² mappend_lh_₃(t¹⁵², ys¹⁵⁷)])
-//│ 																				in let h¹⁵¹ = 't'
-//│ 																				in (fun ys¹⁵⁶ -> [LH_C h¹⁵¹ mappend_lh_₃(t¹⁵¹, ys¹⁵⁶)])
-//│ 																			in let h¹⁵⁰ = 'a'
-//│ 																			in (fun ys¹⁵⁵ -> [LH_C h¹⁵⁰ mappend_lh_₃(t¹⁵⁰, ys¹⁵⁵)])
-//│ 																		in let h¹⁴⁹ = 'm'
-//│ 																		in (fun ys¹⁵⁴ -> [LH_C h¹⁴⁹ mappend_lh_₃(t¹⁴⁹, ys¹⁵⁴)])
-//│ 																	in let h¹⁴⁸ = ' '
-//│ 																	in (fun ys¹⁵³ -> [LH_C h¹⁴⁸ mappend_lh_₃(t¹⁴⁸, ys¹⁵³)])
-//│ 																in let h¹⁴⁷ = 'd'
-//│ 																in (fun ys¹⁵² -> [LH_C h¹⁴⁷ mappend_lh_₃(t¹⁴⁷, ys¹⁵²)])
-//│ 															in let h¹⁴⁶ = 'n'
-//│ 															in (fun ys¹⁵¹ -> [LH_C h¹⁴⁶ mappend_lh_₃(t¹⁴⁶, ys¹⁵¹)])
-//│ 														in let h¹⁴⁵ = 'a'
-//│ 														in (fun ys¹⁵⁰ -> [LH_C h¹⁴⁵ mappend_lh_₃(t¹⁴⁵, ys¹⁵⁰)])
-//│ 													in let h¹⁴⁴ = ' '
-//│ 													in (fun ys¹⁴⁹ -> [LH_C h¹⁴⁴ mappend_lh_₃(t¹⁴⁴, ys¹⁴⁹)])
-//│ 												in let h¹⁴³ = 'e'
-//│ 												in (fun ys¹⁴⁸ -> [LH_C h¹⁴³ mappend_lh_₃(t¹⁴³, ys¹⁴⁸)])
-//│ 											in let h¹⁴² = 'v'
-//│ 											in (fun ys¹⁴⁷ -> [LH_C h¹⁴² mappend_lh_₃(t¹⁴², ys¹⁴⁷)])
-//│ 										in let h¹⁴¹ = 'o'
-//│ 										in (fun ys¹⁴⁶ -> [LH_C h¹⁴¹ mappend_lh_₃(t¹⁴¹, ys¹⁴⁶)])
-//│ 									in let h¹⁴⁰ = 'm'
-//│ 									in (fun ys¹⁴⁵ -> [LH_C h¹⁴⁰ mappend_lh_₃(t¹⁴⁰, ys¹⁴⁵)])
-//│ 								in let h¹³⁹ = ' '
-//│ 								in (fun ys¹⁴⁴ -> [LH_C h¹³⁹ mappend_lh_₃(t¹³⁹, ys¹⁴⁴)])
-//│ 							in let h¹³⁸ = 'o'
-//│ 							in (fun ys¹⁴³ -> [LH_C h¹³⁸ mappend_lh_₃(t¹³⁸, ys¹⁴³)])
-//│ 						in let h¹³⁷ = 't'
-//│ 						in (fun ys¹⁴² -> [LH_C h¹³⁷ mappend_lh_₃(t¹³⁷, ys¹⁴²)])
-//│ 					in let h¹³⁶ = ' '
-//│ 					in (fun ys¹⁴¹ -> [LH_C h¹³⁶ mappend_lh_₃(t¹³⁶, ys¹⁴¹)])), string_of_int⁰(_lh_testMate_nofib_LH_P2_1³)), 
-//│ 					let t¹⁵⁷ = (fun ys¹⁶⁵ -> ys¹⁶⁵)
-//│ 					in let h¹⁵⁷ = '|'
-//│ 					in (fun ys¹⁶³ -> 
-//│ 						let t¹⁵⁸ = mappend_lh_₇(t¹⁵⁷, ys¹⁶³)
-//│ 						in let h¹⁵⁸ = h¹⁵⁷
-//│ 						in (fun ys¹⁶⁴ -> [LH_C h¹⁵⁸ mappend_lh_₆(t¹⁵⁸, ys¹⁶⁴)]))), 
-//│ 					let t¹⁵⁹ = (fun ys¹⁶⁷ -> ys¹⁶⁷)
-//│ 					in let h¹⁵⁹ = '|'
-//│ 					in (fun ys¹⁶⁶ -> [LH_C h¹⁵⁹ mappend_lh_₆(t¹⁵⁹, ys¹⁶⁶)])), solve_lh_₁(_lh_testMate_nofib_LH_P2_0⁴, _lh_testMate_nofib_LH_P2_0³, _lh_testMate_nofib_LH_P2_1³)))
-//│ 			| _  => error⁰}) else drop_lh_₁((_lh_drop_arg1¹ - 1), _lh_drop_LH_C_1⁰)
+//│ 				let ws⁰ = words_lh_₁(_lh_parseGoal_LH_C_0⁰)
+//│ 				in let c¹ = if polyEq⁰(head_lh_₁(ws⁰), [LH_C 'B' [LH_C 'l' [LH_C 'a' [LH_C 'c' [LH_C 'k' [LH_N]]]]]]) then [Black] else [White]
+//│ 				in let n³ = 2
+//│ 				in let _lh_testMate_nofib_LH_P2_1¹ = n³
+//│ 				in let _lh_testMate_nofib_LH_P2_0¹ = c¹
+//│ 				in (fun _lh_testMate_nofib_LH_P2_0² -> mappend_lh_₆(mappend_lh_₇(mappend_lh_₄(mappend_lh_₃(mappend_lh_₅(mappend_lh_₁(mappend_lh_₂(showBoard_lh_₁(_lh_testMate_nofib_LH_P2_0²), 
+//│ 					let t⁹⁵ = (fun ys¹⁰¹ -> ys¹⁰¹)
+//│ 					in let h⁹⁵ = '|'
+//│ 					in (fun ys¹⁰² -> 
+//│ 						let t⁹⁶ = mappend_lh_₁(t⁹⁵, ys¹⁰²)
+//│ 						in let h⁹⁶ = h⁹⁵
+//│ 						in (fun ys¹⁰³ -> 
+//│ 							let t⁹⁷ = mappend_lh_₅(t⁹⁶, ys¹⁰³)
+//│ 							in let h⁹⁷ = h⁹⁶
+//│ 							in (fun ys¹⁰⁴ -> [LH_C h⁹⁷ mappend_lh_₃(t⁹⁷, ys¹⁰⁴)])))), showColour_lh_₁(_lh_testMate_nofib_LH_P2_0¹)), 
+//│ 					let t⁹⁸ = 	
+//│ 						let t⁹⁹ = 	
+//│ 							let t¹⁰⁰ = 	
+//│ 								let t¹⁰¹ = 	
+//│ 									let t¹⁰² = 	
+//│ 										let t¹⁰³ = 	
+//│ 											let t¹⁰⁴ = 	
+//│ 												let t¹⁰⁵ = 	
+//│ 													let t¹⁰⁶ = 	
+//│ 														let t¹⁰⁷ = 	
+//│ 															let t¹⁰⁸ = 	
+//│ 																let t¹⁰⁹ = 	
+//│ 																	let t¹¹⁰ = 	
+//│ 																		let t¹¹¹ = 	
+//│ 																			let t¹¹² = 	
+//│ 																				let t¹¹³ = 	
+//│ 																					let t¹¹⁴ = 	
+//│ 																						let t¹¹⁵ = 	
+//│ 																							let t¹¹⁶ = 	
+//│ 																								let t¹¹⁷ = 	
+//│ 																									let t¹¹⁸ = (fun ys¹⁰⁵ -> ys¹⁰⁵)
+//│ 																									in let h⁹⁸ = ' '
+//│ 																									in (fun ys¹⁰⁶ -> [LH_C h⁹⁸ mappend_lh_₃(t¹¹⁸, ys¹⁰⁶)])
+//│ 																								in let h⁹⁹ = 'n'
+//│ 																								in (fun ys¹⁰⁷ -> [LH_C h⁹⁹ mappend_lh_₃(t¹¹⁷, ys¹⁰⁷)])
+//│ 																							in let h¹⁰⁰ = 'i'
+//│ 																							in (fun ys¹⁰⁸ -> [LH_C h¹⁰⁰ mappend_lh_₃(t¹¹⁶, ys¹⁰⁸)])
+//│ 																						in let h¹⁰¹ = ' '
+//│ 																						in (fun ys¹⁰⁹ -> [LH_C h¹⁰¹ mappend_lh_₃(t¹¹⁵, ys¹⁰⁹)])
+//│ 																					in let h¹⁰² = 'e'
+//│ 																					in (fun ys¹¹⁰ -> [LH_C h¹⁰² mappend_lh_₃(t¹¹⁴, ys¹¹⁰)])
+//│ 																				in let h¹⁰³ = 't'
+//│ 																				in (fun ys¹¹¹ -> [LH_C h¹⁰³ mappend_lh_₃(t¹¹³, ys¹¹¹)])
+//│ 																			in let h¹⁰⁴ = 'a'
+//│ 																			in (fun ys¹¹² -> [LH_C h¹⁰⁴ mappend_lh_₃(t¹¹², ys¹¹²)])
+//│ 																		in let h¹⁰⁵ = 'm'
+//│ 																		in (fun ys¹¹³ -> [LH_C h¹⁰⁵ mappend_lh_₃(t¹¹¹, ys¹¹³)])
+//│ 																	in let h¹⁰⁶ = ' '
+//│ 																	in (fun ys¹¹⁴ -> [LH_C h¹⁰⁶ mappend_lh_₃(t¹¹⁰, ys¹¹⁴)])
+//│ 																in let h¹⁰⁷ = 'd'
+//│ 																in (fun ys¹¹⁵ -> [LH_C h¹⁰⁷ mappend_lh_₃(t¹⁰⁹, ys¹¹⁵)])
+//│ 															in let h¹⁰⁸ = 'n'
+//│ 															in (fun ys¹¹⁶ -> [LH_C h¹⁰⁸ mappend_lh_₃(t¹⁰⁸, ys¹¹⁶)])
+//│ 														in let h¹⁰⁹ = 'a'
+//│ 														in (fun ys¹¹⁷ -> [LH_C h¹⁰⁹ mappend_lh_₃(t¹⁰⁷, ys¹¹⁷)])
+//│ 													in let h¹¹⁰ = ' '
+//│ 													in (fun ys¹¹⁸ -> [LH_C h¹¹⁰ mappend_lh_₃(t¹⁰⁶, ys¹¹⁸)])
+//│ 												in let h¹¹¹ = 'e'
+//│ 												in (fun ys¹¹⁹ -> [LH_C h¹¹¹ mappend_lh_₃(t¹⁰⁵, ys¹¹⁹)])
+//│ 											in let h¹¹² = 'v'
+//│ 											in (fun ys¹²⁰ -> [LH_C h¹¹² mappend_lh_₃(t¹⁰⁴, ys¹²⁰)])
+//│ 										in let h¹¹³ = 'o'
+//│ 										in (fun ys¹²¹ -> [LH_C h¹¹³ mappend_lh_₃(t¹⁰³, ys¹²¹)])
+//│ 									in let h¹¹⁴ = 'm'
+//│ 									in (fun ys¹²² -> [LH_C h¹¹⁴ mappend_lh_₃(t¹⁰², ys¹²²)])
+//│ 								in let h¹¹⁵ = ' '
+//│ 								in (fun ys¹²³ -> [LH_C h¹¹⁵ mappend_lh_₃(t¹⁰¹, ys¹²³)])
+//│ 							in let h¹¹⁶ = 'o'
+//│ 							in (fun ys¹²⁴ -> [LH_C h¹¹⁶ mappend_lh_₃(t¹⁰⁰, ys¹²⁴)])
+//│ 						in let h¹¹⁷ = 't'
+//│ 						in (fun ys¹²⁵ -> [LH_C h¹¹⁷ mappend_lh_₃(t⁹⁹, ys¹²⁵)])
+//│ 					in let h¹¹⁸ = ' '
+//│ 					in (fun ys¹²⁶ -> [LH_C h¹¹⁸ mappend_lh_₃(t⁹⁸, ys¹²⁶)])), string_of_int⁰(_lh_testMate_nofib_LH_P2_1¹)), 
+//│ 					let t¹¹⁹ = (fun ys¹²⁷ -> ys¹²⁷)
+//│ 					in let h¹¹⁹ = '|'
+//│ 					in (fun ys¹²⁸ -> 
+//│ 						let t¹²⁰ = mappend_lh_₇(t¹¹⁹, ys¹²⁸)
+//│ 						in let h¹²⁰ = h¹¹⁹
+//│ 						in (fun ys¹²⁹ -> [LH_C h¹²⁰ mappend_lh_₆(t¹²⁰, ys¹²⁹)]))), 
+//│ 					let t¹²¹ = (fun ys¹³⁰ -> ys¹³⁰)
+//│ 					in let h¹²¹ = '|'
+//│ 					in (fun ys¹³¹ -> [LH_C h¹²¹ mappend_lh_₆(t¹²¹, ys¹³¹)])), solve_lh_₁(_lh_testMate_nofib_LH_P2_0², _lh_testMate_nofib_LH_P2_0¹, _lh_testMate_nofib_LH_P2_1¹)))
+//│ 			| _  => error⁰}) else drop_lh_₁((_lh_drop_arg1⁰ - 1), _lh_drop_LH_C_1⁰)
 //│ 	| _  => error⁰}
-//│ def emptyAtAll_lh_₁(_lh_emptyAtAll_arg1⁵, _lh_emptyAtAll_arg2⁵) = case _lh_emptyAtAll_arg1⁵ of {
-//│ 	Board _lh_emptyAtAll_Board_0³ _lh_emptyAtAll_Board_1³ => 
-//│ 		let emptyAtAllAnd⁵ = (fun b¹⁶ -> (fun ls³⁹ -> 
-//│ 			let _lh_matchIdent⁹⁵ = ls³⁹
-//│ 			in case _lh_matchIdent⁹⁵ of {
-//│ 				LH_N  => b¹⁶
-//│ 				| LH_C _lh_emptyAtAll_LH_C_0³ _lh_emptyAtAll_LH_C_1³ => case _lh_emptyAtAll_LH_C_0³ of {
-//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0³ _lh_emptyAtAll_LH_P2_1³ => (not⁰(_lh_emptyAtAll_arg2⁵(_lh_emptyAtAll_LH_P2_1³)) && emptyAtAllAnd⁵(b¹⁶, _lh_emptyAtAll_LH_C_1³))
-//│ 					| _  => error⁰}
-//│ 				| _  => error⁰}))
-//│ 		in emptyAtAllAnd⁵(emptyAtAllAnd⁵([True], _lh_emptyAtAll_Board_1³), _lh_emptyAtAll_Board_0³)
-//│ 	| _  => error⁰}
-//│ def emptyAtAll_lh_₂(_lh_emptyAtAll_arg1⁶, _lh_emptyAtAll_arg2⁶) = case _lh_emptyAtAll_arg1⁶ of {
-//│ 	Board _lh_emptyAtAll_Board_0² _lh_emptyAtAll_Board_1² => 
-//│ 		let emptyAtAllAnd⁶ = (fun b¹⁸ -> (fun ls⁴⁸ -> 
-//│ 			let _lh_matchIdent¹¹¹ = ls⁴⁸
-//│ 			in case _lh_matchIdent¹¹¹ of {
-//│ 				LH_N  => b¹⁸
-//│ 				| LH_C _lh_emptyAtAll_LH_C_0² _lh_emptyAtAll_LH_C_1² => case _lh_emptyAtAll_LH_C_0² of {
-//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0² _lh_emptyAtAll_LH_P2_1² => (not⁰(_lh_emptyAtAll_arg2⁶(_lh_emptyAtAll_LH_P2_1²)) && emptyAtAllAnd⁶(b¹⁸, _lh_emptyAtAll_LH_C_1²))
-//│ 					| _  => error⁰}
-//│ 				| _  => error⁰}))
-//│ 		in emptyAtAllAnd⁶(emptyAtAllAnd⁶([True], _lh_emptyAtAll_Board_1²), _lh_emptyAtAll_Board_0²)
-//│ 	| _  => error⁰}
-//│ def emptyAtAll_lh_₃(_lh_emptyAtAll_arg1⁷, _lh_emptyAtAll_arg2⁷) = case _lh_emptyAtAll_arg1⁷ of {
+//│ def emptyAtAll_lh_₁(_lh_emptyAtAll_arg1¹, _lh_emptyAtAll_arg2¹) = case _lh_emptyAtAll_arg1¹ of {
 //│ 	Board _lh_emptyAtAll_Board_0¹ _lh_emptyAtAll_Board_1¹ => 
-//│ 		let emptyAtAllAnd⁷ = (fun b²³ -> (fun ls⁵⁵ -> 
-//│ 			let _lh_matchIdent¹³³ = ls⁵⁵
-//│ 			in case _lh_matchIdent¹³³ of {
-//│ 				LH_N  => b²³
+//│ 		let emptyAtAllAnd¹ = (fun b⁴ -> (fun ls⁸ -> 
+//│ 			let _lh_matchIdent²⁹ = ls⁸
+//│ 			in case _lh_matchIdent²⁹ of {
+//│ 				LH_N  => b⁴
 //│ 				| LH_C _lh_emptyAtAll_LH_C_0¹ _lh_emptyAtAll_LH_C_1¹ => case _lh_emptyAtAll_LH_C_0¹ of {
-//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0¹ _lh_emptyAtAll_LH_P2_1¹ => (not⁰(_lh_emptyAtAll_arg2⁷(_lh_emptyAtAll_LH_P2_1¹)) && emptyAtAllAnd⁷(b²³, _lh_emptyAtAll_LH_C_1¹))
+//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0¹ _lh_emptyAtAll_LH_P2_1¹ => (not⁰(_lh_emptyAtAll_arg2¹(_lh_emptyAtAll_LH_P2_1¹)) && emptyAtAllAnd¹(b⁴, _lh_emptyAtAll_LH_C_1¹))
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}))
-//│ 		in emptyAtAllAnd⁷(emptyAtAllAnd⁷([True], _lh_emptyAtAll_Board_1¹), _lh_emptyAtAll_Board_0¹)
+//│ 		in emptyAtAllAnd¹(emptyAtAllAnd¹([True], _lh_emptyAtAll_Board_1¹), _lh_emptyAtAll_Board_0¹)
 //│ 	| _  => error⁰}
-//│ def emptyAtAll_lh_₄(_lh_emptyAtAll_arg1⁴, _lh_emptyAtAll_arg2⁴) = case _lh_emptyAtAll_arg1⁴ of {
-//│ 	Board _lh_emptyAtAll_Board_0⁰ _lh_emptyAtAll_Board_1⁰ => 
-//│ 		let emptyAtAllAnd⁴ = (fun b¹² -> (fun ls³¹ -> 
-//│ 			let _lh_matchIdent⁶⁶ = ls³¹
-//│ 			in case _lh_matchIdent⁶⁶ of {
-//│ 				LH_N  => b¹²
-//│ 				| LH_C _lh_emptyAtAll_LH_C_0⁰ _lh_emptyAtAll_LH_C_1⁰ => case _lh_emptyAtAll_LH_C_0⁰ of {
-//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0⁰ _lh_emptyAtAll_LH_P2_1⁰ => (not⁰(_lh_emptyAtAll_arg2⁴(_lh_emptyAtAll_LH_P2_1⁰)) && emptyAtAllAnd⁴(b¹², _lh_emptyAtAll_LH_C_1⁰))
+//│ def emptyAtAll_lh_₂(_lh_emptyAtAll_arg1², _lh_emptyAtAll_arg2²) = case _lh_emptyAtAll_arg1² of {
+//│ 	Board _lh_emptyAtAll_Board_0² _lh_emptyAtAll_Board_1² => 
+//│ 		let emptyAtAllAnd² = (fun b⁶ -> (fun ls¹⁷ -> 
+//│ 			let _lh_matchIdent⁴⁵ = ls¹⁷
+//│ 			in case _lh_matchIdent⁴⁵ of {
+//│ 				LH_N  => b⁶
+//│ 				| LH_C _lh_emptyAtAll_LH_C_0² _lh_emptyAtAll_LH_C_1² => case _lh_emptyAtAll_LH_C_0² of {
+//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0² _lh_emptyAtAll_LH_P2_1² => (not⁰(_lh_emptyAtAll_arg2²(_lh_emptyAtAll_LH_P2_1²)) && emptyAtAllAnd²(b⁶, _lh_emptyAtAll_LH_C_1²))
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}))
-//│ 		in emptyAtAllAnd⁴(emptyAtAllAnd⁴([True], _lh_emptyAtAll_Board_1⁰), _lh_emptyAtAll_Board_0⁰)
+//│ 		in emptyAtAllAnd²(emptyAtAllAnd²([True], _lh_emptyAtAll_Board_1²), _lh_emptyAtAll_Board_0²)
+//│ 	| _  => error⁰}
+//│ def emptyAtAll_lh_₃(_lh_emptyAtAll_arg1³, _lh_emptyAtAll_arg2³) = case _lh_emptyAtAll_arg1³ of {
+//│ 	Board _lh_emptyAtAll_Board_0³ _lh_emptyAtAll_Board_1³ => 
+//│ 		let emptyAtAllAnd³ = (fun b¹¹ -> (fun ls²⁴ -> 
+//│ 			let _lh_matchIdent⁶⁷ = ls²⁴
+//│ 			in case _lh_matchIdent⁶⁷ of {
+//│ 				LH_N  => b¹¹
+//│ 				| LH_C _lh_emptyAtAll_LH_C_0³ _lh_emptyAtAll_LH_C_1³ => case _lh_emptyAtAll_LH_C_0³ of {
+//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0³ _lh_emptyAtAll_LH_P2_1³ => (not⁰(_lh_emptyAtAll_arg2³(_lh_emptyAtAll_LH_P2_1³)) && emptyAtAllAnd³(b¹¹, _lh_emptyAtAll_LH_C_1³))
+//│ 					| _  => error⁰}
+//│ 				| _  => error⁰}))
+//│ 		in emptyAtAllAnd³(emptyAtAllAnd³([True], _lh_emptyAtAll_Board_1³), _lh_emptyAtAll_Board_0³)
+//│ 	| _  => error⁰}
+//│ def emptyAtAll_lh_₄(_lh_emptyAtAll_arg1⁰, _lh_emptyAtAll_arg2⁰) = case _lh_emptyAtAll_arg1⁰ of {
+//│ 	Board _lh_emptyAtAll_Board_0⁰ _lh_emptyAtAll_Board_1⁰ => 
+//│ 		let emptyAtAllAnd⁰ = (fun b⁰ -> (fun ls⁰ -> 
+//│ 			let _lh_matchIdent⁰ = ls⁰
+//│ 			in case _lh_matchIdent⁰ of {
+//│ 				LH_N  => b⁰
+//│ 				| LH_C _lh_emptyAtAll_LH_C_0⁰ _lh_emptyAtAll_LH_C_1⁰ => case _lh_emptyAtAll_LH_C_0⁰ of {
+//│ 					LH_P2 _lh_emptyAtAll_LH_P2_0⁰ _lh_emptyAtAll_LH_P2_1⁰ => (not⁰(_lh_emptyAtAll_arg2⁰(_lh_emptyAtAll_LH_P2_1⁰)) && emptyAtAllAnd⁰(b⁰, _lh_emptyAtAll_LH_C_1⁰))
+//│ 					| _  => error⁰}
+//│ 				| _  => error⁰}))
+//│ 		in emptyAtAllAnd⁰(emptyAtAllAnd⁰([True], _lh_emptyAtAll_Board_1⁰), _lh_emptyAtAll_Board_0⁰)
 //│ 	| _  => error⁰}
 //│ def emptyBoard_lh_₁ = [Board [LH_N] [LH_N]]
-//│ def enumFromTo_lh_₁(a¹⁸, b¹⁹) = if (a¹⁸ <= b¹⁹) then 
-//│ 	let t¹²³ = enumFromTo_lh_₁((a¹⁸ + 1), b¹⁹)
-//│ 	in let h¹²³ = a¹⁸
-//│ 	in (fun f⁴⁶ -> (fun i²² -> f⁴⁶(h¹²³, foldr_lh_₁(f⁴⁶, i²², t¹²³)))) else (fun f⁴⁷ -> (fun i²³ -> i²³))
-//│ def enumFromTo_lh_₂(a¹⁴, b¹⁵) = if (a¹⁴ <= b¹⁵) then 
-//│ 	let t⁸⁵ = enumFromTo_lh_₂((a¹⁴ + 1), b¹⁵)
-//│ 	in let h⁸⁵ = a¹⁴
-//│ 	in (fun a¹⁵ -> reverse_helper_lh_₁(t⁸⁵, 
-//│ 		let t⁸⁶ = a¹⁵
-//│ 		in let h⁸⁶ = h⁸⁵
-//│ 		in (fun f²³ -> 
-//│ 			let t⁸⁷ = map_lh_₁(f²³, t⁸⁶)
-//│ 			in let h⁸⁷ = f²³(h⁸⁶)
-//│ 			in (fun f²⁴ -> [LH_C f²⁴(h⁸⁷) map_lh_₂(f²⁴, t⁸⁷)])))) else (fun a¹⁶ -> a¹⁶)
-//│ def enumFromTo_lh_₃(a¹⁹, b²⁰) = if (a¹⁹ <= b²⁰) then 
-//│ 	let t¹²⁴ = enumFromTo_lh_₃((a¹⁹ + 1), b²⁰)
-//│ 	in let h¹²⁴ = a¹⁹
-//│ 	in (fun a²⁰ -> reverse_helper_lh_₂(t¹²⁴, 
-//│ 		let tx⁶ = a²⁰
-//│ 		in let hx⁶ = h¹²⁴
-//│ 		in (fun f⁵⁰ -> (fun ys¹²¹ -> ys¹²¹(f⁵⁰, hx⁶, tx⁶))))) else (fun a²¹ -> a²¹)
-//│ def enumFromTo_lh_₄(a¹², b¹⁴) = if (a¹² <= b¹⁴) then 
-//│ 	let tx² = enumFromTo_lh_₄((a¹² + 1), b¹⁴)
-//│ 	in let hx² = a¹²
-//│ 	in (fun f¹⁹ -> (fun ys⁴¹ -> ys⁴¹(f¹⁹, hx², tx²))) else (fun f²⁰ -> (fun ys⁴² -> [LH_N]))
-//│ def filter_lh_₁(f⁵¹, ls⁵²) = ls⁵²(f⁵¹)
-//│ def filter_lh_₂(f⁵⁵, ls⁵⁸) = case ls⁵⁸ of {
-//│ 	LH_C h²² t²² => if f⁵⁵(h²²) then 
-//│ 		let ty³ = filter_lh_₂(f⁵⁵, t²²)
-//│ 		in let hy³ = h²²
-//│ 		in (fun f⁵⁶ -> (fun hx⁷ -> (fun tx⁷ -> [LH_C f⁵⁶(hx⁷, hy³) zipWith_lh_₂(f⁵⁶, tx⁷, ty³)]))) else filter_lh_₂(f⁵⁵, t²²)
-//│ 	| LH_N  => (fun f⁵⁷ -> (fun hx⁸ -> (fun tx⁸ -> [LH_N])))}
-//│ def foldr_lh_₁(f²⁵, i¹⁴, ls³⁸) = ls³⁸(f²⁵, i¹⁴)
-//│ def foldr_lh_₂(f²⁶, i¹⁵, ls⁴⁰) = ls⁴⁰(f²⁶, i¹⁵)
-//│ def foldr_lh_₃(f²⁹, i¹⁶, ls⁴¹) = ls⁴¹(f²⁹, i¹⁶)
-//│ def foldr_lh_₄(f³⁷, i²⁰, ls⁴⁵) = case ls⁴⁵ of {
-//│ 	LH_C h³⁸ t³⁸ => f³⁷(h³⁸, foldr_lh_₄(f³⁷, i²⁰, t³⁸))
-//│ 	| LH_N  => i²⁰}
-//│ def foldr_lh_₅(f¹⁷, i¹⁰, ls³⁴) = case ls³⁴ of {
-//│ 	LH_C h³⁷ t³⁷ => f¹⁷(h³⁷, foldr_lh_₅(f¹⁷, i¹⁰, t³⁷))
-//│ 	| LH_N  => i¹⁰}
-//│ def foldr_lh_₆(f¹⁸, i¹¹, ls³⁵) = case ls³⁵ of {
-//│ 	LH_C h³⁵ t³⁵ => f¹⁸(h³⁵, foldr_lh_₆(f¹⁸, i¹¹, t³⁵))
+//│ def enumFromTo_lh_₁(a⁸, b⁷, _lh_floatOutId_0⁵, _lh_floatOutId_1⁴) = if (a⁸ <= b⁷) then 
+//│ 	let t⁷⁸ = enumFromTo_lh_₁((a⁸ + 1), b⁷)
+//│ 	in let h⁷⁸ = a⁸
+//│ 	in _lh_floatOutId_0⁵(h⁷⁸, foldr_lh_₁(_lh_floatOutId_0⁵, _lh_floatOutId_1⁴, t⁷⁸)) else _lh_floatOutId_1⁴
+//│ def enumFromTo_lh_₂(a⁴, b³, _lh_floatOutId_0¹) = if (a⁴ <= b³) then 
+//│ 	let t²⁸ = enumFromTo_lh_₂((a⁴ + 1), b³)
+//│ 	in let h²⁸ = a⁴
+//│ 	in reverse_helper_lh_₁(t²⁸, 
+//│ 		let t²⁹ = _lh_floatOutId_0¹
+//│ 		in let h²⁹ = h²⁸
+//│ 		in (fun f⁷ -> 
+//│ 			let t³⁰ = map_lh_₁(f⁷, t²⁹)
+//│ 			in let h³⁰ = f⁷(h²⁹)
+//│ 			in (fun f⁸ -> [LH_C f⁸(h³⁰) map_lh_₂(f⁸, t³⁰)]))) else _lh_floatOutId_0¹
+//│ def enumFromTo_lh_₃(a⁹, b⁸, _lh_floatOutId_0⁶) = if (a⁹ <= b⁸) then 
+//│ 	let t⁸¹ = enumFromTo_lh_₃((a⁹ + 1), b⁸)
+//│ 	in let h⁸¹ = a⁹
+//│ 	in reverse_helper_lh_₂(t⁸¹, 
+//│ 		let tx⁴ = _lh_floatOutId_0⁶
+//│ 		in let hx⁴ = h⁸¹
+//│ 		in (fun f³⁴ -> (fun ys⁸⁵ -> ys⁸⁵(f³⁴, hx⁴, tx⁴)))) else _lh_floatOutId_0⁶
+//│ def enumFromTo_lh_₄(a², b², _lh_floatOutId_0⁰, _lh_floatOutId_1⁰) = if (a² <= b²) then 
+//│ 	let tx⁰ = enumFromTo_lh_₄((a² + 1), b²)
+//│ 	in let hx⁰ = a²
+//│ 	in _lh_floatOutId_1⁰(_lh_floatOutId_0⁰, hx⁰, tx⁰) else [LH_N]
+//│ def filter_lh_₁(f³⁵, ls²¹) = ls²¹(f³⁵)
+//│ def filter_lh_₂(f³⁹, ls²⁷) = case ls²⁷ of {
+//│ 	LH_C h¹²⁵ t¹²⁵ => if f³⁹(h¹²⁵) then 
+//│ 		let ty¹ = filter_lh_₂(f³⁹, t¹²⁵)
+//│ 		in let hy¹ = h¹²⁵
+//│ 		in (fun f⁴⁰ -> (fun hx⁵ -> (fun tx⁵ -> [LH_C f⁴⁰(hx⁵, hy¹) zipWith_lh_₂(f⁴⁰, tx⁵, ty¹)]))) else filter_lh_₂(f³⁹, t¹²⁵)
+//│ 	| LH_N  => (fun f⁴¹ -> (fun hx⁶ -> (fun tx⁶ -> [LH_N])))}
+//│ def foldr_lh_₁(f⁹, i⁵, ls⁷) = ls⁷(f⁹, i⁵)
+//│ def foldr_lh_₂(f¹⁰, i⁶, ls⁹) = ls⁹(f¹⁰, i⁶)
+//│ def foldr_lh_₃(f¹³, i⁷, ls¹⁰) = ls¹⁰(f¹³, i⁷)
+//│ def foldr_lh_₄(f²¹, i¹¹, ls¹⁴) = case ls¹⁴ of {
+//│ 	LH_C h⁶³ t⁶³ => f²¹(h⁶³, foldr_lh_₄(f²¹, i¹¹, t⁶³))
 //│ 	| LH_N  => i¹¹}
-//│ def foldr_lh_₇(f⁵², i²⁴, ls⁵⁴) = case ls⁵⁴ of {
-//│ 	LH_C h³⁴ t³⁴ => f⁵²(h³⁴, foldr_lh_₇(f⁵², i²⁴, t³⁴))
-//│ 	| LH_N  => i²⁴}
-//│ def foldr_lh_₈(f¹⁶, i⁹, ls³³) = case ls³³ of {
-//│ 	LH_C h¹⁹ t¹⁹ => f¹⁶(h¹⁹, foldr_lh_₈(f¹⁶, i⁹, t¹⁹))
-//│ 	| LH_N  => i⁹}
-//│ def foldr_lh_₉(f³⁰, i¹⁷, ls⁴²) = case ls⁴² of {
-//│ 	LH_C h¹⁸ t¹⁸ => f³⁰(h¹⁸, foldr_lh_₉(f³⁰, i¹⁷, t¹⁸))
-//│ 	| LH_N  => i¹⁷}
-//│ def forcesColoured_lh_₁(_lh_forcesColoured_arg1⁴, _lh_forcesColoured_arg2⁴) = _lh_forcesColoured_arg1⁴(_lh_forcesColoured_arg2⁴)
-//│ def forcesColoured_lh_₂(_lh_forcesColoured_arg1⁵, _lh_forcesColoured_arg2⁵) = case _lh_forcesColoured_arg1⁵ of {
-//│ 	White  => case _lh_forcesColoured_arg2⁵ of {
+//│ def foldr_lh_₅(f¹, i¹, ls³) = case ls³ of {
+//│ 	LH_C h³ t³ => f¹(h³, foldr_lh_₅(f¹, i¹, t³))
+//│ 	| LH_N  => i¹}
+//│ def foldr_lh_₆(f², i², ls⁴) = case ls⁴ of {
+//│ 	LH_C h⁵ t⁵ => f²(h⁵, foldr_lh_₆(f², i², t⁵))
+//│ 	| LH_N  => i²}
+//│ def foldr_lh_₇(f³⁶, i¹⁵, ls²³) = case ls²³ of {
+//│ 	LH_C h⁹³ t⁹³ => f³⁶(h⁹³, foldr_lh_₇(f³⁶, i¹⁵, t⁹³))
+//│ 	| LH_N  => i¹⁵}
+//│ def foldr_lh_₈(f⁰, i⁰, ls²) = case ls² of {
+//│ 	LH_C h² t² => f⁰(h², foldr_lh_₈(f⁰, i⁰, t²))
+//│ 	| LH_N  => i⁰}
+//│ def foldr_lh_₉(f¹⁴, i⁸, ls¹¹) = case ls¹¹ of {
+//│ 	LH_C h⁴² t⁴² => f¹⁴(h⁴², foldr_lh_₉(f¹⁴, i⁸, t⁴²))
+//│ 	| LH_N  => i⁸}
+//│ def forcesColoured_lh_₁(_lh_forcesColoured_arg1¹, _lh_forcesColoured_arg2¹) = _lh_forcesColoured_arg1¹(_lh_forcesColoured_arg2¹)
+//│ def forcesColoured_lh_₂(_lh_forcesColoured_arg1², _lh_forcesColoured_arg2²) = case _lh_forcesColoured_arg1² of {
+//│ 	White  => case _lh_forcesColoured_arg2² of {
 //│ 		Board _lh_forcesColoured_Board_0² _lh_forcesColoured_Board_1² => _lh_forcesColoured_Board_0²
 //│ 		| _  => error⁰}
-//│ 	| Black  => case _lh_forcesColoured_arg2⁵ of {
+//│ 	| Black  => case _lh_forcesColoured_arg2² of {
 //│ 		Board _lh_forcesColoured_Board_0³ _lh_forcesColoured_Board_1³ => _lh_forcesColoured_Board_1³
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def forcesColoured_lh_₃(_lh_forcesColoured_arg1³, _lh_forcesColoured_arg2³) = case _lh_forcesColoured_arg1³ of {
-//│ 	White  => case _lh_forcesColoured_arg2³ of {
+//│ def forcesColoured_lh_₃(_lh_forcesColoured_arg1⁰, _lh_forcesColoured_arg2⁰) = case _lh_forcesColoured_arg1⁰ of {
+//│ 	White  => case _lh_forcesColoured_arg2⁰ of {
 //│ 		Board _lh_forcesColoured_Board_0⁰ _lh_forcesColoured_Board_1⁰ => _lh_forcesColoured_Board_0⁰
 //│ 		| _  => error⁰}
-//│ 	| Black  => case _lh_forcesColoured_arg2³ of {
+//│ 	| Black  => case _lh_forcesColoured_arg2⁰ of {
 //│ 		Board _lh_forcesColoured_Board_0¹ _lh_forcesColoured_Board_1¹ => _lh_forcesColoured_Board_1¹
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def head_lh_₁(ls⁵⁶) = case ls⁵⁶ of {
-//│ 	LH_C h⁴² t⁴² => h⁴²
+//│ def head_lh_₁(ls²⁵) = case ls²⁵ of {
+//│ 	LH_C h⁹⁴ t⁹⁴ => h⁹⁴
 //│ 	| LH_N  => error⁰}
-//│ def insertCompact_lh_₁(_lh_insertCompact_arg1¹, _lh_insertCompact_arg2¹) = _lh_insertCompact_arg1¹(_lh_insertCompact_arg2¹)
-//│ def isUpper_lh_₁(_lh_isUpper_arg1¹) = 
-//│ 	let _lh_matchIdent¹⁰¹ = _lh_isUpper_arg1¹
-//│ 	in case _lh_matchIdent¹⁰¹ of {
+//│ def insertCompact_lh_₁(_lh_insertCompact_arg1⁰, _lh_insertCompact_arg2⁰) = _lh_insertCompact_arg1⁰(_lh_insertCompact_arg2⁰)
+//│ def isUpper_lh_₁(_lh_isUpper_arg1⁰) = 
+//│ 	let _lh_matchIdent³⁵ = _lh_isUpper_arg1⁰
+//│ 	in case _lh_matchIdent³⁵ of {
 //│ 		'A'  => [True]
 //│ 		| 'B'  => [True]
 //│ 		| 'C'  => [True]
@@ -4523,23 +4523,23 @@ testMate_nofib $ primId 0
 //│ 		| 'Y'  => [True]
 //│ 		| 'Z'  => [True]
 //│ 		| _  => [False]}
-//│ def kSq_lh_₁(_lh_kSq_arg1²) = case _lh_kSq_arg1² of {
-//│ 	LH_C _lh_kSq_LH_C_0¹ _lh_kSq_LH_C_1¹ => case _lh_kSq_LH_C_0¹ of {
-//│ 		LH_P2 _lh_kSq_LH_P2_0¹ _lh_kSq_LH_P2_1¹ => case _lh_kSq_LH_P2_0¹ of {
-//│ 			King  => _lh_kSq_LH_P2_1¹
-//│ 			| _  => kSq_lh_₁(_lh_kSq_LH_C_1¹)}
-//│ 		| _  => kSq_lh_₁(_lh_kSq_LH_C_1¹)}
-//│ 	| _  => error⁰}
-//│ def kSq_lh_₂(_lh_kSq_arg1³) = case _lh_kSq_arg1³ of {
+//│ def kSq_lh_₁(_lh_kSq_arg1⁰) = case _lh_kSq_arg1⁰ of {
 //│ 	LH_C _lh_kSq_LH_C_0⁰ _lh_kSq_LH_C_1⁰ => case _lh_kSq_LH_C_0⁰ of {
 //│ 		LH_P2 _lh_kSq_LH_P2_0⁰ _lh_kSq_LH_P2_1⁰ => case _lh_kSq_LH_P2_0⁰ of {
 //│ 			King  => _lh_kSq_LH_P2_1⁰
-//│ 			| _  => kSq_lh_₂(_lh_kSq_LH_C_1⁰)}
-//│ 		| _  => kSq_lh_₂(_lh_kSq_LH_C_1⁰)}
+//│ 			| _  => kSq_lh_₁(_lh_kSq_LH_C_1⁰)}
+//│ 		| _  => kSq_lh_₁(_lh_kSq_LH_C_1⁰)}
 //│ 	| _  => error⁰}
-//│ def kindToChar_lh_₁(_lh_kindToChar_arg1³) = 
-//│ 	let _lh_matchIdent¹¹⁵ = _lh_kindToChar_arg1³
-//│ 	in case _lh_matchIdent¹¹⁵ of {
+//│ def kSq_lh_₂(_lh_kSq_arg1¹) = case _lh_kSq_arg1¹ of {
+//│ 	LH_C _lh_kSq_LH_C_0¹ _lh_kSq_LH_C_1¹ => case _lh_kSq_LH_C_0¹ of {
+//│ 		LH_P2 _lh_kSq_LH_P2_0¹ _lh_kSq_LH_P2_1¹ => case _lh_kSq_LH_P2_0¹ of {
+//│ 			King  => _lh_kSq_LH_P2_1¹
+//│ 			| _  => kSq_lh_₂(_lh_kSq_LH_C_1¹)}
+//│ 		| _  => kSq_lh_₂(_lh_kSq_LH_C_1¹)}
+//│ 	| _  => error⁰}
+//│ def kindToChar_lh_₁(_lh_kindToChar_arg1¹) = 
+//│ 	let _lh_matchIdent⁴⁹ = _lh_kindToChar_arg1¹
+//│ 	in case _lh_matchIdent⁴⁹ of {
 //│ 		King  => 'K'
 //│ 		| Queen  => 'Q'
 //│ 		| Rook  => 'R'
@@ -4547,9 +4547,9 @@ testMate_nofib $ primId 0
 //│ 		| Knight  => 'N'
 //│ 		| Pawn  => 'P'
 //│ 		| _  => error⁰}
-//│ def kindToChar_lh_₂(_lh_kindToChar_arg1²) = 
-//│ 	let _lh_matchIdent¹⁰³ = _lh_kindToChar_arg1²
-//│ 	in case _lh_matchIdent¹⁰³ of {
+//│ def kindToChar_lh_₂(_lh_kindToChar_arg1⁰) = 
+//│ 	let _lh_matchIdent³⁷ = _lh_kindToChar_arg1⁰
+//│ 	in case _lh_matchIdent³⁷ of {
 //│ 		King  => 'K'
 //│ 		| Queen  => 'Q'
 //│ 		| Rook  => 'R'
@@ -4557,462 +4557,462 @@ testMate_nofib $ primId 0
 //│ 		| Knight  => 'N'
 //│ 		| Pawn  => 'P'
 //│ 		| _  => error⁰}
-//│ def kingSquare_lh_₁(_lh_kingSquare_arg1¹, _lh_kingSquare_arg2¹) = case _lh_kingSquare_arg1¹ of {
-//│ 	White  => case _lh_kingSquare_arg2¹ of {
+//│ def kingSquare_lh_₁(_lh_kingSquare_arg1⁰, _lh_kingSquare_arg2⁰) = case _lh_kingSquare_arg1⁰ of {
+//│ 	White  => case _lh_kingSquare_arg2⁰ of {
 //│ 		Board _lh_kingSquare_Board_0⁰ _lh_kingSquare_Board_1⁰ => kSq_lh_₂(_lh_kingSquare_Board_0⁰)
 //│ 		| _  => error⁰}
-//│ 	| Black  => case _lh_kingSquare_arg2¹ of {
+//│ 	| Black  => case _lh_kingSquare_arg2⁰ of {
 //│ 		Board _lh_kingSquare_Board_0¹ _lh_kingSquare_Board_1¹ => kSq_lh_₁(_lh_kingSquare_Board_1¹)
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def kingincheck_lh_₁(_lh_kingincheck_arg1³, _lh_kingincheck_arg2³) = 
-//│ 	let givesCheck³ = (fun kxy³ -> 
-//│ 		let _lh_matchIdent¹³⁹ = kxy³
-//│ 		in case _lh_matchIdent¹³⁹ of {
+//│ def kingincheck_lh_₁(_lh_kingincheck_arg1¹, _lh_kingincheck_arg2¹) = 
+//│ 	let givesCheck¹ = (fun kxy¹ -> 
+//│ 		let _lh_matchIdent⁷³ = kxy¹
+//│ 		in case _lh_matchIdent⁷³ of {
 //│ 			LH_P2 _lh_kingincheck_LH_P2_0⁷ _lh_kingincheck_LH_P2_1⁷ => case _lh_kingincheck_LH_P2_1⁷ of {
 //│ 				LH_P2 _lh_kingincheck_LH_P2_0⁸ _lh_kingincheck_LH_P2_1⁸ => 
-//│ 					let kthreat³ = (fun param⁵ -> 
-//│ 						let xkyk³ = kingSquare_lh_₁(_lh_kingincheck_arg1³, _lh_kingincheck_arg2³)
-//│ 						in let _lh_matchIdent¹⁴⁰ = xkyk³
-//│ 						in case _lh_matchIdent¹⁴⁰ of {
+//│ 					let kthreat¹ = (fun param² -> 
+//│ 						let xkyk¹ = kingSquare_lh_₁(_lh_kingincheck_arg1¹, _lh_kingincheck_arg2¹)
+//│ 						in let _lh_matchIdent⁷⁴ = xkyk¹
+//│ 						in case _lh_matchIdent⁷⁴ of {
 //│ 							LH_P2 _lh_kingincheck_LH_P2_0⁹ _lh_kingincheck_LH_P2_1⁹ => 
-//│ 								let _lh_matchIdent¹⁴¹ = param⁵
-//│ 								in case _lh_matchIdent¹⁴¹ of {
+//│ 								let _lh_matchIdent⁷⁵ = param²
+//│ 								in case _lh_matchIdent⁷⁵ of {
 //│ 									King  => ((abs_lh_₂((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_0⁹)) <= 1) && (abs_lh_₇((_lh_kingincheck_LH_P2_1⁸ - _lh_kingincheck_LH_P2_1⁹)) <= 1))
-//│ 									| Queen  => (kthreat³([Rook]) || kthreat³([Bishop]))
-//│ 									| Rook  => (((_lh_kingincheck_LH_P2_0⁸ == _lh_kingincheck_LH_P2_0⁹) && emptyAtAll_lh_₂(_lh_kingincheck_arg2³, (fun xeye¹² -> 
-//│ 										let _lh_matchIdent¹⁴² = xeye¹²
-//│ 										in case _lh_matchIdent¹⁴² of {
+//│ 									| Queen  => (kthreat¹([Rook]) || kthreat¹([Bishop]))
+//│ 									| Rook  => (((_lh_kingincheck_LH_P2_0⁸ == _lh_kingincheck_LH_P2_0⁹) && emptyAtAll_lh_₂(_lh_kingincheck_arg2¹, (fun xeye⁴ -> 
+//│ 										let _lh_matchIdent⁷⁶ = xeye⁴
+//│ 										in case _lh_matchIdent⁷⁶ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0¹⁰ _lh_kingincheck_LH_P2_1¹⁰ => (((_lh_kingincheck_LH_P2_0¹⁰ == _lh_kingincheck_LH_P2_0⁹) && (min_lh_₁(_lh_kingincheck_LH_P2_1⁸, _lh_kingincheck_LH_P2_1⁹) < _lh_kingincheck_LH_P2_1¹⁰)) && (_lh_kingincheck_LH_P2_1¹⁰ < max_lh_₄(_lh_kingincheck_LH_P2_1⁸, _lh_kingincheck_LH_P2_1⁹)))
-//│ 											| _  => error⁰}))) || ((_lh_kingincheck_LH_P2_1⁸ == _lh_kingincheck_LH_P2_1⁹) && emptyAtAll_lh_₁(_lh_kingincheck_arg2³, (fun xeye¹³ -> 
-//│ 										let _lh_matchIdent¹⁴³ = xeye¹³
-//│ 										in case _lh_matchIdent¹⁴³ of {
+//│ 											| _  => error⁰}))) || ((_lh_kingincheck_LH_P2_1⁸ == _lh_kingincheck_LH_P2_1⁹) && emptyAtAll_lh_₁(_lh_kingincheck_arg2¹, (fun xeye⁵ -> 
+//│ 										let _lh_matchIdent⁷⁷ = xeye⁵
+//│ 										in case _lh_matchIdent⁷⁷ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0¹¹ _lh_kingincheck_LH_P2_1¹¹ => (((_lh_kingincheck_LH_P2_1¹¹ == _lh_kingincheck_LH_P2_1⁹) && (min_lh_₄(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹) < _lh_kingincheck_LH_P2_0¹¹)) && (_lh_kingincheck_LH_P2_0¹¹ < max_lh_₂(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹)))
 //│ 											| _  => error⁰}))))
-//│ 									| Bishop  => ((((_lh_kingincheck_LH_P2_0⁸ + _lh_kingincheck_LH_P2_1⁸) == (_lh_kingincheck_LH_P2_0⁹ + _lh_kingincheck_LH_P2_1⁹)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2³, (fun xeye¹⁴ -> 
-//│ 										let _lh_matchIdent¹⁴⁴ = xeye¹⁴
-//│ 										in case _lh_matchIdent¹⁴⁴ of {
+//│ 									| Bishop  => ((((_lh_kingincheck_LH_P2_0⁸ + _lh_kingincheck_LH_P2_1⁸) == (_lh_kingincheck_LH_P2_0⁹ + _lh_kingincheck_LH_P2_1⁹)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2¹, (fun xeye⁶ -> 
+//│ 										let _lh_matchIdent⁷⁸ = xeye⁶
+//│ 										in case _lh_matchIdent⁷⁸ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0¹² _lh_kingincheck_LH_P2_1¹² => ((((_lh_kingincheck_LH_P2_0¹² + _lh_kingincheck_LH_P2_1¹²) == (_lh_kingincheck_LH_P2_0⁹ + _lh_kingincheck_LH_P2_1⁹)) && (min_lh_₃(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹) < _lh_kingincheck_LH_P2_0¹²)) && (_lh_kingincheck_LH_P2_0¹² < max_lh_₁(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹)))
-//│ 											| _  => error⁰}))) || (((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_1⁸) == (_lh_kingincheck_LH_P2_0⁹ - _lh_kingincheck_LH_P2_1⁹)) && emptyAtAll_lh_₃(_lh_kingincheck_arg2³, (fun xeye¹⁵ -> 
-//│ 										let _lh_matchIdent¹⁴⁵ = xeye¹⁵
-//│ 										in case _lh_matchIdent¹⁴⁵ of {
+//│ 											| _  => error⁰}))) || (((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_1⁸) == (_lh_kingincheck_LH_P2_0⁹ - _lh_kingincheck_LH_P2_1⁹)) && emptyAtAll_lh_₃(_lh_kingincheck_arg2¹, (fun xeye⁷ -> 
+//│ 										let _lh_matchIdent⁷⁹ = xeye⁷
+//│ 										in case _lh_matchIdent⁷⁹ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0¹³ _lh_kingincheck_LH_P2_1¹³ => ((((_lh_kingincheck_LH_P2_0¹³ - _lh_kingincheck_LH_P2_1¹³) == (_lh_kingincheck_LH_P2_0⁹ - _lh_kingincheck_LH_P2_1⁹)) && (min_lh_₂(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹) < _lh_kingincheck_LH_P2_0¹³)) && (_lh_kingincheck_LH_P2_0¹³ < max_lh_₃(_lh_kingincheck_LH_P2_0⁸, _lh_kingincheck_LH_P2_0⁹)))
 //│ 											| _  => error⁰}))))
 //│ 									| Knight  => (((abs_lh_₄((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_0⁹)) == 2) && (abs_lh_₅((_lh_kingincheck_LH_P2_1⁸ - _lh_kingincheck_LH_P2_1⁹)) == 1)) || ((abs_lh_₆((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_0⁹)) == 1) && (abs_lh_₃((_lh_kingincheck_LH_P2_1⁸ - _lh_kingincheck_LH_P2_1⁹)) == 2)))
 //│ 									| Pawn  => ((abs_lh_₁((_lh_kingincheck_LH_P2_0⁸ - _lh_kingincheck_LH_P2_0⁹)) == 1) && 
-//│ 										let _lh_matchIdent¹⁴⁶ = _lh_kingincheck_arg1³
-//│ 										in case _lh_matchIdent¹⁴⁶ of {
+//│ 										let _lh_matchIdent⁸⁰ = _lh_kingincheck_arg1¹
+//│ 										in case _lh_matchIdent⁸⁰ of {
 //│ 											Black  => (_lh_kingincheck_LH_P2_1⁹ == (_lh_kingincheck_LH_P2_1⁸ + 1))
 //│ 											| White  => (_lh_kingincheck_LH_P2_1⁹ == (_lh_kingincheck_LH_P2_1⁸ - 1))
 //│ 											| _  => error⁰})
 //│ 									| _  => error⁰}
 //│ 							| _  => error⁰})
-//│ 					in kthreat³(_lh_kingincheck_LH_P2_0⁷)
+//│ 					in kthreat¹(_lh_kingincheck_LH_P2_0⁷)
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰})
-//│ 	in any_lh_₁(givesCheck³, forcesColoured_lh_₁(opponent_lh_₃(_lh_kingincheck_arg1³), _lh_kingincheck_arg2³))
-//│ def kingincheck_lh_₂(_lh_kingincheck_arg1², _lh_kingincheck_arg2²) = 
-//│ 	let givesCheck² = (fun kxy² -> 
-//│ 		let _lh_matchIdent⁶⁸ = kxy²
-//│ 		in case _lh_matchIdent⁶⁸ of {
+//│ 	in any_lh_₁(givesCheck¹, forcesColoured_lh_₁(opponent_lh_₃(_lh_kingincheck_arg1¹), _lh_kingincheck_arg2¹))
+//│ def kingincheck_lh_₂(_lh_kingincheck_arg1⁰, _lh_kingincheck_arg2⁰) = 
+//│ 	let givesCheck⁰ = (fun kxy⁰ -> 
+//│ 		let _lh_matchIdent² = kxy⁰
+//│ 		in case _lh_matchIdent² of {
 //│ 			LH_P2 _lh_kingincheck_LH_P2_0⁰ _lh_kingincheck_LH_P2_1⁰ => case _lh_kingincheck_LH_P2_1⁰ of {
 //│ 				LH_P2 _lh_kingincheck_LH_P2_0¹ _lh_kingincheck_LH_P2_1¹ => 
-//│ 					let kthreat² = (fun param³ -> 
-//│ 						let xkyk² = kingSquare_lh_₁(_lh_kingincheck_arg1², _lh_kingincheck_arg2²)
-//│ 						in let _lh_matchIdent⁶⁹ = xkyk²
-//│ 						in case _lh_matchIdent⁶⁹ of {
+//│ 					let kthreat⁰ = (fun param⁰ -> 
+//│ 						let xkyk⁰ = kingSquare_lh_₁(_lh_kingincheck_arg1⁰, _lh_kingincheck_arg2⁰)
+//│ 						in let _lh_matchIdent³ = xkyk⁰
+//│ 						in case _lh_matchIdent³ of {
 //│ 							LH_P2 _lh_kingincheck_LH_P2_0² _lh_kingincheck_LH_P2_1² => 
-//│ 								let _lh_matchIdent⁷⁰ = param³
-//│ 								in case _lh_matchIdent⁷⁰ of {
+//│ 								let _lh_matchIdent⁴ = param⁰
+//│ 								in case _lh_matchIdent⁴ of {
 //│ 									King  => ((abs_lh_₇((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_0²)) <= 1) && (abs_lh_₇((_lh_kingincheck_LH_P2_1¹ - _lh_kingincheck_LH_P2_1²)) <= 1))
-//│ 									| Queen  => (kthreat²([Rook]) || kthreat²([Bishop]))
-//│ 									| Rook  => (((_lh_kingincheck_LH_P2_0¹ == _lh_kingincheck_LH_P2_0²) && emptyAtAll_lh_₄(_lh_kingincheck_arg2², (fun xeye⁸ -> 
-//│ 										let _lh_matchIdent⁷¹ = xeye⁸
-//│ 										in case _lh_matchIdent⁷¹ of {
+//│ 									| Queen  => (kthreat⁰([Rook]) || kthreat⁰([Bishop]))
+//│ 									| Rook  => (((_lh_kingincheck_LH_P2_0¹ == _lh_kingincheck_LH_P2_0²) && emptyAtAll_lh_₄(_lh_kingincheck_arg2⁰, (fun xeye⁰ -> 
+//│ 										let _lh_matchIdent⁵ = xeye⁰
+//│ 										in case _lh_matchIdent⁵ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0³ _lh_kingincheck_LH_P2_1³ => (((_lh_kingincheck_LH_P2_0³ == _lh_kingincheck_LH_P2_0²) && (min_lh_₄(_lh_kingincheck_LH_P2_1¹, _lh_kingincheck_LH_P2_1²) < _lh_kingincheck_LH_P2_1³)) && (_lh_kingincheck_LH_P2_1³ < max_lh_₄(_lh_kingincheck_LH_P2_1¹, _lh_kingincheck_LH_P2_1²)))
-//│ 											| _  => error⁰}))) || ((_lh_kingincheck_LH_P2_1¹ == _lh_kingincheck_LH_P2_1²) && emptyAtAll_lh_₄(_lh_kingincheck_arg2², (fun xeye⁹ -> 
-//│ 										let _lh_matchIdent⁷² = xeye⁹
-//│ 										in case _lh_matchIdent⁷² of {
+//│ 											| _  => error⁰}))) || ((_lh_kingincheck_LH_P2_1¹ == _lh_kingincheck_LH_P2_1²) && emptyAtAll_lh_₄(_lh_kingincheck_arg2⁰, (fun xeye¹ -> 
+//│ 										let _lh_matchIdent⁶ = xeye¹
+//│ 										in case _lh_matchIdent⁶ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0⁴ _lh_kingincheck_LH_P2_1⁴ => (((_lh_kingincheck_LH_P2_1⁴ == _lh_kingincheck_LH_P2_1²) && (min_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²) < _lh_kingincheck_LH_P2_0⁴)) && (_lh_kingincheck_LH_P2_0⁴ < max_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²)))
 //│ 											| _  => error⁰}))))
-//│ 									| Bishop  => ((((_lh_kingincheck_LH_P2_0¹ + _lh_kingincheck_LH_P2_1¹) == (_lh_kingincheck_LH_P2_0² + _lh_kingincheck_LH_P2_1²)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2², (fun xeye¹⁰ -> 
-//│ 										let _lh_matchIdent⁷³ = xeye¹⁰
-//│ 										in case _lh_matchIdent⁷³ of {
+//│ 									| Bishop  => ((((_lh_kingincheck_LH_P2_0¹ + _lh_kingincheck_LH_P2_1¹) == (_lh_kingincheck_LH_P2_0² + _lh_kingincheck_LH_P2_1²)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2⁰, (fun xeye² -> 
+//│ 										let _lh_matchIdent⁷ = xeye²
+//│ 										in case _lh_matchIdent⁷ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0⁵ _lh_kingincheck_LH_P2_1⁵ => ((((_lh_kingincheck_LH_P2_0⁵ + _lh_kingincheck_LH_P2_1⁵) == (_lh_kingincheck_LH_P2_0² + _lh_kingincheck_LH_P2_1²)) && (min_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²) < _lh_kingincheck_LH_P2_0⁵)) && (_lh_kingincheck_LH_P2_0⁵ < max_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²)))
-//│ 											| _  => error⁰}))) || (((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_1¹) == (_lh_kingincheck_LH_P2_0² - _lh_kingincheck_LH_P2_1²)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2², (fun xeye¹¹ -> 
-//│ 										let _lh_matchIdent⁷⁴ = xeye¹¹
-//│ 										in case _lh_matchIdent⁷⁴ of {
+//│ 											| _  => error⁰}))) || (((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_1¹) == (_lh_kingincheck_LH_P2_0² - _lh_kingincheck_LH_P2_1²)) && emptyAtAll_lh_₄(_lh_kingincheck_arg2⁰, (fun xeye³ -> 
+//│ 										let _lh_matchIdent⁸ = xeye³
+//│ 										in case _lh_matchIdent⁸ of {
 //│ 											LH_P2 _lh_kingincheck_LH_P2_0⁶ _lh_kingincheck_LH_P2_1⁶ => ((((_lh_kingincheck_LH_P2_0⁶ - _lh_kingincheck_LH_P2_1⁶) == (_lh_kingincheck_LH_P2_0² - _lh_kingincheck_LH_P2_1²)) && (min_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²) < _lh_kingincheck_LH_P2_0⁶)) && (_lh_kingincheck_LH_P2_0⁶ < max_lh_₄(_lh_kingincheck_LH_P2_0¹, _lh_kingincheck_LH_P2_0²)))
 //│ 											| _  => error⁰}))))
 //│ 									| Knight  => (((abs_lh_₇((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_0²)) == 2) && (abs_lh_₇((_lh_kingincheck_LH_P2_1¹ - _lh_kingincheck_LH_P2_1²)) == 1)) || ((abs_lh_₇((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_0²)) == 1) && (abs_lh_₇((_lh_kingincheck_LH_P2_1¹ - _lh_kingincheck_LH_P2_1²)) == 2)))
 //│ 									| Pawn  => ((abs_lh_₇((_lh_kingincheck_LH_P2_0¹ - _lh_kingincheck_LH_P2_0²)) == 1) && 
-//│ 										let _lh_matchIdent⁷⁵ = _lh_kingincheck_arg1²
-//│ 										in case _lh_matchIdent⁷⁵ of {
+//│ 										let _lh_matchIdent⁹ = _lh_kingincheck_arg1⁰
+//│ 										in case _lh_matchIdent⁹ of {
 //│ 											Black  => (_lh_kingincheck_LH_P2_1² == (_lh_kingincheck_LH_P2_1¹ + 1))
 //│ 											| White  => (_lh_kingincheck_LH_P2_1² == (_lh_kingincheck_LH_P2_1¹ - 1))
 //│ 											| _  => error⁰})
 //│ 									| _  => error⁰}
 //│ 							| _  => error⁰})
-//│ 					in kthreat²(_lh_kingincheck_LH_P2_0⁰)
+//│ 					in kthreat⁰(_lh_kingincheck_LH_P2_0⁰)
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰})
-//│ 	in any_lh_₁(givesCheck², forcesColoured_lh_₃(opponent_lh_₅(_lh_kingincheck_arg1²), _lh_kingincheck_arg2²))
-//│ def kingmoves_lh_₁(_lh_kingmoves_arg1¹, _lh_kingmoves_arg2¹, _lh_kingmoves_arg3¹) = case _lh_kingmoves_arg2¹ of {
-//│ 	LH_P2 _lh_kingmoves_LH_P2_0⁰ _lh_kingmoves_LH_P2_1⁰ => sift_lh_₁(_lh_kingmoves_arg1¹, _lh_kingmoves_arg3¹, [LH_N], 
-//│ 		let _lh_sift_LH_C_1¹ = 	
-//│ 			let _lh_sift_LH_C_1² = 	
-//│ 				let _lh_sift_LH_C_1³ = 	
-//│ 					let _lh_sift_LH_C_1⁴ = 	
-//│ 						let _lh_sift_LH_C_1⁵ = 	
-//│ 							let _lh_sift_LH_C_1⁶ = 	
-//│ 								let _lh_sift_LH_C_1⁷ = 	
-//│ 									let _lh_sift_LH_C_1⁸ = (fun _lh_sift_arg3⁹ -> (fun _lh_sift_arg1⁹ -> (fun _lh_sift_arg2⁹ -> _lh_sift_arg3⁹)))
-//│ 									in let _lh_sift_LH_C_0⁸ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) (_lh_kingmoves_LH_P2_1⁰ - 1)]
-//│ 									in (fun _lh_sift_arg3⁸ -> (fun _lh_sift_arg1⁸ -> (fun _lh_sift_arg2⁸ -> if onboard_lh_₁(_lh_sift_LH_C_0⁸) then 
-//│ 										let _lh_matchIdent⁸⁷ = pieceAt_lh_₁(_lh_sift_arg2⁸, _lh_sift_LH_C_0⁸)
-//│ 										in case _lh_matchIdent⁸⁷ of {
-//│ 											Nothing  => sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, [LH_C [Move _lh_sift_LH_C_0⁸ [Nothing] [Nothing]] _lh_sift_arg3⁸], _lh_sift_LH_C_1⁸)
-//│ 											| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1⁸) then sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, _lh_sift_arg3⁸, _lh_sift_LH_C_1⁸) else sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, [LH_C [Move _lh_sift_LH_C_0⁸ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3⁸], _lh_sift_LH_C_1⁸)
-//│ 											| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, _lh_sift_arg3⁸, _lh_sift_LH_C_1⁸))))
-//│ 								in let _lh_sift_LH_C_0⁷ = [LH_P2 _lh_kingmoves_LH_P2_0⁰ (_lh_kingmoves_LH_P2_1⁰ - 1)]
-//│ 								in (fun _lh_sift_arg3⁷ -> (fun _lh_sift_arg1⁷ -> (fun _lh_sift_arg2⁷ -> if onboard_lh_₁(_lh_sift_LH_C_0⁷) then 
-//│ 									let _lh_matchIdent⁸⁶ = pieceAt_lh_₁(_lh_sift_arg2⁷, _lh_sift_LH_C_0⁷)
-//│ 									in case _lh_matchIdent⁸⁶ of {
-//│ 										Nothing  => sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, [LH_C [Move _lh_sift_LH_C_0⁷ [Nothing] [Nothing]] _lh_sift_arg3⁷], _lh_sift_LH_C_1⁷)
-//│ 										| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1⁷) then sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, _lh_sift_arg3⁷, _lh_sift_LH_C_1⁷) else sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, [LH_C [Move _lh_sift_LH_C_0⁷ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3⁷], _lh_sift_LH_C_1⁷)
-//│ 										| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, _lh_sift_arg3⁷, _lh_sift_LH_C_1⁷))))
-//│ 							in let _lh_sift_LH_C_0⁶ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ - 1) (_lh_kingmoves_LH_P2_1⁰ - 1)]
-//│ 							in (fun _lh_sift_arg3⁶ -> (fun _lh_sift_arg1⁶ -> (fun _lh_sift_arg2⁶ -> if onboard_lh_₁(_lh_sift_LH_C_0⁶) then 
-//│ 								let _lh_matchIdent⁸⁵ = pieceAt_lh_₁(_lh_sift_arg2⁶, _lh_sift_LH_C_0⁶)
-//│ 								in case _lh_matchIdent⁸⁵ of {
-//│ 									Nothing  => sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, [LH_C [Move _lh_sift_LH_C_0⁶ [Nothing] [Nothing]] _lh_sift_arg3⁶], _lh_sift_LH_C_1⁶)
-//│ 									| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1⁶) then sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, _lh_sift_arg3⁶, _lh_sift_LH_C_1⁶) else sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, [LH_C [Move _lh_sift_LH_C_0⁶ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3⁶], _lh_sift_LH_C_1⁶)
-//│ 									| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, _lh_sift_arg3⁶, _lh_sift_LH_C_1⁶))))
-//│ 						in let _lh_sift_LH_C_0⁵ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) _lh_kingmoves_LH_P2_1⁰]
-//│ 						in (fun _lh_sift_arg3⁵ -> (fun _lh_sift_arg1⁵ -> (fun _lh_sift_arg2⁵ -> if onboard_lh_₁(_lh_sift_LH_C_0⁵) then 
-//│ 							let _lh_matchIdent⁸⁴ = pieceAt_lh_₁(_lh_sift_arg2⁵, _lh_sift_LH_C_0⁵)
-//│ 							in case _lh_matchIdent⁸⁴ of {
-//│ 								Nothing  => sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, [LH_C [Move _lh_sift_LH_C_0⁵ [Nothing] [Nothing]] _lh_sift_arg3⁵], _lh_sift_LH_C_1⁵)
-//│ 								| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1⁵) then sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, _lh_sift_arg3⁵, _lh_sift_LH_C_1⁵) else sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, [LH_C [Move _lh_sift_LH_C_0⁵ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3⁵], _lh_sift_LH_C_1⁵)
-//│ 								| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, _lh_sift_arg3⁵, _lh_sift_LH_C_1⁵))))
+//│ 	in any_lh_₁(givesCheck⁰, forcesColoured_lh_₃(opponent_lh_₅(_lh_kingincheck_arg1⁰), _lh_kingincheck_arg2⁰))
+//│ def kingmoves_lh_₁(_lh_kingmoves_arg1⁰, _lh_kingmoves_arg2⁰, _lh_kingmoves_arg3⁰) = case _lh_kingmoves_arg2⁰ of {
+//│ 	LH_P2 _lh_kingmoves_LH_P2_0⁰ _lh_kingmoves_LH_P2_1⁰ => sift_lh_₁(_lh_kingmoves_arg1⁰, _lh_kingmoves_arg3⁰, [LH_N], 
+//│ 		let _lh_sift_LH_C_1⁰ = 	
+//│ 			let _lh_sift_LH_C_1¹ = 	
+//│ 				let _lh_sift_LH_C_1² = 	
+//│ 					let _lh_sift_LH_C_1³ = 	
+//│ 						let _lh_sift_LH_C_1⁴ = 	
+//│ 							let _lh_sift_LH_C_1⁵ = 	
+//│ 								let _lh_sift_LH_C_1⁶ = 	
+//│ 									let _lh_sift_LH_C_1⁷ = (fun _lh_sift_arg3⁰ -> (fun _lh_sift_arg1⁰ -> (fun _lh_sift_arg2⁰ -> _lh_sift_arg3⁰)))
+//│ 									in let _lh_sift_LH_C_0⁰ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) (_lh_kingmoves_LH_P2_1⁰ - 1)]
+//│ 									in (fun _lh_sift_arg3¹ -> (fun _lh_sift_arg1¹ -> (fun _lh_sift_arg2¹ -> if onboard_lh_₁(_lh_sift_LH_C_0⁰) then 
+//│ 										let _lh_matchIdent¹⁴ = pieceAt_lh_₁(_lh_sift_arg2¹, _lh_sift_LH_C_0⁰)
+//│ 										in case _lh_matchIdent¹⁴ of {
+//│ 											Nothing  => sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, [LH_C [Move _lh_sift_LH_C_0⁰ [Nothing] [Nothing]] _lh_sift_arg3¹], _lh_sift_LH_C_1⁷)
+//│ 											| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹) then sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, _lh_sift_arg3¹, _lh_sift_LH_C_1⁷) else sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, [LH_C [Move _lh_sift_LH_C_0⁰ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹], _lh_sift_LH_C_1⁷)
+//│ 											| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, _lh_sift_arg3¹, _lh_sift_LH_C_1⁷))))
+//│ 								in let _lh_sift_LH_C_0¹ = [LH_P2 _lh_kingmoves_LH_P2_0⁰ (_lh_kingmoves_LH_P2_1⁰ - 1)]
+//│ 								in (fun _lh_sift_arg3² -> (fun _lh_sift_arg1² -> (fun _lh_sift_arg2² -> if onboard_lh_₁(_lh_sift_LH_C_0¹) then 
+//│ 									let _lh_matchIdent¹⁵ = pieceAt_lh_₁(_lh_sift_arg2², _lh_sift_LH_C_0¹)
+//│ 									in case _lh_matchIdent¹⁵ of {
+//│ 										Nothing  => sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², [LH_C [Move _lh_sift_LH_C_0¹ [Nothing] [Nothing]] _lh_sift_arg3²], _lh_sift_LH_C_1⁶)
+//│ 										| Just _lh_sift_Just_0¹ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹), _lh_sift_arg1²) then sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², _lh_sift_arg3², _lh_sift_LH_C_1⁶) else sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², [LH_C [Move _lh_sift_LH_C_0¹ [Just _lh_sift_Just_0¹] [Nothing]] _lh_sift_arg3²], _lh_sift_LH_C_1⁶)
+//│ 										| _  => error⁰} else sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², _lh_sift_arg3², _lh_sift_LH_C_1⁶))))
+//│ 							in let _lh_sift_LH_C_0² = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ - 1) (_lh_kingmoves_LH_P2_1⁰ - 1)]
+//│ 							in (fun _lh_sift_arg3³ -> (fun _lh_sift_arg1³ -> (fun _lh_sift_arg2³ -> if onboard_lh_₁(_lh_sift_LH_C_0²) then 
+//│ 								let _lh_matchIdent¹⁶ = pieceAt_lh_₁(_lh_sift_arg2³, _lh_sift_LH_C_0²)
+//│ 								in case _lh_matchIdent¹⁶ of {
+//│ 									Nothing  => sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, [LH_C [Move _lh_sift_LH_C_0² [Nothing] [Nothing]] _lh_sift_arg3³], _lh_sift_LH_C_1⁵)
+//│ 									| Just _lh_sift_Just_0² => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0²), _lh_sift_arg1³) then sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, _lh_sift_arg3³, _lh_sift_LH_C_1⁵) else sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, [LH_C [Move _lh_sift_LH_C_0² [Just _lh_sift_Just_0²] [Nothing]] _lh_sift_arg3³], _lh_sift_LH_C_1⁵)
+//│ 									| _  => error⁰} else sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, _lh_sift_arg3³, _lh_sift_LH_C_1⁵))))
+//│ 						in let _lh_sift_LH_C_0³ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) _lh_kingmoves_LH_P2_1⁰]
+//│ 						in (fun _lh_sift_arg3⁴ -> (fun _lh_sift_arg1⁴ -> (fun _lh_sift_arg2⁴ -> if onboard_lh_₁(_lh_sift_LH_C_0³) then 
+//│ 							let _lh_matchIdent¹⁷ = pieceAt_lh_₁(_lh_sift_arg2⁴, _lh_sift_LH_C_0³)
+//│ 							in case _lh_matchIdent¹⁷ of {
+//│ 								Nothing  => sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, [LH_C [Move _lh_sift_LH_C_0³ [Nothing] [Nothing]] _lh_sift_arg3⁴], _lh_sift_LH_C_1⁴)
+//│ 								| Just _lh_sift_Just_0³ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0³), _lh_sift_arg1⁴) then sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, _lh_sift_arg3⁴, _lh_sift_LH_C_1⁴) else sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, [LH_C [Move _lh_sift_LH_C_0³ [Just _lh_sift_Just_0³] [Nothing]] _lh_sift_arg3⁴], _lh_sift_LH_C_1⁴)
+//│ 								| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, _lh_sift_arg3⁴, _lh_sift_LH_C_1⁴))))
 //│ 					in let _lh_sift_LH_C_0⁴ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ - 1) _lh_kingmoves_LH_P2_1⁰]
-//│ 					in (fun _lh_sift_arg3⁴ -> (fun _lh_sift_arg1⁴ -> (fun _lh_sift_arg2⁴ -> if onboard_lh_₁(_lh_sift_LH_C_0⁴) then 
-//│ 						let _lh_matchIdent⁸³ = pieceAt_lh_₁(_lh_sift_arg2⁴, _lh_sift_LH_C_0⁴)
-//│ 						in case _lh_matchIdent⁸³ of {
-//│ 							Nothing  => sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, [LH_C [Move _lh_sift_LH_C_0⁴ [Nothing] [Nothing]] _lh_sift_arg3⁴], _lh_sift_LH_C_1⁴)
-//│ 							| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1⁴) then sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, _lh_sift_arg3⁴, _lh_sift_LH_C_1⁴) else sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, [LH_C [Move _lh_sift_LH_C_0⁴ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3⁴], _lh_sift_LH_C_1⁴)
-//│ 							| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁴, _lh_sift_arg2⁴, _lh_sift_arg3⁴, _lh_sift_LH_C_1⁴))))
-//│ 				in let _lh_sift_LH_C_0³ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) (_lh_kingmoves_LH_P2_1⁰ + 1)]
-//│ 				in (fun _lh_sift_arg3³ -> (fun _lh_sift_arg1³ -> (fun _lh_sift_arg2³ -> if onboard_lh_₁(_lh_sift_LH_C_0³) then 
-//│ 					let _lh_matchIdent⁸² = pieceAt_lh_₁(_lh_sift_arg2³, _lh_sift_LH_C_0³)
-//│ 					in case _lh_matchIdent⁸² of {
-//│ 						Nothing  => sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, [LH_C [Move _lh_sift_LH_C_0³ [Nothing] [Nothing]] _lh_sift_arg3³], _lh_sift_LH_C_1³)
-//│ 						| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1³) then sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, _lh_sift_arg3³, _lh_sift_LH_C_1³) else sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, [LH_C [Move _lh_sift_LH_C_0³ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3³], _lh_sift_LH_C_1³)
-//│ 						| _  => error⁰} else sift_lh_₁(_lh_sift_arg1³, _lh_sift_arg2³, _lh_sift_arg3³, _lh_sift_LH_C_1³))))
-//│ 			in let _lh_sift_LH_C_0² = [LH_P2 _lh_kingmoves_LH_P2_0⁰ (_lh_kingmoves_LH_P2_1⁰ + 1)]
-//│ 			in (fun _lh_sift_arg3² -> (fun _lh_sift_arg1² -> (fun _lh_sift_arg2² -> if onboard_lh_₁(_lh_sift_LH_C_0²) then 
-//│ 				let _lh_matchIdent⁸¹ = pieceAt_lh_₁(_lh_sift_arg2², _lh_sift_LH_C_0²)
-//│ 				in case _lh_matchIdent⁸¹ of {
-//│ 					Nothing  => sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², [LH_C [Move _lh_sift_LH_C_0² [Nothing] [Nothing]] _lh_sift_arg3²], _lh_sift_LH_C_1²)
-//│ 					| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1²) then sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², _lh_sift_arg3², _lh_sift_LH_C_1²) else sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², [LH_C [Move _lh_sift_LH_C_0² [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3²], _lh_sift_LH_C_1²)
-//│ 					| _  => error⁰} else sift_lh_₁(_lh_sift_arg1², _lh_sift_arg2², _lh_sift_arg3², _lh_sift_LH_C_1²))))
-//│ 		in let _lh_sift_LH_C_0¹ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ - 1) (_lh_kingmoves_LH_P2_1⁰ + 1)]
-//│ 		in (fun _lh_sift_arg3¹ -> (fun _lh_sift_arg1¹ -> (fun _lh_sift_arg2¹ -> if onboard_lh_₁(_lh_sift_LH_C_0¹) then 
-//│ 			let _lh_matchIdent⁸⁰ = pieceAt_lh_₁(_lh_sift_arg2¹, _lh_sift_LH_C_0¹)
-//│ 			in case _lh_matchIdent⁸⁰ of {
-//│ 				Nothing  => sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, [LH_C [Move _lh_sift_LH_C_0¹ [Nothing] [Nothing]] _lh_sift_arg3¹], _lh_sift_LH_C_1¹)
-//│ 				| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹) then sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, _lh_sift_arg3¹, _lh_sift_LH_C_1¹) else sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, [LH_C [Move _lh_sift_LH_C_0¹ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹], _lh_sift_LH_C_1¹)
-//│ 				| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹, _lh_sift_arg2¹, _lh_sift_arg3¹, _lh_sift_LH_C_1¹)))))
+//│ 					in (fun _lh_sift_arg3⁵ -> (fun _lh_sift_arg1⁵ -> (fun _lh_sift_arg2⁵ -> if onboard_lh_₁(_lh_sift_LH_C_0⁴) then 
+//│ 						let _lh_matchIdent¹⁸ = pieceAt_lh_₁(_lh_sift_arg2⁵, _lh_sift_LH_C_0⁴)
+//│ 						in case _lh_matchIdent¹⁸ of {
+//│ 							Nothing  => sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, [LH_C [Move _lh_sift_LH_C_0⁴ [Nothing] [Nothing]] _lh_sift_arg3⁵], _lh_sift_LH_C_1³)
+//│ 							| Just _lh_sift_Just_0⁴ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁴), _lh_sift_arg1⁵) then sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, _lh_sift_arg3⁵, _lh_sift_LH_C_1³) else sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, [LH_C [Move _lh_sift_LH_C_0⁴ [Just _lh_sift_Just_0⁴] [Nothing]] _lh_sift_arg3⁵], _lh_sift_LH_C_1³)
+//│ 							| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁵, _lh_sift_arg2⁵, _lh_sift_arg3⁵, _lh_sift_LH_C_1³))))
+//│ 				in let _lh_sift_LH_C_0⁵ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ + 1) (_lh_kingmoves_LH_P2_1⁰ + 1)]
+//│ 				in (fun _lh_sift_arg3⁶ -> (fun _lh_sift_arg1⁶ -> (fun _lh_sift_arg2⁶ -> if onboard_lh_₁(_lh_sift_LH_C_0⁵) then 
+//│ 					let _lh_matchIdent¹⁹ = pieceAt_lh_₁(_lh_sift_arg2⁶, _lh_sift_LH_C_0⁵)
+//│ 					in case _lh_matchIdent¹⁹ of {
+//│ 						Nothing  => sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, [LH_C [Move _lh_sift_LH_C_0⁵ [Nothing] [Nothing]] _lh_sift_arg3⁶], _lh_sift_LH_C_1²)
+//│ 						| Just _lh_sift_Just_0⁵ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁵), _lh_sift_arg1⁶) then sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, _lh_sift_arg3⁶, _lh_sift_LH_C_1²) else sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, [LH_C [Move _lh_sift_LH_C_0⁵ [Just _lh_sift_Just_0⁵] [Nothing]] _lh_sift_arg3⁶], _lh_sift_LH_C_1²)
+//│ 						| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁶, _lh_sift_arg2⁶, _lh_sift_arg3⁶, _lh_sift_LH_C_1²))))
+//│ 			in let _lh_sift_LH_C_0⁶ = [LH_P2 _lh_kingmoves_LH_P2_0⁰ (_lh_kingmoves_LH_P2_1⁰ + 1)]
+//│ 			in (fun _lh_sift_arg3⁷ -> (fun _lh_sift_arg1⁷ -> (fun _lh_sift_arg2⁷ -> if onboard_lh_₁(_lh_sift_LH_C_0⁶) then 
+//│ 				let _lh_matchIdent²⁰ = pieceAt_lh_₁(_lh_sift_arg2⁷, _lh_sift_LH_C_0⁶)
+//│ 				in case _lh_matchIdent²⁰ of {
+//│ 					Nothing  => sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, [LH_C [Move _lh_sift_LH_C_0⁶ [Nothing] [Nothing]] _lh_sift_arg3⁷], _lh_sift_LH_C_1¹)
+//│ 					| Just _lh_sift_Just_0⁶ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁶), _lh_sift_arg1⁷) then sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, _lh_sift_arg3⁷, _lh_sift_LH_C_1¹) else sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, [LH_C [Move _lh_sift_LH_C_0⁶ [Just _lh_sift_Just_0⁶] [Nothing]] _lh_sift_arg3⁷], _lh_sift_LH_C_1¹)
+//│ 					| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁷, _lh_sift_arg2⁷, _lh_sift_arg3⁷, _lh_sift_LH_C_1¹))))
+//│ 		in let _lh_sift_LH_C_0⁷ = [LH_P2 (_lh_kingmoves_LH_P2_0⁰ - 1) (_lh_kingmoves_LH_P2_1⁰ + 1)]
+//│ 		in (fun _lh_sift_arg3⁸ -> (fun _lh_sift_arg1⁸ -> (fun _lh_sift_arg2⁸ -> if onboard_lh_₁(_lh_sift_LH_C_0⁷) then 
+//│ 			let _lh_matchIdent²¹ = pieceAt_lh_₁(_lh_sift_arg2⁸, _lh_sift_LH_C_0⁷)
+//│ 			in case _lh_matchIdent²¹ of {
+//│ 				Nothing  => sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, [LH_C [Move _lh_sift_LH_C_0⁷ [Nothing] [Nothing]] _lh_sift_arg3⁸], _lh_sift_LH_C_1⁰)
+//│ 				| Just _lh_sift_Just_0⁷ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁷), _lh_sift_arg1⁸) then sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, _lh_sift_arg3⁸, _lh_sift_LH_C_1⁰) else sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, [LH_C [Move _lh_sift_LH_C_0⁷ [Just _lh_sift_Just_0⁷] [Nothing]] _lh_sift_arg3⁸], _lh_sift_LH_C_1⁰)
+//│ 				| _  => error⁰} else sift_lh_₁(_lh_sift_arg1⁸, _lh_sift_arg2⁸, _lh_sift_arg3⁸, _lh_sift_LH_C_1⁰)))))
 //│ 	| _  => error⁰}
-//│ def knightmoves_lh_₁(_lh_knightmoves_arg1¹, _lh_knightmoves_arg2¹, _lh_knightmoves_arg3¹) = case _lh_knightmoves_arg2¹ of {
-//│ 	LH_P2 _lh_knightmoves_LH_P2_0⁰ _lh_knightmoves_LH_P2_1⁰ => sift_lh_₁(_lh_knightmoves_arg1¹, _lh_knightmoves_arg3¹, [LH_N], 
-//│ 		let _lh_sift_LH_C_1⁹ = 	
-//│ 			let _lh_sift_LH_C_1¹⁰ = 	
-//│ 				let _lh_sift_LH_C_1¹¹ = 	
-//│ 					let _lh_sift_LH_C_1¹² = 	
-//│ 						let _lh_sift_LH_C_1¹³ = 	
-//│ 							let _lh_sift_LH_C_1¹⁴ = 	
-//│ 								let _lh_sift_LH_C_1¹⁵ = 	
-//│ 									let _lh_sift_LH_C_1¹⁶ = (fun _lh_sift_arg3¹⁸ -> (fun _lh_sift_arg1¹⁸ -> (fun _lh_sift_arg2¹⁸ -> _lh_sift_arg3¹⁸)))
-//│ 									in let _lh_sift_LH_C_0¹⁶ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 1) (_lh_knightmoves_LH_P2_1⁰ - 2)]
-//│ 									in (fun _lh_sift_arg3¹⁷ -> (fun _lh_sift_arg1¹⁷ -> (fun _lh_sift_arg2¹⁷ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁶) then 
-//│ 										let _lh_matchIdent¹²³ = pieceAt_lh_₁(_lh_sift_arg2¹⁷, _lh_sift_LH_C_0¹⁶)
-//│ 										in case _lh_matchIdent¹²³ of {
-//│ 											Nothing  => sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, [LH_C [Move _lh_sift_LH_C_0¹⁶ [Nothing] [Nothing]] _lh_sift_arg3¹⁷], _lh_sift_LH_C_1¹⁶)
-//│ 											| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹⁷) then sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, _lh_sift_arg3¹⁷, _lh_sift_LH_C_1¹⁶) else sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, [LH_C [Move _lh_sift_LH_C_0¹⁶ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹⁷], _lh_sift_LH_C_1¹⁶)
-//│ 											| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, _lh_sift_arg3¹⁷, _lh_sift_LH_C_1¹⁶))))
-//│ 								in let _lh_sift_LH_C_0¹⁵ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 1) (_lh_knightmoves_LH_P2_1⁰ - 2)]
-//│ 								in (fun _lh_sift_arg3¹⁶ -> (fun _lh_sift_arg1¹⁶ -> (fun _lh_sift_arg2¹⁶ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁵) then 
-//│ 									let _lh_matchIdent¹²² = pieceAt_lh_₁(_lh_sift_arg2¹⁶, _lh_sift_LH_C_0¹⁵)
-//│ 									in case _lh_matchIdent¹²² of {
-//│ 										Nothing  => sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, [LH_C [Move _lh_sift_LH_C_0¹⁵ [Nothing] [Nothing]] _lh_sift_arg3¹⁶], _lh_sift_LH_C_1¹⁵)
-//│ 										| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹⁶) then sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, _lh_sift_arg3¹⁶, _lh_sift_LH_C_1¹⁵) else sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, [LH_C [Move _lh_sift_LH_C_0¹⁵ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹⁶], _lh_sift_LH_C_1¹⁵)
-//│ 										| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, _lh_sift_arg3¹⁶, _lh_sift_LH_C_1¹⁵))))
-//│ 							in let _lh_sift_LH_C_0¹⁴ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 2) (_lh_knightmoves_LH_P2_1⁰ - 1)]
-//│ 							in (fun _lh_sift_arg3¹⁵ -> (fun _lh_sift_arg1¹⁵ -> (fun _lh_sift_arg2¹⁵ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁴) then 
-//│ 								let _lh_matchIdent¹²¹ = pieceAt_lh_₁(_lh_sift_arg2¹⁵, _lh_sift_LH_C_0¹⁴)
-//│ 								in case _lh_matchIdent¹²¹ of {
-//│ 									Nothing  => sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, [LH_C [Move _lh_sift_LH_C_0¹⁴ [Nothing] [Nothing]] _lh_sift_arg3¹⁵], _lh_sift_LH_C_1¹⁴)
-//│ 									| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹⁵) then sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, _lh_sift_arg3¹⁵, _lh_sift_LH_C_1¹⁴) else sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, [LH_C [Move _lh_sift_LH_C_0¹⁴ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹⁵], _lh_sift_LH_C_1¹⁴)
-//│ 									| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, _lh_sift_arg3¹⁵, _lh_sift_LH_C_1¹⁴))))
-//│ 						in let _lh_sift_LH_C_0¹³ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 2) (_lh_knightmoves_LH_P2_1⁰ - 1)]
-//│ 						in (fun _lh_sift_arg3¹⁴ -> (fun _lh_sift_arg1¹⁴ -> (fun _lh_sift_arg2¹⁴ -> if onboard_lh_₁(_lh_sift_LH_C_0¹³) then 
-//│ 							let _lh_matchIdent¹²⁰ = pieceAt_lh_₁(_lh_sift_arg2¹⁴, _lh_sift_LH_C_0¹³)
-//│ 							in case _lh_matchIdent¹²⁰ of {
-//│ 								Nothing  => sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, [LH_C [Move _lh_sift_LH_C_0¹³ [Nothing] [Nothing]] _lh_sift_arg3¹⁴], _lh_sift_LH_C_1¹³)
-//│ 								| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹⁴) then sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, _lh_sift_arg3¹⁴, _lh_sift_LH_C_1¹³) else sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, [LH_C [Move _lh_sift_LH_C_0¹³ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹⁴], _lh_sift_LH_C_1¹³)
-//│ 								| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, _lh_sift_arg3¹⁴, _lh_sift_LH_C_1¹³))))
+//│ def knightmoves_lh_₁(_lh_knightmoves_arg1⁰, _lh_knightmoves_arg2⁰, _lh_knightmoves_arg3⁰) = case _lh_knightmoves_arg2⁰ of {
+//│ 	LH_P2 _lh_knightmoves_LH_P2_0⁰ _lh_knightmoves_LH_P2_1⁰ => sift_lh_₁(_lh_knightmoves_arg1⁰, _lh_knightmoves_arg3⁰, [LH_N], 
+//│ 		let _lh_sift_LH_C_1⁸ = 	
+//│ 			let _lh_sift_LH_C_1⁹ = 	
+//│ 				let _lh_sift_LH_C_1¹⁰ = 	
+//│ 					let _lh_sift_LH_C_1¹¹ = 	
+//│ 						let _lh_sift_LH_C_1¹² = 	
+//│ 							let _lh_sift_LH_C_1¹³ = 	
+//│ 								let _lh_sift_LH_C_1¹⁴ = 	
+//│ 									let _lh_sift_LH_C_1¹⁵ = (fun _lh_sift_arg3⁹ -> (fun _lh_sift_arg1⁹ -> (fun _lh_sift_arg2⁹ -> _lh_sift_arg3⁹)))
+//│ 									in let _lh_sift_LH_C_0⁸ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 1) (_lh_knightmoves_LH_P2_1⁰ - 2)]
+//│ 									in (fun _lh_sift_arg3¹⁰ -> (fun _lh_sift_arg1¹⁰ -> (fun _lh_sift_arg2¹⁰ -> if onboard_lh_₁(_lh_sift_LH_C_0⁸) then 
+//│ 										let _lh_matchIdent⁵⁰ = pieceAt_lh_₁(_lh_sift_arg2¹⁰, _lh_sift_LH_C_0⁸)
+//│ 										in case _lh_matchIdent⁵⁰ of {
+//│ 											Nothing  => sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, [LH_C [Move _lh_sift_LH_C_0⁸ [Nothing] [Nothing]] _lh_sift_arg3¹⁰], _lh_sift_LH_C_1¹⁵)
+//│ 											| Just _lh_sift_Just_0⁸ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁸), _lh_sift_arg1¹⁰) then sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, _lh_sift_arg3¹⁰, _lh_sift_LH_C_1¹⁵) else sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, [LH_C [Move _lh_sift_LH_C_0⁸ [Just _lh_sift_Just_0⁸] [Nothing]] _lh_sift_arg3¹⁰], _lh_sift_LH_C_1¹⁵)
+//│ 											| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, _lh_sift_arg3¹⁰, _lh_sift_LH_C_1¹⁵))))
+//│ 								in let _lh_sift_LH_C_0⁹ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 1) (_lh_knightmoves_LH_P2_1⁰ - 2)]
+//│ 								in (fun _lh_sift_arg3¹¹ -> (fun _lh_sift_arg1¹¹ -> (fun _lh_sift_arg2¹¹ -> if onboard_lh_₁(_lh_sift_LH_C_0⁹) then 
+//│ 									let _lh_matchIdent⁵¹ = pieceAt_lh_₁(_lh_sift_arg2¹¹, _lh_sift_LH_C_0⁹)
+//│ 									in case _lh_matchIdent⁵¹ of {
+//│ 										Nothing  => sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, [LH_C [Move _lh_sift_LH_C_0⁹ [Nothing] [Nothing]] _lh_sift_arg3¹¹], _lh_sift_LH_C_1¹⁴)
+//│ 										| Just _lh_sift_Just_0⁹ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁹), _lh_sift_arg1¹¹) then sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, _lh_sift_arg3¹¹, _lh_sift_LH_C_1¹⁴) else sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, [LH_C [Move _lh_sift_LH_C_0⁹ [Just _lh_sift_Just_0⁹] [Nothing]] _lh_sift_arg3¹¹], _lh_sift_LH_C_1¹⁴)
+//│ 										| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, _lh_sift_arg3¹¹, _lh_sift_LH_C_1¹⁴))))
+//│ 							in let _lh_sift_LH_C_0¹⁰ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 2) (_lh_knightmoves_LH_P2_1⁰ - 1)]
+//│ 							in (fun _lh_sift_arg3¹² -> (fun _lh_sift_arg1¹² -> (fun _lh_sift_arg2¹² -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁰) then 
+//│ 								let _lh_matchIdent⁵² = pieceAt_lh_₁(_lh_sift_arg2¹², _lh_sift_LH_C_0¹⁰)
+//│ 								in case _lh_matchIdent⁵² of {
+//│ 									Nothing  => sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², [LH_C [Move _lh_sift_LH_C_0¹⁰ [Nothing] [Nothing]] _lh_sift_arg3¹²], _lh_sift_LH_C_1¹³)
+//│ 									| Just _lh_sift_Just_0¹⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹⁰), _lh_sift_arg1¹²) then sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², _lh_sift_arg3¹², _lh_sift_LH_C_1¹³) else sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², [LH_C [Move _lh_sift_LH_C_0¹⁰ [Just _lh_sift_Just_0¹⁰] [Nothing]] _lh_sift_arg3¹²], _lh_sift_LH_C_1¹³)
+//│ 									| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², _lh_sift_arg3¹², _lh_sift_LH_C_1¹³))))
+//│ 						in let _lh_sift_LH_C_0¹¹ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 2) (_lh_knightmoves_LH_P2_1⁰ - 1)]
+//│ 						in (fun _lh_sift_arg3¹³ -> (fun _lh_sift_arg1¹³ -> (fun _lh_sift_arg2¹³ -> if onboard_lh_₁(_lh_sift_LH_C_0¹¹) then 
+//│ 							let _lh_matchIdent⁵³ = pieceAt_lh_₁(_lh_sift_arg2¹³, _lh_sift_LH_C_0¹¹)
+//│ 							in case _lh_matchIdent⁵³ of {
+//│ 								Nothing  => sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, [LH_C [Move _lh_sift_LH_C_0¹¹ [Nothing] [Nothing]] _lh_sift_arg3¹³], _lh_sift_LH_C_1¹²)
+//│ 								| Just _lh_sift_Just_0¹¹ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹¹), _lh_sift_arg1¹³) then sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, _lh_sift_arg3¹³, _lh_sift_LH_C_1¹²) else sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, [LH_C [Move _lh_sift_LH_C_0¹¹ [Just _lh_sift_Just_0¹¹] [Nothing]] _lh_sift_arg3¹³], _lh_sift_LH_C_1¹²)
+//│ 								| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, _lh_sift_arg3¹³, _lh_sift_LH_C_1¹²))))
 //│ 					in let _lh_sift_LH_C_0¹² = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 2) (_lh_knightmoves_LH_P2_1⁰ + 1)]
-//│ 					in (fun _lh_sift_arg3¹³ -> (fun _lh_sift_arg1¹³ -> (fun _lh_sift_arg2¹³ -> if onboard_lh_₁(_lh_sift_LH_C_0¹²) then 
-//│ 						let _lh_matchIdent¹¹⁹ = pieceAt_lh_₁(_lh_sift_arg2¹³, _lh_sift_LH_C_0¹²)
-//│ 						in case _lh_matchIdent¹¹⁹ of {
-//│ 							Nothing  => sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, [LH_C [Move _lh_sift_LH_C_0¹² [Nothing] [Nothing]] _lh_sift_arg3¹³], _lh_sift_LH_C_1¹²)
-//│ 							| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹³) then sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, _lh_sift_arg3¹³, _lh_sift_LH_C_1¹²) else sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, [LH_C [Move _lh_sift_LH_C_0¹² [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹³], _lh_sift_LH_C_1¹²)
-//│ 							| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹³, _lh_sift_arg2¹³, _lh_sift_arg3¹³, _lh_sift_LH_C_1¹²))))
-//│ 				in let _lh_sift_LH_C_0¹¹ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 2) (_lh_knightmoves_LH_P2_1⁰ + 1)]
-//│ 				in (fun _lh_sift_arg3¹² -> (fun _lh_sift_arg1¹² -> (fun _lh_sift_arg2¹² -> if onboard_lh_₁(_lh_sift_LH_C_0¹¹) then 
-//│ 					let _lh_matchIdent¹¹⁸ = pieceAt_lh_₁(_lh_sift_arg2¹², _lh_sift_LH_C_0¹¹)
-//│ 					in case _lh_matchIdent¹¹⁸ of {
-//│ 						Nothing  => sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², [LH_C [Move _lh_sift_LH_C_0¹¹ [Nothing] [Nothing]] _lh_sift_arg3¹²], _lh_sift_LH_C_1¹¹)
-//│ 						| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹²) then sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², _lh_sift_arg3¹², _lh_sift_LH_C_1¹¹) else sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², [LH_C [Move _lh_sift_LH_C_0¹¹ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹²], _lh_sift_LH_C_1¹¹)
-//│ 						| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹², _lh_sift_arg2¹², _lh_sift_arg3¹², _lh_sift_LH_C_1¹¹))))
-//│ 			in let _lh_sift_LH_C_0¹⁰ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 1) (_lh_knightmoves_LH_P2_1⁰ + 2)]
-//│ 			in (fun _lh_sift_arg3¹¹ -> (fun _lh_sift_arg1¹¹ -> (fun _lh_sift_arg2¹¹ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁰) then 
-//│ 				let _lh_matchIdent¹¹⁷ = pieceAt_lh_₁(_lh_sift_arg2¹¹, _lh_sift_LH_C_0¹⁰)
-//│ 				in case _lh_matchIdent¹¹⁷ of {
-//│ 					Nothing  => sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, [LH_C [Move _lh_sift_LH_C_0¹⁰ [Nothing] [Nothing]] _lh_sift_arg3¹¹], _lh_sift_LH_C_1¹⁰)
-//│ 					| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹¹) then sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, _lh_sift_arg3¹¹, _lh_sift_LH_C_1¹⁰) else sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, [LH_C [Move _lh_sift_LH_C_0¹⁰ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹¹], _lh_sift_LH_C_1¹⁰)
-//│ 					| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹¹, _lh_sift_arg2¹¹, _lh_sift_arg3¹¹, _lh_sift_LH_C_1¹⁰))))
-//│ 		in let _lh_sift_LH_C_0⁹ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 1) (_lh_knightmoves_LH_P2_1⁰ + 2)]
-//│ 		in (fun _lh_sift_arg3¹⁰ -> (fun _lh_sift_arg1¹⁰ -> (fun _lh_sift_arg2¹⁰ -> if onboard_lh_₁(_lh_sift_LH_C_0⁹) then 
-//│ 			let _lh_matchIdent¹¹⁶ = pieceAt_lh_₁(_lh_sift_arg2¹⁰, _lh_sift_LH_C_0⁹)
-//│ 			in case _lh_matchIdent¹¹⁶ of {
-//│ 				Nothing  => sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, [LH_C [Move _lh_sift_LH_C_0⁹ [Nothing] [Nothing]] _lh_sift_arg3¹⁰], _lh_sift_LH_C_1⁹)
-//│ 				| Just _lh_sift_Just_0⁰ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0⁰), _lh_sift_arg1¹⁰) then sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, _lh_sift_arg3¹⁰, _lh_sift_LH_C_1⁹) else sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, [LH_C [Move _lh_sift_LH_C_0⁹ [Just _lh_sift_Just_0⁰] [Nothing]] _lh_sift_arg3¹⁰], _lh_sift_LH_C_1⁹)
-//│ 				| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁰, _lh_sift_arg2¹⁰, _lh_sift_arg3¹⁰, _lh_sift_LH_C_1⁹)))))
+//│ 					in (fun _lh_sift_arg3¹⁴ -> (fun _lh_sift_arg1¹⁴ -> (fun _lh_sift_arg2¹⁴ -> if onboard_lh_₁(_lh_sift_LH_C_0¹²) then 
+//│ 						let _lh_matchIdent⁵⁴ = pieceAt_lh_₁(_lh_sift_arg2¹⁴, _lh_sift_LH_C_0¹²)
+//│ 						in case _lh_matchIdent⁵⁴ of {
+//│ 							Nothing  => sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, [LH_C [Move _lh_sift_LH_C_0¹² [Nothing] [Nothing]] _lh_sift_arg3¹⁴], _lh_sift_LH_C_1¹¹)
+//│ 							| Just _lh_sift_Just_0¹² => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹²), _lh_sift_arg1¹⁴) then sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, _lh_sift_arg3¹⁴, _lh_sift_LH_C_1¹¹) else sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, [LH_C [Move _lh_sift_LH_C_0¹² [Just _lh_sift_Just_0¹²] [Nothing]] _lh_sift_arg3¹⁴], _lh_sift_LH_C_1¹¹)
+//│ 							| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁴, _lh_sift_arg2¹⁴, _lh_sift_arg3¹⁴, _lh_sift_LH_C_1¹¹))))
+//│ 				in let _lh_sift_LH_C_0¹³ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 2) (_lh_knightmoves_LH_P2_1⁰ + 1)]
+//│ 				in (fun _lh_sift_arg3¹⁵ -> (fun _lh_sift_arg1¹⁵ -> (fun _lh_sift_arg2¹⁵ -> if onboard_lh_₁(_lh_sift_LH_C_0¹³) then 
+//│ 					let _lh_matchIdent⁵⁵ = pieceAt_lh_₁(_lh_sift_arg2¹⁵, _lh_sift_LH_C_0¹³)
+//│ 					in case _lh_matchIdent⁵⁵ of {
+//│ 						Nothing  => sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, [LH_C [Move _lh_sift_LH_C_0¹³ [Nothing] [Nothing]] _lh_sift_arg3¹⁵], _lh_sift_LH_C_1¹⁰)
+//│ 						| Just _lh_sift_Just_0¹³ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹³), _lh_sift_arg1¹⁵) then sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, _lh_sift_arg3¹⁵, _lh_sift_LH_C_1¹⁰) else sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, [LH_C [Move _lh_sift_LH_C_0¹³ [Just _lh_sift_Just_0¹³] [Nothing]] _lh_sift_arg3¹⁵], _lh_sift_LH_C_1¹⁰)
+//│ 						| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁵, _lh_sift_arg2¹⁵, _lh_sift_arg3¹⁵, _lh_sift_LH_C_1¹⁰))))
+//│ 			in let _lh_sift_LH_C_0¹⁴ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ + 1) (_lh_knightmoves_LH_P2_1⁰ + 2)]
+//│ 			in (fun _lh_sift_arg3¹⁶ -> (fun _lh_sift_arg1¹⁶ -> (fun _lh_sift_arg2¹⁶ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁴) then 
+//│ 				let _lh_matchIdent⁵⁶ = pieceAt_lh_₁(_lh_sift_arg2¹⁶, _lh_sift_LH_C_0¹⁴)
+//│ 				in case _lh_matchIdent⁵⁶ of {
+//│ 					Nothing  => sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, [LH_C [Move _lh_sift_LH_C_0¹⁴ [Nothing] [Nothing]] _lh_sift_arg3¹⁶], _lh_sift_LH_C_1⁹)
+//│ 					| Just _lh_sift_Just_0¹⁴ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹⁴), _lh_sift_arg1¹⁶) then sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, _lh_sift_arg3¹⁶, _lh_sift_LH_C_1⁹) else sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, [LH_C [Move _lh_sift_LH_C_0¹⁴ [Just _lh_sift_Just_0¹⁴] [Nothing]] _lh_sift_arg3¹⁶], _lh_sift_LH_C_1⁹)
+//│ 					| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁶, _lh_sift_arg2¹⁶, _lh_sift_arg3¹⁶, _lh_sift_LH_C_1⁹))))
+//│ 		in let _lh_sift_LH_C_0¹⁵ = [LH_P2 (_lh_knightmoves_LH_P2_0⁰ - 1) (_lh_knightmoves_LH_P2_1⁰ + 2)]
+//│ 		in (fun _lh_sift_arg3¹⁷ -> (fun _lh_sift_arg1¹⁷ -> (fun _lh_sift_arg2¹⁷ -> if onboard_lh_₁(_lh_sift_LH_C_0¹⁵) then 
+//│ 			let _lh_matchIdent⁵⁷ = pieceAt_lh_₁(_lh_sift_arg2¹⁷, _lh_sift_LH_C_0¹⁵)
+//│ 			in case _lh_matchIdent⁵⁷ of {
+//│ 				Nothing  => sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, [LH_C [Move _lh_sift_LH_C_0¹⁵ [Nothing] [Nothing]] _lh_sift_arg3¹⁷], _lh_sift_LH_C_1⁸)
+//│ 				| Just _lh_sift_Just_0¹⁵ => if polyEq⁰(colourOf_lh_₁(_lh_sift_Just_0¹⁵), _lh_sift_arg1¹⁷) then sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, _lh_sift_arg3¹⁷, _lh_sift_LH_C_1⁸) else sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, [LH_C [Move _lh_sift_LH_C_0¹⁵ [Just _lh_sift_Just_0¹⁵] [Nothing]] _lh_sift_arg3¹⁷], _lh_sift_LH_C_1⁸)
+//│ 				| _  => error⁰} else sift_lh_₁(_lh_sift_arg1¹⁷, _lh_sift_arg2¹⁷, _lh_sift_arg3¹⁷, _lh_sift_LH_C_1⁸)))))
 //│ 	| _  => error⁰}
-//│ def length_lh_₁(ls⁵⁰) = case ls⁵⁰ of {
-//│ 	LH_C h²⁵ t²⁵ => (1 + length_lh_₁(t²⁵))
+//│ def length_lh_₁(ls¹⁹) = case ls¹⁹ of {
+//│ 	LH_C h⁸⁰ t⁸⁰ => (1 + length_lh_₁(t⁸⁰))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₂(ls⁶¹) = case ls⁶¹ of {
-//│ 	LH_C h¹² t¹² => (1 + length_lh_₂(t¹²))
+//│ def length_lh_₂(ls³⁰) = case ls³⁰ of {
+//│ 	LH_C h¹⁴⁰ t¹⁴⁰ => (1 + length_lh_₂(t¹⁴⁰))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₃(ls⁵¹) = case ls⁵¹ of {
-//│ 	LH_C h⁹ t⁹ => (1 + length_lh_₃(t⁹))
+//│ def length_lh_₃(ls²⁰) = case ls²⁰ of {
+//│ 	LH_C h⁸² t⁸² => (1 + length_lh_₃(t⁸²))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₄(ls⁴⁹) = case ls⁴⁹ of {
-//│ 	LH_C h⁴ t⁴ => (1 + length_lh_₄(t⁴))
+//│ def length_lh_₄(ls¹⁸) = case ls¹⁸ of {
+//│ 	LH_C h⁷⁹ t⁷⁹ => (1 + length_lh_₄(t⁷⁹))
 //│ 	| LH_N  => 0}
-//│ def lines_lh_₁(_lh_lines_arg1¹) = 
-//│ 	let _lh_matchIdent⁹⁸ = break_lh_₁((fun x¹⁵ -> polyEq⁰(x¹⁵, '|')), _lh_lines_arg1¹)
-//│ 	in case _lh_matchIdent⁹⁸ of {
+//│ def lines_lh_₁(_lh_lines_arg1⁰) = 
+//│ 	let _lh_matchIdent³² = break_lh_₁((fun x⁵ -> polyEq⁰(x⁵, '|')), _lh_lines_arg1⁰)
+//│ 	in case _lh_matchIdent³² of {
 //│ 		LH_P2 _lh_lines_LH_P2_0⁰ _lh_lines_LH_P2_1⁰ => 
-//│ 			let t⁹³ = 	
-//│ 				let _lh_matchIdent⁹⁹ = _lh_lines_LH_P2_1⁰
-//│ 				in _lh_matchIdent⁹⁹(99)
-//│ 			in let h⁹³ = _lh_lines_LH_P2_0⁰
-//│ 			in (fun f²⁷ -> if f²⁷(h⁹³) then [LH_C h⁹³ filter_lh_₁(f²⁷, t⁹³)] else filter_lh_₁(f²⁷, t⁹³))
+//│ 			let t³⁹ = 	
+//│ 				let _lh_matchIdent³³ = _lh_lines_LH_P2_1⁰
+//│ 				in _lh_matchIdent³³(99)
+//│ 			in let h³⁹ = _lh_lines_LH_P2_0⁰
+//│ 			in (fun f¹¹ -> if f¹¹(h³⁹) then [LH_C h³⁹ filter_lh_₁(f¹¹, t³⁹)] else filter_lh_₁(f¹¹, t³⁹))
 //│ 		| _  => error⁰}
-//│ def map_lh_₁(f⁴⁰, ls⁴⁷) = ls⁴⁷(f⁴⁰)
-//│ def map_lh_₂(f³⁸, ls⁴⁶) = ls⁴⁶(f³⁸)
-//│ def mappend_lh_₁(xs³⁹, ys³⁹) = xs³⁹(ys³⁹)
-//│ def mappend_lh_₁₀(xs⁴³, ys⁶⁷) = case xs⁴³ of {
-//│ 	LH_C h⁴⁴ t⁴⁴ => 
-//│ 		let t⁸⁸ = mappend_lh_₁₀(t⁴⁴, ys⁶⁷)
-//│ 		in let h⁸⁸ = h⁴⁴
-//│ 		in (fun ys⁶⁸ -> 
-//│ 			let t⁸⁹ = mappend_lh_₂(t⁸⁸, ys⁶⁸)
-//│ 			in let h⁸⁹ = h⁸⁸
-//│ 			in (fun ys⁶⁹ -> 
-//│ 				let t⁹⁰ = mappend_lh_₁(t⁸⁹, ys⁶⁹)
-//│ 				in let h⁹⁰ = h⁸⁹
-//│ 				in (fun ys⁷⁰ -> 
-//│ 					let t⁹¹ = mappend_lh_₅(t⁹⁰, ys⁷⁰)
-//│ 					in let h⁹¹ = h⁹⁰
-//│ 					in (fun ys⁷¹ -> [LH_C h⁹¹ mappend_lh_₃(t⁹¹, ys⁷¹)]))))
-//│ 	| LH_N  => ys⁶⁷}
-//│ def mappend_lh_₁₁(xs⁵², ys¹⁰⁰) = xs⁵²(ys¹⁰⁰)
-//│ def mappend_lh_₁₂(xs⁶⁸, ys¹⁷⁴) = xs⁶⁸(ys¹⁷⁴)
-//│ def mappend_lh_₁₃(xs⁵⁶, ys¹⁰⁹) = case xs⁵⁶ of {
+//│ def map_lh_₁(f²⁴, ls¹⁶) = ls¹⁶(f²⁴)
+//│ def map_lh_₂(f²², ls¹⁵) = ls¹⁵(f²²)
+//│ def mappend_lh_₁(xs³, ys³) = xs³(ys³)
+//│ def mappend_lh_₁₀(xs⁷, ys³¹) = case xs⁷ of {
 //│ 	LH_C h³¹ t³¹ => 
-//│ 		let t¹¹³ = mappend_lh_₁₃(t³¹, ys¹⁰⁹)
-//│ 		in let h¹¹³ = h³¹
-//│ 		in (fun ys¹¹⁰ -> [LH_C h¹¹³ mappend_lh_₁₅(t¹¹³, ys¹¹⁰)])
-//│ 	| LH_N  => ys¹⁰⁹}
-//│ def mappend_lh_₁₄(xs⁵⁰, ys⁷⁹) = case xs⁵⁰ of {
-//│ 	LH_C h³⁰ t³⁰ => 
-//│ 		let t⁹⁴ = mappend_lh_₁₄(t³⁰, ys⁷⁹)
-//│ 		in let h⁹⁴ = h³⁰
-//│ 		in (fun ys⁸⁰ -> [LH_C h⁹⁴ mappend_lh_₁₂(t⁹⁴, ys⁸⁰)])
-//│ 	| LH_N  => ys⁷⁹}
-//│ def mappend_lh_₁₅(xs⁵⁸, ys¹¹⁹) = xs⁵⁸(ys¹¹⁹)
-//│ def mappend_lh_₁₆(xs³⁶, ys³⁶) = case xs³⁶ of {
-//│ 	LH_C h²⁸ t²⁸ => [LH_C h²⁸ mappend_lh_₁₆(t²⁸, ys³⁶)]
-//│ 	| LH_N  => ys³⁶}
-//│ def mappend_lh_₁₇(xs⁶⁶, ys¹⁷⁰) = xs⁶⁶(ys¹⁷⁰)
-//│ def mappend_lh_₁₈(xs⁴⁰, ys⁴⁰) = xs⁴⁰(ys⁴⁰)
-//│ def mappend_lh_₁₉(xs⁴², ys⁶⁶) = xs⁴²(ys⁶⁶)
-//│ def mappend_lh_₂(xs⁴⁵, ys⁷³) = xs⁴⁵(ys⁷³)
-//│ def mappend_lh_₂₀(xs⁵⁴, ys¹⁰⁷) = case xs⁵⁴ of {
-//│ 	LH_C h²³ t²³ => 
-//│ 		let t¹¹² = mappend_lh_₂₀(t²³, ys¹⁰⁷)
-//│ 		in let h¹¹² = h²³
-//│ 		in (fun f³⁹ -> (fun i²¹ -> f³⁹(h¹¹², foldr_lh_₃(f³⁹, i²¹, t¹¹²))))
-//│ 	| LH_N  => ys¹⁰⁷}
-//│ def mappend_lh_₂₁(xs³⁸, ys³⁸) = xs³⁸(ys³⁸)
-//│ def mappend_lh_₂₂(xs⁷⁰, ys¹⁸⁰) = case xs⁷⁰ of {
-//│ 	LH_C h¹⁶ t¹⁶ => [LH_C h¹⁶ mappend_lh_₂₂(t¹⁶, ys¹⁸⁰)]
-//│ 	| LH_N  => ys¹⁸⁰}
-//│ def mappend_lh_₂₃(xs⁴⁷, ys⁷⁵) = case xs⁴⁷ of {
-//│ 	LH_C h¹⁵ t¹⁵ => 
-//│ 		let t⁹² = mappend_lh_₂₃(t¹⁵, ys⁷⁵)
-//│ 		in let h⁹² = h¹⁵
-//│ 		in (fun ys⁷⁶ -> [LH_C h⁹² mappend_lh_₂₅(t⁹², ys⁷⁶)])
-//│ 	| LH_N  => ys⁷⁵}
-//│ def mappend_lh_₂₄(xs⁶¹, ys¹³³) = xs⁶¹(ys¹³³)
-//│ def mappend_lh_₂₅(xs⁵⁵, ys¹⁰⁸) = xs⁵⁵(ys¹⁰⁸)
-//│ def mappend_lh_₂₆(xs⁶⁷, ys¹⁷²) = case xs⁶⁷ of {
-//│ 	LH_C h¹¹ t¹¹ => 
-//│ 		let t¹⁶⁰ = mappend_lh_₂₆(t¹¹, ys¹⁷²)
-//│ 		in let h¹⁶⁰ = h¹¹
-//│ 		in (fun ys¹⁷³ -> [LH_C h¹⁶⁰ mappend_lh_₂₉(t¹⁶⁰, ys¹⁷³)])
-//│ 	| LH_N  => ys¹⁷²}
-//│ def mappend_lh_₂₇(xs⁷¹, ys¹⁸¹) = case xs⁷¹ of {
-//│ 	LH_C h¹⁰ t¹⁰ => 
-//│ 		let t¹⁷¹ = mappend_lh_₂₇(t¹⁰, ys¹⁸¹)
-//│ 		in let h¹⁷¹ = h¹⁰
-//│ 		in (fun ys¹⁸² -> [LH_C h¹⁷¹ mappend_lh_₂₈(t¹⁷¹, ys¹⁸²)])
-//│ 	| LH_N  => ys¹⁸¹}
-//│ def mappend_lh_₂₈(xs⁶⁴, ys¹⁶⁸) = xs⁶⁴(ys¹⁶⁸)
-//│ def mappend_lh_₂₉(xs⁶⁵, ys¹⁶⁹) = xs⁶⁵(ys¹⁶⁹)
-//│ def mappend_lh_₃(xs³⁷, ys³⁷) = xs³⁷(ys³⁷)
-//│ def mappend_lh_₃₀(xs⁶⁹, ys¹⁷⁶) = case xs⁶⁹ of {
-//│ 	LH_C h⁶ t⁶ => [LH_C h⁶ mappend_lh_₃₀(t⁶, ys¹⁷⁶)]
-//│ 	| LH_N  => ys¹⁷⁶}
-//│ def mappend_lh_₃₁(xs⁶³, ys¹³⁵) = case xs⁶³ of {
-//│ 	LH_C h⁵ t⁵ => 
-//│ 		let t¹³² = mappend_lh_₃₁(t⁵, ys¹³⁵)
-//│ 		in let h¹³² = h⁵
-//│ 		in (fun ys¹³⁶ -> [LH_C h¹³² mappend_lh_₃₂(t¹³², ys¹³⁶)])
-//│ 	| LH_N  => ys¹³⁵}
-//│ def mappend_lh_₃₂(xs⁶², ys¹³⁴) = xs⁶²(ys¹³⁴)
-//│ def mappend_lh_₃₃(xs⁴⁶, ys⁷⁴) = case xs⁴⁶ of {
-//│ 	LH_C h² t² => [LH_C h² mappend_lh_₃₃(t², ys⁷⁴)]
-//│ 	| LH_N  => ys⁷⁴}
-//│ def mappend_lh_₃₄(xs⁶⁰, ys¹²⁹) = case xs⁶⁰ of {
-//│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₃₄(t¹, ys¹²⁹)]
-//│ 	| LH_N  => ys¹²⁹}
-//│ def mappend_lh_₄(xs⁵³, ys¹⁰⁴) = case xs⁵³ of {
-//│ 	LH_C h⁵⁸ t⁵⁸ => 
-//│ 		let t¹¹⁰ = mappend_lh_₄(t⁵⁸, ys¹⁰⁴)
-//│ 		in let h¹¹⁰ = h⁵⁸
-//│ 		in (fun ys¹⁰⁵ -> 
-//│ 			let t¹¹¹ = mappend_lh_₇(t¹¹⁰, ys¹⁰⁵)
-//│ 			in let h¹¹¹ = h¹¹⁰
-//│ 			in (fun ys¹⁰⁶ -> [LH_C h¹¹¹ mappend_lh_₆(t¹¹¹, ys¹⁰⁶)]))
-//│ 	| LH_N  => ys¹⁰⁴}
-//│ def mappend_lh_₅(xs⁴⁸, ys⁷⁷) = xs⁴⁸(ys⁷⁷)
-//│ def mappend_lh_₆(xs⁵¹, ys⁸¹) = xs⁵¹(ys⁸¹)
-//│ def mappend_lh_₇(xs⁴⁴, ys⁷²) = xs⁴⁴(ys⁷²)
-//│ def mappend_lh_₈(xs⁴¹, ys⁴³) = xs⁴¹(ys⁴³)
-//│ def mappend_lh_₉(xs⁵⁷, ys¹¹⁸) = case xs⁵⁷ of {
-//│ 	LH_C h⁴⁹ t⁴⁹ => [LH_C h⁴⁹ mappend_lh_₉(t⁴⁹, ys¹¹⁸)]
-//│ 	| LH_N  => ys¹¹⁸}
-//│ def max_lh_₁(_lh_max_arg1⁷, _lh_max_arg2⁷) = if (_lh_max_arg1⁷ < _lh_max_arg2⁷) then _lh_max_arg2⁷ else _lh_max_arg1⁷
-//│ def max_lh_₂(_lh_max_arg1⁶, _lh_max_arg2⁶) = if (_lh_max_arg1⁶ < _lh_max_arg2⁶) then _lh_max_arg2⁶ else _lh_max_arg1⁶
-//│ def max_lh_₃(_lh_max_arg1⁴, _lh_max_arg2⁴) = if (_lh_max_arg1⁴ < _lh_max_arg2⁴) then _lh_max_arg2⁴ else _lh_max_arg1⁴
-//│ def max_lh_₄(_lh_max_arg1⁵, _lh_max_arg2⁵) = if (_lh_max_arg1⁵ < _lh_max_arg2⁵) then _lh_max_arg2⁵ else _lh_max_arg1⁵
-//│ def maybe_lh_₁(_lh_maybe_arg1⁸, _lh_maybe_arg2⁸, _lh_maybe_arg3⁶) = _lh_maybe_arg3⁶(_lh_maybe_arg1⁸, _lh_maybe_arg2⁸)
-//│ def maybe_lh_₂(_lh_maybe_arg1⁷, _lh_maybe_arg2⁷, _lh_maybe_arg3⁵) = case _lh_maybe_arg3⁵ of {
-//│ 	Nothing  => _lh_maybe_arg1⁷
-//│ 	| Just _lh_maybe_Just_0² => _lh_maybe_arg2⁷(_lh_maybe_Just_0²)
+//│ 		let t³² = mappend_lh_₁₀(t³¹, ys³¹)
+//│ 		in let h³² = h³¹
+//│ 		in (fun ys³² -> 
+//│ 			let t³³ = mappend_lh_₂(t³², ys³²)
+//│ 			in let h³³ = h³²
+//│ 			in (fun ys³³ -> 
+//│ 				let t³⁴ = mappend_lh_₁(t³³, ys³³)
+//│ 				in let h³⁴ = h³³
+//│ 				in (fun ys³⁴ -> 
+//│ 					let t³⁵ = mappend_lh_₅(t³⁴, ys³⁴)
+//│ 					in let h³⁵ = h³⁴
+//│ 					in (fun ys³⁵ -> [LH_C h³⁵ mappend_lh_₃(t³⁵, ys³⁵)]))))
+//│ 	| LH_N  => ys³¹}
+//│ def mappend_lh_₁₁(xs¹⁶, ys⁶⁴) = xs¹⁶(ys⁶⁴)
+//│ def mappend_lh_₁₂(xs³², ys¹³⁸) = xs³²(ys¹³⁸)
+//│ def mappend_lh_₁₃(xs²⁰, ys⁷³) = case xs²⁰ of {
+//│ 	LH_C h⁶⁶ t⁶⁶ => 
+//│ 		let t⁶⁷ = mappend_lh_₁₃(t⁶⁶, ys⁷³)
+//│ 		in let h⁶⁷ = h⁶⁶
+//│ 		in (fun ys⁷⁴ -> [LH_C h⁶⁷ mappend_lh_₁₅(t⁶⁷, ys⁷⁴)])
+//│ 	| LH_N  => ys⁷³}
+//│ def mappend_lh_₁₄(xs¹⁴, ys⁴³) = case xs¹⁴ of {
+//│ 	LH_C h⁴⁰ t⁴⁰ => 
+//│ 		let t⁴¹ = mappend_lh_₁₄(t⁴⁰, ys⁴³)
+//│ 		in let h⁴¹ = h⁴⁰
+//│ 		in (fun ys⁴⁴ -> [LH_C h⁴¹ mappend_lh_₁₂(t⁴¹, ys⁴⁴)])
+//│ 	| LH_N  => ys⁴³}
+//│ def mappend_lh_₁₅(xs²², ys⁸³) = xs²²(ys⁸³)
+//│ def mappend_lh_₁₆(xs⁰, ys⁰) = case xs⁰ of {
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₁₆(t⁰, ys⁰)]
+//│ 	| LH_N  => ys⁰}
+//│ def mappend_lh_₁₇(xs³⁰, ys¹³⁴) = xs³⁰(ys¹³⁴)
+//│ def mappend_lh_₁₈(xs⁴, ys⁴) = xs⁴(ys⁴)
+//│ def mappend_lh_₁₉(xs⁶, ys³⁰) = xs⁶(ys³⁰)
+//│ def mappend_lh_₂(xs⁹, ys³⁷) = xs⁹(ys³⁷)
+//│ def mappend_lh_₂₀(xs¹⁸, ys⁷¹) = case xs¹⁸ of {
+//│ 	LH_C h⁶⁴ t⁶⁴ => 
+//│ 		let t⁶⁵ = mappend_lh_₂₀(t⁶⁴, ys⁷¹)
+//│ 		in let h⁶⁵ = h⁶⁴
+//│ 		in (fun f²³ -> (fun i¹² -> f²³(h⁶⁵, foldr_lh_₃(f²³, i¹², t⁶⁵))))
+//│ 	| LH_N  => ys⁷¹}
+//│ def mappend_lh_₂₁(xs², ys²) = xs²(ys²)
+//│ def mappend_lh_₂₂(xs³⁴, ys¹⁴⁴) = case xs³⁴ of {
+//│ 	LH_C h¹³⁷ t¹³⁷ => [LH_C h¹³⁷ mappend_lh_₂₂(t¹³⁷, ys¹⁴⁴)]
+//│ 	| LH_N  => ys¹⁴⁴}
+//│ def mappend_lh_₂₃(xs¹¹, ys³⁹) = case xs¹¹ of {
+//│ 	LH_C h³⁷ t³⁷ => 
+//│ 		let t³⁸ = mappend_lh_₂₃(t³⁷, ys³⁹)
+//│ 		in let h³⁸ = h³⁷
+//│ 		in (fun ys⁴⁰ -> [LH_C h³⁸ mappend_lh_₂₅(t³⁸, ys⁴⁰)])
+//│ 	| LH_N  => ys³⁹}
+//│ def mappend_lh_₂₄(xs²⁵, ys⁹⁷) = xs²⁵(ys⁹⁷)
+//│ def mappend_lh_₂₅(xs¹⁹, ys⁷²) = xs¹⁹(ys⁷²)
+//│ def mappend_lh_₂₆(xs³¹, ys¹³⁶) = case xs³¹ of {
+//│ 	LH_C h¹²³ t¹²³ => 
+//│ 		let t¹²⁴ = mappend_lh_₂₆(t¹²³, ys¹³⁶)
+//│ 		in let h¹²⁴ = h¹²³
+//│ 		in (fun ys¹³⁷ -> [LH_C h¹²⁴ mappend_lh_₂₉(t¹²⁴, ys¹³⁷)])
+//│ 	| LH_N  => ys¹³⁶}
+//│ def mappend_lh_₂₇(xs³⁵, ys¹⁴⁵) = case xs³⁵ of {
+//│ 	LH_C h¹³⁸ t¹³⁸ => 
+//│ 		let t¹³⁹ = mappend_lh_₂₇(t¹³⁸, ys¹⁴⁵)
+//│ 		in let h¹³⁹ = h¹³⁸
+//│ 		in (fun ys¹⁴⁶ -> [LH_C h¹³⁹ mappend_lh_₂₈(t¹³⁹, ys¹⁴⁶)])
+//│ 	| LH_N  => ys¹⁴⁵}
+//│ def mappend_lh_₂₈(xs²⁸, ys¹³²) = xs²⁸(ys¹³²)
+//│ def mappend_lh_₂₉(xs²⁹, ys¹³³) = xs²⁹(ys¹³³)
+//│ def mappend_lh_₃(xs¹, ys¹) = xs¹(ys¹)
+//│ def mappend_lh_₃₀(xs³³, ys¹⁴⁰) = case xs³³ of {
+//│ 	LH_C h¹²⁶ t¹²⁶ => [LH_C h¹²⁶ mappend_lh_₃₀(t¹²⁶, ys¹⁴⁰)]
+//│ 	| LH_N  => ys¹⁴⁰}
+//│ def mappend_lh_₃₁(xs²⁷, ys⁹⁹) = case xs²⁷ of {
+//│ 	LH_C h⁹¹ t⁹¹ => 
+//│ 		let t⁹² = mappend_lh_₃₁(t⁹¹, ys⁹⁹)
+//│ 		in let h⁹² = h⁹¹
+//│ 		in (fun ys¹⁰⁰ -> [LH_C h⁹² mappend_lh_₃₂(t⁹², ys¹⁰⁰)])
+//│ 	| LH_N  => ys⁹⁹}
+//│ def mappend_lh_₃₂(xs²⁶, ys⁹⁸) = xs²⁶(ys⁹⁸)
+//│ def mappend_lh_₃₃(xs¹⁰, ys³⁸) = case xs¹⁰ of {
+//│ 	LH_C h³⁶ t³⁶ => [LH_C h³⁶ mappend_lh_₃₃(t³⁶, ys³⁸)]
+//│ 	| LH_N  => ys³⁸}
+//│ def mappend_lh_₃₄(xs²⁴, ys⁹³) = case xs²⁴ of {
+//│ 	LH_C h⁸⁸ t⁸⁸ => [LH_C h⁸⁸ mappend_lh_₃₄(t⁸⁸, ys⁹³)]
+//│ 	| LH_N  => ys⁹³}
+//│ def mappend_lh_₄(xs¹⁷, ys⁶⁸) = case xs¹⁷ of {
+//│ 	LH_C h⁶⁰ t⁶⁰ => 
+//│ 		let t⁶¹ = mappend_lh_₄(t⁶⁰, ys⁶⁸)
+//│ 		in let h⁶¹ = h⁶⁰
+//│ 		in (fun ys⁶⁹ -> 
+//│ 			let t⁶² = mappend_lh_₇(t⁶¹, ys⁶⁹)
+//│ 			in let h⁶² = h⁶¹
+//│ 			in (fun ys⁷⁰ -> [LH_C h⁶² mappend_lh_₆(t⁶², ys⁷⁰)]))
+//│ 	| LH_N  => ys⁶⁸}
+//│ def mappend_lh_₅(xs¹², ys⁴¹) = xs¹²(ys⁴¹)
+//│ def mappend_lh_₆(xs¹⁵, ys⁴⁵) = xs¹⁵(ys⁴⁵)
+//│ def mappend_lh_₇(xs⁸, ys³⁶) = xs⁸(ys³⁶)
+//│ def mappend_lh_₈(xs⁵, ys⁷) = xs⁵(ys⁷)
+//│ def mappend_lh_₉(xs²¹, ys⁸²) = case xs²¹ of {
+//│ 	LH_C h⁷³ t⁷³ => [LH_C h⁷³ mappend_lh_₉(t⁷³, ys⁸²)]
+//│ 	| LH_N  => ys⁸²}
+//│ def max_lh_₁(_lh_max_arg1³, _lh_max_arg2³) = if (_lh_max_arg1³ < _lh_max_arg2³) then _lh_max_arg2³ else _lh_max_arg1³
+//│ def max_lh_₂(_lh_max_arg1², _lh_max_arg2²) = if (_lh_max_arg1² < _lh_max_arg2²) then _lh_max_arg2² else _lh_max_arg1²
+//│ def max_lh_₃(_lh_max_arg1⁰, _lh_max_arg2⁰) = if (_lh_max_arg1⁰ < _lh_max_arg2⁰) then _lh_max_arg2⁰ else _lh_max_arg1⁰
+//│ def max_lh_₄(_lh_max_arg1¹, _lh_max_arg2¹) = if (_lh_max_arg1¹ < _lh_max_arg2¹) then _lh_max_arg2¹ else _lh_max_arg1¹
+//│ def maybe_lh_₁(_lh_maybe_arg1⁴, _lh_maybe_arg2⁴, _lh_maybe_arg3²) = _lh_maybe_arg3²(_lh_maybe_arg1⁴, _lh_maybe_arg2⁴)
+//│ def maybe_lh_₂(_lh_maybe_arg1³, _lh_maybe_arg2³, _lh_maybe_arg3¹) = case _lh_maybe_arg3¹ of {
+//│ 	Nothing  => _lh_maybe_arg1³
+//│ 	| Just _lh_maybe_Just_0² => _lh_maybe_arg2³(_lh_maybe_Just_0²)
 //│ 	| _  => error⁰}
-//│ def maybe_lh_₃(_lh_maybe_arg1⁴, _lh_maybe_arg2⁴, _lh_maybe_arg3⁴) = case _lh_maybe_arg3⁴ of {
-//│ 	Nothing  => _lh_maybe_arg1⁴
-//│ 	| Just _lh_maybe_Just_0¹ => _lh_maybe_arg2⁴(_lh_maybe_Just_0¹)
+//│ def maybe_lh_₃(_lh_maybe_arg1⁰, _lh_maybe_arg2⁰, _lh_maybe_arg3⁰) = case _lh_maybe_arg3⁰ of {
+//│ 	Nothing  => _lh_maybe_arg1⁰
+//│ 	| Just _lh_maybe_Just_0⁰ => _lh_maybe_arg2⁰(_lh_maybe_Just_0⁰)
 //│ 	| _  => error⁰}
-//│ def maybe_lh_₄(_lh_maybe_arg1⁹, _lh_maybe_arg2⁹, _lh_maybe_arg3⁷) = case _lh_maybe_arg3⁷ of {
-//│ 	Nothing  => _lh_maybe_arg1⁹
-//│ 	| Just _lh_maybe_Just_0⁰ => _lh_maybe_arg2⁹(_lh_maybe_Just_0⁰)
+//│ def maybe_lh_₄(_lh_maybe_arg1⁵, _lh_maybe_arg2⁵, _lh_maybe_arg3³) = case _lh_maybe_arg3³ of {
+//│ 	Nothing  => _lh_maybe_arg1⁵
+//│ 	| Just _lh_maybe_Just_0³ => _lh_maybe_arg2⁵(_lh_maybe_Just_0³)
 //│ 	| _  => error⁰}
-//│ def min_lh_₁(_lh_min_arg1⁶, _lh_min_arg2⁶) = if (_lh_min_arg1⁶ < _lh_min_arg2⁶) then _lh_min_arg1⁶ else _lh_min_arg2⁶
-//│ def min_lh_₂(_lh_min_arg1⁷, _lh_min_arg2⁷) = if (_lh_min_arg1⁷ < _lh_min_arg2⁷) then _lh_min_arg1⁷ else _lh_min_arg2⁷
-//│ def min_lh_₃(_lh_min_arg1⁴, _lh_min_arg2⁴) = if (_lh_min_arg1⁴ < _lh_min_arg2⁴) then _lh_min_arg1⁴ else _lh_min_arg2⁴
-//│ def min_lh_₄(_lh_min_arg1⁵, _lh_min_arg2⁵) = if (_lh_min_arg1⁵ < _lh_min_arg2⁵) then _lh_min_arg1⁵ else _lh_min_arg2⁵
-//│ def moveDetailsFor_lh_₁(_lh_moveDetailsFor_arg1³, _lh_moveDetailsFor_arg2³) = foldr_lh_₄((fun ksq³ -> (fun ms⁵ -> foldr_lh_₅((fun rm³ -> (fun ms'³ -> maybe_lh_₁((fun x¹² -> x¹²), (fun h⁸³ -> (fun t⁸³ -> 
-//│ 	let t⁸⁴ = t⁸³
-//│ 	in let h⁸⁴ = h⁸³
-//│ 	in (fun f²¹ -> (fun i¹² -> f²¹(h⁸⁴, foldr_lh_₂(f²¹, i¹², t⁸⁴)))))), tryMove_lh_₁(_lh_moveDetailsFor_arg1³, ksq³, rm³, _lh_moveDetailsFor_arg2³), ms'³))), ms⁵, rawmoves_lh_₁(_lh_moveDetailsFor_arg1³, ksq³, _lh_moveDetailsFor_arg2³)))), (fun f²² -> (fun i¹³ -> i¹³)), forcesColoured_lh_₂(_lh_moveDetailsFor_arg1³, _lh_moveDetailsFor_arg2³))
-//│ def moveDetailsFor_lh_₂(_lh_moveDetailsFor_arg1², _lh_moveDetailsFor_arg2²) = foldr_lh_₈((fun ksq² -> (fun ms⁴ -> foldr_lh_₉((fun rm² -> (fun ms'² -> maybe_lh_₄((fun x¹¹ -> x¹¹), (fun h⁶² -> (fun t⁶² -> [LH_C h⁶² t⁶²])), tryMove_lh_₂(_lh_moveDetailsFor_arg1², ksq², rm², _lh_moveDetailsFor_arg2²), ms'²))), ms⁴, rawmoves_lh_₂(_lh_moveDetailsFor_arg1², ksq², _lh_moveDetailsFor_arg2²)))), [LH_N], forcesColoured_lh_₃(_lh_moveDetailsFor_arg1², _lh_moveDetailsFor_arg2²))
-//│ def moveLine_lh_₁(_lh_moveLine_arg1¹, _lh_moveLine_arg2¹, _lh_moveLine_arg3¹, _lh_moveLine_arg4¹, _lh_moveLine_arg5¹) = 
-//│ 	let ml¹ = (fun sq¹ -> (fun ms³ -> 
-//│ 		let sq'¹ = _lh_moveLine_arg4¹(sq¹)
-//│ 		in if onboard_lh_₁(sq'¹) then 
-//│ 			let _lh_matchIdent⁷⁹ = pieceAt_lh_₁(_lh_moveLine_arg1¹, sq'¹)
-//│ 			in case _lh_matchIdent⁷⁹ of {
-//│ 				Nothing  => ml¹(sq'¹, [LH_C [Move sq'¹ [Nothing] [Nothing]] ms³])
-//│ 				| Just _lh_moveLine_Just_0⁰ => if polyNeq⁰(colourOf_lh_₁(_lh_moveLine_Just_0⁰), _lh_moveLine_arg2¹) then _lh_moveLine_arg5¹([LH_C [Move sq'¹ [Just _lh_moveLine_Just_0⁰] [Nothing]] ms³]) else _lh_moveLine_arg5¹(ms³)
-//│ 				| _  => error⁰} else _lh_moveLine_arg5¹(ms³)))
-//│ 	in ml¹(_lh_moveLine_arg3¹)
-//│ def null_lh_₁(_lh_null_arg1⁵) = case _lh_null_arg1⁵ of {
+//│ def min_lh_₁(_lh_min_arg1², _lh_min_arg2²) = if (_lh_min_arg1² < _lh_min_arg2²) then _lh_min_arg1² else _lh_min_arg2²
+//│ def min_lh_₂(_lh_min_arg1³, _lh_min_arg2³) = if (_lh_min_arg1³ < _lh_min_arg2³) then _lh_min_arg1³ else _lh_min_arg2³
+//│ def min_lh_₃(_lh_min_arg1⁰, _lh_min_arg2⁰) = if (_lh_min_arg1⁰ < _lh_min_arg2⁰) then _lh_min_arg1⁰ else _lh_min_arg2⁰
+//│ def min_lh_₄(_lh_min_arg1¹, _lh_min_arg2¹) = if (_lh_min_arg1¹ < _lh_min_arg2¹) then _lh_min_arg1¹ else _lh_min_arg2¹
+//│ def moveDetailsFor_lh_₁(_lh_moveDetailsFor_arg1¹, _lh_moveDetailsFor_arg2¹) = foldr_lh_₄((fun ksq¹ -> (fun ms² -> foldr_lh_₅((fun rm¹ -> (fun ms'¹ -> maybe_lh_₁((fun x² -> x²), (fun h²⁶ -> (fun t²⁶ -> 
+//│ 	let t²⁷ = t²⁶
+//│ 	in let h²⁷ = h²⁶
+//│ 	in (fun f⁵ -> (fun i³ -> f⁵(h²⁷, foldr_lh_₂(f⁵, i³, t²⁷)))))), tryMove_lh_₁(_lh_moveDetailsFor_arg1¹, ksq¹, rm¹, _lh_moveDetailsFor_arg2¹), ms'¹))), ms², rawmoves_lh_₁(_lh_moveDetailsFor_arg1¹, ksq¹, _lh_moveDetailsFor_arg2¹)))), (fun f⁶ -> (fun i⁴ -> i⁴)), forcesColoured_lh_₂(_lh_moveDetailsFor_arg1¹, _lh_moveDetailsFor_arg2¹))
+//│ def moveDetailsFor_lh_₂(_lh_moveDetailsFor_arg1⁰, _lh_moveDetailsFor_arg2⁰) = foldr_lh_₈((fun ksq⁰ -> (fun ms¹ -> foldr_lh_₉((fun rm⁰ -> (fun ms'⁰ -> maybe_lh_₄((fun x¹ -> x¹), (fun h⁴ -> (fun t⁴ -> [LH_C h⁴ t⁴])), tryMove_lh_₂(_lh_moveDetailsFor_arg1⁰, ksq⁰, rm⁰, _lh_moveDetailsFor_arg2⁰), ms'⁰))), ms¹, rawmoves_lh_₂(_lh_moveDetailsFor_arg1⁰, ksq⁰, _lh_moveDetailsFor_arg2⁰)))), [LH_N], forcesColoured_lh_₃(_lh_moveDetailsFor_arg1⁰, _lh_moveDetailsFor_arg2⁰))
+//│ def moveLine_lh_₁(_lh_moveLine_arg1⁰, _lh_moveLine_arg2⁰, _lh_moveLine_arg3⁰, _lh_moveLine_arg4⁰, _lh_moveLine_arg5⁰) = 
+//│ 	let ml⁰ = (fun sq⁰ -> (fun ms⁰ -> 
+//│ 		let sq'⁰ = _lh_moveLine_arg4⁰(sq⁰)
+//│ 		in if onboard_lh_₁(sq'⁰) then 
+//│ 			let _lh_matchIdent¹³ = pieceAt_lh_₁(_lh_moveLine_arg1⁰, sq'⁰)
+//│ 			in case _lh_matchIdent¹³ of {
+//│ 				Nothing  => ml⁰(sq'⁰, [LH_C [Move sq'⁰ [Nothing] [Nothing]] ms⁰])
+//│ 				| Just _lh_moveLine_Just_0⁰ => if polyNeq⁰(colourOf_lh_₁(_lh_moveLine_Just_0⁰), _lh_moveLine_arg2⁰) then _lh_moveLine_arg5⁰([LH_C [Move sq'⁰ [Just _lh_moveLine_Just_0⁰] [Nothing]] ms⁰]) else _lh_moveLine_arg5⁰(ms⁰)
+//│ 				| _  => error⁰} else _lh_moveLine_arg5⁰(ms⁰)))
+//│ 	in ml⁰(_lh_moveLine_arg3⁰)
+//│ def null_lh_₁(_lh_null_arg1²) = case _lh_null_arg1² of {
 //│ 	LH_N  => [True]
 //│ 	| LH_C _lh_null_LH_C_0² _lh_null_LH_C_1² => [False]
 //│ 	| _  => error⁰}
-//│ def null_lh_₂(_lh_null_arg1³) = case _lh_null_arg1³ of {
-//│ 	LH_N  => [True]
-//│ 	| LH_C _lh_null_LH_C_0¹ _lh_null_LH_C_1¹ => [False]
-//│ 	| _  => error⁰}
-//│ def null_lh_₃(_lh_null_arg1⁴) = case _lh_null_arg1⁴ of {
+//│ def null_lh_₂(_lh_null_arg1⁰) = case _lh_null_arg1⁰ of {
 //│ 	LH_N  => [True]
 //│ 	| LH_C _lh_null_LH_C_0⁰ _lh_null_LH_C_1⁰ => [False]
 //│ 	| _  => error⁰}
-//│ def onboard_lh_₁(_lh_onboard_arg1¹) = case _lh_onboard_arg1¹ of {
+//│ def null_lh_₃(_lh_null_arg1¹) = case _lh_null_arg1¹ of {
+//│ 	LH_N  => [True]
+//│ 	| LH_C _lh_null_LH_C_0¹ _lh_null_LH_C_1¹ => [False]
+//│ 	| _  => error⁰}
+//│ def onboard_lh_₁(_lh_onboard_arg1⁰) = case _lh_onboard_arg1⁰ of {
 //│ 	LH_P2 _lh_onboard_LH_P2_0⁰ _lh_onboard_LH_P2_1⁰ => ((((1 <= _lh_onboard_LH_P2_0⁰) && (_lh_onboard_LH_P2_0⁰ <= 8)) && (1 <= _lh_onboard_LH_P2_1⁰)) && (_lh_onboard_LH_P2_1⁰ <= 8))
 //│ 	| _  => error⁰}
-//│ def opponent_lh_₁(_lh_opponent_arg1⁸) = case _lh_opponent_arg1⁸ of {
+//│ def opponent_lh_₁(_lh_opponent_arg1³) = case _lh_opponent_arg1³ of {
 //│ 	Black  => [White]
 //│ 	| White  => [Black]
 //│ 	| _  => error⁰}
-//│ def opponent_lh_₂(_lh_opponent_arg1⁷) = case _lh_opponent_arg1⁷ of {
+//│ def opponent_lh_₂(_lh_opponent_arg1²) = case _lh_opponent_arg1² of {
 //│ 	Black  => [White]
 //│ 	| White  => [Black]
 //│ 	| _  => error⁰}
-//│ def opponent_lh_₃(_lh_opponent_arg1⁹) = case _lh_opponent_arg1⁹ of {
-//│ 	Black  => (fun _lh_forcesColoured_arg2⁶ -> case _lh_forcesColoured_arg2⁶ of {
+//│ def opponent_lh_₃(_lh_opponent_arg1⁴) = case _lh_opponent_arg1⁴ of {
+//│ 	Black  => (fun _lh_forcesColoured_arg2³ -> case _lh_forcesColoured_arg2³ of {
 //│ 		Board _lh_forcesColoured_Board_0⁴ _lh_forcesColoured_Board_1⁴ => _lh_forcesColoured_Board_0⁴
 //│ 		| _  => error⁰})
-//│ 	| White  => (fun _lh_forcesColoured_arg2⁷ -> case _lh_forcesColoured_arg2⁷ of {
+//│ 	| White  => (fun _lh_forcesColoured_arg2⁴ -> case _lh_forcesColoured_arg2⁴ of {
 //│ 		Board _lh_forcesColoured_Board_0⁵ _lh_forcesColoured_Board_1⁵ => _lh_forcesColoured_Board_1⁵
 //│ 		| _  => error⁰})
 //│ 	| _  => error⁰}
-//│ def opponent_lh_₄(_lh_opponent_arg1⁶) = case _lh_opponent_arg1⁶ of {
+//│ def opponent_lh_₄(_lh_opponent_arg1¹) = case _lh_opponent_arg1¹ of {
 //│ 	Black  => [White]
 //│ 	| White  => [Black]
 //│ 	| _  => error⁰}
-//│ def opponent_lh_₅(_lh_opponent_arg1⁵) = case _lh_opponent_arg1⁵ of {
+//│ def opponent_lh_₅(_lh_opponent_arg1⁰) = case _lh_opponent_arg1⁰ of {
 //│ 	Black  => [White]
 //│ 	| White  => [Black]
 //│ 	| _  => error⁰}
-//│ def parseBoard_lh_₁(_lh_parseBoard_arg1¹) = 
-//│ 	let addPiece¹ = (fun p_sq¹ -> 
-//│ 		let _lh_matchIdent⁷⁸ = p_sq¹
-//│ 		in case _lh_matchIdent⁷⁸ of {
+//│ def parseBoard_lh_₁(_lh_parseBoard_arg1⁰) = 
+//│ 	let addPiece⁰ = (fun p_sq⁰ -> 
+//│ 		let _lh_matchIdent¹² = p_sq⁰
+//│ 		in case _lh_matchIdent¹² of {
 //│ 			LH_P2 _lh_parseBoard_LH_P2_0⁰ _lh_parseBoard_LH_P2_1⁰ => putPieceAt_lh_₁(_lh_parseBoard_LH_P2_1⁰, _lh_parseBoard_LH_P2_0⁰)
 //│ 			| _  => error⁰})
-//│ 	in (fun _lh_funcomp_x⁷ -> (fun _lh_funcomp_x⁸ -> foldr_lh_₃(addPiece¹, emptyBoard_lh_₁, concat_lh_₂(_lh_funcomp_x⁸)))(zipWith_lh_₁(parseRank_lh_₁, reverse_lh_₂(enumFromTo_lh_₃(1, 8)), _lh_funcomp_x⁷)))(_lh_parseBoard_arg1¹)
-//│ def parseGoal_lh_₁(_lh_parseGoal_arg1¹) = _lh_parseGoal_arg1¹(99)
-//│ def parseProblem_lh_₁(_lh_parseProblem_arg1¹) = 
-//│ 	let bdtxt_gltxt¹ = splitAt_lh_₁(8, filter_lh_₁((fun _lh_funcomp_x⁶ -> not⁰(comment_lh_₁(_lh_funcomp_x⁶))), _lh_parseProblem_arg1¹))
-//│ 	in let _lh_matchIdent⁷⁷ = bdtxt_gltxt¹
-//│ 	in _lh_matchIdent⁷⁷(99)
-//│ def parseRank_lh_₁(_lh_parseRank_arg1¹, _lh_parseRank_arg2¹) = (fun _lh_funcomp_x⁹ -> (fun _lh_funcomp_x¹⁰ -> concat_lh_₃(zipWith_lh_₂(parseSquare_lh_₁(_lh_parseRank_arg1¹), enumFromTo_lh_₄(1, 8), _lh_funcomp_x¹⁰)))(filter_lh_₂((fun x¹⁰ -> not⁰(polyEq⁰(x¹⁰, ' '))), _lh_funcomp_x⁹)))(_lh_parseRank_arg2¹)
-//│ def parseSquare_lh_₁(_lh_parseSquare_arg1¹, _lh_parseSquare_arg2¹, _lh_parseSquare_arg3¹) = case _lh_parseSquare_arg3¹ of {
+//│ 	in (fun _lh_funcomp_x¹ -> (fun _lh_funcomp_x² -> foldr_lh_₃(addPiece⁰, emptyBoard_lh_₁, concat_lh_₂(_lh_funcomp_x²)))(zipWith_lh_₁(parseRank_lh_₁, reverse_lh_₂(enumFromTo_lh_₃(1, 8)), _lh_funcomp_x¹)))(_lh_parseBoard_arg1⁰)
+//│ def parseGoal_lh_₁(_lh_parseGoal_arg1⁰) = _lh_parseGoal_arg1⁰(99)
+//│ def parseProblem_lh_₁(_lh_parseProblem_arg1⁰) = 
+//│ 	let bdtxt_gltxt⁰ = splitAt_lh_₁(8, filter_lh_₁((fun _lh_funcomp_x⁰ -> not⁰(comment_lh_₁(_lh_funcomp_x⁰))), _lh_parseProblem_arg1⁰))
+//│ 	in let _lh_matchIdent¹¹ = bdtxt_gltxt⁰
+//│ 	in _lh_matchIdent¹¹(99)
+//│ def parseRank_lh_₁(_lh_parseRank_arg1⁰, _lh_parseRank_arg2⁰) = (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> concat_lh_₃(zipWith_lh_₂(parseSquare_lh_₁(_lh_parseRank_arg1⁰), enumFromTo_lh_₄(1, 8), _lh_funcomp_x⁴)))(filter_lh_₂((fun x⁰ -> not⁰(polyEq⁰(x⁰, ' '))), _lh_funcomp_x³)))(_lh_parseRank_arg2⁰)
+//│ def parseSquare_lh_₁(_lh_parseSquare_arg1⁰, _lh_parseSquare_arg2⁰, _lh_parseSquare_arg3⁰) = case _lh_parseSquare_arg3⁰ of {
 //│ 	'-'  => [LH_N]
 //│ 	| _  => 
-//│ 		let clr¹ = if isUpper_lh_₁(_lh_parseSquare_arg3¹) then [Black] else [White]
-//│ 		in let kin¹ = 	
-//│ 			let _lh_matchIdent¹²⁶ = toLower_lh_₁(_lh_parseSquare_arg3¹)
-//│ 			in case _lh_matchIdent¹²⁶ of {
+//│ 		let clr⁰ = if isUpper_lh_₁(_lh_parseSquare_arg3⁰) then [Black] else [White]
+//│ 		in let kin⁰ = 	
+//│ 			let _lh_matchIdent⁶⁰ = toLower_lh_₁(_lh_parseSquare_arg3⁰)
+//│ 			in case _lh_matchIdent⁶⁰ of {
 //│ 				'k'  => [King]
 //│ 				| 'q'  => [Queen]
 //│ 				| 'r'  => [Rook]
@@ -5020,130 +5020,130 @@ testMate_nofib $ primId 0
 //│ 				| 'n'  => [Knight]
 //│ 				| 'p'  => [Pawn]
 //│ 				| _  => error⁰}
-//│ 		in [LH_C [LH_P2 [LH_P2 clr¹ kin¹] [LH_P2 _lh_parseSquare_arg2¹ _lh_parseSquare_arg1¹]] [LH_N]]}
-//│ def pawnmoves_lh_₁(_lh_pawnmoves_arg1¹, _lh_pawnmoves_arg2¹, _lh_pawnmoves_arg3¹) = case _lh_pawnmoves_arg2¹ of {
+//│ 		in [LH_C [LH_P2 [LH_P2 clr⁰ kin⁰] [LH_P2 _lh_parseSquare_arg2⁰ _lh_parseSquare_arg1⁰]] [LH_N]]}
+//│ def pawnmoves_lh_₁(_lh_pawnmoves_arg1⁰, _lh_pawnmoves_arg2⁰, _lh_pawnmoves_arg3⁰) = case _lh_pawnmoves_arg2⁰ of {
 //│ 	LH_P2 _lh_pawnmoves_LH_P2_0⁰ _lh_pawnmoves_LH_P2_1⁰ => 
-//│ 		let fwd¹ = 	
-//│ 			let _lh_matchIdent¹¹² = _lh_pawnmoves_arg1¹
-//│ 			in case _lh_matchIdent¹¹² of {
+//│ 		let fwd⁰ = 	
+//│ 			let _lh_matchIdent⁴⁶ = _lh_pawnmoves_arg1⁰
+//│ 			in case _lh_matchIdent⁴⁶ of {
 //│ 				White  => 1
 //│ 				| Black  => (0 - 1)
 //│ 				| _  => error⁰}
-//│ 		in let promote¹ = (fun xy¹³ -> (fun mcp¹ -> 
-//│ 			let _lh_matchIdent¹¹³ = xy¹³
-//│ 			in case _lh_matchIdent¹¹³ of {
-//│ 				LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹ => if ((polyEq⁰(_lh_pawnmoves_arg1¹, [Black]) && (_lh_pawnmoves_LH_P2_1¹ == 1)) || (polyEq⁰(_lh_pawnmoves_arg1¹, [White]) && (_lh_pawnmoves_LH_P2_1¹ == 8))) then map_lh_₂((fun param⁴ -> [Move [LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹] mcp¹ [Just param⁴]]), 
-//│ 					let t¹¹⁹ = 	
-//│ 						let t¹²⁰ = 	
-//│ 							let t¹²¹ = 	
-//│ 								let t¹²² = (fun f⁴⁵ -> [LH_N])
-//│ 								in let h¹²² = [LH_P2 _lh_pawnmoves_arg1¹ [Knight]]
-//│ 								in (fun f⁴⁴ -> [LH_C f⁴⁴(h¹²²) map_lh_₂(f⁴⁴, t¹²²)])
-//│ 							in let h¹²¹ = [LH_P2 _lh_pawnmoves_arg1¹ [Bishop]]
-//│ 							in (fun f⁴³ -> [LH_C f⁴³(h¹²¹) map_lh_₂(f⁴³, t¹²¹)])
-//│ 						in let h¹²⁰ = [LH_P2 _lh_pawnmoves_arg1¹ [Rook]]
-//│ 						in (fun f⁴² -> [LH_C f⁴²(h¹²⁰) map_lh_₂(f⁴², t¹²⁰)])
-//│ 					in let h¹¹⁹ = [LH_P2 _lh_pawnmoves_arg1¹ [Queen]]
-//│ 					in (fun f⁴¹ -> [LH_C f⁴¹(h¹¹⁹) map_lh_₂(f⁴¹, t¹¹⁹)])) else [LH_C [Move [LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹] mcp¹ [Nothing]] [LH_N]]
+//│ 		in let promote⁰ = (fun xy⁴ -> (fun mcp⁰ -> 
+//│ 			let _lh_matchIdent⁴⁷ = xy⁴
+//│ 			in case _lh_matchIdent⁴⁷ of {
+//│ 				LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹ => if ((polyEq⁰(_lh_pawnmoves_arg1⁰, [Black]) && (_lh_pawnmoves_LH_P2_1¹ == 1)) || (polyEq⁰(_lh_pawnmoves_arg1⁰, [White]) && (_lh_pawnmoves_LH_P2_1¹ == 8))) then map_lh_₂((fun param¹ -> [Move [LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹] mcp⁰ [Just param¹]]), 
+//│ 					let t⁷⁴ = 	
+//│ 						let t⁷⁵ = 	
+//│ 							let t⁷⁶ = 	
+//│ 								let t⁷⁷ = (fun f²⁵ -> [LH_N])
+//│ 								in let h⁷⁴ = [LH_P2 _lh_pawnmoves_arg1⁰ [Knight]]
+//│ 								in (fun f²⁶ -> [LH_C f²⁶(h⁷⁴) map_lh_₂(f²⁶, t⁷⁷)])
+//│ 							in let h⁷⁵ = [LH_P2 _lh_pawnmoves_arg1⁰ [Bishop]]
+//│ 							in (fun f²⁷ -> [LH_C f²⁷(h⁷⁵) map_lh_₂(f²⁷, t⁷⁶)])
+//│ 						in let h⁷⁶ = [LH_P2 _lh_pawnmoves_arg1⁰ [Rook]]
+//│ 						in (fun f²⁸ -> [LH_C f²⁸(h⁷⁶) map_lh_₂(f²⁸, t⁷⁵)])
+//│ 					in let h⁷⁷ = [LH_P2 _lh_pawnmoves_arg1⁰ [Queen]]
+//│ 					in (fun f²⁹ -> [LH_C f²⁹(h⁷⁷) map_lh_₂(f²⁹, t⁷⁴)])) else [LH_C [Move [LH_P2 _lh_pawnmoves_LH_P2_0¹ _lh_pawnmoves_LH_P2_1¹] mcp⁰ [Nothing]] [LH_N]]
 //│ 				| _  => error⁰}))
-//│ 		in let movs¹ = 	
-//│ 			let on1¹ = [LH_P2 _lh_pawnmoves_LH_P2_0⁰ (_lh_pawnmoves_LH_P2_1⁰ + fwd¹)]
-//│ 			in let on2¹ = [LH_P2 _lh_pawnmoves_LH_P2_0⁰ ((_lh_pawnmoves_LH_P2_1⁰ + 2) * fwd¹)]
-//│ 			in if polyEq⁰(pieceAt_lh_₁(_lh_pawnmoves_arg3¹, on1¹), [Nothing]) then mappend_lh_₃₄(promote¹(on1¹, [Nothing]), if ((((_lh_pawnmoves_LH_P2_1⁰ == 2) && polyEq⁰(_lh_pawnmoves_arg1¹, [White])) || ((_lh_pawnmoves_LH_P2_1⁰ == 7) && polyEq⁰(_lh_pawnmoves_arg1¹, [Black]))) && polyEq⁰(pieceAt_lh_₁(_lh_pawnmoves_arg3¹, on2¹), [Nothing])) then [LH_C [Move on2¹ [Nothing] [Nothing]] [LH_N]] else [LH_N]) else [LH_N]
-//│ 		in let caps¹ = concat_lh_₃(
-//│ 			let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun², _lh_pawnmoves_arg1¹, _lh_pawnmoves_arg3¹, promote¹))
-//│ 			in _lh_listcomp_fun²(
-//│ 				let _lh_listcomp_fun_ls_t² = 	
-//│ 					let _lh_listcomp_fun_ls_t⁶ = (fun _lh_listcomp_fun¹⁵ -> (fun _lh_pawnmoves_arg1⁸ -> (fun _lh_pawnmoves_arg3⁴ -> (fun promote⁸ -> [LH_N]))))
-//│ 					in let _lh_listcomp_fun_ls_h⁶ = [LH_P2 (_lh_pawnmoves_LH_P2_0⁰ - 1) (_lh_pawnmoves_LH_P2_1⁰ + fwd¹)]
-//│ 					in (fun _lh_listcomp_fun⁹ -> (fun _lh_pawnmoves_arg1⁵ -> (fun _lh_pawnmoves_arg3³ -> (fun promote⁵ -> 
-//│ 						let _lh_listcomp_fun¹⁰ = (fun _lh_listcomp_fun_para⁴ -> _lh_listcomp_fun_para⁴(_lh_listcomp_fun_ls_h⁶, _lh_listcomp_fun¹⁰, _lh_pawnmoves_arg1⁵, promote⁵, _lh_listcomp_fun_ls_t⁶, _lh_listcomp_fun⁹))
-//│ 						in _lh_listcomp_fun¹⁰(
-//│ 							let _lh_listcomp_fun_ls_t⁷ = (fun _lh_listcomp_fun_ls_h⁹ -> (fun _lh_listcomp_fun¹³ -> (fun _lh_pawnmoves_arg1⁷ -> (fun promote⁷ -> (fun _lh_listcomp_fun_ls_t⁹ -> (fun _lh_listcomp_fun¹⁴ -> _lh_listcomp_fun¹⁴(_lh_listcomp_fun_ls_t⁹)))))))
-//│ 							in let _lh_listcomp_fun_ls_h⁷ = pieceAt_lh_₁(_lh_pawnmoves_arg3³, _lh_listcomp_fun_ls_h⁶)
-//│ 							in (fun _lh_listcomp_fun_ls_h⁸ -> (fun _lh_listcomp_fun¹¹ -> (fun _lh_pawnmoves_arg1⁶ -> (fun promote⁶ -> (fun _lh_listcomp_fun_ls_t⁸ -> (fun _lh_listcomp_fun¹² -> case _lh_listcomp_fun_ls_h⁷ of {
-//│ 								Just _lh_pawnmoves_Just_0⁰ => if not⁰(polyEq⁰(colourOf_lh_₁(_lh_pawnmoves_Just_0⁰), _lh_pawnmoves_arg1⁶)) then [LH_C promote⁶(_lh_listcomp_fun_ls_h⁸, [Just _lh_pawnmoves_Just_0⁰]) _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t⁷)] else _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t⁷)
-//│ 								| _  => _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t⁷)})))))))))))
-//│ 				in let _lh_listcomp_fun_ls_h² = [LH_P2 (_lh_pawnmoves_LH_P2_0⁰ + 1) (_lh_pawnmoves_LH_P2_1⁰ + fwd¹)]
-//│ 				in (fun _lh_listcomp_fun³ -> (fun _lh_pawnmoves_arg1² -> (fun _lh_pawnmoves_arg3² -> (fun promote² -> 
-//│ 					let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para³ -> _lh_listcomp_fun_para³(_lh_listcomp_fun_ls_h², _lh_listcomp_fun⁴, _lh_pawnmoves_arg1², promote², _lh_listcomp_fun_ls_t², _lh_listcomp_fun³))
-//│ 					in _lh_listcomp_fun⁴(
-//│ 						let _lh_listcomp_fun_ls_t³ = (fun _lh_listcomp_fun_ls_h⁵ -> (fun _lh_listcomp_fun⁷ -> (fun _lh_pawnmoves_arg1⁴ -> (fun promote⁴ -> (fun _lh_listcomp_fun_ls_t⁵ -> (fun _lh_listcomp_fun⁸ -> _lh_listcomp_fun⁸(_lh_listcomp_fun_ls_t⁵)))))))
-//│ 						in let _lh_listcomp_fun_ls_h³ = pieceAt_lh_₁(_lh_pawnmoves_arg3², _lh_listcomp_fun_ls_h²)
-//│ 						in (fun _lh_listcomp_fun_ls_h⁴ -> (fun _lh_listcomp_fun⁵ -> (fun _lh_pawnmoves_arg1³ -> (fun promote³ -> (fun _lh_listcomp_fun_ls_t⁴ -> (fun _lh_listcomp_fun⁶ -> case _lh_listcomp_fun_ls_h³ of {
-//│ 							Just _lh_pawnmoves_Just_0⁰ => if not⁰(polyEq⁰(colourOf_lh_₁(_lh_pawnmoves_Just_0⁰), _lh_pawnmoves_arg1³)) then [LH_C promote³(_lh_listcomp_fun_ls_h⁴, [Just _lh_pawnmoves_Just_0⁰]) _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t³)] else _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t³)
-//│ 							| _  => _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t³)})))))))))))))
-//│ 		in mappend_lh_₃₄(movs¹, caps¹)
+//│ 		in let movs⁰ = 	
+//│ 			let on1⁰ = [LH_P2 _lh_pawnmoves_LH_P2_0⁰ (_lh_pawnmoves_LH_P2_1⁰ + fwd⁰)]
+//│ 			in let on2⁰ = [LH_P2 _lh_pawnmoves_LH_P2_0⁰ ((_lh_pawnmoves_LH_P2_1⁰ + 2) * fwd⁰)]
+//│ 			in if polyEq⁰(pieceAt_lh_₁(_lh_pawnmoves_arg3⁰, on1⁰), [Nothing]) then mappend_lh_₃₄(promote⁰(on1⁰, [Nothing]), if ((((_lh_pawnmoves_LH_P2_1⁰ == 2) && polyEq⁰(_lh_pawnmoves_arg1⁰, [White])) || ((_lh_pawnmoves_LH_P2_1⁰ == 7) && polyEq⁰(_lh_pawnmoves_arg1⁰, [Black]))) && polyEq⁰(pieceAt_lh_₁(_lh_pawnmoves_arg3⁰, on2⁰), [Nothing])) then [LH_C [Move on2⁰ [Nothing] [Nothing]] [LH_N]] else [LH_N]) else [LH_N]
+//│ 		in let caps⁰ = concat_lh_₃(
+//│ 			let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> _lh_listcomp_fun_para⁰(_lh_listcomp_fun⁰, _lh_pawnmoves_arg1⁰, _lh_pawnmoves_arg3⁰, promote⁰))
+//│ 			in _lh_listcomp_fun⁰(
+//│ 				let _lh_listcomp_fun_ls_t⁰ = 	
+//│ 					let _lh_listcomp_fun_ls_t¹ = (fun _lh_listcomp_fun¹ -> (fun _lh_pawnmoves_arg1¹ -> (fun _lh_pawnmoves_arg3¹ -> (fun promote¹ -> [LH_N]))))
+//│ 					in let _lh_listcomp_fun_ls_h⁰ = [LH_P2 (_lh_pawnmoves_LH_P2_0⁰ - 1) (_lh_pawnmoves_LH_P2_1⁰ + fwd⁰)]
+//│ 					in (fun _lh_listcomp_fun² -> (fun _lh_pawnmoves_arg1² -> (fun _lh_pawnmoves_arg3² -> (fun promote² -> 
+//│ 						let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para¹ -> _lh_listcomp_fun_para¹(_lh_listcomp_fun_ls_h⁰, _lh_listcomp_fun³, _lh_pawnmoves_arg1², promote², _lh_listcomp_fun_ls_t¹, _lh_listcomp_fun²))
+//│ 						in _lh_listcomp_fun³(
+//│ 							let _lh_listcomp_fun_ls_t² = (fun _lh_listcomp_fun_ls_h¹ -> (fun _lh_listcomp_fun⁴ -> (fun _lh_pawnmoves_arg1³ -> (fun promote³ -> (fun _lh_listcomp_fun_ls_t³ -> (fun _lh_listcomp_fun⁵ -> _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t³)))))))
+//│ 							in let _lh_listcomp_fun_ls_h² = pieceAt_lh_₁(_lh_pawnmoves_arg3², _lh_listcomp_fun_ls_h⁰)
+//│ 							in (fun _lh_listcomp_fun_ls_h³ -> (fun _lh_listcomp_fun⁶ -> (fun _lh_pawnmoves_arg1⁴ -> (fun promote⁴ -> (fun _lh_listcomp_fun_ls_t⁴ -> (fun _lh_listcomp_fun⁷ -> case _lh_listcomp_fun_ls_h² of {
+//│ 								Just _lh_pawnmoves_Just_0⁰ => if not⁰(polyEq⁰(colourOf_lh_₁(_lh_pawnmoves_Just_0⁰), _lh_pawnmoves_arg1⁴)) then [LH_C promote⁴(_lh_listcomp_fun_ls_h³, [Just _lh_pawnmoves_Just_0⁰]) _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t²)] else _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t²)
+//│ 								| _  => _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t²)})))))))))))
+//│ 				in let _lh_listcomp_fun_ls_h⁴ = [LH_P2 (_lh_pawnmoves_LH_P2_0⁰ + 1) (_lh_pawnmoves_LH_P2_1⁰ + fwd⁰)]
+//│ 				in (fun _lh_listcomp_fun⁸ -> (fun _lh_pawnmoves_arg1⁵ -> (fun _lh_pawnmoves_arg3³ -> (fun promote⁵ -> 
+//│ 					let _lh_listcomp_fun⁹ = (fun _lh_listcomp_fun_para² -> _lh_listcomp_fun_para²(_lh_listcomp_fun_ls_h⁴, _lh_listcomp_fun⁹, _lh_pawnmoves_arg1⁵, promote⁵, _lh_listcomp_fun_ls_t⁰, _lh_listcomp_fun⁸))
+//│ 					in _lh_listcomp_fun⁹(
+//│ 						let _lh_listcomp_fun_ls_t⁵ = (fun _lh_listcomp_fun_ls_h⁵ -> (fun _lh_listcomp_fun¹⁰ -> (fun _lh_pawnmoves_arg1⁶ -> (fun promote⁶ -> (fun _lh_listcomp_fun_ls_t⁶ -> (fun _lh_listcomp_fun¹¹ -> _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t⁶)))))))
+//│ 						in let _lh_listcomp_fun_ls_h⁶ = pieceAt_lh_₁(_lh_pawnmoves_arg3³, _lh_listcomp_fun_ls_h⁴)
+//│ 						in (fun _lh_listcomp_fun_ls_h⁷ -> (fun _lh_listcomp_fun¹² -> (fun _lh_pawnmoves_arg1⁷ -> (fun promote⁷ -> (fun _lh_listcomp_fun_ls_t⁷ -> (fun _lh_listcomp_fun¹³ -> case _lh_listcomp_fun_ls_h⁶ of {
+//│ 							Just _lh_pawnmoves_Just_0¹ => if not⁰(polyEq⁰(colourOf_lh_₁(_lh_pawnmoves_Just_0¹), _lh_pawnmoves_arg1⁷)) then [LH_C promote⁷(_lh_listcomp_fun_ls_h⁷, [Just _lh_pawnmoves_Just_0¹]) _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t⁵)] else _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t⁵)
+//│ 							| _  => _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t⁵)})))))))))))))
+//│ 		in mappend_lh_₃₄(movs⁰, caps⁰)
 //│ 	| _  => error⁰}
-//│ def pieceAt_lh_₁(_lh_pieceAt_arg1¹, _lh_pieceAt_arg2¹) = case _lh_pieceAt_arg1¹ of {
+//│ def pieceAt_lh_₁(_lh_pieceAt_arg1⁰, _lh_pieceAt_arg2⁰) = case _lh_pieceAt_arg1⁰ of {
 //│ 	Board _lh_pieceAt_Board_0⁰ _lh_pieceAt_Board_1⁰ => 
-//│ 		let pieceAtWith¹ = (fun c² -> (fun n⁵ -> (fun ls³² -> 
-//│ 			let _lh_matchIdent⁷⁶ = ls³²
-//│ 			in case _lh_matchIdent⁷⁶ of {
-//│ 				LH_N  => n⁵
+//│ 		let pieceAtWith⁰ = (fun c⁰ -> (fun n⁰ -> (fun ls¹ -> 
+//│ 			let _lh_matchIdent¹⁰ = ls¹
+//│ 			in case _lh_matchIdent¹⁰ of {
+//│ 				LH_N  => n⁰
 //│ 				| LH_C _lh_pieceAt_LH_C_0⁰ _lh_pieceAt_LH_C_1⁰ => case _lh_pieceAt_LH_C_0⁰ of {
-//│ 					LH_P2 _lh_pieceAt_LH_P2_0⁰ _lh_pieceAt_LH_P2_1⁰ => if polyEq⁰(_lh_pieceAt_LH_P2_1⁰, _lh_pieceAt_arg2¹) then [Just [LH_P2 c² _lh_pieceAt_LH_P2_0⁰]] else pieceAtWith¹(c², n⁵, _lh_pieceAt_LH_C_1⁰)
+//│ 					LH_P2 _lh_pieceAt_LH_P2_0⁰ _lh_pieceAt_LH_P2_1⁰ => if polyEq⁰(_lh_pieceAt_LH_P2_1⁰, _lh_pieceAt_arg2⁰) then [Just [LH_P2 c⁰ _lh_pieceAt_LH_P2_0⁰]] else pieceAtWith⁰(c⁰, n⁰, _lh_pieceAt_LH_C_1⁰)
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰})))
-//│ 		in pieceAtWith¹([White], pieceAtWith¹([Black], [Nothing], _lh_pieceAt_Board_1⁰), _lh_pieceAt_Board_0⁰)
+//│ 		in pieceAtWith⁰([White], pieceAtWith⁰([Black], [Nothing], _lh_pieceAt_Board_1⁰), _lh_pieceAt_Board_0⁰)
 //│ 	| _  => error⁰}
-//│ def pieceToChar_lh_₁(_lh_pieceToChar_arg1¹) = case _lh_pieceToChar_arg1¹ of {
+//│ def pieceToChar_lh_₁(_lh_pieceToChar_arg1⁰) = case _lh_pieceToChar_arg1⁰ of {
 //│ 	LH_P2 _lh_pieceToChar_LH_P2_0⁰ _lh_pieceToChar_LH_P2_1⁰ => case _lh_pieceToChar_LH_P2_0⁰ of {
 //│ 		Black  => kindToChar_lh_₁(_lh_pieceToChar_LH_P2_1⁰)
 //│ 		| White  => toLower_lh_₁(kindToChar_lh_₂(_lh_pieceToChar_LH_P2_1⁰))
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def putPieceAt_lh_₁(_lh_putPieceAt_arg1⁴, _lh_putPieceAt_arg2⁴, _lh_putPieceAt_arg3⁴) = case _lh_putPieceAt_arg2⁴ of {
-//│ 	LH_P2 _lh_putPieceAt_LH_P2_0² _lh_putPieceAt_LH_P2_1² => case _lh_putPieceAt_LH_P2_0² of {
-//│ 		White  => case _lh_putPieceAt_arg3⁴ of {
-//│ 			Board _lh_putPieceAt_Board_0⁴ _lh_putPieceAt_Board_1⁴ => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1² _lh_putPieceAt_arg1⁴] _lh_putPieceAt_Board_0⁴] _lh_putPieceAt_Board_1⁴]
-//│ 			| _  => error⁰}
-//│ 		| Black  => case _lh_putPieceAt_arg3⁴ of {
-//│ 			Board _lh_putPieceAt_Board_0⁵ _lh_putPieceAt_Board_1⁵ => [Board _lh_putPieceAt_Board_0⁵ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1² _lh_putPieceAt_arg1⁴] _lh_putPieceAt_Board_1⁵]]
-//│ 			| _  => error⁰}
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
-//│ def putPieceAt_lh_₂(_lh_putPieceAt_arg1³, _lh_putPieceAt_arg2³, _lh_putPieceAt_arg3³) = case _lh_putPieceAt_arg2³ of {
+//│ def putPieceAt_lh_₁(_lh_putPieceAt_arg1¹, _lh_putPieceAt_arg2¹, _lh_putPieceAt_arg3¹) = case _lh_putPieceAt_arg2¹ of {
 //│ 	LH_P2 _lh_putPieceAt_LH_P2_0¹ _lh_putPieceAt_LH_P2_1¹ => case _lh_putPieceAt_LH_P2_0¹ of {
-//│ 		White  => case _lh_putPieceAt_arg3³ of {
-//│ 			Board _lh_putPieceAt_Board_0² _lh_putPieceAt_Board_1² => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1¹ _lh_putPieceAt_arg1³] _lh_putPieceAt_Board_0²] _lh_putPieceAt_Board_1²]
+//│ 		White  => case _lh_putPieceAt_arg3¹ of {
+//│ 			Board _lh_putPieceAt_Board_0² _lh_putPieceAt_Board_1² => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1¹ _lh_putPieceAt_arg1¹] _lh_putPieceAt_Board_0²] _lh_putPieceAt_Board_1²]
 //│ 			| _  => error⁰}
-//│ 		| Black  => case _lh_putPieceAt_arg3³ of {
-//│ 			Board _lh_putPieceAt_Board_0³ _lh_putPieceAt_Board_1³ => [Board _lh_putPieceAt_Board_0³ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1¹ _lh_putPieceAt_arg1³] _lh_putPieceAt_Board_1³]]
+//│ 		| Black  => case _lh_putPieceAt_arg3¹ of {
+//│ 			Board _lh_putPieceAt_Board_0³ _lh_putPieceAt_Board_1³ => [Board _lh_putPieceAt_Board_0³ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1¹ _lh_putPieceAt_arg1¹] _lh_putPieceAt_Board_1³]]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def putPieceAt_lh_₃(_lh_putPieceAt_arg1⁵, _lh_putPieceAt_arg2⁵, _lh_putPieceAt_arg3⁵) = case _lh_putPieceAt_arg2⁵ of {
+//│ def putPieceAt_lh_₂(_lh_putPieceAt_arg1⁰, _lh_putPieceAt_arg2⁰, _lh_putPieceAt_arg3⁰) = case _lh_putPieceAt_arg2⁰ of {
 //│ 	LH_P2 _lh_putPieceAt_LH_P2_0⁰ _lh_putPieceAt_LH_P2_1⁰ => case _lh_putPieceAt_LH_P2_0⁰ of {
-//│ 		White  => case _lh_putPieceAt_arg3⁵ of {
-//│ 			Board _lh_putPieceAt_Board_0⁰ _lh_putPieceAt_Board_1⁰ => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1⁰ _lh_putPieceAt_arg1⁵] _lh_putPieceAt_Board_0⁰] _lh_putPieceAt_Board_1⁰]
+//│ 		White  => case _lh_putPieceAt_arg3⁰ of {
+//│ 			Board _lh_putPieceAt_Board_0⁰ _lh_putPieceAt_Board_1⁰ => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1⁰ _lh_putPieceAt_arg1⁰] _lh_putPieceAt_Board_0⁰] _lh_putPieceAt_Board_1⁰]
 //│ 			| _  => error⁰}
-//│ 		| Black  => case _lh_putPieceAt_arg3⁵ of {
-//│ 			Board _lh_putPieceAt_Board_0¹ _lh_putPieceAt_Board_1¹ => [Board _lh_putPieceAt_Board_0¹ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1⁰ _lh_putPieceAt_arg1⁵] _lh_putPieceAt_Board_1¹]]
+//│ 		| Black  => case _lh_putPieceAt_arg3⁰ of {
+//│ 			Board _lh_putPieceAt_Board_0¹ _lh_putPieceAt_Board_1¹ => [Board _lh_putPieceAt_Board_0¹ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1⁰ _lh_putPieceAt_arg1⁰] _lh_putPieceAt_Board_1¹]]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def qpart_lh_₁(_lh_qpart_arg1¹, _lh_qpart_arg2¹, _lh_qpart_arg3¹, _lh_qpart_arg4¹, _lh_qpart_arg5¹, _lh_qpart_arg6¹) = case _lh_qpart_arg3¹ of {
-//│ 	LH_N  => rqsort_lh_₁(_lh_qpart_arg1¹, _lh_qpart_arg4¹, [LH_C _lh_qpart_arg2¹ rqsort_lh_₁(_lh_qpart_arg1¹, _lh_qpart_arg5¹, _lh_qpart_arg6¹)])
-//│ 	| LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_LH_C_1⁰ => if _lh_qpart_arg1¹(_lh_qpart_arg2¹, _lh_qpart_LH_C_0⁰) then qpart_lh_₁(_lh_qpart_arg1¹, _lh_qpart_arg2¹, _lh_qpart_LH_C_1⁰, _lh_qpart_arg4¹, [LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_arg5¹], _lh_qpart_arg6¹) else qpart_lh_₁(_lh_qpart_arg1¹, _lh_qpart_arg2¹, _lh_qpart_LH_C_1⁰, [LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_arg4¹], _lh_qpart_arg5¹, _lh_qpart_arg6¹)
+//│ def putPieceAt_lh_₃(_lh_putPieceAt_arg1², _lh_putPieceAt_arg2², _lh_putPieceAt_arg3²) = case _lh_putPieceAt_arg2² of {
+//│ 	LH_P2 _lh_putPieceAt_LH_P2_0² _lh_putPieceAt_LH_P2_1² => case _lh_putPieceAt_LH_P2_0² of {
+//│ 		White  => case _lh_putPieceAt_arg3² of {
+//│ 			Board _lh_putPieceAt_Board_0⁴ _lh_putPieceAt_Board_1⁴ => [Board [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1² _lh_putPieceAt_arg1²] _lh_putPieceAt_Board_0⁴] _lh_putPieceAt_Board_1⁴]
+//│ 			| _  => error⁰}
+//│ 		| Black  => case _lh_putPieceAt_arg3² of {
+//│ 			Board _lh_putPieceAt_Board_0⁵ _lh_putPieceAt_Board_1⁵ => [Board _lh_putPieceAt_Board_0⁵ [LH_C [LH_P2 _lh_putPieceAt_LH_P2_1² _lh_putPieceAt_arg1²] _lh_putPieceAt_Board_1⁵]]
+//│ 			| _  => error⁰}
+//│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def qsort_lh_₁(_lh_qsort_arg1¹, _lh_qsort_arg2¹, _lh_qsort_arg3¹) = case _lh_qsort_arg2¹ of {
-//│ 	LH_N  => _lh_qsort_arg3¹
+//│ def qpart_lh_₁(_lh_qpart_arg1⁰, _lh_qpart_arg2⁰, _lh_qpart_arg3⁰, _lh_qpart_arg4⁰, _lh_qpart_arg5⁰, _lh_qpart_arg6⁰) = case _lh_qpart_arg3⁰ of {
+//│ 	LH_N  => rqsort_lh_₁(_lh_qpart_arg1⁰, _lh_qpart_arg4⁰, [LH_C _lh_qpart_arg2⁰ rqsort_lh_₁(_lh_qpart_arg1⁰, _lh_qpart_arg5⁰, _lh_qpart_arg6⁰)])
+//│ 	| LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_LH_C_1⁰ => if _lh_qpart_arg1⁰(_lh_qpart_arg2⁰, _lh_qpart_LH_C_0⁰) then qpart_lh_₁(_lh_qpart_arg1⁰, _lh_qpart_arg2⁰, _lh_qpart_LH_C_1⁰, _lh_qpart_arg4⁰, [LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_arg5⁰], _lh_qpart_arg6⁰) else qpart_lh_₁(_lh_qpart_arg1⁰, _lh_qpart_arg2⁰, _lh_qpart_LH_C_1⁰, [LH_C _lh_qpart_LH_C_0⁰ _lh_qpart_arg4⁰], _lh_qpart_arg5⁰, _lh_qpart_arg6⁰)
+//│ 	| _  => error⁰}
+//│ def qsort_lh_₁(_lh_qsort_arg1⁰, _lh_qsort_arg2⁰, _lh_qsort_arg3⁰) = case _lh_qsort_arg2⁰ of {
+//│ 	LH_N  => _lh_qsort_arg3⁰
 //│ 	| LH_C _lh_qsort_LH_C_0⁰ _lh_qsort_LH_C_1⁰ => case _lh_qsort_LH_C_1⁰ of {
-//│ 		LH_N  => [LH_C _lh_qsort_LH_C_0⁰ _lh_qsort_arg3¹]
-//│ 		| _  => qpart_lh_₁(_lh_qsort_arg1¹, _lh_qsort_LH_C_0⁰, _lh_qsort_LH_C_1⁰, [LH_N], [LH_N], _lh_qsort_arg3¹)}
+//│ 		LH_N  => [LH_C _lh_qsort_LH_C_0⁰ _lh_qsort_arg3⁰]
+//│ 		| _  => qpart_lh_₁(_lh_qsort_arg1⁰, _lh_qsort_LH_C_0⁰, _lh_qsort_LH_C_1⁰, [LH_N], [LH_N], _lh_qsort_arg3⁰)}
 //│ 	| _  => error⁰}
-//│ def queenmoves_lh_₁(_lh_queenmoves_arg1¹, _lh_queenmoves_arg2¹, _lh_queenmoves_arg3¹) = mappend_lh_₃₄(bishopmoves_lh_₁(_lh_queenmoves_arg1¹, _lh_queenmoves_arg2¹, _lh_queenmoves_arg3¹), rookmoves_lh_₁(_lh_queenmoves_arg1¹, _lh_queenmoves_arg2¹, _lh_queenmoves_arg3¹))
-//│ def rPa_lh_₁(_lh_rPa_arg1¹, _lh_rPa_arg2¹) = case _lh_rPa_arg2¹ of {
+//│ def queenmoves_lh_₁(_lh_queenmoves_arg1⁰, _lh_queenmoves_arg2⁰, _lh_queenmoves_arg3⁰) = mappend_lh_₃₄(bishopmoves_lh_₁(_lh_queenmoves_arg1⁰, _lh_queenmoves_arg2⁰, _lh_queenmoves_arg3⁰), rookmoves_lh_₁(_lh_queenmoves_arg1⁰, _lh_queenmoves_arg2⁰, _lh_queenmoves_arg3⁰))
+//│ def rPa_lh_₁(_lh_rPa_arg1⁰, _lh_rPa_arg2⁰) = case _lh_rPa_arg2⁰ of {
 //│ 	LH_C _lh_rPa_LH_C_0⁰ _lh_rPa_LH_C_1⁰ => case _lh_rPa_LH_C_0⁰ of {
-//│ 		LH_P2 _lh_rPa_LH_P2_0⁰ _lh_rPa_LH_P2_1⁰ => if polyEq⁰(_lh_rPa_LH_P2_1⁰, _lh_rPa_arg1¹) then _lh_rPa_LH_C_1⁰ else [LH_C [LH_P2 _lh_rPa_LH_P2_0⁰ _lh_rPa_LH_P2_1⁰] rPa_lh_₁(_lh_rPa_arg1¹, _lh_rPa_LH_C_1⁰)]
+//│ 		LH_P2 _lh_rPa_LH_P2_0⁰ _lh_rPa_LH_P2_1⁰ => if polyEq⁰(_lh_rPa_LH_P2_1⁰, _lh_rPa_arg1⁰) then _lh_rPa_LH_C_1⁰ else [LH_C [LH_P2 _lh_rPa_LH_P2_0⁰ _lh_rPa_LH_P2_1⁰] rPa_lh_₁(_lh_rPa_arg1⁰, _lh_rPa_LH_C_1⁰)]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def rawmoves_lh_₁(_lh_rawmoves_arg1³, _lh_rawmoves_arg2³, _lh_rawmoves_arg3³) = case _lh_rawmoves_arg2³ of {
+//│ def rawmoves_lh_₁(_lh_rawmoves_arg1¹, _lh_rawmoves_arg2¹, _lh_rawmoves_arg3¹) = case _lh_rawmoves_arg2¹ of {
 //│ 	LH_P2 _lh_rawmoves_LH_P2_0¹ _lh_rawmoves_LH_P2_1¹ => 
-//│ 		let m³ = 	
-//│ 			let _lh_matchIdent¹¹⁴ = _lh_rawmoves_LH_P2_0¹
-//│ 			in case _lh_matchIdent¹¹⁴ of {
+//│ 		let m¹ = 	
+//│ 			let _lh_matchIdent⁴⁸ = _lh_rawmoves_LH_P2_0¹
+//│ 			in case _lh_matchIdent⁴⁸ of {
 //│ 				King  => kingmoves_lh_₁
 //│ 				| Queen  => queenmoves_lh_₁
 //│ 				| Rook  => rookmoves_lh_₁
@@ -5151,13 +5151,13 @@ testMate_nofib $ primId 0
 //│ 				| Knight  => knightmoves_lh_₁
 //│ 				| Pawn  => pawnmoves_lh_₁
 //│ 				| _  => error⁰}
-//│ 		in m³(_lh_rawmoves_arg1³, _lh_rawmoves_LH_P2_1¹, _lh_rawmoves_arg3³)
+//│ 		in m¹(_lh_rawmoves_arg1¹, _lh_rawmoves_LH_P2_1¹, _lh_rawmoves_arg3¹)
 //│ 	| _  => error⁰}
-//│ def rawmoves_lh_₂(_lh_rawmoves_arg1², _lh_rawmoves_arg2², _lh_rawmoves_arg3²) = case _lh_rawmoves_arg2² of {
+//│ def rawmoves_lh_₂(_lh_rawmoves_arg1⁰, _lh_rawmoves_arg2⁰, _lh_rawmoves_arg3⁰) = case _lh_rawmoves_arg2⁰ of {
 //│ 	LH_P2 _lh_rawmoves_LH_P2_0⁰ _lh_rawmoves_LH_P2_1⁰ => 
-//│ 		let m² = 	
-//│ 			let _lh_matchIdent⁹⁴ = _lh_rawmoves_LH_P2_0⁰
-//│ 			in case _lh_matchIdent⁹⁴ of {
+//│ 		let m⁰ = 	
+//│ 			let _lh_matchIdent²⁸ = _lh_rawmoves_LH_P2_0⁰
+//│ 			in case _lh_matchIdent²⁸ of {
 //│ 				King  => kingmoves_lh_₁
 //│ 				| Queen  => queenmoves_lh_₁
 //│ 				| Rook  => rookmoves_lh_₁
@@ -5165,445 +5165,442 @@ testMate_nofib $ primId 0
 //│ 				| Knight  => knightmoves_lh_₁
 //│ 				| Pawn  => pawnmoves_lh_₁
 //│ 				| _  => error⁰}
-//│ 		in m²(_lh_rawmoves_arg1², _lh_rawmoves_LH_P2_1⁰, _lh_rawmoves_arg3²)
+//│ 		in m⁰(_lh_rawmoves_arg1⁰, _lh_rawmoves_LH_P2_1⁰, _lh_rawmoves_arg3⁰)
 //│ 	| _  => error⁰}
-//│ def readProblem_lh_₁(_lh_readProblem_arg1¹) = (fun _lh_funcomp_x¹¹ -> parseProblem_lh_₁(lines_lh_₁(_lh_funcomp_x¹¹)))(_lh_readProblem_arg1¹)
-//│ def replies_lh_₁(_lh_replies_arg1¹, _lh_replies_arg2¹, _lh_replies_arg3¹) = 
-//│ 	let mds³ = moveDetailsFor_lh_₂(_lh_replies_arg2¹, _lh_replies_arg1¹)
-//│ 	in let solnAnd¹ = (fun mifb³ -> (fun rest¹ -> 
-//│ 		let _lh_matchIdent¹²⁹ = mifb³
-//│ 		in case _lh_matchIdent¹²⁹ of {
+//│ def readProblem_lh_₁(_lh_readProblem_arg1⁰) = (fun _lh_funcomp_x⁵ -> parseProblem_lh_₁(lines_lh_₁(_lh_funcomp_x⁵)))(_lh_readProblem_arg1⁰)
+//│ def replies_lh_₁(_lh_replies_arg1⁰, _lh_replies_arg2⁰, _lh_replies_arg3⁰) = 
+//│ 	let mds¹ = moveDetailsFor_lh_₂(_lh_replies_arg2⁰, _lh_replies_arg1⁰)
+//│ 	in let solnAnd⁰ = (fun mifb¹ -> (fun rest⁰ -> 
+//│ 		let _lh_matchIdent⁶³ = mifb¹
+//│ 		in case _lh_matchIdent⁶³ of {
 //│ 			LH_P2 _lh_replies_LH_P2_0⁰ _lh_replies_LH_P2_1⁰ => 
-//│ 				let sm¹ = solution_lh_₁(_lh_replies_LH_P2_1⁰, opponent_lh_₄(_lh_replies_arg2¹), (_lh_replies_arg3¹ - 1))
-//│ 				in let _lh_matchIdent¹³⁰ = sm¹
-//│ 				in case _lh_matchIdent¹³⁰ of {
+//│ 				let sm⁰ = solution_lh_₁(_lh_replies_LH_P2_1⁰, opponent_lh_₄(_lh_replies_arg2⁰), (_lh_replies_arg3⁰ - 1))
+//│ 				in let _lh_matchIdent⁶⁴ = sm⁰
+//│ 				in case _lh_matchIdent⁶⁴ of {
 //│ 					Nothing  => [Nothing]
 //│ 					| Just _lh_replies_Just_0⁰ => 
-//│ 						let _lh_matchIdent¹³¹ = rest¹
-//│ 						in case _lh_matchIdent¹³¹ of {
+//│ 						let _lh_matchIdent⁶⁵ = rest⁰
+//│ 						in case _lh_matchIdent⁶⁵ of {
 //│ 							Nothing  => [Nothing]
 //│ 							| Just _lh_replies_Just_0¹ => [Just [LH_C 
-//│ 								let _lh_insertCompact_LH_P2_1² = _lh_replies_Just_0⁰
-//│ 								in let _lh_insertCompact_LH_P2_0² = _lh_replies_LH_P2_0⁰
-//│ 								in (fun _lh_insertCompact_arg2² -> 
-//│ 									let insert¹ = (fun _lh_insert_arg1¹ -> (fun _lh_insert_arg2¹ -> case _lh_insert_arg2¹ of {
-//│ 										LH_N  => [LH_C _lh_insert_arg1¹ [LH_N]]
-//│ 										| LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰ => if polyGt⁰(_lh_insert_arg1¹, _lh_insert_LH_C_0⁰) then [LH_C _lh_insert_LH_C_0⁰ insert¹(_lh_insert_arg1¹, _lh_insert_LH_C_1⁰)] else [LH_C _lh_insert_arg1¹ [LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰]]
+//│ 								let _lh_insertCompact_LH_P2_1⁰ = _lh_replies_Just_0⁰
+//│ 								in let _lh_insertCompact_LH_P2_0⁰ = _lh_replies_LH_P2_0⁰
+//│ 								in (fun _lh_insertCompact_arg2¹ -> 
+//│ 									let insert⁰ = (fun _lh_insert_arg1⁰ -> (fun _lh_insert_arg2⁰ -> case _lh_insert_arg2⁰ of {
+//│ 										LH_N  => [LH_C _lh_insert_arg1⁰ [LH_N]]
+//│ 										| LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰ => if polyGt⁰(_lh_insert_arg1⁰, _lh_insert_LH_C_0⁰) then [LH_C _lh_insert_LH_C_0⁰ insert⁰(_lh_insert_arg1⁰, _lh_insert_LH_C_1⁰)] else [LH_C _lh_insert_arg1⁰ [LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰]]
 //│ 										| _  => error⁰}))
-//│ 									in let cs¹ = compact_lh_₁(_lh_insertCompact_LH_P2_1²)
-//│ 									in let ic¹ = (fun ls⁵³ -> 
-//│ 										let _lh_matchIdent¹³² = ls⁵³
-//│ 										in case _lh_matchIdent¹³² of {
-//│ 											LH_N  => [LH_C [LH_P2 [LH_C _lh_insertCompact_LH_P2_0² [LH_N]] cs¹] [LH_N]]
+//│ 									in let cs⁰ = compact_lh_₁(_lh_insertCompact_LH_P2_1⁰)
+//│ 									in let ic⁰ = (fun ls²² -> 
+//│ 										let _lh_matchIdent⁶⁶ = ls²²
+//│ 										in case _lh_matchIdent⁶⁶ of {
+//│ 											LH_N  => [LH_C [LH_P2 [LH_C _lh_insertCompact_LH_P2_0⁰ [LH_N]] cs⁰] [LH_N]]
 //│ 											| LH_C _lh_insertCompact_LH_C_0⁰ _lh_insertCompact_LH_C_1⁰ => case _lh_insertCompact_LH_C_0⁰ of {
 //│ 												LH_P2 _lh_insertCompact_LH_P2_0¹ _lh_insertCompact_LH_P2_1¹ => 
-//│ 													let a²³ = showSoln_lh_₃(cs¹, 1)
-//│ 													in let b²² = showSoln_lh_₂(_lh_insertCompact_LH_P2_1¹, 1)
-//│ 													in if polyLt⁰(a²³, b²²) then [LH_C [LH_P2 [LH_C _lh_insertCompact_LH_P2_0² [LH_N]] cs¹] [LH_C [LH_P2 _lh_insertCompact_LH_P2_0¹ _lh_insertCompact_LH_P2_1¹] _lh_insertCompact_LH_C_1⁰]] else if polyEq⁰(a²³, b²²) then [LH_C [LH_P2 insert¹(_lh_insertCompact_LH_P2_0², _lh_insertCompact_LH_P2_0¹) cs¹] _lh_insertCompact_LH_C_1⁰] else if polyGt⁰(a²³, b²²) then [LH_C [LH_P2 _lh_insertCompact_LH_P2_0¹ _lh_insertCompact_LH_P2_1¹] ic¹(_lh_insertCompact_LH_C_1⁰)] else error⁰([LH_C 'c' [LH_C 'o' [LH_C 'm' [LH_C 'p' [LH_C 'a' [LH_C 'r' [LH_C 'e' [LH_C ' ' [LH_C 'e' [LH_C 'r' [LH_C 'r' [LH_C 'o' [LH_C 'r' [LH_N]]]]]]]]]]]]]])
+//│ 													let a¹³ = showSoln_lh_₃(cs⁰, 1)
+//│ 													in let b¹⁰ = showSoln_lh_₂(_lh_insertCompact_LH_P2_1¹, 1)
+//│ 													in if polyLt⁰(a¹³, b¹⁰) then [LH_C [LH_P2 [LH_C _lh_insertCompact_LH_P2_0⁰ [LH_N]] cs⁰] [LH_C [LH_P2 _lh_insertCompact_LH_P2_0¹ _lh_insertCompact_LH_P2_1¹] _lh_insertCompact_LH_C_1⁰]] else if polyEq⁰(a¹³, b¹⁰) then [LH_C [LH_P2 insert⁰(_lh_insertCompact_LH_P2_0⁰, _lh_insertCompact_LH_P2_0¹) cs⁰] _lh_insertCompact_LH_C_1⁰] else if polyGt⁰(a¹³, b¹⁰) then [LH_C [LH_P2 _lh_insertCompact_LH_P2_0¹ _lh_insertCompact_LH_P2_1¹] ic⁰(_lh_insertCompact_LH_C_1⁰)] else error⁰([LH_C 'c' [LH_C 'o' [LH_C 'm' [LH_C 'p' [LH_C 'a' [LH_C 'r' [LH_C 'e' [LH_C ' ' [LH_C 'e' [LH_C 'r' [LH_C 'r' [LH_C 'o' [LH_C 'r' [LH_N]]]]]]]]]]]]]])
 //│ 												| _  => error⁰}
 //│ 											| _  => error⁰})
-//│ 									in ic¹(_lh_insertCompact_arg2²)) _lh_replies_Just_0¹]]
+//│ 									in ic⁰(_lh_insertCompact_arg2¹)) _lh_replies_Just_0¹]]
 //│ 							| _  => error⁰}
 //│ 					| _  => error⁰}
 //│ 			| _  => error⁰}))
-//│ 	in if (_lh_replies_arg3¹ == 0) then if null_lh_₁(mds³) then [Just [LH_N]] else [Nothing] else if (_lh_replies_arg3¹ > 0) then foldr_lh_₆(solnAnd¹, [Just [LH_N]], mds³) else error⁰([LH_C 'n' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]])
-//│ def reverse_helper_lh_₁(ls³⁷, a¹³) = ls³⁷(a¹³)
-//│ def reverse_helper_lh_₂(ls³⁶, a¹¹) = ls³⁶(a¹¹)
-//│ def reverse_lh_₁(ls⁵⁷) = reverse_helper_lh_₁(ls⁵⁷, (fun f⁵³ -> (fun f⁵⁴ -> [LH_N])))
-//│ def reverse_lh_₂(ls⁵⁹) = reverse_helper_lh_₂(ls⁵⁹, (fun f⁵⁸ -> (fun ys¹⁷⁵ -> (fun _lh_dummy¹¹ -> (fun f⁵⁹ -> (fun i²⁵ -> i²⁵))))))
-//│ def rmPieceAt_lh_₁(_lh_rmPieceAt_arg1³, _lh_rmPieceAt_arg2³, _lh_rmPieceAt_arg3³) = case _lh_rmPieceAt_arg1³ of {
-//│ 	White  => case _lh_rmPieceAt_arg3³ of {
-//│ 		Board _lh_rmPieceAt_Board_0² _lh_rmPieceAt_Board_1² => [Board rPa_lh_₁(_lh_rmPieceAt_arg2³, _lh_rmPieceAt_Board_0²) _lh_rmPieceAt_Board_1²]
+//│ 	in if (_lh_replies_arg3⁰ == 0) then if null_lh_₁(mds¹) then [Just [LH_N]] else [Nothing] else if (_lh_replies_arg3⁰ > 0) then foldr_lh_₆(solnAnd⁰, [Just [LH_N]], mds¹) else error⁰([LH_C 'n' [LH_C ' ' [LH_C '<' [LH_C ' ' [LH_C '0' [LH_N]]]]]])
+//│ def reverse_helper_lh_₁(ls⁶, a³) = ls⁶(a³)
+//│ def reverse_helper_lh_₂(ls⁵, a¹) = ls⁵(a¹)
+//│ def reverse_lh_₁(ls²⁶) = reverse_helper_lh_₁(ls²⁶, (fun f³⁷ -> (fun f³⁸ -> [LH_N])))
+//│ def reverse_lh_₂(ls²⁸) = reverse_helper_lh_₂(ls²⁸, (fun f⁴² -> (fun ys¹³⁹ -> (fun _lh_dummy¹¹ -> (fun f⁴³ -> (fun i¹⁶ -> i¹⁶))))))
+//│ def rmPieceAt_lh_₁(_lh_rmPieceAt_arg1¹, _lh_rmPieceAt_arg2¹, _lh_rmPieceAt_arg3¹) = case _lh_rmPieceAt_arg1¹ of {
+//│ 	White  => case _lh_rmPieceAt_arg3¹ of {
+//│ 		Board _lh_rmPieceAt_Board_0² _lh_rmPieceAt_Board_1² => [Board rPa_lh_₁(_lh_rmPieceAt_arg2¹, _lh_rmPieceAt_Board_0²) _lh_rmPieceAt_Board_1²]
 //│ 		| _  => error⁰}
-//│ 	| Black  => case _lh_rmPieceAt_arg3³ of {
-//│ 		Board _lh_rmPieceAt_Board_0³ _lh_rmPieceAt_Board_1³ => [Board _lh_rmPieceAt_Board_0³ rPa_lh_₁(_lh_rmPieceAt_arg2³, _lh_rmPieceAt_Board_1³)]
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
-//│ def rmPieceAt_lh_₂(_lh_rmPieceAt_arg1², _lh_rmPieceAt_arg2², _lh_rmPieceAt_arg3²) = case _lh_rmPieceAt_arg1² of {
-//│ 	White  => case _lh_rmPieceAt_arg3² of {
-//│ 		Board _lh_rmPieceAt_Board_0⁰ _lh_rmPieceAt_Board_1⁰ => [Board rPa_lh_₁(_lh_rmPieceAt_arg2², _lh_rmPieceAt_Board_0⁰) _lh_rmPieceAt_Board_1⁰]
-//│ 		| _  => error⁰}
-//│ 	| Black  => case _lh_rmPieceAt_arg3² of {
-//│ 		Board _lh_rmPieceAt_Board_0¹ _lh_rmPieceAt_Board_1¹ => [Board _lh_rmPieceAt_Board_0¹ rPa_lh_₁(_lh_rmPieceAt_arg2², _lh_rmPieceAt_Board_1¹)]
+//│ 	| Black  => case _lh_rmPieceAt_arg3¹ of {
+//│ 		Board _lh_rmPieceAt_Board_0³ _lh_rmPieceAt_Board_1³ => [Board _lh_rmPieceAt_Board_0³ rPa_lh_₁(_lh_rmPieceAt_arg2¹, _lh_rmPieceAt_Board_1³)]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def rookmoves_lh_₁(_lh_rookmoves_arg1¹, _lh_rookmoves_arg2¹, _lh_rookmoves_arg3¹) = moveLine_lh_₁(_lh_rookmoves_arg3¹, _lh_rookmoves_arg1¹, _lh_rookmoves_arg2¹, (fun xy¹⁴ -> 
-//│ 	let _lh_matchIdent¹³⁴ = xy¹⁴
-//│ 	in case _lh_matchIdent¹³⁴ of {
+//│ def rmPieceAt_lh_₂(_lh_rmPieceAt_arg1⁰, _lh_rmPieceAt_arg2⁰, _lh_rmPieceAt_arg3⁰) = case _lh_rmPieceAt_arg1⁰ of {
+//│ 	White  => case _lh_rmPieceAt_arg3⁰ of {
+//│ 		Board _lh_rmPieceAt_Board_0⁰ _lh_rmPieceAt_Board_1⁰ => [Board rPa_lh_₁(_lh_rmPieceAt_arg2⁰, _lh_rmPieceAt_Board_0⁰) _lh_rmPieceAt_Board_1⁰]
+//│ 		| _  => error⁰}
+//│ 	| Black  => case _lh_rmPieceAt_arg3⁰ of {
+//│ 		Board _lh_rmPieceAt_Board_0¹ _lh_rmPieceAt_Board_1¹ => [Board _lh_rmPieceAt_Board_0¹ rPa_lh_₁(_lh_rmPieceAt_arg2⁰, _lh_rmPieceAt_Board_1¹)]
+//│ 		| _  => error⁰}
+//│ 	| _  => error⁰}
+//│ def rookmoves_lh_₁(_lh_rookmoves_arg1⁰, _lh_rookmoves_arg2⁰, _lh_rookmoves_arg3⁰) = moveLine_lh_₁(_lh_rookmoves_arg3⁰, _lh_rookmoves_arg1⁰, _lh_rookmoves_arg2⁰, (fun xy⁵ -> 
+//│ 	let _lh_matchIdent⁶⁸ = xy⁵
+//│ 	in case _lh_matchIdent⁶⁸ of {
 //│ 		LH_P2 _lh_rookmoves_LH_P2_0⁰ _lh_rookmoves_LH_P2_1⁰ => [LH_P2 (_lh_rookmoves_LH_P2_0⁰ - 1) _lh_rookmoves_LH_P2_1⁰]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3¹, _lh_rookmoves_arg1¹, _lh_rookmoves_arg2¹, (fun xy¹⁵ -> 
-//│ 	let _lh_matchIdent¹³⁵ = xy¹⁵
-//│ 	in case _lh_matchIdent¹³⁵ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3⁰, _lh_rookmoves_arg1⁰, _lh_rookmoves_arg2⁰, (fun xy⁶ -> 
+//│ 	let _lh_matchIdent⁶⁹ = xy⁶
+//│ 	in case _lh_matchIdent⁶⁹ of {
 //│ 		LH_P2 _lh_rookmoves_LH_P2_0¹ _lh_rookmoves_LH_P2_1¹ => [LH_P2 (_lh_rookmoves_LH_P2_0¹ + 1) _lh_rookmoves_LH_P2_1¹]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3¹, _lh_rookmoves_arg1¹, _lh_rookmoves_arg2¹, (fun xy¹⁶ -> 
-//│ 	let _lh_matchIdent¹³⁶ = xy¹⁶
-//│ 	in case _lh_matchIdent¹³⁶ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3⁰, _lh_rookmoves_arg1⁰, _lh_rookmoves_arg2⁰, (fun xy⁷ -> 
+//│ 	let _lh_matchIdent⁷⁰ = xy⁷
+//│ 	in case _lh_matchIdent⁷⁰ of {
 //│ 		LH_P2 _lh_rookmoves_LH_P2_0² _lh_rookmoves_LH_P2_1² => [LH_P2 _lh_rookmoves_LH_P2_0² (_lh_rookmoves_LH_P2_1² - 1)]
-//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3¹, _lh_rookmoves_arg1¹, _lh_rookmoves_arg2¹, (fun xy¹⁷ -> 
-//│ 	let _lh_matchIdent¹³⁷ = xy¹⁷
-//│ 	in case _lh_matchIdent¹³⁷ of {
+//│ 		| _  => error⁰}), moveLine_lh_₁(_lh_rookmoves_arg3⁰, _lh_rookmoves_arg1⁰, _lh_rookmoves_arg2⁰, (fun xy⁸ -> 
+//│ 	let _lh_matchIdent⁷¹ = xy⁸
+//│ 	in case _lh_matchIdent⁷¹ of {
 //│ 		LH_P2 _lh_rookmoves_LH_P2_0³ _lh_rookmoves_LH_P2_1³ => [LH_P2 _lh_rookmoves_LH_P2_0³ (_lh_rookmoves_LH_P2_1³ + 1)]
-//│ 		| _  => error⁰}), (fun x¹⁹ -> x¹⁹)))), [LH_N])
-//│ def rqpart_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg2¹, _lh_rqpart_arg3¹, _lh_rqpart_arg4¹, _lh_rqpart_arg5¹, _lh_rqpart_arg6¹) = case _lh_rqpart_arg3¹ of {
-//│ 	LH_N  => qsort_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg4¹, [LH_C _lh_rqpart_arg2¹ qsort_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg5¹, _lh_rqpart_arg6¹)])
-//│ 	| LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_LH_C_1⁰ => if _lh_rqpart_arg1¹(_lh_rqpart_LH_C_0⁰, _lh_rqpart_arg2¹) then rqpart_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg2¹, _lh_rqpart_LH_C_1⁰, [LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_arg4¹], _lh_rqpart_arg5¹, _lh_rqpart_arg6¹) else rqpart_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg2¹, _lh_rqpart_LH_C_1⁰, _lh_rqpart_arg4¹, [LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_arg5¹], _lh_rqpart_arg6¹)
+//│ 		| _  => error⁰}), (fun x⁹ -> x⁹)))), [LH_N])
+//│ def rqpart_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg2⁰, _lh_rqpart_arg3⁰, _lh_rqpart_arg4⁰, _lh_rqpart_arg5⁰, _lh_rqpart_arg6⁰) = case _lh_rqpart_arg3⁰ of {
+//│ 	LH_N  => qsort_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg4⁰, [LH_C _lh_rqpart_arg2⁰ qsort_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg5⁰, _lh_rqpart_arg6⁰)])
+//│ 	| LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_LH_C_1⁰ => if _lh_rqpart_arg1⁰(_lh_rqpart_LH_C_0⁰, _lh_rqpart_arg2⁰) then rqpart_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg2⁰, _lh_rqpart_LH_C_1⁰, [LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_arg4⁰], _lh_rqpart_arg5⁰, _lh_rqpart_arg6⁰) else rqpart_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg2⁰, _lh_rqpart_LH_C_1⁰, _lh_rqpart_arg4⁰, [LH_C _lh_rqpart_LH_C_0⁰ _lh_rqpart_arg5⁰], _lh_rqpart_arg6⁰)
 //│ 	| _  => error⁰}
-//│ def rqsort_lh_₁(_lh_rqsort_arg1¹, _lh_rqsort_arg2¹, _lh_rqsort_arg3¹) = case _lh_rqsort_arg2¹ of {
-//│ 	LH_N  => _lh_rqsort_arg3¹
+//│ def rqsort_lh_₁(_lh_rqsort_arg1⁰, _lh_rqsort_arg2⁰, _lh_rqsort_arg3⁰) = case _lh_rqsort_arg2⁰ of {
+//│ 	LH_N  => _lh_rqsort_arg3⁰
 //│ 	| LH_C _lh_rqsort_LH_C_0⁰ _lh_rqsort_LH_C_1⁰ => case _lh_rqsort_LH_C_1⁰ of {
-//│ 		LH_N  => [LH_C _lh_rqsort_LH_C_0⁰ _lh_rqsort_arg3¹]
-//│ 		| _  => rqpart_lh_₁(_lh_rqsort_arg1¹, _lh_rqsort_LH_C_0⁰, _lh_rqsort_LH_C_1⁰, [LH_N], [LH_N], _lh_rqsort_arg3¹)}
+//│ 		LH_N  => [LH_C _lh_rqsort_LH_C_0⁰ _lh_rqsort_arg3⁰]
+//│ 		| _  => rqpart_lh_₁(_lh_rqsort_arg1⁰, _lh_rqsort_LH_C_0⁰, _lh_rqsort_LH_C_1⁰, [LH_N], [LH_N], _lh_rqsort_arg3⁰)}
 //│ 	| _  => error⁰}
-//│ def showBoard_lh_₁(_lh_showBoard_arg1¹) = 
-//│ 	let showRank¹ = (fun r¹ -> 
-//│ 		let consFile¹ = (fun f³¹ -> (fun s¹ -> 
-//│ 			let _lh_matchIdent¹¹⁰ = pieceAt_lh_₁(_lh_showBoard_arg1¹, [LH_P2 f³¹ r¹])
-//│ 			in case _lh_matchIdent¹¹⁰ of {
+//│ def showBoard_lh_₁(_lh_showBoard_arg1⁰) = 
+//│ 	let showRank⁰ = (fun r⁰ -> 
+//│ 		let consFile⁰ = (fun f¹⁵ -> (fun s⁰ -> 
+//│ 			let _lh_matchIdent⁴⁴ = pieceAt_lh_₁(_lh_showBoard_arg1⁰, [LH_P2 f¹⁵ r⁰])
+//│ 			in case _lh_matchIdent⁴⁴ of {
 //│ 				Nothing  => mappend_lh_₈(
-//│ 					let t¹⁰⁷ = 	
-//│ 						let t¹⁰⁸ = (fun ys¹⁰³ -> ys¹⁰³)
-//│ 						in let h¹⁰⁸ = '-'
-//│ 						in (fun ys¹⁰² -> [LH_C h¹⁰⁸ mappend_lh_₈(t¹⁰⁸, ys¹⁰²)])
-//│ 					in let h¹⁰⁷ = ' '
-//│ 					in (fun ys¹⁰¹ -> [LH_C h¹⁰⁷ mappend_lh_₈(t¹⁰⁷, ys¹⁰¹)]), s¹)
-//│ 				| Just _lh_showBoard_Just_0⁰ => [LH_C ' ' [LH_C pieceToChar_lh_₁(_lh_showBoard_Just_0⁰) s¹]]
+//│ 					let t⁵⁶ = 	
+//│ 						let t⁵⁷ = (fun ys⁶⁵ -> ys⁶⁵)
+//│ 						in let h⁵⁶ = '-'
+//│ 						in (fun ys⁶⁶ -> [LH_C h⁵⁶ mappend_lh_₈(t⁵⁷, ys⁶⁶)])
+//│ 					in let h⁵⁷ = ' '
+//│ 					in (fun ys⁶⁷ -> [LH_C h⁵⁷ mappend_lh_₈(t⁵⁶, ys⁶⁷)]), s⁰)
+//│ 				| Just _lh_showBoard_Just_0⁰ => [LH_C ' ' [LH_C pieceToChar_lh_₁(_lh_showBoard_Just_0⁰) s⁰]]
 //│ 				| _  => error⁰}))
-//│ 		in foldr_lh_₁(consFile¹, [LH_N], enumFromTo_lh_₁(1, 8)))
-//│ 	in unlines_lh_₁(map_lh_₁(showRank¹, reverse_lh_₁(enumFromTo_lh_₂(1, 8))))
-//│ def showColour_lh_₁(_lh_showColour_arg1¹) = case _lh_showColour_arg1¹ of {
+//│ 		in foldr_lh_₁(consFile⁰, [LH_N], enumFromTo_lh_₁(1, 8)))
+//│ 	in unlines_lh_₁(map_lh_₁(showRank⁰, reverse_lh_₁(enumFromTo_lh_₂(1, 8))))
+//│ def showColour_lh_₁(_lh_showColour_arg1⁰) = case _lh_showColour_arg1⁰ of {
 //│ 	Black  => 
-//│ 		let t⁶³ = 	
-//│ 			let t⁶⁵ = 	
-//│ 				let t⁶⁷ = 	
-//│ 					let t⁶⁹ = 	
-//│ 						let t⁷¹ = (fun ys⁵⁴ -> ys⁵⁴)
-//│ 						in let h⁷¹ = 'k'
-//│ 						in (fun ys⁵² -> 
-//│ 							let t⁷² = mappend_lh_₅(t⁷¹, ys⁵²)
-//│ 							in let h⁷² = h⁷¹
-//│ 							in (fun ys⁵³ -> [LH_C h⁷² mappend_lh_₃(t⁷², ys⁵³)]))
-//│ 					in let h⁶⁹ = 'c'
-//│ 					in (fun ys⁵⁰ -> 
-//│ 						let t⁷⁰ = mappend_lh_₅(t⁶⁹, ys⁵⁰)
-//│ 						in let h⁷⁰ = h⁶⁹
-//│ 						in (fun ys⁵¹ -> [LH_C h⁷⁰ mappend_lh_₃(t⁷⁰, ys⁵¹)]))
-//│ 				in let h⁶⁷ = 'a'
-//│ 				in (fun ys⁴⁸ -> 
-//│ 					let t⁶⁸ = mappend_lh_₅(t⁶⁷, ys⁴⁸)
-//│ 					in let h⁶⁸ = h⁶⁷
-//│ 					in (fun ys⁴⁹ -> [LH_C h⁶⁸ mappend_lh_₃(t⁶⁸, ys⁴⁹)]))
-//│ 			in let h⁶⁵ = 'l'
-//│ 			in (fun ys⁴⁶ -> 
-//│ 				let t⁶⁶ = mappend_lh_₅(t⁶⁵, ys⁴⁶)
-//│ 				in let h⁶⁶ = h⁶⁵
-//│ 				in (fun ys⁴⁷ -> [LH_C h⁶⁶ mappend_lh_₃(t⁶⁶, ys⁴⁷)]))
-//│ 		in let h⁶³ = 'B'
-//│ 		in (fun ys⁴⁴ -> 
-//│ 			let t⁶⁴ = mappend_lh_₅(t⁶³, ys⁴⁴)
-//│ 			in let h⁶⁴ = h⁶³
-//│ 			in (fun ys⁴⁵ -> [LH_C h⁶⁴ mappend_lh_₃(t⁶⁴, ys⁴⁵)]))
+//│ 		let t⁶ = 	
+//│ 			let t⁷ = 	
+//│ 				let t⁸ = 	
+//│ 					let t⁹ = 	
+//│ 						let t¹⁰ = (fun ys⁸ -> ys⁸)
+//│ 						in let h⁶ = 'k'
+//│ 						in (fun ys⁹ -> 
+//│ 							let t¹¹ = mappend_lh_₅(t¹⁰, ys⁹)
+//│ 							in let h⁷ = h⁶
+//│ 							in (fun ys¹⁰ -> [LH_C h⁷ mappend_lh_₃(t¹¹, ys¹⁰)]))
+//│ 					in let h⁸ = 'c'
+//│ 					in (fun ys¹¹ -> 
+//│ 						let t¹² = mappend_lh_₅(t⁹, ys¹¹)
+//│ 						in let h⁹ = h⁸
+//│ 						in (fun ys¹² -> [LH_C h⁹ mappend_lh_₃(t¹², ys¹²)]))
+//│ 				in let h¹⁰ = 'a'
+//│ 				in (fun ys¹³ -> 
+//│ 					let t¹³ = mappend_lh_₅(t⁸, ys¹³)
+//│ 					in let h¹¹ = h¹⁰
+//│ 					in (fun ys¹⁴ -> [LH_C h¹¹ mappend_lh_₃(t¹³, ys¹⁴)]))
+//│ 			in let h¹² = 'l'
+//│ 			in (fun ys¹⁵ -> 
+//│ 				let t¹⁴ = mappend_lh_₅(t⁷, ys¹⁵)
+//│ 				in let h¹³ = h¹²
+//│ 				in (fun ys¹⁶ -> [LH_C h¹³ mappend_lh_₃(t¹⁴, ys¹⁶)]))
+//│ 		in let h¹⁴ = 'B'
+//│ 		in (fun ys¹⁷ -> 
+//│ 			let t¹⁵ = mappend_lh_₅(t⁶, ys¹⁷)
+//│ 			in let h¹⁵ = h¹⁴
+//│ 			in (fun ys¹⁸ -> [LH_C h¹⁵ mappend_lh_₃(t¹⁵, ys¹⁸)]))
 //│ 	| White  => 
-//│ 		let t⁷³ = 	
-//│ 			let t⁷⁵ = 	
-//│ 				let t⁷⁷ = 	
-//│ 					let t⁷⁹ = 	
-//│ 						let t⁸¹ = (fun ys⁶⁵ -> ys⁶⁵)
-//│ 						in let h⁸¹ = 'e'
-//│ 						in (fun ys⁶³ -> 
-//│ 							let t⁸² = mappend_lh_₅(t⁸¹, ys⁶³)
-//│ 							in let h⁸² = h⁸¹
-//│ 							in (fun ys⁶⁴ -> [LH_C h⁸² mappend_lh_₃(t⁸², ys⁶⁴)]))
-//│ 					in let h⁷⁹ = 't'
-//│ 					in (fun ys⁶¹ -> 
-//│ 						let t⁸⁰ = mappend_lh_₅(t⁷⁹, ys⁶¹)
-//│ 						in let h⁸⁰ = h⁷⁹
-//│ 						in (fun ys⁶² -> [LH_C h⁸⁰ mappend_lh_₃(t⁸⁰, ys⁶²)]))
-//│ 				in let h⁷⁷ = 'i'
-//│ 				in (fun ys⁵⁹ -> 
-//│ 					let t⁷⁸ = mappend_lh_₅(t⁷⁷, ys⁵⁹)
-//│ 					in let h⁷⁸ = h⁷⁷
-//│ 					in (fun ys⁶⁰ -> [LH_C h⁷⁸ mappend_lh_₃(t⁷⁸, ys⁶⁰)]))
-//│ 			in let h⁷⁵ = 'h'
-//│ 			in (fun ys⁵⁷ -> 
-//│ 				let t⁷⁶ = mappend_lh_₅(t⁷⁵, ys⁵⁷)
-//│ 				in let h⁷⁶ = h⁷⁵
-//│ 				in (fun ys⁵⁸ -> [LH_C h⁷⁶ mappend_lh_₃(t⁷⁶, ys⁵⁸)]))
-//│ 		in let h⁷³ = 'W'
-//│ 		in (fun ys⁵⁵ -> 
-//│ 			let t⁷⁴ = mappend_lh_₅(t⁷³, ys⁵⁵)
-//│ 			in let h⁷⁴ = h⁷³
-//│ 			in (fun ys⁵⁶ -> [LH_C h⁷⁴ mappend_lh_₃(t⁷⁴, ys⁵⁶)]))
+//│ 		let t¹⁶ = 	
+//│ 			let t¹⁷ = 	
+//│ 				let t¹⁸ = 	
+//│ 					let t¹⁹ = 	
+//│ 						let t²⁰ = (fun ys¹⁹ -> ys¹⁹)
+//│ 						in let h¹⁶ = 'e'
+//│ 						in (fun ys²⁰ -> 
+//│ 							let t²¹ = mappend_lh_₅(t²⁰, ys²⁰)
+//│ 							in let h¹⁷ = h¹⁶
+//│ 							in (fun ys²¹ -> [LH_C h¹⁷ mappend_lh_₃(t²¹, ys²¹)]))
+//│ 					in let h¹⁸ = 't'
+//│ 					in (fun ys²² -> 
+//│ 						let t²² = mappend_lh_₅(t¹⁹, ys²²)
+//│ 						in let h¹⁹ = h¹⁸
+//│ 						in (fun ys²³ -> [LH_C h¹⁹ mappend_lh_₃(t²², ys²³)]))
+//│ 				in let h²⁰ = 'i'
+//│ 				in (fun ys²⁴ -> 
+//│ 					let t²³ = mappend_lh_₅(t¹⁸, ys²⁴)
+//│ 					in let h²¹ = h²⁰
+//│ 					in (fun ys²⁵ -> [LH_C h²¹ mappend_lh_₃(t²³, ys²⁵)]))
+//│ 			in let h²² = 'h'
+//│ 			in (fun ys²⁶ -> 
+//│ 				let t²⁴ = mappend_lh_₅(t¹⁷, ys²⁶)
+//│ 				in let h²³ = h²²
+//│ 				in (fun ys²⁷ -> [LH_C h²³ mappend_lh_₃(t²⁴, ys²⁷)]))
+//│ 		in let h²⁴ = 'W'
+//│ 		in (fun ys²⁸ -> 
+//│ 			let t²⁵ = mappend_lh_₅(t¹⁶, ys²⁸)
+//│ 			in let h²⁵ = h²⁴
+//│ 			in (fun ys²⁹ -> [LH_C h²⁵ mappend_lh_₃(t²⁵, ys²⁹)]))
 //│ 	| _  => error⁰}
-//│ def showMoveInFull_lh_₁(_lh_showMoveInFull_arg1¹) = showMove_lh_₁([True], _lh_showMoveInFull_arg1¹)
-//│ def showMove_lh_₁(_lh_showMove_arg1¹, _lh_showMove_arg2¹) = case _lh_showMove_arg2¹ of {
+//│ def showMoveInFull_lh_₁(_lh_showMoveInFull_arg1⁰) = showMove_lh_₁([True], _lh_showMoveInFull_arg1⁰)
+//│ def showMove_lh_₁(_lh_showMove_arg1⁰, _lh_showMove_arg2⁰) = case _lh_showMove_arg2⁰ of {
 //│ 	MoveInFull _lh_showMove_MoveInFull_0⁰ _lh_showMove_MoveInFull_1⁰ _lh_showMove_MoveInFull_2⁰ => case _lh_showMove_MoveInFull_0⁰ of {
 //│ 		LH_P2 _lh_showMove_LH_P2_0⁰ _lh_showMove_LH_P2_1⁰ => case _lh_showMove_MoveInFull_2⁰ of {
 //│ 			Move _lh_showMove_Move_0⁰ _lh_showMove_Move_1⁰ _lh_showMove_Move_2⁰ => 
-//│ 				let capt¹ = polyNeq⁰(_lh_showMove_Move_1⁰, [Nothing])
-//│ 				in let prom¹ = polyNeq⁰(_lh_showMove_Move_2⁰, [Nothing])
-//│ 				in mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(if _lh_showMove_arg1¹ then mappend_lh_₃₄(mappend_lh_₃₄(showPiece_lh_₁([LH_P2 _lh_showMove_LH_P2_0⁰ _lh_showMove_LH_P2_1⁰]), if (polyEq⁰(_lh_showMove_LH_P2_1⁰, [King]) || (polyEq⁰(_lh_showMove_LH_P2_1⁰, [Pawn]) && not⁰((capt¹ || prom¹)))) then [LH_N] else [LH_C '/' [LH_N]]), showSquare_lh_₁(_lh_showMove_LH_P2_0⁰, _lh_showMove_MoveInFull_1⁰)) else [LH_N], maybe_lh_₄([LH_C '-' [LH_N]], (fun cp¹ -> mappend_lh_₃₄(mappend_lh_₃₄([LH_C 'x' [LH_N]], showPiece_lh_₁(cp¹)), [LH_C '/' [LH_N]])), _lh_showMove_Move_1⁰)), showSquare_lh_₁(_lh_showMove_LH_P2_0⁰, _lh_showMove_Move_0⁰)), maybe_lh_₄([LH_N], (fun pp¹ -> mappend_lh_₃₄(mappend_lh_₃₄([LH_C '(' [LH_N]], showPiece_lh_₁(pp¹)), [LH_C ')' [LH_N]])), _lh_showMove_Move_2⁰))
+//│ 				let capt⁰ = polyNeq⁰(_lh_showMove_Move_1⁰, [Nothing])
+//│ 				in let prom⁰ = polyNeq⁰(_lh_showMove_Move_2⁰, [Nothing])
+//│ 				in mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(if _lh_showMove_arg1⁰ then mappend_lh_₃₄(mappend_lh_₃₄(showPiece_lh_₁([LH_P2 _lh_showMove_LH_P2_0⁰ _lh_showMove_LH_P2_1⁰]), if (polyEq⁰(_lh_showMove_LH_P2_1⁰, [King]) || (polyEq⁰(_lh_showMove_LH_P2_1⁰, [Pawn]) && not⁰((capt⁰ || prom⁰)))) then [LH_N] else [LH_C '/' [LH_N]]), showSquare_lh_₁(_lh_showMove_LH_P2_0⁰, _lh_showMove_MoveInFull_1⁰)) else [LH_N], maybe_lh_₄([LH_C '-' [LH_N]], (fun cp⁰ -> mappend_lh_₃₄(mappend_lh_₃₄([LH_C 'x' [LH_N]], showPiece_lh_₁(cp⁰)), [LH_C '/' [LH_N]])), _lh_showMove_Move_1⁰)), showSquare_lh_₁(_lh_showMove_LH_P2_0⁰, _lh_showMove_Move_0⁰)), maybe_lh_₄([LH_N], (fun pp⁰ -> mappend_lh_₃₄(mappend_lh_₃₄([LH_C '(' [LH_N]], showPiece_lh_₁(pp⁰)), [LH_C ')' [LH_N]])), _lh_showMove_Move_2⁰))
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showMovesAfter_lh_₁(_lh_showMovesAfter_arg1¹, _lh_showMovesAfter_arg2¹) = case _lh_showMovesAfter_arg2¹ of {
+//│ def showMovesAfter_lh_₁(_lh_showMovesAfter_arg1⁰, _lh_showMovesAfter_arg2⁰) = case _lh_showMovesAfter_arg2⁰ of {
 //│ 	LH_N  => [LH_N]
-//│ 	| _  => case _lh_showMovesAfter_arg1¹ of {
-//│ 		MoveInFull _lh_showMovesAfter_MoveInFull_0⁰ _lh_showMovesAfter_MoveInFull_1⁰ _lh_showMovesAfter_MoveInFull_2⁰ => case _lh_showMovesAfter_arg2¹ of {
+//│ 	| _  => case _lh_showMovesAfter_arg1⁰ of {
+//│ 		MoveInFull _lh_showMovesAfter_MoveInFull_0⁰ _lh_showMovesAfter_MoveInFull_1⁰ _lh_showMovesAfter_MoveInFull_2⁰ => case _lh_showMovesAfter_arg2⁰ of {
 //│ 			LH_C _lh_showMovesAfter_LH_C_0⁰ _lh_showMovesAfter_LH_C_1⁰ => case _lh_showMovesAfter_LH_C_0⁰ of {
 //│ 				MoveInFull _lh_showMovesAfter_MoveInFull_0¹ _lh_showMovesAfter_MoveInFull_1¹ _lh_showMovesAfter_MoveInFull_2¹ => mappend_lh_₃₄(mappend_lh_₃₄([LH_C ',' [LH_C ' ' [LH_N]]], showMove_lh_₁((polyNeq⁰(_lh_showMovesAfter_MoveInFull_0¹, _lh_showMovesAfter_MoveInFull_0⁰) || polyNeq⁰(_lh_showMovesAfter_MoveInFull_1¹, _lh_showMovesAfter_MoveInFull_1⁰)), [MoveInFull _lh_showMovesAfter_MoveInFull_0¹ _lh_showMovesAfter_MoveInFull_1¹ _lh_showMovesAfter_MoveInFull_2¹])), showMovesAfter_lh_₁([MoveInFull _lh_showMovesAfter_MoveInFull_0¹ _lh_showMovesAfter_MoveInFull_1¹ _lh_showMovesAfter_MoveInFull_2¹], _lh_showMovesAfter_LH_C_1⁰))
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}}
-//│ def showMoves_lh_₁(_lh_showMoves_arg1⁷) = case _lh_showMoves_arg1⁷ of {
+//│ def showMoves_lh_₁(_lh_showMoves_arg1³) = case _lh_showMoves_arg1³ of {
 //│ 	LH_C _lh_showMoves_LH_C_0³ _lh_showMoves_LH_C_1³ => mappend_lh_₃₄(showMoveInFull_lh_₁(_lh_showMoves_LH_C_0³), showMovesAfter_lh_₁(_lh_showMoves_LH_C_0³, _lh_showMoves_LH_C_1³))
 //│ 	| _  => error⁰}
-//│ def showMoves_lh_₂(_lh_showMoves_arg1⁶) = case _lh_showMoves_arg1⁶ of {
+//│ def showMoves_lh_₂(_lh_showMoves_arg1²) = case _lh_showMoves_arg1² of {
 //│ 	LH_C _lh_showMoves_LH_C_0² _lh_showMoves_LH_C_1² => mappend_lh_₃₄(showMoveInFull_lh_₁(_lh_showMoves_LH_C_0²), showMovesAfter_lh_₁(_lh_showMoves_LH_C_0², _lh_showMoves_LH_C_1²))
 //│ 	| _  => error⁰}
-//│ def showMoves_lh_₃(_lh_showMoves_arg1⁵) = case _lh_showMoves_arg1⁵ of {
+//│ def showMoves_lh_₃(_lh_showMoves_arg1¹) = case _lh_showMoves_arg1¹ of {
 //│ 	LH_C _lh_showMoves_LH_C_0¹ _lh_showMoves_LH_C_1¹ => mappend_lh_₃₄(showMoveInFull_lh_₁(_lh_showMoves_LH_C_0¹), showMovesAfter_lh_₁(_lh_showMoves_LH_C_0¹, _lh_showMoves_LH_C_1¹))
 //│ 	| _  => error⁰}
-//│ def showMoves_lh_₄(_lh_showMoves_arg1⁴) = case _lh_showMoves_arg1⁴ of {
+//│ def showMoves_lh_₄(_lh_showMoves_arg1⁰) = case _lh_showMoves_arg1⁰ of {
 //│ 	LH_C _lh_showMoves_LH_C_0⁰ _lh_showMoves_LH_C_1⁰ => mappend_lh_₃₄(showMoveInFull_lh_₁(_lh_showMoves_LH_C_0⁰), showMovesAfter_lh_₁(_lh_showMoves_LH_C_0⁰, _lh_showMoves_LH_C_1⁰))
 //│ 	| _  => error⁰}
-//│ def showPiece_lh_₁(_lh_showPiece_arg1¹) = case _lh_showPiece_arg1¹ of {
+//│ def showPiece_lh_₁(_lh_showPiece_arg1⁰) = case _lh_showPiece_arg1⁰ of {
 //│ 	LH_P2 _lh_showPiece_LH_P2_0⁰ _lh_showPiece_LH_P2_1⁰ => [LH_C kindToChar_lh_₂(_lh_showPiece_LH_P2_1⁰) [LH_N]]
 //│ 	| _  => error⁰}
-//│ def showReplies_lh_₁(_lh_showReplies_arg1⁴, _lh_showReplies_arg2⁴) = case _lh_showReplies_arg1⁴ of {
-//│ 	LH_N  => [LH_N]
-//│ 	| LH_C _lh_showReplies_LH_C_0² _lh_showReplies_LH_C_1² => case _lh_showReplies_LH_C_0² of {
-//│ 		LH_P2 _lh_showReplies_LH_P2_0² _lh_showReplies_LH_P2_1² => mappend_lh_₂₂(mappend_lh_₂₅(mappend_lh_₂₃(mappend_lh_₂₄(mappend_lh_₂₁(tab_lh_₁(_lh_showReplies_arg2⁴), 
-//│ 			let t¹²⁵ = 	
-//│ 				let t¹²⁶ = 	
-//│ 					let t¹²⁷ = (fun ys¹²⁵ -> ys¹²⁵)
-//│ 					in let h¹²⁷ = ' '
-//│ 					in (fun ys¹²⁴ -> [LH_C h¹²⁷ mappend_lh_₂₄(t¹²⁷, ys¹²⁴)])
-//│ 				in let h¹²⁶ = 'f'
-//│ 				in (fun ys¹²³ -> [LH_C h¹²⁶ mappend_lh_₂₄(t¹²⁶, ys¹²³)])
-//│ 			in let h¹²⁵ = 'i'
-//│ 			in (fun ys¹²² -> [LH_C h¹²⁵ mappend_lh_₂₄(t¹²⁵, ys¹²²)])), if (null_lh_₂(_lh_showReplies_LH_C_1²) && (length_lh_₂(_lh_showReplies_LH_P2_0²) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₂(_lh_showReplies_LH_P2_0²)), 
-//│ 			let t¹²⁸ = 	
-//│ 				let t¹²⁹ = (fun ys¹²⁸ -> ys¹²⁸)
-//│ 				in let h¹²⁹ = ' '
-//│ 				in (fun ys¹²⁷ -> [LH_C h¹²⁹ mappend_lh_₂₅(t¹²⁹, ys¹²⁷)])
-//│ 			in let h¹²⁸ = ';'
-//│ 			in (fun ys¹²⁶ -> [LH_C h¹²⁸ mappend_lh_₂₅(t¹²⁸, ys¹²⁶)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1², (_lh_showReplies_arg2⁴ + 1))), showReplies_lh_₁(_lh_showReplies_LH_C_1², _lh_showReplies_arg2⁴))
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
-//│ def showReplies_lh_₂(_lh_showReplies_arg1³, _lh_showReplies_arg2³) = case _lh_showReplies_arg1³ of {
+//│ def showReplies_lh_₁(_lh_showReplies_arg1¹, _lh_showReplies_arg2¹) = case _lh_showReplies_arg1¹ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_showReplies_LH_C_0¹ _lh_showReplies_LH_C_1¹ => case _lh_showReplies_LH_C_0¹ of {
-//│ 		LH_P2 _lh_showReplies_LH_P2_0¹ _lh_showReplies_LH_P2_1¹ => mappend_lh_₃₀(mappend_lh_₂₈(mappend_lh_₂₇(mappend_lh_₂₉(mappend_lh_₂₆(tab_lh_₂(_lh_showReplies_arg2³), 
-//│ 			let t¹¹⁴ = 	
-//│ 				let t¹¹⁵ = 	
-//│ 					let t¹¹⁶ = (fun ys¹¹⁴ -> ys¹¹⁴)
-//│ 					in let h¹¹⁶ = ' '
-//│ 					in (fun ys¹¹³ -> [LH_C h¹¹⁶ mappend_lh_₂₉(t¹¹⁶, ys¹¹³)])
-//│ 				in let h¹¹⁵ = 'f'
-//│ 				in (fun ys¹¹² -> [LH_C h¹¹⁵ mappend_lh_₂₉(t¹¹⁵, ys¹¹²)])
-//│ 			in let h¹¹⁴ = 'i'
-//│ 			in (fun ys¹¹¹ -> [LH_C h¹¹⁴ mappend_lh_₂₉(t¹¹⁴, ys¹¹¹)])), if (null_lh_₃(_lh_showReplies_LH_C_1¹) && (length_lh_₃(_lh_showReplies_LH_P2_0¹) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₃(_lh_showReplies_LH_P2_0¹)), 
-//│ 			let t¹¹⁷ = 	
-//│ 				let t¹¹⁸ = (fun ys¹¹⁷ -> ys¹¹⁷)
-//│ 				in let h¹¹⁸ = ' '
-//│ 				in (fun ys¹¹⁶ -> [LH_C h¹¹⁸ mappend_lh_₂₈(t¹¹⁸, ys¹¹⁶)])
-//│ 			in let h¹¹⁷ = ';'
-//│ 			in (fun ys¹¹⁵ -> [LH_C h¹¹⁷ mappend_lh_₂₈(t¹¹⁷, ys¹¹⁵)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1¹, (_lh_showReplies_arg2³ + 1))), showReplies_lh_₂(_lh_showReplies_LH_C_1¹, _lh_showReplies_arg2³))
+//│ 		LH_P2 _lh_showReplies_LH_P2_0¹ _lh_showReplies_LH_P2_1¹ => mappend_lh_₂₂(mappend_lh_₂₅(mappend_lh_₂₃(mappend_lh_₂₄(mappend_lh_₂₁(tab_lh_₁(_lh_showReplies_arg2¹), 
+//│ 			let t⁸³ = 	
+//│ 				let t⁸⁴ = 	
+//│ 					let t⁸⁵ = (fun ys⁸⁶ -> ys⁸⁶)
+//│ 					in let h⁸³ = ' '
+//│ 					in (fun ys⁸⁷ -> [LH_C h⁸³ mappend_lh_₂₄(t⁸⁵, ys⁸⁷)])
+//│ 				in let h⁸⁴ = 'f'
+//│ 				in (fun ys⁸⁸ -> [LH_C h⁸⁴ mappend_lh_₂₄(t⁸⁴, ys⁸⁸)])
+//│ 			in let h⁸⁵ = 'i'
+//│ 			in (fun ys⁸⁹ -> [LH_C h⁸⁵ mappend_lh_₂₄(t⁸³, ys⁸⁹)])), if (null_lh_₂(_lh_showReplies_LH_C_1¹) && (length_lh_₂(_lh_showReplies_LH_P2_0¹) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₂(_lh_showReplies_LH_P2_0¹)), 
+//│ 			let t⁸⁶ = 	
+//│ 				let t⁸⁷ = (fun ys⁹⁰ -> ys⁹⁰)
+//│ 				in let h⁸⁶ = ' '
+//│ 				in (fun ys⁹¹ -> [LH_C h⁸⁶ mappend_lh_₂₅(t⁸⁷, ys⁹¹)])
+//│ 			in let h⁸⁷ = ';'
+//│ 			in (fun ys⁹² -> [LH_C h⁸⁷ mappend_lh_₂₅(t⁸⁶, ys⁹²)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1¹, (_lh_showReplies_arg2¹ + 1))), showReplies_lh_₁(_lh_showReplies_LH_C_1¹, _lh_showReplies_arg2¹))
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showReplies_lh_₃(_lh_showReplies_arg1⁵, _lh_showReplies_arg2⁵) = case _lh_showReplies_arg1⁵ of {
+//│ def showReplies_lh_₂(_lh_showReplies_arg1⁰, _lh_showReplies_arg2⁰) = case _lh_showReplies_arg1⁰ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_showReplies_LH_C_0⁰ _lh_showReplies_LH_C_1⁰ => case _lh_showReplies_LH_C_0⁰ of {
-//│ 		LH_P2 _lh_showReplies_LH_P2_0⁰ _lh_showReplies_LH_P2_1⁰ => mappend_lh_₃₄(mappend_lh_₃₂(mappend_lh_₃₁(mappend_lh_₃₄(mappend_lh_₃₃(tab_lh_₂(_lh_showReplies_arg2⁵), [LH_C 'i' [LH_C 'f' [LH_C ' ' [LH_N]]]]), if (null_lh_₃(_lh_showReplies_LH_C_1⁰) && (length_lh_₄(_lh_showReplies_LH_P2_0⁰) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₄(_lh_showReplies_LH_P2_0⁰)), 
-//│ 			let t¹³⁰ = 	
-//│ 				let t¹³¹ = (fun ys¹³² -> ys¹³²)
-//│ 				in let h¹³¹ = ' '
-//│ 				in (fun ys¹³¹ -> [LH_C h¹³¹ mappend_lh_₃₂(t¹³¹, ys¹³¹)])
-//│ 			in let h¹³⁰ = ';'
-//│ 			in (fun ys¹³⁰ -> [LH_C h¹³⁰ mappend_lh_₃₂(t¹³⁰, ys¹³⁰)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1⁰, (_lh_showReplies_arg2⁵ + 1))), showReplies_lh_₃(_lh_showReplies_LH_C_1⁰, _lh_showReplies_arg2⁵))
+//│ 		LH_P2 _lh_showReplies_LH_P2_0⁰ _lh_showReplies_LH_P2_1⁰ => mappend_lh_₃₀(mappend_lh_₂₈(mappend_lh_₂₇(mappend_lh_₂₉(mappend_lh_₂₆(tab_lh_₂(_lh_showReplies_arg2⁰), 
+//│ 			let t⁶⁸ = 	
+//│ 				let t⁶⁹ = 	
+//│ 					let t⁷⁰ = (fun ys⁷⁵ -> ys⁷⁵)
+//│ 					in let h⁶⁸ = ' '
+//│ 					in (fun ys⁷⁶ -> [LH_C h⁶⁸ mappend_lh_₂₉(t⁷⁰, ys⁷⁶)])
+//│ 				in let h⁶⁹ = 'f'
+//│ 				in (fun ys⁷⁷ -> [LH_C h⁶⁹ mappend_lh_₂₉(t⁶⁹, ys⁷⁷)])
+//│ 			in let h⁷⁰ = 'i'
+//│ 			in (fun ys⁷⁸ -> [LH_C h⁷⁰ mappend_lh_₂₉(t⁶⁸, ys⁷⁸)])), if (null_lh_₃(_lh_showReplies_LH_C_1⁰) && (length_lh_₃(_lh_showReplies_LH_P2_0⁰) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₃(_lh_showReplies_LH_P2_0⁰)), 
+//│ 			let t⁷¹ = 	
+//│ 				let t⁷² = (fun ys⁷⁹ -> ys⁷⁹)
+//│ 				in let h⁷¹ = ' '
+//│ 				in (fun ys⁸⁰ -> [LH_C h⁷¹ mappend_lh_₂₈(t⁷², ys⁸⁰)])
+//│ 			in let h⁷² = ';'
+//│ 			in (fun ys⁸¹ -> [LH_C h⁷² mappend_lh_₂₈(t⁷¹, ys⁸¹)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1⁰, (_lh_showReplies_arg2⁰ + 1))), showReplies_lh_₂(_lh_showReplies_LH_C_1⁰, _lh_showReplies_arg2⁰))
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def showResult_lh_₁(_lh_showResult_arg1¹) = case _lh_showResult_arg1¹ of {
+//│ def showReplies_lh_₃(_lh_showReplies_arg1², _lh_showReplies_arg2²) = case _lh_showReplies_arg1² of {
+//│ 	LH_N  => [LH_N]
+//│ 	| LH_C _lh_showReplies_LH_C_0² _lh_showReplies_LH_C_1² => case _lh_showReplies_LH_C_0² of {
+//│ 		LH_P2 _lh_showReplies_LH_P2_0² _lh_showReplies_LH_P2_1² => mappend_lh_₃₄(mappend_lh_₃₂(mappend_lh_₃₁(mappend_lh_₃₄(mappend_lh_₃₃(tab_lh_₂(_lh_showReplies_arg2²), [LH_C 'i' [LH_C 'f' [LH_C ' ' [LH_N]]]]), if (null_lh_₃(_lh_showReplies_LH_C_1²) && (length_lh_₄(_lh_showReplies_LH_P2_0²) > 1)) then [LH_C 'o' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_N]]]]]]] else showMoves_lh_₄(_lh_showReplies_LH_P2_0²)), 
+//│ 			let t⁸⁹ = 	
+//│ 				let t⁹⁰ = (fun ys⁹⁴ -> ys⁹⁴)
+//│ 				in let h⁸⁹ = ' '
+//│ 				in (fun ys⁹⁵ -> [LH_C h⁸⁹ mappend_lh_₃₂(t⁹⁰, ys⁹⁵)])
+//│ 			in let h⁹⁰ = ';'
+//│ 			in (fun ys⁹⁶ -> [LH_C h⁹⁰ mappend_lh_₃₂(t⁸⁹, ys⁹⁶)])), showSoln_lh_₁(_lh_showReplies_LH_P2_1², (_lh_showReplies_arg2² + 1))), showReplies_lh_₃(_lh_showReplies_LH_C_1², _lh_showReplies_arg2²))
+//│ 		| _  => error⁰}
+//│ 	| _  => error⁰}
+//│ def showResult_lh_₁(_lh_showResult_arg1⁰) = case _lh_showResult_arg1⁰ of {
 //│ 	Nothing  => [LH_C 'N' [LH_C 'o' [LH_C ' ' [LH_C 's' [LH_C 'o' [LH_C 'l' [LH_C 'u' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C '!' [LH_N]]]]]]]]]]]]]
 //│ 	| Just _lh_showResult_Just_0⁰ => showSoln_lh_₁(compact_lh_₁(_lh_showResult_Just_0⁰), 1)
 //│ 	| _  => error⁰}
-//│ def showSoln_lh_₁(_lh_showSoln_arg1⁵, _lh_showSoln_arg2⁵) = case _lh_showSoln_arg1⁵ of {
-//│ 	Soln _lh_showSoln_Soln_0² _lh_showSoln_Soln_1² => mappend_lh_₁₆(mappend_lh_₁₅(mappend_lh_₁₃(string_of_int⁰(_lh_showSoln_arg2⁵), 
-//│ 		let t⁹⁵ = 	
-//│ 			let t⁹⁶ = (fun ys⁸⁴ -> ys⁸⁴)
-//│ 			in let h⁹⁶ = ' '
-//│ 			in (fun ys⁸³ -> [LH_C h⁹⁶ mappend_lh_₁₅(t⁹⁶, ys⁸³)])
-//│ 		in let h⁹⁵ = '.'
-//│ 		in (fun ys⁸² -> [LH_C h⁹⁵ mappend_lh_₁₅(t⁹⁵, ys⁸²)])), showMoveInFull_lh_₁(_lh_showSoln_Soln_0²)), 
-//│ 		let _lh_matchIdent¹⁰⁴ = _lh_showSoln_Soln_1²
-//│ 		in case _lh_matchIdent¹⁰⁴ of {
+//│ def showSoln_lh_₁(_lh_showSoln_arg1², _lh_showSoln_arg2²) = case _lh_showSoln_arg1² of {
+//│ 	Soln _lh_showSoln_Soln_0² _lh_showSoln_Soln_1² => mappend_lh_₁₆(mappend_lh_₁₅(mappend_lh_₁₃(string_of_int⁰(_lh_showSoln_arg2²), 
+//│ 		let t⁴⁴ = 	
+//│ 			let t⁴⁵ = (fun ys⁴⁶ -> ys⁴⁶)
+//│ 			in let h⁴⁴ = ' '
+//│ 			in (fun ys⁴⁷ -> [LH_C h⁴⁴ mappend_lh_₁₅(t⁴⁵, ys⁴⁷)])
+//│ 		in let h⁴⁵ = '.'
+//│ 		in (fun ys⁴⁸ -> [LH_C h⁴⁵ mappend_lh_₁₅(t⁴⁴, ys⁴⁸)])), showMoveInFull_lh_₁(_lh_showSoln_Soln_0²)), 
+//│ 		let _lh_matchIdent³⁸ = _lh_showSoln_Soln_1²
+//│ 		in case _lh_matchIdent³⁸ of {
 //│ 			LH_N  => [LH_C '+' [LH_C '+' [LH_C '|' [LH_N]]]]
 //│ 			| LH_C _lh_showSoln_LH_C_0² _lh_showSoln_LH_C_1² => case _lh_showSoln_LH_C_0² of {
 //│ 				LH_P2 _lh_showSoln_LH_P2_0² _lh_showSoln_LH_P2_1² => case _lh_showSoln_LH_C_1² of {
 //│ 					LH_N  => mappend_lh_₁₂(mappend_lh_₁₄(mappend_lh_₁₁(
-//│ 						let t⁹⁷ = 	
-//│ 							let t⁹⁸ = (fun ys⁸⁷ -> ys⁸⁷)
-//│ 							in let h⁹⁸ = ' '
-//│ 							in (fun ys⁸⁶ -> [LH_C h⁹⁸ mappend_lh_₁₁(t⁹⁸, ys⁸⁶)])
-//│ 						in let h⁹⁷ = ','
-//│ 						in (fun ys⁸⁵ -> [LH_C h⁹⁷ mappend_lh_₁₁(t⁹⁷, ys⁸⁵)]), if (length_lh_₁(_lh_showSoln_LH_P2_0²) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₁(_lh_showSoln_LH_P2_0²)), 
-//│ 						let t⁹⁹ = 	
-//│ 							let t¹⁰⁰ = (fun ys⁹⁰ -> ys⁹⁰)
-//│ 							in let h¹⁰⁰ = ' '
-//│ 							in (fun ys⁸⁹ -> [LH_C h¹⁰⁰ mappend_lh_₁₂(t¹⁰⁰, ys⁸⁹)])
-//│ 						in let h⁹⁹ = ';'
-//│ 						in (fun ys⁸⁸ -> [LH_C h⁹⁹ mappend_lh_₁₂(t⁹⁹, ys⁸⁸)])), showSoln_lh_₁(_lh_showSoln_LH_P2_1², (_lh_showSoln_arg2⁵ + 1)))
+//│ 						let t⁴⁶ = 	
+//│ 							let t⁴⁷ = (fun ys⁴⁹ -> ys⁴⁹)
+//│ 							in let h⁴⁶ = ' '
+//│ 							in (fun ys⁵⁰ -> [LH_C h⁴⁶ mappend_lh_₁₁(t⁴⁷, ys⁵⁰)])
+//│ 						in let h⁴⁷ = ','
+//│ 						in (fun ys⁵¹ -> [LH_C h⁴⁷ mappend_lh_₁₁(t⁴⁶, ys⁵¹)]), if (length_lh_₁(_lh_showSoln_LH_P2_0²) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₁(_lh_showSoln_LH_P2_0²)), 
+//│ 						let t⁴⁸ = 	
+//│ 							let t⁴⁹ = (fun ys⁵² -> ys⁵²)
+//│ 							in let h⁴⁸ = ' '
+//│ 							in (fun ys⁵³ -> [LH_C h⁴⁸ mappend_lh_₁₂(t⁴⁹, ys⁵³)])
+//│ 						in let h⁴⁹ = ';'
+//│ 						in (fun ys⁵⁴ -> [LH_C h⁴⁹ mappend_lh_₁₂(t⁴⁸, ys⁵⁴)])), showSoln_lh_₁(_lh_showSoln_LH_P2_1², (_lh_showSoln_arg2² + 1)))
 //│ 					| _  => mappend_lh_₁₉(
-//│ 						let t¹⁰¹ = 	
-//│ 							let t¹⁰² = (fun ys⁹³ -> ys⁹³)
-//│ 							in let h¹⁰² = '|'
-//│ 							in (fun ys⁹² -> [LH_C h¹⁰² mappend_lh_₁₉(t¹⁰², ys⁹²)])
-//│ 						in let h¹⁰¹ = ','
-//│ 						in (fun ys⁹¹ -> [LH_C h¹⁰¹ mappend_lh_₁₉(t¹⁰¹, ys⁹¹)]), showReplies_lh_₂(sort_lh_₃(_lh_showSoln_Soln_1²), _lh_showSoln_arg2⁵))}
+//│ 						let t⁵⁰ = 	
+//│ 							let t⁵¹ = (fun ys⁵⁵ -> ys⁵⁵)
+//│ 							in let h⁵⁰ = '|'
+//│ 							in (fun ys⁵⁶ -> [LH_C h⁵⁰ mappend_lh_₁₉(t⁵¹, ys⁵⁶)])
+//│ 						in let h⁵¹ = ','
+//│ 						in (fun ys⁵⁷ -> [LH_C h⁵¹ mappend_lh_₁₉(t⁵⁰, ys⁵⁷)]), showReplies_lh_₂(sort_lh_₃(_lh_showSoln_Soln_1²), _lh_showSoln_arg2²))}
 //│ 				| _  => mappend_lh_₁₈(
-//│ 					let t¹⁰³ = 	
-//│ 						let t¹⁰⁴ = (fun ys⁹⁶ -> ys⁹⁶)
-//│ 						in let h¹⁰⁴ = '|'
-//│ 						in (fun ys⁹⁵ -> [LH_C h¹⁰⁴ mappend_lh_₁₈(t¹⁰⁴, ys⁹⁵)])
-//│ 					in let h¹⁰³ = ','
-//│ 					in (fun ys⁹⁴ -> [LH_C h¹⁰³ mappend_lh_₁₈(t¹⁰³, ys⁹⁴)]), showReplies_lh_₃(sort_lh_₂(_lh_showSoln_Soln_1²), _lh_showSoln_arg2⁵))}
+//│ 					let t⁵² = 	
+//│ 						let t⁵³ = (fun ys⁵⁸ -> ys⁵⁸)
+//│ 						in let h⁵² = '|'
+//│ 						in (fun ys⁵⁹ -> [LH_C h⁵² mappend_lh_₁₈(t⁵³, ys⁵⁹)])
+//│ 					in let h⁵³ = ','
+//│ 					in (fun ys⁶⁰ -> [LH_C h⁵³ mappend_lh_₁₈(t⁵², ys⁶⁰)]), showReplies_lh_₃(sort_lh_₂(_lh_showSoln_Soln_1²), _lh_showSoln_arg2²))}
 //│ 			| _  => mappend_lh_₁₇(
-//│ 				let t¹⁰⁵ = 	
-//│ 					let t¹⁰⁶ = (fun ys⁹⁹ -> ys⁹⁹)
-//│ 					in let h¹⁰⁶ = '|'
-//│ 					in (fun ys⁹⁸ -> [LH_C h¹⁰⁶ mappend_lh_₁₇(t¹⁰⁶, ys⁹⁸)])
-//│ 				in let h¹⁰⁵ = ','
-//│ 				in (fun ys⁹⁷ -> [LH_C h¹⁰⁵ mappend_lh_₁₇(t¹⁰⁵, ys⁹⁷)]), showReplies_lh_₁(sort_lh_₁(_lh_showSoln_Soln_1²), _lh_showSoln_arg2⁵))})
+//│ 				let t⁵⁴ = 	
+//│ 					let t⁵⁵ = (fun ys⁶¹ -> ys⁶¹)
+//│ 					in let h⁵⁴ = '|'
+//│ 					in (fun ys⁶² -> [LH_C h⁵⁴ mappend_lh_₁₇(t⁵⁵, ys⁶²)])
+//│ 				in let h⁵⁵ = ','
+//│ 				in (fun ys⁶³ -> [LH_C h⁵⁵ mappend_lh_₁₇(t⁵⁴, ys⁶³)]), showReplies_lh_₁(sort_lh_₁(_lh_showSoln_Soln_1²), _lh_showSoln_arg2²))})
 //│ 	| _  => error⁰}
-//│ def showSoln_lh_₂(_lh_showSoln_arg1³, _lh_showSoln_arg2³) = case _lh_showSoln_arg1³ of {
-//│ 	Soln _lh_showSoln_Soln_0¹ _lh_showSoln_Soln_1¹ => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(string_of_int⁰(_lh_showSoln_arg2³), [LH_C '.' [LH_C ' ' [LH_N]]]), showMoveInFull_lh_₁(_lh_showSoln_Soln_0¹)), 
-//│ 		let _lh_matchIdent⁸⁸ = _lh_showSoln_Soln_1¹
-//│ 		in case _lh_matchIdent⁸⁸ of {
-//│ 			LH_N  => [LH_C '+' [LH_C '+' [LH_C '|' [LH_N]]]]
-//│ 			| LH_C _lh_showSoln_LH_C_0¹ _lh_showSoln_LH_C_1¹ => case _lh_showSoln_LH_C_0¹ of {
-//│ 				LH_P2 _lh_showSoln_LH_P2_0¹ _lh_showSoln_LH_P2_1¹ => case _lh_showSoln_LH_C_1¹ of {
-//│ 					LH_N  => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄([LH_C ',' [LH_C ' ' [LH_N]]], if (length_lh_₄(_lh_showSoln_LH_P2_0¹) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₄(_lh_showSoln_LH_P2_0¹)), [LH_C ';' [LH_C ' ' [LH_N]]]), showSoln_lh_₂(_lh_showSoln_LH_P2_1¹, (_lh_showSoln_arg2³ + 1)))
-//│ 					| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2³))}
-//│ 				| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2³))}
-//│ 			| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2³))})
-//│ 	| _  => error⁰}
-//│ def showSoln_lh_₃(_lh_showSoln_arg1⁴, _lh_showSoln_arg2⁴) = case _lh_showSoln_arg1⁴ of {
-//│ 	Soln _lh_showSoln_Soln_0⁰ _lh_showSoln_Soln_1⁰ => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(string_of_int⁰(_lh_showSoln_arg2⁴), [LH_C '.' [LH_C ' ' [LH_N]]]), showMoveInFull_lh_₁(_lh_showSoln_Soln_0⁰)), 
-//│ 		let _lh_matchIdent¹⁰² = _lh_showSoln_Soln_1⁰
-//│ 		in case _lh_matchIdent¹⁰² of {
+//│ def showSoln_lh_₂(_lh_showSoln_arg1⁰, _lh_showSoln_arg2⁰) = case _lh_showSoln_arg1⁰ of {
+//│ 	Soln _lh_showSoln_Soln_0⁰ _lh_showSoln_Soln_1⁰ => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(string_of_int⁰(_lh_showSoln_arg2⁰), [LH_C '.' [LH_C ' ' [LH_N]]]), showMoveInFull_lh_₁(_lh_showSoln_Soln_0⁰)), 
+//│ 		let _lh_matchIdent²² = _lh_showSoln_Soln_1⁰
+//│ 		in case _lh_matchIdent²² of {
 //│ 			LH_N  => [LH_C '+' [LH_C '+' [LH_C '|' [LH_N]]]]
 //│ 			| LH_C _lh_showSoln_LH_C_0⁰ _lh_showSoln_LH_C_1⁰ => case _lh_showSoln_LH_C_0⁰ of {
 //│ 				LH_P2 _lh_showSoln_LH_P2_0⁰ _lh_showSoln_LH_P2_1⁰ => case _lh_showSoln_LH_C_1⁰ of {
-//│ 					LH_N  => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄([LH_C ',' [LH_C ' ' [LH_N]]], if (length_lh_₄(_lh_showSoln_LH_P2_0⁰) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₄(_lh_showSoln_LH_P2_0⁰)), [LH_C ';' [LH_C ' ' [LH_N]]]), showSoln_lh_₃(_lh_showSoln_LH_P2_1⁰, (_lh_showSoln_arg2⁴ + 1)))
-//│ 					| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁴))}
-//│ 				| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁴))}
-//│ 			| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁴))})
+//│ 					LH_N  => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄([LH_C ',' [LH_C ' ' [LH_N]]], if (length_lh_₄(_lh_showSoln_LH_P2_0⁰) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₄(_lh_showSoln_LH_P2_0⁰)), [LH_C ';' [LH_C ' ' [LH_N]]]), showSoln_lh_₂(_lh_showSoln_LH_P2_1⁰, (_lh_showSoln_arg2⁰ + 1)))
+//│ 					| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁰))}
+//│ 				| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁰))}
+//│ 			| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1⁰), _lh_showSoln_arg2⁰))})
 //│ 	| _  => error⁰}
-//│ def showSquare_lh_₁(_lh_showSquare_arg1¹, _lh_showSquare_arg2¹) = case _lh_showSquare_arg2¹ of {
+//│ def showSoln_lh_₃(_lh_showSoln_arg1¹, _lh_showSoln_arg2¹) = case _lh_showSoln_arg1¹ of {
+//│ 	Soln _lh_showSoln_Soln_0¹ _lh_showSoln_Soln_1¹ => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄(string_of_int⁰(_lh_showSoln_arg2¹), [LH_C '.' [LH_C ' ' [LH_N]]]), showMoveInFull_lh_₁(_lh_showSoln_Soln_0¹)), 
+//│ 		let _lh_matchIdent³⁶ = _lh_showSoln_Soln_1¹
+//│ 		in case _lh_matchIdent³⁶ of {
+//│ 			LH_N  => [LH_C '+' [LH_C '+' [LH_C '|' [LH_N]]]]
+//│ 			| LH_C _lh_showSoln_LH_C_0¹ _lh_showSoln_LH_C_1¹ => case _lh_showSoln_LH_C_0¹ of {
+//│ 				LH_P2 _lh_showSoln_LH_P2_0¹ _lh_showSoln_LH_P2_1¹ => case _lh_showSoln_LH_C_1¹ of {
+//│ 					LH_N  => mappend_lh_₃₄(mappend_lh_₃₄(mappend_lh_₃₄([LH_C ',' [LH_C ' ' [LH_N]]], if (length_lh_₄(_lh_showSoln_LH_P2_0¹) > 1) then [LH_C '.' [LH_C '.' [LH_C '.' [LH_N]]]] else showMoves_lh_₄(_lh_showSoln_LH_P2_0¹)), [LH_C ';' [LH_C ' ' [LH_N]]]), showSoln_lh_₃(_lh_showSoln_LH_P2_1¹, (_lh_showSoln_arg2¹ + 1)))
+//│ 					| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2¹))}
+//│ 				| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2¹))}
+//│ 			| _  => mappend_lh_₃₄([LH_C ',' [LH_C '|' [LH_N]]], showReplies_lh_₃(sort_lh_₃(_lh_showSoln_Soln_1¹), _lh_showSoln_arg2¹))})
+//│ 	| _  => error⁰}
+//│ def showSquare_lh_₁(_lh_showSquare_arg1⁰, _lh_showSquare_arg2⁰) = case _lh_showSquare_arg2⁰ of {
 //│ 	LH_P2 _lh_showSquare_LH_P2_0⁰ _lh_showSquare_LH_P2_1⁰ => mappend_lh_₃₄(atIndex_lh_₁((_lh_showSquare_LH_P2_0⁰ - 1), 
-//│ 		let t¹⁶¹ = 	
-//│ 			let t¹⁶² = 	
-//│ 				let t¹⁶³ = 	
-//│ 					let t¹⁶⁴ = 	
-//│ 						let t¹⁶⁵ = 	
-//│ 							let t¹⁶⁶ = 	
-//│ 								let t¹⁶⁷ = 	
-//│ 									let t¹⁶⁸ = (fun n¹⁷ -> error⁰)
-//│ 									in let h¹⁶⁸ = [LH_C 'K' [LH_C 'R' [LH_N]]]
-//│ 									in (fun n¹⁶ -> if (n¹⁶ == 0) then h¹⁶⁸ else atIndex_lh_₁((n¹⁶ - 1), t¹⁶⁸))
-//│ 								in let h¹⁶⁷ = [LH_C 'K' [LH_C 'N' [LH_N]]]
-//│ 								in (fun n¹⁵ -> if (n¹⁵ == 0) then h¹⁶⁷ else atIndex_lh_₁((n¹⁵ - 1), t¹⁶⁷))
-//│ 							in let h¹⁶⁶ = [LH_C 'K' [LH_C 'B' [LH_N]]]
-//│ 							in (fun n¹⁴ -> if (n¹⁴ == 0) then h¹⁶⁶ else atIndex_lh_₁((n¹⁴ - 1), t¹⁶⁶))
-//│ 						in let h¹⁶⁵ = [LH_C 'K' [LH_N]]
-//│ 						in (fun n¹³ -> if (n¹³ == 0) then h¹⁶⁵ else atIndex_lh_₁((n¹³ - 1), t¹⁶⁵))
-//│ 					in let h¹⁶⁴ = [LH_C 'Q' [LH_N]]
-//│ 					in (fun n¹² -> if (n¹² == 0) then h¹⁶⁴ else atIndex_lh_₁((n¹² - 1), t¹⁶⁴))
-//│ 				in let h¹⁶³ = [LH_C 'Q' [LH_C 'B' [LH_N]]]
-//│ 				in (fun n¹¹ -> if (n¹¹ == 0) then h¹⁶³ else atIndex_lh_₁((n¹¹ - 1), t¹⁶³))
-//│ 			in let h¹⁶² = [LH_C 'Q' [LH_C 'N' [LH_N]]]
-//│ 			in (fun n¹⁰ -> if (n¹⁰ == 0) then h¹⁶² else atIndex_lh_₁((n¹⁰ - 1), t¹⁶²))
-//│ 		in let h¹⁶¹ = [LH_C 'Q' [LH_C 'R' [LH_N]]]
-//│ 		in (fun n⁹ -> if (n⁹ == 0) then h¹⁶¹ else atIndex_lh_₁((n⁹ - 1), t¹⁶¹))), string_of_int⁰(
-//│ 		let _lh_matchIdent¹³⁸ = _lh_showSquare_arg1¹
-//│ 		in case _lh_matchIdent¹³⁸ of {
+//│ 		let t¹²⁷ = 	
+//│ 			let t¹²⁸ = 	
+//│ 				let t¹²⁹ = 	
+//│ 					let t¹³⁰ = 	
+//│ 						let t¹³¹ = 	
+//│ 							let t¹³² = 	
+//│ 								let t¹³³ = 	
+//│ 									let t¹³⁴ = (fun n⁴ -> error⁰)
+//│ 									in let h¹²⁷ = [LH_C 'K' [LH_C 'R' [LH_N]]]
+//│ 									in (fun n⁵ -> if (n⁵ == 0) then h¹²⁷ else atIndex_lh_₁((n⁵ - 1), t¹³⁴))
+//│ 								in let h¹²⁸ = [LH_C 'K' [LH_C 'N' [LH_N]]]
+//│ 								in (fun n⁶ -> if (n⁶ == 0) then h¹²⁸ else atIndex_lh_₁((n⁶ - 1), t¹³³))
+//│ 							in let h¹²⁹ = [LH_C 'K' [LH_C 'B' [LH_N]]]
+//│ 							in (fun n⁷ -> if (n⁷ == 0) then h¹²⁹ else atIndex_lh_₁((n⁷ - 1), t¹³²))
+//│ 						in let h¹³⁰ = [LH_C 'K' [LH_N]]
+//│ 						in (fun n⁸ -> if (n⁸ == 0) then h¹³⁰ else atIndex_lh_₁((n⁸ - 1), t¹³¹))
+//│ 					in let h¹³¹ = [LH_C 'Q' [LH_N]]
+//│ 					in (fun n⁹ -> if (n⁹ == 0) then h¹³¹ else atIndex_lh_₁((n⁹ - 1), t¹³⁰))
+//│ 				in let h¹³² = [LH_C 'Q' [LH_C 'B' [LH_N]]]
+//│ 				in (fun n¹⁰ -> if (n¹⁰ == 0) then h¹³² else atIndex_lh_₁((n¹⁰ - 1), t¹²⁹))
+//│ 			in let h¹³³ = [LH_C 'Q' [LH_C 'N' [LH_N]]]
+//│ 			in (fun n¹¹ -> if (n¹¹ == 0) then h¹³³ else atIndex_lh_₁((n¹¹ - 1), t¹²⁸))
+//│ 		in let h¹³⁴ = [LH_C 'Q' [LH_C 'R' [LH_N]]]
+//│ 		in (fun n¹² -> if (n¹² == 0) then h¹³⁴ else atIndex_lh_₁((n¹² - 1), t¹²⁷))), string_of_int⁰(
+//│ 		let _lh_matchIdent⁷² = _lh_showSquare_arg1⁰
+//│ 		in case _lh_matchIdent⁷² of {
 //│ 			Black  => (9 - _lh_showSquare_LH_P2_1⁰)
 //│ 			| White  => _lh_showSquare_LH_P2_1⁰
 //│ 			| _  => error⁰}))
 //│ 	| _  => error⁰}
-//│ def sift_lh_₁(_lh_sift_arg1¹⁹, _lh_sift_arg2¹⁹, _lh_sift_arg3¹⁹, _lh_sift_arg4¹) = _lh_sift_arg4¹(_lh_sift_arg3¹⁹, _lh_sift_arg1¹⁹, _lh_sift_arg2¹⁹)
-//│ def solution_lh_₁(_lh_solution_arg1¹, _lh_solution_arg2¹, _lh_solution_arg3¹) = 
-//│ 	let solnOr¹ = (fun mifb² -> (fun other¹ -> 
-//│ 		let _lh_matchIdent¹⁰⁰ = mifb²
-//│ 		in _lh_matchIdent¹⁰⁰(_lh_solution_arg2¹, _lh_solution_arg3¹, other¹)))
-//│ 	in if (_lh_solution_arg3¹ > 0) then 
-//│ 		let mds² = moveDetailsFor_lh_₁(_lh_solution_arg2¹, _lh_solution_arg1¹)
-//│ 		in foldr_lh_₂(solnOr¹, [Nothing], mds²) else error⁰([LH_C 'n' [LH_C ' ' [LH_C '<' [LH_C '=' [LH_C ' ' [LH_C '0' [LH_N]]]]]]])
-//│ def solve_lh_₁(_lh_solve_arg1¹, _lh_solve_arg2¹, _lh_solve_arg3¹) = showResult_lh_₁(solution_lh_₁(_lh_solve_arg1¹, _lh_solve_arg2¹, ((2 * _lh_solve_arg3¹) - 1)))
-//│ def sort_lh_₁(_lh_sort_arg1³) = qsort_lh_₁((fun a¹⁰ -> (fun b¹³ -> 
-//│ 	let _lh_matchIdent⁸⁹ = a¹⁰
-//│ 	in case _lh_matchIdent⁸⁹ of {
-//│ 		LH_P2 _lh_sort_LH_P2_0⁴ _lh_sort_LH_P2_1⁴ => 
-//│ 			let _lh_matchIdent⁹⁰ = b¹³
-//│ 			in case _lh_matchIdent⁹⁰ of {
-//│ 				LH_P2 _lh_sort_LH_P2_0⁵ _lh_sort_LH_P2_1⁵ => (length_lh_₄(_lh_sort_LH_P2_0⁴) <= length_lh_₄(_lh_sort_LH_P2_0⁵))
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰})), _lh_sort_arg1³, [LH_N])
-//│ def sort_lh_₂(_lh_sort_arg1⁴) = qsort_lh_₁((fun a¹⁷ -> (fun b¹⁷ -> 
-//│ 	let _lh_matchIdent⁹⁶ = a¹⁷
-//│ 	in case _lh_matchIdent⁹⁶ of {
-//│ 		LH_P2 _lh_sort_LH_P2_0² _lh_sort_LH_P2_1² => 
-//│ 			let _lh_matchIdent⁹⁷ = b¹⁷
-//│ 			in case _lh_matchIdent⁹⁷ of {
-//│ 				LH_P2 _lh_sort_LH_P2_0³ _lh_sort_LH_P2_1³ => (length_lh_₄(_lh_sort_LH_P2_0²) <= length_lh_₄(_lh_sort_LH_P2_0³))
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰})), _lh_sort_arg1⁴, [LH_N])
-//│ def sort_lh_₃(_lh_sort_arg1⁵) = qsort_lh_₁((fun a²² -> (fun b²¹ -> 
-//│ 	let _lh_matchIdent¹²⁷ = a²²
-//│ 	in case _lh_matchIdent¹²⁷ of {
+//│ def sift_lh_₁(_lh_sift_arg1¹⁸, _lh_sift_arg2¹⁸, _lh_sift_arg3¹⁸, _lh_sift_arg4⁰) = _lh_sift_arg4⁰(_lh_sift_arg3¹⁸, _lh_sift_arg1¹⁸, _lh_sift_arg2¹⁸)
+//│ def solution_lh_₁(_lh_solution_arg1⁰, _lh_solution_arg2⁰, _lh_solution_arg3⁰) = 
+//│ 	let solnOr⁰ = (fun mifb⁰ -> (fun other⁰ -> 
+//│ 		let _lh_matchIdent³⁴ = mifb⁰
+//│ 		in _lh_matchIdent³⁴(_lh_solution_arg2⁰, _lh_solution_arg3⁰, other⁰)))
+//│ 	in if (_lh_solution_arg3⁰ > 0) then 
+//│ 		let mds⁰ = moveDetailsFor_lh_₁(_lh_solution_arg2⁰, _lh_solution_arg1⁰)
+//│ 		in foldr_lh_₂(solnOr⁰, [Nothing], mds⁰) else error⁰([LH_C 'n' [LH_C ' ' [LH_C '<' [LH_C '=' [LH_C ' ' [LH_C '0' [LH_N]]]]]]])
+//│ def solve_lh_₁(_lh_solve_arg1⁰, _lh_solve_arg2⁰, _lh_solve_arg3⁰) = showResult_lh_₁(solution_lh_₁(_lh_solve_arg1⁰, _lh_solve_arg2⁰, ((2 * _lh_solve_arg3⁰) - 1)))
+//│ def sort_lh_₁(_lh_sort_arg1⁰) = qsort_lh_₁((fun a⁰ -> (fun b¹ -> 
+//│ 	let _lh_matchIdent²³ = a⁰
+//│ 	in case _lh_matchIdent²³ of {
 //│ 		LH_P2 _lh_sort_LH_P2_0⁰ _lh_sort_LH_P2_1⁰ => 
-//│ 			let _lh_matchIdent¹²⁸ = b²¹
-//│ 			in case _lh_matchIdent¹²⁸ of {
+//│ 			let _lh_matchIdent²⁴ = b¹
+//│ 			in case _lh_matchIdent²⁴ of {
 //│ 				LH_P2 _lh_sort_LH_P2_0¹ _lh_sort_LH_P2_1¹ => (length_lh_₄(_lh_sort_LH_P2_0⁰) <= length_lh_₄(_lh_sort_LH_P2_0¹))
 //│ 				| _  => error⁰}
-//│ 		| _  => error⁰})), _lh_sort_arg1⁵, [LH_N])
-//│ def splitAt_lh_₁(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹) = 
-//│ 	let _lh_parseProblem_LH_P2_1¹ = drop_lh_₁(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹)
-//│ 	in let _lh_parseProblem_LH_P2_0¹ = take_lh_₁(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹)
-//│ 	in (fun _lh_dummy¹ -> 
-//│ 		let bd¹ = parseBoard_lh_₁(_lh_parseProblem_LH_P2_0¹)
-//│ 		in let gl¹ = parseGoal_lh_₁(_lh_parseProblem_LH_P2_1¹)
-//│ 		in let _lh_testMate_nofib_LH_P2_1² = gl¹
-//│ 		in let _lh_testMate_nofib_LH_P2_0² = bd¹
-//│ 		in (fun _lh_dummy⁰ -> _lh_testMate_nofib_LH_P2_1²(_lh_testMate_nofib_LH_P2_0²)))
-//│ def tab_lh_₁(_lh_tab_arg1³) = if (_lh_tab_arg1³ <= 0) then (fun ys¹⁷⁷ -> ys¹⁷⁷) else 
-//│ 	let t¹⁶⁹ = tab_lh_₁((_lh_tab_arg1³ - 1))
-//│ 	in let h¹⁶⁹ = ' '
-//│ 	in (fun ys¹⁷⁸ -> 
-//│ 		let t¹⁷⁰ = mappend_lh_₂₁(t¹⁶⁹, ys¹⁷⁸)
-//│ 		in let h¹⁷⁰ = h¹⁶⁹
-//│ 		in (fun ys¹⁷⁹ -> [LH_C h¹⁷⁰ mappend_lh_₂₄(t¹⁷⁰, ys¹⁷⁹)]))
-//│ def tab_lh_₂(_lh_tab_arg1²) = if (_lh_tab_arg1² <= 0) then [LH_N] else [LH_C ' ' tab_lh_₂((_lh_tab_arg1² - 1))]
-//│ def take_lh_₁(n⁷, ls⁴⁴) = if (n⁷ > 0) then case ls⁴⁴ of {
-//│ 	LH_C h⁴³ t⁴³ => 
-//│ 		let ty² = take_lh_₁((n⁷ - 1), t⁴³)
-//│ 		in let hy² = h⁴³
-//│ 		in (fun f³² -> (fun hx³ -> (fun tx³ -> 
-//│ 			let t¹⁰⁹ = zipWith_lh_₁(f³², tx³, ty²)
-//│ 			in let h¹⁰⁹ = f³²(hx³, hy²)
-//│ 			in (fun _lh_dummy⁴ -> mappend_lh_₂₀(h¹⁰⁹, concat_lh_₂(t¹⁰⁹))))))
-//│ 	| LH_N  => (fun f³³ -> (fun hx⁴ -> (fun tx⁴ -> (fun _lh_dummy⁵ -> (fun f³⁴ -> (fun i¹⁸ -> i¹⁸))))))} else (fun f³⁵ -> (fun hx⁵ -> (fun tx⁵ -> (fun _lh_dummy⁶ -> (fun f³⁶ -> (fun i¹⁹ -> i¹⁹))))))
-//│ def take_lh_₂(n⁶, ls⁴³) = if (n⁶ > 0) then case ls⁴³ of {
-//│ 	LH_C h⁴¹ t⁴¹ => [LH_C h⁴¹ take_lh_₂((n⁶ - 1), t⁴¹)]
+//│ 		| _  => error⁰})), _lh_sort_arg1⁰, [LH_N])
+//│ def sort_lh_₂(_lh_sort_arg1¹) = qsort_lh_₁((fun a⁷ -> (fun b⁵ -> 
+//│ 	let _lh_matchIdent³⁰ = a⁷
+//│ 	in case _lh_matchIdent³⁰ of {
+//│ 		LH_P2 _lh_sort_LH_P2_0² _lh_sort_LH_P2_1² => 
+//│ 			let _lh_matchIdent³¹ = b⁵
+//│ 			in case _lh_matchIdent³¹ of {
+//│ 				LH_P2 _lh_sort_LH_P2_0³ _lh_sort_LH_P2_1³ => (length_lh_₄(_lh_sort_LH_P2_0²) <= length_lh_₄(_lh_sort_LH_P2_0³))
+//│ 				| _  => error⁰}
+//│ 		| _  => error⁰})), _lh_sort_arg1¹, [LH_N])
+//│ def sort_lh_₃(_lh_sort_arg1²) = qsort_lh_₁((fun a¹² -> (fun b⁹ -> 
+//│ 	let _lh_matchIdent⁶¹ = a¹²
+//│ 	in case _lh_matchIdent⁶¹ of {
+//│ 		LH_P2 _lh_sort_LH_P2_0⁴ _lh_sort_LH_P2_1⁴ => 
+//│ 			let _lh_matchIdent⁶² = b⁹
+//│ 			in case _lh_matchIdent⁶² of {
+//│ 				LH_P2 _lh_sort_LH_P2_0⁵ _lh_sort_LH_P2_1⁵ => (length_lh_₄(_lh_sort_LH_P2_0⁴) <= length_lh_₄(_lh_sort_LH_P2_0⁵))
+//│ 				| _  => error⁰}
+//│ 		| _  => error⁰})), _lh_sort_arg1², [LH_N])
+//│ def splitAt_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰, _lh_dummy⁰, _lh_dummy¹) = 
+//│ 	let _lh_parseProblem_LH_P2_1⁰ = drop_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰)
+//│ 	in let _lh_parseProblem_LH_P2_0⁰ = take_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰)
+//│ 	in let bd⁰ = parseBoard_lh_₁(_lh_parseProblem_LH_P2_0⁰)
+//│ 	in let gl⁰ = parseGoal_lh_₁(_lh_parseProblem_LH_P2_1⁰)
+//│ 	in let _lh_testMate_nofib_LH_P2_1⁰ = gl⁰
+//│ 	in let _lh_testMate_nofib_LH_P2_0⁰ = bd⁰
+//│ 	in _lh_testMate_nofib_LH_P2_1⁰(_lh_testMate_nofib_LH_P2_0⁰)
+//│ def tab_lh_₁(_lh_tab_arg1¹, _lh_floatOutId_0⁷) = if (_lh_tab_arg1¹ <= 0) then _lh_floatOutId_0⁷ else (fun ys¹⁴³ -> 
+//│ 	let t¹³⁵ = tab_lh_₁((_lh_tab_arg1¹ - 1))
+//│ 	in let h¹³⁵ = ' '
+//│ 	in let t¹³⁶ = mappend_lh_₂₁(t¹³⁵, _lh_floatOutId_0⁷)
+//│ 	in let h¹³⁶ = h¹³⁵
+//│ 	in [LH_C h¹³⁶ mappend_lh_₂₄(t¹³⁶, ys¹⁴³)])
+//│ def tab_lh_₂(_lh_tab_arg1⁰) = if (_lh_tab_arg1⁰ <= 0) then [LH_N] else [LH_C ' ' tab_lh_₂((_lh_tab_arg1⁰ - 1))]
+//│ def take_lh_₁(n², ls¹³, _lh_floatOutId_0⁴, _lh_floatOutId_1³, _lh_floatOutId_2¹, _lh_floatOutId_3¹) = if (n² > 0) then case ls¹³ of {
+//│ 	LH_C h⁵⁸ t⁵⁸ => 
+//│ 		let ty⁰ = take_lh_₁((n² - 1), t⁵⁸)
+//│ 		in let hy⁰ = h⁵⁸
+//│ 		in let t⁵⁹ = zipWith_lh_₁(_lh_floatOutId_0⁴, _lh_floatOutId_2¹, ty⁰)
+//│ 		in let h⁵⁹ = _lh_floatOutId_0⁴(_lh_floatOutId_1³, hy⁰)
+//│ 		in mappend_lh_₂₀(h⁵⁹, concat_lh_₂(t⁵⁹))
+//│ 	| LH_N  => (fun f¹⁸ -> (fun i⁹ -> i⁹))} else (fun f²⁰ -> (fun i¹⁰ -> i¹⁰))
+//│ def take_lh_₂(n¹, ls¹²) = if (n¹ > 0) then case ls¹² of {
+//│ 	LH_C h⁴³ t⁴³ => [LH_C h⁴³ take_lh_₂((n¹ - 1), t⁴³)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
-//│ def testMate_nofib_lh_₁(_lh_testMate_nofib_arg1¹) = 
-//│ 	let input¹ = primId⁰([LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'A' [LH_C '.' [LH_C ' ' [LH_C 'E' [LH_C 'l' [LH_C 'l' [LH_C 'e' [LH_C 'r' [LH_C 'm' [LH_C 'a' [LH_C 'n' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C '1' [LH_C 's' [LH_C 't' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'i' [LH_C 'z' [LH_C 'e' [LH_C ',' [LH_C ' ' [LH_C 'L' [LH_C 'u' [LH_C 'i' [LH_C 'g' [LH_C 'i' [LH_C ' ' [LH_C 'C' [LH_C 'e' [LH_C 'n' [LH_C 't' [LH_C 'u' [LH_C 'r' [LH_C 'i' [LH_C 'n' [LH_C 'i' [LH_C ',' [LH_C ' ' [LH_C 'G' [LH_C 'e' [LH_C 'n' [LH_C 'o' [LH_C 'a' [LH_C ',' [LH_C ' ' [LH_C '1' [LH_C '9' [LH_C '2' [LH_C '5' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C '`' [LH_C 'O' [LH_C 'n' [LH_C 'e' [LH_C ' ' [LH_C 'o' [LH_C 'f' [LH_C ' ' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C ' ' [LH_C 'v' [LH_C 'e' [LH_C 'r' [LH_C 'y' [LH_C ' ' [LH_C 'b' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C ' ' [LH_C 'm' [LH_C 'o' [LH_C 'd' [LH_C 'e' [LH_C 'r' [LH_C 'n' [LH_C ' ' [LH_C 't' [LH_C 'w' [LH_C 'o' [LH_C '-' [LH_C 'm' [LH_C 'o' [LH_C 'v' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_C ',' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'u' [LH_C 'n' [LH_C 's' [LH_C 'u' [LH_C 'r' [LH_C 'p' [LH_C 'a' [LH_C 's' [LH_C 's' [LH_C 'e' [LH_C 'd' [LH_C ' ' [LH_C 'f' [LH_C 'o' [LH_C 'r' [LH_C ' ' [LH_C 'b' [LH_C 'e' [LH_C 'a' [LH_C 'u' [LH_C 't' [LH_C 'y' [LH_C ' ' [LH_C 'o' [LH_C 'f' [LH_C ' ' [LH_C 'i' [LH_C 'd' [LH_C 'e' [LH_C 'a' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'd' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'e' [LH_C 'x' [LH_C 'e' [LH_C 'c' [LH_C 'u' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C '.' [LH_C ' ' [LH_C '(' [LH_C 'P' [LH_C 'h' [LH_C 'i' [LH_C 'l' [LH_C 'l' [LH_C 'i' [LH_C 'p' [LH_C 's' [LH_C ')' [LH_C '|' [LH_C '|' [LH_C 'b' [LH_C ' ' [LH_C 'k' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C 'n' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C 'r' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C 'R' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'K' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'r' [LH_C ' ' [LH_C 'P' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C 'Q' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'q' [LH_C ' ' [LH_C 'B' [LH_C ' ' [LH_C 'B' [LH_C ' ' [LH_C '|' [LH_C '|' [LH_C 'W' [LH_C 'h' [LH_C 'i' [LH_C 't' [LH_C 'e' [LH_C ' ' [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 'p' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'd' [LH_C ' ' [LH_C 'm' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C ' ' [LH_C 'i' [LH_C 'n' [LH_C ' ' [LH_C '2' [LH_C '|' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
-//│ 	in let bdcn¹ = readProblem_lh_₁(input¹)
-//│ 	in let _lh_matchIdent⁶⁷ = bdcn¹
-//│ 	in _lh_matchIdent⁶⁷(99)
-//│ def toLower_lh_₁(_lh_toLower_arg1¹) = 
-//│ 	let _lh_matchIdent¹²⁴ = _lh_toLower_arg1¹
-//│ 	in case _lh_matchIdent¹²⁴ of {
+//│ def testMate_nofib_lh_₁(_lh_testMate_nofib_arg1⁰) = 
+//│ 	let input⁰ = primId⁰([LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'A' [LH_C '.' [LH_C ' ' [LH_C 'E' [LH_C 'l' [LH_C 'l' [LH_C 'e' [LH_C 'r' [LH_C 'm' [LH_C 'a' [LH_C 'n' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C '1' [LH_C 's' [LH_C 't' [LH_C ' ' [LH_C 'p' [LH_C 'r' [LH_C 'i' [LH_C 'z' [LH_C 'e' [LH_C ',' [LH_C ' ' [LH_C 'L' [LH_C 'u' [LH_C 'i' [LH_C 'g' [LH_C 'i' [LH_C ' ' [LH_C 'C' [LH_C 'e' [LH_C 'n' [LH_C 't' [LH_C 'u' [LH_C 'r' [LH_C 'i' [LH_C 'n' [LH_C 'i' [LH_C ',' [LH_C ' ' [LH_C 'G' [LH_C 'e' [LH_C 'n' [LH_C 'o' [LH_C 'a' [LH_C ',' [LH_C ' ' [LH_C '1' [LH_C '9' [LH_C '2' [LH_C '5' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C '`' [LH_C 'O' [LH_C 'n' [LH_C 'e' [LH_C ' ' [LH_C 'o' [LH_C 'f' [LH_C ' ' [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C ' ' [LH_C 'v' [LH_C 'e' [LH_C 'r' [LH_C 'y' [LH_C ' ' [LH_C 'b' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_C ' ' [LH_C 'm' [LH_C 'o' [LH_C 'd' [LH_C 'e' [LH_C 'r' [LH_C 'n' [LH_C ' ' [LH_C 't' [LH_C 'w' [LH_C 'o' [LH_C '-' [LH_C 'm' [LH_C 'o' [LH_C 'v' [LH_C 'e' [LH_C 'r' [LH_C 's' [LH_C ',' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'u' [LH_C 'n' [LH_C 's' [LH_C 'u' [LH_C 'r' [LH_C 'p' [LH_C 'a' [LH_C 's' [LH_C 's' [LH_C 'e' [LH_C 'd' [LH_C ' ' [LH_C 'f' [LH_C 'o' [LH_C 'r' [LH_C ' ' [LH_C 'b' [LH_C 'e' [LH_C 'a' [LH_C 'u' [LH_C 't' [LH_C 'y' [LH_C ' ' [LH_C 'o' [LH_C 'f' [LH_C ' ' [LH_C 'i' [LH_C 'd' [LH_C 'e' [LH_C 'a' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'd' [LH_C '|' [LH_C '-' [LH_C '-' [LH_C ' ' [LH_C 'e' [LH_C 'x' [LH_C 'e' [LH_C 'c' [LH_C 'u' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C '.' [LH_C ' ' [LH_C '(' [LH_C 'P' [LH_C 'h' [LH_C 'i' [LH_C 'l' [LH_C 'l' [LH_C 'i' [LH_C 'p' [LH_C 's' [LH_C ')' [LH_C '|' [LH_C '|' [LH_C 'b' [LH_C ' ' [LH_C 'k' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C 'n' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C 'r' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C 'R' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'K' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'r' [LH_C ' ' [LH_C 'P' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'p' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C 'Q' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '|' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C '-' [LH_C ' ' [LH_C 'q' [LH_C ' ' [LH_C 'B' [LH_C ' ' [LH_C 'B' [LH_C ' ' [LH_C '|' [LH_C '|' [LH_C 'W' [LH_C 'h' [LH_C 'i' [LH_C 't' [LH_C 'e' [LH_C ' ' [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 'p' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'd' [LH_C ' ' [LH_C 'm' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C ' ' [LH_C 'i' [LH_C 'n' [LH_C ' ' [LH_C '2' [LH_C '|' [LH_N]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+//│ 	in let bdcn⁰ = readProblem_lh_₁(input⁰)
+//│ 	in let _lh_matchIdent¹ = bdcn⁰
+//│ 	in _lh_matchIdent¹(99)
+//│ def toLower_lh_₁(_lh_toLower_arg1⁰) = 
+//│ 	let _lh_matchIdent⁵⁸ = _lh_toLower_arg1⁰
+//│ 	in case _lh_matchIdent⁵⁸ of {
 //│ 		'A'  => 'a'
 //│ 		| 'B'  => 'b'
 //│ 		| 'C'  => 'c'
@@ -5630,58 +5627,58 @@ testMate_nofib $ primId 0
 //│ 		| 'X'  => 'x'
 //│ 		| 'Y'  => 'y'
 //│ 		| 'Z'  => 'z'
-//│ 		| _  => _lh_matchIdent¹²⁴}
-//│ def tryMove_lh_₁(_lh_tryMove_arg1², _lh_tryMove_arg2², _lh_tryMove_arg3², _lh_tryMove_arg4²) = case _lh_tryMove_arg2² of {
-//│ 	LH_P2 _lh_tryMove_LH_P2_0¹ _lh_tryMove_LH_P2_1¹ => case _lh_tryMove_arg3² of {
-//│ 		Move _lh_tryMove_Move_0¹ _lh_tryMove_Move_1¹ _lh_tryMove_Move_2¹ => 
-//│ 			let p² = [LH_P2 _lh_tryMove_arg1² _lh_tryMove_LH_P2_0¹]
-//│ 			in let bd1² = rmPieceAt_lh_₁(_lh_tryMove_arg1², _lh_tryMove_LH_P2_1¹, _lh_tryMove_arg4²)
-//│ 			in let p'² = maybe_lh_₃(p², (fun x¹⁶ -> x¹⁶), _lh_tryMove_Move_2¹)
-//│ 			in let bd2² = maybe_lh_₂(putPieceAt_lh_₃(_lh_tryMove_Move_0¹, p'², bd1²), (fun _dummy² -> putPieceAt_lh_₂(_lh_tryMove_Move_0¹, p'², rmPieceAt_lh_₂(opponent_lh_₅(_lh_tryMove_arg1²), _lh_tryMove_Move_0¹, bd1²))), _lh_tryMove_Move_1¹)
-//│ 			in if not⁰(kingincheck_lh_₂(_lh_tryMove_arg1², bd2²)) then 
-//│ 				let _lh_maybe_Just_0⁴ = 	
-//│ 					let _lh_solution_LH_P2_1¹ = bd2²
-//│ 					in let _lh_solution_LH_P2_0¹ = [MoveInFull p² _lh_tryMove_LH_P2_1¹ [Move _lh_tryMove_Move_0¹ _lh_tryMove_Move_1¹ _lh_tryMove_Move_2¹]]
-//│ 					in (fun _lh_solution_arg2² -> (fun _lh_solution_arg3² -> (fun other² -> 
-//│ 						let rsm¹ = replies_lh_₁(_lh_solution_LH_P2_1¹, opponent_lh_₂(_lh_solution_arg2²), (_lh_solution_arg3² - 1))
-//│ 						in let _lh_matchIdent¹⁰⁵ = rsm¹
-//│ 						in case _lh_matchIdent¹⁰⁵ of {
-//│ 							Nothing  => other²
-//│ 							| Just _lh_solution_Just_0⁰ => case _lh_solution_Just_0⁰ of {
-//│ 								LH_N  => if kingincheck_lh_₁(opponent_lh_₁(_lh_solution_arg2²), _lh_solution_LH_P2_1¹) then [Just 
-//│ 									let _lh_compact_Solution_1¹ = [LH_N]
-//│ 									in let _lh_compact_Solution_0¹ = _lh_solution_LH_P2_0¹
-//│ 									in (fun _lh_dummy² -> [Soln _lh_compact_Solution_0¹ foldr_lh_₇(insertCompact_lh_₁, [LH_N], _lh_compact_Solution_1¹)])] else other²
-//│ 								| _  => [Just 
-//│ 									let _lh_compact_Solution_1² = _lh_solution_Just_0⁰
-//│ 									in let _lh_compact_Solution_0² = _lh_solution_LH_P2_0¹
-//│ 									in (fun _lh_dummy³ -> [Soln _lh_compact_Solution_0² foldr_lh_₇(insertCompact_lh_₁, [LH_N], _lh_compact_Solution_1²)])]}
-//│ 							| _  => error⁰})))
-//│ 				in (fun _lh_maybe_arg1⁵ -> (fun _lh_maybe_arg2⁵ -> _lh_maybe_arg2⁵(_lh_maybe_Just_0⁴))) else (fun _lh_maybe_arg1⁶ -> (fun _lh_maybe_arg2⁶ -> _lh_maybe_arg1⁶))
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
-//│ def tryMove_lh_₂(_lh_tryMove_arg1³, _lh_tryMove_arg2³, _lh_tryMove_arg3³, _lh_tryMove_arg4³) = case _lh_tryMove_arg2³ of {
-//│ 	LH_P2 _lh_tryMove_LH_P2_0⁰ _lh_tryMove_LH_P2_1⁰ => case _lh_tryMove_arg3³ of {
+//│ 		| _  => _lh_matchIdent⁵⁸}
+//│ def tryMove_lh_₁(_lh_tryMove_arg1⁰, _lh_tryMove_arg2⁰, _lh_tryMove_arg3⁰, _lh_tryMove_arg4⁰) = case _lh_tryMove_arg2⁰ of {
+//│ 	LH_P2 _lh_tryMove_LH_P2_0⁰ _lh_tryMove_LH_P2_1⁰ => case _lh_tryMove_arg3⁰ of {
 //│ 		Move _lh_tryMove_Move_0⁰ _lh_tryMove_Move_1⁰ _lh_tryMove_Move_2⁰ => 
-//│ 			let p³ = [LH_P2 _lh_tryMove_arg1³ _lh_tryMove_LH_P2_0⁰]
-//│ 			in let bd1³ = rmPieceAt_lh_₂(_lh_tryMove_arg1³, _lh_tryMove_LH_P2_1⁰, _lh_tryMove_arg4³)
-//│ 			in let p'³ = maybe_lh_₄(p³, (fun x¹⁸ -> x¹⁸), _lh_tryMove_Move_2⁰)
-//│ 			in let bd2³ = maybe_lh_₄(putPieceAt_lh_₃(_lh_tryMove_Move_0⁰, p'³, bd1³), (fun _dummy³ -> putPieceAt_lh_₃(_lh_tryMove_Move_0⁰, p'³, rmPieceAt_lh_₂(opponent_lh_₅(_lh_tryMove_arg1³), _lh_tryMove_Move_0⁰, bd1³))), _lh_tryMove_Move_1⁰)
-//│ 			in if not⁰(kingincheck_lh_₂(_lh_tryMove_arg1³, bd2³)) then [Just [LH_P2 [MoveInFull p³ _lh_tryMove_LH_P2_1⁰ [Move _lh_tryMove_Move_0⁰ _lh_tryMove_Move_1⁰ _lh_tryMove_Move_2⁰]] bd2³]] else [Nothing]
+//│ 			let p⁰ = [LH_P2 _lh_tryMove_arg1⁰ _lh_tryMove_LH_P2_0⁰]
+//│ 			in let bd1⁰ = rmPieceAt_lh_₁(_lh_tryMove_arg1⁰, _lh_tryMove_LH_P2_1⁰, _lh_tryMove_arg4⁰)
+//│ 			in let p'⁰ = maybe_lh_₃(p⁰, (fun x⁶ -> x⁶), _lh_tryMove_Move_2⁰)
+//│ 			in let bd2⁰ = maybe_lh_₂(putPieceAt_lh_₃(_lh_tryMove_Move_0⁰, p'⁰, bd1⁰), (fun _dummy⁰ -> putPieceAt_lh_₂(_lh_tryMove_Move_0⁰, p'⁰, rmPieceAt_lh_₂(opponent_lh_₅(_lh_tryMove_arg1⁰), _lh_tryMove_Move_0⁰, bd1⁰))), _lh_tryMove_Move_1⁰)
+//│ 			in if not⁰(kingincheck_lh_₂(_lh_tryMove_arg1⁰, bd2⁰)) then 
+//│ 				let _lh_maybe_Just_0¹ = 	
+//│ 					let _lh_solution_LH_P2_1⁰ = bd2⁰
+//│ 					in let _lh_solution_LH_P2_0⁰ = [MoveInFull p⁰ _lh_tryMove_LH_P2_1⁰ [Move _lh_tryMove_Move_0⁰ _lh_tryMove_Move_1⁰ _lh_tryMove_Move_2⁰]]
+//│ 					in (fun _lh_solution_arg2¹ -> (fun _lh_solution_arg3¹ -> (fun other¹ -> 
+//│ 						let rsm⁰ = replies_lh_₁(_lh_solution_LH_P2_1⁰, opponent_lh_₂(_lh_solution_arg2¹), (_lh_solution_arg3¹ - 1))
+//│ 						in let _lh_matchIdent³⁹ = rsm⁰
+//│ 						in case _lh_matchIdent³⁹ of {
+//│ 							Nothing  => other¹
+//│ 							| Just _lh_solution_Just_0⁰ => case _lh_solution_Just_0⁰ of {
+//│ 								LH_N  => if kingincheck_lh_₁(opponent_lh_₁(_lh_solution_arg2¹), _lh_solution_LH_P2_1⁰) then [Just 
+//│ 									let _lh_compact_Solution_1⁰ = [LH_N]
+//│ 									in let _lh_compact_Solution_0⁰ = _lh_solution_LH_P2_0⁰
+//│ 									in (fun _lh_dummy² -> [Soln _lh_compact_Solution_0⁰ foldr_lh_₇(insertCompact_lh_₁, [LH_N], _lh_compact_Solution_1⁰)])] else other¹
+//│ 								| _  => [Just 
+//│ 									let _lh_compact_Solution_1¹ = _lh_solution_Just_0⁰
+//│ 									in let _lh_compact_Solution_0¹ = _lh_solution_LH_P2_0⁰
+//│ 									in (fun _lh_dummy³ -> [Soln _lh_compact_Solution_0¹ foldr_lh_₇(insertCompact_lh_₁, [LH_N], _lh_compact_Solution_1¹)])]}
+//│ 							| _  => error⁰})))
+//│ 				in (fun _lh_maybe_arg1¹ -> (fun _lh_maybe_arg2¹ -> _lh_maybe_arg2¹(_lh_maybe_Just_0¹))) else (fun _lh_maybe_arg1² -> (fun _lh_maybe_arg2² -> _lh_maybe_arg1²))
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def unlines_lh_₁(_lh_unlines_arg1¹) = concat_lh_₁(map_lh_₂((fun l¹ -> mappend_lh_₉(l¹, [LH_C '|' [LH_N]])), _lh_unlines_arg1¹))
-//│ def words_lh_₁(_lh_words_arg1¹) = 
-//│ 	let _lh_matchIdent⁹¹ = dropWhile_lh_₁((fun x¹³ -> polyEq⁰(x¹³, ' ')), _lh_words_arg1¹)
-//│ 	in case _lh_matchIdent⁹¹ of {
+//│ def tryMove_lh_₂(_lh_tryMove_arg1¹, _lh_tryMove_arg2¹, _lh_tryMove_arg3¹, _lh_tryMove_arg4¹) = case _lh_tryMove_arg2¹ of {
+//│ 	LH_P2 _lh_tryMove_LH_P2_0¹ _lh_tryMove_LH_P2_1¹ => case _lh_tryMove_arg3¹ of {
+//│ 		Move _lh_tryMove_Move_0¹ _lh_tryMove_Move_1¹ _lh_tryMove_Move_2¹ => 
+//│ 			let p¹ = [LH_P2 _lh_tryMove_arg1¹ _lh_tryMove_LH_P2_0¹]
+//│ 			in let bd1¹ = rmPieceAt_lh_₂(_lh_tryMove_arg1¹, _lh_tryMove_LH_P2_1¹, _lh_tryMove_arg4¹)
+//│ 			in let p'¹ = maybe_lh_₄(p¹, (fun x⁸ -> x⁸), _lh_tryMove_Move_2¹)
+//│ 			in let bd2¹ = maybe_lh_₄(putPieceAt_lh_₃(_lh_tryMove_Move_0¹, p'¹, bd1¹), (fun _dummy¹ -> putPieceAt_lh_₃(_lh_tryMove_Move_0¹, p'¹, rmPieceAt_lh_₂(opponent_lh_₅(_lh_tryMove_arg1¹), _lh_tryMove_Move_0¹, bd1¹))), _lh_tryMove_Move_1¹)
+//│ 			in if not⁰(kingincheck_lh_₂(_lh_tryMove_arg1¹, bd2¹)) then [Just [LH_P2 [MoveInFull p¹ _lh_tryMove_LH_P2_1¹ [Move _lh_tryMove_Move_0¹ _lh_tryMove_Move_1¹ _lh_tryMove_Move_2¹]] bd2¹]] else [Nothing]
+//│ 		| _  => error⁰}
+//│ 	| _  => error⁰}
+//│ def unlines_lh_₁(_lh_unlines_arg1⁰) = concat_lh_₁(map_lh_₂((fun l⁰ -> mappend_lh_₉(l⁰, [LH_C '|' [LH_N]])), _lh_unlines_arg1⁰))
+//│ def words_lh_₁(_lh_words_arg1⁰) = 
+//│ 	let _lh_matchIdent²⁵ = dropWhile_lh_₁((fun x³ -> polyEq⁰(x³, ' ')), _lh_words_arg1⁰)
+//│ 	in case _lh_matchIdent²⁵ of {
 //│ 		LH_N  => [LH_N]
 //│ 		| _  => 
-//│ 			let _lh_matchIdent⁹² = break_lh_₂((fun x¹⁴ -> polyEq⁰(x¹⁴, ' ')), _lh_matchIdent⁹¹)
-//│ 			in case _lh_matchIdent⁹² of {
+//│ 			let _lh_matchIdent²⁶ = break_lh_₂((fun x⁴ -> polyEq⁰(x⁴, ' ')), _lh_matchIdent²⁵)
+//│ 			in case _lh_matchIdent²⁶ of {
 //│ 				LH_P2 _lh_words_LH_P2_0⁰ _lh_words_LH_P2_1⁰ => [LH_C _lh_words_LH_P2_0⁰ words_lh_₁(_lh_words_LH_P2_1⁰)]
 //│ 				| _  => error⁰}}
-//│ def zipWith_lh_₁(f⁴⁸, xs⁵⁹, ys¹²⁰) = xs⁵⁹(f⁴⁸, ys¹²⁰)
-//│ def zipWith_lh_₂(f²⁸, xs⁴⁹, ys⁷⁸) = xs⁴⁹(f²⁸, ys⁷⁸)
+//│ def zipWith_lh_₁(f³², xs²³, ys⁸⁴) = xs²³(f³², ys⁸⁴)
+//│ def zipWith_lh_₂(f¹², xs¹³, ys⁴²) = xs¹³(f¹², ys⁴²)
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

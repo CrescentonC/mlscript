@@ -7,11 +7,11 @@ module Module_lumberhack_float_out_____(LH_Dum: sig end): sig val run: unit -> i
 let rec scanl_lh__d1 _lh_scanl_arg1_2 _lh_scanl_arg2_2 _lh_scanl_arg3_0 =
   (`LH_C(_lh_scanl_arg2_2, (let rec _lh_matchIdent_2_3 = _lh_scanl_arg3_0 in
     ((_lh_matchIdent_2_3 _lh_scanl_arg1_2) _lh_scanl_arg2_2))));;
-let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_popOutId_0_5 _lh_popOutId_1_4 =
+let rec copy_lh__d1 _lh_copy_arg1_0 _lh_copy_arg2_0 _lh_floatOutId_0_5 _lh_floatOutId_1_4 =
   (if (_lh_copy_arg1_0 > 0) then
     (let rec _lh_scanl_LH_C_1_0 = ((copy_lh__d1 (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0) in
       (let rec _lh_scanl_LH_C_0_0 = _lh_copy_arg2_0 in
-        (((scanl_lh__d1 _lh_popOutId_0_5) ((_lh_popOutId_0_5 _lh_popOutId_1_4) _lh_scanl_LH_C_0_0)) _lh_scanl_LH_C_1_0)))
+        (((scanl_lh__d1 _lh_floatOutId_0_5) ((_lh_floatOutId_0_5 _lh_floatOutId_1_4) _lh_scanl_LH_C_0_0)) _lh_scanl_LH_C_1_0)))
   else
     (`LH_N));;
 let rec pad_circuit_lh__d1 _lh_pad_circuit_arg1_0 =
@@ -67,13 +67,13 @@ let rec zip_lh__d1 xs_1 ys_1 =
     | `LH_N -> 
       (fun _lh_listcomp_fun_1 _lh_store_inputs_PS_0_0 _lh_store_inputs_PS_2_0 _lh_store_inputs_PS_3_0 _lh_store_inputs_PS_4_0 -> 
         (`LH_N)));;
-let rec copy_lh__d2 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_popOutId_0_7 _lh_popOutId_1_6 _lh_popOutId_2_2 _lh_popOutId_3_0 _lh_popOutId_4_0 _lh_popOutId_5_0 _lh_popOutId_6_0 =
+let rec copy_lh__d2 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_floatOutId_0_7 _lh_floatOutId_1_6 _lh_floatOutId_2_2 _lh_floatOutId_3_0 _lh_floatOutId_4_0 _lh_floatOutId_5_0 _lh_floatOutId_6_0 =
   (if (_lh_copy_arg1_1 > 0) then
     (let rec ty_7 = ((copy_lh__d2 (_lh_copy_arg1_1 - 1)) _lh_copy_arg2_1) in
       (let rec hy_7 = _lh_copy_arg2_1 in
-        (let rec _lh_listcomp_fun_ls_t_9 = ((zip_lh__d1 _lh_popOutId_1_6) ty_7) in
+        (let rec _lh_listcomp_fun_ls_t_9 = ((zip_lh__d1 _lh_floatOutId_1_6) ty_7) in
           (let rec _lh_listcomp_fun_ls_h_9 = (let rec _lh_store_inputs_LH_P2_1_0 = hy_7 in
-            (let rec _lh_store_inputs_LH_P2_0_0 = _lh_popOutId_0_7 in
+            (let rec _lh_store_inputs_LH_P2_0_0 = _lh_floatOutId_0_7 in
               (fun _lh_listcomp_fun_ls_t_1_0 _lh_listcomp_fun_1_2 _lh_store_inputs_PS_0_1 _lh_store_inputs_PS_2_1 _lh_store_inputs_PS_3_1 _lh_store_inputs_PS_4_1 -> 
                 (match _lh_store_inputs_LH_P2_0_0 with
                   | `LH_P2(_lh_store_inputs_LH_P2_0_1, _lh_store_inputs_LH_P2_1_1) -> 
@@ -83,7 +83,7 @@ let rec copy_lh__d2 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_popOutId_0_7 _lh_popOutI
                       (_lh_listcomp_fun_1_2 _lh_listcomp_fun_ls_t_1_0))
                   | _ -> 
                     (_lh_listcomp_fun_1_2 _lh_listcomp_fun_ls_t_1_0))))) in
-            ((((((_lh_listcomp_fun_ls_h_9 _lh_listcomp_fun_ls_t_9) _lh_popOutId_2_2) _lh_popOutId_3_0) _lh_popOutId_4_0) _lh_popOutId_5_0) _lh_popOutId_6_0)))))
+            ((((((_lh_listcomp_fun_ls_h_9 _lh_listcomp_fun_ls_t_9) _lh_floatOutId_2_2) _lh_floatOutId_3_0) _lh_floatOutId_4_0) _lh_floatOutId_5_0) _lh_floatOutId_6_0)))))
   else
     (`LH_N));;
 let rec map_lh__d2 f_2_5 ls_1_4 =
@@ -389,13 +389,13 @@ let rec simulate_components_lh__d1 _lh_simulate_components_arg1_0 _lh_simulate_c
   ((map_lh__d7 (simulate_component_lh__d1 _lh_simulate_components_arg1_0)) _lh_simulate_components_arg2_0);;
 let rec foldl_lh__d1 f_4 i_0 ls_2 =
   ((ls_2 f_4) i_0);;
-let rec enumFromTo_lh__d4 a_2 b_0 _lh_popOutId_0_3 _lh_popOutId_1_2 =
+let rec enumFromTo_lh__d4 a_2 b_0 _lh_floatOutId_0_3 _lh_floatOutId_1_2 =
   (if (a_2 <= b_0) then
     (let rec t_8 = ((enumFromTo_lh__d4 (a_2 + 1)) b_0) in
       (let rec h_8 = a_2 in
-        (((foldl_lh__d1 _lh_popOutId_0_3) ((_lh_popOutId_0_3 _lh_popOutId_1_2) h_8)) t_8)))
+        (((foldl_lh__d1 _lh_floatOutId_0_3) ((_lh_floatOutId_0_3 _lh_floatOutId_1_2) h_8)) t_8)))
   else
-    _lh_popOutId_1_2);;
+    _lh_floatOutId_1_2);;
 let rec foldr_lh__d1 f_1_8 i_3 ls_1_0 =
   (match ls_1_0 with
     | `LH_C(h_1_2, t_1_2) -> 
@@ -501,12 +501,12 @@ let rec check_depth_lh__d4 _lh_check_depth_arg1_2 _lh_check_depth_arg2_2 =
     _lh_check_depth_arg2_2
   else
     ((update_requests_lh__d3 false) _lh_check_depth_arg2_2));;
-let rec map_lh__d1_d7 f_4_1 ls_2_6 _lh_popOutId_0_9 =
+let rec map_lh__d1_d7 f_4_1 ls_2_6 _lh_floatOutId_0_9 =
   (match ls_2_6 with
     | `LH_C(h_2_9, t_2_9) -> 
       (let rec t_3_0 = ((map_lh__d1_d7 f_4_1) t_2_9) in
         (let rec h_3_0 = (f_4_1 h_2_9) in
-          (`LH_C((_lh_popOutId_0_9 h_3_0), ((map_lh__d1_d8 _lh_popOutId_0_9) t_3_0)))))
+          (`LH_C((_lh_floatOutId_0_9 h_3_0), ((map_lh__d1_d8 _lh_floatOutId_0_9) t_3_0)))))
     | `LH_N -> 
       (`LH_N));;
 let rec make_packet_lh__d2 _lh_make_packet_arg1_1 =
@@ -892,13 +892,13 @@ let rec map_lh__d1_d4 f_3_4 ls_2_0 =
   (ls_2_0 f_3_4);;
 let rec or_lh__d3 _lh_or_arg1_0 =
   (_lh_or_arg1_0 99);;
-let rec map_lh__d1_d5 f_1 ls_1 _lh_popOutId_0_1 _lh_popOutId_1_1 =
+let rec map_lh__d1_d5 f_1 ls_1 _lh_floatOutId_0_1 _lh_floatOutId_1_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
       (let rec t_2 = ((map_lh__d1_d5 f_1) t_1) in
         (let rec h_2 = (f_1 h_1) in
-          (let rec _lh_or_LH_C_1_0 = ((map_lh__d1_d4 _lh_popOutId_0_1) t_2) in
-            (let rec _lh_or_LH_C_0_0 = (_lh_popOutId_0_1 h_2) in
+          (let rec _lh_or_LH_C_1_0 = ((map_lh__d1_d4 _lh_floatOutId_0_1) t_2) in
+            (let rec _lh_or_LH_C_0_0 = (_lh_floatOutId_0_1 h_2) in
               (if _lh_or_LH_C_0_0 then
                 true
               else
@@ -918,7 +918,7 @@ let rec check_depth_lh__d3 _lh_check_depth_arg1_3 _lh_check_depth_arg2_3 =
     _lh_check_depth_arg2_3
   else
     ((update_requests_lh__d3 false) _lh_check_depth_arg2_3));;
-let rec map_lh__d1_d6 f_4_8 ls_2_8 _lh_popOutId_0_1_1 =
+let rec map_lh__d1_d6 f_4_8 ls_2_8 _lh_floatOutId_0_1_1 =
   (match ls_2_8 with
     | `LH_C(h_3_3, t_3_3) -> 
       (let rec _lh_or_LH_C_1_2 = ((map_lh__d1_d6 f_4_8) t_3_3) in
@@ -945,12 +945,12 @@ let rec do_sends_lh__d2 _lh_do_sends_arg1_0 _lh_do_sends_arg2_0 =
   (((until_lh__d3 (acknowledge_lh__d2 _lh_do_sends_arg1_0)) (do_send_lh__d2 _lh_do_sends_arg1_0)) _lh_do_sends_arg2_0);;
 let rec map_lh__d1_d3 f_1_4 ls_9 =
   (ls_9 f_1_4);;
-let rec map_lh__d1_d1 f_6 ls_5 _lh_popOutId_0_2 =
+let rec map_lh__d1_d1 f_6 ls_5 _lh_floatOutId_0_2 =
   (match ls_5 with
     | `LH_C(h_6, t_6) -> 
       (let rec t_7 = ((map_lh__d1_d1 f_6) t_6) in
         (let rec h_7 = (f_6 h_6) in
-          (`LH_C((_lh_popOutId_0_2 h_7), ((map_lh__d1_d3 _lh_popOutId_0_2) t_7)))))
+          (`LH_C((_lh_floatOutId_0_2 h_7), ((map_lh__d1_d3 _lh_floatOutId_0_2) t_7)))))
     | `LH_N -> 
       (`LH_N));;
 let rec updateOutports_lh__d4 _lh_updateOutports_arg1_3 _lh_updateOutports_arg2_3 =
@@ -1163,20 +1163,20 @@ let rec or_lh__d2 _lh_or_arg1_3 =
   (_lh_or_arg1_3 99);;
 let rec map_lh__d9 f_0 ls_0 =
   (ls_0 f_0);;
-let rec map_lh__d1_d0 f_4_4 ls_2_7 _lh_popOutId_0_1_0 _lh_popOutId_1_8 =
+let rec map_lh__d1_d0 f_4_4 ls_2_7 _lh_floatOutId_0_1_0 _lh_floatOutId_1_8 =
   (match ls_2_7 with
     | `LH_C(h_3_1, t_3_1) -> 
       (let rec t_3_2 = ((map_lh__d1_d0 f_4_4) t_3_1) in
         (let rec h_3_2 = (f_4_4 h_3_1) in
-          (let rec _lh_or_LH_C_1_1 = ((map_lh__d9 _lh_popOutId_0_1_0) t_3_2) in
-            (let rec _lh_or_LH_C_0_1 = (_lh_popOutId_0_1_0 h_3_2) in
+          (let rec _lh_or_LH_C_1_1 = ((map_lh__d9 _lh_floatOutId_0_1_0) t_3_2) in
+            (let rec _lh_or_LH_C_0_1 = (_lh_floatOutId_0_1_0 h_3_2) in
               (if _lh_or_LH_C_0_1 then
                 true
               else
                 (or_lh__d1 _lh_or_LH_C_1_1))))))
     | `LH_N -> 
       false);;
-let rec map_lh__d8 f_4_9 ls_2_9 _lh_popOutId_0_1_2 =
+let rec map_lh__d8 f_4_9 ls_2_9 _lh_floatOutId_0_1_2 =
   (match ls_2_9 with
     | `LH_C(h_3_4, t_3_4) -> 
       (let rec _lh_or_LH_C_1_3 = ((map_lh__d8 f_4_9) t_3_4) in
@@ -1284,13 +1284,13 @@ let rec maximum_lh__d1 _lh_maximum_arg1_0 =
         ((go_0 _lh_maximum_LH_C_0_0) _lh_maximum_LH_C_1_0))
     | _ -> 
       (failwith "error"));;
-let rec enumFromTo_lh__d2 a_3 b_1 _lh_popOutId_0_4 _lh_popOutId_1_3 _lh_popOutId_2_0 =
+let rec enumFromTo_lh__d2 a_3 b_1 _lh_floatOutId_0_4 _lh_floatOutId_1_3 _lh_floatOutId_2_0 =
   (if (a_3 <= b_1) then
     (let rec _lh_listcomp_fun_ls_t_3 = ((enumFromTo_lh__d2 (a_3 + 1)) b_1) in
       (let rec _lh_listcomp_fun_ls_h_3 = a_3 in
-        (let rec ty_1 = (_lh_popOutId_0_4 _lh_listcomp_fun_ls_t_3) in
+        (let rec ty_1 = (_lh_floatOutId_0_4 _lh_listcomp_fun_ls_t_3) in
           (let rec hy_1 = ((7 * _lh_listcomp_fun_ls_h_3) + 7) in
-            ((((Lazy.force _lh_popOutId_2_0) _lh_popOutId_1_3) hy_1) ty_1)))))
+            ((((Lazy.force _lh_floatOutId_2_0) _lh_floatOutId_1_3) hy_1) ty_1)))))
   else
     (`LH_N));;
 let rec mappend_lh__d2 xs_5 ys_4 =
@@ -1365,25 +1365,25 @@ let rec tail_lh__d1 ls_1_5 =
       (failwith "error"));;
 let rec map_lh__d1 f_2_6 ls_1_6 =
   (ls_1_6 f_2_6);;
-let rec enumFromTo_lh__d1 a_5 b_2 _lh_popOutId_0_6 _lh_popOutId_1_5 _lh_popOutId_2_1 =
+let rec enumFromTo_lh__d1 a_5 b_2 _lh_floatOutId_0_6 _lh_floatOutId_1_5 _lh_floatOutId_2_1 =
   (if (a_5 <= b_2) then
     (let rec _lh_listcomp_fun_ls_t_8 = ((enumFromTo_lh__d1 (a_5 + 1)) b_2) in
       (let rec _lh_listcomp_fun_ls_h_8 = a_5 in
-        (let rec ty_4 = (_lh_popOutId_0_6 _lh_listcomp_fun_ls_t_8) in
+        (let rec ty_4 = (_lh_floatOutId_0_6 _lh_listcomp_fun_ls_t_8) in
           (let rec hy_4 = ((7 * _lh_listcomp_fun_ls_h_8) + 1) in
-            ((((Lazy.force _lh_popOutId_2_1) _lh_popOutId_1_5) hy_4) ty_4)))))
+            ((((Lazy.force _lh_floatOutId_2_1) _lh_floatOutId_1_5) hy_4) ty_4)))))
   else
     (`LH_N));;
 let rec concat_lh__d1 lss_0 =
   (lss_0 99);;
-let rec enumFromTo_lh__d3 a_7 b_3 _lh_popOutId_0_8 _lh_popOutId_1_7 _lh_popOutId_2_3 =
+let rec enumFromTo_lh__d3 a_7 b_3 _lh_floatOutId_0_8 _lh_floatOutId_1_7 _lh_floatOutId_2_3 =
   (if (a_7 <= b_3) then
     (let rec _lh_listcomp_fun_ls_t_1_1 = ((enumFromTo_lh__d3 (a_7 + 1)) b_3) in
       (let rec _lh_listcomp_fun_ls_h_1_0 = a_7 in
-        (let rec t_2_3 = (_lh_popOutId_0_8 _lh_listcomp_fun_ls_t_1_1) in
+        (let rec t_2_3 = (_lh_floatOutId_0_8 _lh_listcomp_fun_ls_t_1_1) in
           (let rec h_2_3 = ((7 * _lh_listcomp_fun_ls_h_1_0) + 1) in
-            (let rec t_2_4 = ((map_lh__d1 _lh_popOutId_1_7) t_2_3) in
-              (let rec h_2_4 = (_lh_popOutId_1_7 h_2_3) in
+            (let rec t_2_4 = ((map_lh__d1 _lh_floatOutId_1_7) t_2_3) in
+              (let rec h_2_4 = (_lh_floatOutId_1_7 h_2_3) in
                 ((mappend_lh__d3 h_2_4) (concat_lh__d1 t_2_4))))))))
   else
     (`LH_N));;
