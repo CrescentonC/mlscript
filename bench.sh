@@ -9,7 +9,8 @@ LastPiece_nofib_lh=20
 Mate_nofib_lh=60
 Secretary_nofib_lh=300
 
-
+echo compile and running the tests ...
+# compile and run the tests
 for dir in $dirlist
 do
   (
@@ -38,4 +39,18 @@ do
 
   eval $c
   )
-done
+done >> ./plot/time.txt
+echo done
+
+echo collecting binary size information ...
+# after the compilation, print the size information
+for dir in $dirlist
+do
+  (
+  cd new-nofib-ocaml-gen/$dir
+  echo ""
+  echo vvvv $dir vvvv
+  ls -l Module*.o | awk -vdir=$dir '{gsub(/_nofib/, "", dir); print dir", "$9", "$5}'
+  )
+done >> ./plot/size.txt
+echo done
