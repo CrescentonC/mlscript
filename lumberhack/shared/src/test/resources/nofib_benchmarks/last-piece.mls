@@ -6746,7 +6746,7 @@ testLastPiece_nofib $ primId 0
 //│ 	| _  => error⁰}
 //│ def foldr_lh_₁(f⁴, i², ls⁰) = ls⁰(f⁴, i²)
 //│ def foldr_lh_₂(f⁵, i³, ls¹) = ls¹(f⁵, i³)
-//│ def fromJust_lh_₁(_lh_fromJust_arg1⁰) = _lh_fromJust_arg1⁰(99)
+//│ def fromJust_lh_₁(_lh_fromJust_arg1⁰) = _lh_fromJust_arg1⁰([lh_Unit])
 //│ def gPiece_lh_₁(_lh_listcomp_fun_ls_t⁷², _lh_listcomp_fun⁹⁴, _lh_search_LH_P2_1⁴⁷, _lh_search_arg2¹⁰) = 
 //│ 	let _lh_search_P_2⁶ = 	
 //│ 		let _lh_listcomp_fun_ls_t⁶² = 	

@@ -2726,7 +2726,7 @@ testSphere_nofib $ primId 30
 //│ 		LH_P3 _lh_vecmult_LH_P3_0¹ _lh_vecmult_LH_P3_1¹ _lh_vecmult_LH_P3_2¹ => [LH_P3 (_lh_vecmult_LH_P3_0⁰ *. _lh_vecmult_LH_P3_0¹) (_lh_vecmult_LH_P3_1⁰ *. _lh_vecmult_LH_P3_1¹) (_lh_vecmult_LH_P3_2⁰ *. _lh_vecmult_LH_P3_2¹)]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def vecnorm_lh_₁(_lh_vecnorm_arg1³) = _lh_vecnorm_arg1³(99)
+//│ def vecnorm_lh_₁(_lh_vecnorm_arg1³) = _lh_vecnorm_arg1³([lh_Unit])
 //│ def vecnorm_lh_₂(_lh_vecnorm_arg1⁰) = case _lh_vecnorm_arg1⁰ of {
 //│ 	LH_P3 _lh_vecnorm_LH_P3_0² _lh_vecnorm_LH_P3_1² _lh_vecnorm_LH_P3_2² => 
 //│ 		let len² = sqrt⁰((((_lh_vecnorm_LH_P3_0² *. _lh_vecnorm_LH_P3_0²) +. (_lh_vecnorm_LH_P3_1² *. _lh_vecnorm_LH_P3_1²)) +. (_lh_vecnorm_LH_P3_2² *. _lh_vecnorm_LH_P3_2²)))
@@ -2736,7 +2736,7 @@ testSphere_nofib $ primId 30
 //│ 			let _lh_matchIdent¹² = vecnorm_lh_₃(veccross_lh_₁(_lh_camparams_LH_P2_0⁴, _lh_camparams_arg3¹))
 //│ 			in _lh_matchIdent¹²(_lh_camparams_LH_P2_0⁴, _lh_camparams_LH_P2_1⁴, _lh_camparams_arg4³, _lh_camparams_arg5³, initfirstray³)))))
 //│ 	| _  => error⁰}
-//│ def vecnorm_lh_₃(_lh_vecnorm_arg1²) = _lh_vecnorm_arg1²(99)
+//│ def vecnorm_lh_₃(_lh_vecnorm_arg1²) = _lh_vecnorm_arg1²([lh_Unit])
 //│ def vecnorm_lh_₄(_lh_vecnorm_arg1¹) = case _lh_vecnorm_arg1¹ of {
 //│ 	LH_P3 _lh_vecnorm_LH_P3_0³ _lh_vecnorm_LH_P3_1³ _lh_vecnorm_LH_P3_2³ => 
 //│ 		let len³ = sqrt⁰((((_lh_vecnorm_LH_P3_0³ *. _lh_vecnorm_LH_P3_0³) +. (_lh_vecnorm_LH_P3_1³ *. _lh_vecnorm_LH_P3_1³)) +. (_lh_vecnorm_LH_P3_2³ *. _lh_vecnorm_LH_P3_2³)))

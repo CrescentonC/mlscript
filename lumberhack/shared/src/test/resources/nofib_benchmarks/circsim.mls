@@ -3009,7 +3009,7 @@ testCircsim_nofib $ primId 40
 //│ 	PS _lh_compType_PS_0² _lh_compType_PS_1² _lh_compType_PS_2² _lh_compType_PS_3² _lh_compType_PS_4² => _lh_compType_PS_1²
 //│ 	| _  => error⁰}
 //│ def compare_and_update_lh_₁(_lh_compare_and_update_arg1⁰, _lh_compare_and_update_arg2¹) = _lh_compare_and_update_arg1⁰(_lh_compare_and_update_arg2¹)
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def copy_lh_₁(_lh_copy_arg1⁰, _lh_copy_arg2⁰, _lh_floatOutId_0⁵, _lh_floatOutId_1⁴) = if (_lh_copy_arg1⁰ > 0) then 
 //│ 	let _lh_scanl_LH_C_1⁰ = copy_lh_₁((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)
 //│ 	in let _lh_scanl_LH_C_0⁰ = _lh_copy_arg2⁰
@@ -3033,7 +3033,7 @@ testCircsim_nofib $ primId 40
 //│ 	let t¹³ = copy_lz_lh_₂((_lh_copy_lz_arg1⁰ - 1), _lh_copy_lz_arg2⁰)
 //│ 	in let h¹³ = _lh_copy_lz_arg2⁰
 //│ 	in (fun n¹ -> [LH_C h¹³ take_lz_lh_₂((n¹ - 1), t¹³)])) else lazy⁰((fun n² -> [LH_N]))
-//│ def critical_path_depth_lh_₁(_lh_critical_path_depth_arg1⁰) = _lh_critical_path_depth_arg1⁰(99)
+//│ def critical_path_depth_lh_₁(_lh_critical_path_depth_arg1⁰) = _lh_critical_path_depth_arg1⁰([lh_Unit])
 //│ def do_cycle_lh_₁(_lh_do_cycle_arg1⁰, _lh_do_cycle_arg2⁰, _lh_do_cycle_arg3⁰) = case _lh_do_cycle_arg2⁰ of {
 //│ 	LH_P4 _lh_do_cycle_LH_P4_0⁰ _lh_do_cycle_LH_P4_1⁰ _lh_do_cycle_LH_P4_2⁰ _lh_do_cycle_LH_P4_3⁰ => 
 //│ 		let sim_then_send⁰ = (fun _lh_sim_then_send_arg1⁰ -> (fun _lh_sim_then_send_arg2⁰ -> do_sends_lh_₂(_lh_sim_then_send_arg2⁰, simulate_components_lh_₁(_lh_sim_then_send_arg2⁰, _lh_sim_then_send_arg1⁰))))
@@ -3243,10 +3243,10 @@ testCircsim_nofib $ primId 40
 //│ 	| _  => error⁰}
 //│ def nearest_power_of_two_lh_₁(_lh_nearest_power_of_two_arg1⁰) = until_lh_₁((fun a⁰ -> (a⁰ >= _lh_nearest_power_of_two_arg1⁰)), (fun a¹ -> (a¹ * 2)), 1)
 //│ def or2_lh_₁(_lh_or2_arg1⁰, _lh_or2_arg2⁰) = if (polyEq⁰(_lh_or2_arg1⁰, [T]) || polyEq⁰(_lh_or2_arg2⁰, [T])) then [T] else [F]
-//│ def or_lh_₁(_lh_or_arg1¹) = _lh_or_arg1¹(99)
-//│ def or_lh_₂(_lh_or_arg1³) = _lh_or_arg1³(99)
-//│ def or_lh_₃(_lh_or_arg1⁰) = _lh_or_arg1⁰(99)
-//│ def or_lh_₄(_lh_or_arg1²) = _lh_or_arg1²(99)
+//│ def or_lh_₁(_lh_or_arg1¹) = _lh_or_arg1¹([lh_Unit])
+//│ def or_lh_₂(_lh_or_arg1³) = _lh_or_arg1³([lh_Unit])
+//│ def or_lh_₃(_lh_or_arg1⁰) = _lh_or_arg1⁰([lh_Unit])
+//│ def or_lh_₄(_lh_or_arg1²) = _lh_or_arg1²([lh_Unit])
 //│ def outports_lh_₁(_lh_outports_arg1⁸) = case _lh_outports_arg1⁸ of {
 //│ 	PS _lh_outports_PS_0⁸ _lh_outports_PS_1⁸ _lh_outports_PS_2⁸ _lh_outports_PS_3⁸ _lh_outports_PS_4⁸ => _lh_outports_PS_4⁸
 //│ 	| _  => error⁰}
@@ -3274,7 +3274,7 @@ testCircsim_nofib $ primId 40
 //│ def outports_lh_₉(_lh_outports_arg1³) = case _lh_outports_arg1³ of {
 //│ 	PS _lh_outports_PS_0³ _lh_outports_PS_1³ _lh_outports_PS_2³ _lh_outports_PS_3³ _lh_outports_PS_4³ => _lh_outports_PS_4³
 //│ 	| _  => error⁰}
-//│ def pad_circuit_lh_₁(_lh_pad_circuit_arg1⁰) = _lh_pad_circuit_arg1⁰(99)
+//│ def pad_circuit_lh_₁(_lh_pad_circuit_arg1⁰) = _lh_pad_circuit_arg1⁰([lh_Unit])
 //│ def pad_packets_lh_₁(_lh_pad_packets_arg1⁰) = 
 //│ 	let pad⁰ = (fun xs⁷ -> 
 //│ 		let max_ps⁰ = maximum_lh_₂(map_lh_₂₁(length_lh_₁, _lh_pad_packets_arg1⁰))

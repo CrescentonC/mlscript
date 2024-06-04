@@ -843,7 +843,7 @@ testMandel2_nofib $ primId [60]
 //│ def equalp_lh_₄(_lh_equalp_arg1³, _lh_equalp_arg2³) = case _lh_equalp_arg1³ of {
 //│ 	LH_P2 _lh_equalp_LH_P2_0⁸ _lh_equalp_LH_P2_1⁸ => _lh_equalp_arg2³(_lh_equalp_LH_P2_0⁸, _lh_equalp_LH_P2_1⁸)
 //│ 	| _  => error⁰}
-//│ def finite_lh_₁(_lh_finite_arg1⁰) = _lh_finite_arg1⁰(99)
+//│ def finite_lh_₁(_lh_finite_arg1⁰) = _lh_finite_arg1⁰([lh_Unit])
 //│ def left_lh_₁ = [LH_P2 (0 - 1) 0]
 //│ def left_lh_₂(_lh_equalp_LH_P2_0³, _lh_equalp_LH_P2_1³) = 
 //│ 	let _lh_equalp_LH_P2_1² = 0
@@ -883,8 +883,8 @@ testMandel2_nofib $ primId [60]
 //│ def point_colour_lh_₃(_lh_point_colour_arg1¹) = case _lh_point_colour_arg1¹ of {
 //│ 	LH_P2 _lh_point_colour_LH_P2_0¹ _lh_point_colour_LH_P2_1¹ => check_radius_lh_₃(np_lh_₃(_lh_point_colour_LH_P2_0¹), nq_lh_₃(_lh_point_colour_LH_P2_1¹), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
-//│ def point_colour_lh_₄(_lh_point_colour_arg1⁴) = _lh_point_colour_arg1⁴(99)
-//│ def point_colour_lh_₅(_lh_point_colour_arg1⁵) = _lh_point_colour_arg1⁵(99)
+//│ def point_colour_lh_₄(_lh_point_colour_arg1⁴) = _lh_point_colour_arg1⁴([lh_Unit])
+//│ def point_colour_lh_₅(_lh_point_colour_arg1⁵) = _lh_point_colour_arg1⁵([lh_Unit])
 //│ def point_colour_lh_₆(_lh_point_colour_arg1³) = case _lh_point_colour_arg1³ of {
 //│ 	LH_P2 _lh_point_colour_LH_P2_0³ _lh_point_colour_LH_P2_1³ => check_radius_lh_₆(np_lh_₆(_lh_point_colour_LH_P2_0³), nq_lh_₆(_lh_point_colour_LH_P2_1³), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}

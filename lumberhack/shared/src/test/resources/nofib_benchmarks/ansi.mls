@@ -770,7 +770,7 @@ testAnsi_nofib $ primId 8
 //│ def at_lh_₅(_lh_at_arg1⁴, _lh_at_arg2¹⁰) = _lh_at_arg1⁴(_lh_at_arg2¹⁰)
 //│ def at_lh_₆(_lh_at_arg1³, _lh_at_arg2⁹) = _lh_at_arg1³(_lh_at_arg2⁹)
 //│ def cls_lh_₁ = [LH_C 'L' [LH_N]]
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def copy_lh_₁(_lh_copy_arg1⁰, _lh_copy_arg2⁰, _lh_floatOutId_0⁰, _lh_floatOutId_1⁰) = if (_lh_copy_arg1⁰ > 0) then 
 //│ 	let t⁵⁵ = copy_lh_₁((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)
 //│ 	in let h⁵⁵ = _lh_copy_arg2⁰
@@ -852,8 +852,8 @@ testAnsi_nofib $ primId 8
 //│ def mappend_lh_₉(xs¹³, ys⁵⁸) = case xs¹³ of {
 //│ 	LH_C h⁶¹ t⁶¹ => [LH_C h⁶¹ mappend_lh_₉(t⁶¹, ys⁵⁸)]
 //│ 	| LH_N  => ys⁵⁸}
-//│ def moveTo_lh_₁(_lh_moveTo_arg1⁰) = _lh_moveTo_arg1⁰(99)
-//│ def moveTo_lh_₂(_lh_moveTo_arg1¹) = _lh_moveTo_arg1¹(99)
+//│ def moveTo_lh_₁(_lh_moveTo_arg1⁰) = _lh_moveTo_arg1⁰([lh_Unit])
+//│ def moveTo_lh_₂(_lh_moveTo_arg1¹) = _lh_moveTo_arg1¹([lh_Unit])
 //│ def pressAnyKey_lh_₁(_lh_pressAnyKey_arg1¹) = readChar_lh_₁(_lh_pressAnyKey_arg1¹, (fun c¹ -> _lh_pressAnyKey_arg1¹))
 //│ def pressAnyKey_lh_₂(_lh_pressAnyKey_arg1⁰) = readChar_lh_₂(_lh_pressAnyKey_arg1⁰, (fun c⁰ -> _lh_pressAnyKey_arg1⁰))
 //│ def program_lh_₁(_lh_program_arg1⁰) = writes_lh_₁(

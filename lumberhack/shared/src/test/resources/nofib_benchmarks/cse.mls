@@ -936,7 +936,7 @@ testCse_nofib $ primId 1000
 //│ 	let _lh_label_Node_1³³ = [LH_N]
 //│ 	in let _lh_label_Node_0³³ = [LH_C 'c' [LH_N]]
 //│ 	in bind_lh_₂(incr_lh_₁, (fun n⁴¹ -> bind_lh_₁(mmapl_lh_₁(label³⁴, _lh_label_Node_1³³), (fun ts³³ -> retURN_lh_₁([Node [LH_P2 n⁴¹ _lh_label_Node_0³³] ts³³])))))
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def cse_lh_₁(_lh_cse_arg1⁰) = findCommon_lh_₁(ltGraph_lh_₁(labelTree_lh_₁(_lh_cse_arg1⁰)))
 //│ def d_lh_₁(label³¹) = 
 //│ 	let _lh_label_Node_1³⁰ = [LH_N]

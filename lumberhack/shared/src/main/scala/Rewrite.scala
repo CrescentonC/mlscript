@@ -352,7 +352,7 @@ trait ExprRewrite { this: Expr =>
             } && !nonDeadBranches(-1)
           }
           if extrudedIds.isEmpty && (!noNeedThunking) then
-            Call(scrut.rewriteFusion, Const(IntLit(99)))
+            Call(scrut.rewriteFusion, Ctor(Var("lh_Unit"), Nil))
           else
             extrudedIds.foldLeft(scrut.rewriteFusion){
               (acc, id) =>

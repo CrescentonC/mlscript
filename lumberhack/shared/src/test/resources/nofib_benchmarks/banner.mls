@@ -1070,8 +1070,8 @@ testBanner_nofib $ primId 100
 //│ 	in let t⁹⁹ = map_lh_₃(f³⁶, t⁹⁸)
 //│ 	in let h⁹⁹ = f³⁶(h⁹⁸)
 //│ 	in mappend_lh_₆(h⁹⁹, concat_lh_₂(t⁹⁹))
-//│ def concat_lh_₁(lss¹) = lss¹(99)
-//│ def concat_lh_₂(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss¹) = lss¹([lh_Unit])
+//│ def concat_lh_₂(lss⁰) = lss⁰([lh_Unit])
 //│ def digits_lh_₁(n¹²) = 
 //│ 	let t² = 	
 //│ 		let t³ = 	

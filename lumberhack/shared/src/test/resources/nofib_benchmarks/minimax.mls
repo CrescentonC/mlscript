@@ -2199,7 +2199,7 @@ testMinimax_nofib $ primId "180000"
 //│ 	in let boardd_eval⁰ = best_lh_₁(_lh_alternate_arg2¹, possibles⁰, scores⁰)
 //│ 	in let _lh_matchIdent⁵ = boardd_eval⁰
 //│ 	in _lh_matchIdent⁵(_lh_alternate_arg2¹, _lh_alternate_arg3¹, opposition¹)
-//│ def and_lh_₁(_lh_and_arg1⁰) = _lh_and_arg1⁰(99)
+//│ def and_lh_₁(_lh_and_arg1⁰) = _lh_and_arg1⁰([lh_Unit])
 //│ def bestMove_lh_₁(_lh_bestMove_arg1⁰, _lh_bestMove_arg2⁰, _lh_bestMove_arg3⁰, _lh_funcomp_x⁰) = (fun _lh_funcomp_x¹ -> mise_lh_₁(_lh_bestMove_arg2⁰, _lh_bestMove_arg3⁰, cropTree_lh_₁(_lh_funcomp_x¹)))((fun _lh_funcomp_x² -> mapTree_lh_₁(static_lh_₃, searchTree_lh_₁(_lh_bestMove_arg1⁰, _lh_funcomp_x²)))(_lh_funcomp_x⁰))
 //│ def best_lh_₁(_lh_best_arg1⁰, _lh_best_arg2⁰, _lh_best_arg3⁰) = case _lh_best_arg2⁰ of {
 //│ 	LH_C _lh_best_LH_C_0⁰ _lh_best_LH_C_1⁰ => case _lh_best_arg3⁰ of {
@@ -2242,11 +2242,11 @@ testMinimax_nofib $ primId "180000"
 //│ 			in best'⁰(_lh_best_LH_C_0⁰, _lh_best_LH_C_0¹, _lh_best_LH_C_1⁰, _lh_best_LH_C_1¹)
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def concat_lh_₁(lss²) = lss²(99)
+//│ def concat_lh_₁(lss²) = lss²([lh_Unit])
 //│ def concat_lh_₂(lss¹) = case lss¹ of {
 //│ 	LH_C h³⁶ t³⁶ => mappend_lh_₂₁(h³⁶, concat_lh_₂(t³⁶))
 //│ 	| LH_N  => [LH_N]}
-//│ def concat_lh_₃(lss⁰) = lss⁰(99)
+//│ def concat_lh_₃(lss⁰) = lss⁰([lh_Unit])
 //│ def cropTree_lh_₁(_lh_cropTree_arg1⁰) = case _lh_cropTree_arg1⁰ of {
 //│ 	Branch _lh_cropTree_Branch_0⁰ _lh_cropTree_Branch_1⁰ => case _lh_cropTree_Branch_1⁰ of {
 //│ 		LH_N  => [Branch _lh_cropTree_Branch_0⁰ [LH_N]]
@@ -2360,7 +2360,7 @@ testMinimax_nofib $ primId "180000"
 //│ 		| OWin  => [OWin]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def length_lh_₁(ls⁸) = ls⁸(99)
+//│ def length_lh_₁(ls⁸) = ls⁸([lh_Unit])
 //│ def map2_lh_₁(_lh_map2_arg1⁰, _lh_map2_arg2⁰, _lh_map2_arg3⁰) = case _lh_map2_arg2⁰ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| _  => case _lh_map2_arg3⁰ of {
@@ -2882,7 +2882,7 @@ testMinimax_nofib $ primId "180000"
 //│ 		in let h⁶³ = 'S'
 //│ 		in (fun ys⁶⁸ -> [LH_C h⁶³ mappend_lh_₁₁(t⁵⁹, ys⁶⁸)]), string_of_int⁰(_lh_showEvaluation_Score_0⁰))
 //│ 	| _  => error⁰}
-//│ def showMove_lh_₁(_lh_showMove_arg1⁰) = _lh_showMove_arg1⁰(99)
+//│ def showMove_lh_₁(_lh_showMove_arg1⁰) = _lh_showMove_arg1⁰([lh_Unit])
 //│ def showPiece_lh_₁(_lh_showPiece_arg1⁷) = case _lh_showPiece_arg1⁷ of {
 //│ 	X  => 
 //│ 		let t²¹⁷ = (fun ys²⁰⁶ -> ys²⁰⁶)

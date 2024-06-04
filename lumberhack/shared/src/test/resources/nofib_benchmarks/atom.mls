@@ -379,8 +379,8 @@ testAtom_nofib $ primId 1000
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testAtom_nofib_lh_₁(primId⁰(1000))
-//│ def concat_lh_₁(lss¹) = lss¹(99)
-//│ def concat_lh_₂(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss¹) = lss¹([lh_Unit])
+//│ def concat_lh_₂(lss⁰) = lss⁰([lh_Unit])
 //│ def dotMult_lh_₁(_lh_dotMult_arg1⁰, _lh_dotMult_arg2⁰) = case _lh_dotMult_arg2⁰ of {
 //│ 	LH_N  => (fun _lh_scalarMut_arg1¹ -> [LH_N])
 //│ 	| _  => case _lh_dotMult_arg1⁰ of {

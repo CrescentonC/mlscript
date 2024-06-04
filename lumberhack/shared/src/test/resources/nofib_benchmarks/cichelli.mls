@@ -1417,7 +1417,7 @@ testCichelli_nofib $ primId 6
 //│ 	let attribkeys'⁰ = attribkeys_lh_₁(mappend_lh_₁(keys_lh_₂, take_lh_₁((_lh_cichelli_arg1⁰ % 2), keys_lh_₁)))
 //│ 	in let hashkeys⁰ = (fun _lh_funcomp_x⁰ -> blocked_lh_₁(freqsorted_lh_₁(_lh_funcomp_x⁰)))(attribkeys'⁰)
 //│ 	in findhash_lh_₁(hashkeys⁰)
-//│ def concat_lh_₁(lss¹) = lss¹(99)
+//│ def concat_lh_₁(lss¹) = lss¹([lh_Unit])
 //│ def concat_lh_₂(lss⁰) = case lss⁰ of {
 //│ 	LH_C h⁶ t⁶ => mappend_lh_₄(h⁶, concat_lh_₂(t⁶))
 //│ 	| LH_N  => [LH_N]}

@@ -302,7 +302,7 @@ testRsa_nofib $ primId 0
 //│ 			in let t² = map_lh_₂(_lh_floatOutId_1¹, t¹)
 //│ 			in let h² = _lh_floatOutId_1¹(h¹)
 //│ 			in mappend_lh_₂(h², concat_lh_₁(t²))}}
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def const0_lh_₁ = z_of_int⁰(0)
 //│ def const0_lh_₂ = z_of_int⁰(0)
 //│ def const0_lh_₃ = z_of_int⁰(0)

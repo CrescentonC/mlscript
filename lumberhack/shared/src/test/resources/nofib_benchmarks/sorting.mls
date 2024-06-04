@@ -1302,7 +1302,7 @@ testSorting_nofib $ primId 0
 //│ 		| LH_C _lh_compareList_LH_C_0² _lh_compareList_LH_C_1² => if (int_of_char⁰(_lh_compareList_LH_C_0¹) == int_of_char⁰(_lh_compareList_LH_C_0²)) then compareList_lh_₁(_lh_compareList_LH_C_1¹, _lh_compareList_LH_C_1²) else if (int_of_char⁰(_lh_compareList_LH_C_0¹) < int_of_char⁰(_lh_compareList_LH_C_0²)) then [LT] else [GT]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def eqList_lh_₁(_lh_eqList_arg1⁰, _lh_eqList_arg2⁰) = polyEq⁰(compareList_lh_₁(_lh_eqList_arg1⁰, _lh_eqList_arg2⁰), [EQ])
 //│ def foldl_lh_₁(f⁰, i⁰, ls²) = case ls² of {
 //│ 	LH_C h² t² => foldl_lh_₁(f⁰, f⁰(i⁰, h²), t²)
@@ -1411,7 +1411,7 @@ testSorting_nofib $ primId 0
 //│ 		in case _lh_matchIdent³ of {
 //│ 			LH_P2 _lh_lines_LH_P2_0⁰ _lh_lines_LH_P2_1⁰ => [LH_C _lh_lines_LH_P2_0⁰ 
 //│ 				let _lh_matchIdent⁴ = _lh_lines_LH_P2_1⁰
-//│ 				in _lh_matchIdent⁴(99)]
+//│ 				in _lh_matchIdent⁴([lh_Unit])]
 //│ 			| _  => error⁰}}
 //│ def ltList_lh_₁(_lh_ltList_arg1⁰, _lh_ltList_arg2⁰) = 
 //│ 	let _lh_matchIdent⁰ = compareList_lh_₁(_lh_ltList_arg1⁰, _lh_ltList_arg2⁰)

@@ -958,7 +958,7 @@ testCalendar_nofib $ primId 100
 //│ 	let m⁰ = (_lh_cjustify_arg1⁰ - length_lh_₃(_lh_cjustify_arg2⁰))
 //│ 	in let halfm⁰ = div⁰(m⁰, 2)
 //│ 	in mappend_lh_₁₂(mappend_lh_₁₁(space_lh_₄(halfm⁰), _lh_cjustify_arg2⁰), space_lh_₃((m⁰ - halfm⁰)))
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ > 0) then [LH_C _lh_copy_arg2¹ copy_lh_₁((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)] else [LH_N]
 //│ def copy_lh_₂(_lh_copy_arg1³, _lh_copy_arg2³) = if (_lh_copy_arg1³ > 0) then [LH_C _lh_copy_arg2³ copy_lh_₂((_lh_copy_arg1³ - 1), _lh_copy_arg2³)] else [LH_N]
 //│ def copy_lh_₃(_lh_copy_arg1⁵, _lh_copy_arg2⁵) = if (_lh_copy_arg1⁵ > 0) then [LH_C _lh_copy_arg2⁵ copy_lh_₃((_lh_copy_arg1⁵ - 1), _lh_copy_arg2⁵)] else [LH_N]
@@ -974,9 +974,9 @@ testCalendar_nofib $ primId 100
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰ => if (_lh_drop_arg1⁰ > 0) then drop_lh_₁((_lh_drop_arg1⁰ - 1), _lh_drop_LH_C_1⁰) else _lh_drop_LH_C_1⁰
 //│ 	| _  => error⁰}
-//│ def emptyPic_lh_₁(_lh_emptyPic_arg1¹) = _lh_emptyPic_arg1¹(99)
-//│ def emptyPic_lh_₂(_lh_emptyPic_arg1⁰) = _lh_emptyPic_arg1⁰(99)
-//│ def emptyPic_lh_₃(_lh_emptyPic_arg1²) = _lh_emptyPic_arg1²(99)
+//│ def emptyPic_lh_₁(_lh_emptyPic_arg1¹) = _lh_emptyPic_arg1¹([lh_Unit])
+//│ def emptyPic_lh_₂(_lh_emptyPic_arg1⁰) = _lh_emptyPic_arg1⁰([lh_Unit])
+//│ def emptyPic_lh_₃(_lh_emptyPic_arg1²) = _lh_emptyPic_arg1²([lh_Unit])
 //│ def enumFromTo_lh_₁(a², b²) = if (a² <= b²) then [LH_C a² enumFromTo_lh_₁((a² + 1), b²)] else [LH_N]
 //│ def enumFromTo_lh_₂(a⁰, b⁰, _lh_floatOutId_0¹) = if (a⁰ <= b⁰) then 
 //│ 	let t⁴ = enumFromTo_lh_₂((a⁰ + 1), b⁰)

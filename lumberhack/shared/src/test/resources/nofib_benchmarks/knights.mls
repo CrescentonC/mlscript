@@ -2509,13 +2509,13 @@ testKnights_nofib $ primId ["8", "1"]
 //│ def length_lh_₁(ls⁶) = case ls⁶ of {
 //│ 	LH_C h¹³⁹ t¹³⁹ => (1 + length_lh_₁(t¹³⁹))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₂(ls¹⁰) = ls¹⁰(99)
+//│ def length_lh_₂(ls¹⁰) = ls¹⁰([lh_Unit])
 //│ def length_lh_₃(ls⁸) = case ls⁸ of {
 //│ 	LH_C h¹⁴³ t¹⁴³ => (1 + length_lh_₃(t¹⁴³))
 //│ 	| LH_N  => 0}
-//│ def length_lh_₄(ls⁵) = ls⁵(99)
-//│ def length_lh_₅(ls⁰) = ls⁰(99)
-//│ def length_lh_₆(ls¹¹) = ls¹¹(99)
+//│ def length_lh_₄(ls⁵) = ls⁵([lh_Unit])
+//│ def length_lh_₅(ls⁰) = ls⁰([lh_Unit])
+//│ def length_lh_₆(ls¹¹) = ls¹¹([lh_Unit])
 //│ def map_lh_₁(f¹⁶, ls⁴) = case ls⁴ of {
 //│ 	LH_C h¹³⁷ t¹³⁷ => [LH_C f¹⁶(h¹³⁷) map_lh_₁(f¹⁶, t¹³⁷)]
 //│ 	| LH_N  => [LH_N]}

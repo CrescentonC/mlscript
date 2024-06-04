@@ -4046,7 +4046,7 @@ testRewrite_nofib $ primId 50
 //│ 			LH_C _lh_replace_LH_C_0⁰ _lh_replace_LH_C_1⁰ => [Func _lh_replace_Func_0⁰ modify_lh_₁(_lh_replace_Func_1⁰, _lh_replace_LH_C_0⁰, (fun t¹ -> replace_lh_₂(t¹, _lh_replace_LH_C_1⁰, _lh_replace_arg3⁰)))]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}}
-//│ def result_lh_₁(_lh_result_arg1⁰) = _lh_result_arg1⁰(99)
+//│ def result_lh_₁(_lh_result_arg1⁰) = _lh_result_arg1⁰([lh_Unit])
 //│ def rewrite_lh_₁(_lh_rewrite_arg1⁰) = case _lh_rewrite_arg1⁰ of {
 //│ 	Eqn _lh_rewrite_Eqn_0⁰ _lh_rewrite_Eqn_1⁰ => case _lh_rewrite_Eqn_1⁰ of {
 //│ 		LH_P2 _lh_rewrite_LH_P2_0⁰ _lh_rewrite_LH_P2_1⁰ => (fun _lh_funcomp_x¹¹ -> lift_lh_₁₁(sub_lh_₂(_lh_rewrite_LH_P2_1⁰), match_lh_₁(_lh_rewrite_LH_P2_0⁰, _lh_funcomp_x¹¹)))

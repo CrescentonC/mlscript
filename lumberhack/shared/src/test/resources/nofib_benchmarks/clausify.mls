@@ -1162,8 +1162,8 @@ testClausify_nofib $ primId 10
 //│ 	| _  => error⁰}
 //│ def clause_lh_₁(_lh_clause_arg1⁰) = clauseHelper_lh_₁(_lh_clause_arg1⁰, [LH_P2 [LH_N] [LH_N]])
 //│ def clauses_lh_₁(_lh_clauses_arg1⁰) = (fun _lh_funcomp_x² -> (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> (fun _lh_funcomp_x⁵ -> (fun _lh_funcomp_x⁶ -> (fun _lh_funcomp_x⁷ -> (fun _lh_funcomp_x⁸ -> concat_lh_₂(map_lh_₂(disp_lh_₁, _lh_funcomp_x⁸)))(unicl_lh_₁(_lh_funcomp_x⁷)))(split_lh_₁(_lh_funcomp_x⁶)))(disin_lh_₁(_lh_funcomp_x⁵)))(negin_lh_₁(_lh_funcomp_x⁴)))(elim_lh_₁(_lh_funcomp_x³)))(parse_lh_₁(_lh_funcomp_x²)))(_lh_clauses_arg1⁰)
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
-//│ def concat_lh_₂(lss¹) = lss¹(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
+//│ def concat_lh_₂(lss¹) = lss¹([lh_Unit])
 //│ def conjunct_lh_₁(_lh_conjunct_arg1¹) = case _lh_conjunct_arg1¹ of {
 //│ 	Con _lh_conjunct_Con_0¹ _lh_conjunct_Con_1¹ => [True]
 //│ 	| _  => [False]}

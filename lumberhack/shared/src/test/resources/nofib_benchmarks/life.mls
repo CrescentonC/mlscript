@@ -1327,7 +1327,7 @@ testLife_nofib $ primId 29
 //│ def append_lz_lz_lh_₁(_lh_append_lz_lz_arg1⁰, _lh_append_lz_lz_arg2⁴⁴) = 
 //│ 	let _lh_matchIdent¹⁵ = force⁰(_lh_append_lz_lz_arg1⁰)
 //│ 	in _lh_matchIdent¹⁵(_lh_append_lz_lz_arg2⁴⁴)
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def copy_lh_₁(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = case _lh_copy_arg1⁰ of {
 //│ 	0  => [LH_N]
 //│ 	| _  => [LH_C _lh_copy_arg2⁰ copy_lh_₁((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)]}
@@ -1349,7 +1349,7 @@ testLife_nofib $ primId 29
 //│ 		let t⁸⁵ = map_lz_lh_₂(f²², t⁸⁴)
 //│ 		in let h⁸⁵ = f²²(h⁸⁴)
 //│ 		in (fun n⁴⁷ -> [LH_C h⁸⁵ take_lz_lh_₁((n⁴⁷ - 1), t⁸⁵)])))
-//│ def disp_lh_₁(_lh_disp_arg1⁰) = _lh_disp_arg1⁰(99)
+//│ def disp_lh_₁(_lh_disp_arg1⁰) = _lh_disp_arg1⁰([lh_Unit])
 //│ def elt_lh_₁(_lh_elt_arg1⁰, _lh_elt_arg2¹, _lh_elt_arg3¹) = _lh_elt_arg1⁰(_lh_elt_arg2¹, _lh_elt_arg3¹)
 //│ def enumFrom_lh_₁(a⁰) = lazy⁰(
 //│ 	let t⁹¹ = enumFrom_lh_₁((a⁰ + 1))
@@ -1433,7 +1433,7 @@ testLife_nofib $ primId 29
 //│ 		LH_N  => _lh_lastt_arg2⁰
 //│ 		| LH_C _lh_lastt_LH_C_0⁰ _lh_lastt_LH_C_1⁰ => lastt_lh_₁(_lh_lastt_LH_C_1⁰, _lh_lastt_LH_C_0⁰)
 //│ 		| _  => error⁰}
-//│ def length_lh_₁(ls⁸) = ls⁸(99)
+//│ def length_lh_₁(ls⁸) = ls⁸([lh_Unit])
 //│ def limit_lh_₁(_lh_limit_arg1⁰) = 
 //│ 	let _lh_matchIdent⁷ = force⁰(_lh_limit_arg1⁰)
 //│ 	in case _lh_matchIdent⁷ of {
@@ -1527,7 +1527,7 @@ testLife_nofib $ primId 29
 //│ 			in (fun _lh_zipWith3_LH_C_0¹ -> (fun _lh_zipWith3_LH_C_0² -> (fun _lh_zipWith3_LH_C_1¹ -> (fun _lh_zipWith3_LH_C_1² -> (fun _lh_zipWith3_arg1¹ -> [LH_C _lh_zipWith3_arg1¹(_lh_zipWith3_LH_C_0², _lh_zipWith3_LH_C_0¹, _lh_zipWith3_LH_C_0⁰) zipWith3_lh_₁(_lh_zipWith3_arg1¹, _lh_zipWith3_LH_C_1², _lh_zipWith3_LH_C_1¹, _lh_zipWith3_LH_C_1⁰)])))))))))
 //│ 	| LH_N  => ys¹⁹}
 //│ def mappend_lh_₉(xs¹³, ys³¹) = xs¹³(ys³¹)
-//│ def row_lh_₁(_lh_row_arg1⁰) = _lh_row_arg1⁰(99)
+//│ def row_lh_₁(_lh_row_arg1⁰) = _lh_row_arg1⁰([lh_Unit])
 //│ def shift_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³) = zip3_lh_₁(shiftr_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³), _lh_shift_arg2³, shiftl_lh_₁(_lh_shift_arg1³, _lh_shift_arg2³))
 //│ def shift_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰) = zip3_lh_₂(shiftr_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰), _lh_shift_arg2⁰, shiftl_lh_₂(_lh_shift_arg1⁰, _lh_shift_arg2⁰))
 //│ def shift_lh_₃(_lh_shift_arg1², _lh_shift_arg2²) = zip3_lh_₃(shiftr_lh_₃(_lh_shift_arg1², _lh_shift_arg2²), _lh_shift_arg2², shiftl_lh_₃(_lh_shift_arg1², _lh_shift_arg2²))

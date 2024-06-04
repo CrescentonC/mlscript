@@ -304,8 +304,8 @@ testGcd_nofib $ primId (z_of_int 400)
 //│ def const1_lh_₅ = z_of_int⁰(1)
 //│ def const5000_lh_₁ = z_of_int⁰(5000)
 //│ def const5000_lh_₂ = z_of_int⁰(5000)
-//│ def f1_lh_₁(_lh_f1_arg1⁰) = _lh_f1_arg1⁰(99)
-//│ def f2_lh_₁(_lh_f2_arg1⁰) = _lh_f2_arg1⁰(99)
+//│ def f1_lh_₁(_lh_f1_arg1⁰) = _lh_f1_arg1⁰([lh_Unit])
+//│ def f2_lh_₁(_lh_f2_arg1⁰) = _lh_f2_arg1⁰([lh_Unit])
 //│ def g_lh_₁(_lh_g_arg1⁰, _lh_g_arg2⁰) = case _lh_g_arg1⁰ of {
 //│ 	LH_P3 _lh_g_LH_P3_0⁰ _lh_g_LH_P3_1⁰ _lh_g_LH_P3_2⁰ => case _lh_g_arg2⁰ of {
 //│ 		LH_P3 _lh_g_LH_P3_0¹ _lh_g_LH_P3_1¹ _lh_g_LH_P3_2¹ => if z_equal⁰(_lh_g_LH_P3_2¹, const0_lh_₇) then [LH_P3 _lh_g_LH_P3_2⁰ _lh_g_LH_P3_0⁰ _lh_g_LH_P3_1⁰] else 

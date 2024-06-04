@@ -24,6 +24,7 @@ enum BuiltInTypes {
   case Tuple(n: Int)
   case BoolTrue
   case BoolFalse
+  case DummyUnit
 
   lazy val toLumberhackType = this match {
     case ListCons => "LH_C"
@@ -40,6 +41,7 @@ object BuiltInTypes {
     case "LH_N" => Some(ListNil)
     case "True" => Some(BoolTrue)
     case "False" => Some(BoolFalse)
+    case "lh_Unit" => Some(DummyUnit)
     case tup if tup.matches("LH_P\\d+") => Some(Tuple(tup.drop(4).toInt))
     case _ => None
   }
@@ -1034,6 +1036,7 @@ class OCamlGen(val usePolymorphicVariant: Bool, val backToBuiltInType: Bool = fa
       }
     case Ctor(name, args) => //All constructors are polymorphic variants with tuple arguments
       (BuiltInTypes.fromStr(name.name).flatMap {
+        case BuiltInTypes.DummyUnit => Some(Raw("99"))
         case BuiltInTypes.BoolTrue => Some(Raw("true"))
         case BuiltInTypes.BoolFalse => Some(Raw("false"))
         case otherBuiltInTypes if !backToBuiltInType => None

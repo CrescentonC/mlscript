@@ -2521,7 +2521,7 @@ testEliza_nofib $ primId 20
 //│ 			LH_P2 _lh_break_LH_P2_0⁰ _lh_break_LH_P2_1⁰ => [LH_P2 [LH_C _lh_break_LH_C_0⁰ _lh_break_LH_P2_0⁰] _lh_break_LH_P2_1⁰]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def concat_lh_₁(lss⁰) = lss⁰(99)
+//│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
 //│ def conjug_lh_₁(_lh_conjug_arg1⁰, _lh_conjug_arg2⁰) = 
 //│ 	let maybe¹ = (fun _lh_maybe_arg1⁰ -> (fun _lh_maybe_arg2⁰ -> if null_lh_₄(_lh_maybe_arg2⁰) then _lh_maybe_arg1⁰ else _lh_maybe_arg2⁰))
 //│ 	and conj⁰ = (fun _lh_conj_arg1²⁷ -> head_lh_₁(mappend_lh_₉(
@@ -2534,7 +2534,7 @@ testEliza_nofib $ primId 20
 //│ def conjugates_lh_₁ = 
 //│ 	let prepare⁰ = (fun _lh_prepare_arg1⁰ -> map_lh_₅((fun wr⁰ -> 
 //│ 		let _lh_matchIdent¹⁵ = wr⁰
-//│ 		in _lh_matchIdent¹⁵(99)), _lh_prepare_arg1⁰))
+//│ 		in _lh_matchIdent¹⁵([lh_Unit])), _lh_prepare_arg1⁰))
 //│ 	in let oneways⁰ = 	
 //│ 		let t⁴⁹ = (fun ys³ -> ys³)
 //│ 		in let h⁴⁹ = 	
@@ -2846,7 +2846,7 @@ testEliza_nofib $ primId 20
 //│ def keyTabOf_lh_₁(_lh_keyTabOf_arg1⁰) = case _lh_keyTabOf_arg1⁰ of {
 //│ 	LH_P2 _lh_keyTabOf_LH_P2_0⁰ _lh_keyTabOf_LH_P2_1⁰ => _lh_keyTabOf_LH_P2_0⁰
 //│ 	| _  => error⁰}
-//│ def length_lh_₁(ls¹²) = ls¹²(99)
+//│ def length_lh_₁(ls¹²) = ls¹²([lh_Unit])
 //│ def length_lh_₂(ls¹⁸) = case ls¹⁸ of {
 //│ 	LH_C h¹⁰⁸ t¹⁰⁸ => (1 + length_lh_₂(t¹⁰⁸))
 //│ 	| LH_N  => 0}
@@ -3951,10 +3951,10 @@ testEliza_nofib $ primId 20
 //│ 	| _  => error⁰}
 //│ def words_lh_₁(_lh_words_arg1⁰) = 
 //│ 	let _lh_matchIdent²⁰ = dropWhile_lh_₁(isSpace_lh_₂, _lh_words_arg1⁰)
-//│ 	in _lh_matchIdent²⁰(99)
+//│ 	in _lh_matchIdent²⁰([lh_Unit])
 //│ def words_lh_₂(_lh_words_arg1¹) = 
 //│ 	let _lh_matchIdent²³ = dropWhile_lh_₃(isSpace_lh_₄, _lh_words_arg1¹)
-//│ 	in _lh_matchIdent²³(99)
+//│ 	in _lh_matchIdent²³([lh_Unit])
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

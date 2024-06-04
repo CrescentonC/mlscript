@@ -1291,7 +1291,7 @@ testPower_nofib $ primId 14
 //│ def cosx_lh_₂(_lh_cosx_arg1¹) = minusPs_lh_₆(lazy⁰([Pc 1 lazy⁰([Pz])]), integral_lh_₅(integralLz_lh_₃(lazy⁰(cosx_lh_₂(0)))))
 //│ def deriv_lh_₁(_lh_deriv_arg1⁰) = lazy⁰(
 //│ 	let _lh_matchIdent²⁷ = force⁰(_lh_deriv_arg1⁰)
-//│ 	in _lh_matchIdent²⁷(99))
+//│ 	in _lh_matchIdent²⁷([lh_Unit]))
 //│ def divPs_lh_₁(_lh_divPs_arg1², _lh_divPs_arg2²) = lazy⁰(
 //│ 	let _lh_matchIdent⁴⁸ = force⁰(_lh_divPs_arg1²)
 //│ 	in case _lh_matchIdent⁴⁸ of {
@@ -1575,7 +1575,7 @@ testPower_nofib $ primId 14
 //│ def powerPs_lh_₂(_lh_powerPs_arg1⁰, _lh_powerPs_arg2⁰) = if (_lh_powerPs_arg2⁰ <= 0) then fromIntegerPs_lh_₅(1) else multPs_lh_₁(_lh_powerPs_arg1⁰, powerPs_lh_₂(_lh_powerPs_arg1⁰, (_lh_powerPs_arg2⁰ - 1)))
 //│ def revert_lh_₁(_lh_revert_arg1⁰) = lazy⁰(
 //│ 	let _lh_matchIdent⁰ = force⁰(_lh_revert_arg1⁰)
-//│ 	in _lh_matchIdent⁰(99))
+//│ 	in _lh_matchIdent⁰([lh_Unit]))
 //│ def sinx_lh_₁(_lh_sinx_arg1⁰) = integral_lh_₂(minusPs_lh_₄(lazy⁰([Pc 1 lazy⁰([Pz])]), integralLz_lh_₁(lazy⁰(sinx_lh_₁(0)))))
 //│ def sinx_lh_₂(_lh_sinx_arg1¹) = integral_lh_₅(minusPs_lh_₆(lazy⁰([Pc 1 lazy⁰([Pz])]), integralLz_lh_₃(lazy⁰(sinx_lh_₂(0)))))
 //│ def sqrtPs_lh_₁(_lh_sqrtPs_arg1⁰) = lazy⁰(

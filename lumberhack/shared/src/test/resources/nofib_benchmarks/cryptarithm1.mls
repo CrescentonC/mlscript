@@ -298,7 +298,7 @@ testCryptarithm_nofib $ primId 1
 //│ 	LH_C h² t² => if f³(h²) then [LH_C h² filter_lh_₁(f³, t²)] else filter_lh_₁(f³, t²)
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁(f⁰, ls¹) = ls¹(f⁰)
-//│ def permutations_lh_₁(_lh_permutations_arg1⁰) = _lh_permutations_arg1⁰(99)
+//│ def permutations_lh_₁(_lh_permutations_arg1⁰) = _lh_permutations_arg1⁰([lh_Unit])
 //│ def take_lh_₁(n², ls⁰) = if (n² > 0) then ls⁰(n²) else (fun _lh_dummy² -> [LH_C [LH_N] [LH_N]])
 //│ def testCryptarithm_nofib_lh_₁(_lh_testCryptarithm_nofib_arg1⁰) = map_lh_₁((fun i⁰ -> 
 //│ 	let p0⁰ = take_lh_₁(10, enumFromTo_lh_₂(0, (9 + i⁰)))

@@ -1548,7 +1548,7 @@ testPara_nofib $ primId 0
 //│ def concat_lh_₁(lss¹) = case lss¹ of {
 //│ 	LH_C h³⁶ t³⁶ => mappend_lh_₁₀(h³⁶, concat_lh_₁(t³⁶))
 //│ 	| LH_N  => [LH_N]}
-//│ def concat_lh_₂(lss⁰) = lss⁰(99)
+//│ def concat_lh_₂(lss⁰) = lss⁰([lh_Unit])
 //│ def cons'_lh_₁(_lh_cons'_arg1², _lh_cons'_arg2²) = _lh_cons'_arg2²(_lh_cons'_arg1²)
 //│ def cons'_lh_₂(_lh_cons'_arg1⁰, _lh_cons'_arg2⁰) = case _lh_cons'_arg2⁰ of {
 //│ 	LH_P2 _lh_cons'_LH_P2_0⁰ _lh_cons'_LH_P2_1⁰ => if not⁰(null_lh_₆(_lh_cons'_LH_P2_1⁰)) then [LH_P2 [LH_C _lh_cons'_arg1⁰ _lh_cons'_LH_P2_0⁰] _lh_cons'_LH_P2_1⁰] else [LH_P2 [LH_C _lh_cons'_arg1⁰ [LH_N]] _lh_cons'_LH_P2_0⁰]
@@ -1675,7 +1675,7 @@ testPara_nofib $ primId 0
 //│ 		LH_P2 _lh_lines_LH_P2_0⁰ _lh_lines_LH_P2_1⁰ => 
 //│ 			let t¹² = 	
 //│ 				let _lh_matchIdent⁵ = _lh_lines_LH_P2_1⁰
-//│ 				in _lh_matchIdent⁵(99)
+//│ 				in _lh_matchIdent⁵([lh_Unit])
 //│ 			in let h¹² = _lh_lines_LH_P2_0⁰
 //│ 			in (fun f² -> [LH_C f²(h¹²) map_lh_₃(f², t¹²)])
 //│ 		| _  => error⁰}
@@ -1933,7 +1933,7 @@ testPara_nofib $ primId 0
 //│ def width_tl_lh_₂(_lh_width_tl_arg1¹) = fst3_lh_₁(_lh_width_tl_arg1¹)
 //│ def words_lh_₁(_lh_words_arg1⁰) = 
 //│ 	let _lh_matchIdent¹ = dropWhile_lh_₁(isSpace_lh_₂, _lh_words_arg1⁰)
-//│ 	in _lh_matchIdent¹(99)
+//│ 	in _lh_matchIdent¹([lh_Unit])
 //│ <<<<<<< after fusion <<<<<<<
 //│ 
 //│ >>>>>>>>>> Generated OCaml >>>>>>>>>>

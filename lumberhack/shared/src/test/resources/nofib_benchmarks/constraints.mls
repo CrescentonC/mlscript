@@ -2272,7 +2272,7 @@ testConstraints_nofib $ primId 6
 //│ 	| _  => error⁰}
 //│ def domainWipeOut_lh_₁(_lh_domainWipeOut_arg1⁰, _lh_domainWipeOut_arg2⁰) = case _lh_domainWipeOut_arg1⁰ of {
 //│ 	CSP _lh_domainWipeOut_CSP_0⁰ _lh_domainWipeOut_CSP_1⁰ _lh_domainWipeOut_CSP_2⁰ => 
-//│ 		let f⁰ = (fun _lh_f_arg1⁰ -> _lh_f_arg1⁰(99))
+//│ 		let f⁰ = (fun _lh_f_arg1⁰ -> _lh_f_arg1⁰([lh_Unit]))
 //│ 		in mapTree_lh_₅(f⁰, _lh_domainWipeOut_arg2⁰)
 //│ 	| _  => error⁰}
 //│ def earliestInconsistency_lh_₁(_lh_earliestInconsistency_arg1², _lh_earliestInconsistency_arg2²) = case _lh_earliestInconsistency_arg1² of {
@@ -2492,7 +2492,7 @@ testConstraints_nofib $ primId 6
 //│ 		LH_N  => [LH_C _lh_leaves_Node_0⁰ [LH_N]]
 //│ 		| _  => concat_lh_₁(map_lh_₁₄(leaves_lh_₁, _lh_leaves_Node_1⁰))}
 //│ 	| _  => error⁰}
-//│ def length_lh_₁(ls¹⁵) = ls¹⁵(99)
+//│ def length_lh_₁(ls¹⁵) = ls¹⁵([lh_Unit])
 //│ def level_lh_₁(_lh_level_arg1³) = case _lh_level_arg1³ of {
 //│ 	Assign _lh_level_Assign_0³ _lh_level_Assign_1³ => _lh_level_Assign_0³
 //│ 	| _  => error⁰}
