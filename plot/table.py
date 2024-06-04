@@ -4,7 +4,7 @@ with open(sys.argv[1], newline='') as timefile:
   with open(sys.argv[2], newline='') as sizefile:
     time = list(csv.reader(timefile, delimiter=',', quotechar='|'))[1:]
     sizeMessyOrder = list(csv.reader(sizefile, delimiter=',', quotechar='|'))[1:]
-    size = [j for i in [sizeMessyOrder[n : n + 4] for n in range(0, len(sizeMessyOrder), 4)] for j in [i[3], i[1], i[0], i[2]]]
+    size = [j for i in [sizeMessyOrder[n : n + 4] for n in range(0, len(sizeMessyOrder), 4)] for j in [i[3], i[2], i[0], i[1]]]
     # print(time)
     # print(size)
     zipped = list(zip(time, size))

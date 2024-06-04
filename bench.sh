@@ -39,7 +39,7 @@ do
 
   eval $c
   )
-done >> ./plot/time.txt
+done | tee ./plot/time.txt
 echo done
 
 echo collecting binary size information ...
@@ -52,5 +52,5 @@ do
   echo vvvv $dir vvvv
   ls -l Module*.o | awk -vdir=$dir '{gsub(/_nofib/, "", dir); print dir", "$9", "$5}'
   )
-done >> ./plot/size.txt
+done | tee ./plot/size.txt
 echo done
