@@ -1,6 +1,5 @@
 
 
-:lhNoIter
 :lhInHaskell
 :lhGenOCaml
 mySnd (a,b) = b

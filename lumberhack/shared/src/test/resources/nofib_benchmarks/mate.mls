@@ -2,8 +2,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhLessExpansion
-:lhNoIter
 drop n []      = []
 drop n (h:t)   = if n <= 0 then (h:t) else (drop (n - 1) t)
 splitAt n ls = (take n ls, drop n ls)

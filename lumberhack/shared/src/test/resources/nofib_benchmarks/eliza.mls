@@ -1,6 +1,5 @@
 
 
-:lhNoIter
 :lhInHaskell
 :lhGenOCaml
 lz_map f ls = case ls of {

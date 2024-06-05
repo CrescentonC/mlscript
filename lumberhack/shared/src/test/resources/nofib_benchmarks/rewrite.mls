@@ -2,8 +2,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhLessExpansion
-:lhNoIter
 map_dnet :: (a -> b) -> DISC_NET a -> DISC_NET b
 map_dnet f (Switch alist defalt) = Switch (map (cross (\x -> x) (map_dnet f)) alist) (map_dnet f defalt)
 map_dnet f (Return x) = Return (f x)

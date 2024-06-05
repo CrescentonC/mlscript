@@ -3,7 +3,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhNoIter
 cls         = "L"
 goto x y    = ('E':('[':((string_of_int y ++(';':(string_of_int x ++ ("H")))))))
 at (x,y) s  = (goto x y) ++ s

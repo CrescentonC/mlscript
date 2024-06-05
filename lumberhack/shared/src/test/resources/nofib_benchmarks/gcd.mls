@@ -1,7 +1,6 @@
 
 
 :lhUseZarith
-:lhNoIter
 :lhInHaskell
 :lhGenOCaml
 const1 = z_of_int 1

@@ -15,7 +15,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhNoIter
 zip3 xs ys zs = case xs of {
                   (hx:tx) -> case ys of {
                     (hy:ty) -> case zs of {

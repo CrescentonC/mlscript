@@ -2,8 +2,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhLessExpansion
-:lhNoIter
 fst (a,b) = a
 snd (a,b) = b
 fromJust (Just a) = a

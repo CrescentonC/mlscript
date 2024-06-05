@@ -2,7 +2,6 @@
 
 
 
-:lhNoIter
 :lhInHaskell
 :lhGenOCaml
 enumFromTo_lz a b = lazy (if a <= b then a:(enumFromTo_lz (a + 1) b) else [])

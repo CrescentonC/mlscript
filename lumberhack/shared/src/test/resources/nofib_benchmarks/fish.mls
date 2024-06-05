@@ -3,7 +3,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhNoIter
 min a b = if a < b then a else b
 type Vec = (Int, Int)
 --  This adds two vectors.

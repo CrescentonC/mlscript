@@ -3,7 +3,6 @@
 
 :lhInHaskell
 :lhGenOCaml
-:lhNoIter
 data Term               = Var Id | Fun Id [Term] [Lemma] | ERROR
 type Lemma              = (Term, Term)
 type Substitution       = [(Id, Term)]

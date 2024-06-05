@@ -1,6 +1,5 @@
 
 
-:lhNoIter
 :lhInHaskell
 :lhGenOCaml
 dropWhile f [] = []
