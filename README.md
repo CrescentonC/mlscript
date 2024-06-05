@@ -6,9 +6,8 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 This artifact consists of an `sbt` project with a
 Scala implementation of Lumberhack as introduced in the
-corresponding paper. Lumberhack aims to optimize
-the execution time and memory usage of programs by
-eliminating intermediate data structures.
+corresponding paper. Lumberhack aims to improve the efficiency
+of programs by eliminating intermediate data structures.
 We provide a test suite containing
 all the examples in the paper and all the `nofib` benchmarks
 we have ported and presented in the paper. Related
@@ -116,9 +115,9 @@ in the paper are also contained in this artifact.
 
 This section describes how to run Lumberhack and its generated OCaml program, as well as
 how to generate the plots and tables we used in the paper. For the correspondence
-between this artifact and the paper, please refer to [the section below](#correspondance-with-claims-in-the-paper).
+between this artifact and the paper, please refer to [the section below](#correspondence-with-the-paper).
 
-- To perform and test Lumberhack's optimization on the `nofib` benchmark tests we used in the paper:
+- To perform and test Lumberhack's optimization on the `nofib` benchmarks we presented in the paper:
 
   run the following command in your shell:
   ```sh
@@ -133,7 +132,7 @@ between this artifact and the paper, please refer to [the section below](#corres
   benchmark both the original program and the optimized ones and show the execution time and GC data.
 
   After OCaml programs are generated, run the following command
-  to start executing them.
+  to compile them using `flambda` and execute them.
   ```sh
   ./bench.sh
   ```
@@ -175,10 +174,10 @@ between this artifact and the paper, please refer to [the section below](#corres
 
 - To write one's own programs and test Lumberhack's optimization on them:
   
-  The testing infrastructure for Lumberhack's `sbt` project is set up so that
+  The testing infrastructure (DiffTest) for Lumberhack's `sbt` project is set up so that
   if there are any unstaged changes (as determined by `git`) in any test file
   (those in `lumberhack/shared/src/test/resources`), only the corresponding files will be processed.
-  So one can make select modifications to some test files and run the test command (`testOnly mlscript.lumberhack.DiffTestLumberhack`) again in `sbt` shell,
+  So one can make selected modifications to some test files and run the test command (`testOnly mlscript.lumberhack.DiffTestLumberhack`) again in `sbt` shell,
   and only your modified tests will be run.
   There is a `lumberhack/shared/src/test/resources/PaperExamples.mls` file with examples for you to start editing
   and getting new results from Lumberhack.
@@ -188,9 +187,20 @@ between this artifact and the paper, please refer to [the section below](#corres
   This makes it very easy and convenient to see the test results for each code block.
   For this reason, we recommend using an editor that automatically reloads open files on changes.
   VSCode and Sublime Text work well for this.
+  
+  To let Lumberhack also generate OCaml programs in addition to inserting the output
+  to the test files, a DiffTest flag `:lhGenOCaml` is needed to
+  be inserted at the first line of the input program. Also, a function
+  with name `test<benchmark_name>` accepting exactly one parameter should
+  be defined and called in the top-level of the input program. The call to that
+  function should follow the form `test<benchmark_name>(primId(arg))`, where
+  `primId` is needed to ensure that the data produced by `arg`, which is meant
+  to be the unknown input at compile time, will not be fused by Lumberhack.
+  There are examples in `lumberhack/shared/src/test/resources/PaperExamples.mls`
+  for your reference.
 
   Currently, we support input programs using
-  a subset of MLscript syntax ([explained below](#supported-mlscript-syntax)) and
+  a subset of either MLscript syntax ([explained below](#supported-mlscript-syntax)) or
   Haskell syntax (so that we can port the `nofib` benchmarks).
   We recommend using MLscript syntax to manually write programs as inputs to Lumberhack, because
   the generated output tends to be more readable due to less name mangling.
@@ -200,13 +210,41 @@ between this artifact and the paper, please refer to [the section below](#corres
     this syntax in `lumberhack/shared/src/test/resources/PaperExamples.mls`.
     One can refer to that for a general idea of the MLscript syntax.
   - The Haskell syntax is supported to the extent that suffices to enable us to port the related
-    `nofib` benchmarks. Some Haskell features are not supported (including but not limited to):
-      - the Haskell record
+    `nofib` benchmarks. In the list below (including but not limited to),
+    we outline some unsupported Haskell features that are more related to programs
+    testing a deforestation optimizer.
+    During the porting, these are manually desugared to more elementary language
+    constructs.
       - the "as" pattern: `ls@(x:xs)`
       - lambda definition with patterns as its parameters: `\(x:xs) -> ...`
       - `let` groups: `let a = x; b = x in ...`
       - `let` bindings with patterns as its binder: `let (x:xs) = [1] in ...`
       - `where` clauses that refer to variables defined at the outer scope: `f x = g x where g _ = x`
+    
+    One can also refer to the programs we have ported
+    (located in `lumberhack/shared/src/test/resources/nofib_benchmarks`) for more
+    detail. When a Haskell program is provided as input for Lumberhack in a DiffTest
+    `.mls` file, a DiffTest flag `:lhInHaskell` is needed to be inserted at the first line
+    of the input Haskell program.
+
+  Note that Lumberhack ignores definitions that are never used.
+  So, for example, Lumberhack will *not* do anything to the following
+  input program:
+  ```
+  let rec map(f, xs) = if xs is
+    Nil then Nil
+    Cons(x, xs) then Cons(f(x), map(f, xs))
+  let main(ls) = map(x => x * 2, map(x => x + 1, ls))
+  ```
+  If we refer to `main` in the top-level expression like below, Lumberhack will work.
+  ```
+  let rec map(f, xs) = if xs is
+    Nil then Nil
+    Cons(x, xs) then Cons(f(x), map(f, xs))
+  let main(ls) = map(x => x * 2, map(x => x + 1, ls))
+  main
+  ```
+  Also, due to how DiffTest works, the input programs cannot contain any empty lines.
 
 - To generate plots in the paper:
 
@@ -250,6 +288,12 @@ between this artifact and the paper, please refer to [the section below](#corres
   
   Function and variable names should start with non-capitalized letters.
   To define a recursive function, use `let rec f(param1, param2) = ...`.
+
+- Lambda definition
+  ```
+  x => body
+  ```
+  This defines a lambda function taking `x` as its parameter with `body` as its body.
 
 - Function call
   ```
@@ -315,8 +359,8 @@ the sources for Lumberhack are located in `lumberhack`,
 whose project structure is illustrated as follows.
 
 - `lumberhack/shared/src/main/scala/CodeGen.scala` contains the implementation of the
-  translation from Haskell's parse tree from tree-sitter to Lumberhack's AST, and the
-  generation of OCaml programs from the optimized programs in Lumberhack's core AST.
+  translation from Haskell's parse tree from tree-sitter to Lumberhack's AST.
+  The implementation of the generation of OCaml programs from the optimized programs in Lumberhack's core AST is also implemented in this file.
 
 - `lumberhack/shared/src/main/scala/Deforest.scala` contains the implementation of Lumberhack's
   fusion strategy inference algorithm.
