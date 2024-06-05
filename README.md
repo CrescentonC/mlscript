@@ -21,26 +21,25 @@ in the paper are also contained in this artifact.
 - Using the Docker Image
   
   We have built Docker images containing all necessary dependencies
-  compiled for both `amd64` and `arm64` platforms and pushed them to
-  [DockerHub](https://hub.docker.com/r/crescentonc/lumberhack-docker/tags).
-  One can pull the `amd64` image and launch a container with the following command:
-  [FIXME: in artifact submission do not use docker hub]
+  compiled for both `amd64` and `arm64` platforms and
+  exported them to archived files.
+  One can load the `amd64` image and launch a container with the following command:
 
   ```
-  docker pull crescentonc/lumberhack-docker:v0-amd64 [FIXME: change tag later]
+  docker load -i lumberhack-docker-amd64.tar
   docker run -it --rm crescentonc/lumberhack-docker:v0-amd64
   ```
   
   If one wants to use the `arm64` image, the commands are:
   
   ```
-  docker pull crescentonc/lumberhack-docker:v0-arm64 [FIXME: change tag later]
+  docker load -i lumberhack-docker-arm64.tar
   docker run -it --rm crescentonc/lumberhack-docker:v0-arm64
   ```
   
   The user will be attached to the shell of the container after the image gets
   pulled and the container is launched.
-  Please `cd` to `mlscript/` and launch the SBT shell by typing `sbt`.
+  Please `cd` to `lumberhack/` and launch the SBT shell by typing `sbt`.
 
 - Setting up from Scratch
 
@@ -87,7 +86,7 @@ in the paper are also contained in this artifact.
       opam install zarith core_bench -y
       ```
 
-  3. **To generate the plots we used in paper**: you need [R (≥3.5)][R] and
+  3. **To generate the plots we used in the paper**: you need [R (≥3.5)][R] and
   R packages [ggplot2][ggplot2], [RColorBrewer][RColorBrewer], [gridExtra][gridExtra].
 
       After installing R, run the following command in your shell to install the required packages:
@@ -193,7 +192,7 @@ between this artifact and the paper, please refer to [the section below](#corres
   to the test files, a DiffTest flag `:lhGenOCaml` is needed to
   be inserted at the first line of the input program. Also, a function
   with name `test<benchmark_name>` accepting exactly one parameter should
-  be defined and called in the top-level of the input program. The call to that
+  be defined and called in the top level of the input program. The call to that
   function should follow the form `test<benchmark_name>(primId(arg))`, where
   `primId` is needed to ensure that the data produced by `arg`, which is meant
   to be the unknown input at compile time, will not be fused by Lumberhack.
@@ -315,7 +314,7 @@ between this artifact and the paper, please refer to [the section below](#corres
   Nil
   ```
   The first line creates a `Cons` data structure with `arg1` and `arg2` as its arguments.
-  The second line creates a `Nil` data structure, which takes zero argument.
+  The second line creates a `Nil` data structure, which takes no argument.
   Data constructor names should start with capitalized letters.
 
 - Pattern matching
@@ -324,7 +323,7 @@ between this artifact and the paper, please refer to [the section below](#corres
     Cons(h, t) then branch1
     Nil then branch2
   ```
-  The above MLscript program shares the same semantic with the following OCaml program:
+  The above MLscript program shares the same semantics with the following OCaml program:
   ```OCaml
   match x with
     | `Cons(h, t) -> branch1
@@ -382,4 +381,4 @@ whose project structure is illustrated as follows.
   which helps the assignment of unique id to expressions, type variables and identifiers.
 
 - `lumberhack/shared/src/main/scala/utils/Document.scala` contains the implementation of a `Document`
-  class and several helper functions that facilitate the pretty-printing of programs.
+  class and several helper functions that facilitate the pretty printing of programs.
