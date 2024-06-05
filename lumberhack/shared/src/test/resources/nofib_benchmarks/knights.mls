@@ -197,7 +197,7 @@ testKnights_nofib ss =
 testKnights_nofib $ primId ["8", "1"]
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testKnights_nofib_lh_₁^3199(primId⁰([LH_C [LH_C '8' [LH_N]] [LH_C [LH_C '1' [LH_N]] [LH_N]]]))
 //│ def addAllFront_lh_₁(_lh_addAllFront_arg1¹, _lh_addAllFront_arg2¹) = mappend_lh_₅^2408(_lh_addAllFront_arg1¹, _lh_addAllFront_arg2¹)
 //│ def addAllFront_lh_₂(_lh_addAllFront_arg1⁰, _lh_addAllFront_arg2⁰) = mappend_lh_₁₈^1582(_lh_addAllFront_arg1⁰, _lh_addAllFront_arg2⁰)
@@ -1580,9 +1580,9 @@ testKnights_nofib $ primId ["8", "1"]
 //│ 		    ((failwith "error") usageString_0));;
 //│ 		(testKnights_nofib_lh__d1 (`LH_C((`LH_C('8', (`LH_N))), (`LH_C((`LH_C('1', (`LH_N))), (`LH_N))))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]: 224 --->
 //│ 	case ls⁰ of {LH_C h⁰ t⁰ => [LH_C f⁰(h⁰) map_lh_₃(f⁰, t⁰)] | LH_N  => [LH_N]}: 264
 //│ [LH_N]: 229 --->
@@ -2075,7 +2075,7 @@ testKnights_nofib $ primId ["8", "1"]
 //│ 	[LH_C h²⁵ take_lz_lh_₁((n⁰ - 1), t²⁵)]: 2773
 //│ 	[LH_N]: 2774
 //│ 	[LH_N]: 2776
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testKnights_nofib_lh_₁(primId⁰([LH_C [LH_C '8' [LH_N]] [LH_C [LH_C '1' [LH_N]] [LH_N]]]))

@@ -154,7 +154,7 @@ testPretty_nofib dummy =
 testPretty_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testPretty_nofib_lh_₁^1249(primId⁰(0))
 //│ def andL_lh_₁(_lh_andL_arg1⁶, _lh_andL_arg2⁶) = case _lh_andL_arg1⁶ of {
 //│ 	False  => [False]
@@ -875,9 +875,9 @@ testPretty_nofib $ primId 0
 //│ 		    ((mappend_lh__d1 ((ppShow_lh__d1 80) pretty_stuff_0)) (`LH_C('|', (`LH_N)))));;
 //│ 		(testPretty_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_P2 _lh_flatten_arg1⁰ _lh_flatten_CAppend_1⁰]: 67 --->
 //│ 	case _lh_flattenS_LH_C_0⁰ of {LH_P2 _lh_flattenS_LH_P2_0⁰ _lh_flattenS_LH_P2_1⁰ => flatten_lh_₁(_lh_flattenS_LH_P2_0⁰, _lh_flattenS_arg1⁰, _lh_flattenS_LH_P2_1⁰, _lh_flattenS_LH_C_1⁰) | _  => error⁰}: 14
 //│ [LH_C [LH_P2 _lh_flatten_arg1⁰ _lh_flatten_CAppend_1⁰] _lh_flatten_arg4⁰]: 69 --->
@@ -898,7 +898,7 @@ testPretty_nofib $ primId 0
 //│ in case _lh_matchIdent⁷ of {MkPrettyRep _lh_ppHang_MkPrettyRep_0¹ _lh_ppHang_MkPrettyRep_1¹ _lh_ppHang_MkPrettyRep_2¹ _lh_ppHang_MkPrettyRep_3¹ => let _lh_matchIdent⁸ = _lh_ppHang_arg3⁰((_lh_ppHang_arg4⁰ - _lh_ppHang_arg2⁰), [False])
 //│ in case _lh_matchIdent⁸ of {MkPrettyRep _lh_ppHang_MkPrettyRep_0² _lh_ppHang_MkPrettyRep_1² _lh_ppHang_MkPrettyRep_2² _lh_ppHang_MkPrettyRep_3² => if _lh_ppHang_MkPrettyRep_2⁰ then _lh_ppHang_arg3⁰(_lh_ppHang_arg4⁰, _lh_ppHang_arg5⁰) else if orL_lh_₁((_lh_ppHang_MkPrettyRep_1⁰ <= _lh_ppHang_arg2⁰), _lh_ppHang_MkPrettyRep_3¹) then [MkPrettyRep cAppend_lh_₃(cAppend_lh_₁(_lh_ppHang_MkPrettyRep_0⁰, cCh_lh_₂(' ')), cIndent_lh_₂((_lh_ppHang_MkPrettyRep_1⁰ + 1), _lh_ppHang_MkPrettyRep_0¹)) ((_lh_ppHang_MkPrettyRep_1⁰ + 1) + _lh_ppHang_MkPrettyRep_1¹) [False] andL_lh_₁(_lh_ppHang_MkPrettyRep_3⁰, _lh_ppHang_MkPrettyRep_3¹)] else [MkPrettyRep cAppend_lh_₂(_lh_ppHang_MkPrettyRep_0⁰, cAppend_lh_₄(cNL_lh_₁, cIndent_lh_₁(_lh_ppHang_arg2⁰, _lh_ppHang_MkPrettyRep_0²))) _lh_ppHang_MkPrettyRep_1² [False] [False]] | _  => error⁰} | _  => error⁰} | _  => error⁰}: 971 --->
 //│ 	[MkPrettyRep cStr_lh_₃(_lh_ppStr_arg1²) ls⁶ [False] (_lh_ppStr_arg2² >= ls⁶)]: 991
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testPretty_nofib_lh_₁(primId⁰(0))

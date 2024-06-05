@@ -248,7 +248,7 @@ testBoyer_nofib n = all test0 (replicate n (Var X))
 testBoyer_nofib $ primId 5
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testBoyer_nofib_lh_₁^2796(primId⁰(5))
 //│ def all_lh_₁(_lh_all_arg1⁰, _lh_all_arg2⁰) = case _lh_all_arg2⁰ of {
 //│ 	LH_N  => [True]
@@ -1263,9 +1263,9 @@ testBoyer_nofib $ primId 5
 //│ 		  ((all_lh__d1 test0_lh__d1) ((replicate_lh__d1 _lh_testBoyer_nofib_arg1_0) (`Var((`X)))));;
 //│ 		(testBoyer_nofib_lh__d1 5)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_N]: 7 --->
 //│ 	case _lh_find_arg2⁰ of {LH_N  => [LH_P2 [False] [ERROR]] | LH_C _lh_find_LH_C_0⁰ _lh_find_LH_C_1⁰ => case _lh_find_LH_C_0⁰ of {LH_P2 _lh_find_LH_P2_0⁰ _lh_find_LH_P2_1⁰ => if polyEq⁰(_lh_find_arg1⁰, _lh_find_LH_P2_0⁰) then [LH_P2 [True] _lh_find_LH_P2_1⁰] else find_lh_₁(_lh_find_arg1⁰, _lh_find_LH_C_1⁰) | _  => error⁰} | _  => error⁰}: 938
 //│ [LH_N]: 41 --->
@@ -1336,7 +1336,7 @@ testBoyer_nofib $ primId 5
 //│ case _lh_all_arg2⁰ of {LH_N  => [True] | LH_C _lh_all_LH_C_0⁰ _lh_all_LH_C_1⁰ => if _lh_all_arg1⁰(_lh_all_LH_C_0⁰) then all_lh_₁(_lh_all_arg1⁰, _lh_all_LH_C_1⁰) else [False] | _  => error⁰}: 2782 --->
 //│ 	[LH_N]: 999
 //│ 	[LH_C _lh_replicate_arg2⁰ replicate_lh_₁((_lh_replicate_arg1⁰ - 1), _lh_replicate_arg2⁰)]: 1010
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testBoyer_nofib_lh_₁(primId⁰(5))

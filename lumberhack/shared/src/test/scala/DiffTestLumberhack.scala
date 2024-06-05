@@ -25,7 +25,7 @@ class DiffTestLumberhack extends DiffTests {
     output: Str => Unit,
     prgmStr: Seq[String]
   ): Unit = {
-    output(">>>>>>>>>> After Expansion >>>>>>>>>>")
+    output(">>>>>>>>>> after expansion >>>>>>>>>>")
 
     val originalD = Deforest(mode.stdout)
     val (allowErr, evaluate, filteredEntities) = unit.entities match {
@@ -66,7 +66,7 @@ class DiffTestLumberhack extends DiffTests {
         output("\t\t---------- unoptimized ocaml gen ----------")
 
 
-      output("<<<<<<<<<< After Expansion <<<<<<<<<<")
+      output("<<<<<<<<<< after expansion <<<<<<<<<<")
     
       val deforestRes = fuser(using originalProgram, d, mode, evaluate, output)
 
@@ -169,11 +169,11 @@ class DiffTestLumberhack extends DiffTests {
       output("<<<<<<< fusion matches <<<<<<<")
     }
 
-    output("\n>>>>>>> fusion strategies >>>>>>>")
+    output("\n>>>>>>> fusion matches >>>>>>>")
     output(fusionStrategy.ppCtorMap(fusionStrategy.finallyFilteredStrategies._1))
     output("------------------")
     output(fusionStrategy.ppDtorMap(fusionStrategy.finallyFilteredStrategies._2))
-    output("<<<<<<< fusion strategies <<<<<<<")
+    output("<<<<<<< fusion matches <<<<<<<")
 
 
     val prgmAfterFusion = p.rewrite(d, fusionStrategy)

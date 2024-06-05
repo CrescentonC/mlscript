@@ -68,7 +68,7 @@ testTreejoin_nofib dummy =
 testTreejoin_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testTreejoin_nofib_lh_₁^952(primId⁰(0))
 //│ def dropWhile_lh_₁(_lh_dropWhile_arg1¹, _lh_dropWhile_arg2¹) = case _lh_dropWhile_arg2¹ of {
 //│ 	LH_N  => [LH_N]
@@ -523,9 +523,9 @@ testTreejoin_nofib $ primId 0
 //│ 		          (((join_lh__d1 a_0) b_0) (`Empty))))));;
 //│ 		(testTreejoin_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [Just _lh_lookupT_Leaf_1⁰]: 212 --->
 //│ 	case _lh_matchIdent⁰ of {Nothing  => _lh_join_arg3⁰ | Just _lh_join_Just_0⁰ => case _lh_join_Just_0⁰ of {LH_P3 _lh_join_LH_P3_0¹ _lh_join_LH_P3_1¹ _lh_join_LH_P3_2¹ => insertT_lh_₃(_lh_join_LH_P3_2⁰, [LH_P5 _lh_join_LH_P3_0⁰ _lh_join_LH_P3_1⁰ _lh_join_LH_P3_2⁰ _lh_join_LH_P3_0¹ _lh_join_LH_P3_1¹], _lh_join_arg3⁰) | _  => error⁰} | _  => error⁰}: 769
 //│ [Nothing]: 213 --->
@@ -633,7 +633,7 @@ testTreejoin_nofib $ primId 0
 //│ in readTree_lh_₁(_lh_readTree_arg1¹, _lh_readTree_LH_P2_1⁵, insertT_lh_₁(k¹, e¹, _lh_readTree_arg3¹)) | _  => error⁰} | _  => error⁰} | _  => error⁰}: 902 --->
 //│ 	[LH_P2 _lh_readInt'_arg1³ s'⁶]: 606
 //│ 	[LH_P2 _lh_readInt'_arg1³ s'⁷]: 616
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testTreejoin_nofib_lh_₁(primId⁰(0))

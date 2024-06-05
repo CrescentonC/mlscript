@@ -153,7 +153,7 @@ testSorting_nofib dummy =
 testSorting_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testSorting_nofib_lh_₁^3051(primId⁰(0))
 //│ def break_lh_₁(_lh_break_arg1⁰, _lh_break_arg2⁰) = case _lh_break_arg2⁰ of {
 //│ 	LH_N  => [LH_P2 [LH_N] [LH_N]]
@@ -1173,9 +1173,9 @@ testSorting_nofib $ primId 0
 //│ 		    (hash_lh__d1 (mangle_lh__d1 f_6)));;
 //│ 		(testSorting_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_N]: 262 --->
 //│ 	case ls⁹ of {LH_C h¹⁵ t¹⁵ => f³(h¹⁵, foldr_lh_₁(f³, i², t¹⁵)) | LH_N  => i²}: 1702
 //│ [LH_C _lh_prependToAll_LH_C_0⁰ prependToAll_lh_₁(_lh_prependToAll_arg1⁰, _lh_prependToAll_LH_C_1⁰)]: 270 --->
@@ -1276,7 +1276,7 @@ testSorting_nofib $ primId 0
 //│ 	[LH_C _lh_prependToAll_arg1⁰ [LH_C _lh_prependToAll_LH_C_0⁰ prependToAll_lh_₁(_lh_prependToAll_arg1⁰, _lh_prependToAll_LH_C_1⁰)]]: 271
 //│ 	[LH_N]: 1061
 //│ 	[LH_C _lh_intersperse_LH_C_0⁰ prependToAll_lh_₁(_lh_intersperse_arg1⁰, _lh_intersperse_LH_C_1⁰)]: 1068
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testSorting_nofib_lh_₁(primId⁰(0))

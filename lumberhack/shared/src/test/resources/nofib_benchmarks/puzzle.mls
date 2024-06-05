@@ -132,7 +132,7 @@ testPuzzle_nofib x =
 testPuzzle_nofib $ primId [2]
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testPuzzle_nofib_lh_₁^1903(primId⁰([LH_C 2 [LH_N]]))
 //│ def adamPos_lh_₁(_lh_adamPos_arg1²) = case _lh_adamPos_arg1² of {
 //│ 	State _lh_adamPos_State_0² _lh_adamPos_State_1² _lh_adamPos_State_2² _lh_adamPos_State_3² => _lh_adamPos_State_3²
@@ -954,9 +954,9 @@ testPuzzle_nofib $ primId [2]
 //│ 		        (((writeSolutions_lh__d1 mins_1) 1) (`LH_N)))));;
 //│ 		(testPuzzle_nofib_lh__d1 (`LH_C(2, (`LH_N))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C h² a⁰]: 769 --->
 //│ 	case _lh_writeSolutions_arg1⁰ of {LH_N  => (fun x⁵ -> x⁵) | LH_C _lh_writeSolutions_LH_C_0⁰ _lh_writeSolutions_LH_C_1⁰ => (fun _lh_funcomp_x⁹ -> (fun _lh_funcomp_x¹⁰ -> (fun _lh_funcomp_x¹¹ -> (fun _lh_funcomp_x¹² -> (fun x⁶ -> mappend_lh_₁([LH_C 'S' [LH_C 'o' [LH_C 'l' [LH_C 'u' [LH_C 't' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_C ' ' [LH_N]]]]]]]]]], x⁶))((fun x⁷ -> mappend_lh_₂(string_of_int⁰(_lh_writeSolutions_arg2⁰), x⁷))(_lh_funcomp_x¹²)))((fun x⁸ -> [LH_C '|' x⁸])(_lh_funcomp_x¹¹)))(writeHistory_lh_₁(_lh_writeSolutions_LH_C_0⁰, _lh_funcomp_x¹⁰)))(writeSolutions_lh_₁(_lh_writeSolutions_LH_C_1⁰, (_lh_writeSolutions_arg2⁰ + 1), _lh_funcomp_x⁹))) | _  => error⁰}: 1793
 //│ [Bono]: 864 --->
@@ -1135,7 +1135,7 @@ testPuzzle_nofib $ primId [2]
 //│ 	[LH_C h² a⁰]: 769
 //│ 	[LH_N]: 1314
 //│ 	[LH_N]: 1657
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testPuzzle_nofib_lh_₁(primId⁰([LH_C 2 [LH_N]]))

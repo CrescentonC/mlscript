@@ -155,7 +155,7 @@ testMandel2_nofib n =
 testMandel2_nofib $ primId [60]
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testMandel2_nofib_lh_₁^1339(primId⁰([LH_C 60 [LH_N]]))
 //│ def build_tree_lh_₁(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰) = 
 //│ 	let _lh_matchIdent⁴ = _lh_build_tree_arg1⁰
@@ -683,9 +683,9 @@ testMandel2_nofib $ primId [60]
 //│ 		      (finite_lh__d1 tree_0)));;
 //│ 		(testMandel2_nofib_lh__d1 (`LH_C(60, (`LH_N))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_P2 0 1]: 692 --->
 //│ 	case _lh_equalp_arg2² of {LH_P2 _lh_equalp_LH_P2_0⁵ _lh_equalp_LH_P2_1⁵ => ((_lh_equalp_LH_P2_0⁴ == _lh_equalp_LH_P2_0⁵) && (_lh_equalp_LH_P2_1⁴ == _lh_equalp_LH_P2_1⁵)) | _  => error⁰}: 818
 //│ [LH_P2 (0 - 1) 0]: 801 --->
@@ -717,7 +717,7 @@ testMandel2_nofib $ primId [60]
 //│ 	[Leaf rec_col⁰]: 1231
 //│ 	[NS build_tree_lh_₁(nsp1⁰, nsp2⁰) build_tree_lh_₁(nsp3⁰, nsp4⁰)]: 1251
 //│ 	[EW build_tree_lh_₁(ewp1⁰, ewp2⁰) build_tree_lh_₁(ewp3⁰, ewp4⁰)]: 1262
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMandel2_nofib_lh_₁(primId⁰([LH_C 60 [LH_N]]))

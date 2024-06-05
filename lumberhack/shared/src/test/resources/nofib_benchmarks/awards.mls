@@ -54,7 +54,7 @@ testAwards_nofib n = map (\x -> findallawards (competitors (x `mod` 100))) (prim
 testAwards_nofib $ primId 500
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testAwards_nofib_lh_₁^844(primId⁰(500))
 //│ def awards_lh_₁(_lh_awards_arg1⁰) = 
 //│ 	let sumscores⁰ = map_lh_₃^499((fun p⁰ -> [LH_P2 sum_lh_₁^500(p⁰) p⁰]), perms_lh_₁^507(3, _lh_awards_arg1⁰))
@@ -426,9 +426,9 @@ testAwards_nofib $ primId 500
 //│ 		    (findallawards_lh__d1 (competitors_lh__d1 (x_2 mod 100))))) ((enumFromTo_lh__d1 1) _lh_testAwards_nofib_arg1_0));;
 //│ 		(testAwards_nofib_lh__d1 500)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C _lh_rqpart_arg2⁰ qsort_lh_₁(_lh_rqpart_arg1⁰, _lh_rqpart_arg5⁰, _lh_rqpart_arg6⁰)]: 15 --->
 //│ 	case ls⁴ of {LH_C h⁶ t⁶ => [LH_C f³(h⁶) map_lh_₄(f³, t⁶)] | LH_N  => [LH_N]}: 381
 //│ [LH_C _lh_rqpart_arg2¹ qsort_lh_₁(_lh_rqpart_arg1¹, _lh_rqpart_arg5¹, _lh_rqpart_arg6¹)]: 75 --->
@@ -505,7 +505,7 @@ testAwards_nofib $ primId 500
 //│ 	[LH_P2 [LH_C 'H' [LH_C 'a' [LH_C 'n' [LH_C 's' [LH_N]]]]] [LH_C 23 [LH_C 19 [LH_C 45 [LH_C _lh_competitors_arg1⁰ [LH_C 17 [LH_C 10 [LH_C 5 [LH_C 8 [LH_C 14 [LH_N]]]]]]]]]]]: 738
 //│ 	[LH_P2 [LH_C 'P' [LH_C 'h' [LH_C 'i' [LH_C 'l' [LH_N]]]]] [LH_C 1 [LH_C 18 [LH_C _lh_competitors_arg1⁰ [LH_C 20 [LH_C 21 [LH_C 19 [LH_C 34 [LH_C 8 [LH_C 16 [LH_C 21 [LH_N]]]]]]]]]]]]: 769
 //│ 	[LH_P2 [LH_C 'K' [LH_C 'e' [LH_C 'v' [LH_C 'i' [LH_C 'n' [LH_N]]]]]] [LH_C 9 [LH_C 23 [LH_C 17 [LH_C 54 [LH_C _lh_competitors_arg1⁰ [LH_C 41 [LH_C 9 [LH_C 18 [LH_C 14 [LH_N]]]]]]]]]]]: 800
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testAwards_nofib_lh_₁(primId⁰(500))

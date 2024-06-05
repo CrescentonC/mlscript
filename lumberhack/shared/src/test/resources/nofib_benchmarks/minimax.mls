@@ -176,7 +176,7 @@ testMinimax_nofib n = length (prog n)
 testMinimax_nofib $ primId "180000"
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testMinimax_nofib_lh_₁^2851(primId⁰([LH_C '1' [LH_C '8' [LH_C '0' [LH_C '0' [LH_C '0' [LH_C '0' [LH_N]]]]]]]))
 //│ def alternate_lh_₁(_lh_alternate_arg1⁰, _lh_alternate_arg2⁰, _lh_alternate_arg3⁰, _lh_alternate_arg4⁰) = if fullBoard_lh_₁^2110(_lh_alternate_arg4⁰) then [LH_N] else if polyEq⁰(static_lh_₁^2115(_lh_alternate_arg4⁰), [XWin]) then [LH_N] else if polyEq⁰(static_lh_₂^2123(_lh_alternate_arg4⁰), [OWin]) then [LH_N] else 
 //│ 	let opposition⁰ = opposite_lh_₁^2130(_lh_alternate_arg1⁰)
@@ -1764,9 +1764,9 @@ testMinimax_nofib $ primId "180000"
 //│ 		  (length_lh__d1 (prog_lh__d1 _lh_testMinimax_nofib_arg1_0));;
 //│ 		(testMinimax_nofib_lh__d1 (`LH_C('1', (`LH_C('8', (`LH_C('0', (`LH_C('0', (`LH_C('0', (`LH_C('0', (`LH_N))))))))))))))
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_N]: 650 --->
 //│ 	case xs¹³ of {LH_C h²¹ t²¹ => [LH_C h²¹ mappend_lh_₈(t²¹, ys¹³)] | LH_N  => ys¹³}: 1326
 //│ [LH_C 'X' [LH_N]]: 651 --->
@@ -2187,7 +2187,7 @@ testMinimax_nofib $ primId "180000"
 //│ 	[LH_C h²⁵ mappend_lh_₅(t²⁵, ys¹⁶)]: 1642
 //│ 	[LH_C h³⁰ mappend_lh_₁(t³⁰, ys²⁰)]: 2279
 //│ 	[LH_N]: 2317
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMinimax_nofib_lh_₁(primId⁰([LH_C '1' [LH_C '8' [LH_C '0' [LH_C '0' [LH_C '0' [LH_C '0' [LH_N]]]]]]]))

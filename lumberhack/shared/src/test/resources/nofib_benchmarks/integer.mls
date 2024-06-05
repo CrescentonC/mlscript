@@ -29,7 +29,7 @@ testInteger_nofib n = runalltests (z_sub (const0) (const2100000000)) n (const210
 testInteger_nofib $ primId (const14000001)
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testInteger_nofib_lh_₁^1077(primId⁰(const14000001_lh_₁^1079))
 //│ def const0_lh_₁ = z_of_int⁰(0)
 //│ def const0_lh_₂ = z_of_int⁰(0)
@@ -192,13 +192,13 @@ testInteger_nofib $ primId (const14000001)
 //│ 		  ((((((runalltests_lh__d1 ((Z.sub const0_lh__d2) const2100000000_lh__d2)) _lh_testInteger_nofib_arg1_0) const2100000000_lh__d3) ((Z.sub const0_lh__d1) const2100000000_lh__d4)) _lh_testInteger_nofib_arg1_0) const2100000000_lh__d1);;
 //│ 		(testInteger_nofib_lh__d1 const14000001_lh__d1)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ 
 //│ ------------------
 //│ 
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testInteger_nofib_lh_₁(primId⁰(const14000001_lh_₁))

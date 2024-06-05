@@ -35,7 +35,7 @@ testLCSS_nofib _ = lcssMain 1 2 60 30 31 90
 testLCSS_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testLCSS_nofib_lh_₁^1016(primId⁰(0))
 //│ def algb1_lh_₁(_lh_algb1_arg1², _lh_algb1_arg2²) = case _lh_algb1_arg1² of {
 //│ 	LH_N  => map_lh_₁^154(snd_lh_₁^155, _lh_algb1_arg2²)
@@ -525,9 +525,9 @@ testLCSS_nofib $ primId 0
 //│ 		  ((((((lcssMain_lh__d1 1) 2) 60) 30) 31) 90);;
 //│ 		(testLCSS_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C h² a¹]: 112 --->
 //│ 	case _lh_algb1_arg1² of {LH_N  => map_lh_₁(snd_lh_₁, _lh_algb1_arg2²) | LH_C _lh_algb1_LH_C_0² _lh_algb1_LH_C_1² => algb1_lh_₁(_lh_algb1_LH_C_1², algb2_lh_₁(_lh_algb1_LH_C_0², 0, 0, _lh_algb1_arg2²)) | _  => error⁰}: 173
 //│ [LH_C h³ a²]: 124 --->
@@ -592,7 +592,7 @@ testLCSS_nofib $ primId 0
 //│ case _lh_listcomp_fun_para³ of {LH_C _lh_listcomp_fun_ls_h³ _lh_listcomp_fun_ls_t³ => [LH_C [LH_P2 _lh_listcomp_fun_ls_h³ 0] _lh_listcomp_fun³(_lh_listcomp_fun_ls_t³)] | LH_N  => [LH_N]}: 650 --->
 //│ 	[LH_C h⁴ a³]: 182
 //│ 	[LH_N]: 663
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testLCSS_nofib_lh_₁(primId⁰(0))

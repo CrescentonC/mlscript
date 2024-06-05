@@ -77,7 +77,7 @@ testLife_nofib n = length (force (last (generations n)))
 testLife_nofib $ primId 29
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testLife_nofib_lh_₁^1359(primId⁰(29))
 //│ def append_lz_lh_₁(_lh_append_lz_arg1⁰, _lh_append_lz_arg2⁰) = 
 //│ 	let _lh_matchIdent¹⁹ = _lh_append_lz_arg1⁰
@@ -819,9 +819,9 @@ testLife_nofib $ primId 29
 //│ 		  (length_lh__d1 (Lazy.force (last_lh__d1 (generations_lh__d1 _lh_testLife_nofib_arg1_0))));;
 //│ 		(testLife_nofib_lh__d1 29)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C h⁴ mappend_lh_₁₀(t⁴, ys²)]: 54 --->
 //│ 	case _lh_matchIdent⁵ of {LH_C _lh_zip3_LH_C_0⁵ _lh_zip3_LH_C_1⁵ => [LH_C [LH_P3 _lh_zip3_LH_C_0³ _lh_zip3_LH_C_0⁴ _lh_zip3_LH_C_0⁵] zip3_lh_₃(_lh_zip3_LH_C_1³, _lh_zip3_LH_C_1⁴, _lh_zip3_LH_C_1⁵)] | LH_N  => [LH_N] | _  => error⁰}: 197
 //│ [LH_C h⁵ mappend_lh_₉(t⁵, ys³)]: 66 --->
@@ -1316,7 +1316,7 @@ testLife_nofib $ primId 29
 //│ 	[LH_C h¹² mappend_lh_₄(t¹², ys⁸)]: 325
 //│ 	[LH_C h¹⁴ mappend_lh_₂(t¹⁴, ys¹⁰)]: 573
 //│ 	[LH_N]: 763
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testLife_nofib_lh_₁(primId⁰(29))

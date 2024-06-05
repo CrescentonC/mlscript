@@ -199,7 +199,7 @@ testConstraints_nofib n = map (try n) [bt, bm, bjbt, bjbt', fc]
 testConstraints_nofib $ primId 6
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testConstraints_nofib_lh_₁^2366(primId⁰(6))
 //│ def abs_lh_₁(_lh_abs_arg1¹) = if (_lh_abs_arg1¹ > 0) then _lh_abs_arg1¹ else (0 - _lh_abs_arg1¹)
 //│ def abs_lh_₂(_lh_abs_arg1⁰) = if (_lh_abs_arg1⁰ > 0) then _lh_abs_arg1⁰ else (0 - _lh_abs_arg1⁰)
@@ -1785,9 +1785,9 @@ testConstraints_nofib $ primId 6
 //│ 		  ((map_lh__d1 (try_lh__d1 _lh_testConstraints_nofib_arg1_0)) (`LH_C(bt_lh__d1, (`LH_C(bm_lh__d1, (`LH_C(bjbt_lh__d1, (`LH_C(bjbt'_lh__d1, (`LH_C(fc_lh__d1, (`LH_N))))))))))));;
 //│ 		(testConstraints_nofib_lh__d1 6)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C a⁰ enumFromTo_lh_₉((a⁰ + 1), b⁰)]: 144 --->
 //│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C [LH_C [Assign (maxLevel_lh_₃(ss⁰) + 1) _lh_listcomp_fun_ls_h⁰] ss⁰] _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)] | LH_N  => [LH_N]}: 778
 //│ [LH_N]: 145 --->
@@ -2119,7 +2119,7 @@ testConstraints_nofib $ primId 6
 //│ 	[Nothing]: 1971
 //│ 	[Nothing]: 1987
 //│ 	[Just [LH_P2 level_lh_₁(_lh_earliestInconsistency_LH_C_0⁴) level_lh_₂(_lh_earliestInconsistency_LH_C_0⁵)]]: 1995
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testConstraints_nofib_lh_₁(primId⁰(6))

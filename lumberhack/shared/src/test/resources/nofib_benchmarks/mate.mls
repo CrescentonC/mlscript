@@ -423,7 +423,7 @@ testMate_nofib dummy =
 testMate_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testMate_nofib_lh_₁^6649(primId⁰(0))
 //│ def abs_lh_₁(_lh_abs_arg1⁶) = if (_lh_abs_arg1⁶ < 0) then (0 - _lh_abs_arg1⁶) else _lh_abs_arg1⁶
 //│ def abs_lh_₂(_lh_abs_arg1⁵) = if (_lh_abs_arg1⁵ < 0) then (0 - _lh_abs_arg1⁵) else _lh_abs_arg1⁵
@@ -3579,9 +3579,9 @@ testMate_nofib $ primId 0
 //│ 		            (failwith "error")))));;
 //│ 		(testMate_nofib_lh__d1 0)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_N]: 261 --->
 //│ 	case ls⁰ of {LH_C h⁰ t⁰ => if (n⁰ == 0) then h⁰ else atIndex_lh_₁((n⁰ - 1), t⁰) | LH_N  => error⁰}: 110
 //│ [LH_C [LH_C 'K' [LH_C 'R' [LH_N]]] [LH_N]]: 262 --->
@@ -4205,7 +4205,7 @@ testMate_nofib $ primId 0
 //│ 	[LH_P2 c⁰ n³]: 5192
 //│ case _lh_matchIdent⁶⁵ of {LH_P2 _lh_testMate_nofib_LH_P2_0⁰ _lh_testMate_nofib_LH_P2_1⁰ => case _lh_testMate_nofib_LH_P2_1⁰ of {LH_P2 _lh_testMate_nofib_LH_P2_0¹ _lh_testMate_nofib_LH_P2_1¹ => mappend_lh_₆(mappend_lh_₇(mappend_lh_₄(mappend_lh_₃(mappend_lh_₅(mappend_lh_₁(mappend_lh_₂(showBoard_lh_₁(_lh_testMate_nofib_LH_P2_0⁰), [LH_C '|' [LH_N]]), showColour_lh_₁(_lh_testMate_nofib_LH_P2_0¹)), [LH_C ' ' [LH_C 't' [LH_C 'o' [LH_C ' ' [LH_C 'm' [LH_C 'o' [LH_C 'v' [LH_C 'e' [LH_C ' ' [LH_C 'a' [LH_C 'n' [LH_C 'd' [LH_C ' ' [LH_C 'm' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C ' ' [LH_C 'i' [LH_C 'n' [LH_C ' ' [LH_N]]]]]]]]]]]]]]]]]]]]]]), string_of_int⁰(_lh_testMate_nofib_LH_P2_1¹)), [LH_C '|' [LH_N]]), [LH_C '|' [LH_N]]), solve_lh_₁(_lh_testMate_nofib_LH_P2_0⁰, _lh_testMate_nofib_LH_P2_0¹, _lh_testMate_nofib_LH_P2_1¹)) | _  => error⁰} | _  => error⁰}: 6644 --->
 //│ 	[LH_P2 bd⁰ gl⁰]: 5510
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMate_nofib_lh_₁(primId⁰(0))

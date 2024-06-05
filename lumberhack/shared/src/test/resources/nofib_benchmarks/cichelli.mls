@@ -110,7 +110,7 @@ testCichelli_nofib n = prog n
 testCichelli_nofib $ primId 6
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testCichelli_nofib_lh_₁^2530(primId⁰(6))
 //│ def all_lh_₁(_lh_all_arg1⁰, _lh_all_arg2⁰) = case _lh_all_arg2⁰ of {
 //│ 	LH_N  => [True]
@@ -1002,9 +1002,9 @@ testCichelli_nofib $ primId 6
 //│ 		  (prog_lh__d1 _lh_testCichelli_nofib_arg1_0);;
 //│ 		(testCichelli_nofib_lh__d1 6)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C f²(h⁴) map_lh_₂(f², t⁴)]: 458 --->
 //│ 	case lss¹ of {LH_C h³ t³ => mappend_lh_₄(h³, concat_lh_₁(t³)) | LH_N  => [LH_N]}: 447
 //│ [LH_N]: 459 --->
@@ -1332,7 +1332,7 @@ testCichelli_nofib $ primId 6
 //│ 	[LH_C [LH_C 'd' [LH_C 'a' [LH_C 't' [LH_C 'a' [LH_N]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'f' [LH_C 'a' [LH_C 'u' [LH_C 'l' [LH_C 't' [LH_N]]]]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'r' [LH_C 'i' [LH_C 'v' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 'e' [LH_C 'l' [LH_C 's' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'h' [LH_C 'i' [LH_C 'd' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'm' [LH_C 'p' [LH_C 'o' [LH_C 'r' [LH_C 't' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_N]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_C 'l' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 's' [LH_C 't' [LH_C 'a' [LH_C 'n' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C 'f' [LH_C 'a' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]]] [LH_C [LH_C 'l' [LH_C 'e' [LH_C 't' [LH_N]]]] [LH_C [LH_C 'm' [LH_C 'o' [LH_C 'd' [LH_C 'u' [LH_C 'l' [LH_C 'e' [LH_N]]]]]]] [LH_C [LH_C 'o' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'r' [LH_C 'e' [LH_C 'n' [LH_C 'a' [LH_C 'm' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'n' [LH_N]]]]] [LH_C [LH_C 't' [LH_C 'o' [LH_N]]] [LH_C [LH_C 't' [LH_C 'y' [LH_C 'p' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'w' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 'e' [LH_N]]]]]] [LH_N]]]]]]]]]]]]]]]]]]]]]: 2177
 //│ 	[LH_C [LH_C 'c' [LH_C 'l' [LH_C 'a' [LH_C 's' [LH_C 's' [LH_N]]]]]] [LH_C [LH_C 'd' [LH_C 'a' [LH_C 't' [LH_C 'a' [LH_N]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'f' [LH_C 'a' [LH_C 'u' [LH_C 'l' [LH_C 't' [LH_N]]]]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'r' [LH_C 'i' [LH_C 'v' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 'e' [LH_C 'l' [LH_C 's' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'h' [LH_C 'i' [LH_C 'd' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'm' [LH_C 'p' [LH_C 'o' [LH_C 'r' [LH_C 't' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_N]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_C 'l' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 's' [LH_C 't' [LH_C 'a' [LH_C 'n' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C 'f' [LH_C 'a' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]]] [LH_C [LH_C 'l' [LH_C 'e' [LH_C 't' [LH_N]]]] [LH_C [LH_C 'm' [LH_C 'o' [LH_C 'd' [LH_C 'u' [LH_C 'l' [LH_C 'e' [LH_N]]]]]]] [LH_C [LH_C 'o' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'r' [LH_C 'e' [LH_C 'n' [LH_C 'a' [LH_C 'm' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'n' [LH_N]]]]] [LH_C [LH_C 't' [LH_C 'o' [LH_N]]] [LH_C [LH_C 't' [LH_C 'y' [LH_C 'p' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'w' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 'e' [LH_N]]]]]] [LH_N]]]]]]]]]]]]]]]]]]]]]]: 2178
 //│ 	[LH_C [LH_C 'c' [LH_C 'a' [LH_C 's' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'c' [LH_C 'l' [LH_C 'a' [LH_C 's' [LH_C 's' [LH_N]]]]]] [LH_C [LH_C 'd' [LH_C 'a' [LH_C 't' [LH_C 'a' [LH_N]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'f' [LH_C 'a' [LH_C 'u' [LH_C 'l' [LH_C 't' [LH_N]]]]]]]] [LH_C [LH_C 'd' [LH_C 'e' [LH_C 'r' [LH_C 'i' [LH_C 'v' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 'e' [LH_C 'l' [LH_C 's' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'h' [LH_C 'i' [LH_C 'd' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'm' [LH_C 'p' [LH_C 'o' [LH_C 'r' [LH_C 't' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_N]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_N]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 'f' [LH_C 'i' [LH_C 'x' [LH_C 'l' [LH_N]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 's' [LH_C 't' [LH_C 'a' [LH_C 'n' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]] [LH_C [LH_C 'i' [LH_C 'n' [LH_C 't' [LH_C 'e' [LH_C 'r' [LH_C 'f' [LH_C 'a' [LH_C 'c' [LH_C 'e' [LH_N]]]]]]]]]] [LH_C [LH_C 'l' [LH_C 'e' [LH_C 't' [LH_N]]]] [LH_C [LH_C 'm' [LH_C 'o' [LH_C 'd' [LH_C 'u' [LH_C 'l' [LH_C 'e' [LH_N]]]]]]] [LH_C [LH_C 'o' [LH_C 'f' [LH_N]]] [LH_C [LH_C 'r' [LH_C 'e' [LH_C 'n' [LH_C 'a' [LH_C 'm' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_N]]]]]]]]] [LH_C [LH_C 't' [LH_C 'h' [LH_C 'e' [LH_C 'n' [LH_N]]]]] [LH_C [LH_C 't' [LH_C 'o' [LH_N]]] [LH_C [LH_C 't' [LH_C 'y' [LH_C 'p' [LH_C 'e' [LH_N]]]]] [LH_C [LH_C 'w' [LH_C 'h' [LH_C 'e' [LH_C 'r' [LH_C 'e' [LH_N]]]]]] [LH_N]]]]]]]]]]]]]]]]]]]]]]]: 2179
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testCichelli_nofib_lh_₁(primId⁰(6))

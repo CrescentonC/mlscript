@@ -197,7 +197,7 @@ initial = ([(words k, cycle rs) | (k,rs) <-respMsgs], cycle repeatMsgs)
 testEliza_nofib $ primId 20
 //│ ||
 //│ Parsed: {}
-//│ >>>>>>>>>> After Expansion >>>>>>>>>>
+//│ >>>>>>>>>> after expansion >>>>>>>>>>
 //│ testEliza_nofib_lh_₁^9501(primId⁰(20))
 //│ def answer_lh_₁(_lh_answer_arg1⁰, _lh_answer_arg2⁰) = 
 //│ 	let cons¹ = (fun _lh_cons_arg1⁰ -> (fun _lh_cons_arg2⁰ -> case _lh_cons_arg2⁰ of {
@@ -1476,9 +1476,9 @@ testEliza_nofib $ primId 20
 //│ 		            (words_lh__d1 (trim_lh__d1 _lh_funcomp_x_1_2)))) _lh_funcomp_x_8))) ((take_lh__d1 (i_2 mod 20)) _lh_funcomp_x_7))) input_0))) ((enumFromTo_lh__d1 1) _lh_testEliza_nofib_arg1_0)));;
 //│ 		(testEliza_nofib_lh__d1 20)
 //│ 		---------- unoptimized ocaml gen ----------
-//│ <<<<<<<<<< After Expansion <<<<<<<<<<
+//│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion strategies >>>>>>>
+//│ >>>>>>> fusion matches >>>>>>>
 //│ [LH_C h⁰ mappend_lh_₁₃(t⁰, ys⁰)]: 8 --->
 //│ 	case ls² of {LH_C h⁷ t⁷ => [LH_C f²(h⁷) map_lh_₅(f², t⁷)] | LH_N  => [LH_N]}: 163
 //│ [LH_C h⁵ mappend_lh_₁₀(t⁵, ys³)]: 136 --->
@@ -2458,7 +2458,7 @@ testEliza_nofib $ primId 20
 //│ in case _lh_matchIdent²⁰ of {LH_P2 _lh_words_LH_P2_0¹ _lh_words_LH_P2_1¹ => [LH_C _lh_words_LH_P2_0¹ words_lh_₁(_lh_words_LH_P2_1¹)] | _  => error⁰} | _  => error⁰}: 8761 --->
 //│ 	[LH_N]: 8486
 //│ 	[LH_C _lh_dropWhile_LH_C_0² _lh_dropWhile_LH_C_1²]: 8497
-//│ <<<<<<< fusion strategies <<<<<<<
+//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testEliza_nofib_lh_₁(primId⁰(20))
