@@ -1,0 +1,11 @@
+FROM crescentonc/lumberhack-docker:v0-env-amd64
+WORKDIR /root
+COPY . ./lumberhack/
+WORKDIR /root/lumberhack/
+RUN git config --global user.email "you@example.com" \
+    && git config --global user.name "Example" \
+    && git init \
+    && git add . \
+    && git commit -m "Init"
+WORKDIR /root
+CMD /bin/bash

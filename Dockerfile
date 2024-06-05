@@ -21,4 +21,13 @@ WORKDIR /root
 RUN echo "eval \$(opam env 2> /dev/null)" >> ./.bashrc
 RUN apt install r-base -y \
     && R -e "install.packages(c('RColorBrewer', 'ggplot2', 'gridExtra'), repos='http://cran.rstudio.com/')"
+WORKDIR /root
+COPY . ./lumberhack/
+WORKDIR /root/lumberhack/
+RUN git config --global user.email "you@example.com" \
+    && git config --global user.name "Example" \
+    && git init \
+    && git add . \
+    && git commit -m "Init"
+WORKDIR /root
 CMD /bin/bash
