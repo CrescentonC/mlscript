@@ -1,43 +1,71 @@
 // 1. Introduction: Fig. 1
+:lhGenOCaml
+let rec mk(n) = if n < 0 then Nil else Cons(n, mk(n - 1))
 let rec map(f, xs) =
   if xs is
     Nil then Nil
     Cons(x, xs) then Cons(f(x), map(f, xs))
 let incr(x) = x + 1
 let double(x) = x * 2
-let main(ls) = map(incr, map(double, ls))
-main(primId(Cons(1, Nil)))
-//│ |#let| |#rec| |map|(|f|,| |xs|)| |#=|→|#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|←|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |double|(|x|)| |#=| |x| |*| |2|↵|#let| |main|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|main|(|primId|(|Cons|(|1|,| |Nil|)|)|)|
-//│ Parsed: {let rec map = f, xs, => {if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›}; let incr = x, => + (x,) (1,); let double = x, => * (x,) (2,); let main = ls, => map (incr, map (double, ls,),); main (primId (Cons (1, Nil,),),)}
+let testFig1(ls) = map(incr, map(double, ls))
+testFig1(primId(mk(10000)))
+//│ |#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |<| |0| |#then| |Nil| |#else| |Cons|(|n|,| |mk|(|n| |-| |1|)|)|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=|→|#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|←|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |double|(|x|)| |#=| |x| |*| |2|↵|#let| |testFig1|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|testFig1|(|primId|(|mk|(|10000|)|)|)|
+//│ Parsed: {let rec mk = n, => if (< (n,) (0,)) then Nil else Cons (n, mk (- (n,) (1,),),); let rec map = f, xs, => {if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›}; let incr = x, => + (x,) (1,); let double = x, => * (x,) (2,); let testFig1 = ls, => map (incr, map (double, ls,),); testFig1 (primId (mk (10000,),),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^51(primId⁰([Cons 1 [Nil]]))
-//│ def double_lh_₁(x⁰) = (x⁰ * 2)
-//│ def incr_lh_₁(x²) = (x² + 1)
-//│ def main_lh_₁(ls⁰) = map_lh_₂^41(incr_lh_₁^42, map_lh_₁^44(double_lh_₁^45, ls⁰))
+//│ testFig1_lh_₁^68(primId⁰(mk_lh_₁^70(10000)))
+//│ def double_lh_₁(x¹) = (x¹ * 2)
+//│ def incr_lh_₁(x³) = (x³ + 1)
 //│ def map_lh_₁(f¹, xs²) = case xs² of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x³ xs³ => [Cons f¹(x³) map_lh_₁^32(f¹, xs³)]}
+//│ 	| Cons x² xs³ => [Cons f¹(x²) map_lh_₁^26(f¹, xs³)]}
 //│ def map_lh_₂(f⁰, xs⁰) = case xs⁰ of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂^12(f⁰, xs¹)]}
+//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂^6(f⁰, xs¹)]}
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁^48((n⁰ - 1))]
+//│ def testFig1_lh_₁(ls⁰) = map_lh_₂^58(incr_lh_₁^59, map_lh_₁^61(double_lh_₁^62, ls⁰))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mk_lh__d1 n_0 =
+//│ 		  (if (n_0 < 0) then
+//│ 		    (`Nil)
+//│ 		  else
+//│ 		    (`Cons(n_0, (mk_lh__d1 (n_0 - 1)))));;
+//│ 		let rec incr_lh__d1 x_3 =
+//│ 		  (x_3 + 1);;
+//│ 		let rec double_lh__d1 x_1 =
+//│ 		  (x_1 * 2);;
+//│ 		let rec map_lh__d1 f_1 xs_2 =
+//│ 		  (match xs_2 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_2, xs_3) -> 
+//│ 		      (`Cons((f_1 x_2), ((map_lh__d1 f_1) xs_3))));;
+//│ 		let rec map_lh__d2 f_0 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_0, xs_1) -> 
+//│ 		      (`Cons((f_0 x_0), ((map_lh__d2 f_0) xs_1))));;
+//│ 		let rec testFig1_lh__d1 ls_0 =
+//│ 		  ((map_lh__d2 incr_lh__d1) ((map_lh__d1 double_lh__d1) ls_0));;
+//│ 		(testFig1_lh__d1 (mk_lh__d1 10000))
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
-//│ [Nil]: 28 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18
-//│ [Cons f¹(x³) map_lh_₁(f¹, xs³)]: 37 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18
+//│ [Nil]: 22 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
+//│ [Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
 //│ ------------------
-//│ case xs⁰ of {Nil  => [Nil] | Cons x¹ xs¹ => [Cons f⁰(x¹) map_lh_₂(f⁰, xs¹)]}: 18 --->
-//│ 	[Nil]: 28
-//│ 	[Cons f¹(x³) map_lh_₁(f¹, xs³)]: 37
+//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12 --->
+//│ 	[Nil]: 22
+//│ 	[Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primId⁰([Cons 1 [Nil]]))
+//│ testFig1_lh_₁(primId⁰(mk_lh_₁(10000)))
 //│ def double_lh_₁(x⁰) = (x⁰ * 2)
 //│ def incr_lh_₁(x¹) = (x¹ + 1)
-//│ def main_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
 //│ def map_lh_₁(f¹, xs¹, _lh_floatOutId_0⁰) = case xs¹ of {
 //│ 	Nil  => [Nil]
 //│ 	| Cons x² xs² => 
@@ -45,7 +73,13 @@ main(primId(Cons(1, Nil)))
 //│ 		in let x³ = f¹(x²)
 //│ 		in [Cons _lh_floatOutId_0⁰(x³) map_lh_₂(_lh_floatOutId_0⁰, xs³)]}
 //│ def map_lh_₂(f⁰, xs⁰) = xs⁰(f⁰)
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁((n⁰ - 1))]
+//│ def testFig1_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
 
 
 
@@ -133,21 +167,38 @@ main(primitive)
 
 
 // 2.4 Fusing Recursive Functions
+:lhGenOCaml
 let rec enumerate(n) = if n >= 0 then Cons(n, enumerate(n - 1)) else Nil
 let rec sum(xs) = if xs is
   Nil then 0
   Cons(x, xs) then x + sum(xs)
-let main(x) = sum(enumerate(x))
-main(primitive)
-//│ |#let| |#rec| |enumerate|(|n|)| |#=| |#if| |n| |>=| |0| |#then| |Cons|(|n|,| |enumerate|(|n| |-| |1|)|)| |#else| |Nil|↵|#let| |#rec| |sum|(|xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |0|↵|Cons|(|x|,| |xs|)| |#then| |x| |+| |sum|(|xs|)|←|↵|#let| |main|(|x|)| |#=| |sum|(|enumerate|(|x|)|)|↵|main|(|primitive|)|
-//│ Parsed: {let rec enumerate = n, => if (>= (n,) (0,)) then Cons (n, enumerate (- (n,) (1,),),) else Nil; let rec sum = xs, => if xs is ‹(Nil) then 0; (Cons (x, xs,)) then + (x,) (sum (xs,),)›; let main = x, => sum (enumerate (x,),); main (primitive,)}
+let test24FusingRecursiveFunction(x) = sum(enumerate(x))
+test24FusingRecursiveFunction(primId(10000))
+//│ |#let| |#rec| |enumerate|(|n|)| |#=| |#if| |n| |>=| |0| |#then| |Cons|(|n|,| |enumerate|(|n| |-| |1|)|)| |#else| |Nil|↵|#let| |#rec| |sum|(|xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |0|↵|Cons|(|x|,| |xs|)| |#then| |x| |+| |sum|(|xs|)|←|↵|#let| |test24FusingRecursiveFunction|(|x|)| |#=| |sum|(|enumerate|(|x|)|)|↵|test24FusingRecursiveFunction|(|primId|(|10000|)|)|
+//│ Parsed: {let rec enumerate = n, => if (>= (n,) (0,)) then Cons (n, enumerate (- (n,) (1,),),) else Nil; let rec sum = xs, => if xs is ‹(Nil) then 0; (Cons (x, xs,)) then + (x,) (sum (xs,),)›; let test24FusingRecursiveFunction = x, => sum (enumerate (x,),); test24FusingRecursiveFunction (primId (10000,),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^35(primitive⁰)
+//│ test24FusingRecursiveFunction_lh_₁^35(primId⁰(10000))
 //│ def enumerate_lh_₁(n⁰) = if (n⁰ >= 0) then [Cons n⁰ enumerate_lh_₁^18((n⁰ - 1))] else [Nil]
-//│ def main_lh_₁(x¹) = sum_lh_₁^29(enumerate_lh_₁^30(x¹))
 //│ def sum_lh_₁(xs⁰) = case xs⁰ of {
 //│ 	Nil  => 0
 //│ 	| Cons x⁰ xs¹ => (x⁰ + sum_lh_₁^6(xs¹))}
+//│ def test24FusingRecursiveFunction_lh_₁(x¹) = sum_lh_₁^29(enumerate_lh_₁^30(x¹))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec enumerate_lh__d1 n_0 =
+//│ 		  (if (n_0 >= 0) then
+//│ 		    (`Cons(n_0, (enumerate_lh__d1 (n_0 - 1))))
+//│ 		  else
+//│ 		    (`Nil));;
+//│ 		let rec sum_lh__d1 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Nil -> 
+//│ 		      0
+//│ 		    | `Cons(x_0, xs_1) -> 
+//│ 		      (x_0 + (sum_lh__d1 xs_1)));;
+//│ 		let rec test24FusingRecursiveFunction_lh__d1 x_1 =
+//│ 		  (sum_lh__d1 (enumerate_lh__d1 x_1));;
+//│ 		(test24FusingRecursiveFunction_lh__d1 10000)
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
@@ -162,167 +213,270 @@ main(primitive)
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primitive⁰)
+//│ test24FusingRecursiveFunction_lh_₁(primId⁰(10000))
 //│ def enumerate_lh_₁(n⁰, _lh_floatOutId_0⁰) = if (n⁰ >= 0) then 
 //│ 	let xs¹ = enumerate_lh_₁((n⁰ - 1))
 //│ 	in let x⁰ = n⁰
 //│ 	in (x⁰ + sum_lh_₁(xs¹)) else 0
-//│ def main_lh_₁(x¹) = sum_lh_₁(enumerate_lh_₁(x¹))
 //│ def sum_lh_₁(xs⁰) = xs⁰([lh_Unit])
+//│ def test24FusingRecursiveFunction_lh_₁(x¹) = sum_lh_₁(enumerate_lh_₁(x¹))
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
 
 
 
 // 2.5 Computations with Free Variables
-let incr = primitive
-let double = primitive
+:lhGenOCaml
+let rec mk(n) = if n < 0 then Nil else Cons(n, mk(n - 1))
+let incr(x) = x + 1
+let double(x) = x * 2
 let rec map(f, xs) = if xs is
   Nil then Nil
   Cons(x, xs) then Cons(f(x), map(f, xs))
-let main(ls) = map(incr, map(double, ls))
-main(primitive)
-//│ |#let| |incr| |#=| |primitive|↵|#let| |double| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |main|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|main|(|primitive|)|
-//│ Parsed: {let incr = primitive; let double = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let main = ls, => map (incr, map (double, ls,),); main (primitive,)}
+let test25ComputationWithFreeVariables(ls) = map(incr, map(double, ls))
+test25ComputationWithFreeVariables(primId(mk(10000)))
+//│ |#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |<| |0| |#then| |Nil| |#else| |Cons|(|n|,| |mk|(|n| |-| |1|)|)|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |double|(|x|)| |#=| |x| |*| |2|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |test25ComputationWithFreeVariables|(|ls|)| |#=| |map|(|incr|,| |map|(|double|,| |ls|)|)|↵|test25ComputationWithFreeVariables|(|primId|(|mk|(|10000|)|)|)|
+//│ Parsed: {let rec mk = n, => if (< (n,) (0,)) then Nil else Cons (n, mk (- (n,) (1,),),); let incr = x, => + (x,) (1,); let double = x, => * (x,) (2,); let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let test25ComputationWithFreeVariables = ls, => map (incr, map (double, ls,),); test25ComputationWithFreeVariables (primId (mk (10000,),),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^41(primitive⁰)
-//│ def double_lh_₁ = primitive⁰
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(ls⁰) = map_lh_₂^31(incr_lh_₁^32, map_lh_₁^34(double_lh_₁^35, ls⁰))
+//│ test25ComputationWithFreeVariables_lh_₁^68(primId⁰(mk_lh_₁^70(10000)))
+//│ def double_lh_₁(x¹) = (x¹ * 2)
+//│ def incr_lh_₁(x³) = (x³ + 1)
 //│ def map_lh_₁(f¹, xs²) = case xs² of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x¹ xs³ => [Cons f¹(x¹) map_lh_₁^21(f¹, xs³)]}
+//│ 	| Cons x² xs³ => [Cons f¹(x²) map_lh_₁^26(f¹, xs³)]}
 //│ def map_lh_₂(f⁰, xs⁰) = case xs⁰ of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂^7(f⁰, xs¹)]}
+//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂^6(f⁰, xs¹)]}
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁^58((n⁰ - 1))]
+//│ def test25ComputationWithFreeVariables_lh_₁(ls⁰) = map_lh_₂^41(incr_lh_₁^42, map_lh_₁^44(double_lh_₁^45, ls⁰))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec incr_lh__d1 x_3 =
+//│ 		  (x_3 + 1);;
+//│ 		let rec double_lh__d1 x_1 =
+//│ 		  (x_1 * 2);;
+//│ 		let rec map_lh__d1 f_1 xs_2 =
+//│ 		  (match xs_2 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_2, xs_3) -> 
+//│ 		      (`Cons((f_1 x_2), ((map_lh__d1 f_1) xs_3))));;
+//│ 		let rec map_lh__d2 f_0 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_0, xs_1) -> 
+//│ 		      (`Cons((f_0 x_0), ((map_lh__d2 f_0) xs_1))));;
+//│ 		let rec test25ComputationWithFreeVariables_lh__d1 ls_0 =
+//│ 		  ((map_lh__d2 incr_lh__d1) ((map_lh__d1 double_lh__d1) ls_0));;
+//│ 		let rec mk_lh__d1 n_0 =
+//│ 		  (if (n_0 < 0) then
+//│ 		    (`Nil)
+//│ 		  else
+//│ 		    (`Cons(n_0, (mk_lh__d1 (n_0 - 1)))));;
+//│ 		(test25ComputationWithFreeVariables_lh__d1 (mk_lh__d1 10000))
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
-//│ [Nil]: 17 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13
-//│ [Cons f¹(x¹) map_lh_₁(f¹, xs³)]: 26 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13
+//│ [Nil]: 22 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
+//│ [Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
 //│ ------------------
-//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 13 --->
-//│ 	[Nil]: 17
-//│ 	[Cons f¹(x¹) map_lh_₁(f¹, xs³)]: 26
+//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12 --->
+//│ 	[Nil]: 22
+//│ 	[Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primitive⁰)
-//│ def double_lh_₁ = primitive⁰
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
+//│ test25ComputationWithFreeVariables_lh_₁(primId⁰(mk_lh_₁(10000)))
+//│ def double_lh_₁(x⁰) = (x⁰ * 2)
+//│ def incr_lh_₁(x¹) = (x¹ + 1)
 //│ def map_lh_₁(f¹, xs¹, _lh_floatOutId_0⁰) = case xs¹ of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x⁰ xs² => 
+//│ 	| Cons x² xs² => 
 //│ 		let xs³ = map_lh_₁(f¹, xs²)
-//│ 		in let x¹ = f¹(x⁰)
-//│ 		in [Cons _lh_floatOutId_0⁰(x¹) map_lh_₂(_lh_floatOutId_0⁰, xs³)]}
+//│ 		in let x³ = f¹(x²)
+//│ 		in [Cons _lh_floatOutId_0⁰(x³) map_lh_₂(_lh_floatOutId_0⁰, xs³)]}
 //│ def map_lh_₂(f⁰, xs⁰) = xs⁰(f⁰)
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁((n⁰ - 1))]
+//│ def test25ComputationWithFreeVariables_lh_₁(ls⁰) = map_lh_₂(incr_lh_₁, map_lh_₁(double_lh_₁, ls⁰))
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
 
 
 
 // 2.6.2 Nonfusible Programs
-let incr = primitive
+:lhGenOCaml
+let rec mk(n) = if n < 0 then Nil else Cons(n, mk(n - 1))
+let incr(x) = x + 1
 let rec map(f, xs) = if xs is
   Nil then Nil
   Cons(x, xs) then Cons(f(x), map(f, xs))
 let rec rev(xs, acc) = if xs is
   Cons(x, xs) then rev(xs, Cons(x, acc))
   Nil then acc
-let main(xs) = map(incr, rev(xs, Nil))
-main(primitive)
-//│ |#let| |incr| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |main|(|xs|)| |#=| |map|(|incr|,| |rev|(|xs|,| |Nil|)|)|↵|main|(|primitive|)|
-//│ Parsed: {let incr = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let main = xs, => map (incr, rev (xs, Nil,),); main (primitive,)}
+let test262NonfusibleProgramsMapRev(xs) = map(incr, rev(xs, Nil))
+test262NonfusibleProgramsMapRev(primId(mk(10000)))
+//│ |#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |<| |0| |#then| |Nil| |#else| |Cons|(|n|,| |mk|(|n| |-| |1|)|)|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |test262NonfusibleProgramsMapRev|(|xs|)| |#=| |map|(|incr|,| |rev|(|xs|,| |Nil|)|)|↵|test262NonfusibleProgramsMapRev|(|primId|(|mk|(|10000|)|)|)|
+//│ Parsed: {let rec mk = n, => if (< (n,) (0,)) then Nil else Cons (n, mk (- (n,) (1,),),); let incr = x, => + (x,) (1,); let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let test262NonfusibleProgramsMapRev = xs, => map (incr, rev (xs, Nil,),); test262NonfusibleProgramsMapRev (primId (mk (10000,),),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^38(primitive⁰)
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(xs⁴) = map_lh_₁^28(incr_lh_₁^29, rev_lh_₁^31(xs⁴, [Nil]))
-//│ def map_lh_₁(f⁰, xs²) = case xs² of {
+//│ test262NonfusibleProgramsMapRev_lh_₁^60(primId⁰(mk_lh_₁^62(10000)))
+//│ def incr_lh_₁(x²) = (x² + 1)
+//│ def map_lh_₁(f⁰, xs⁰) = case xs⁰ of {
 //│ 	Nil  => [Nil]
-//│ 	| Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁^19(f⁰, xs³)]}
-//│ def rev_lh_₁(xs⁰, acc⁰) = case xs⁰ of {
-//│ 	Cons x⁰ xs¹ => rev_lh_₁^2(xs¹, [Cons x⁰ acc⁰])
+//│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁^6(f⁰, xs¹)]}
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁^50((n⁰ - 1))]
+//│ def rev_lh_₁(xs², acc⁰) = case xs² of {
+//│ 	Cons x¹ xs³ => rev_lh_₁^16(xs³, [Cons x¹ acc⁰])
 //│ 	| Nil  => acc⁰}
+//│ def test262NonfusibleProgramsMapRev_lh_₁(xs⁴) = map_lh_₁^33(incr_lh_₁^34, rev_lh_₁^36(xs⁴, [Nil]))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec map_lh__d1 f_0 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_0, xs_1) -> 
+//│ 		      (`Cons((f_0 x_0), ((map_lh__d1 f_0) xs_1))));;
+//│ 		let rec rev_lh__d1 xs_2 acc_0 =
+//│ 		  (match xs_2 with
+//│ 		    | `Cons(x_1, xs_3) -> 
+//│ 		      ((rev_lh__d1 xs_3) (`Cons(x_1, acc_0)))
+//│ 		    | `Nil -> 
+//│ 		      acc_0);;
+//│ 		let rec incr_lh__d1 x_2 =
+//│ 		  (x_2 + 1);;
+//│ 		let rec test262NonfusibleProgramsMapRev_lh__d1 xs_4 =
+//│ 		  ((map_lh__d1 incr_lh__d1) ((rev_lh__d1 xs_4) (`Nil)));;
+//│ 		let rec mk_lh__d1 n_0 =
+//│ 		  (if (n_0 < 0) then
+//│ 		    (`Nil)
+//│ 		  else
+//│ 		    (`Cons(n_0, (mk_lh__d1 (n_0 - 1)))));;
+//│ 		(test262NonfusibleProgramsMapRev_lh__d1 (mk_lh__d1 10000))
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
-//│ [Cons x⁰ acc⁰]: 7 --->
-//│ 	case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25
-//│ [Nil]: 34 --->
-//│ 	case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25
+//│ [Cons x¹ acc⁰]: 21 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12
+//│ [Nil]: 39 --->
+//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12
 //│ ------------------
-//│ case xs² of {Nil  => [Nil] | Cons x¹ xs³ => [Cons f⁰(x¹) map_lh_₁(f⁰, xs³)]}: 25 --->
-//│ 	[Cons x⁰ acc⁰]: 7
-//│ 	[Nil]: 34
+//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12 --->
+//│ 	[Cons x¹ acc⁰]: 21
+//│ 	[Nil]: 39
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primitive⁰)
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(xs⁴) = map_lh_₁(incr_lh_₁, rev_lh_₁(xs⁴, (fun f² -> [Nil])))
-//│ def map_lh_₁(f¹, xs³) = xs³(f¹)
-//│ def rev_lh_₁(xs⁰, acc⁰) = case xs⁰ of {
-//│ 	Cons x⁰ xs¹ => rev_lh_₁(xs¹, 
-//│ 		let xs² = acc⁰
-//│ 		in let x¹ = x⁰
-//│ 		in (fun f⁰ -> [Cons f⁰(x¹) map_lh_₁(f⁰, xs²)]))
+//│ test262NonfusibleProgramsMapRev_lh_₁(primId⁰(mk_lh_₁(10000)))
+//│ def incr_lh_₁(x⁰) = (x⁰ + 1)
+//│ def map_lh_₁(f², xs⁴) = xs⁴(f²)
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁((n⁰ - 1))]
+//│ def rev_lh_₁(xs¹, acc⁰) = case xs¹ of {
+//│ 	Cons x¹ xs² => rev_lh_₁(xs², 
+//│ 		let xs³ = acc⁰
+//│ 		in let x² = x¹
+//│ 		in (fun f¹ -> [Cons f¹(x²) map_lh_₁(f¹, xs³)]))
 //│ 	| Nil  => acc⁰}
+//│ def test262NonfusibleProgramsMapRev_lh_₁(xs⁰) = map_lh_₁(incr_lh_₁, rev_lh_₁(xs⁰, (fun f⁰ -> [Nil])))
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
 
 
 
 // 2.6.2 Nonfusible Programs: "`rev (map incr xs) []` fuses just fine in Lumberhack"
-let incr = primitive
+:lhGenOCaml
+let rec mk(n) = if n < 0 then Nil else Cons(n, mk(n - 1))
+let incr(x) = x + 1
 let rec map(f, xs) = if xs is
   Nil then Nil
   Cons(x, xs) then Cons(f(x), map(f, xs))
 let rec rev(xs, acc) = if xs is
   Cons(x, xs) then rev(xs, Cons(x, acc))
   Nil then acc
-let main(xs) = rev(map(incr, xs), Nil)
-main(primitive)
-//│ |#let| |incr| |#=| |primitive|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |main|(|xs|)| |#=| |rev|(|map|(|incr|,| |xs|)|,| |Nil|)|↵|main|(|primitive|)|
-//│ Parsed: {let incr = primitive; let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let main = xs, => rev (map (incr, xs,), Nil,); main (primitive,)}
+let test262NonfusibleProgramsRevMap(xs) = rev(map(incr, xs), Nil)
+test262NonfusibleProgramsRevMap(primId(mk(10000)))
+//│ |#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |<| |0| |#then| |Nil| |#else| |Cons|(|n|,| |mk|(|n| |-| |1|)|)|↵|#let| |incr|(|x|)| |#=| |x| |+| |1|↵|#let| |#rec| |map|(|f|,| |xs|)| |#=| |#if| |xs| |is|→|Nil| |#then| |Nil|↵|Cons|(|x|,| |xs|)| |#then| |Cons|(|f|(|x|)|,| |map|(|f|,| |xs|)|)|←|↵|#let| |#rec| |rev|(|xs|,| |acc|)| |#=| |#if| |xs| |is|→|Cons|(|x|,| |xs|)| |#then| |rev|(|xs|,| |Cons|(|x|,| |acc|)|)|↵|Nil| |#then| |acc|←|↵|#let| |test262NonfusibleProgramsRevMap|(|xs|)| |#=| |rev|(|map|(|incr|,| |xs|)|,| |Nil|)|↵|test262NonfusibleProgramsRevMap|(|primId|(|mk|(|10000|)|)|)|
+//│ Parsed: {let rec mk = n, => if (< (n,) (0,)) then Nil else Cons (n, mk (- (n,) (1,),),); let incr = x, => + (x,) (1,); let rec map = f, xs, => if xs is ‹(Nil) then Nil; (Cons (x, xs,)) then Cons (f (x,), map (f, xs,),)›; let rec rev = xs, acc, => if xs is ‹(Cons (x, xs,)) then rev (xs, Cons (x, acc,),); (Nil) then acc›; let test262NonfusibleProgramsRevMap = xs, => rev (map (incr, xs,), Nil,); test262NonfusibleProgramsRevMap (primId (mk (10000,),),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^38(primitive⁰)
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(xs⁴) = rev_lh_₁^28(map_lh_₁^29(incr_lh_₁^30, xs⁴), [Nil])
+//│ test262NonfusibleProgramsRevMap_lh_₁^60(primId⁰(mk_lh_₁^62(10000)))
+//│ def incr_lh_₁(x²) = (x² + 1)
 //│ def map_lh_₁(f⁰, xs⁰) = case xs⁰ of {
 //│ 	Nil  => [Nil]
 //│ 	| Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁^6(f⁰, xs¹)]}
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁^50((n⁰ - 1))]
 //│ def rev_lh_₁(xs², acc⁰) = case xs² of {
-//│ 	Cons x¹ xs³ => rev_lh_₁^17(xs³, [Cons x¹ acc⁰])
+//│ 	Cons x¹ xs³ => rev_lh_₁^16(xs³, [Cons x¹ acc⁰])
 //│ 	| Nil  => acc⁰}
+//│ def test262NonfusibleProgramsRevMap_lh_₁(xs⁴) = rev_lh_₁^33(map_lh_₁^34(incr_lh_₁^35, xs⁴), [Nil])
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mk_lh__d1 n_0 =
+//│ 		  (if (n_0 < 0) then
+//│ 		    (`Nil)
+//│ 		  else
+//│ 		    (`Cons(n_0, (mk_lh__d1 (n_0 - 1)))));;
+//│ 		let rec incr_lh__d1 x_2 =
+//│ 		  (x_2 + 1);;
+//│ 		let rec rev_lh__d1 xs_2 acc_0 =
+//│ 		  (match xs_2 with
+//│ 		    | `Cons(x_1, xs_3) -> 
+//│ 		      ((rev_lh__d1 xs_3) (`Cons(x_1, acc_0)))
+//│ 		    | `Nil -> 
+//│ 		      acc_0);;
+//│ 		let rec map_lh__d1 f_0 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Nil -> 
+//│ 		      (`Nil)
+//│ 		    | `Cons(x_0, xs_1) -> 
+//│ 		      (`Cons((f_0 x_0), ((map_lh__d1 f_0) xs_1))));;
+//│ 		let rec test262NonfusibleProgramsRevMap_lh__d1 xs_4 =
+//│ 		  ((rev_lh__d1 ((map_lh__d1 incr_lh__d1) xs_4)) (`Nil));;
+//│ 		(test262NonfusibleProgramsRevMap_lh__d1 (mk_lh__d1 10000))
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
 //│ [Nil]: 2 --->
-//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25
+//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24
 //│ [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11 --->
-//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25
+//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24
 //│ ------------------
-//│ case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 25 --->
+//│ case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24 --->
 //│ 	[Nil]: 2
 //│ 	[Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primitive⁰)
-//│ def incr_lh_₁ = primitive⁰
-//│ def main_lh_₁(xs⁴) = rev_lh_₁(map_lh_₁(incr_lh_₁, xs⁴), [Nil])
-//│ def map_lh_₁(f⁰, xs⁰, _lh_floatOutId_0⁰) = case xs⁰ of {
+//│ test262NonfusibleProgramsRevMap_lh_₁(primId⁰(mk_lh_₁(10000)))
+//│ def incr_lh_₁(x⁰) = (x⁰ + 1)
+//│ def map_lh_₁(f⁰, xs², _lh_floatOutId_0⁰) = case xs² of {
 //│ 	Nil  => _lh_floatOutId_0⁰
-//│ 	| Cons x⁰ xs¹ => 
-//│ 		let xs² = map_lh_₁(f⁰, xs¹)
-//│ 		in let x¹ = f⁰(x⁰)
-//│ 		in rev_lh_₁(xs², [Cons x¹ _lh_floatOutId_0⁰])}
-//│ def rev_lh_₁(xs³, acc²) = xs³(acc²)
+//│ 	| Cons x¹ xs³ => 
+//│ 		let xs⁴ = map_lh_₁(f⁰, xs³)
+//│ 		in let x² = f⁰(x¹)
+//│ 		in rev_lh_₁(xs⁴, [Cons x² _lh_floatOutId_0⁰])}
+//│ def mk_lh_₁(n⁰) = if (n⁰ < 0) then [Nil] else [Cons n⁰ mk_lh_₁((n⁰ - 1))]
+//│ def rev_lh_₁(xs¹, acc⁰) = xs¹(acc⁰)
+//│ def test262NonfusibleProgramsRevMap_lh_₁(xs⁰) = rev_lh_₁(map_lh_₁(incr_lh_₁, xs⁰), [Nil])
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
 
 
 // 2.6.3 Misaligned and Conflicting Producer/Consumer Pairs
+:lhGenOCaml
 let pair_up(xs) =
   if xs is
     Cons(x, xss) then
@@ -331,19 +485,39 @@ let pair_up(xs) =
         _ then Nil
     _ then Nil
 let rec mk(n) = if n > 0 then Cons(n - 1, Cons(n, Cons(n + 1, mk(n - 1)))) else Nil
-let main(x) = pair_up(mk(x))
-main(primitive)
-//│ |#let| |pair_up|(|xs|)| |#=|→|#if| |xs| |is|→|Cons|(|x|,| |xss|)| |#then|→|#if| |xss| |is|→|Cons|(|y|,| |xs|)| |#then| |Cons|(|Pair|(|x|,| |y|)|,| |pair_up|(|xs|)|)|↵|_| |#then| |Nil|←|←|↵|_| |#then| |Nil|←|←|↵|#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |>| |0| |#then| |Cons|(|n| |-| |1|,| |Cons|(|n|,| |Cons|(|n| |+| |1|,| |mk|(|n| |-| |1|)|)|)|)| |#else| |Nil|↵|#let| |main|(|x|)| |#=| |pair_up|(|mk|(|x|)|)|↵|main|(|primitive|)|
-//│ Parsed: {let pair_up = xs, => {if xs is ‹(Cons (x, xss,)) then {if xss is ‹(Cons (y, xs,)) then Cons (Pair (x, y,), pair_up (xs,),); (_) then Nil›}; (_) then Nil›}; let rec mk = n, => if (> (n,) (0,)) then Cons (- (n,) (1,), Cons (n, Cons (+ (n,) (1,), mk (- (n,) (1,),),),),) else Nil; let main = x, => pair_up (mk (x,),); main (primitive,)}
+let test263MisalignedProdCons(x) = pair_up(mk(x))
+test263MisalignedProdCons(primId(10000))
+//│ |#let| |pair_up|(|xs|)| |#=|→|#if| |xs| |is|→|Cons|(|x|,| |xss|)| |#then|→|#if| |xss| |is|→|Cons|(|y|,| |xs|)| |#then| |Cons|(|Pair|(|x|,| |y|)|,| |pair_up|(|xs|)|)|↵|_| |#then| |Nil|←|←|↵|_| |#then| |Nil|←|←|↵|#let| |#rec| |mk|(|n|)| |#=| |#if| |n| |>| |0| |#then| |Cons|(|n| |-| |1|,| |Cons|(|n|,| |Cons|(|n| |+| |1|,| |mk|(|n| |-| |1|)|)|)|)| |#else| |Nil|↵|#let| |test263MisalignedProdCons|(|x|)| |#=| |pair_up|(|mk|(|x|)|)|↵|test263MisalignedProdCons|(|primId|(|10000|)|)|
+//│ Parsed: {let pair_up = xs, => {if xs is ‹(Cons (x, xss,)) then {if xss is ‹(Cons (y, xs,)) then Cons (Pair (x, y,), pair_up (xs,),); (_) then Nil›}; (_) then Nil›}; let rec mk = n, => if (> (n,) (0,)) then Cons (- (n,) (1,), Cons (n, Cons (+ (n,) (1,), mk (- (n,) (1,),),),),) else Nil; let test263MisalignedProdCons = x, => pair_up (mk (x,),); test263MisalignedProdCons (primId (10000,),)}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ main_lh_₁^50(primitive⁰)
-//│ def main_lh_₁(x¹) = pair_up_lh_₁^44(mk_lh_₁^45(x¹))
+//│ test263MisalignedProdCons_lh_₁^50(primId⁰(10000))
 //│ def mk_lh_₁(n⁰) = if (n⁰ > 0) then [Cons (n⁰ - 1) [Cons n⁰ [Cons (n⁰ + 1) mk_lh_₁^17((n⁰ - 1))]]] else [Nil]
 //│ def pair_up_lh_₁(xs⁰) = case xs⁰ of {
 //│ 	Cons x⁰ xss⁰ => case xss⁰ of {
 //│ 		Cons y⁰ xs¹ => [Cons [Pair x⁰ y⁰] pair_up_lh_₁^35(xs¹)]
 //│ 		| _  => [Nil]}
 //│ 	| _  => [Nil]}
+//│ def test263MisalignedProdCons_lh_₁(x¹) = pair_up_lh_₁^44(mk_lh_₁^45(x¹))
+//│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mk_lh__d1 n_0 =
+//│ 		  (if (n_0 > 0) then
+//│ 		    (`Cons((n_0 - 1), (`Cons(n_0, (`Cons((n_0 + 1), (mk_lh__d1 (n_0 - 1))))))))
+//│ 		  else
+//│ 		    (`Nil));;
+//│ 		let rec pair_up_lh__d1 xs_0 =
+//│ 		  (match xs_0 with
+//│ 		    | `Cons(x_0, xss_0) -> 
+//│ 		      (match xss_0 with
+//│ 		        | `Cons(y_0, xs_1) -> 
+//│ 		          (`Cons((`Pair(x_0, y_0)), (pair_up_lh__d1 xs_1)))
+//│ 		        | _ -> 
+//│ 		          (`Nil))
+//│ 		    | _ -> 
+//│ 		      (`Nil));;
+//│ 		let rec test263MisalignedProdCons_lh__d1 x_1 =
+//│ 		  (pair_up_lh__d1 (mk_lh__d1 x_1));;
+//│ 		(test263MisalignedProdCons_lh__d1 10000)
+//│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
@@ -353,12 +527,16 @@ main(primitive)
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
-//│ main_lh_₁(primitive⁰)
-//│ def main_lh_₁(x¹) = pair_up_lh_₁(mk_lh_₁(x¹))
+//│ test263MisalignedProdCons_lh_₁(primId⁰(10000))
 //│ def mk_lh_₁(n⁰) = if (n⁰ > 0) then [Cons (n⁰ - 1) [Cons n⁰ [Cons (n⁰ + 1) mk_lh_₁((n⁰ - 1))]]] else [Nil]
 //│ def pair_up_lh_₁(xs⁰) = case xs⁰ of {
 //│ 	Cons x⁰ xss⁰ => case xss⁰ of {
 //│ 		Cons y⁰ xs¹ => [Cons [Pair x⁰ y⁰] pair_up_lh_₁(xs¹)]
 //│ 		| _  => [Nil]}
 //│ 	| _  => [Nil]}
+//│ def test263MisalignedProdCons_lh_₁(x¹) = pair_up_lh_₁(mk_lh_₁(x¹))
 //│ <<<<<<< after fusion <<<<<<<
+//│ 
+//│ >>>>>>>>>> Generated OCaml >>>>>>>>>>
+//│ benchmark file generated
+//│ <<<<<<<<<< Generated OCaml <<<<<<<<<<
