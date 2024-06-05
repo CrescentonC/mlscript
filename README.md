@@ -16,6 +16,7 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
   compiled for both `amd64` and `arm64` platforms and pushed them to
   [DockerHub](https://hub.docker.com/r/crescentonc/lumberhack-docker/tags).
   One can pull the `amd64` image and launch a container with the following command:
+  [FIXME: in artifact submission do not use docker hub]
 
   ```
   docker pull crescentonc/lumberhack-docker:v0-amd64 [FIXME: change tag later]
@@ -79,7 +80,7 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
       ```
 
   3. **To generate the plots we used in paper**: you need [R (≥3.5)][R] and
-  R packages [ggplot2][ggplot2], [RColorBrewer][], [gridExtra][gridExtra].
+  R packages [ggplot2][ggplot2], [RColorBrewer][RColorBrewer], [gridExtra][gridExtra].
 
       After installing R, run the following command in your shell to install the required packages:
       ```sh
@@ -225,8 +226,60 @@ and getting new results from Lumberhack.
 
 ## Supported MLscript Syntax
 
-[TODO:]
-[NOTE: we currently do not support nested patterns for input programs written in MLscript syntax]
+- Function definition
+  ```
+  let f(param1, param2) = ...
+  ```
+  This defines a non-recursive function `f` taking two parameters `param1`.
+  and `param2`.
+  
+  Function and variable names should start with non-capitalized letters.
+  To define a recursive function, use `let rec f(param1, param2) = ...`.
+
+- Function call
+  ```
+  f(arg1, arg2)
+  ```
+  This calls the function `f` with two arguments `arg1` and `arg2`
+
+- `let` binding
+  ```
+  let x = rhs in body
+  ```
+  This binds the value of `rhs` to the variable `x`, which will be visible in `body`.
+  To define recursive `let rec` bindings, use `let rec x = rhs in body`.
+
+- Data constructor calls
+  ```
+  Cons(arg1, arg2)
+  Nil
+  ```
+  The first line creates a `Cons` data structure with `arg1` and `arg2` as its arguments.
+  The second line creates a `Nil` data structure, which takes zero argument.
+  Data constructor names should start with capitalized letters.
+
+- Pattern matching
+  ```
+  if x is
+    Cons(h, t) then branch1
+    Nil then branch2
+  ```
+  The above MLscript program shares the same semantic with the following OCaml program:
+  ```OCaml
+  match x with
+    | `Cons(h, t) -> branch1
+    | `Nil -> branch2
+  ```
+  **NOTE**: we do not support nested patterns for input programs written in the MLscript syntax
+
+- Integer and operations on integers are totally conventional
+
+- Special symbols
+  - `primitive` stands for any code that is unknown or irrelevant for Lumberhack
+  - `primId`: this "primitive identity" annotation takes one argument
+     and prevents Lumberhack from fusing values produced by its argument with the rest of the program
+     by treating its argument as something unknown.
+     It is usually used by us to mark the input of programs.
 
 
 
