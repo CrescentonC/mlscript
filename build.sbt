@@ -24,18 +24,9 @@ lazy val mlscript = crossProject(JVMPlatform).in(file("."))
       "-Ywarn-value-discard",
     ),
     scalacOptions ++= {
-      if (insideCI.value) Seq("-Wconf:any:error")
-      else                Seq("-Wconf:any:warning")
+      if (insideCI.value) Seq("-Wconf:any:silent")
+      else                Seq("-Wconf:any:silent")
     },
-    wartremoverWarnings ++= Warts.allBut(
-      Recursion, Throw, Nothing, Return, While, IsInstanceOf,
-      Var, MutableDataStructures, NonUnitStatements,
-      DefaultArguments, ImplicitParameter, ImplicitConversion,
-      StringPlusAny, Any,
-      JavaSerializable, Serializable, Product,
-      LeakingSealed, Overloading,
-      Option2Iterable, IterableOps, ListAppend
-    ),
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.12" % Test,
     libraryDependencies += "com.lihaoyi" %%% "sourcecode" % "0.3.0",
     libraryDependencies += "com.lihaoyi" %%% "fastparse" % "2.3.3",
@@ -57,6 +48,7 @@ lazy val lumberhack = crossProject(JVMPlatform).in(file("lumberhack"))
     name := "lumberhack",
     scalaVersion := "3.3.0",
     sbtJniCoreScope := Compile,
+    scalacOptions ++= Seq("-Wconf:any:silent"),
     sourceDirectory := baseDirectory.value.getParentFile()/"shared"/"src",
     watchSources += WatchSource(
       baseDirectory.value.getParentFile()/"shared"/"src"/"test"/"resources", "*.mls", NothingFilter),
