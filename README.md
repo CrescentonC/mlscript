@@ -142,7 +142,8 @@ between this artifact and the paper, please refer to [the section below](#corres
   **NOTE**: some programs require longer running duration to enable `core_bench` to report
   reliable 95% confidence intervals, and their test durations
   are adjusted accordingly in `bench.sh` based on the results of
-  executing the tests from the authors' machines.
+  executing the tests from the authors' machines
+  (at the current setting, benchmarking all the 38 programs should finish within around 3 hours).
   Depending on the machine executing the tests, the numbers may need to be further adjusted.
   To make the adjustment, modify `bench.sh` and add an `elif` case after line 35:
   ```sh
