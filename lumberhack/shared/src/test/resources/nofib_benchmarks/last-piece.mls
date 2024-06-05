@@ -369,7 +369,7 @@ testLastPiece_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testLastPiece_nofib_lh_₁^7013(primId⁰(0))
+//│ testLastPiece_nofib_lh_₁(primId⁰(0))
 //│ def addIntInt_lh_₁(_lh_addIntInt_arg1¹, _lh_addIntInt_arg2¹) = case _lh_addIntInt_arg1¹ of {
 //│ 	LH_P2 _lh_addIntInt_LH_P2_0² _lh_addIntInt_LH_P2_1² => case _lh_addIntInt_arg2¹ of {
 //│ 		LH_P2 _lh_addIntInt_LH_P2_0³ _lh_addIntInt_LH_P2_1³ => [LH_P2 (_lh_addIntInt_LH_P2_0² + _lh_addIntInt_LH_P2_0³) (_lh_addIntInt_LH_P2_1² + _lh_addIntInt_LH_P2_1³)]
@@ -382,10 +382,10 @@ testLastPiece_nofib $ primId 0
 //│ 	| _  => error⁰}
 //│ def bPiece_lh_₁ = [P 'b' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 1 2] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_N]]]] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_N]]]] [LH_N]]]
 //│ def cPiece_lh_₁ = [P 'c' [LH_N] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 1 1] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 0] [LH_N]]]] [LH_C [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 2 0] [LH_N]]]] [LH_N]]]]]]
-//│ def check_lh_₁(_lh_check_arg1³, _lh_check_arg2³) = mapLookup_lh_₁^4482(_lh_check_arg2³, _lh_check_arg1³)
-//│ def check_lh_₂(_lh_check_arg1², _lh_check_arg2²) = mapLookup_lh_₂^3418(_lh_check_arg2², _lh_check_arg1²)
-//│ def check_lh_₃(_lh_check_arg1¹, _lh_check_arg2¹) = mapLookup_lh_₃^3278(_lh_check_arg2¹, _lh_check_arg1¹)
-//│ def check_lh_₄(_lh_check_arg1⁰, _lh_check_arg2⁰) = mapLookup_lh_₄^1517(_lh_check_arg2⁰, _lh_check_arg1⁰)
+//│ def check_lh_₁(_lh_check_arg1³, _lh_check_arg2³) = mapLookup_lh_₁(_lh_check_arg2³, _lh_check_arg1³)
+//│ def check_lh_₂(_lh_check_arg1², _lh_check_arg2²) = mapLookup_lh_₂(_lh_check_arg2², _lh_check_arg1²)
+//│ def check_lh_₃(_lh_check_arg1¹, _lh_check_arg2¹) = mapLookup_lh_₃(_lh_check_arg2¹, _lh_check_arg1¹)
+//│ def check_lh_₄(_lh_check_arg1⁰, _lh_check_arg2⁰) = mapLookup_lh_₄(_lh_check_arg2⁰, _lh_check_arg1⁰)
 //│ def compareIntInt_lh_₁(_lh_compareIntInt_arg1⁷, _lh_compareIntInt_arg2⁷) = case _lh_compareIntInt_arg1⁷ of {
 //│ 	LH_P2 _lh_compareIntInt_LH_P2_0¹⁴ _lh_compareIntInt_LH_P2_1¹⁴ => case _lh_compareIntInt_arg2⁷ of {
 //│ 		LH_P2 _lh_compareIntInt_LH_P2_0¹⁵ _lh_compareIntInt_LH_P2_1¹⁵ => if (_lh_compareIntInt_LH_P2_0¹⁴ > _lh_compareIntInt_LH_P2_0¹⁵) then [GT] else if (_lh_compareIntInt_LH_P2_0¹⁴ < _lh_compareIntInt_LH_P2_0¹⁵) then [LT] else if (_lh_compareIntInt_LH_P2_1¹⁴ > _lh_compareIntInt_LH_P2_1¹⁵) then [GT] else if (_lh_compareIntInt_LH_P2_1¹⁴ < _lh_compareIntInt_LH_P2_1¹⁵) then [LT] else [EQ]
@@ -426,49 +426,49 @@ testLastPiece_nofib $ primId 0
 //│ 		LH_P2 _lh_compareIntInt_LH_P2_0¹ _lh_compareIntInt_LH_P2_1¹ => if (_lh_compareIntInt_LH_P2_0⁰ > _lh_compareIntInt_LH_P2_0¹) then [GT] else if (_lh_compareIntInt_LH_P2_0⁰ < _lh_compareIntInt_LH_P2_0¹) then [LT] else if (_lh_compareIntInt_LH_P2_1⁰ > _lh_compareIntInt_LH_P2_1¹) then [GT] else if (_lh_compareIntInt_LH_P2_1⁰ < _lh_compareIntInt_LH_P2_1¹) then [LT] else [EQ]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ <= 0) then [LH_N] else [LH_C _lh_copy_arg2¹ copy_lh_₁^4863((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)]
-//│ def copy_lh_₂(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = if (_lh_copy_arg1⁰ <= 0) then [LH_N] else [LH_C _lh_copy_arg2⁰ copy_lh_₂^4627((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)]
+//│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ <= 0) then [LH_N] else [LH_C _lh_copy_arg2¹ copy_lh_₁((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)]
+//│ def copy_lh_₂(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = if (_lh_copy_arg1⁰ <= 0) then [LH_N] else [LH_C _lh_copy_arg2⁰ copy_lh_₂((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)]
 //│ def dPiece_lh_₁ = [P 'd' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 2 1] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 1 (0 - 2)] [LH_N]]]] [LH_N]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 2 1] [LH_N]]]] [LH_N]]]
 //│ def ePiece_lh_₁ = [P 'e' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]] [LH_N]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_N]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]] [LH_N]]]]
 //│ def emptyBoard_lh_₁ = [Tip]
-//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁^4936((a¹ + 1), b¹)] else [LH_N]
-//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂^4798((a⁰ + 1), b⁰)] else [LH_N]
-//│ def extend_lh_₁(_lh_extend_arg1³, _lh_extend_arg2³, _lh_extend_arg3³) = insert_lh_₁^4421(_lh_extend_arg2³, _lh_extend_arg3³, _lh_extend_arg1³)
-//│ def extend_lh_₂(_lh_extend_arg1², _lh_extend_arg2², _lh_extend_arg3²) = insert_lh_₂^3268(_lh_extend_arg2², _lh_extend_arg3², _lh_extend_arg1²)
-//│ def extend_lh_₃(_lh_extend_arg1¹, _lh_extend_arg2¹, _lh_extend_arg3¹) = insert_lh_₃^1617(_lh_extend_arg2¹, _lh_extend_arg3¹, _lh_extend_arg1¹)
-//│ def extend_lh_₄(_lh_extend_arg1⁰, _lh_extend_arg2⁰, _lh_extend_arg3⁰) = insert_lh_₄^1507(_lh_extend_arg2⁰, _lh_extend_arg3⁰, _lh_extend_arg1⁰)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)] else [LH_N]
+//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)] else [LH_N]
+//│ def extend_lh_₁(_lh_extend_arg1³, _lh_extend_arg2³, _lh_extend_arg3³) = insert_lh_₁(_lh_extend_arg2³, _lh_extend_arg3³, _lh_extend_arg1³)
+//│ def extend_lh_₂(_lh_extend_arg1², _lh_extend_arg2², _lh_extend_arg3²) = insert_lh_₂(_lh_extend_arg2², _lh_extend_arg3², _lh_extend_arg1²)
+//│ def extend_lh_₃(_lh_extend_arg1¹, _lh_extend_arg2¹, _lh_extend_arg3¹) = insert_lh_₃(_lh_extend_arg2¹, _lh_extend_arg3¹, _lh_extend_arg1¹)
+//│ def extend_lh_₄(_lh_extend_arg1⁰, _lh_extend_arg2⁰, _lh_extend_arg3⁰) = insert_lh_₄(_lh_extend_arg2⁰, _lh_extend_arg3⁰, _lh_extend_arg1⁰)
 //│ def extend_maybe_lh_₁(_lh_extend_maybe_arg1¹, _lh_extend_maybe_arg2¹, _lh_extend_maybe_arg3¹) = case _lh_extend_maybe_arg2¹ of {
-//│ 	LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹ => if (((_lh_extend_maybe_LH_P2_0¹ > maxRow_lh_₂^4437) || (_lh_extend_maybe_LH_P2_1¹ < 1)) || (_lh_extend_maybe_LH_P2_1¹ > maxCol_lh_₃^4450)) then [Nothing] else 
-//│ 		let _lh_matchIdent⁴⁰ = check_lh_₃^4454(_lh_extend_maybe_arg1¹, [LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹])
+//│ 	LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹ => if (((_lh_extend_maybe_LH_P2_0¹ > maxRow_lh_₂) || (_lh_extend_maybe_LH_P2_1¹ < 1)) || (_lh_extend_maybe_LH_P2_1¹ > maxCol_lh_₃)) then [Nothing] else 
+//│ 		let _lh_matchIdent⁴⁰ = check_lh_₃(_lh_extend_maybe_arg1¹, [LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹])
 //│ 		in case _lh_matchIdent⁴⁰ of {
 //│ 			Just _lh_extend_maybe_Just_0¹ => [Nothing]
-//│ 			| Nothing  => [Just extend_lh_₂^4463(_lh_extend_maybe_arg1¹, [LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹], _lh_extend_maybe_arg3¹)]
+//│ 			| Nothing  => [Just extend_lh_₂(_lh_extend_maybe_arg1¹, [LH_P2 _lh_extend_maybe_LH_P2_0¹ _lh_extend_maybe_LH_P2_1¹], _lh_extend_maybe_arg3¹)]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def extend_maybe_lh_₂(_lh_extend_maybe_arg1⁰, _lh_extend_maybe_arg2⁰, _lh_extend_maybe_arg3⁰) = case _lh_extend_maybe_arg2⁰ of {
-//│ 	LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰ => if (((_lh_extend_maybe_LH_P2_0⁰ > maxRow_lh_₃^1633) || (_lh_extend_maybe_LH_P2_1⁰ < 1)) || (_lh_extend_maybe_LH_P2_1⁰ > maxCol_lh_₄^1646)) then [Nothing] else 
-//│ 		let _lh_matchIdent¹⁷ = check_lh_₄^1650(_lh_extend_maybe_arg1⁰, [LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰])
+//│ 	LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰ => if (((_lh_extend_maybe_LH_P2_0⁰ > maxRow_lh_₃) || (_lh_extend_maybe_LH_P2_1⁰ < 1)) || (_lh_extend_maybe_LH_P2_1⁰ > maxCol_lh_₄)) then [Nothing] else 
+//│ 		let _lh_matchIdent¹⁷ = check_lh_₄(_lh_extend_maybe_arg1⁰, [LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰])
 //│ 		in case _lh_matchIdent¹⁷ of {
 //│ 			Just _lh_extend_maybe_Just_0⁰ => [Nothing]
-//│ 			| Nothing  => [Just extend_lh_₄^1659(_lh_extend_maybe_arg1⁰, [LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰], _lh_extend_maybe_arg3⁰)]
+//│ 			| Nothing  => [Just extend_lh_₄(_lh_extend_maybe_arg1⁰, [LH_P2 _lh_extend_maybe_LH_P2_0⁰ _lh_extend_maybe_LH_P2_1⁰], _lh_extend_maybe_arg3⁰)]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def fPiece_lh_₁ = [P 'f' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 2 1] [LH_C [LH_P2 3 1] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 1 (0 - 2)] [LH_C [LH_P2 1 (0 - 3)] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 3 0] [LH_C [LH_P2 3 1] [LH_N]]]]] [LH_N]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 0 3] [LH_C [LH_P2 1 0] [LH_N]]]]] [LH_N]]]
 //│ def fit_lh_₁(_lh_fit_arg1¹, _lh_fit_arg2¹, _lh_fit_arg3¹, _lh_fit_arg4¹) = case _lh_fit_arg4¹ of {
-//│ 	LH_N  => [Just extend_lh_₁^4721(_lh_fit_arg1¹, _lh_fit_arg2¹, _lh_fit_arg3¹)]
+//│ 	LH_N  => [Just extend_lh_₁(_lh_fit_arg1¹, _lh_fit_arg2¹, _lh_fit_arg3¹)]
 //│ 	| LH_C _lh_fit_LH_C_0¹ _lh_fit_LH_C_1¹ => 
-//│ 		let _lh_matchIdent⁴³ = extend_maybe_lh_₁^4729(_lh_fit_arg1¹, addIntInt_lh_₁^4732(_lh_fit_arg2¹, _lh_fit_LH_C_0¹), _lh_fit_arg3¹)
+//│ 		let _lh_matchIdent⁴³ = extend_maybe_lh_₁(_lh_fit_arg1¹, addIntInt_lh_₁(_lh_fit_arg2¹, _lh_fit_LH_C_0¹), _lh_fit_arg3¹)
 //│ 		in case _lh_matchIdent⁴³ of {
-//│ 			Just _lh_fit_Just_0¹ => fit_lh_₁^4741(_lh_fit_Just_0¹, _lh_fit_arg2¹, _lh_fit_arg3¹, _lh_fit_LH_C_1¹)
+//│ 			Just _lh_fit_Just_0¹ => fit_lh_₁(_lh_fit_Just_0¹, _lh_fit_arg2¹, _lh_fit_arg3¹, _lh_fit_LH_C_1¹)
 //│ 			| Nothing  => [Nothing]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def fit_lh_₂(_lh_fit_arg1⁰, _lh_fit_arg2⁰, _lh_fit_arg3⁰, _lh_fit_arg4⁰) = case _lh_fit_arg4⁰ of {
-//│ 	LH_N  => [Just extend_lh_₃^2511(_lh_fit_arg1⁰, _lh_fit_arg2⁰, _lh_fit_arg3⁰)]
+//│ 	LH_N  => [Just extend_lh_₃(_lh_fit_arg1⁰, _lh_fit_arg2⁰, _lh_fit_arg3⁰)]
 //│ 	| LH_C _lh_fit_LH_C_0⁰ _lh_fit_LH_C_1⁰ => 
-//│ 		let _lh_matchIdent²⁷ = extend_maybe_lh_₂^2519(_lh_fit_arg1⁰, addIntInt_lh_₂^2522(_lh_fit_arg2⁰, _lh_fit_LH_C_0⁰), _lh_fit_arg3⁰)
+//│ 		let _lh_matchIdent²⁷ = extend_maybe_lh_₂(_lh_fit_arg1⁰, addIntInt_lh_₂(_lh_fit_arg2⁰, _lh_fit_LH_C_0⁰), _lh_fit_arg3⁰)
 //│ 		in case _lh_matchIdent²⁷ of {
-//│ 			Just _lh_fit_Just_0⁰ => fit_lh_₂^2531(_lh_fit_Just_0⁰, _lh_fit_arg2⁰, _lh_fit_arg3⁰, _lh_fit_LH_C_1⁰)
+//│ 			Just _lh_fit_Just_0⁰ => fit_lh_₂(_lh_fit_Just_0⁰, _lh_fit_arg2⁰, _lh_fit_arg3⁰, _lh_fit_LH_C_1⁰)
 //│ 			| Nothing  => [Nothing]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -485,10 +485,10 @@ testLastPiece_nofib $ primId 0
 //│ 	| Female  => [Male]
 //│ 	| _  => error⁰}
 //│ def foldr_lh_₁(f³, i¹, ls⁴) = case ls⁴ of {
-//│ 	LH_C h⁵ t⁵ => f³(h⁵, foldr_lh_₁^4816(f³, i¹, t⁵))
+//│ 	LH_C h⁵ t⁵ => f³(h⁵, foldr_lh_₁(f³, i¹, t⁵))
 //│ 	| LH_N  => i¹}
 //│ def foldr_lh_₂(f², i⁰, ls³) = case ls³ of {
-//│ 	LH_C h⁴ t⁴ => f²(h⁴, foldr_lh_₂^4778(f², i⁰, t⁴))
+//│ 	LH_C h⁴ t⁴ => f²(h⁴, foldr_lh_₂(f², i⁰, t⁴))
 //│ 	| LH_N  => i⁰}
 //│ def fromJust_lh_₁(_lh_fromJust_arg1⁰) = case _lh_fromJust_arg1⁰ of {
 //│ 	Just _lh_fromJust_Just_0⁰ => _lh_fromJust_Just_0⁰
@@ -496,9 +496,9 @@ testLastPiece_nofib $ primId 0
 //│ def gPiece_lh_₁ = [P 'g' [LH_N] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_C [LH_P2 1 3] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 (0 - 1)] [LH_C [LH_P2 3 (0 - 1)] [LH_N]]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 1 2] [LH_C [LH_P2 1 3] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 2 (0 - 1)] [LH_C [LH_P2 3 (0 - 1)] [LH_N]]]]] [LH_N]]]]]]
 //│ def hPiece_lh_₁ = [P 'h' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_C [LH_P2 2 2] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 (0 - 1)] [LH_C [LH_P2 2 (0 - 2)] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 2 1] [LH_C [LH_P2 2 2] [LH_N]]]]] [LH_N]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]]] [LH_N]]]
 //│ def iPiece_lh_₁ = [P 'i' [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 2 1] [LH_C [LH_P2 3 1] [LH_N]]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 2 1] [LH_C [LH_P2 3 1] [LH_N]]]]] [LH_N]]]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 1 (0 - 2)] [LH_N]]]]] [LH_N]]]
-//│ def indent_lh_₁(_lh_indent_arg1¹) = if (_lh_indent_arg1¹ <= 0) then [LH_N] else [LH_C ' ' indent_lh_₁^4901((_lh_indent_arg1¹ - 1))]
-//│ def indent_lh_₂(_lh_indent_arg1⁰) = if (_lh_indent_arg1⁰ <= 0) then [LH_N] else [LH_C ' ' indent_lh_₂^4884((_lh_indent_arg1⁰ - 1))]
-//│ def initialPieces_lh_₁ = [LH_C bPiece_lh_₁^4663 [LH_C cPiece_lh_₁^4664 [LH_C dPiece_lh_₁^4665 [LH_C ePiece_lh_₁^4666 [LH_C fPiece_lh_₁^4667 [LH_C gPiece_lh_₁^4668 [LH_C hPiece_lh_₁^4669 [LH_C iPiece_lh_₁^4670 [LH_C jPiece_lh_₁^4671 [LH_C kPiece_lh_₁^4672 [LH_C lPiece_lh_₁^4673 [LH_C mPiece_lh_₁^4674 [LH_C nPiece_lh_₁^4675 [LH_N]]]]]]]]]]]]]]
+//│ def indent_lh_₁(_lh_indent_arg1¹) = if (_lh_indent_arg1¹ <= 0) then [LH_N] else [LH_C ' ' indent_lh_₁((_lh_indent_arg1¹ - 1))]
+//│ def indent_lh_₂(_lh_indent_arg1⁰) = if (_lh_indent_arg1⁰ <= 0) then [LH_N] else [LH_C ' ' indent_lh_₂((_lh_indent_arg1⁰ - 1))]
+//│ def initialPieces_lh_₁ = [LH_C bPiece_lh_₁ [LH_C cPiece_lh_₁ [LH_C dPiece_lh_₁ [LH_C ePiece_lh_₁ [LH_C fPiece_lh_₁ [LH_C gPiece_lh_₁ [LH_C hPiece_lh_₁ [LH_C iPiece_lh_₁ [LH_C jPiece_lh_₁ [LH_C kPiece_lh_₁ [LH_C lPiece_lh_₁ [LH_C mPiece_lh_₁ [LH_C nPiece_lh_₁ [LH_N]]]]]]]]]]]]]]
 //│ def insert_lh_₁(_lh_insert_arg1³, _lh_insert_arg2³, _lh_insert_arg3³) = case _lh_insert_arg3³ of {
 //│ 	Tip  => [Bin 1 _lh_insert_arg1³ _lh_insert_arg2³ [Tip] [Tip]]
 //│ 	| Bin _lh_insert_Bin_0³ _lh_insert_Bin_1³ _lh_insert_Bin_2³ _lh_insert_Bin_3³ _lh_insert_Bin_4³ => 
@@ -586,10 +586,10 @@ testLastPiece_nofib $ primId 0
 //│ 					in bin¹³(_lh_singleR_Bin_1⁶, _lh_singleR_Bin_2⁶, _lh_singleR_Bin_3⁶, bin¹³(_lh_singleR_arg1³, _lh_singleR_arg2³, _lh_singleR_Bin_4⁶, _lh_singleR_arg4³))
 //│ 				| Tip  => error⁰([LH_C 's' [LH_C 'i' [LH_C 'n' [LH_C 'g' [LH_C 'l' [LH_C 'e' [LH_C 'R' [LH_C ' ' [LH_C 'T' [LH_C 'i' [LH_C 'p' [LH_N]]]]]]]]]]]])
 //│ 				| _  => error⁰})))) 
-//│ 		in let _lh_matchIdent³⁶ = compareIntInt_lh_₂^3215(_lh_insert_arg1³, _lh_insert_Bin_1³)
+//│ 		in let _lh_matchIdent³⁶ = compareIntInt_lh_₂(_lh_insert_arg1³, _lh_insert_Bin_1³)
 //│ 		in case _lh_matchIdent³⁶ of {
-//│ 			LT  => balance³(_lh_insert_Bin_1³, _lh_insert_Bin_2³, insert_lh_₁^3226(_lh_insert_arg1³, _lh_insert_arg2³, _lh_insert_Bin_3³), _lh_insert_Bin_4³)
-//│ 			| GT  => balance³(_lh_insert_Bin_1³, _lh_insert_Bin_2³, _lh_insert_Bin_3³, insert_lh_₁^3243(_lh_insert_arg1³, _lh_insert_arg2³, _lh_insert_Bin_4³))
+//│ 			LT  => balance³(_lh_insert_Bin_1³, _lh_insert_Bin_2³, insert_lh_₁(_lh_insert_arg1³, _lh_insert_arg2³, _lh_insert_Bin_3³), _lh_insert_Bin_4³)
+//│ 			| GT  => balance³(_lh_insert_Bin_1³, _lh_insert_Bin_2³, _lh_insert_Bin_3³, insert_lh_₁(_lh_insert_arg1³, _lh_insert_arg2³, _lh_insert_Bin_4³))
 //│ 			| EQ  => [Bin _lh_insert_Bin_0³ _lh_insert_arg1³ _lh_insert_arg2³ _lh_insert_Bin_3³ _lh_insert_Bin_4³]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -680,10 +680,10 @@ testLastPiece_nofib $ primId 0
 //│ 					in if (size²⁰(_lh_rotateL_Bin_3⁴) < (2 * size²⁰(_lh_rotateL_Bin_4⁴))) then singleL²(_lh_rotateL_arg1², _lh_rotateL_arg2², _lh_rotateL_arg3², [Bin _lh_rotateL_Bin_0⁴ _lh_rotateL_Bin_1⁴ _lh_rotateL_Bin_2⁴ _lh_rotateL_Bin_3⁴ _lh_rotateL_Bin_4⁴]) else doubleL²(_lh_rotateL_arg1², _lh_rotateL_arg2², _lh_rotateL_arg3², [Bin _lh_rotateL_Bin_0⁴ _lh_rotateL_Bin_1⁴ _lh_rotateL_Bin_2⁴ _lh_rotateL_Bin_3⁴ _lh_rotateL_Bin_4⁴])
 //│ 				| Tip  => error⁰([LH_C 'r' [LH_C 'o' [LH_C 't' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C 'L' [LH_C ' ' [LH_C 'T' [LH_C 'i' [LH_C 'p' [LH_N]]]]]]]]]]]])
 //│ 				| _  => error⁰})))) 
-//│ 		in let _lh_matchIdent²⁵ = compareIntInt_lh_₅^2384(_lh_insert_arg1², _lh_insert_Bin_1²)
+//│ 		in let _lh_matchIdent²⁵ = compareIntInt_lh_₅(_lh_insert_arg1², _lh_insert_Bin_1²)
 //│ 		in case _lh_matchIdent²⁵ of {
-//│ 			LT  => balance²(_lh_insert_Bin_1², _lh_insert_Bin_2², insert_lh_₂^2395(_lh_insert_arg1², _lh_insert_arg2², _lh_insert_Bin_3²), _lh_insert_Bin_4²)
-//│ 			| GT  => balance²(_lh_insert_Bin_1², _lh_insert_Bin_2², _lh_insert_Bin_3², insert_lh_₂^2412(_lh_insert_arg1², _lh_insert_arg2², _lh_insert_Bin_4²))
+//│ 			LT  => balance²(_lh_insert_Bin_1², _lh_insert_Bin_2², insert_lh_₂(_lh_insert_arg1², _lh_insert_arg2², _lh_insert_Bin_3²), _lh_insert_Bin_4²)
+//│ 			| GT  => balance²(_lh_insert_Bin_1², _lh_insert_Bin_2², _lh_insert_Bin_3², insert_lh_₂(_lh_insert_arg1², _lh_insert_arg2², _lh_insert_Bin_4²))
 //│ 			| EQ  => [Bin _lh_insert_Bin_0² _lh_insert_arg1² _lh_insert_arg2² _lh_insert_Bin_3² _lh_insert_Bin_4²]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -774,10 +774,10 @@ testLastPiece_nofib $ primId 0
 //│ 					in if (size⁸(_lh_rotateR_Bin_4²) < (2 * size⁸(_lh_rotateR_Bin_3²))) then singleR¹(_lh_rotateR_arg1¹, _lh_rotateR_arg2¹, [Bin _lh_rotateR_Bin_0² _lh_rotateR_Bin_1² _lh_rotateR_Bin_2² _lh_rotateR_Bin_3² _lh_rotateR_Bin_4²], _lh_rotateR_arg4¹) else doubleR¹(_lh_rotateR_arg1¹, _lh_rotateR_arg2¹, [Bin _lh_rotateR_Bin_0² _lh_rotateR_Bin_1² _lh_rotateR_Bin_2² _lh_rotateR_Bin_3² _lh_rotateR_Bin_4²], _lh_rotateR_arg4¹)
 //│ 				| Tip  => error⁰([LH_C 'r' [LH_C 'o' [LH_C 't' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C 'R' [LH_C ' ' [LH_C 'T' [LH_C 'i' [LH_C 'p' [LH_N]]]]]]]]]]]])
 //│ 				| _  => error⁰})))) 
-//│ 		in let _lh_matchIdent¹⁶ = compareIntInt_lh_₆^1454(_lh_insert_arg1¹, _lh_insert_Bin_1¹)
+//│ 		in let _lh_matchIdent¹⁶ = compareIntInt_lh_₆(_lh_insert_arg1¹, _lh_insert_Bin_1¹)
 //│ 		in case _lh_matchIdent¹⁶ of {
-//│ 			LT  => balance¹(_lh_insert_Bin_1¹, _lh_insert_Bin_2¹, insert_lh_₃^1465(_lh_insert_arg1¹, _lh_insert_arg2¹, _lh_insert_Bin_3¹), _lh_insert_Bin_4¹)
-//│ 			| GT  => balance¹(_lh_insert_Bin_1¹, _lh_insert_Bin_2¹, _lh_insert_Bin_3¹, insert_lh_₃^1482(_lh_insert_arg1¹, _lh_insert_arg2¹, _lh_insert_Bin_4¹))
+//│ 			LT  => balance¹(_lh_insert_Bin_1¹, _lh_insert_Bin_2¹, insert_lh_₃(_lh_insert_arg1¹, _lh_insert_arg2¹, _lh_insert_Bin_3¹), _lh_insert_Bin_4¹)
+//│ 			| GT  => balance¹(_lh_insert_Bin_1¹, _lh_insert_Bin_2¹, _lh_insert_Bin_3¹, insert_lh_₃(_lh_insert_arg1¹, _lh_insert_arg2¹, _lh_insert_Bin_4¹))
 //│ 			| EQ  => [Bin _lh_insert_Bin_0¹ _lh_insert_arg1¹ _lh_insert_arg2¹ _lh_insert_Bin_3¹ _lh_insert_Bin_4¹]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -868,10 +868,10 @@ testLastPiece_nofib $ primId 0
 //│ 					in if (size⁶(_lh_rotateL_Bin_3⁰) < (2 * size⁶(_lh_rotateL_Bin_4⁰))) then singleL⁰(_lh_rotateL_arg1⁰, _lh_rotateL_arg2⁰, _lh_rotateL_arg3⁰, [Bin _lh_rotateL_Bin_0⁰ _lh_rotateL_Bin_1⁰ _lh_rotateL_Bin_2⁰ _lh_rotateL_Bin_3⁰ _lh_rotateL_Bin_4⁰]) else doubleL⁰(_lh_rotateL_arg1⁰, _lh_rotateL_arg2⁰, _lh_rotateL_arg3⁰, [Bin _lh_rotateL_Bin_0⁰ _lh_rotateL_Bin_1⁰ _lh_rotateL_Bin_2⁰ _lh_rotateL_Bin_3⁰ _lh_rotateL_Bin_4⁰])
 //│ 				| Tip  => error⁰([LH_C 'r' [LH_C 'o' [LH_C 't' [LH_C 'a' [LH_C 't' [LH_C 'e' [LH_C 'L' [LH_C ' ' [LH_C 'T' [LH_C 'i' [LH_C 'p' [LH_N]]]]]]]]]]]])
 //│ 				| _  => error⁰})))) 
-//│ 		in let _lh_matchIdent⁷ = compareIntInt_lh_₈^744(_lh_insert_arg1⁰, _lh_insert_Bin_1⁰)
+//│ 		in let _lh_matchIdent⁷ = compareIntInt_lh_₈(_lh_insert_arg1⁰, _lh_insert_Bin_1⁰)
 //│ 		in case _lh_matchIdent⁷ of {
-//│ 			LT  => balance⁰(_lh_insert_Bin_1⁰, _lh_insert_Bin_2⁰, insert_lh_₄^755(_lh_insert_arg1⁰, _lh_insert_arg2⁰, _lh_insert_Bin_3⁰), _lh_insert_Bin_4⁰)
-//│ 			| GT  => balance⁰(_lh_insert_Bin_1⁰, _lh_insert_Bin_2⁰, _lh_insert_Bin_3⁰, insert_lh_₄^772(_lh_insert_arg1⁰, _lh_insert_arg2⁰, _lh_insert_Bin_4⁰))
+//│ 			LT  => balance⁰(_lh_insert_Bin_1⁰, _lh_insert_Bin_2⁰, insert_lh_₄(_lh_insert_arg1⁰, _lh_insert_arg2⁰, _lh_insert_Bin_3⁰), _lh_insert_Bin_4⁰)
+//│ 			| GT  => balance⁰(_lh_insert_Bin_1⁰, _lh_insert_Bin_2⁰, _lh_insert_Bin_3⁰, insert_lh_₄(_lh_insert_arg1⁰, _lh_insert_arg2⁰, _lh_insert_Bin_4⁰))
 //│ 			| EQ  => [Bin _lh_insert_Bin_0⁰ _lh_insert_arg1⁰ _lh_insert_arg2⁰ _lh_insert_Bin_3⁰ _lh_insert_Bin_4⁰]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -883,46 +883,46 @@ testLastPiece_nofib $ primId 0
 //│ def kPiece_lh_₁ = [P 'k' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]]] [LH_N]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_C [LH_P2 2 2] [LH_N]]]]] [LH_N]]]
 //│ def lPiece_lh_₁ = [P 'l' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 0 3] [LH_C [LH_P2 1 2] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 3 0] [LH_C [LH_P2 2 (0 - 1)] [LH_N]]]]] [LH_N]]] [LH_C [LH_C [LH_P2 1 (0 - 1)] [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_C [LH_P2 1 2] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 3 0] [LH_C [LH_P2 1 1] [LH_N]]]]] [LH_N]]]]
 //│ def length_lh_₁(ls¹) = case ls¹ of {
-//│ 	LH_C h² t² => (1 + length_lh_₁^4713(t²))
+//│ 	LH_C h² t² => (1 + length_lh_₁(t²))
 //│ 	| LH_N  => 0}
 //│ def mPiece_lh_₁ = [P 'm' [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 3 0] [LH_N]]]]] [LH_N]] [LH_C [LH_C [LH_P2 0 1] [LH_C [LH_P2 0 2] [LH_C [LH_P2 0 3] [LH_C [LH_P2 1 3] [LH_N]]]]] [LH_C [LH_C [LH_P2 1 0] [LH_C [LH_P2 2 0] [LH_C [LH_P2 3 0] [LH_C [LH_P2 3 (0 - 1)] [LH_N]]]]] [LH_N]]]]
 //│ def mapLookup_lh_₁(_lh_mapLookup_arg1³, _lh_mapLookup_arg2³) = case _lh_mapLookup_arg2³ of {
 //│ 	Tip  => [Nothing]
 //│ 	| Bin _lh_mapLookup_Bin_0³ _lh_mapLookup_Bin_1³ _lh_mapLookup_Bin_2³ _lh_mapLookup_Bin_3³ _lh_mapLookup_Bin_4³ => 
-//│ 		let _lh_matchIdent³⁷ = compareIntInt_lh_₁^3287(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_1³)
+//│ 		let _lh_matchIdent³⁷ = compareIntInt_lh_₁(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_1³)
 //│ 		in case _lh_matchIdent³⁷ of {
-//│ 			LT  => mapLookup_lh_₁^3293(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_3³)
-//│ 			| GT  => mapLookup_lh_₁^3298(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_4³)
+//│ 			LT  => mapLookup_lh_₁(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_3³)
+//│ 			| GT  => mapLookup_lh_₁(_lh_mapLookup_arg1³, _lh_mapLookup_Bin_4³)
 //│ 			| EQ  => [Just _lh_mapLookup_Bin_2³]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def mapLookup_lh_₂(_lh_mapLookup_arg1², _lh_mapLookup_arg2²) = case _lh_mapLookup_arg2² of {
 //│ 	Tip  => [Nothing]
 //│ 	| Bin _lh_mapLookup_Bin_0² _lh_mapLookup_Bin_1² _lh_mapLookup_Bin_2² _lh_mapLookup_Bin_3² _lh_mapLookup_Bin_4² => 
-//│ 		let _lh_matchIdent²⁸ = compareIntInt_lh_₃^2558(_lh_mapLookup_arg1², _lh_mapLookup_Bin_1²)
+//│ 		let _lh_matchIdent²⁸ = compareIntInt_lh_₃(_lh_mapLookup_arg1², _lh_mapLookup_Bin_1²)
 //│ 		in case _lh_matchIdent²⁸ of {
-//│ 			LT  => mapLookup_lh_₂^2564(_lh_mapLookup_arg1², _lh_mapLookup_Bin_3²)
-//│ 			| GT  => mapLookup_lh_₂^2569(_lh_mapLookup_arg1², _lh_mapLookup_Bin_4²)
+//│ 			LT  => mapLookup_lh_₂(_lh_mapLookup_arg1², _lh_mapLookup_Bin_3²)
+//│ 			| GT  => mapLookup_lh_₂(_lh_mapLookup_arg1², _lh_mapLookup_Bin_4²)
 //│ 			| EQ  => [Just _lh_mapLookup_Bin_2²]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def mapLookup_lh_₃(_lh_mapLookup_arg1¹, _lh_mapLookup_arg2¹) = case _lh_mapLookup_arg2¹ of {
 //│ 	Tip  => [Nothing]
 //│ 	| Bin _lh_mapLookup_Bin_0¹ _lh_mapLookup_Bin_1¹ _lh_mapLookup_Bin_2¹ _lh_mapLookup_Bin_3¹ _lh_mapLookup_Bin_4¹ => 
-//│ 		let _lh_matchIdent²⁶ = compareIntInt_lh_₄^2437(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_1¹)
+//│ 		let _lh_matchIdent²⁶ = compareIntInt_lh_₄(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_1¹)
 //│ 		in case _lh_matchIdent²⁶ of {
-//│ 			LT  => mapLookup_lh_₃^2443(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_3¹)
-//│ 			| GT  => mapLookup_lh_₃^2448(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_4¹)
+//│ 			LT  => mapLookup_lh_₃(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_3¹)
+//│ 			| GT  => mapLookup_lh_₃(_lh_mapLookup_arg1¹, _lh_mapLookup_Bin_4¹)
 //│ 			| EQ  => [Just _lh_mapLookup_Bin_2¹]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def mapLookup_lh_₄(_lh_mapLookup_arg1⁰, _lh_mapLookup_arg2⁰) = case _lh_mapLookup_arg2⁰ of {
 //│ 	Tip  => [Nothing]
 //│ 	| Bin _lh_mapLookup_Bin_0⁰ _lh_mapLookup_Bin_1⁰ _lh_mapLookup_Bin_2⁰ _lh_mapLookup_Bin_3⁰ _lh_mapLookup_Bin_4⁰ => 
-//│ 		let _lh_matchIdent⁸ = compareIntInt_lh_₇^797(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_1⁰)
+//│ 		let _lh_matchIdent⁸ = compareIntInt_lh_₇(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_1⁰)
 //│ 		in case _lh_matchIdent⁸ of {
-//│ 			LT  => mapLookup_lh_₄^803(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_3⁰)
-//│ 			| GT  => mapLookup_lh_₄^808(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_4⁰)
+//│ 			LT  => mapLookup_lh_₄(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_3⁰)
+//│ 			| GT  => mapLookup_lh_₄(_lh_mapLookup_arg1⁰, _lh_mapLookup_Bin_4⁰)
 //│ 			| EQ  => [Just _lh_mapLookup_Bin_2⁰]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -931,24 +931,24 @@ testLastPiece_nofib $ primId 0
 //│ 	| LH_C _lh_mapMaybe_LH_C_0⁰ _lh_mapMaybe_LH_C_1⁰ => 
 //│ 		let _lh_matchIdent³⁹ = _lh_mapMaybe_arg1⁰(_lh_mapMaybe_LH_C_0⁰)
 //│ 		in case _lh_matchIdent³⁹ of {
-//│ 			Nothing  => mapMaybe_lh_₁^3353(_lh_mapMaybe_arg1⁰, _lh_mapMaybe_LH_C_1⁰)
-//│ 			| Just _lh_mapMaybe_Just_0⁰ => [LH_C _lh_mapMaybe_Just_0⁰ mapMaybe_lh_₁^3359(_lh_mapMaybe_arg1⁰, _lh_mapMaybe_LH_C_1⁰)]
+//│ 			Nothing  => mapMaybe_lh_₁(_lh_mapMaybe_arg1⁰, _lh_mapMaybe_LH_C_1⁰)
+//│ 			| Just _lh_mapMaybe_Just_0⁰ => [LH_C _lh_mapMaybe_Just_0⁰ mapMaybe_lh_₁(_lh_mapMaybe_arg1⁰, _lh_mapMaybe_LH_C_1⁰)]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def map_lh_₁(f⁴, ls⁵) = case ls⁵ of {
-//│ 	LH_C h⁷ t⁷ => [LH_C f⁴(h⁷) map_lh_₁^4915(f⁴, t⁷)]
+//│ 	LH_C h⁷ t⁷ => [LH_C f⁴(h⁷) map_lh_₁(f⁴, t⁷)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f¹, ls²) = case ls² of {
-//│ 	LH_C h³ t³ => [LH_C f¹(h³) map_lh_₂^4764(f¹, t³)]
+//│ 	LH_C h³ t³ => [LH_C f¹(h³) map_lh_₂(f¹, t³)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₃(f⁰, ls⁰) = case ls⁰ of {
-//│ 	LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₃^4694(f⁰, t¹)]
+//│ 	LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₃(f⁰, t¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
-//│ 	LH_C h⁶ t⁶ => [LH_C h⁶ mappend_lh_₁^4831(t⁶, ys¹)]
+//│ 	LH_C h⁶ t⁶ => [LH_C h⁶ mappend_lh_₁(t⁶, ys¹)]
 //│ 	| LH_N  => ys¹}
 //│ def mappend_lh_₂(xs⁰, ys⁰) = case xs⁰ of {
-//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂^4647(t⁰, ys⁰)]
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]
 //│ 	| LH_N  => ys⁰}
 //│ def maxCol_lh_₁ = 8
 //│ def maxCol_lh_₂ = 8
@@ -974,7 +974,7 @@ testLastPiece_nofib $ primId 0
 //│ def search_lh_₁(_lh_search_arg1⁰, _lh_search_arg2⁰, _lh_search_arg3⁰, _lh_search_arg4⁰) = case _lh_search_arg1⁰ of {
 //│ 	LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰ => case _lh_search_arg4⁰ of {
 //│ 		LH_N  => [Soln _lh_search_arg3⁰]
-//│ 		| _  => if (_lh_search_LH_P2_1⁰ == (maxCol_lh_₂^4497 + 1)) then search_lh_₁^4502([LH_P2 (_lh_search_LH_P2_0⁰ + 1) 1], flip_lh_₁^4511(_lh_search_arg2⁰), _lh_search_arg3⁰, _lh_search_arg4⁰) else if isJust_lh_₁^4519(check_lh_₂^4520(_lh_search_arg3⁰, [LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰])) then search_lh_₁^4528(next_lh_₁^4529([LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰]), flip_lh_₂^4535(_lh_search_arg2⁰), _lh_search_arg3⁰, _lh_search_arg4⁰) else 
+//│ 		| _  => if (_lh_search_LH_P2_1⁰ == (maxCol_lh_₂ + 1)) then search_lh_₁([LH_P2 (_lh_search_LH_P2_0⁰ + 1) 1], flip_lh_₁(_lh_search_arg2⁰), _lh_search_arg3⁰, _lh_search_arg4⁰) else if isJust_lh_₁(check_lh_₂(_lh_search_arg3⁰, [LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰])) then search_lh_₁(next_lh_₁([LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰]), flip_lh_₂(_lh_search_arg2⁰), _lh_search_arg3⁰, _lh_search_arg4⁰) else 
 //│ 			let choices⁰ = 	
 //│ 				let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => case _lh_listcomp_fun_ls_h⁰ of {
@@ -992,8 +992,8 @@ testLastPiece_nofib $ primId 0
 //│ 							| _  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}
 //│ 						| _  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}
 //│ 					| LH_N  => [LH_N]})
-//│ 				in _lh_listcomp_fun⁰(pickOne_lh_₁^4582(_lh_search_arg4⁰))
-//│ 			in let _lh_matchIdent⁴² = mapMaybe_lh_₁^4587(try_lh_₁^4588([LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰], _lh_search_arg2⁰, _lh_search_arg3⁰), choices⁰)
+//│ 				in _lh_listcomp_fun⁰(pickOne_lh_₁(_lh_search_arg4⁰))
+//│ 			in let _lh_matchIdent⁴² = mapMaybe_lh_₁(try_lh_₁([LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰], _lh_search_arg2⁰, _lh_search_arg3⁰), choices⁰)
 //│ 			in case _lh_matchIdent⁴² of {
 //│ 				LH_N  => [Fail _lh_search_arg3⁰ [LH_P2 _lh_search_LH_P2_0⁰ _lh_search_LH_P2_1⁰]]
 //│ 				| _  => [Choose _lh_matchIdent⁴²]}}
@@ -1021,7 +1021,7 @@ testLastPiece_nofib $ primId 0
 //│ 			| Above _lh_nonEmptySet_Above_0⁰ _lh_nonEmptySet_Above_1⁰ _lh_nonEmptySet_Above_2⁰ => error⁰([LH_C 'n' [LH_C 'o' [LH_C 'n' [LH_C 'E' [LH_C 'm' [LH_C 'p' [LH_C 't' [LH_C 'y' [LH_C 'S' [LH_C 'e' [LH_C 't' [LH_C ' ' [LH_C 'A' [LH_C 'b' [LH_C 'o' [LH_C 'v' [LH_C 'e' [LH_N]]]]]]]]]]]]]]]]]])
 //│ 			| Beside _lh_nonEmptySet_Beside_0⁰ _lh_nonEmptySet_Beside_1⁰ _lh_nonEmptySet_Beside_2⁰ => error⁰([LH_C 'n' [LH_C 'o' [LH_C 'n' [LH_C 'E' [LH_C 'm' [LH_C 'p' [LH_C 't' [LH_C 'y' [LH_C 'S' [LH_C 'e' [LH_C 't' [LH_C ' ' [LH_C 'B' [LH_C 'e' [LH_C 's' [LH_C 'i' [LH_C 'd' [LH_C 'e' [LH_N]]]]]]]]]]]]]]]]]]])
 //│ 			| _  => error⁰})
-//│ 	and vcat⁰ = (fun _lh_vcat_arg1⁰ -> (fun _lh_funcomp_x¹ -> (fun _lh_funcomp_x² -> snd_lh_₁^5040(reduceVert⁰(_lh_funcomp_x²)))(foldr_lh_₁^5046((fun p²⁹ -> (fun q⁰ -> [Above p²⁹ [False] q⁰])), [Empty], _lh_funcomp_x¹)))(_lh_vcat_arg1⁰))
+//│ 	and vcat⁰ = (fun _lh_vcat_arg1⁰ -> (fun _lh_funcomp_x¹ -> (fun _lh_funcomp_x² -> snd_lh_₁(reduceVert⁰(_lh_funcomp_x²)))(foldr_lh_₁((fun p²⁹ -> (fun q⁰ -> [Above p²⁹ [False] q⁰])), [Empty], _lh_funcomp_x¹)))(_lh_vcat_arg1⁰))
 //│ 	and fullRenderAnn⁰ = (fun _lh_fullRenderAnn_arg1⁰ -> (fun _lh_fullRenderAnn_arg2⁰ -> (fun _lh_fullRenderAnn_arg3⁰ -> (fun _lh_fullRenderAnn_arg4⁰ -> (fun _lh_fullRenderAnn_arg5⁰ -> (fun _lh_fullRenderAnn_arg6⁰ -> case _lh_fullRenderAnn_arg1⁰ of {
 //│ 			OneLineMode  => easyDisplay⁰(spaceText⁰, (fun _dummy⁰ -> (fun y⁰ -> y⁰)), _lh_fullRenderAnn_arg4⁰, _lh_fullRenderAnn_arg5⁰, reduceDoc⁰(_lh_fullRenderAnn_arg6⁰))
 //│ 			| LeftMode  => easyDisplay⁰(nlText⁰, first⁰, _lh_fullRenderAnn_arg4⁰, _lh_fullRenderAnn_arg5⁰, reduceDoc⁰(_lh_fullRenderAnn_arg6⁰))
@@ -1038,22 +1038,22 @@ testLastPiece_nofib $ primId 0
 //│ 			Above _lh_above_Above_0⁰ _lh_above_Above_1⁰ _lh_above_Above_2⁰ => above⁰(_lh_above_Above_0⁰, _lh_above_Above_1⁰, above⁰(_lh_above_Above_2⁰, _lh_above_arg2⁰, _lh_above_arg3⁰))
 //│ 			| Beside _lh_above_Beside_0⁰ _lh_above_Beside_1⁰ _lh_above_Beside_2⁰ => aboveNest⁰(reduceDoc⁰([Beside _lh_above_Beside_0⁰ _lh_above_Beside_1⁰ _lh_above_Beside_2⁰]), _lh_above_arg2⁰, 0, reduceDoc⁰(_lh_above_arg3⁰))
 //│ 			| _  => aboveNest⁰(_lh_above_arg1⁰, _lh_above_arg2⁰, 0, reduceDoc⁰(_lh_above_arg3⁰))})))
-//│ 	and nicest1⁰ = (fun _lh_nicest1_arg1⁰ -> (fun _lh_nicest1_arg2⁰ -> (fun _lh_nicest1_arg3⁰ -> (fun _lh_nicest1_arg4⁰ -> (fun _lh_nicest1_arg5⁰ -> if fits⁰((myMin_lh_₁^5188(_lh_nicest1_arg1⁰, _lh_nicest1_arg2⁰) - _lh_nicest1_arg3⁰), _lh_nicest1_arg4⁰) then _lh_nicest1_arg4⁰ else _lh_nicest1_arg5⁰)))))
-//│ 	and hcat⁰ = (fun _lh_hcat_arg1⁰ -> (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> snd_lh_₂^5207(reduceHoriz⁰(_lh_funcomp_x⁴)))(foldr_lh_₂^5213((fun p³⁰ -> (fun q¹ -> [Beside p³⁰ [False] q¹])), [Empty], _lh_funcomp_x³)))(_lh_hcat_arg1⁰))
+//│ 	and nicest1⁰ = (fun _lh_nicest1_arg1⁰ -> (fun _lh_nicest1_arg2⁰ -> (fun _lh_nicest1_arg3⁰ -> (fun _lh_nicest1_arg4⁰ -> (fun _lh_nicest1_arg5⁰ -> if fits⁰((myMin_lh_₁(_lh_nicest1_arg1⁰, _lh_nicest1_arg2⁰) - _lh_nicest1_arg3⁰), _lh_nicest1_arg4⁰) then _lh_nicest1_arg4⁰ else _lh_nicest1_arg5⁰)))))
+//│ 	and hcat⁰ = (fun _lh_hcat_arg1⁰ -> (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> snd_lh_₂(reduceHoriz⁰(_lh_funcomp_x⁴)))(foldr_lh_₂((fun p³⁰ -> (fun q¹ -> [Beside p³⁰ [False] q¹])), [Empty], _lh_funcomp_x³)))(_lh_hcat_arg1⁰))
 //│ 	and displayBoard⁰ = (fun _lh_displayBoard_arg1⁰ -> 
 //│ 			let sq⁰ = (fun n⁰ -> (fun col⁰ -> 
-//│ 				let _lh_matchIdent⁴⁵ = check_lh_₁^5230(_lh_displayBoard_arg1⁰, [LH_P2 n⁰ col⁰])
+//│ 				let _lh_matchIdent⁴⁵ = check_lh_₁(_lh_displayBoard_arg1⁰, [LH_P2 n⁰ col⁰])
 //│ 				in case _lh_matchIdent⁴⁵ of {
 //│ 					Just _lh_displayBoard_Just_0⁰ => char⁰(_lh_displayBoard_Just_0⁰)
 //│ 					| Nothing  => char⁰('.')
 //│ 					| _  => error⁰}))
-//│ 			in let row⁰ = (fun n¹ -> hcat⁰(map_lh_₃^5250(sq⁰(n¹), enumFromTo_lh_₂^5255(1, maxCol_lh_₁^5258))))
-//│ 			in above_⁰(vcat⁰(map_lh_₂^5265(row⁰, enumFromTo_lh_₁^5268(1, maxRow_lh_₁^5271))), [False], text⁰([LH_N])))
+//│ 			in let row⁰ = (fun n¹ -> hcat⁰(map_lh_₃(sq⁰(n¹), enumFromTo_lh_₂(1, maxCol_lh_₁))))
+//│ 			in above_⁰(vcat⁰(map_lh_₂(row⁰, enumFromTo_lh_₁(1, maxRow_lh_₁))), [False], text⁰([LH_N])))
 //│ 	and annotSize⁰ = (fun _lh_annotSize_arg1⁰ -> case _lh_annotSize_arg1⁰ of {
 //│ 			NoAnnot _lh_annotSize_NoAnnot_0⁰ _lh_annotSize_NoAnnot_1⁰ => _lh_annotSize_NoAnnot_1⁰
 //│ 			| _  => 0})
 //│ 	and reduceHoriz⁰ = (fun _lh_reduceHoriz_arg1⁰ -> case _lh_reduceHoriz_arg1⁰ of {
-//│ 			Beside _lh_reduceHoriz_Beside_0⁰ _lh_reduceHoriz_Beside_1⁰ _lh_reduceHoriz_Beside_2⁰ => eliminateEmpty⁰((fun a² -> (fun b² -> (fun c⁰ -> [Beside a² b² c⁰]))), snd_lh_₃^5300(reduceHoriz⁰(_lh_reduceHoriz_Beside_0⁰)), _lh_reduceHoriz_Beside_1⁰, reduceHoriz⁰(_lh_reduceHoriz_Beside_2⁰))
+//│ 			Beside _lh_reduceHoriz_Beside_0⁰ _lh_reduceHoriz_Beside_1⁰ _lh_reduceHoriz_Beside_2⁰ => eliminateEmpty⁰((fun a² -> (fun b² -> (fun c⁰ -> [Beside a² b² c⁰]))), snd_lh_₃(reduceHoriz⁰(_lh_reduceHoriz_Beside_0⁰)), _lh_reduceHoriz_Beside_1⁰, reduceHoriz⁰(_lh_reduceHoriz_Beside_2⁰))
 //│ 			| _  => [LH_P2 [NotEmpty] _lh_reduceHoriz_arg1⁰]})
 //│ 	and beside⁰ = (fun _lh_beside_arg1⁰ -> (fun _lh_beside_arg2⁰ -> (fun _lh_beside_arg3⁰ -> case _lh_beside_arg1⁰ of {
 //│ 			NoDoc  => [NoDoc]
@@ -1084,12 +1084,12 @@ testLastPiece_nofib $ primId 0
 //│ 						| _  => error⁰}
 //│ 					| _  => error⁰}]}))))
 //│ 	and reduceVert⁰ = (fun _lh_reduceVert_arg1⁰ -> case _lh_reduceVert_arg1⁰ of {
-//│ 			Above _lh_reduceVert_Above_0⁰ _lh_reduceVert_Above_1⁰ _lh_reduceVert_Above_2⁰ => eliminateEmpty⁰((fun a³ -> (fun b³ -> (fun c¹ -> [Above a³ b³ c¹]))), snd_lh_₄^5457(reduceVert⁰(_lh_reduceVert_Above_0⁰)), _lh_reduceVert_Above_1⁰, reduceVert⁰(_lh_reduceVert_Above_2⁰))
+//│ 			Above _lh_reduceVert_Above_0⁰ _lh_reduceVert_Above_1⁰ _lh_reduceVert_Above_2⁰ => eliminateEmpty⁰((fun a³ -> (fun b³ -> (fun c¹ -> [Above a³ b³ c¹]))), snd_lh_₄(reduceVert⁰(_lh_reduceVert_Above_0⁰)), _lh_reduceVert_Above_1⁰, reduceVert⁰(_lh_reduceVert_Above_2⁰))
 //│ 			| _  => [LH_P2 [NotEmpty] _lh_reduceVert_arg1⁰]})
 //│ 	and nilAboveNest⁰ = (fun _lh_nilAboveNest_arg1⁰ -> (fun _lh_nilAboveNest_arg2⁰ -> (fun _lh_nilAboveNest_arg3⁰ -> case _lh_nilAboveNest_arg3⁰ of {
 //│ 			Empty  => [Empty]
 //│ 			| Nest _lh_nilAboveNest_Nest_0⁰ _lh_nilAboveNest_Nest_1⁰ => nilAboveNest⁰(_lh_nilAboveNest_arg1⁰, (_lh_nilAboveNest_arg2⁰ + _lh_nilAboveNest_Nest_0⁰), _lh_nilAboveNest_Nest_1⁰)
-//│ 			| _  => if (not⁰(_lh_nilAboveNest_arg1⁰) && (_lh_nilAboveNest_arg2⁰ > 0)) then [TextBeside [NoAnnot [Str indent_lh_₁^5498(_lh_nilAboveNest_arg2⁰)] _lh_nilAboveNest_arg2⁰] _lh_nilAboveNest_arg3⁰] else [NilAbove mkNest⁰(_lh_nilAboveNest_arg2⁰, _lh_nilAboveNest_arg3⁰)]})))
+//│ 			| _  => if (not⁰(_lh_nilAboveNest_arg1⁰) && (_lh_nilAboveNest_arg2⁰ > 0)) then [TextBeside [NoAnnot [Str indent_lh_₁(_lh_nilAboveNest_arg2⁰)] _lh_nilAboveNest_arg2⁰] _lh_nilAboveNest_arg3⁰] else [NilAbove mkNest⁰(_lh_nilAboveNest_arg2⁰, _lh_nilAboveNest_arg3⁰)]})))
 //│ 	and spaceText⁰ = [NoAnnot [Chr ' '] 1]
 //│ 	and fullRender⁰ = (fun _lh_fullRender_arg1⁰ -> (fun _lh_fullRender_arg2⁰ -> (fun _lh_fullRender_arg3⁰ -> (fun _lh_fullRender_arg4⁰ -> 
 //│ 			let annTxt⁰ = (fun p³¹ -> 
@@ -1131,7 +1131,7 @@ testLastPiece_nofib $ primId 0
 //│ 						| _  => error⁰}))
 //│ 				in let lay1⁰ = (fun k¹⁷ -> (fun s⁰ -> (fun p³² -> 
 //│ 					let r¹⁶ = (k¹⁷ + annotSize⁰(s⁰))
-//│ 					in _lh_displayDoc_arg4⁰([NoAnnot [Str indent_lh_₂^5914(k¹⁷)] k¹⁷], _lh_displayDoc_arg4⁰(s⁰, lay2⁰(r¹⁶, p³²))))))
+//│ 					in _lh_displayDoc_arg4⁰([NoAnnot [Str indent_lh_₂(k¹⁷)] k¹⁷], _lh_displayDoc_arg4⁰(s⁰, lay2⁰(r¹⁶, p³²))))))
 //│ 				in (fun k¹⁸ -> (fun docc⁰ -> 
 //│ 					let _lh_matchIdent⁵³ = docc⁰
 //│ 					in case _lh_matchIdent⁵³ of {
@@ -1141,7 +1141,7 @@ testLastPiece_nofib $ primId 0
 //│ 						| TextBeside _lh_displayDoc_TextBeside_0¹ _lh_displayDoc_TextBeside_1¹ => 
 //│ 							let _lh_matchIdent⁵⁴ = _lh_displayDoc_arg1⁰
 //│ 							in case _lh_matchIdent⁵⁴ of {
-//│ 								ZigZagMode  => if (k¹⁸ >= _lh_matchIdent⁵⁰) then _lh_displayDoc_arg4⁰(nlText⁰, _lh_displayDoc_arg4⁰([NoAnnot [Str copy_lh_₂^5967(_lh_matchIdent⁵¹, '/')] _lh_matchIdent⁵¹], _lh_displayDoc_arg4⁰(nlText⁰, lay1⁰((k¹⁸ - _lh_matchIdent⁵¹), _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)))) else if (k¹⁸ < 0) then _lh_displayDoc_arg4⁰(nlText⁰, _lh_displayDoc_arg4⁰([NoAnnot [Str copy_lh_₁^6002(_lh_matchIdent⁵¹, '|')] _lh_matchIdent⁵¹], _lh_displayDoc_arg4⁰(nlText⁰, lay1⁰((k¹⁸ + _lh_matchIdent⁵¹), _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)))) else lay1⁰(k¹⁸, _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)
+//│ 								ZigZagMode  => if (k¹⁸ >= _lh_matchIdent⁵⁰) then _lh_displayDoc_arg4⁰(nlText⁰, _lh_displayDoc_arg4⁰([NoAnnot [Str copy_lh_₂(_lh_matchIdent⁵¹, '/')] _lh_matchIdent⁵¹], _lh_displayDoc_arg4⁰(nlText⁰, lay1⁰((k¹⁸ - _lh_matchIdent⁵¹), _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)))) else if (k¹⁸ < 0) then _lh_displayDoc_arg4⁰(nlText⁰, _lh_displayDoc_arg4⁰([NoAnnot [Str copy_lh_₁(_lh_matchIdent⁵¹, '|')] _lh_matchIdent⁵¹], _lh_displayDoc_arg4⁰(nlText⁰, lay1⁰((k¹⁸ + _lh_matchIdent⁵¹), _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)))) else lay1⁰(k¹⁸, _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)
 //│ 								| _  => lay1⁰(k¹⁸, _lh_displayDoc_TextBeside_0¹, _lh_displayDoc_TextBeside_1¹)}
 //│ 						| Above _lh_displayDoc_Above_0¹ _lh_displayDoc_Above_1¹ _lh_displayDoc_Above_2¹ => error⁰([LH_C 'd' [LH_C 'i' [LH_C 's' [LH_C 'p' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'A' [LH_C 'b' [LH_C 'o' [LH_C 'v' [LH_C 'e' [LH_N]]]]]]]]]]]]]]]]]])
 //│ 						| Beside _lh_displayDoc_Beside_0¹ _lh_displayDoc_Beside_1¹ _lh_displayDoc_Beside_2¹ => error⁰([LH_C 'd' [LH_C 'i' [LH_C 's' [LH_C 'p' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'l' [LH_C 'a' [LH_C 'y' [LH_C ' ' [LH_C 'B' [LH_C 'e' [LH_C 's' [LH_C 'i' [LH_C 'd' [LH_C 'e' [LH_N]]]]]]]]]]]]]]]]]]])
@@ -1154,7 +1154,7 @@ testLastPiece_nofib $ primId 0
 //│ 			| Above _lh_reduceDoc_Above_0⁰ _lh_reduceDoc_Above_1⁰ _lh_reduceDoc_Above_2⁰ => above⁰(_lh_reduceDoc_Above_0⁰, _lh_reduceDoc_Above_1⁰, reduceDoc⁰(_lh_reduceDoc_Above_2⁰))
 //│ 			| _  => _lh_reduceDoc_arg1⁰})
 //│ 	and text⁰ = (fun _lh_text_arg1⁰ -> 
-//│ 			let _lh_matchIdent⁵⁵ = length_lh_₁^6239(_lh_text_arg1⁰)
+//│ 			let _lh_matchIdent⁵⁵ = length_lh_₁(_lh_text_arg1⁰)
 //│ 			in [TextBeside [NoAnnot [Str _lh_text_arg1⁰] _lh_matchIdent⁵⁵] [Empty]])
 //│ 	and nilBeside⁰ = (fun _lh_nilBeside_arg1⁰ -> (fun _lh_nilBeside_arg2⁰ -> case _lh_nilBeside_arg2⁰ of {
 //│ 			Empty  => [Empty]
@@ -1165,8 +1165,8 @@ testLastPiece_nofib $ primId 0
 //│ 				let _lh_matchIdent⁵⁶ = k¹⁹
 //│ 				in case _lh_matchIdent⁵⁶ of {
 //│ 					Chr _lh_printDoc_Chr_0⁰ => [LH_C _lh_printDoc_Chr_0⁰ next⁰]
-//│ 					| Str _lh_printDoc_Str_0⁰ => mappend_lh_₂^6271(_lh_printDoc_Str_0⁰, next⁰)
-//│ 					| PStr _lh_printDoc_PStr_0⁰ => mappend_lh_₁^6276(_lh_printDoc_PStr_0⁰, next⁰)
+//│ 					| Str _lh_printDoc_Str_0⁰ => mappend_lh_₂(_lh_printDoc_Str_0⁰, next⁰)
+//│ 					| PStr _lh_printDoc_PStr_0⁰ => mappend_lh_₁(_lh_printDoc_PStr_0⁰, next⁰)
 //│ 					| _  => error⁰}))
 //│ 			in let done⁰ = [LH_C '|' [LH_N]]
 //│ 			in fullRender⁰([ZigZagMode], 200, 1.5, put⁰, done⁰, _lh_printDoc_arg1⁰))
@@ -1227,7 +1227,7 @@ testLastPiece_nofib $ primId 0
 //│ 	and char⁰ = (fun _lh_char_arg1⁰ -> [TextBeside [NoAnnot [Chr _lh_char_arg1⁰] 1] [Empty]])
 //│ 	and display⁰ = (fun _lh_display_arg1⁰ -> case _lh_display_arg1⁰ of {
 //│ 			Soln _lh_display_Soln_0⁰ => vcat⁰([LH_C text⁰([LH_C 'S' [LH_C 'u' [LH_C 'c' [LH_C 'c' [LH_C 'e' [LH_C 's' [LH_C 's' [LH_C '!' [LH_N]]]]]]]]]) [LH_C nest⁰(2, displayBoard⁰(_lh_display_Soln_0⁰)) [LH_N]]])
-//│ 			| Choose _lh_display_Choose_0⁰ => vcat⁰(map_lh_₁^6839(display⁰, _lh_display_Choose_0⁰))
+//│ 			| Choose _lh_display_Choose_0⁰ => vcat⁰(map_lh_₁(display⁰, _lh_display_Choose_0⁰))
 //│ 			| Fail _lh_display_Fail_0⁰ _lh_display_Fail_1⁰ => case _lh_display_Fail_1⁰ of {
 //│ 				LH_P2 _lh_display_LH_P2_0⁰ _lh_display_LH_P2_1⁰ => [Empty]
 //│ 				| _  => error⁰}
@@ -1244,14 +1244,14 @@ testLastPiece_nofib $ primId 0
 //│ 				| Union _lh_fits_Union_0⁰ _lh_fits_Union_1⁰ => error⁰([LH_C 'f' [LH_C 'i' [LH_C 't' [LH_C 's' [LH_C ' ' [LH_C 'U' [LH_C 'n' [LH_C 'i' [LH_C 'o' [LH_C 'n' [LH_N]]]]]]]]]]])
 //│ 				| Nest _lh_fits_Nest_0⁰ _lh_fits_Nest_1⁰ => error⁰([LH_C 'f' [LH_C 'i' [LH_C 't' [LH_C 's' [LH_C ' ' [LH_C 'N' [LH_C 'e' [LH_C 's' [LH_C 't' [LH_N]]]]]]]]]])
 //│ 				| _  => error⁰})) 
-//│ 	in let initialBoard⁰ = fromJust_lh_₁^6972(fit_lh_₁^6973(emptyBoard_lh_₁^6974, [LH_P2 1 1], 'a', [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_N]]]))
-//│ 	in let solutions⁰ = search_lh_₁^6993([LH_P2 1 2], [Female], initialBoard⁰, initialPieces_lh_₁^7002)
+//│ 	in let initialBoard⁰ = fromJust_lh_₁(fit_lh_₁(emptyBoard_lh_₁, [LH_P2 1 1], 'a', [LH_C [LH_P2 1 0] [LH_C [LH_P2 1 1] [LH_N]]]))
+//│ 	in let solutions⁰ = search_lh_₁([LH_P2 1 2], [Female], initialBoard⁰, initialPieces_lh_₁)
 //│ 	in printDoc⁰(display⁰(solutions⁰))
 //│ def try_lh_₁(_lh_try_arg1⁰, _lh_try_arg2⁰, _lh_try_arg3⁰, _lh_try_arg4⁰) = case _lh_try_arg4⁰ of {
 //│ 	LH_P3 _lh_try_LH_P3_0⁰ _lh_try_LH_P3_1⁰ _lh_try_LH_P3_2⁰ => 
-//│ 		let _lh_matchIdent³⁸ = fit_lh_₂^3313(_lh_try_arg3⁰, _lh_try_arg1⁰, _lh_try_LH_P3_0⁰, _lh_try_LH_P3_1⁰)
+//│ 		let _lh_matchIdent³⁸ = fit_lh_₂(_lh_try_arg3⁰, _lh_try_arg1⁰, _lh_try_LH_P3_0⁰, _lh_try_LH_P3_1⁰)
 //│ 		in case _lh_matchIdent³⁸ of {
-//│ 			Just _lh_try_Just_0⁰ => [Just search_lh_₁^3323(next_lh_₂^3324(_lh_try_arg1⁰), flip_lh_₃^3328(_lh_try_arg2⁰), _lh_try_Just_0⁰, _lh_try_LH_P3_2⁰)]
+//│ 			Just _lh_try_Just_0⁰ => [Just search_lh_₁(next_lh_₂(_lh_try_arg1⁰), flip_lh_₃(_lh_try_arg2⁰), _lh_try_Just_0⁰, _lh_try_LH_P3_2⁰)]
 //│ 			| Nothing  => [Nothing]
 //│ 			| _  => error⁰}
 //│ 	| _  => error⁰}

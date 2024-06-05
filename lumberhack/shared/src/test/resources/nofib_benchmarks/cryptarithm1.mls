@@ -14,14 +14,14 @@ testCryptarithm_nofib $ primId 1
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testCryptarithm_nofib_lh_₁^425(primId⁰(1))
+//│ testCryptarithm_nofib_lh_₁(primId⁰(1))
 //│ def addj_lh_₁(_lh_addj_arg1⁰, _lh_addj_arg2⁰) = case _lh_addj_arg2⁰ of {
 //│ 	LH_N  => [LH_C [LH_C _lh_addj_arg1⁰ [LH_N]] [LH_N]]
 //│ 	| LH_C _lh_addj_LH_C_0⁰ _lh_addj_LH_C_1⁰ => [LH_C [LH_C _lh_addj_arg1⁰ [LH_C _lh_addj_LH_C_0⁰ _lh_addj_LH_C_1⁰]] 
 //│ 		let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 			LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => [LH_C [LH_C _lh_addj_LH_C_0⁰ _lh_listcomp_fun_ls_h⁰] _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun⁰(addj_lh_₁^165(_lh_addj_arg1⁰, _lh_addj_LH_C_1⁰))]
+//│ 		in _lh_listcomp_fun⁰(addj_lh_₁(_lh_addj_arg1⁰, _lh_addj_LH_C_1⁰))]
 //│ 	| _  => error⁰}
 //│ def condition_lh_₁(_lh_condition_arg1⁰) = case _lh_condition_arg1⁰ of {
 //│ 	LH_C _lh_condition_LH_C_0⁰ _lh_condition_LH_C_1⁰ => case _lh_condition_LH_C_1⁰ of {
@@ -34,7 +34,7 @@ testCryptarithm_nofib $ primId 1
 //│ 								LH_C _lh_condition_LH_C_0⁷ _lh_condition_LH_C_1⁷ => case _lh_condition_LH_C_1⁷ of {
 //│ 									LH_C _lh_condition_LH_C_0⁸ _lh_condition_LH_C_1⁸ => case _lh_condition_LH_C_1⁸ of {
 //│ 										LH_C _lh_condition_LH_C_0⁹ _lh_condition_LH_C_1⁹ => case _lh_condition_LH_C_1⁹ of {
-//│ 											LH_N  => ((expand_lh_₃^234(_lh_condition_LH_C_0⁰, _lh_condition_LH_C_0¹, _lh_condition_LH_C_0², _lh_condition_LH_C_0³, _lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁴) + (5 * expand_lh_₁^251(_lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁵, _lh_condition_LH_C_0⁶, _lh_condition_LH_C_0⁷, _lh_condition_LH_C_0⁸, _lh_condition_LH_C_0⁶))) == expand_lh_₂^267(_lh_condition_LH_C_0⁹, _lh_condition_LH_C_0², _lh_condition_LH_C_0⁹, _lh_condition_LH_C_0⁶, _lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁴))
+//│ 											LH_N  => ((expand_lh_₃(_lh_condition_LH_C_0⁰, _lh_condition_LH_C_0¹, _lh_condition_LH_C_0², _lh_condition_LH_C_0³, _lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁴) + (5 * expand_lh_₁(_lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁵, _lh_condition_LH_C_0⁶, _lh_condition_LH_C_0⁷, _lh_condition_LH_C_0⁸, _lh_condition_LH_C_0⁶))) == expand_lh_₂(_lh_condition_LH_C_0⁹, _lh_condition_LH_C_0², _lh_condition_LH_C_0⁹, _lh_condition_LH_C_0⁶, _lh_condition_LH_C_0⁰, _lh_condition_LH_C_0⁴))
 //│ 											| _  => error⁰}
 //│ 										| _  => error⁰}
 //│ 									| _  => error⁰}
@@ -46,16 +46,16 @@ testCryptarithm_nofib $ primId 1
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁^366((a¹ + 1), b¹)] else [LH_N]
-//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂^346((a⁰ + 1), b⁰)] else [LH_N]
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)] else [LH_N]
+//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)] else [LH_N]
 //│ def expand_lh_₁(_lh_expand_arg1², _lh_expand_arg2², _lh_expand_arg3², _lh_expand_arg4², _lh_expand_arg5², _lh_expand_arg6²) = (((((_lh_expand_arg6² + (_lh_expand_arg5² * 10)) + (_lh_expand_arg4² * 100)) + (_lh_expand_arg3² * 1000)) + (_lh_expand_arg2² * 10000)) + (_lh_expand_arg1² * 100000))
 //│ def expand_lh_₂(_lh_expand_arg1¹, _lh_expand_arg2¹, _lh_expand_arg3¹, _lh_expand_arg4¹, _lh_expand_arg5¹, _lh_expand_arg6¹) = (((((_lh_expand_arg6¹ + (_lh_expand_arg5¹ * 10)) + (_lh_expand_arg4¹ * 100)) + (_lh_expand_arg3¹ * 1000)) + (_lh_expand_arg2¹ * 10000)) + (_lh_expand_arg1¹ * 100000))
 //│ def expand_lh_₃(_lh_expand_arg1⁰, _lh_expand_arg2⁰, _lh_expand_arg3⁰, _lh_expand_arg4⁰, _lh_expand_arg5⁰, _lh_expand_arg6⁰) = (((((_lh_expand_arg6⁰ + (_lh_expand_arg5⁰ * 10)) + (_lh_expand_arg4⁰ * 100)) + (_lh_expand_arg3⁰ * 1000)) + (_lh_expand_arg2⁰ * 10000)) + (_lh_expand_arg1⁰ * 100000))
 //│ def filter_lh_₁(f⁰, ls¹) = case ls¹ of {
-//│ 	LH_C h¹ t¹ => if f⁰(h¹) then [LH_C h¹ filter_lh_₁^205(f⁰, t¹)] else filter_lh_₁^211(f⁰, t¹)
+//│ 	LH_C h¹ t¹ => if f⁰(h¹) then [LH_C h¹ filter_lh_₁(f⁰, t¹)] else filter_lh_₁(f⁰, t¹)
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁(f¹, ls²) = case ls² of {
-//│ 	LH_C h² t² => [LH_C f¹(h²) map_lh_₁^384(f¹, t²)]
+//│ 	LH_C h² t² => [LH_C f¹(h²) map_lh_₁(f¹, t²)]
 //│ 	| LH_N  => [LH_N]}
 //│ def permutations_lh_₁(_lh_permutations_arg1⁰) = case _lh_permutations_arg1⁰ of {
 //│ 	LH_N  => [LH_C [LH_N] [LH_N]]
@@ -65,16 +65,16 @@ testCryptarithm_nofib $ primId 1
 //│ 				let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {
 //│ 					LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => [LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)]
 //│ 					| LH_N  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)})
-//│ 				in _lh_listcomp_fun²(addj_lh_₁^321(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹))
+//│ 				in _lh_listcomp_fun²(addj_lh_₁(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹))
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun¹(permutations_lh_₁^332(_lh_permutations_LH_C_1⁰))
+//│ 		in _lh_listcomp_fun¹(permutations_lh_₁(_lh_permutations_LH_C_1⁰))
 //│ 	| _  => error⁰}
 //│ def take_lh_₁(n⁰, ls⁰) = if (n⁰ > 0) then case ls⁰ of {
-//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁^184((n⁰ - 1), t⁰)]
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
-//│ def testCryptarithm_nofib_lh_₁(_lh_testCryptarithm_nofib_arg1⁰) = map_lh_₁^394((fun i⁰ -> 
-//│ 	let p0⁰ = take_lh_₁^395(10, enumFromTo_lh_₂^398(0, (9 + i⁰)))
-//│ 	in filter_lh_₁^408(condition_lh_₁^409, permutations_lh_₁^411(p0⁰))), enumFromTo_lh_₁^418(1, _lh_testCryptarithm_nofib_arg1⁰))
+//│ def testCryptarithm_nofib_lh_₁(_lh_testCryptarithm_nofib_arg1⁰) = map_lh_₁((fun i⁰ -> 
+//│ 	let p0⁰ = take_lh_₁(10, enumFromTo_lh_₂(0, (9 + i⁰)))
+//│ 	in filter_lh_₁(condition_lh_₁, permutations_lh_₁(p0⁰))), enumFromTo_lh_₁(1, _lh_testCryptarithm_nofib_arg1⁰))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ 		let rec addj_lh__d1 _lh_addj_arg1_0 _lh_addj_arg2_0 =
 //│ 		  (match _lh_addj_arg2_0 with

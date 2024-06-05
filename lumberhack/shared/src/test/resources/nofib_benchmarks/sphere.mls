@@ -264,8 +264,8 @@ testSphere_nofib $ primId 30
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testSphere_nofib_lh_₁^3304(primId⁰(30))
-//│ def ambientsurf_lh_₁(_lh_ambientsurf_arg1⁰) = head_lh_₄^1556(mappend_lh_₂^1557(
+//│ testSphere_nofib_lh_₁(primId⁰(30))
+//│ def ambientsurf_lh_₁(_lh_ambientsurf_arg1⁰) = head_lh_₄(mappend_lh_₂(
 //│ 	let _lh_listcomp_fun⁸ = (fun _lh_listcomp_fun_para⁸ -> case _lh_listcomp_fun_para⁸ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁸ _lh_listcomp_fun_ls_t⁸ => case _lh_listcomp_fun_ls_h⁸ of {
 //│ 			Ambient _lh_ambientsurf_Ambient_0⁰ => [LH_C _lh_ambientsurf_Ambient_0⁰ _lh_listcomp_fun⁸(_lh_listcomp_fun_ls_t⁸)]
@@ -274,14 +274,14 @@ testSphere_nofib $ primId 30
 //│ 	in _lh_listcomp_fun⁸(_lh_ambientsurf_arg1⁰), [LH_C [LH_P3 0.0 0.0 0.0] [LH_N]]))
 //│ def background_lh_₁ = [LH_P3 0.078 0.361 0.753]
 //│ def background_lh_₂ = [LH_P3 0.078 0.361 0.753]
-//│ def bodysurf_lh_₁(_lh_bodysurf_arg1¹) = head_lh_₅^1064(mappend_lh_₃^1065(
+//│ def bodysurf_lh_₁(_lh_bodysurf_arg1¹) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun⁵ = (fun _lh_listcomp_fun_para⁵ -> case _lh_listcomp_fun_para⁵ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁵ _lh_listcomp_fun_ls_t⁵ => case _lh_listcomp_fun_ls_h⁵ of {
 //│ 			Body _lh_bodysurf_Body_0¹ => [LH_C _lh_bodysurf_Body_0¹ _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t⁵)]
 //│ 			| _  => _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t⁵)}
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun⁵(_lh_bodysurf_arg1¹), [LH_C [LH_P3 1.0 1.0 1.0] [LH_N]]))
-//│ def bodysurf_lh_₂(_lh_bodysurf_arg1⁰) = head_lh_₅^639(mappend_lh_₃^640(
+//│ def bodysurf_lh_₂(_lh_bodysurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para³ -> case _lh_listcomp_fun_para³ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h³ _lh_listcomp_fun_ls_t³ => case _lh_listcomp_fun_ls_h³ of {
 //│ 			Body _lh_bodysurf_Body_0⁰ => [LH_C _lh_bodysurf_Body_0⁰ _lh_listcomp_fun³(_lh_listcomp_fun_ls_t³)]
@@ -289,49 +289,49 @@ testSphere_nofib $ primId 30
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun³(_lh_bodysurf_arg1⁰), [LH_C [LH_P3 1.0 1.0 1.0] [LH_N]]))
 //│ def camparams_lh_₁(_lh_camparams_arg1⁰, _lh_camparams_arg2⁰, _lh_camparams_arg3⁰, _lh_camparams_arg4⁰, _lh_camparams_arg5⁰) = 
-//│ 	let initfirstray⁰ = vecsub_lh_₂^2971(_lh_camparams_arg2⁰, _lh_camparams_arg1⁰)
-//│ 	in let _lh_matchIdent¹⁵ = vecnorm_lh_₂^2976(initfirstray⁰)
+//│ 	let initfirstray⁰ = vecsub_lh_₂(_lh_camparams_arg2⁰, _lh_camparams_arg1⁰)
+//│ 	in let _lh_matchIdent¹⁵ = vecnorm_lh_₂(initfirstray⁰)
 //│ 	in case _lh_matchIdent¹⁵ of {
 //│ 		LH_P2 _lh_camparams_LH_P2_0⁰ _lh_camparams_LH_P2_1⁰ => 
-//│ 			let _lh_matchIdent¹⁶ = vecnorm_lh_₃^2980(veccross_lh_₁^2981(_lh_camparams_LH_P2_0⁰, _lh_camparams_arg3⁰))
+//│ 			let _lh_matchIdent¹⁶ = vecnorm_lh_₃(veccross_lh_₁(_lh_camparams_LH_P2_0⁰, _lh_camparams_arg3⁰))
 //│ 			in case _lh_matchIdent¹⁶ of {
 //│ 				LH_P2 _lh_camparams_LH_P2_0¹ _lh_camparams_LH_P2_1¹ => 
-//│ 					let _lh_matchIdent¹⁷ = vecnorm_lh_₁^2988(veccross_lh_₂^2989(_lh_camparams_LH_P2_0¹, _lh_camparams_LH_P2_0⁰))
+//│ 					let _lh_matchIdent¹⁷ = vecnorm_lh_₁(veccross_lh_₂(_lh_camparams_LH_P2_0¹, _lh_camparams_LH_P2_0⁰))
 //│ 					in case _lh_matchIdent¹⁷ of {
 //│ 						LH_P2 _lh_camparams_LH_P2_0² _lh_camparams_LH_P2_1² => 
 //│ 							let xfov⁰ = _lh_camparams_arg4⁰
 //│ 							in let yfov⁰ = _lh_camparams_arg4⁰
 //│ 							in let xwinsize⁰ = _lh_camparams_arg5⁰
 //│ 							in let ywinsize⁰ = _lh_camparams_arg5⁰
-//│ 							in let magx⁰ = (((2.0 *. _lh_camparams_LH_P2_1⁰) *. tan⁰(dtor_lh_₂^3009((xfov⁰ /. 2.0)))) /. xwinsize⁰)
-//│ 							in let magy⁰ = (((2.0 *. _lh_camparams_LH_P2_1⁰) *. tan⁰(dtor_lh_₁^3030((yfov⁰ /. 2.0)))) /. ywinsize⁰)
-//│ 							in let scrnx⁰ = vecscale_lh_₂^3042(_lh_camparams_LH_P2_0¹, magx⁰)
-//│ 							in let scrny⁰ = vecscale_lh_₄^3047(_lh_camparams_LH_P2_0², magy⁰)
-//│ 							in let firstray⁰ = vecsub_lh_₁^3052(initfirstray⁰, vecadd_lh_₁^3055(vecscale_lh_₁^3056(scrnx⁰, (0.5 *. xwinsize⁰)), vecscale_lh_₃^3066(scrny⁰, (0.5 *. ywinsize⁰))))
+//│ 							in let magx⁰ = (((2.0 *. _lh_camparams_LH_P2_1⁰) *. tan⁰(dtor_lh_₂((xfov⁰ /. 2.0)))) /. xwinsize⁰)
+//│ 							in let magy⁰ = (((2.0 *. _lh_camparams_LH_P2_1⁰) *. tan⁰(dtor_lh_₁((yfov⁰ /. 2.0)))) /. ywinsize⁰)
+//│ 							in let scrnx⁰ = vecscale_lh_₂(_lh_camparams_LH_P2_0¹, magx⁰)
+//│ 							in let scrny⁰ = vecscale_lh_₄(_lh_camparams_LH_P2_0², magy⁰)
+//│ 							in let firstray⁰ = vecsub_lh_₁(initfirstray⁰, vecadd_lh_₁(vecscale_lh_₁(scrnx⁰, (0.5 *. xwinsize⁰)), vecscale_lh_₃(scrny⁰, (0.5 *. ywinsize⁰))))
 //│ 							in [LH_P3 firstray⁰ scrnx⁰ scrny⁰]
 //│ 						| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ def diffusesurf_lh_₁(_lh_diffusesurf_arg1⁰) = head_lh_₅^335(mappend_lh_₃^336(
+//│ def diffusesurf_lh_₁(_lh_diffusesurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {
 //│ 		LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => case _lh_listcomp_fun_ls_h² of {
 //│ 			Diffuse _lh_diffusesurf_Diffuse_0⁰ => [LH_C _lh_diffusesurf_Diffuse_0⁰ _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)]
 //│ 			| _  => _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)}
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun²(_lh_diffusesurf_arg1⁰), [LH_C [LH_P3 0.0 0.0 0.0] [LH_N]]))
-//│ def dtor_lh_₁(_lh_dtor_arg1¹) = ((_lh_dtor_arg1¹ *. pi_lh_₁^2514) /. 180.0)
-//│ def dtor_lh_₂(_lh_dtor_arg1⁰) = ((_lh_dtor_arg1⁰ *. pi_lh_₂^2298) /. 180.0)
-//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁^2906((a¹ + 1), b¹)] else [LH_N]
-//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂^2885((a⁰ + 1), b⁰)] else [LH_N]
+//│ def dtor_lh_₁(_lh_dtor_arg1¹) = ((_lh_dtor_arg1¹ *. pi_lh_₁) /. 180.0)
+//│ def dtor_lh_₂(_lh_dtor_arg1⁰) = ((_lh_dtor_arg1⁰ *. pi_lh_₂) /. 180.0)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)] else [LH_N]
+//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)] else [LH_N]
 //│ def epsilon_lh_₁ = 0.000001
 //│ def foldr_lh_₁(f⁴, i², ls⁹) = case ls⁹ of {
-//│ 	LH_C h¹² t¹³ => f⁴(h¹², foldr_lh_₁^3109(f⁴, i², t¹³))
+//│ 	LH_C h¹² t¹³ => f⁴(h¹², foldr_lh_₁(f⁴, i², t¹³))
 //│ 	| LH_N  => i²}
 //│ def foldr_lh_₂(f¹, i¹, ls⁶) = case ls⁶ of {
-//│ 	LH_C h⁹ t¹⁰ => f¹(h⁹, foldr_lh_₂^837(f¹, i¹, t¹⁰))
+//│ 	LH_C h⁹ t¹⁰ => f¹(h⁹, foldr_lh_₂(f¹, i¹, t¹⁰))
 //│ 	| LH_N  => i¹}
 //│ def foldr_lh_₃(f⁰, i⁰, ls⁰) = case ls⁰ of {
-//│ 	LH_C h⁰ t¹ => f⁰(h⁰, foldr_lh_₃^143(f⁰, i⁰, t¹))
+//│ 	LH_C h⁰ t¹ => f⁰(h⁰, foldr_lh_₃(f⁰, i⁰, t¹))
 //│ 	| LH_N  => i⁰}
 //│ def fov_lh_₁ = 45.0
 //│ def fst_lh_₁(_lh_fst_arg1⁰) = case _lh_fst_arg1⁰ of {
@@ -339,7 +339,7 @@ testSphere_nofib $ primId 30
 //│ 	| _  => error⁰}
 //│ def hash_lh_₁(_lh_hash_arg1⁰) = 
 //│ 	let u8⁰ = (fun x⁰ -> (fun _lh_funcomp_x⁰ -> int_of_float⁰((fun x¹ -> (255.0 *. x¹))(_lh_funcomp_x⁰)))(x⁰))
-//│ 	in foldr_lh_₁^3225((fun rgb⁰ -> (fun acc⁰ -> 
+//│ 	in foldr_lh_₁((fun rgb⁰ -> (fun acc⁰ -> 
 //│ 		let _lh_matchIdent¹⁹ = rgb⁰
 //│ 		in case _lh_matchIdent¹⁹ of {
 //│ 			LH_P3 _lh_hash_LH_P3_0⁰ _lh_hash_LH_P3_1⁰ _lh_hash_LH_P3_2⁰ => (((u8⁰(_lh_hash_LH_P3_0⁰) + (u8⁰(_lh_hash_LH_P3_1⁰) * 7)) + (u8⁰(_lh_hash_LH_P3_2⁰) * 23)) + (acc⁰ * 61))
@@ -361,56 +361,56 @@ testSphere_nofib $ primId 30
 //│ 	| LH_N  => error⁰}
 //│ def infinity_lh_₁ = 100000000.0
 //│ def is_zerovector_lh_₁(_lh_is_zerovector_arg1⁰) = case _lh_is_zerovector_arg1⁰ of {
-//│ 	LH_P3 _lh_is_zerovector_LH_P3_0⁰ _lh_is_zerovector_LH_P3_1⁰ _lh_is_zerovector_LH_P3_2⁰ => ((polyLt⁰(_lh_is_zerovector_LH_P3_0⁰, epsilon_lh_₁^1196) && polyLt⁰(_lh_is_zerovector_LH_P3_1⁰, epsilon_lh_₁^1202)) && polyLt⁰(_lh_is_zerovector_LH_P3_2⁰, epsilon_lh_₁^1209))
+//│ 	LH_P3 _lh_is_zerovector_LH_P3_0⁰ _lh_is_zerovector_LH_P3_1⁰ _lh_is_zerovector_LH_P3_2⁰ => ((polyLt⁰(_lh_is_zerovector_LH_P3_0⁰, epsilon_lh_₁) && polyLt⁰(_lh_is_zerovector_LH_P3_1⁰, epsilon_lh_₁)) && polyLt⁰(_lh_is_zerovector_LH_P3_2⁰, epsilon_lh_₁))
 //│ 	| _  => error⁰}
 //│ def lightcolour_lh_₁(_lh_lightcolour_arg1⁰) = case _lh_lightcolour_arg1⁰ of {
 //│ 	Directional _lh_lightcolour_Directional_0⁰ _lh_lightcolour_Directional_1⁰ => _lh_lightcolour_Directional_1⁰
 //│ 	| Point _lh_lightcolour_Point_0⁰ _lh_lightcolour_Point_1⁰ => _lh_lightcolour_Point_1⁰
 //│ 	| _  => error⁰}
 //│ def lightdirection_lh_₁(_lh_lightdirection_arg1⁰, _lh_lightdirection_arg2⁰) = case _lh_lightdirection_arg1⁰ of {
-//│ 	Directional _lh_lightdirection_Directional_0⁰ _lh_lightdirection_Directional_1⁰ => [LH_P2 fst_lh_₁^550(vecnorm_lh_₄^551(_lh_lightdirection_Directional_0⁰)) infinity_lh_₁^555]
-//│ 	| Point _lh_lightdirection_Point_0⁰ _lh_lightdirection_Point_1⁰ => vecnorm_lh_₄^557(vecsub_lh_₂^558(_lh_lightdirection_Point_0⁰, _lh_lightdirection_arg2⁰))
+//│ 	Directional _lh_lightdirection_Directional_0⁰ _lh_lightdirection_Directional_1⁰ => [LH_P2 fst_lh_₁(vecnorm_lh_₄(_lh_lightdirection_Directional_0⁰)) infinity_lh_₁]
+//│ 	| Point _lh_lightdirection_Point_0⁰ _lh_lightdirection_Point_1⁰ => vecnorm_lh_₄(vecsub_lh_₂(_lh_lightdirection_Point_0⁰, _lh_lightdirection_arg2⁰))
 //│ 	| _  => error⁰}
 //│ def lightray_lh_₁(_lh_lightray_arg1⁰, _lh_lightray_arg2⁰, _lh_lightray_arg3⁰, _lh_lightray_arg4⁰, _lh_lightray_arg5⁰) = 
-//│ 	let _lh_matchIdent⁵ = lightdirection_lh_₁^1290(_lh_lightray_arg1⁰, _lh_lightray_arg2⁰)
+//│ 	let _lh_matchIdent⁵ = lightdirection_lh_₁(_lh_lightray_arg1⁰, _lh_lightray_arg2⁰)
 //│ 	in case _lh_matchIdent⁵ of {
 //│ 		LH_P2 _lh_lightray_LH_P2_0⁰ _lh_lightray_LH_P2_1⁰ => 
-//│ 			let cosangle⁰ = vecdot_lh_₄^1296(_lh_lightray_LH_P2_0⁰, _lh_lightray_arg3⁰)
-//│ 			in let _lh_matchIdent⁶ = shadowed_lh_₁^1301(_lh_lightray_arg2⁰, _lh_lightray_LH_P2_0⁰, lightcolour_lh_₁^1306(_lh_lightray_arg1⁰))
+//│ 			let cosangle⁰ = vecdot_lh_₄(_lh_lightray_LH_P2_0⁰, _lh_lightray_arg3⁰)
+//│ 			in let _lh_matchIdent⁶ = shadowed_lh_₁(_lh_lightray_arg2⁰, _lh_lightray_LH_P2_0⁰, lightcolour_lh_₁(_lh_lightray_arg1⁰))
 //│ 			in case _lh_matchIdent⁶ of {
 //│ 				LH_P2 _lh_lightray_LH_P2_0¹ _lh_lightray_LH_P2_1¹ => if _lh_lightray_LH_P2_0¹ then [LH_P3 0.0 0.0 0.0] else 
-//│ 					let diff⁰ = diffusesurf_lh_₁^1316(_lh_lightray_arg5⁰)
-//│ 					in let spow⁰ = specpowsurf_lh_₁^1319(_lh_lightray_arg5⁰)
+//│ 					let diff⁰ = diffusesurf_lh_₁(_lh_lightray_arg5⁰)
+//│ 					in let spow⁰ = specpowsurf_lh_₁(_lh_lightray_arg5⁰)
 //│ 					in if polyLeq⁰(cosangle⁰, 0.0) then 
-//│ 						let bodycol⁰ = bodysurf_lh_₂^1327(_lh_lightray_arg5⁰)
-//│ 						in let cosalpha⁰ = (0.0 -. vecdot_lh_₃^1333(_lh_lightray_arg4⁰, _lh_lightray_LH_P2_0⁰))
-//│ 						in let diffcont⁰ = vecmult_lh_₅^1339(vecscale_lh_₁₁^1340(diff⁰, (0.0 -. cosangle⁰)), _lh_lightray_LH_P2_1¹)
-//│ 						in let speccont⁰ = if polyLeq⁰(cosalpha⁰, 0.0) then [LH_P3 0.0 0.0 0.0] else vecmult_lh_₂^1361(vecscale_lh_₁₃^1362(bodycol⁰, (cosalpha⁰ ** spow⁰)), _lh_lightray_LH_P2_1¹)
-//│ 						in vecadd_lh_₉^1375(diffcont⁰, speccont⁰) else 
-//│ 						let spec⁰ = specularsurf_lh_₂^1384(_lh_lightray_arg5⁰)
-//│ 						in let cosalpha¹ = vecdot_lh_₂^1387(_lh_lightray_arg4⁰, _lh_lightray_LH_P2_0⁰)
-//│ 						in let diffcont¹ = vecmult_lh_₃^1392(vecscale_lh_₁₄^1393(diff⁰, cosangle⁰), _lh_lightray_LH_P2_1¹)
-//│ 						in let speccont¹ = if polyLeq⁰(cosalpha¹, 0.0) then [LH_P3 0.0 0.0 0.0] else vecmult_lh_₄^1410(vecscale_lh_₁₂^1411(spec⁰, (cosalpha¹ ** spow⁰)), _lh_lightray_LH_P2_1¹)
-//│ 						in vecadd_lh_₈^1424(diffcont¹, speccont¹)
+//│ 						let bodycol⁰ = bodysurf_lh_₂(_lh_lightray_arg5⁰)
+//│ 						in let cosalpha⁰ = (0.0 -. vecdot_lh_₃(_lh_lightray_arg4⁰, _lh_lightray_LH_P2_0⁰))
+//│ 						in let diffcont⁰ = vecmult_lh_₅(vecscale_lh_₁₁(diff⁰, (0.0 -. cosangle⁰)), _lh_lightray_LH_P2_1¹)
+//│ 						in let speccont⁰ = if polyLeq⁰(cosalpha⁰, 0.0) then [LH_P3 0.0 0.0 0.0] else vecmult_lh_₂(vecscale_lh_₁₃(bodycol⁰, (cosalpha⁰ ** spow⁰)), _lh_lightray_LH_P2_1¹)
+//│ 						in vecadd_lh_₉(diffcont⁰, speccont⁰) else 
+//│ 						let spec⁰ = specularsurf_lh_₂(_lh_lightray_arg5⁰)
+//│ 						in let cosalpha¹ = vecdot_lh_₂(_lh_lightray_arg4⁰, _lh_lightray_LH_P2_0⁰)
+//│ 						in let diffcont¹ = vecmult_lh_₃(vecscale_lh_₁₄(diff⁰, cosangle⁰), _lh_lightray_LH_P2_1¹)
+//│ 						in let speccont¹ = if polyLeq⁰(cosalpha¹, 0.0) then [LH_P3 0.0 0.0 0.0] else vecmult_lh_₄(vecscale_lh_₁₂(spec⁰, (cosalpha¹ ** spow⁰)), _lh_lightray_LH_P2_1¹)
+//│ 						in vecadd_lh_₈(diffcont¹, speccont¹)
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ def lookat_lh_₁ = [LH_P3 0.0 0.0 0.0]
 //│ def lookfrom_lh_₁ = [LH_P3 2.1 1.3 1.7]
 //│ def lookfrom_lh_₂ = [LH_P3 2.1 1.3 1.7]
 //│ def map_lh_₁(f⁶, ls¹⁰) = case ls¹⁰ of {
-//│ 	LH_C h¹³ t¹⁴ => [LH_C f⁶(h¹³) map_lh_₁^3280(f⁶, t¹⁴)]
+//│ 	LH_C h¹³ t¹⁴ => [LH_C f⁶(h¹³) map_lh_₁(f⁶, t¹⁴)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f², ls⁸) = case ls⁸ of {
-//│ 	LH_C h¹¹ t¹² => [LH_C f²(h¹¹) map_lh_₂^964(f², t¹²)]
+//│ 	LH_C h¹¹ t¹² => [LH_C f²(h¹¹) map_lh_₂(f², t¹²)]
 //│ 	| LH_N  => [LH_N]}
 //│ def mappend_lh_₁(xs², ys²) = case xs² of {
-//│ 	LH_C h⁵ t⁶ => [LH_C h⁵ mappend_lh_₁^705(t⁶, ys²)]
+//│ 	LH_C h⁵ t⁶ => [LH_C h⁵ mappend_lh_₁(t⁶, ys²)]
 //│ 	| LH_N  => ys²}
 //│ def mappend_lh_₂(xs¹, ys¹) = case xs¹ of {
-//│ 	LH_C h³ t⁴ => [LH_C h³ mappend_lh_₂^688(t⁴, ys¹)]
+//│ 	LH_C h³ t⁴ => [LH_C h³ mappend_lh_₂(t⁴, ys¹)]
 //│ 	| LH_N  => ys¹}
 //│ def mappend_lh_₃(xs⁰, ys⁰) = case xs⁰ of {
-//│ 	LH_C h¹ t² => [LH_C h¹ mappend_lh_₃^671(t², ys⁰)]
+//│ 	LH_C h¹ t² => [LH_C h¹ mappend_lh_₃(t², ys⁰)]
 //│ 	| LH_N  => ys⁰}
 //│ def null_lh_₁(_lh_null_arg1⁰) = case _lh_null_arg1⁰ of {
 //│ 	LH_N  => [True]
@@ -419,30 +419,30 @@ testSphere_nofib $ primId 30
 //│ def pi_lh_₁ = 3.141592653589793
 //│ def pi_lh_₂ = 3.141592653589793
 //│ def ray_lh_₁(_lh_ray_arg1⁰) = 
-//│ 	let lights⁰ = testlights_lh_₁^3122
-//│ 	in let _lh_matchIdent¹⁸ = camparams_lh_₁^3123(lookfrom_lh_₁^3124, lookat_lh_₁^3126, vup_lh_₁^3128, fov_lh_₁^3130, float_of_int⁰(_lh_ray_arg1⁰))
+//│ 	let lights⁰ = testlights_lh_₁
+//│ 	in let _lh_matchIdent¹⁸ = camparams_lh_₁(lookfrom_lh_₁, lookat_lh_₁, vup_lh_₁, fov_lh_₁, float_of_int⁰(_lh_ray_arg1⁰))
 //│ 	in case _lh_matchIdent¹⁸ of {
 //│ 		LH_P3 _lh_ray_LH_P3_0⁰ _lh_ray_LH_P3_1⁰ _lh_ray_LH_P3_2⁰ => 
-//│ 			let f⁵ = (fun i³ -> (fun j⁰ -> tracepixel_lh_₁^3137(testspheres_lh_₁^3138, lights⁰, float_of_int⁰(i³), float_of_int⁰(j⁰), _lh_ray_LH_P3_0⁰, _lh_ray_LH_P3_1⁰, _lh_ray_LH_P3_2⁰)))
+//│ 			let f⁵ = (fun i³ -> (fun j⁰ -> tracepixel_lh_₁(testspheres_lh_₁, lights⁰, float_of_int⁰(i³), float_of_int⁰(j⁰), _lh_ray_LH_P3_0⁰, _lh_ray_LH_P3_1⁰, _lh_ray_LH_P3_2⁰)))
 //│ 			in let _lh_listcomp_fun¹⁰ = (fun _lh_listcomp_fun_para¹⁰ -> case _lh_listcomp_fun_para¹⁰ of {
 //│ 				LH_C _lh_listcomp_fun_ls_h¹⁰ _lh_listcomp_fun_ls_t¹⁰ => 
 //│ 					let _lh_listcomp_fun¹¹ = (fun _lh_listcomp_fun_para¹¹ -> case _lh_listcomp_fun_para¹¹ of {
 //│ 						LH_C _lh_listcomp_fun_ls_h¹¹ _lh_listcomp_fun_ls_t¹¹ => [LH_C [LH_P2 [LH_P2 _lh_listcomp_fun_ls_h¹⁰ _lh_listcomp_fun_ls_h¹¹] f⁵(_lh_listcomp_fun_ls_h¹⁰, _lh_listcomp_fun_ls_h¹¹)] _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t¹¹)]
 //│ 						| LH_N  => _lh_listcomp_fun¹⁰(_lh_listcomp_fun_ls_t¹⁰)})
-//│ 					in _lh_listcomp_fun¹¹(enumFromTo_lh_₂^3179(0, (_lh_ray_arg1⁰ - 1)))
+//│ 					in _lh_listcomp_fun¹¹(enumFromTo_lh_₂(0, (_lh_ray_arg1⁰ - 1)))
 //│ 				| LH_N  => [LH_N]})
-//│ 			in _lh_listcomp_fun¹⁰(enumFromTo_lh_₁^3194(0, (_lh_ray_arg1⁰ - 1)))
+//│ 			in _lh_listcomp_fun¹⁰(enumFromTo_lh_₁(0, (_lh_ray_arg1⁰ - 1)))
 //│ 		| _  => error⁰}
 //│ def reflectray_lh_₁(_lh_reflectray_arg1⁰, _lh_reflectray_arg2⁰, _lh_reflectray_arg3⁰, _lh_reflectray_arg4⁰, _lh_reflectray_arg5⁰, _lh_reflectray_arg6⁰) = 
-//│ 	let newcontrib¹ = vecmult_lh_₅^1215(_lh_reflectray_arg4⁰, _lh_reflectray_arg5⁰)
-//│ 	in let nearpos¹ = vecadd_lh_₁₀^1220(_lh_reflectray_arg1⁰, vecscale_lh_₁₅^1223(_lh_reflectray_arg2⁰, epsilon_lh_₁^1226))
-//│ 	in let _lh_matchIdent⁴ = trace_lh_₁^1229(testspheres_lh_₁^1230, nearpos¹, _lh_reflectray_arg2⁰)
+//│ 	let newcontrib¹ = vecmult_lh_₅(_lh_reflectray_arg4⁰, _lh_reflectray_arg5⁰)
+//│ 	in let nearpos¹ = vecadd_lh_₁₀(_lh_reflectray_arg1⁰, vecscale_lh_₁₅(_lh_reflectray_arg2⁰, epsilon_lh_₁))
+//│ 	in let _lh_matchIdent⁴ = trace_lh_₁(testspheres_lh_₁, nearpos¹, _lh_reflectray_arg2⁰)
 //│ 	in case _lh_matchIdent⁴ of {
 //│ 		LH_P3 _lh_reflectray_LH_P3_0⁰ _lh_reflectray_LH_P3_1⁰ _lh_reflectray_LH_P3_2⁰ => 
-//│ 			let newcol¹ = if _lh_reflectray_LH_P3_0⁰ then shade_lh_₁^1238(_lh_reflectray_arg3⁰, _lh_reflectray_LH_P3_2⁰, nearpos¹, _lh_reflectray_arg2⁰, _lh_reflectray_LH_P3_1⁰, newcontrib¹) else background_lh_₂^1251
-//│ 			in if is_zerovector_lh_₁^1253(newcontrib¹) then _lh_reflectray_arg6⁰ else vecadd_lh_₁₀^1257(_lh_reflectray_arg6⁰, vecmult_lh_₅^1260(newcol¹, _lh_reflectray_arg4⁰))
+//│ 			let newcol¹ = if _lh_reflectray_LH_P3_0⁰ then shade_lh_₁(_lh_reflectray_arg3⁰, _lh_reflectray_LH_P3_2⁰, nearpos¹, _lh_reflectray_arg2⁰, _lh_reflectray_LH_P3_1⁰, newcontrib¹) else background_lh_₂
+//│ 			in if is_zerovector_lh_₁(newcontrib¹) then _lh_reflectray_arg6⁰ else vecadd_lh_₁₀(_lh_reflectray_arg6⁰, vecmult_lh_₅(newcol¹, _lh_reflectray_arg4⁰))
 //│ 		| _  => error⁰}
-//│ def reflectsurf_lh_₁(_lh_reflectsurf_arg1⁰) = head_lh_₅^1142(mappend_lh_₃^1143(
+//│ def reflectsurf_lh_₁(_lh_reflectsurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun⁶ = (fun _lh_listcomp_fun_para⁶ -> case _lh_listcomp_fun_para⁶ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁶ _lh_listcomp_fun_ls_t⁶ => case _lh_listcomp_fun_ls_h⁶ of {
 //│ 			Reflect _lh_reflectsurf_Reflect_0⁰ => [LH_C _lh_reflectsurf_Reflect_0⁰ _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t⁶)]
@@ -450,22 +450,22 @@ testSphere_nofib $ primId 30
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun⁶(_lh_reflectsurf_arg1⁰), [LH_C 0.0 [LH_N]]))
 //│ def refractray_lh_₁(_lh_refractray_arg1⁰, _lh_refractray_arg2⁰, _lh_refractray_arg3⁰) = 
-//│ 	let dotp⁰ = (0.0 -. vecdot_lh_₄^9(_lh_refractray_arg2⁰, _lh_refractray_arg3⁰))
-//│ 	in let _lh_matchIdent⁰ = if polyLt⁰(dotp⁰, 0.0) then [LH_P3 vecscale_lh_₁₅^20(_lh_refractray_arg3⁰, (0.0 -. 1.0)) (0.0 -. dotp⁰) (1.0 /. _lh_refractray_arg1⁰)] else [LH_P3 _lh_refractray_arg3⁰ dotp⁰ _lh_refractray_arg1⁰]
+//│ 	let dotp⁰ = (0.0 -. vecdot_lh_₄(_lh_refractray_arg2⁰, _lh_refractray_arg3⁰))
+//│ 	in let _lh_matchIdent⁰ = if polyLt⁰(dotp⁰, 0.0) then [LH_P3 vecscale_lh_₁₅(_lh_refractray_arg3⁰, (0.0 -. 1.0)) (0.0 -. dotp⁰) (1.0 /. _lh_refractray_arg1⁰)] else [LH_P3 _lh_refractray_arg3⁰ dotp⁰ _lh_refractray_arg1⁰]
 //│ 	in case _lh_matchIdent⁰ of {
 //│ 		LH_P3 _lh_refractray_LH_P3_0⁰ _lh_refractray_LH_P3_1⁰ _lh_refractray_LH_P3_2⁰ => 
 //│ 			let disc⁰ = (((1.0 -. _lh_refractray_LH_P3_2⁰) *. _lh_refractray_LH_P3_2⁰) *. (1.0 -. (_lh_refractray_LH_P3_1⁰ *. _lh_refractray_LH_P3_1⁰)))
 //│ 			in let t⁰ = ((_lh_refractray_LH_P3_2⁰ *. _lh_refractray_LH_P3_1⁰) -. sqrt⁰(disc⁰))
-//│ 			in if polyLt⁰(disc⁰, 0.0) then [LH_P2 [True] [LH_P3 0.0 0.0 0.0]] else [LH_P2 [False] vecadd_lh_₁₀^90(vecscale_lh_₁₅^91(_lh_refractray_LH_P3_0⁰, t⁰), vecscale_lh_₁₅^97(_lh_refractray_arg2⁰, _lh_refractray_LH_P3_2⁰))]
+//│ 			in if polyLt⁰(disc⁰, 0.0) then [LH_P2 [True] [LH_P3 0.0 0.0 0.0]] else [LH_P2 [False] vecadd_lh_₁₀(vecscale_lh_₁₅(_lh_refractray_LH_P3_0⁰, t⁰), vecscale_lh_₁₅(_lh_refractray_arg2⁰, _lh_refractray_LH_P3_2⁰))]
 //│ 		| _  => error⁰}
-//│ def refractsurf_lh_₁(_lh_refractsurf_arg1⁰) = head_lh_₃^1610(mappend_lh_₁^1611(
+//│ def refractsurf_lh_₁(_lh_refractsurf_arg1⁰) = head_lh_₃(mappend_lh_₁(
 //│ 	let _lh_listcomp_fun⁹ = (fun _lh_listcomp_fun_para⁹ -> case _lh_listcomp_fun_para⁹ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁹ _lh_listcomp_fun_ls_t⁹ => case _lh_listcomp_fun_ls_h⁹ of {
 //│ 			Refract _lh_refractsurf_Refract_0⁰ => [LH_C _lh_refractsurf_Refract_0⁰ _lh_listcomp_fun⁹(_lh_listcomp_fun_ls_t⁹)]
 //│ 			| _  => _lh_listcomp_fun⁹(_lh_listcomp_fun_ls_t⁹)}
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun⁹(_lh_refractsurf_arg1⁰), [LH_C 1.0 [LH_N]]))
-//│ def run_lh_₁(_lh_run_arg1⁰) = hash_lh_₁^3290(map_lh_₁^3291(snd_lh_₁^3292, ray_lh_₁^3294(_lh_run_arg1⁰)))
+//│ def run_lh_₁(_lh_run_arg1⁰) = hash_lh_₁(map_lh_₁(snd_lh_₁, ray_lh_₁(_lh_run_arg1⁰)))
 //│ def s2_lh_₁ = [LH_C [Ambient [LH_P3 0.035 0.0325 0.025]] [LH_C [Diffuse [LH_P3 0.5 0.45 0.35]] [LH_C [Specular [LH_P3 0.8 0.8 0.8]] [LH_C [Specpow 3.0] [LH_C [Reflect 0.5] [LH_N]]]]]]
 //│ def s2_lh_₁₀ = [LH_C [Ambient [LH_P3 0.035 0.0325 0.025]] [LH_C [Diffuse [LH_P3 0.5 0.45 0.35]] [LH_C [Specular [LH_P3 0.8 0.8 0.8]] [LH_C [Specpow 3.0] [LH_C [Reflect 0.5] [LH_N]]]]]]
 //│ def s2_lh_₂ = [LH_C [Ambient [LH_P3 0.035 0.0325 0.025]] [LH_C [Diffuse [LH_P3 0.5 0.45 0.35]] [LH_C [Specular [LH_P3 0.8 0.8 0.8]] [LH_C [Specpow 3.0] [LH_C [Reflect 0.5] [LH_N]]]]]]
@@ -477,47 +477,47 @@ testSphere_nofib $ primId 30
 //│ def s2_lh_₈ = [LH_C [Ambient [LH_P3 0.035 0.0325 0.025]] [LH_C [Diffuse [LH_P3 0.5 0.45 0.35]] [LH_C [Specular [LH_P3 0.8 0.8 0.8]] [LH_C [Specpow 3.0] [LH_C [Reflect 0.5] [LH_N]]]]]]
 //│ def s2_lh_₉ = [LH_C [Ambient [LH_P3 0.035 0.0325 0.025]] [LH_C [Diffuse [LH_P3 0.5 0.45 0.35]] [LH_C [Specular [LH_P3 0.8 0.8 0.8]] [LH_C [Specpow 3.0] [LH_C [Reflect 0.5] [LH_N]]]]]]
 //│ def shade_lh_₁(_lh_shade_arg1⁰, _lh_shade_arg2⁰, _lh_shade_arg3⁰, _lh_shade_arg4⁰, _lh_shade_arg5⁰, _lh_shade_arg6⁰) = 
-//│ 	let hitpos⁰ = vecadd_lh_₅^1830(_lh_shade_arg3⁰, vecscale_lh_₉^1833(_lh_shade_arg4⁰, _lh_shade_arg5⁰))
+//│ 	let hitpos⁰ = vecadd_lh_₅(_lh_shade_arg3⁰, vecscale_lh_₉(_lh_shade_arg4⁰, _lh_shade_arg5⁰))
 //│ 	in let ambientlight⁰ = [LH_P3 1.0 1.0 1.0]
-//│ 	in let surf⁰ = spheresurf_lh_₁^1843(_lh_shade_arg2⁰)
-//│ 	in let amb⁰ = vecmult_lh_₁^1846(ambientlight⁰, ambientsurf_lh_₁^1849(surf⁰))
-//│ 	in let norm⁰ = spherenormal_lh_₁^1853(hitpos⁰, _lh_shade_arg2⁰)
-//│ 	in let refl⁰ = vecadd_lh_₇^1858(_lh_shade_arg4⁰, vecscale_lh_₁₀^1861(norm⁰, ((0.0 -. 2.0) *. vecdot_lh_₁^1871(_lh_shade_arg4⁰, norm⁰))))
-//│ 	in let diff¹ = vecsum_lh_₁^1879(map_lh_₂^1880((fun l⁰ -> lightray_lh_₁^1881(l⁰, hitpos⁰, norm⁰, refl⁰, surf⁰)), _lh_shade_arg1⁰))
-//│ 	in let transmitted⁰ = transmitsurf_lh_₁^1897(surf⁰)
-//│ 	in let simple⁰ = vecadd_lh_₄^1900(amb⁰, diff¹)
-//│ 	in let trintensity⁰ = vecscale_lh_₈^1905(bodysurf_lh_₁^1906(surf⁰), transmitted⁰)
-//│ 	in let _lh_matchIdent¹² = if polyLt⁰(transmitted⁰, epsilon_lh_₁^1915) then [LH_P2 [False] simple⁰] else transmitray_lh_₁^1920(_lh_shade_arg1⁰, simple⁰, hitpos⁰, _lh_shade_arg4⁰, refractsurf_lh_₁^1929(surf⁰), trintensity⁰, _lh_shade_arg6⁰, norm⁰)
+//│ 	in let surf⁰ = spheresurf_lh_₁(_lh_shade_arg2⁰)
+//│ 	in let amb⁰ = vecmult_lh_₁(ambientlight⁰, ambientsurf_lh_₁(surf⁰))
+//│ 	in let norm⁰ = spherenormal_lh_₁(hitpos⁰, _lh_shade_arg2⁰)
+//│ 	in let refl⁰ = vecadd_lh_₇(_lh_shade_arg4⁰, vecscale_lh_₁₀(norm⁰, ((0.0 -. 2.0) *. vecdot_lh_₁(_lh_shade_arg4⁰, norm⁰))))
+//│ 	in let diff¹ = vecsum_lh_₁(map_lh_₂((fun l⁰ -> lightray_lh_₁(l⁰, hitpos⁰, norm⁰, refl⁰, surf⁰)), _lh_shade_arg1⁰))
+//│ 	in let transmitted⁰ = transmitsurf_lh_₁(surf⁰)
+//│ 	in let simple⁰ = vecadd_lh_₄(amb⁰, diff¹)
+//│ 	in let trintensity⁰ = vecscale_lh_₈(bodysurf_lh_₁(surf⁰), transmitted⁰)
+//│ 	in let _lh_matchIdent¹² = if polyLt⁰(transmitted⁰, epsilon_lh_₁) then [LH_P2 [False] simple⁰] else transmitray_lh_₁(_lh_shade_arg1⁰, simple⁰, hitpos⁰, _lh_shade_arg4⁰, refractsurf_lh_₁(surf⁰), trintensity⁰, _lh_shade_arg6⁰, norm⁰)
 //│ 	in case _lh_matchIdent¹² of {
 //│ 		LH_P2 _lh_shade_LH_P2_0⁰ _lh_shade_LH_P2_1⁰ => 
-//│ 			let reflsurf⁰ = vecscale_lh_₇^1941(specularsurf_lh_₁^1942(surf⁰), reflectsurf_lh_₁^1946(surf⁰))
-//│ 			in let reflectiv⁰ = if _lh_shade_LH_P2_0⁰ then vecadd_lh_₆^1951(trintensity⁰, reflsurf⁰) else reflsurf⁰
-//│ 			in let rcol⁰ = if is_zerovector_lh_₁^1958(reflectiv⁰) then _lh_shade_LH_P2_1⁰ else reflectray_lh_₁^1962(hitpos⁰, refl⁰, _lh_shade_arg1⁰, reflectiv⁰, _lh_shade_arg6⁰, _lh_shade_LH_P2_1⁰)
+//│ 			let reflsurf⁰ = vecscale_lh_₇(specularsurf_lh_₁(surf⁰), reflectsurf_lh_₁(surf⁰))
+//│ 			in let reflectiv⁰ = if _lh_shade_LH_P2_0⁰ then vecadd_lh_₆(trintensity⁰, reflsurf⁰) else reflsurf⁰
+//│ 			in let rcol⁰ = if is_zerovector_lh_₁(reflectiv⁰) then _lh_shade_LH_P2_1⁰ else reflectray_lh_₁(hitpos⁰, refl⁰, _lh_shade_arg1⁰, reflectiv⁰, _lh_shade_arg6⁰, _lh_shade_LH_P2_1⁰)
 //│ 			in rcol⁰
 //│ 		| _  => error⁰}
 //│ def shadowed_lh_₁(_lh_shadowed_arg1⁰, _lh_shadowed_arg2⁰, _lh_shadowed_arg3⁰) = 
-//│ 	let _lh_matchIdent¹ = trace_lh_₁^469(testspheres_lh_₁^470, vecadd_lh_₁₀^472(_lh_shadowed_arg1⁰, vecscale_lh_₁₅^475(_lh_shadowed_arg2⁰, epsilon_lh_₁^478)), _lh_shadowed_arg2⁰)
+//│ 	let _lh_matchIdent¹ = trace_lh_₁(testspheres_lh_₁, vecadd_lh_₁₀(_lh_shadowed_arg1⁰, vecscale_lh_₁₅(_lh_shadowed_arg2⁰, epsilon_lh_₁)), _lh_shadowed_arg2⁰)
 //│ 	in case _lh_matchIdent¹ of {
 //│ 		LH_P3 _lh_shadowed_LH_P3_0⁰ _lh_shadowed_LH_P3_1⁰ _lh_shadowed_LH_P3_2⁰ => if not⁰(_lh_shadowed_LH_P3_0⁰) then [LH_P2 [False] _lh_shadowed_arg3⁰] else [LH_P2 [True] _lh_shadowed_arg3⁰]
 //│ 		| _  => error⁰}
 //│ def snd_lh_₁(_lh_snd_arg1⁰) = case _lh_snd_arg1⁰ of {
 //│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰
 //│ 	| _  => error⁰}
-//│ def specpowsurf_lh_₁(_lh_specpowsurf_arg1⁰) = head_lh_₅^308(mappend_lh_₃^309(
+//│ def specpowsurf_lh_₁(_lh_specpowsurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => case _lh_listcomp_fun_ls_h¹ of {
 //│ 			Specpow _lh_specpowsurf_Specpow_0⁰ => [LH_C _lh_specpowsurf_Specpow_0⁰ _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)]
 //│ 			| _  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)}
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun¹(_lh_specpowsurf_arg1⁰), [LH_C 8.0 [LH_N]]))
-//│ def specularsurf_lh_₁(_lh_specularsurf_arg1¹) = head_lh_₅^995(mappend_lh_₃^996(
+//│ def specularsurf_lh_₁(_lh_specularsurf_arg1¹) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para⁴ -> case _lh_listcomp_fun_para⁴ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁴ _lh_listcomp_fun_ls_t⁴ => case _lh_listcomp_fun_ls_h⁴ of {
 //│ 			Specular _lh_specularsurf_Specular_0¹ => [LH_C _lh_specularsurf_Specular_0¹ _lh_listcomp_fun⁴(_lh_listcomp_fun_ls_t⁴)]
 //│ 			| _  => _lh_listcomp_fun⁴(_lh_listcomp_fun_ls_t⁴)}
 //│ 		| LH_N  => [LH_N]})
 //│ 	in _lh_listcomp_fun⁴(_lh_specularsurf_arg1¹), [LH_C [LH_P3 0.0 0.0 0.0] [LH_N]]))
-//│ def specularsurf_lh_₂(_lh_specularsurf_arg1⁰) = head_lh_₅^254(mappend_lh_₃^255(
+//│ def specularsurf_lh_₂(_lh_specularsurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => case _lh_listcomp_fun_ls_h⁰ of {
 //│ 			Specular _lh_specularsurf_Specular_0⁰ => [LH_C _lh_specularsurf_Specular_0⁰ _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
@@ -526,16 +526,16 @@ testSphere_nofib $ primId 30
 //│ 	in _lh_listcomp_fun⁰(_lh_specularsurf_arg1⁰), [LH_C [LH_P3 0.0 0.0 0.0] [LH_N]]))
 //│ def sphereintersect_lh_₁(_lh_sphereintersect_arg1⁰, _lh_sphereintersect_arg2⁰, _lh_sphereintersect_arg3⁰) = case _lh_sphereintersect_arg3⁰ of {
 //│ 	Sphere _lh_sphereintersect_Sphere_0⁰ _lh_sphereintersect_Sphere_1⁰ _lh_sphereintersect_Sphere_2⁰ => 
-//│ 		let m⁰ = vecsub_lh_₂^722(_lh_sphereintersect_arg1⁰, _lh_sphereintersect_Sphere_0⁰)
-//│ 		in let bm⁰ = vecdot_lh_₄^727(m⁰, _lh_sphereintersect_arg2⁰)
-//│ 		in let m2⁰ = vecdot_lh_₄^732(m⁰, m⁰)
+//│ 		let m⁰ = vecsub_lh_₂(_lh_sphereintersect_arg1⁰, _lh_sphereintersect_Sphere_0⁰)
+//│ 		in let bm⁰ = vecdot_lh_₄(m⁰, _lh_sphereintersect_arg2⁰)
+//│ 		in let m2⁰ = vecdot_lh_₄(m⁰, m⁰)
 //│ 		in let disc¹ = (((bm⁰ *. bm⁰) -. m2⁰) +. (_lh_sphereintersect_Sphere_1⁰ *. _lh_sphereintersect_Sphere_1⁰))
 //│ 		in let slo⁰ = ((0.0 -. bm⁰) -. sqrt⁰(disc¹))
 //│ 		in let shi⁰ = ((0.0 -. bm⁰) +. sqrt⁰(disc¹))
 //│ 		in if polyLt⁰(disc¹, 0.0) then [LH_P2 [False] 0.0] else if polyLt⁰(slo⁰, 0.0) then if polyLt⁰(shi⁰, 0.0) then [LH_P2 [False] 0.0] else [LH_P2 [True] shi⁰] else [LH_P2 [True] slo⁰]
 //│ 	| _  => error⁰}
 //│ def spherenormal_lh_₁(_lh_spherenormal_arg1⁰, _lh_spherenormal_arg2⁰) = case _lh_spherenormal_arg2⁰ of {
-//│ 	Sphere _lh_spherenormal_Sphere_0⁰ _lh_spherenormal_Sphere_1⁰ _lh_spherenormal_Sphere_2⁰ => vecscale_lh_₁₅^1047(vecsub_lh_₂^1048(_lh_spherenormal_arg1⁰, _lh_spherenormal_Sphere_0⁰), (1.0 /. _lh_spherenormal_Sphere_1⁰))
+//│ 	Sphere _lh_spherenormal_Sphere_0⁰ _lh_spherenormal_Sphere_1⁰ _lh_spherenormal_Sphere_2⁰ => vecscale_lh_₁₅(vecsub_lh_₂(_lh_spherenormal_arg1⁰, _lh_spherenormal_Sphere_0⁰), (1.0 /. _lh_spherenormal_Sphere_1⁰))
 //│ 	| _  => error⁰}
 //│ def spheresurf_lh_₁(_lh_spheresurf_arg1⁰) = case _lh_spheresurf_arg1⁰ of {
 //│ 	Sphere _lh_spheresurf_Sphere_0⁰ _lh_spheresurf_Sphere_1⁰ _lh_spheresurf_Sphere_2⁰ => _lh_spheresurf_Sphere_2⁰
@@ -543,9 +543,9 @@ testSphere_nofib $ primId 30
 //│ def tail_lh_₁(ls⁴) = case ls⁴ of {
 //│ 	LH_C h⁷ t⁸ => t⁸
 //│ 	| LH_N  => error⁰}
-//│ def testSphere_nofib_lh_₁(_lh_testSphere_nofib_arg1⁰) = run_lh_₁^3300(_lh_testSphere_nofib_arg1⁰)
+//│ def testSphere_nofib_lh_₁(_lh_testSphere_nofib_arg1⁰) = run_lh_₁(_lh_testSphere_nofib_arg1⁰)
 //│ def testlights_lh_₁ = [LH_C [Point [LH_P3 4.0 3.0 2.0] [LH_P3 0.288675 0.288675 0.288675]] [LH_C [Point [LH_P3 1.0 (0.0 -. 4.0) 4.0] [LH_P3 0.288675 0.288675 0.288675]] [LH_C [Point [LH_P3 (0.0 -. 3.0) 1.0 5.0] [LH_P3 0.288675 0.288675 0.288675]] [LH_N]]]]
-//│ def testspheres_lh_₁ = [LH_C [Sphere [LH_P3 0.0 0.0 0.0] 0.5 s2_lh_₁^2771] [LH_C [Sphere [LH_P3 0.272166 0.272166 0.544331] 0.166667 s2_lh_₅^2778] [LH_C [Sphere [LH_P3 0.643951 0.172546 0.0] 0.166667 s2_lh_₉^2785] [LH_C [Sphere [LH_P3 0.172546 0.643951 0.0] 0.166667 s2_lh_₆^2792] [LH_C [Sphere [LH_P3 (0.0 -. 0.371785) 0.0996195 0.544331] 0.166667 s2_lh_₇^2803] [LH_C [Sphere [LH_P3 (0.0 -. 0.471405) 0.471405 0.0] 0.166667 s2_lh_₄^2814] [LH_C [Sphere [LH_P3 (0.0 -. 0.643951) (0.0 -. 0.172546) 0.0] 0.166667 s2_lh_₂^2829] [LH_C [Sphere [LH_P3 0.0996195 (0.0 -. 0.371785) 0.544331] 0.166667 s2_lh_₈^2840] [LH_C [Sphere [LH_P3 (0.0 -. 0.172546) (0.0 -. 0.643951) 0.0] 0.166667 s2_lh_₁₀^2855] [LH_C [Sphere [LH_P3 0.471405 (0.0 -. 0.471405) 0.0] 0.166667 s2_lh_₃^2866] [LH_N]]]]]]]]]]]
+//│ def testspheres_lh_₁ = [LH_C [Sphere [LH_P3 0.0 0.0 0.0] 0.5 s2_lh_₁] [LH_C [Sphere [LH_P3 0.272166 0.272166 0.544331] 0.166667 s2_lh_₅] [LH_C [Sphere [LH_P3 0.643951 0.172546 0.0] 0.166667 s2_lh_₉] [LH_C [Sphere [LH_P3 0.172546 0.643951 0.0] 0.166667 s2_lh_₆] [LH_C [Sphere [LH_P3 (0.0 -. 0.371785) 0.0996195 0.544331] 0.166667 s2_lh_₇] [LH_C [Sphere [LH_P3 (0.0 -. 0.471405) 0.471405 0.0] 0.166667 s2_lh_₄] [LH_C [Sphere [LH_P3 (0.0 -. 0.643951) (0.0 -. 0.172546) 0.0] 0.166667 s2_lh_₂] [LH_C [Sphere [LH_P3 0.0996195 (0.0 -. 0.371785) 0.544331] 0.166667 s2_lh_₈] [LH_C [Sphere [LH_P3 (0.0 -. 0.172546) (0.0 -. 0.643951) 0.0] 0.166667 s2_lh_₁₀] [LH_C [Sphere [LH_P3 0.471405 (0.0 -. 0.471405) 0.0] 0.166667 s2_lh_₃] [LH_N]]]]]]]]]]]
 //│ def trace_lh_₁(_lh_trace_arg1⁰, _lh_trace_arg2⁰, _lh_trace_arg3⁰) = 
 //│ 	let f³ = (fun d1s1⁰ -> (fun d2s2⁰ -> 
 //│ 		let _lh_matchIdent⁷ = d1s1⁰
@@ -561,41 +561,41 @@ testSphere_nofib $ primId 30
 //│ 		in case _lh_matchIdent⁹ of {
 //│ 			LH_N  => [LH_N]
 //│ 			| LH_C _lh_trace_LH_C_0⁰ _lh_trace_LH_C_1⁰ => 
-//│ 				let _lh_matchIdent¹⁰ = sphereintersect_lh_₁^1761(_lh_trace_arg2⁰, _lh_trace_arg3⁰, _lh_trace_LH_C_0⁰)
+//│ 				let _lh_matchIdent¹⁰ = sphereintersect_lh_₁(_lh_trace_arg2⁰, _lh_trace_arg3⁰, _lh_trace_LH_C_0⁰)
 //│ 				in case _lh_matchIdent¹⁰ of {
 //│ 					LH_P2 _lh_trace_LH_P2_0² _lh_trace_LH_P2_1² => if _lh_trace_LH_P2_0² then [LH_C [LH_P2 _lh_trace_LH_P2_1² _lh_trace_LH_C_0⁰] sphmap⁰(_lh_trace_LH_C_1⁰)] else sphmap⁰(_lh_trace_LH_C_1⁰)
 //│ 					| _  => error⁰}
 //│ 			| _  => error⁰})
 //│ 	in let dists⁰ = sphmap⁰(_lh_trace_arg1⁰)
-//│ 	in if null_lh_₁^1791(dists⁰) then [LH_P3 [False] infinity_lh_₁^1795 head_lh_₂^1796(_lh_trace_arg1⁰)] else 
-//│ 		let _lh_matchIdent¹¹ = foldr_lh_₂^1800(f³, head_lh_₁^1803(dists⁰), tail_lh_₁^1807(dists⁰))
+//│ 	in if null_lh_₁(dists⁰) then [LH_P3 [False] infinity_lh_₁ head_lh_₂(_lh_trace_arg1⁰)] else 
+//│ 		let _lh_matchIdent¹¹ = foldr_lh_₂(f³, head_lh_₁(dists⁰), tail_lh_₁(dists⁰))
 //│ 		in case _lh_matchIdent¹¹ of {
 //│ 			LH_P2 _lh_trace_LH_P2_0³ _lh_trace_LH_P2_1³ => [LH_P3 [True] _lh_trace_LH_P2_0³ _lh_trace_LH_P2_1³]
 //│ 			| _  => error⁰}
 //│ def tracepixel_lh_₁(_lh_tracepixel_arg1⁰, _lh_tracepixel_arg2⁰, _lh_tracepixel_arg3⁰, _lh_tracepixel_arg4⁰, _lh_tracepixel_arg5⁰, _lh_tracepixel_arg6⁰, _lh_tracepixel_arg7⁰) = 
-//│ 	let pos⁰ = lookfrom_lh_₂^2704
-//│ 	in let _lh_matchIdent¹³ = vecnorm_lh_₄^2705(vecadd_lh_₂^2706(vecadd_lh_₃^2707(_lh_tracepixel_arg5⁰, vecscale_lh_₆^2710(_lh_tracepixel_arg6⁰, _lh_tracepixel_arg3⁰)), vecscale_lh_₅^2717(_lh_tracepixel_arg7⁰, _lh_tracepixel_arg4⁰)))
+//│ 	let pos⁰ = lookfrom_lh_₂
+//│ 	in let _lh_matchIdent¹³ = vecnorm_lh_₄(vecadd_lh_₂(vecadd_lh_₃(_lh_tracepixel_arg5⁰, vecscale_lh_₆(_lh_tracepixel_arg6⁰, _lh_tracepixel_arg3⁰)), vecscale_lh_₅(_lh_tracepixel_arg7⁰, _lh_tracepixel_arg4⁰)))
 //│ 	in case _lh_matchIdent¹³ of {
 //│ 		LH_P2 _lh_tracepixel_LH_P2_0⁰ _lh_tracepixel_LH_P2_1⁰ => 
-//│ 			let _lh_matchIdent¹⁴ = trace_lh_₁^2725(_lh_tracepixel_arg1⁰, pos⁰, _lh_tracepixel_LH_P2_0⁰)
+//│ 			let _lh_matchIdent¹⁴ = trace_lh_₁(_lh_tracepixel_arg1⁰, pos⁰, _lh_tracepixel_LH_P2_0⁰)
 //│ 			in case _lh_matchIdent¹⁴ of {
-//│ 				LH_P3 _lh_tracepixel_LH_P3_0⁰ _lh_tracepixel_LH_P3_1⁰ _lh_tracepixel_LH_P3_2⁰ => if _lh_tracepixel_LH_P3_0⁰ then shade_lh_₁^2734(_lh_tracepixel_arg2⁰, _lh_tracepixel_LH_P3_2⁰, pos⁰, _lh_tracepixel_LH_P2_0⁰, _lh_tracepixel_LH_P3_1⁰, [LH_P3 1.0 1.0 1.0]) else background_lh_₁^2750
+//│ 				LH_P3 _lh_tracepixel_LH_P3_0⁰ _lh_tracepixel_LH_P3_1⁰ _lh_tracepixel_LH_P3_2⁰ => if _lh_tracepixel_LH_P3_0⁰ then shade_lh_₁(_lh_tracepixel_arg2⁰, _lh_tracepixel_LH_P3_2⁰, pos⁰, _lh_tracepixel_LH_P2_0⁰, _lh_tracepixel_LH_P3_1⁰, [LH_P3 1.0 1.0 1.0]) else background_lh_₁
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ def transmitray_lh_₁(_lh_transmitray_arg1⁰, _lh_transmitray_arg2⁰, _lh_transmitray_arg3⁰, _lh_transmitray_arg4⁰, _lh_transmitray_arg5⁰, _lh_transmitray_arg6⁰, _lh_transmitray_arg7⁰, _lh_transmitray_arg8⁰) = 
-//│ 	let newcontrib⁰ = vecmult_lh_₅^879(_lh_transmitray_arg6⁰, _lh_transmitray_arg7⁰)
-//│ 	in let _lh_matchIdent² = refractray_lh_₁^884(_lh_transmitray_arg5⁰, _lh_transmitray_arg4⁰, _lh_transmitray_arg8⁰)
+//│ 	let newcontrib⁰ = vecmult_lh_₅(_lh_transmitray_arg6⁰, _lh_transmitray_arg7⁰)
+//│ 	in let _lh_matchIdent² = refractray_lh_₁(_lh_transmitray_arg5⁰, _lh_transmitray_arg4⁰, _lh_transmitray_arg8⁰)
 //│ 	in case _lh_matchIdent² of {
 //│ 		LH_P2 _lh_transmitray_LH_P2_0⁰ _lh_transmitray_LH_P2_1⁰ => 
-//│ 			let nearpos⁰ = vecadd_lh_₁₀^892(_lh_transmitray_arg3⁰, vecscale_lh_₁₅^895(_lh_transmitray_LH_P2_1⁰, epsilon_lh_₁^898))
-//│ 			in let _lh_matchIdent³ = trace_lh_₁^901(testspheres_lh_₁^902, nearpos⁰, _lh_transmitray_LH_P2_1⁰)
+//│ 			let nearpos⁰ = vecadd_lh_₁₀(_lh_transmitray_arg3⁰, vecscale_lh_₁₅(_lh_transmitray_LH_P2_1⁰, epsilon_lh_₁))
+//│ 			in let _lh_matchIdent³ = trace_lh_₁(testspheres_lh_₁, nearpos⁰, _lh_transmitray_LH_P2_1⁰)
 //│ 			in case _lh_matchIdent³ of {
 //│ 				LH_P3 _lh_transmitray_LH_P3_0⁰ _lh_transmitray_LH_P3_1⁰ _lh_transmitray_LH_P3_2⁰ => 
-//│ 					let newcol⁰ = if _lh_transmitray_LH_P3_0⁰ then shade_lh_₁^910(_lh_transmitray_arg1⁰, _lh_transmitray_LH_P3_2⁰, nearpos⁰, _lh_transmitray_LH_P2_1⁰, _lh_transmitray_LH_P3_1⁰, newcontrib⁰) else background_lh_₂^923
-//│ 					in if is_zerovector_lh_₁^925(newcontrib⁰) then [LH_P2 [False] _lh_transmitray_arg2⁰] else [LH_P2 [False] vecadd_lh_₁₀^932(vecmult_lh_₅^933(newcol⁰, _lh_transmitray_arg6⁰), _lh_transmitray_arg2⁰)]
+//│ 					let newcol⁰ = if _lh_transmitray_LH_P3_0⁰ then shade_lh_₁(_lh_transmitray_arg1⁰, _lh_transmitray_LH_P3_2⁰, nearpos⁰, _lh_transmitray_LH_P2_1⁰, _lh_transmitray_LH_P3_1⁰, newcontrib⁰) else background_lh_₂
+//│ 					in if is_zerovector_lh_₁(newcontrib⁰) then [LH_P2 [False] _lh_transmitray_arg2⁰] else [LH_P2 [False] vecadd_lh_₁₀(vecmult_lh_₅(newcol⁰, _lh_transmitray_arg6⁰), _lh_transmitray_arg2⁰)]
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ def transmitsurf_lh_₁(_lh_transmitsurf_arg1⁰) = head_lh_₅^1529(mappend_lh_₃^1530(
+//│ def transmitsurf_lh_₁(_lh_transmitsurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun⁷ = (fun _lh_listcomp_fun_para⁷ -> case _lh_listcomp_fun_para⁷ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁷ _lh_listcomp_fun_ls_t⁷ => case _lh_listcomp_fun_ls_h⁷ of {
 //│ 			Transmit _lh_transmitsurf_Transmit_0⁰ => [LH_C _lh_transmitsurf_Transmit_0⁰ _lh_listcomp_fun⁷(_lh_listcomp_fun_ls_t⁷)]
@@ -782,7 +782,7 @@ testSphere_nofib $ primId 30
 //│ 		LH_P3 _lh_vecsub_LH_P3_0¹ _lh_vecsub_LH_P3_1¹ _lh_vecsub_LH_P3_2¹ => [LH_P3 (_lh_vecsub_LH_P3_0⁰ -. _lh_vecsub_LH_P3_0¹) (_lh_vecsub_LH_P3_1⁰ -. _lh_vecsub_LH_P3_1¹) (_lh_vecsub_LH_P3_2⁰ -. _lh_vecsub_LH_P3_2¹)]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def vecsum_lh_₁(_lh_vecsum_arg1⁰) = foldr_lh_₃^1279(vecadd_lh_₁₀^1280, [LH_P3 0.0 0.0 0.0], _lh_vecsum_arg1⁰)
+//│ def vecsum_lh_₁(_lh_vecsum_arg1⁰) = foldr_lh_₃(vecadd_lh_₁₀, [LH_P3 0.0 0.0 0.0], _lh_vecsum_arg1⁰)
 //│ def vup_lh_₁ = [LH_P3 0.0 0.0 1.0]
 //│ 		---------- unoptimized ocaml gen ----------
 //│ 		let rec foldr_lh__d1 f_4 i_2 ls_9 =

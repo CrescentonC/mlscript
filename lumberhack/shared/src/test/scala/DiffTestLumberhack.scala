@@ -58,7 +58,7 @@ class DiffTestLumberhack extends DiffTests {
       if mode.stdout || mode.verbose then {
         output(originalProgram.pp(using InitPpConfig.multilineOn.showIuidOn.showEuidOn)) 
       }
-      output(originalProgram.pp(using InitPpConfig.multilineOn.showIuidOn.showRefEuidOn))
+      output(originalProgram.pp(using InitPpConfig.multilineOn.showIuidOn))
       if mode.lhGenOCaml then
         output("\t\t---------- unoptimized ocaml gen ----------")
         val progStr = (new OCamlGenTests(true, mode))(originalProgram)

@@ -156,7 +156,7 @@ testMandel2_nofib $ primId [60]
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testMandel2_nofib_lh_₁^1339(primId⁰([LH_C 60 [LH_N]]))
+//│ testMandel2_nofib_lh_₁(primId⁰([LH_C 60 [LH_N]]))
 //│ def build_tree_lh_₁(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰) = 
 //│ 	let _lh_matchIdent⁴ = _lh_build_tree_arg1⁰
 //│ 	in case _lh_matchIdent⁴ of {
@@ -164,7 +164,7 @@ testMandel2_nofib $ primId [60]
 //│ 			let _lh_matchIdent⁵ = _lh_build_tree_arg2⁰
 //│ 			in case _lh_matchIdent⁵ of {
 //│ 				LH_P2 _lh_build_tree_LH_P2_0¹ _lh_build_tree_LH_P2_1¹ => 
-//│ 					let rec_col⁰ = check_perim_lh_₁^1150(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰)
+//│ 					let rec_col⁰ = check_perim_lh_₁(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰)
 //│ 					in let split⁰ = if ((_lh_build_tree_LH_P2_0¹ - _lh_build_tree_LH_P2_0⁰) >= (_lh_build_tree_LH_P2_1¹ - _lh_build_tree_LH_P2_1⁰)) then [LH_C 'N' [LH_C 'S' [LH_N]]] else [LH_C 'E' [LH_C 'W' [LH_N]]]
 //│ 					in let split_x⁰ = div⁰((_lh_build_tree_LH_P2_0¹ + _lh_build_tree_LH_P2_0⁰), 2)
 //│ 					in let split_y⁰ = div⁰((_lh_build_tree_LH_P2_1¹ + _lh_build_tree_LH_P2_1⁰), 2)
@@ -176,7 +176,7 @@ testMandel2_nofib $ primId [60]
 //│ 					in let ewp2⁰ = [LH_P2 _lh_build_tree_LH_P2_0¹ split_y⁰]
 //│ 					in let ewp3⁰ = [LH_P2 _lh_build_tree_LH_P2_0⁰ (split_y⁰ + 1)]
 //│ 					in let ewp4⁰ = _lh_build_tree_arg2⁰
-//│ 					in if (rec_col⁰ /= (0 - 1)) then [Leaf rec_col⁰] else if polyEq⁰(split⁰, [LH_C 'N' [LH_C 'S' [LH_N]]]) then [NS build_tree_lh_₁^1241(nsp1⁰, nsp2⁰) build_tree_lh_₁^1246(nsp3⁰, nsp4⁰)] else [EW build_tree_lh_₁^1252(ewp1⁰, ewp2⁰) build_tree_lh_₁^1257(ewp3⁰, ewp4⁰)]
+//│ 					in if (rec_col⁰ /= (0 - 1)) then [Leaf rec_col⁰] else if polyEq⁰(split⁰, [LH_C 'N' [LH_C 'S' [LH_N]]]) then [NS build_tree_lh_₁(nsp1⁰, nsp2⁰) build_tree_lh_₁(nsp3⁰, nsp4⁰)] else [EW build_tree_lh_₁(ewp1⁰, ewp2⁰) build_tree_lh_₁(ewp3⁰, ewp4⁰)]
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ def check_perim_lh_₁(_lh_check_perim_arg1⁰, _lh_check_perim_arg2⁰) = 
@@ -186,10 +186,10 @@ testMandel2_nofib $ primId [60]
 //│ 			let _lh_matchIdent¹ = _lh_check_perim_arg2⁰
 //│ 			in case _lh_matchIdent¹ of {
 //│ 				LH_P2 _lh_check_perim_LH_P2_0¹ _lh_check_perim_LH_P2_1¹ => 
-//│ 					let col1⁰ = point_colour_lh_₃^906(_lh_check_perim_arg1⁰)
-//│ 					in let col2⁰ = point_colour_lh_₄^909([LH_P2 _lh_check_perim_LH_P2_0¹ _lh_check_perim_LH_P2_1⁰])
-//│ 					in let col3⁰ = point_colour_lh_₁^914(_lh_check_perim_arg2⁰)
-//│ 					in let col4⁰ = point_colour_lh_₅^917([LH_P2 _lh_check_perim_LH_P2_0⁰ _lh_check_perim_LH_P2_1¹])
+//│ 					let col1⁰ = point_colour_lh_₃(_lh_check_perim_arg1⁰)
+//│ 					in let col2⁰ = point_colour_lh_₄([LH_P2 _lh_check_perim_LH_P2_0¹ _lh_check_perim_LH_P2_1⁰])
+//│ 					in let col3⁰ = point_colour_lh_₁(_lh_check_perim_arg2⁰)
+//│ 					in let col4⁰ = point_colour_lh_₅([LH_P2 _lh_check_perim_LH_P2_0⁰ _lh_check_perim_LH_P2_1¹])
 //│ 					in let corners_diff⁰ = if (col1⁰ == col2⁰) then if (col1⁰ == col3⁰) then if (col1⁰ == col4⁰) then [False] else [True] else [True] else [True]
 //│ 					in let check_line⁰ = (fun xcyc⁰ -> (fun xdyd⁰ -> 
 //│ 						let _lh_matchIdent² = xcyc⁰
@@ -198,53 +198,53 @@ testMandel2_nofib $ primId [60]
 //│ 								let _lh_matchIdent³ = xdyd⁰
 //│ 								in case _lh_matchIdent³ of {
 //│ 									LH_P2 _lh_check_perim_LH_P2_0³ _lh_check_perim_LH_P2_1³ => 
-//│ 										let finished⁰ = if equalp_lh_₁^948(xdyd⁰, right_lh_₁^951) then (_lh_check_perim_LH_P2_0² >= _lh_check_perim_LH_P2_0¹) else if equalp_lh_₂^958(xdyd⁰, down_lh_₂^961) then (_lh_check_perim_LH_P2_1² <= _lh_check_perim_LH_P2_1¹) else if equalp_lh_₄^968(xdyd⁰, left_lh_₂^971) then (_lh_check_perim_LH_P2_0² <= _lh_check_perim_LH_P2_0⁰) else (_lh_check_perim_LH_P2_1² >= _lh_check_perim_LH_P2_1⁰)
-//│ 										in if finished⁰ then [True] else if (point_colour_lh_₆^989(xcyc⁰) /= col1⁰) then [False] else check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0² + _lh_check_perim_LH_P2_0³) (_lh_check_perim_LH_P2_1² + _lh_check_perim_LH_P2_1³)], [LH_P2 _lh_check_perim_LH_P2_0³ _lh_check_perim_LH_P2_1³])
+//│ 										let finished⁰ = if equalp_lh_₁(xdyd⁰, right_lh_₁) then (_lh_check_perim_LH_P2_0² >= _lh_check_perim_LH_P2_0¹) else if equalp_lh_₂(xdyd⁰, down_lh_₂) then (_lh_check_perim_LH_P2_1² <= _lh_check_perim_LH_P2_1¹) else if equalp_lh_₄(xdyd⁰, left_lh_₂) then (_lh_check_perim_LH_P2_0² <= _lh_check_perim_LH_P2_0⁰) else (_lh_check_perim_LH_P2_1² >= _lh_check_perim_LH_P2_1⁰)
+//│ 										in if finished⁰ then [True] else if (point_colour_lh_₆(xcyc⁰) /= col1⁰) then [False] else check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0² + _lh_check_perim_LH_P2_0³) (_lh_check_perim_LH_P2_1² + _lh_check_perim_LH_P2_1³)], [LH_P2 _lh_check_perim_LH_P2_0³ _lh_check_perim_LH_P2_1³])
 //│ 									| _  => error⁰}
 //│ 							| _  => error⁰}))
-//│ 					in let check_sides⁰ = if check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0⁰ + 1) _lh_check_perim_LH_P2_1⁰], right_lh_₂^1033) then if check_line⁰([LH_P2 _lh_check_perim_LH_P2_0¹ (_lh_check_perim_LH_P2_1⁰ + 1)], down_lh_₁^1044) then if check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0¹ - 1) _lh_check_perim_LH_P2_1¹], left_lh_₁^1055) then if check_line⁰([LH_P2 _lh_check_perim_LH_P2_0⁰ (_lh_check_perim_LH_P2_1¹ - 1)], up_lh_₁^1066) then col1⁰ else (0 - 1) else (0 - 1) else (0 - 1) else (0 - 1)
-//│ 					in if equalp_lh_₃^1093(_lh_check_perim_arg1⁰, _lh_check_perim_arg2⁰) then point_colour_lh_₂^1098(_lh_check_perim_arg1⁰) else if corners_diff⁰ then (0 - 1) else check_sides⁰
+//│ 					in let check_sides⁰ = if check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0⁰ + 1) _lh_check_perim_LH_P2_1⁰], right_lh_₂) then if check_line⁰([LH_P2 _lh_check_perim_LH_P2_0¹ (_lh_check_perim_LH_P2_1⁰ + 1)], down_lh_₁) then if check_line⁰([LH_P2 (_lh_check_perim_LH_P2_0¹ - 1) _lh_check_perim_LH_P2_1¹], left_lh_₁) then if check_line⁰([LH_P2 _lh_check_perim_LH_P2_0⁰ (_lh_check_perim_LH_P2_1¹ - 1)], up_lh_₁) then col1⁰ else (0 - 1) else (0 - 1) else (0 - 1) else (0 - 1)
+//│ 					in if equalp_lh_₃(_lh_check_perim_arg1⁰, _lh_check_perim_arg2⁰) then point_colour_lh_₂(_lh_check_perim_arg1⁰) else if corners_diff⁰ then (0 - 1) else check_sides⁰
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ def check_radius_lh_₁(_lh_check_radius_arg1⁵, _lh_check_radius_arg2⁵, _lh_check_radius_arg3⁵, _lh_check_radius_arg4⁵, _lh_check_radius_arg5⁵) = 
-//│ 	let xn⁵ = new_x_lh_₁^599(_lh_check_radius_arg4⁵, _lh_check_radius_arg5⁵, _lh_check_radius_arg1⁵)
-//│ 	in let yn⁵ = new_y_lh_₁^606(_lh_check_radius_arg4⁵, _lh_check_radius_arg5⁵, _lh_check_radius_arg2⁵)
-//│ 	in let r⁵ = radius_lh_₁^613(xn⁵, yn⁵)
+//│ 	let xn⁵ = new_x_lh_₁(_lh_check_radius_arg4⁵, _lh_check_radius_arg5⁵, _lh_check_radius_arg1⁵)
+//│ 	in let yn⁵ = new_y_lh_₁(_lh_check_radius_arg4⁵, _lh_check_radius_arg5⁵, _lh_check_radius_arg2⁵)
+//│ 	in let r⁵ = radius_lh_₁(xn⁵, yn⁵)
 //│ 	in let kp⁵ = (_lh_check_radius_arg3⁵ + 1)
-//│ 	in if (kp⁵ == num_cols_lh_₁^626) then 0 else if polyGt⁰(r⁵, float_of_int⁰(m_lh_₁^633)) then kp⁵ else check_radius_lh_₁^637(_lh_check_radius_arg1⁵, _lh_check_radius_arg2⁵, kp⁵, xn⁵, yn⁵)
+//│ 	in if (kp⁵ == num_cols_lh_₁) then 0 else if polyGt⁰(r⁵, float_of_int⁰(m_lh_₁)) then kp⁵ else check_radius_lh_₁(_lh_check_radius_arg1⁵, _lh_check_radius_arg2⁵, kp⁵, xn⁵, yn⁵)
 //│ def check_radius_lh_₂(_lh_check_radius_arg1⁴, _lh_check_radius_arg2⁴, _lh_check_radius_arg3⁴, _lh_check_radius_arg4⁴, _lh_check_radius_arg5⁴) = 
-//│ 	let xn⁴ = new_x_lh_₂^515(_lh_check_radius_arg4⁴, _lh_check_radius_arg5⁴, _lh_check_radius_arg1⁴)
-//│ 	in let yn⁴ = new_y_lh_₂^522(_lh_check_radius_arg4⁴, _lh_check_radius_arg5⁴, _lh_check_radius_arg2⁴)
-//│ 	in let r⁴ = radius_lh_₂^529(xn⁴, yn⁴)
+//│ 	let xn⁴ = new_x_lh_₂(_lh_check_radius_arg4⁴, _lh_check_radius_arg5⁴, _lh_check_radius_arg1⁴)
+//│ 	in let yn⁴ = new_y_lh_₂(_lh_check_radius_arg4⁴, _lh_check_radius_arg5⁴, _lh_check_radius_arg2⁴)
+//│ 	in let r⁴ = radius_lh_₂(xn⁴, yn⁴)
 //│ 	in let kp⁴ = (_lh_check_radius_arg3⁴ + 1)
-//│ 	in if (kp⁴ == num_cols_lh_₁^542) then 0 else if polyGt⁰(r⁴, float_of_int⁰(m_lh_₁^549)) then kp⁴ else check_radius_lh_₂^553(_lh_check_radius_arg1⁴, _lh_check_radius_arg2⁴, kp⁴, xn⁴, yn⁴)
+//│ 	in if (kp⁴ == num_cols_lh_₁) then 0 else if polyGt⁰(r⁴, float_of_int⁰(m_lh_₁)) then kp⁴ else check_radius_lh_₂(_lh_check_radius_arg1⁴, _lh_check_radius_arg2⁴, kp⁴, xn⁴, yn⁴)
 //│ def check_radius_lh_₃(_lh_check_radius_arg1³, _lh_check_radius_arg2³, _lh_check_radius_arg3³, _lh_check_radius_arg4³, _lh_check_radius_arg5³) = 
-//│ 	let xn³ = new_x_lh_₂^431(_lh_check_radius_arg4³, _lh_check_radius_arg5³, _lh_check_radius_arg1³)
-//│ 	in let yn³ = new_y_lh_₂^438(_lh_check_radius_arg4³, _lh_check_radius_arg5³, _lh_check_radius_arg2³)
-//│ 	in let r³ = radius_lh_₂^445(xn³, yn³)
+//│ 	let xn³ = new_x_lh_₂(_lh_check_radius_arg4³, _lh_check_radius_arg5³, _lh_check_radius_arg1³)
+//│ 	in let yn³ = new_y_lh_₂(_lh_check_radius_arg4³, _lh_check_radius_arg5³, _lh_check_radius_arg2³)
+//│ 	in let r³ = radius_lh_₂(xn³, yn³)
 //│ 	in let kp³ = (_lh_check_radius_arg3³ + 1)
-//│ 	in if (kp³ == num_cols_lh_₁^458) then 0 else if polyGt⁰(r³, float_of_int⁰(m_lh_₁^465)) then kp³ else check_radius_lh_₃^469(_lh_check_radius_arg1³, _lh_check_radius_arg2³, kp³, xn³, yn³)
+//│ 	in if (kp³ == num_cols_lh_₁) then 0 else if polyGt⁰(r³, float_of_int⁰(m_lh_₁)) then kp³ else check_radius_lh_₃(_lh_check_radius_arg1³, _lh_check_radius_arg2³, kp³, xn³, yn³)
 //│ def check_radius_lh_₄(_lh_check_radius_arg1², _lh_check_radius_arg2², _lh_check_radius_arg3², _lh_check_radius_arg4², _lh_check_radius_arg5²) = 
-//│ 	let xn² = new_x_lh_₂^347(_lh_check_radius_arg4², _lh_check_radius_arg5², _lh_check_radius_arg1²)
-//│ 	in let yn² = new_y_lh_₂^354(_lh_check_radius_arg4², _lh_check_radius_arg5², _lh_check_radius_arg2²)
-//│ 	in let r² = radius_lh_₂^361(xn², yn²)
+//│ 	let xn² = new_x_lh_₂(_lh_check_radius_arg4², _lh_check_radius_arg5², _lh_check_radius_arg1²)
+//│ 	in let yn² = new_y_lh_₂(_lh_check_radius_arg4², _lh_check_radius_arg5², _lh_check_radius_arg2²)
+//│ 	in let r² = radius_lh_₂(xn², yn²)
 //│ 	in let kp² = (_lh_check_radius_arg3² + 1)
-//│ 	in if (kp² == num_cols_lh_₁^374) then 0 else if polyGt⁰(r², float_of_int⁰(m_lh_₁^381)) then kp² else check_radius_lh_₄^385(_lh_check_radius_arg1², _lh_check_radius_arg2², kp², xn², yn²)
+//│ 	in if (kp² == num_cols_lh_₁) then 0 else if polyGt⁰(r², float_of_int⁰(m_lh_₁)) then kp² else check_radius_lh_₄(_lh_check_radius_arg1², _lh_check_radius_arg2², kp², xn², yn²)
 //│ def check_radius_lh_₅(_lh_check_radius_arg1¹, _lh_check_radius_arg2¹, _lh_check_radius_arg3¹, _lh_check_radius_arg4¹, _lh_check_radius_arg5¹) = 
-//│ 	let xn¹ = new_x_lh_₂^263(_lh_check_radius_arg4¹, _lh_check_radius_arg5¹, _lh_check_radius_arg1¹)
-//│ 	in let yn¹ = new_y_lh_₂^270(_lh_check_radius_arg4¹, _lh_check_radius_arg5¹, _lh_check_radius_arg2¹)
-//│ 	in let r¹ = radius_lh_₂^277(xn¹, yn¹)
+//│ 	let xn¹ = new_x_lh_₂(_lh_check_radius_arg4¹, _lh_check_radius_arg5¹, _lh_check_radius_arg1¹)
+//│ 	in let yn¹ = new_y_lh_₂(_lh_check_radius_arg4¹, _lh_check_radius_arg5¹, _lh_check_radius_arg2¹)
+//│ 	in let r¹ = radius_lh_₂(xn¹, yn¹)
 //│ 	in let kp¹ = (_lh_check_radius_arg3¹ + 1)
-//│ 	in if (kp¹ == num_cols_lh_₁^290) then 0 else if polyGt⁰(r¹, float_of_int⁰(m_lh_₁^297)) then kp¹ else check_radius_lh_₅^301(_lh_check_radius_arg1¹, _lh_check_radius_arg2¹, kp¹, xn¹, yn¹)
+//│ 	in if (kp¹ == num_cols_lh_₁) then 0 else if polyGt⁰(r¹, float_of_int⁰(m_lh_₁)) then kp¹ else check_radius_lh_₅(_lh_check_radius_arg1¹, _lh_check_radius_arg2¹, kp¹, xn¹, yn¹)
 //│ def check_radius_lh_₆(_lh_check_radius_arg1⁰, _lh_check_radius_arg2⁰, _lh_check_radius_arg3⁰, _lh_check_radius_arg4⁰, _lh_check_radius_arg5⁰) = 
-//│ 	let xn⁰ = new_x_lh_₂^179(_lh_check_radius_arg4⁰, _lh_check_radius_arg5⁰, _lh_check_radius_arg1⁰)
-//│ 	in let yn⁰ = new_y_lh_₂^186(_lh_check_radius_arg4⁰, _lh_check_radius_arg5⁰, _lh_check_radius_arg2⁰)
-//│ 	in let r⁰ = radius_lh_₂^193(xn⁰, yn⁰)
+//│ 	let xn⁰ = new_x_lh_₂(_lh_check_radius_arg4⁰, _lh_check_radius_arg5⁰, _lh_check_radius_arg1⁰)
+//│ 	in let yn⁰ = new_y_lh_₂(_lh_check_radius_arg4⁰, _lh_check_radius_arg5⁰, _lh_check_radius_arg2⁰)
+//│ 	in let r⁰ = radius_lh_₂(xn⁰, yn⁰)
 //│ 	in let kp⁰ = (_lh_check_radius_arg3⁰ + 1)
-//│ 	in if (kp⁰ == num_cols_lh_₁^206) then 0 else if polyGt⁰(r⁰, float_of_int⁰(m_lh_₁^213)) then kp⁰ else check_radius_lh_₆^217(_lh_check_radius_arg1⁰, _lh_check_radius_arg2⁰, kp⁰, xn⁰, yn⁰)
-//│ def delta_p_lh_₁ = ((pmx_lh_₁^149 -. pmn_lh_₂^151) /. float_of_int⁰((size_lh_₁^156 - 1)))
-//│ def delta_p_lh_₂ = ((pmx_lh_₁^56 -. pmn_lh_₂^58) /. float_of_int⁰((size_lh_₁^63 - 1)))
-//│ def delta_q_lh_₁ = ((qmx_lh_₁^76 -. qmn_lh_₁^78) /. float_of_int⁰((size_lh_₁^83 - 1)))
+//│ 	in if (kp⁰ == num_cols_lh_₁) then 0 else if polyGt⁰(r⁰, float_of_int⁰(m_lh_₁)) then kp⁰ else check_radius_lh_₆(_lh_check_radius_arg1⁰, _lh_check_radius_arg2⁰, kp⁰, xn⁰, yn⁰)
+//│ def delta_p_lh_₁ = ((pmx_lh_₁ -. pmn_lh_₂) /. float_of_int⁰((size_lh_₁ - 1)))
+//│ def delta_p_lh_₂ = ((pmx_lh_₁ -. pmn_lh_₂) /. float_of_int⁰((size_lh_₁ - 1)))
+//│ def delta_q_lh_₁ = ((qmx_lh_₁ -. qmn_lh_₁) /. float_of_int⁰((size_lh_₁ - 1)))
 //│ def down_lh_₁ = [LH_P2 0 1]
 //│ def down_lh_₂ = [LH_P2 0 1]
 //│ def equalp_lh_₁(_lh_equalp_arg1³, _lh_equalp_arg2³) = case _lh_equalp_arg1³ of {
@@ -269,13 +269,13 @@ testMandel2_nofib $ primId [60]
 //│ 	| _  => error⁰}
 //│ def finite_lh_₁(_lh_finite_arg1⁰) = case _lh_finite_arg1⁰ of {
 //│ 	Leaf _lh_finite_Leaf_0⁰ => (_lh_finite_Leaf_0⁰ == _lh_finite_Leaf_0⁰)
-//│ 	| NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁^1292(_lh_finite_NS_0⁰) && finite_lh_₁^1296(_lh_finite_NS_1⁰))
-//│ 	| EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁^1301(_lh_finite_EW_0⁰) && finite_lh_₁^1305(_lh_finite_EW_1⁰))
+//│ 	| NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁(_lh_finite_NS_0⁰) && finite_lh_₁(_lh_finite_NS_1⁰))
+//│ 	| EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁(_lh_finite_EW_0⁰) && finite_lh_₁(_lh_finite_EW_1⁰))
 //│ 	| _  => error⁰}
 //│ def left_lh_₁ = [LH_P2 (0 - 1) 0]
 //│ def left_lh_₂ = [LH_P2 (0 - 1) 0]
 //│ def length_lh_₁(ls⁰) = case ls⁰ of {
-//│ 	LH_C h⁰ t⁰ => (1 + length_lh_₁^1129(t⁰))
+//│ 	LH_C h⁰ t⁰ => (1 + length_lh_₁(t⁰))
 //│ 	| LH_N  => 0}
 //│ def m_lh_₁ = 20
 //│ def max_lh_₁(_lh_max_arg1⁰, _lh_max_arg2⁰) = if (_lh_max_arg1⁰ > _lh_max_arg2⁰) then _lh_max_arg1⁰ else _lh_max_arg2⁰
@@ -283,39 +283,39 @@ testMandel2_nofib $ primId [60]
 //│ def new_x_lh_₂(_lh_new_x_arg1⁰, _lh_new_x_arg2⁰, _lh_new_x_arg3⁰) = (((_lh_new_x_arg1⁰ *. _lh_new_x_arg1⁰) -. (_lh_new_x_arg2⁰ *. _lh_new_x_arg2⁰)) +. _lh_new_x_arg3⁰)
 //│ def new_y_lh_₁(_lh_new_y_arg1¹, _lh_new_y_arg2¹, _lh_new_y_arg3¹) = (((2.0 *. _lh_new_y_arg1¹) *. _lh_new_y_arg2¹) +. _lh_new_y_arg3¹)
 //│ def new_y_lh_₂(_lh_new_y_arg1⁰, _lh_new_y_arg2⁰, _lh_new_y_arg3⁰) = (((2.0 *. _lh_new_y_arg1⁰) *. _lh_new_y_arg2⁰) +. _lh_new_y_arg3⁰)
-//│ def np_lh_₁(_lh_np_arg1⁵) = (pmn_lh_₁^660 +. (float_of_int⁰(_lh_np_arg1⁵) *. delta_p_lh_₁^667))
-//│ def np_lh_₂(_lh_np_arg1⁴) = (pmn_lh_₂^576 +. (float_of_int⁰(_lh_np_arg1⁴) *. delta_p_lh_₂^583))
-//│ def np_lh_₃(_lh_np_arg1³) = (pmn_lh_₂^492 +. (float_of_int⁰(_lh_np_arg1³) *. delta_p_lh_₂^499))
-//│ def np_lh_₄(_lh_np_arg1²) = (pmn_lh_₂^408 +. (float_of_int⁰(_lh_np_arg1²) *. delta_p_lh_₂^415))
-//│ def np_lh_₅(_lh_np_arg1¹) = (pmn_lh_₂^324 +. (float_of_int⁰(_lh_np_arg1¹) *. delta_p_lh_₂^331))
-//│ def np_lh_₆(_lh_np_arg1⁰) = (pmn_lh_₂^240 +. (float_of_int⁰(_lh_np_arg1⁰) *. delta_p_lh_₂^247))
-//│ def nq_lh_₁(_lh_nq_arg1⁵) = (qmn_lh_₁^588 +. (float_of_int⁰(_lh_nq_arg1⁵) *. delta_q_lh_₁^595))
-//│ def nq_lh_₂(_lh_nq_arg1⁴) = (qmn_lh_₁^504 +. (float_of_int⁰(_lh_nq_arg1⁴) *. delta_q_lh_₁^511))
-//│ def nq_lh_₃(_lh_nq_arg1³) = (qmn_lh_₁^420 +. (float_of_int⁰(_lh_nq_arg1³) *. delta_q_lh_₁^427))
-//│ def nq_lh_₄(_lh_nq_arg1²) = (qmn_lh_₁^336 +. (float_of_int⁰(_lh_nq_arg1²) *. delta_q_lh_₁^343))
-//│ def nq_lh_₅(_lh_nq_arg1¹) = (qmn_lh_₁^252 +. (float_of_int⁰(_lh_nq_arg1¹) *. delta_q_lh_₁^259))
-//│ def nq_lh_₆(_lh_nq_arg1⁰) = (qmn_lh_₁^168 +. (float_of_int⁰(_lh_nq_arg1⁰) *. delta_q_lh_₁^175))
+//│ def np_lh_₁(_lh_np_arg1⁵) = (pmn_lh_₁ +. (float_of_int⁰(_lh_np_arg1⁵) *. delta_p_lh_₁))
+//│ def np_lh_₂(_lh_np_arg1⁴) = (pmn_lh_₂ +. (float_of_int⁰(_lh_np_arg1⁴) *. delta_p_lh_₂))
+//│ def np_lh_₃(_lh_np_arg1³) = (pmn_lh_₂ +. (float_of_int⁰(_lh_np_arg1³) *. delta_p_lh_₂))
+//│ def np_lh_₄(_lh_np_arg1²) = (pmn_lh_₂ +. (float_of_int⁰(_lh_np_arg1²) *. delta_p_lh_₂))
+//│ def np_lh_₅(_lh_np_arg1¹) = (pmn_lh_₂ +. (float_of_int⁰(_lh_np_arg1¹) *. delta_p_lh_₂))
+//│ def np_lh_₆(_lh_np_arg1⁰) = (pmn_lh_₂ +. (float_of_int⁰(_lh_np_arg1⁰) *. delta_p_lh_₂))
+//│ def nq_lh_₁(_lh_nq_arg1⁵) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1⁵) *. delta_q_lh_₁))
+//│ def nq_lh_₂(_lh_nq_arg1⁴) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1⁴) *. delta_q_lh_₁))
+//│ def nq_lh_₃(_lh_nq_arg1³) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1³) *. delta_q_lh_₁))
+//│ def nq_lh_₄(_lh_nq_arg1²) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1²) *. delta_q_lh_₁))
+//│ def nq_lh_₅(_lh_nq_arg1¹) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1¹) *. delta_q_lh_₁))
+//│ def nq_lh_₆(_lh_nq_arg1⁰) = (qmn_lh_₁ +. (float_of_int⁰(_lh_nq_arg1⁰) *. delta_q_lh_₁))
 //│ def num_cols_lh_₁ = 26
 //│ def pmn_lh_₁ = (0.0 -. 2.25)
 //│ def pmn_lh_₂ = (0.0 -. 2.25)
 //│ def pmx_lh_₁ = 0.75
 //│ def point_colour_lh_₁(_lh_point_colour_arg1⁵) = case _lh_point_colour_arg1⁵ of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0⁵ _lh_point_colour_LH_P2_1⁵ => check_radius_lh_₁^881(np_lh_₁^882(_lh_point_colour_LH_P2_0⁵), nq_lh_₁^886(_lh_point_colour_LH_P2_1⁵), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0⁵ _lh_point_colour_LH_P2_1⁵ => check_radius_lh_₁(np_lh_₁(_lh_point_colour_LH_P2_0⁵), nq_lh_₁(_lh_point_colour_LH_P2_1⁵), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def point_colour_lh_₂(_lh_point_colour_arg1⁴) = case _lh_point_colour_arg1⁴ of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0⁴ _lh_point_colour_LH_P2_1⁴ => check_radius_lh_₂^859(np_lh_₂^860(_lh_point_colour_LH_P2_0⁴), nq_lh_₂^864(_lh_point_colour_LH_P2_1⁴), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0⁴ _lh_point_colour_LH_P2_1⁴ => check_radius_lh_₂(np_lh_₂(_lh_point_colour_LH_P2_0⁴), nq_lh_₂(_lh_point_colour_LH_P2_1⁴), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def point_colour_lh_₃(_lh_point_colour_arg1³) = case _lh_point_colour_arg1³ of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0³ _lh_point_colour_LH_P2_1³ => check_radius_lh_₃^735(np_lh_₃^736(_lh_point_colour_LH_P2_0³), nq_lh_₃^740(_lh_point_colour_LH_P2_1³), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0³ _lh_point_colour_LH_P2_1³ => check_radius_lh_₃(np_lh_₃(_lh_point_colour_LH_P2_0³), nq_lh_₃(_lh_point_colour_LH_P2_1³), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def point_colour_lh_₄(_lh_point_colour_arg1²) = case _lh_point_colour_arg1² of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0² _lh_point_colour_LH_P2_1² => check_radius_lh_₄^716(np_lh_₄^717(_lh_point_colour_LH_P2_0²), nq_lh_₄^721(_lh_point_colour_LH_P2_1²), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0² _lh_point_colour_LH_P2_1² => check_radius_lh_₄(np_lh_₄(_lh_point_colour_LH_P2_0²), nq_lh_₄(_lh_point_colour_LH_P2_1²), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def point_colour_lh_₅(_lh_point_colour_arg1¹) = case _lh_point_colour_arg1¹ of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0¹ _lh_point_colour_LH_P2_1¹ => check_radius_lh_₅^697(np_lh_₅^698(_lh_point_colour_LH_P2_0¹), nq_lh_₅^702(_lh_point_colour_LH_P2_1¹), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0¹ _lh_point_colour_LH_P2_1¹ => check_radius_lh_₅(np_lh_₅(_lh_point_colour_LH_P2_0¹), nq_lh_₅(_lh_point_colour_LH_P2_1¹), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def point_colour_lh_₆(_lh_point_colour_arg1⁰) = case _lh_point_colour_arg1⁰ of {
-//│ 	LH_P2 _lh_point_colour_LH_P2_0⁰ _lh_point_colour_LH_P2_1⁰ => check_radius_lh_₆^672(np_lh_₆^673(_lh_point_colour_LH_P2_0⁰), nq_lh_₆^677(_lh_point_colour_LH_P2_1⁰), 0, 0.0, 0.0)
+//│ 	LH_P2 _lh_point_colour_LH_P2_0⁰ _lh_point_colour_LH_P2_1⁰ => check_radius_lh_₆(np_lh_₆(_lh_point_colour_LH_P2_0⁰), nq_lh_₆(_lh_point_colour_LH_P2_1⁰), 0, 0.0, 0.0)
 //│ 	| _  => error⁰}
 //│ def qmn_lh_₁ = (0.0 -. 1.5)
 //│ def qmx_lh_₁ = 1.5
@@ -325,9 +325,9 @@ testMandel2_nofib $ primId [60]
 //│ def right_lh_₂ = [LH_P2 1 0]
 //│ def size_lh_₁ = 200
 //│ def testMandel2_nofib_lh_₁(_lh_testMandel2_nofib_arg1⁰) = 
-//│ 	let size'⁰ = max_lh_₁^1313(length_lh_₁^1314(_lh_testMandel2_nofib_arg1⁰), size_lh_₁^1318)
-//│ 	in let tree⁰ = build_tree_lh_₁^1320([LH_P2 0 0], [LH_P2 size'⁰ div⁰(size'⁰, 2)])
-//│ 	in finite_lh_₁^1333(tree⁰)
+//│ 	let size'⁰ = max_lh_₁(length_lh_₁(_lh_testMandel2_nofib_arg1⁰), size_lh_₁)
+//│ 	in let tree⁰ = build_tree_lh_₁([LH_P2 0 0], [LH_P2 size'⁰ div⁰(size'⁰, 2)])
+//│ 	in finite_lh_₁(tree⁰)
 //│ def up_lh_₁ = [LH_P2 0 (0 - 1)]
 //│ 		---------- unoptimized ocaml gen ----------
 //│ 		let rec finite_lh__d1 _lh_finite_arg1_0 =

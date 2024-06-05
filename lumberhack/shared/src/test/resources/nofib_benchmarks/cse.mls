@@ -140,7 +140,7 @@ testCse_nofib $ primId 1000
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testCse_nofib_lh_₁^880(primId⁰(1000))
+//│ testCse_nofib_lh_₁(primId⁰(1000))
 //│ def a_lh_₁ = [Node [LH_C 'a' [LH_N]] [LH_N]]
 //│ def a_lh_₂ = [Node [LH_C 'a' [LH_N]] [LH_N]]
 //│ def a_lh_₃ = [Node [LH_C 'a' [LH_N]] [LH_N]]
@@ -180,23 +180,23 @@ testCse_nofib $ primId 1000
 //│ def c_lh_₂ = [Node [LH_C 'c' [LH_N]] [LH_N]]
 //│ def c_lh_₃ = [Node [LH_C 'c' [LH_N]] [LH_N]]
 //│ def concat_lh_₁(lss⁰) = case lss⁰ of {
-//│ 	LH_C h² t² => mappend_lh_₂^75(h², concat_lh_₁^78(t²))
+//│ 	LH_C h² t² => mappend_lh_₂(h², concat_lh_₁(t²))
 //│ 	| LH_N  => [LH_N]}
-//│ def cse_lh_₁(_lh_cse_arg1⁰) = findCommon_lh_₁^744(ltGraph_lh_₁^745(labelTree_lh_₁^746(_lh_cse_arg1⁰)))
+//│ def cse_lh_₁(_lh_cse_arg1⁰) = findCommon_lh_₁(ltGraph_lh_₁(labelTree_lh_₁(_lh_cse_arg1⁰)))
 //│ def d_lh_₁ = [Node [LH_C 'd' [LH_N]] [LH_N]]
 //│ def d_lh_₂ = [Node [LH_C 'd' [LH_N]] [LH_N]]
-//│ def enumFromTo_lh_₁(a⁰, b¹) = if (a⁰ <= b¹) then [LH_C a⁰ enumFromTo_lh_₁^795((a⁰ + 1), b¹)] else [LH_N]
-//│ def example0_lh_₁ = a_lh_₄^729
-//│ def example1_lh_₁ = plus__lh_₅^724(a_lh_₆^725, a_lh_₅^727)
-//│ def example2_lh_₁ = plus__lh_₆^711(mult__lh_₂^712(a_lh_₈^713, b_lh_₄^715), mult__lh_₃^718(a_lh_₇^719, b_lh_₅^721))
-//│ def example3_lh_₁ = plus__lh_₁^826(mult__lh_₁^827(plus__lh_₃^828(a_lh_₂^829, b_lh_₂^831), c_lh_₁^834), plus__lh_₂^837(a_lh_₁^838, b_lh_₁^840))
-//│ def example4_lh_₁ = prod_lh_₁^809(scanl_lh_₁^810(plus__lh_₄^811, zerO_lh_₁^813, [LH_C a_lh_₃^815 [LH_C b_lh_₃^816 [LH_C c_lh_₂^817 [LH_C d_lh_₁^818 [LH_N]]]]]))
-//│ def example5_lh_₁ = prod_lh_₂^694(scanr_lh_₁^695(plus__lh_₇^696, zerO_lh_₂^698, [LH_C a_lh_₉^700 [LH_C b_lh_₆^701 [LH_C c_lh_₃^702 [LH_C d_lh_₂^703 [LH_N]]]]]))
+//│ def enumFromTo_lh_₁(a⁰, b¹) = if (a⁰ <= b¹) then [LH_C a⁰ enumFromTo_lh_₁((a⁰ + 1), b¹)] else [LH_N]
+//│ def example0_lh_₁ = a_lh_₄
+//│ def example1_lh_₁ = plus__lh_₅(a_lh_₆, a_lh_₅)
+//│ def example2_lh_₁ = plus__lh_₆(mult__lh_₂(a_lh_₈, b_lh_₄), mult__lh_₃(a_lh_₇, b_lh_₅))
+//│ def example3_lh_₁ = plus__lh_₁(mult__lh_₁(plus__lh_₃(a_lh_₂, b_lh_₂), c_lh_₁), plus__lh_₂(a_lh_₁, b_lh_₁))
+//│ def example4_lh_₁ = prod_lh_₁(scanl_lh_₁(plus__lh_₄, zerO_lh_₁, [LH_C a_lh_₃ [LH_C b_lh_₃ [LH_C c_lh_₂ [LH_C d_lh_₁ [LH_N]]]]]))
+//│ def example5_lh_₁ = prod_lh_₂(scanr_lh_₁(plus__lh_₇, zerO_lh_₂, [LH_C a_lh_₉ [LH_C b_lh_₆ [LH_C c_lh_₃ [LH_C d_lh_₂ [LH_N]]]]]))
 //│ def findCommon_lh_₁(_lh_findCommon_arg1⁰) = 
 //│ 	let sim⁰ = (fun _lh_sim_arg1⁰ -> (fun _lh_sim_arg2⁰ -> case _lh_sim_arg1⁰ of {
 //│ 		LH_P3 _lh_sim_LH_P3_0⁰ _lh_sim_LH_P3_1⁰ _lh_sim_LH_P3_2⁰ => case _lh_sim_arg2⁰ of {
 //│ 			LH_P2 _lh_sim_LH_P2_0⁰ _lh_sim_LH_P2_1⁰ => 
-//│ 				let rcs⁰ = map_lh_₃^435(_lh_sim_LH_P2_0⁰, _lh_sim_LH_P3_2⁰)
+//│ 				let rcs⁰ = map_lh_₃(_lh_sim_LH_P2_0⁰, _lh_sim_LH_P3_2⁰)
 //│ 				in let ms⁰ = 	
 //│ 					let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 						LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => case _lh_listcomp_fun_ls_h⁰ of {
@@ -204,26 +204,26 @@ testCse_nofib $ primId 1000
 //│ 							| _  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}
 //│ 						| LH_N  => [LH_N]})
 //│ 					in _lh_listcomp_fun⁰(_lh_sim_LH_P2_1⁰)
-//│ 				in if null_lh_₁^476(ms⁰) then [LH_P2 _lh_sim_LH_P2_0⁰ mappend_lh_₁^480([LH_C [LH_P3 _lh_sim_LH_P3_0⁰ _lh_sim_LH_P3_1⁰ rcs⁰] [LH_N]], _lh_sim_LH_P2_1⁰)] else [LH_P2 newlyDefined_lh_₁^491(_lh_sim_LH_P3_0⁰, head_lh_₁^494(ms⁰), _lh_sim_LH_P2_0⁰) _lh_sim_LH_P2_1⁰]
+//│ 				in if null_lh_₁(ms⁰) then [LH_P2 _lh_sim_LH_P2_0⁰ mappend_lh_₁([LH_C [LH_P3 _lh_sim_LH_P3_0⁰ _lh_sim_LH_P3_1⁰ rcs⁰] [LH_N]], _lh_sim_LH_P2_1⁰)] else [LH_P2 newlyDefined_lh_₁(_lh_sim_LH_P3_0⁰, head_lh_₁(ms⁰), _lh_sim_LH_P2_0⁰) _lh_sim_LH_P2_1⁰]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}))
-//│ 	in let _lh_matchIdent⁶ = foldr_lh_₁^511(sim⁰, [LH_P2 id_lh_₁^514 [LH_N]], _lh_findCommon_arg1⁰)
+//│ 	in let _lh_matchIdent⁶ = foldr_lh_₁(sim⁰, [LH_P2 id_lh_₁ [LH_N]], _lh_findCommon_arg1⁰)
 //│ 	in case _lh_matchIdent⁶ of {
 //│ 		LH_P2 _lh_findCommon_LH_P2_0⁰ _lh_findCommon_LH_P2_1⁰ => _lh_findCommon_LH_P2_1⁰
 //│ 		| _  => error⁰}
 //│ def foldr_lh_₁(f², i⁰, ls³) = case ls³ of {
-//│ 	LH_C h⁶ t⁶ => f²(h⁶, foldr_lh_₁^134(f², i⁰, t⁶))
+//│ 	LH_C h⁶ t⁶ => f²(h⁶, foldr_lh_₁(f², i⁰, t⁶))
 //│ 	| LH_N  => i⁰}
 //│ def head_lh_₁(ls²) = case ls² of {
 //│ 	LH_C h⁴ t⁴ => h⁴
 //│ 	| LH_N  => error⁰}
 //│ def id_lh_₁(_lh_id_arg1⁰) = _lh_id_arg1⁰
-//│ def incr_lh_₁ = update_lh_₁^184((fun x⁰ -> (1 + x⁰)))
+//│ def incr_lh_₁ = update_lh_₁((fun x⁰ -> (1 + x⁰)))
 //│ def labelTree_lh_₁(_lh_labelTree_arg1⁰) = 
 //│ 	let label⁰ = (fun _lh_label_arg1⁰ -> case _lh_label_arg1⁰ of {
-//│ 		Node _lh_label_Node_0⁰ _lh_label_Node_1⁰ => bind_lh_₂^528(incr_lh_₁^529, (fun n⁰ -> bind_lh_₁^531(mmapl_lh_₁^532(label⁰, _lh_label_Node_1⁰), (fun ts⁰ -> retURN_lh_₁^538([Node [LH_P2 n⁰ _lh_label_Node_0⁰] ts⁰])))))
+//│ 		Node _lh_label_Node_0⁰ _lh_label_Node_1⁰ => bind_lh_₂(incr_lh_₁, (fun n⁰ -> bind_lh_₁(mmapl_lh_₁(label⁰, _lh_label_Node_1⁰), (fun ts⁰ -> retURN_lh_₁([Node [LH_P2 n⁰ _lh_label_Node_0⁰] ts⁰])))))
 //│ 		| _  => error⁰})
-//│ 	in startingWith_lh_₁^552(label⁰(_lh_labelTree_arg1⁰), 0)
+//│ 	in startingWith_lh_₁(label⁰(_lh_labelTree_arg1⁰), 0)
 //│ def ltGraph_lh_₁(_lh_ltGraph_arg1⁰) = case _lh_ltGraph_arg1⁰ of {
 //│ 	Node _lh_ltGraph_Node_0⁰ _lh_ltGraph_Node_1⁰ => case _lh_ltGraph_Node_0⁰ of {
 //│ 		LH_P2 _lh_ltGraph_LH_P2_0⁰ _lh_ltGraph_LH_P2_1⁰ => 
@@ -232,33 +232,33 @@ testCse_nofib $ primId 1000
 //│ 					LH_P2 _lh_labelOf_LH_P2_0⁰ _lh_labelOf_LH_P2_1⁰ => _lh_labelOf_LH_P2_0⁰
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰})
-//│ 			in [LH_C [LH_P3 _lh_ltGraph_LH_P2_0⁰ _lh_ltGraph_LH_P2_1⁰ map_lh_₅^413(labelOf⁰, _lh_ltGraph_Node_1⁰)] concat_lh_₁^419(map_lh_₄^420(ltGraph_lh_₁^421, _lh_ltGraph_Node_1⁰))]
+//│ 			in [LH_C [LH_P3 _lh_ltGraph_LH_P2_0⁰ _lh_ltGraph_LH_P2_1⁰ map_lh_₅(labelOf⁰, _lh_ltGraph_Node_1⁰)] concat_lh_₁(map_lh_₄(ltGraph_lh_₁, _lh_ltGraph_Node_1⁰))]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def map_lh_₁(f⁵, ls⁶) = case ls⁶ of {
-//│ 	LH_C h⁹ t⁹ => [LH_C f⁵(h⁹) map_lh_₁^756(f⁵, t⁹)]
+//│ 	LH_C h⁹ t⁹ => [LH_C f⁵(h⁹) map_lh_₁(f⁵, t⁹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f⁴, ls⁵) = case ls⁵ of {
-//│ 	LH_C h⁸ t⁸ => [LH_C f⁴(h⁸) map_lh_₂^734(f⁴, t⁸)]
+//│ 	LH_C h⁸ t⁸ => [LH_C f⁴(h⁸) map_lh_₂(f⁴, t⁸)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₃(f³, ls⁴) = case ls⁴ of {
-//│ 	LH_C h⁷ t⁷ => [LH_C f³(h⁷) map_lh_₃^151(f³, t⁷)]
+//│ 	LH_C h⁷ t⁷ => [LH_C f³(h⁷) map_lh_₃(f³, t⁷)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₄(f¹, ls¹) = case ls¹ of {
-//│ 	LH_C h³ t³ => [LH_C f¹(h³) map_lh_₄^89(f¹, t³)]
+//│ 	LH_C h³ t³ => [LH_C f¹(h³) map_lh_₄(f¹, t³)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₅(f⁰, ls⁰) = case ls⁰ of {
-//│ 	LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₅^64(f⁰, t¹)]
+//│ 	LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₅(f⁰, t¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def mappend_lh_₁(xs¹, ys¹) = case xs¹ of {
-//│ 	LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₁^106(t⁵, ys¹)]
+//│ 	LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₁(t⁵, ys¹)]
 //│ 	| LH_N  => ys¹}
 //│ def mappend_lh_₂(xs⁰, ys⁰) = case xs⁰ of {
-//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂^3(t⁰, ys⁰)]
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]
 //│ 	| LH_N  => ys⁰}
 //│ def mmapl_lh_₁(_lh_mmapl_arg1⁰, _lh_mmapl_arg2⁰) = case _lh_mmapl_arg2⁰ of {
-//│ 	LH_N  => retURN_lh_₂^218([LH_N])
-//│ 	| LH_C _lh_mmapl_LH_C_0⁰ _lh_mmapl_LH_C_1⁰ => bind_lh_₃^221(_lh_mmapl_arg1⁰(_lh_mmapl_LH_C_0⁰), (fun b⁰ -> bind_lh_₄^226(mmapl_lh_₁^227(_lh_mmapl_arg1⁰, _lh_mmapl_LH_C_1⁰), (fun bs⁰ -> retURN_lh_₃^233([LH_C b⁰ bs⁰])))))
+//│ 	LH_N  => retURN_lh_₂([LH_N])
+//│ 	| LH_C _lh_mmapl_LH_C_0⁰ _lh_mmapl_LH_C_1⁰ => bind_lh_₃(_lh_mmapl_arg1⁰(_lh_mmapl_LH_C_0⁰), (fun b⁰ -> bind_lh_₄(mmapl_lh_₁(_lh_mmapl_arg1⁰, _lh_mmapl_LH_C_1⁰), (fun bs⁰ -> retURN_lh_₃([LH_C b⁰ bs⁰])))))
 //│ 	| _  => error⁰}
 //│ def mult__lh_₁(_lh_mult__arg1², _lh_mult__arg2²) = [Node [LH_C '*' [LH_N]] [LH_C _lh_mult__arg1² [LH_C _lh_mult__arg2² [LH_N]]]]
 //│ def mult__lh_₂(_lh_mult__arg1¹, _lh_mult__arg2¹) = [Node [LH_C '*' [LH_N]] [LH_C _lh_mult__arg1¹ [LH_C _lh_mult__arg2¹ [LH_N]]]]
@@ -284,12 +284,12 @@ testCse_nofib $ primId 1000
 //│ 	let _lh_matchIdent⁷ = _lh_scanl_arg3⁰
 //│ 	in case _lh_matchIdent⁷ of {
 //│ 		LH_N  => [LH_N]
-//│ 		| LH_C _lh_scanl_LH_C_0⁰ _lh_scanl_LH_C_1⁰ => scanl_lh_₁^607(_lh_scanl_arg1⁰, _lh_scanl_arg1⁰(_lh_scanl_arg2⁰, _lh_scanl_LH_C_0⁰), _lh_scanl_LH_C_1⁰)
+//│ 		| LH_C _lh_scanl_LH_C_0⁰ _lh_scanl_LH_C_1⁰ => scanl_lh_₁(_lh_scanl_arg1⁰, _lh_scanl_arg1⁰(_lh_scanl_arg2⁰, _lh_scanl_LH_C_0⁰), _lh_scanl_LH_C_1⁰)
 //│ 		| _  => error⁰}]
 //│ def scanr_lh_₁(_lh_scanr_arg1⁰, _lh_scanr_arg2⁰, _lh_scanr_arg3⁰) = case _lh_scanr_arg3⁰ of {
 //│ 	LH_N  => [LH_C _lh_scanr_arg2⁰ [LH_N]]
 //│ 	| LH_C _lh_scanr_LH_C_0⁰ _lh_scanr_LH_C_1⁰ => 
-//│ 		let _lh_matchIdent⁵ = scanr_lh_₁^265(_lh_scanr_arg1⁰, _lh_scanr_arg2⁰, _lh_scanr_LH_C_1⁰)
+//│ 		let _lh_matchIdent⁵ = scanr_lh_₁(_lh_scanr_arg1⁰, _lh_scanr_arg2⁰, _lh_scanr_LH_C_1⁰)
 //│ 		in case _lh_matchIdent⁵ of {
 //│ 			LH_C _lh_scanr_LH_C_0¹ _lh_scanr_LH_C_1¹ => [LH_C _lh_scanr_arg1⁰(_lh_scanr_LH_C_0⁰, _lh_scanr_LH_C_0¹) [LH_C _lh_scanr_LH_C_0¹ _lh_scanr_LH_C_1¹]]
 //│ 			| _  => error⁰}
@@ -300,9 +300,9 @@ testCse_nofib $ primId 1000
 //│ 		LH_P2 _lh_startingWith_LH_P2_0⁰ _lh_startingWith_LH_P2_1⁰ => _lh_startingWith_LH_P2_1⁰
 //│ 		| _  => error⁰}
 //│ def take_lh_₁(n¹, ls⁷) = if (n¹ > 0) then case ls⁷ of {
-//│ 	LH_C h¹⁰ t¹⁰ => [LH_C h¹⁰ take_lh_₁^773((n¹ - 1), t¹⁰)]
+//│ 	LH_C h¹⁰ t¹⁰ => [LH_C h¹⁰ take_lh_₁((n¹ - 1), t¹⁰)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
-//│ def testCse_nofib_lh_₁(_lh_testCse_nofib_arg1⁰) = map_lh_₂^843((fun i¹ -> map_lh_₁^844(cse_lh_₁^845, take_lh_₁^847((i¹ % 6), [LH_C example0_lh_₁^854 [LH_C example1_lh_₁^855 [LH_C example2_lh_₁^856 [LH_C example3_lh_₁^857 [LH_C example4_lh_₁^858 [LH_C example5_lh_₁^859 [LH_N]]]]]]]))), primId⁰(enumFromTo_lh_₁^872(1, _lh_testCse_nofib_arg1⁰)))
+//│ def testCse_nofib_lh_₁(_lh_testCse_nofib_arg1⁰) = map_lh_₂((fun i¹ -> map_lh_₁(cse_lh_₁, take_lh_₁((i¹ % 6), [LH_C example0_lh_₁ [LH_C example1_lh_₁ [LH_C example2_lh_₁ [LH_C example3_lh_₁ [LH_C example4_lh_₁ [LH_C example5_lh_₁ [LH_N]]]]]]]))), primId⁰(enumFromTo_lh_₁(1, _lh_testCse_nofib_arg1⁰)))
 //│ def update_lh_₁(_lh_update_arg1⁰, s⁰) = [LH_P2 _lh_update_arg1⁰(s⁰) s⁰]
 //│ def zerO_lh_₁ = [Node [LH_C '0' [LH_N]] [LH_N]]
 //│ def zerO_lh_₂ = [Node [LH_C '0' [LH_N]] [LH_N]]

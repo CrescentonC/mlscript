@@ -56,7 +56,7 @@ testMandel_nofib $ primId 0
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testMandel_nofib_lh_₁^463(primId⁰(0))
+//│ testMandel_nofib_lh_₁(primId⁰(0))
 //│ def comp_magnitude_lh_₁(_lh_comp_magnitude_arg1⁰) = case _lh_comp_magnitude_arg1⁰ of {
 //│ 	Complex _lh_comp_magnitude_Complex_0⁰ _lh_comp_magnitude_Complex_1⁰ => ((_lh_comp_magnitude_Complex_0⁰ *. _lh_comp_magnitude_Complex_0⁰) +. (_lh_comp_magnitude_Complex_1⁰ *. _lh_comp_magnitude_Complex_1⁰))
 //│ 	| _  => error⁰}
@@ -71,43 +71,43 @@ testMandel_nofib $ primId 0
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def createPixmap_lh_₁(_lh_createPixmap_arg1⁰, _lh_createPixmap_arg2⁰, _lh_createPixmap_arg3⁰, _lh_createPixmap_arg4⁰) = [Pixmap _lh_createPixmap_arg1⁰ _lh_createPixmap_arg2⁰ _lh_createPixmap_arg3⁰ _lh_createPixmap_arg4⁰]
-//│ def diverge_lh_₁(_lh_diverge_arg1⁰, _lh_diverge_arg2⁰) = polyGt⁰(comp_magnitude_lh_₁^91(_lh_diverge_arg1⁰), _lh_diverge_arg2⁰)
-//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁^265((a¹ + 1), b¹)] else [LH_N]
-//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂^236((a⁰ + 1), b⁰)] else [LH_N]
+//│ def diverge_lh_₁(_lh_diverge_arg1⁰, _lh_diverge_arg2⁰) = polyGt⁰(comp_magnitude_lh_₁(_lh_diverge_arg1⁰), _lh_diverge_arg2⁰)
+//│ def enumFromTo_lh_₁(a¹, b¹) = if (a¹ <= b¹) then [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)] else [LH_N]
+//│ def enumFromTo_lh_₂(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)] else [LH_N]
 //│ def mandel_lh_₁(_lh_mandel_arg1⁰) = 
-//│ 	let infiniteMandel⁰ = lazy⁰([LH_C _lh_mandel_arg1⁰ map_lz_lh_₁^101((fun z⁰ -> comp_plus_lh_₁^102(comp_times_lh_₁^103(z⁰, z⁰), _lh_mandel_arg1⁰)), infiniteMandel⁰)])
+//│ 	let infiniteMandel⁰ = lazy⁰([LH_C _lh_mandel_arg1⁰ map_lz_lh_₁((fun z⁰ -> comp_plus_lh_₁(comp_times_lh_₁(z⁰, z⁰), _lh_mandel_arg1⁰)), infiniteMandel⁰)])
 //│ 	in infiniteMandel⁰
 //│ def mandelset_lh_₁(_lh_mandelset_arg1⁰, _lh_mandelset_arg2⁰, _lh_mandelset_arg3⁰, _lh_mandelset_arg4⁰, _lh_mandelset_arg5⁰, _lh_mandelset_arg6⁰, _lh_mandelset_arg7⁰) = 
 //│ 	let prettyRGB⁰ = (fun s⁰ -> 
 //│ 		let t³ = (_lh_mandelset_arg7⁰ - s⁰)
 //│ 		in [LH_P3 s⁰ t³ t³])
 //│ 	in let windowToViewport⁰ = (fun s¹ -> (fun t⁴ -> [Complex (_lh_mandelset_arg1⁰ +. ((float_of_int⁰(s¹) *. (_lh_mandelset_arg3⁰ -. _lh_mandelset_arg1⁰)) /. float_of_int⁰(_lh_mandelset_arg5⁰))) (_lh_mandelset_arg2⁰ +. ((float_of_int⁰(t⁴) *. (_lh_mandelset_arg4⁰ -. _lh_mandelset_arg2⁰)) /. float_of_int⁰(_lh_mandelset_arg6⁰)))]))
-//│ 	in let result⁰ = parallelMandel_lh_₁^345(
+//│ 	in let result⁰ = parallelMandel_lh_₁(
 //│ 		let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 			LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => 
 //│ 				let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)]
 //│ 					| LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)})
-//│ 				in _lh_listcomp_fun¹(enumFromTo_lh_₁^363(1, _lh_mandelset_arg5⁰))
+//│ 				in _lh_listcomp_fun¹(enumFromTo_lh_₁(1, _lh_mandelset_arg5⁰))
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun⁰(enumFromTo_lh_₂^374(1, _lh_mandelset_arg6⁰)), _lh_mandelset_arg7⁰, (myMax_lh_₁^385((_lh_mandelset_arg3⁰ -. _lh_mandelset_arg1⁰), (_lh_mandelset_arg4⁰ -. _lh_mandelset_arg2⁰)) /. 2.0))
-//│ 	in createPixmap_lh_₁^402(_lh_mandelset_arg5⁰, _lh_mandelset_arg6⁰, _lh_mandelset_arg7⁰, map_lh_₁^409(prettyRGB⁰, result⁰))
+//│ 		in _lh_listcomp_fun⁰(enumFromTo_lh_₂(1, _lh_mandelset_arg6⁰)), _lh_mandelset_arg7⁰, (myMax_lh_₁((_lh_mandelset_arg3⁰ -. _lh_mandelset_arg1⁰), (_lh_mandelset_arg4⁰ -. _lh_mandelset_arg2⁰)) /. 2.0))
+//│ 	in createPixmap_lh_₁(_lh_mandelset_arg5⁰, _lh_mandelset_arg6⁰, _lh_mandelset_arg7⁰, map_lh_₁(prettyRGB⁰, result⁰))
 //│ def map_lh_₁(f², ls³) = case ls³ of {
-//│ 	LH_C h² t² => [LH_C f²(h²) map_lh_₁^208(f², t²)]
+//│ 	LH_C h² t² => [LH_C f²(h²) map_lh_₁(f², t²)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f¹, ls²) = case ls² of {
-//│ 	LH_C h¹ t¹ => [LH_C f¹(h¹) map_lh_₂^194(f¹, t¹)]
+//│ 	LH_C h¹ t¹ => [LH_C f¹(h¹) map_lh_₂(f¹, t¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lz_lh_₁(f⁰, ls⁰) = lazy⁰(case force⁰(ls⁰) of {
-//│ 	LH_C h⁰ t⁰ => [LH_C f⁰(h⁰) map_lz_lh_₁^79(f⁰, t⁰)]
+//│ 	LH_C h⁰ t⁰ => [LH_C f⁰(h⁰) map_lz_lh_₁(f⁰, t⁰)]
 //│ 	| LH_N  => [LH_N]})
 //│ def myMax_lh_₁(_lh_myMax_arg1⁰, _lh_myMax_arg2⁰) = if polyGt⁰(_lh_myMax_arg1⁰, _lh_myMax_arg2⁰) then _lh_myMax_arg1⁰ else _lh_myMax_arg2⁰
-//│ def parallelMandel_lh_₁(_lh_parallelMandel_arg1⁰, _lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰) = map_lh_₂^218(whenDiverge_lh_₁^219(_lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰), _lh_parallelMandel_arg1⁰)
+//│ def parallelMandel_lh_₁(_lh_parallelMandel_arg1⁰, _lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰) = map_lh_₂(whenDiverge_lh_₁(_lh_parallelMandel_arg2⁰, _lh_parallelMandel_arg3⁰), _lh_parallelMandel_arg1⁰)
 //│ def take_lz_lz_lh_₁(_lh_take_lz_lz_arg1⁰, _lh_take_lz_lz_arg2⁰) = if (_lh_take_lz_lz_arg1⁰ > 0) then 
 //│ 	let _lh_matchIdent⁰ = force⁰(_lh_take_lz_lz_arg2⁰)
 //│ 	in case _lh_matchIdent⁰ of {
 //│ 		LH_N  => lazy⁰([LH_N])
-//│ 		| LH_C _lh_take_lz_lz_LH_C_0⁰ _lh_take_lz_lz_LH_C_1⁰ => lazy⁰([LH_C _lh_take_lz_lz_LH_C_0⁰ take_lz_lz_lh_₁^134((_lh_take_lz_lz_arg1⁰ - 1), _lh_take_lz_lz_LH_C_1⁰)])
+//│ 		| LH_C _lh_take_lz_lz_LH_C_0⁰ _lh_take_lz_lz_LH_C_1⁰ => lazy⁰([LH_C _lh_take_lz_lz_LH_C_0⁰ take_lz_lz_lh_₁((_lh_take_lz_lz_arg1⁰ - 1), _lh_take_lz_lz_LH_C_1⁰)])
 //│ 		| _  => error⁰} else lazy⁰([LH_N])
 //│ def testMandel_nofib_lh_₁(_lh_testMandel_nofib_arg1⁰) = 
 //│ 	let minx⁰ = (0.0 -. 2.0)
@@ -117,15 +117,15 @@ testMandel_nofib $ primId 0
 //│ 	in let screenX⁰ = 80
 //│ 	in let screenY⁰ = 80
 //│ 	in let limit⁰ = 75
-//│ 	in mandelset_lh_₁^440(minx⁰, miny⁰, maxx⁰, maxy⁰, screenX⁰, screenY⁰, limit⁰)
+//│ 	in mandelset_lh_₁(minx⁰, miny⁰, maxx⁰, maxy⁰, screenX⁰, screenY⁰, limit⁰)
 //│ def whenDiverge_lh_₁(_lh_whenDiverge_arg1⁰, _lh_whenDiverge_arg2⁰, _lh_whenDiverge_arg3⁰) = 
 //│ 	let walkIt⁰ = (fun ls¹ -> 
 //│ 		let _lh_matchIdent¹ = force⁰(ls¹)
 //│ 		in case _lh_matchIdent¹ of {
 //│ 			LH_N  => 0
-//│ 			| LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁^159(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))
+//│ 			| LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))
 //│ 			| _  => error⁰})
-//│ 	in walkIt⁰(take_lz_lz_lh_₁^178(_lh_whenDiverge_arg1⁰, mandel_lh_₁^181(_lh_whenDiverge_arg3⁰)))
+//│ 	in walkIt⁰(take_lz_lz_lh_₁(_lh_whenDiverge_arg1⁰, mandel_lh_₁(_lh_whenDiverge_arg3⁰)))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ 		let rec enumFromTo_lh__d2 a_0 b_0 =
 //│ 		  (if (a_0 <= b_0) then

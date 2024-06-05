@@ -302,33 +302,33 @@ testCircsim_nofib $ primId 40
 //│ ||
 //│ Parsed: {}
 //│ >>>>>>>>>> after expansion >>>>>>>>>>
-//│ testCircsim_nofib_lh_₁^3875(primId⁰(40))
+//│ testCircsim_nofib_lh_₁(primId⁰(40))
 //│ def acknowledge_lh_₁(_lh_acknowledge_arg1¹, _lh_acknowledge_arg2¹) = 
-//│ 	let check_requests¹ = (fun _lh_check_requests_arg1¹ -> or_lh_₂^2456(map_lh_₈^2457(check_lr_requests¹, _lh_check_requests_arg1¹)))
+//│ 	let check_requests¹ = (fun _lh_check_requests_arg1¹ -> or_lh_₂(map_lh_₈(check_lr_requests¹, _lh_check_requests_arg1¹)))
 //│ 	and check_lr_requests¹ = (fun _lh_check_lr_requests_arg1¹ -> case _lh_check_lr_requests_arg1¹ of {
 //│ 			LH_P6 _lh_check_lr_requests_LH_P6_0¹ _lh_check_lr_requests_LH_P6_1¹ _lh_check_lr_requests_LH_P6_2¹ _lh_check_lr_requests_LH_P6_3¹ _lh_check_lr_requests_LH_P6_4¹ _lh_check_lr_requests_LH_P6_5¹ => (_lh_check_lr_requests_LH_P6_2¹ || _lh_check_lr_requests_LH_P6_4¹)
 //│ 			| _  => error⁰}) 
-//│ 	in let states1³ = map_lh_₁₀^2464(check_depth_lh_₁^2465(_lh_acknowledge_arg1¹), _lh_acknowledge_arg2¹)
-//│ 	in not⁰(or_lh_₁^2472(map_lh_₉^2473((fun _lh_funcomp_x⁵ -> check_requests¹(outports_lh_₄^2475(_lh_funcomp_x⁵))), states1³)))
+//│ 	in let states1³ = map_lh_₁₀(check_depth_lh_₁(_lh_acknowledge_arg1¹), _lh_acknowledge_arg2¹)
+//│ 	in not⁰(or_lh_₁(map_lh_₉((fun _lh_funcomp_x⁵ -> check_requests¹(outports_lh_₄(_lh_funcomp_x⁵))), states1³)))
 //│ def acknowledge_lh_₂(_lh_acknowledge_arg1⁰, _lh_acknowledge_arg2⁰) = 
 //│ 	let check_lr_requests⁰ = (fun _lh_check_lr_requests_arg1⁰ -> case _lh_check_lr_requests_arg1⁰ of {
 //│ 			LH_P6 _lh_check_lr_requests_LH_P6_0⁰ _lh_check_lr_requests_LH_P6_1⁰ _lh_check_lr_requests_LH_P6_2⁰ _lh_check_lr_requests_LH_P6_3⁰ _lh_check_lr_requests_LH_P6_4⁰ _lh_check_lr_requests_LH_P6_5⁰ => (_lh_check_lr_requests_LH_P6_2⁰ || _lh_check_lr_requests_LH_P6_4⁰)
 //│ 			| _  => error⁰})
-//│ 	and check_requests⁰ = (fun _lh_check_requests_arg1⁰ -> or_lh_₄^2208(map_lh_₁₆^2209(check_lr_requests⁰, _lh_check_requests_arg1⁰))) 
-//│ 	in let states1¹ = map_lh_₁₅^2216(check_depth_lh_₃^2217(_lh_acknowledge_arg1⁰), _lh_acknowledge_arg2⁰)
-//│ 	in not⁰(or_lh_₃^2224(map_lh_₁₄^2225((fun _lh_funcomp_x² -> check_requests⁰(outports_lh_₅^2227(_lh_funcomp_x²))), states1¹)))
+//│ 	and check_requests⁰ = (fun _lh_check_requests_arg1⁰ -> or_lh_₄(map_lh_₁₆(check_lr_requests⁰, _lh_check_requests_arg1⁰))) 
+//│ 	in let states1¹ = map_lh_₁₅(check_depth_lh_₃(_lh_acknowledge_arg1⁰), _lh_acknowledge_arg2⁰)
+//│ 	in not⁰(or_lh_₃(map_lh_₁₄((fun _lh_funcomp_x² -> check_requests⁰(outports_lh_₅(_lh_funcomp_x²))), states1¹)))
 //│ def and2_lh_₁(_lh_and2_arg1⁰, _lh_and2_arg2⁰) = if (polyEq⁰(_lh_and2_arg1⁰, [T]) && polyEq⁰(_lh_and2_arg2⁰, [T])) then [T] else [F]
 //│ def append__lz_lh_₁(_lh_append__lz_arg1¹, _lh_append__lz_arg2¹) = 
 //│ 	let _lh_matchIdent²¹ = _lh_append__lz_arg1¹
 //│ 	in case _lh_matchIdent²¹ of {
 //│ 		LH_N  => _lh_append__lz_arg2¹
-//│ 		| LH_C _lh_append__lz_LH_C_0¹ _lh_append__lz_LH_C_1¹ => lazy⁰([LH_C _lh_append__lz_LH_C_0¹ append__lz_lh_₁^3086(_lh_append__lz_LH_C_1¹, _lh_append__lz_arg2¹)])
+//│ 		| LH_C _lh_append__lz_LH_C_0¹ _lh_append__lz_LH_C_1¹ => lazy⁰([LH_C _lh_append__lz_LH_C_0¹ append__lz_lh_₁(_lh_append__lz_LH_C_1¹, _lh_append__lz_arg2¹)])
 //│ 		| _  => error⁰}
 //│ def append__lz_lh_₂(_lh_append__lz_arg1⁰, _lh_append__lz_arg2⁰) = 
 //│ 	let _lh_matchIdent¹¹ = _lh_append__lz_arg1⁰
 //│ 	in case _lh_matchIdent¹¹ of {
 //│ 		LH_N  => _lh_append__lz_arg2⁰
-//│ 		| LH_C _lh_append__lz_LH_C_0⁰ _lh_append__lz_LH_C_1⁰ => lazy⁰([LH_C _lh_append__lz_LH_C_0⁰ append__lz_lh_₂^784(_lh_append__lz_LH_C_1⁰, _lh_append__lz_arg2⁰)])
+//│ 		| LH_C _lh_append__lz_LH_C_0⁰ _lh_append__lz_LH_C_1⁰ => lazy⁰([LH_C _lh_append__lz_LH_C_0⁰ append__lz_lh_₂(_lh_append__lz_LH_C_1⁰, _lh_append__lz_arg2⁰)])
 //│ 		| _  => error⁰}
 //│ def apply_component_lh_₁(_lh_apply_component_arg1⁰, _lh_apply_component_arg2⁰) = case _lh_apply_component_arg1⁰ of {
 //│ 	Inp  => [Nothing]
@@ -344,36 +344,36 @@ testCircsim_nofib $ primId 40
 //│ 		| _  => error⁰}
 //│ 	| Inv  => case _lh_apply_component_arg2⁰ of {
 //│ 		LH_C _lh_apply_component_LH_C_0² _lh_apply_component_LH_C_1² => case _lh_apply_component_LH_C_1² of {
-//│ 			LH_N  => [Just inv_lh_₁^1638(_lh_apply_component_LH_C_0²)]
+//│ 			LH_N  => [Just inv_lh_₁(_lh_apply_component_LH_C_0²)]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| And2  => case _lh_apply_component_arg2⁰ of {
 //│ 		LH_C _lh_apply_component_LH_C_0³ _lh_apply_component_LH_C_1³ => case _lh_apply_component_LH_C_1³ of {
 //│ 			LH_C _lh_apply_component_LH_C_0⁴ _lh_apply_component_LH_C_1⁴ => case _lh_apply_component_LH_C_1⁴ of {
-//│ 				LH_N  => [Just and2_lh_₁^1649(_lh_apply_component_LH_C_0³, _lh_apply_component_LH_C_0⁴)]
+//│ 				LH_N  => [Just and2_lh_₁(_lh_apply_component_LH_C_0³, _lh_apply_component_LH_C_0⁴)]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| Or2  => case _lh_apply_component_arg2⁰ of {
 //│ 		LH_C _lh_apply_component_LH_C_0⁵ _lh_apply_component_LH_C_1⁵ => case _lh_apply_component_LH_C_1⁵ of {
 //│ 			LH_C _lh_apply_component_LH_C_0⁶ _lh_apply_component_LH_C_1⁶ => case _lh_apply_component_LH_C_1⁶ of {
-//│ 				LH_N  => [Just or2_lh_₁^1664(_lh_apply_component_LH_C_0⁵, _lh_apply_component_LH_C_0⁶)]
+//│ 				LH_N  => [Just or2_lh_₁(_lh_apply_component_LH_C_0⁵, _lh_apply_component_LH_C_0⁶)]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| Xor  => case _lh_apply_component_arg2⁰ of {
 //│ 		LH_C _lh_apply_component_LH_C_0⁷ _lh_apply_component_LH_C_1⁷ => case _lh_apply_component_LH_C_1⁷ of {
 //│ 			LH_C _lh_apply_component_LH_C_0⁸ _lh_apply_component_LH_C_1⁸ => case _lh_apply_component_LH_C_1⁸ of {
-//│ 				LH_N  => [Just xor_lh_₁^1679(_lh_apply_component_LH_C_0⁷, _lh_apply_component_LH_C_0⁸)]
+//│ 				LH_N  => [Just xor_lh_₁(_lh_apply_component_LH_C_0⁷, _lh_apply_component_LH_C_0⁸)]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| None  => [Nothing]
 //│ 	| _  => error⁰}
-//│ def check_depth_lh_₁(_lh_check_depth_arg1³, _lh_check_depth_arg2³) = if (pathDepth_lh_₅^2068(_lh_check_depth_arg2³) == _lh_check_depth_arg1³) then _lh_check_depth_arg2³ else update_requests_lh_₁^2075([False], _lh_check_depth_arg2³)
-//│ def check_depth_lh_₂(_lh_check_depth_arg1², _lh_check_depth_arg2²) = if (pathDepth_lh_₇^1717(_lh_check_depth_arg2²) == _lh_check_depth_arg1²) then _lh_check_depth_arg2² else update_requests_lh_₂^1724([False], _lh_check_depth_arg2²)
-//│ def check_depth_lh_₃(_lh_check_depth_arg1¹, _lh_check_depth_arg2¹) = if (pathDepth_lh_₈^1487(_lh_check_depth_arg2¹) == _lh_check_depth_arg1¹) then _lh_check_depth_arg2¹ else update_requests_lh_₃^1494([False], _lh_check_depth_arg2¹)
-//│ def check_depth_lh_₄(_lh_check_depth_arg1⁰, _lh_check_depth_arg2⁰) = if (pathDepth_lh_₈^1283(_lh_check_depth_arg2⁰) == _lh_check_depth_arg1⁰) then _lh_check_depth_arg2⁰ else update_requests_lh_₃^1290([False], _lh_check_depth_arg2⁰)
+//│ def check_depth_lh_₁(_lh_check_depth_arg1³, _lh_check_depth_arg2³) = if (pathDepth_lh_₅(_lh_check_depth_arg2³) == _lh_check_depth_arg1³) then _lh_check_depth_arg2³ else update_requests_lh_₁([False], _lh_check_depth_arg2³)
+//│ def check_depth_lh_₂(_lh_check_depth_arg1², _lh_check_depth_arg2²) = if (pathDepth_lh_₇(_lh_check_depth_arg2²) == _lh_check_depth_arg1²) then _lh_check_depth_arg2² else update_requests_lh_₂([False], _lh_check_depth_arg2²)
+//│ def check_depth_lh_₃(_lh_check_depth_arg1¹, _lh_check_depth_arg2¹) = if (pathDepth_lh_₈(_lh_check_depth_arg2¹) == _lh_check_depth_arg1¹) then _lh_check_depth_arg2¹ else update_requests_lh_₃([False], _lh_check_depth_arg2¹)
+//│ def check_depth_lh_₄(_lh_check_depth_arg1⁰, _lh_check_depth_arg2⁰) = if (pathDepth_lh_₈(_lh_check_depth_arg2⁰) == _lh_check_depth_arg1⁰) then _lh_check_depth_arg2⁰ else update_requests_lh_₃([False], _lh_check_depth_arg2⁰)
 //│ def check_left_lh_₁(_lh_check_left_arg1⁰, _lh_check_left_arg2⁰) = case _lh_check_left_arg1⁰ of {
 //│ 	LH_P8 _lh_check_left_LH_P8_0⁰ _lh_check_left_LH_P8_1⁰ _lh_check_left_LH_P8_2⁰ _lh_check_left_LH_P8_3⁰ _lh_check_left_LH_P8_4⁰ _lh_check_left_LH_P8_5⁰ _lh_check_left_LH_P8_6⁰ _lh_check_left_LH_P8_7⁰ => case _lh_check_left_arg2⁰ of {
 //│ 		LH_P6 _lh_check_left_LH_P6_0⁰ _lh_check_left_LH_P6_1⁰ _lh_check_left_LH_P6_2⁰ _lh_check_left_LH_P6_3⁰ _lh_check_left_LH_P6_4⁰ _lh_check_left_LH_P6_5⁰ => if (_lh_check_left_LH_P8_5⁰ && (_lh_check_left_LH_P8_6⁰ > 0)) then [LH_P6 _lh_check_left_LH_P6_0⁰ _lh_check_left_LH_P6_1⁰ _lh_check_left_LH_P6_2⁰ _lh_check_left_LH_P6_3⁰ _lh_check_left_LH_P6_4⁰ _lh_check_left_LH_P6_5⁰] else [LH_P6 _lh_check_left_LH_P6_0⁰ _lh_check_left_LH_P6_1⁰ _lh_check_left_LH_P6_2⁰ _lh_check_left_LH_P6_3⁰ [False] _lh_check_left_LH_P6_5⁰]
@@ -384,24 +384,24 @@ testCircsim_nofib $ primId 40
 //│ 		LH_P6 _lh_check_right_LH_P6_0⁰ _lh_check_right_LH_P6_1⁰ _lh_check_right_LH_P6_2⁰ _lh_check_right_LH_P6_3⁰ _lh_check_right_LH_P6_4⁰ _lh_check_right_LH_P6_5⁰ => if (_lh_check_right_LH_P8_3⁰ && (_lh_check_right_LH_P8_4⁰ > 0)) then [LH_P6 _lh_check_right_LH_P6_0⁰ _lh_check_right_LH_P6_1⁰ _lh_check_right_LH_P6_2⁰ _lh_check_right_LH_P6_3⁰ _lh_check_right_LH_P6_4⁰ _lh_check_right_LH_P6_5⁰] else [LH_P6 _lh_check_right_LH_P6_0⁰ _lh_check_right_LH_P6_1⁰ [False] _lh_check_right_LH_P6_3⁰ _lh_check_right_LH_P6_4⁰ _lh_check_right_LH_P6_5⁰]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def circuit_simulate_lh_₁(_lh_circuit_simulate_arg1⁰, _lh_circuit_simulate_arg2⁰) = map_lh_₂^3635(collect_outputs_lh_₁^3636, simulate_lh_₁^3638(_lh_circuit_simulate_arg1⁰, _lh_circuit_simulate_arg2⁰))
+//│ def circuit_simulate_lh_₁(_lh_circuit_simulate_arg1⁰, _lh_circuit_simulate_arg2⁰) = map_lh_₂(collect_outputs_lh_₁, simulate_lh_₁(_lh_circuit_simulate_arg1⁰, _lh_circuit_simulate_arg2⁰))
 //│ def collect_outputs_lh_₁(_lh_collect_outputs_arg1⁰) = case _lh_collect_outputs_arg1⁰ of {
 //│ 	LH_P4 _lh_collect_outputs_LH_P4_0⁰ _lh_collect_outputs_LH_P4_1⁰ _lh_collect_outputs_LH_P4_2⁰ _lh_collect_outputs_LH_P4_3⁰ => 
 //│ 		let third⁰ = (fun _lh_third_arg1⁰ -> case _lh_third_arg1⁰ of {
 //│ 				LH_P3 _lh_third_LH_P3_0⁰ _lh_third_LH_P3_1⁰ _lh_third_LH_P3_2⁰ => _lh_third_LH_P3_2⁰
 //│ 				| _  => error⁰})
 //│ 		and get_output⁰ = (fun _lh_get_output_arg1⁰ -> (fun _lh_get_output_arg2⁰ -> case _lh_get_output_arg2⁰ of {
-//│ 				LH_P2 _lh_get_output_LH_P2_0⁰ _lh_get_output_LH_P2_1⁰ => third⁰(head_lh_₁^3136(
+//│ 				LH_P2 _lh_get_output_LH_P2_0⁰ _lh_get_output_LH_P2_1⁰ => third⁰(head_lh_₁(
 //│ 					let _lh_listcomp_fun¹⁴ = (fun _lh_listcomp_fun_para¹⁴ -> case _lh_listcomp_fun_para¹⁴ of {
-//│ 						LH_C _lh_listcomp_fun_ls_h¹⁴ _lh_listcomp_fun_ls_t¹⁴ => if (_lh_get_output_LH_P2_1⁰ == pid_lh_₁^3141(_lh_listcomp_fun_ls_h¹⁴)) then [LH_C head_lh_₂^3145(inports_lh_₁^3146(_lh_listcomp_fun_ls_h¹⁴)) _lh_listcomp_fun¹⁴(_lh_listcomp_fun_ls_t¹⁴)] else _lh_listcomp_fun¹⁴(_lh_listcomp_fun_ls_t¹⁴)
+//│ 						LH_C _lh_listcomp_fun_ls_h¹⁴ _lh_listcomp_fun_ls_t¹⁴ => if (_lh_get_output_LH_P2_1⁰ == pid_lh_₁(_lh_listcomp_fun_ls_h¹⁴)) then [LH_C head_lh_₂(inports_lh_₁(_lh_listcomp_fun_ls_h¹⁴)) _lh_listcomp_fun¹⁴(_lh_listcomp_fun_ls_t¹⁴)] else _lh_listcomp_fun¹⁴(_lh_listcomp_fun_ls_t¹⁴)
 //│ 						| LH_N  => [LH_N]})
 //│ 					in _lh_listcomp_fun¹⁴(_lh_get_output_arg1⁰)))
 //│ 				| _  => error⁰})) 
-//│ 		in map_lh_₃^3171(get_output⁰(_lh_collect_outputs_LH_P4_3⁰), _lh_collect_outputs_LH_P4_2⁰)
+//│ 		in map_lh_₃(get_output⁰(_lh_collect_outputs_LH_P4_3⁰), _lh_collect_outputs_LH_P4_2⁰)
 //│ 	| _  => error⁰}
-//│ def combine_lh_₁(_lh_combine_arg1², _lh_combine_arg2², _lh_combine_arg3², _lh_combine_arg4²) = [LH_C [LH_C _lh_combine_arg1² _lh_combine_arg2²] transpose_lh_₁^854([LH_C _lh_combine_arg3² _lh_combine_arg4²])]
-//│ def combine_lh_₂(_lh_combine_arg1¹, _lh_combine_arg2¹, _lh_combine_arg3¹, _lh_combine_arg4¹) = [LH_C [LH_C _lh_combine_arg1¹ _lh_combine_arg2¹] transpose_lh_₂^649([LH_C _lh_combine_arg3¹ _lh_combine_arg4¹])]
-//│ def combine_lh_₃(_lh_combine_arg1⁰, _lh_combine_arg2⁰, _lh_combine_arg3⁰, _lh_combine_arg4⁰) = [LH_C [LH_C _lh_combine_arg1⁰ _lh_combine_arg2⁰] transpose_lh_₃^344([LH_C _lh_combine_arg3⁰ _lh_combine_arg4⁰])]
+//│ def combine_lh_₁(_lh_combine_arg1², _lh_combine_arg2², _lh_combine_arg3², _lh_combine_arg4²) = [LH_C [LH_C _lh_combine_arg1² _lh_combine_arg2²] transpose_lh_₁([LH_C _lh_combine_arg3² _lh_combine_arg4²])]
+//│ def combine_lh_₂(_lh_combine_arg1¹, _lh_combine_arg2¹, _lh_combine_arg3¹, _lh_combine_arg4¹) = [LH_C [LH_C _lh_combine_arg1¹ _lh_combine_arg2¹] transpose_lh_₂([LH_C _lh_combine_arg3¹ _lh_combine_arg4¹])]
+//│ def combine_lh_₃(_lh_combine_arg1⁰, _lh_combine_arg2⁰, _lh_combine_arg3⁰, _lh_combine_arg4⁰) = [LH_C [LH_C _lh_combine_arg1⁰ _lh_combine_arg2⁰] transpose_lh_₃([LH_C _lh_combine_arg3⁰ _lh_combine_arg4⁰])]
 //│ def compType_lh_₁(_lh_compType_arg1³) = case _lh_compType_arg1³ of {
 //│ 	PS _lh_compType_PS_0³ _lh_compType_PS_1³ _lh_compType_PS_2³ _lh_compType_PS_3³ _lh_compType_PS_4³ => _lh_compType_PS_1³
 //│ 	| _  => error⁰}
@@ -420,36 +420,36 @@ testCircsim_nofib $ primId 40
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def concat_lh_₁(lss⁰) = case lss⁰ of {
-//│ 	LH_C h³² t³² => mappend_lh_₃^3458(h³², concat_lh_₁^3461(t³²))
+//│ 	LH_C h³² t³² => mappend_lh_₃(h³², concat_lh_₁(t³²))
 //│ 	| LH_N  => [LH_N]}
-//│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ > 0) then [LH_C _lh_copy_arg2¹ copy_lh_₁^3596((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)] else [LH_N]
-//│ def copy_lh_₂(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = if (_lh_copy_arg1⁰ > 0) then [LH_C _lh_copy_arg2⁰ copy_lh_₂^3576((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)] else [LH_N]
-//│ def copy_lz_lh_₁(_lh_copy_lz_arg1¹, _lh_copy_lz_arg2¹) = if (_lh_copy_lz_arg1¹ > 0) then lazy⁰([LH_C _lh_copy_lz_arg2¹ copy_lz_lh_₁^3007((_lh_copy_lz_arg1¹ - 1), _lh_copy_lz_arg2¹)]) else lazy⁰([LH_N])
-//│ def copy_lz_lh_₂(_lh_copy_lz_arg1⁰, _lh_copy_lz_arg2⁰) = if (_lh_copy_lz_arg1⁰ > 0) then lazy⁰([LH_C _lh_copy_lz_arg2⁰ copy_lz_lh_₂^762((_lh_copy_lz_arg1⁰ - 1), _lh_copy_lz_arg2⁰)]) else lazy⁰([LH_N])
+//│ def copy_lh_₁(_lh_copy_arg1¹, _lh_copy_arg2¹) = if (_lh_copy_arg1¹ > 0) then [LH_C _lh_copy_arg2¹ copy_lh_₁((_lh_copy_arg1¹ - 1), _lh_copy_arg2¹)] else [LH_N]
+//│ def copy_lh_₂(_lh_copy_arg1⁰, _lh_copy_arg2⁰) = if (_lh_copy_arg1⁰ > 0) then [LH_C _lh_copy_arg2⁰ copy_lh_₂((_lh_copy_arg1⁰ - 1), _lh_copy_arg2⁰)] else [LH_N]
+//│ def copy_lz_lh_₁(_lh_copy_lz_arg1¹, _lh_copy_lz_arg2¹) = if (_lh_copy_lz_arg1¹ > 0) then lazy⁰([LH_C _lh_copy_lz_arg2¹ copy_lz_lh_₁((_lh_copy_lz_arg1¹ - 1), _lh_copy_lz_arg2¹)]) else lazy⁰([LH_N])
+//│ def copy_lz_lh_₂(_lh_copy_lz_arg1⁰, _lh_copy_lz_arg2⁰) = if (_lh_copy_lz_arg1⁰ > 0) then lazy⁰([LH_C _lh_copy_lz_arg2⁰ copy_lz_lh_₂((_lh_copy_lz_arg1⁰ - 1), _lh_copy_lz_arg2⁰)]) else lazy⁰([LH_N])
 //│ def critical_path_depth_lh_₁(_lh_critical_path_depth_arg1⁰) = case _lh_critical_path_depth_arg1⁰ of {
-//│ 	LH_P4 _lh_critical_path_depth_LH_P4_0⁰ _lh_critical_path_depth_LH_P4_1⁰ _lh_critical_path_depth_LH_P4_2⁰ _lh_critical_path_depth_LH_P4_3⁰ => maximum_lh_₁^2930(map_lh_₅^2931(pathDepth_lh_₁^2932, _lh_critical_path_depth_LH_P4_3⁰))
+//│ 	LH_P4 _lh_critical_path_depth_LH_P4_0⁰ _lh_critical_path_depth_LH_P4_1⁰ _lh_critical_path_depth_LH_P4_2⁰ _lh_critical_path_depth_LH_P4_3⁰ => maximum_lh_₁(map_lh_₅(pathDepth_lh_₁, _lh_critical_path_depth_LH_P4_3⁰))
 //│ 	| _  => error⁰}
 //│ def do_cycle_lh_₁(_lh_do_cycle_arg1⁰, _lh_do_cycle_arg2⁰, _lh_do_cycle_arg3⁰) = case _lh_do_cycle_arg2⁰ of {
 //│ 	LH_P4 _lh_do_cycle_LH_P4_0⁰ _lh_do_cycle_LH_P4_1⁰ _lh_do_cycle_LH_P4_2⁰ _lh_do_cycle_LH_P4_3⁰ => 
-//│ 		let sim_then_send⁰ = (fun _lh_sim_then_send_arg1⁰ -> (fun _lh_sim_then_send_arg2⁰ -> do_sends_lh_₂^2834(_lh_sim_then_send_arg2⁰, simulate_components_lh_₁^2837(_lh_sim_then_send_arg2⁰, _lh_sim_then_send_arg1⁰))))
-//│ 		in let states1⁴ = map_lh_₆^2845(store_inputs_lh_₁^2846(zip_lh_₁^2847(_lh_do_cycle_LH_P4_1⁰, _lh_do_cycle_arg3⁰)), _lh_do_cycle_LH_P4_3⁰)
-//│ 		in let states2⁰ = do_sends_lh_₁^2856(0, states1⁴)
-//│ 		in let states3⁰ = foldl_lh_₁^2861(sim_then_send⁰, states2⁰, enumFromTo_lh_₄^2866(1, _lh_do_cycle_arg1⁰))
-//│ 		in let states4⁰ = restore_requests_lh_₁^2872(_lh_do_cycle_LH_P4_3⁰, states3⁰)
+//│ 		let sim_then_send⁰ = (fun _lh_sim_then_send_arg1⁰ -> (fun _lh_sim_then_send_arg2⁰ -> do_sends_lh_₂(_lh_sim_then_send_arg2⁰, simulate_components_lh_₁(_lh_sim_then_send_arg2⁰, _lh_sim_then_send_arg1⁰))))
+//│ 		in let states1⁴ = map_lh_₆(store_inputs_lh_₁(zip_lh_₁(_lh_do_cycle_LH_P4_1⁰, _lh_do_cycle_arg3⁰)), _lh_do_cycle_LH_P4_3⁰)
+//│ 		in let states2⁰ = do_sends_lh_₁(0, states1⁴)
+//│ 		in let states3⁰ = foldl_lh_₁(sim_then_send⁰, states2⁰, enumFromTo_lh_₄(1, _lh_do_cycle_arg1⁰))
+//│ 		in let states4⁰ = restore_requests_lh_₁(_lh_do_cycle_LH_P4_3⁰, states3⁰)
 //│ 		in [LH_P4 _lh_do_cycle_LH_P4_0⁰ _lh_do_cycle_LH_P4_1⁰ _lh_do_cycle_LH_P4_2⁰ states4⁰]
 //│ 	| _  => error⁰}
 //│ def do_send_lh_₁(_lh_do_send_arg1¹, _lh_do_send_arg2¹) = 
-//│ 	let states1² = map_lh_₁₁^2402(check_depth_lh_₂^2403(_lh_do_send_arg1¹), _lh_do_send_arg2¹)
-//│ 	in let send_results¹ = map_lh_₁₂^2409((fun _lh_funcomp_x³ -> snd_lh_₁^2410(send_lh_₁^2411(_lh_funcomp_x³))), (fun _lh_funcomp_x⁴ -> transpose_lh_₁^2417(pad_packets_lh_₁^2418(_lh_funcomp_x⁴)))(map_lh_₁₃^2423(make_packet_lh_₁^2424, states1²)))
-//│ 	in let pss'¹ = transpose_lh_₂^2430(send_results¹)
-//│ 	in zipWith_lh_₃^2433(update_io_lh_₁^2434(_lh_do_send_arg1¹), pss'¹, _lh_do_send_arg2¹)
+//│ 	let states1² = map_lh_₁₁(check_depth_lh_₂(_lh_do_send_arg1¹), _lh_do_send_arg2¹)
+//│ 	in let send_results¹ = map_lh_₁₂((fun _lh_funcomp_x³ -> snd_lh_₁(send_lh_₁(_lh_funcomp_x³))), (fun _lh_funcomp_x⁴ -> transpose_lh_₁(pad_packets_lh_₁(_lh_funcomp_x⁴)))(map_lh_₁₃(make_packet_lh_₁, states1²)))
+//│ 	in let pss'¹ = transpose_lh_₂(send_results¹)
+//│ 	in zipWith_lh_₃(update_io_lh_₁(_lh_do_send_arg1¹), pss'¹, _lh_do_send_arg2¹)
 //│ def do_send_lh_₂(_lh_do_send_arg1⁰, _lh_do_send_arg2⁰) = 
-//│ 	let states1⁰ = map_lh_₁₇^2154(check_depth_lh_₄^2155(_lh_do_send_arg1⁰), _lh_do_send_arg2⁰)
-//│ 	in let send_results⁰ = map_lh_₁₉^2161((fun _lh_funcomp_x⁰ -> snd_lh_₂^2162(send_lh_₂^2163(_lh_funcomp_x⁰))), (fun _lh_funcomp_x¹ -> transpose_lh_₃^2169(pad_packets_lh_₂^2170(_lh_funcomp_x¹)))(map_lh_₁₈^2175(make_packet_lh_₂^2176, states1⁰)))
-//│ 	in let pss'⁰ = transpose_lh_₄^2182(send_results⁰)
-//│ 	in zipWith_lh_₄^2185(update_io_lh_₂^2186(_lh_do_send_arg1⁰), pss'⁰, _lh_do_send_arg2⁰)
-//│ def do_sends_lh_₁(_lh_do_sends_arg1¹, _lh_do_sends_arg2¹) = until_lh_₂^2710(acknowledge_lh_₁^2711(_lh_do_sends_arg1¹), do_send_lh_₁^2715(_lh_do_sends_arg1¹), _lh_do_sends_arg2¹)
-//│ def do_sends_lh_₂(_lh_do_sends_arg1⁰, _lh_do_sends_arg2⁰) = until_lh_₃^2615(acknowledge_lh_₂^2616(_lh_do_sends_arg1⁰), do_send_lh_₂^2620(_lh_do_sends_arg1⁰), _lh_do_sends_arg2⁰)
+//│ 	let states1⁰ = map_lh_₁₇(check_depth_lh_₄(_lh_do_send_arg1⁰), _lh_do_send_arg2⁰)
+//│ 	in let send_results⁰ = map_lh_₁₉((fun _lh_funcomp_x⁰ -> snd_lh_₂(send_lh_₂(_lh_funcomp_x⁰))), (fun _lh_funcomp_x¹ -> transpose_lh_₃(pad_packets_lh_₂(_lh_funcomp_x¹)))(map_lh_₁₈(make_packet_lh_₂, states1⁰)))
+//│ 	in let pss'⁰ = transpose_lh_₄(send_results⁰)
+//│ 	in zipWith_lh_₄(update_io_lh_₂(_lh_do_send_arg1⁰), pss'⁰, _lh_do_send_arg2⁰)
+//│ def do_sends_lh_₁(_lh_do_sends_arg1¹, _lh_do_sends_arg2¹) = until_lh_₂(acknowledge_lh_₁(_lh_do_sends_arg1¹), do_send_lh_₁(_lh_do_sends_arg1¹), _lh_do_sends_arg2¹)
+//│ def do_sends_lh_₂(_lh_do_sends_arg1⁰, _lh_do_sends_arg2⁰) = until_lh_₃(acknowledge_lh_₂(_lh_do_sends_arg1⁰), do_send_lh_₂(_lh_do_sends_arg1⁰), _lh_do_sends_arg2⁰)
 //│ def downsweep_lh_₁(_lh_downsweep_arg1⁰, _lh_downsweep_arg2⁰, _lh_downsweep_arg3⁰) = case _lh_downsweep_arg3⁰ of {
 //│ 	Cell _lh_downsweep_Cell_0⁰ => [Cell _lh_downsweep_arg2⁰]
 //│ 	| Node _lh_downsweep_Node_0⁰ _lh_downsweep_Node_1⁰ _lh_downsweep_Node_2⁰ => case _lh_downsweep_Node_0⁰ of {
@@ -457,7 +457,7 @@ testCircsim_nofib $ primId 40
 //│ 			let _lh_matchIdent⁰ = _lh_downsweep_arg1⁰(_lh_downsweep_LH_P2_0⁰, _lh_downsweep_LH_P2_1⁰, _lh_downsweep_arg2⁰)
 //│ 			in case _lh_matchIdent⁰ of {
 //│ 				LH_P2 _lh_downsweep_LH_P2_0¹ _lh_downsweep_LH_P2_1¹ => 
-//│ 					let _lh_matchIdent¹ = [LH_P2 downsweep_lh_₁^99(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_0¹, _lh_downsweep_Node_1⁰) downsweep_lh_₁^106(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_1¹, _lh_downsweep_Node_2⁰)]
+//│ 					let _lh_matchIdent¹ = [LH_P2 downsweep_lh_₁(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_0¹, _lh_downsweep_Node_1⁰) downsweep_lh_₁(_lh_downsweep_arg1⁰, _lh_downsweep_LH_P2_1¹, _lh_downsweep_Node_2⁰)]
 //│ 					in case _lh_matchIdent¹ of {
 //│ 						LH_P2 _lh_downsweep_LH_P2_0² _lh_downsweep_LH_P2_1² => [Node [Unit] _lh_downsweep_LH_P2_0² _lh_downsweep_LH_P2_1²]
 //│ 						| _  => error⁰}
@@ -466,27 +466,27 @@ testCircsim_nofib $ primId 40
 //│ 	| _  => error⁰}
 //│ def drop_lh_₁(_lh_drop_arg1⁰, _lh_drop_arg2⁰) = case _lh_drop_arg2⁰ of {
 //│ 	LH_N  => [LH_N]
-//│ 	| LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰ => if (_lh_drop_arg1⁰ <= 0) then [LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰] else drop_lh_₁^11((_lh_drop_arg1⁰ - 1), _lh_drop_LH_C_1⁰)
+//│ 	| LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰ => if (_lh_drop_arg1⁰ <= 0) then [LH_C _lh_drop_LH_C_0⁰ _lh_drop_LH_C_1⁰] else drop_lh_₁((_lh_drop_arg1⁰ - 1), _lh_drop_LH_C_1⁰)
 //│ 	| _  => error⁰}
 //│ def emptyPacket_lh_₁ = [LH_P8 (0 - 1) (0 - 1) [F] [False] 0 [False] 0 1]
 //│ def emptyPacket_lh_₂ = [LH_P8 (0 - 1) (0 - 1) [F] [False] 0 [False] 0 1]
 //│ def emptyPacket_lh_₃ = [LH_P8 (0 - 1) (0 - 1) [F] [False] 0 [False] 0 1]
 //│ def emptyState_lh_₁ = [PS (0 - 1) [None] (0 - 1) [LH_N] [LH_N]]
-//│ def enumFromTo_lh_₁(a⁷, b³) = if (a⁷ <= b³) then [LH_C a⁷ enumFromTo_lh_₁^3542((a⁷ + 1), b³)] else [LH_N]
-//│ def enumFromTo_lh_₂(a⁵, b²) = if (a⁵ <= b²) then [LH_C a⁵ enumFromTo_lh_₂^3486((a⁵ + 1), b²)] else [LH_N]
-//│ def enumFromTo_lh_₃(a³, b¹) = if (a³ <= b¹) then [LH_C a³ enumFromTo_lh_₃^3226((a³ + 1), b¹)] else [LH_N]
-//│ def enumFromTo_lh_₄(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₄^2550((a⁰ + 1), b⁰)] else [LH_N]
-//│ def enumFrom_lh_₁(a⁶) = lazy⁰([LH_C a⁶ enumFrom_lh_₁^3526((a⁶ + 1))])
-//│ def enumFrom_lh_₂(a⁴) = lazy⁰([LH_C a⁴ enumFrom_lh_₂^3254((a⁴ + 1))])
+//│ def enumFromTo_lh_₁(a⁷, b³) = if (a⁷ <= b³) then [LH_C a⁷ enumFromTo_lh_₁((a⁷ + 1), b³)] else [LH_N]
+//│ def enumFromTo_lh_₂(a⁵, b²) = if (a⁵ <= b²) then [LH_C a⁵ enumFromTo_lh_₂((a⁵ + 1), b²)] else [LH_N]
+//│ def enumFromTo_lh_₃(a³, b¹) = if (a³ <= b¹) then [LH_C a³ enumFromTo_lh_₃((a³ + 1), b¹)] else [LH_N]
+//│ def enumFromTo_lh_₄(a⁰, b⁰) = if (a⁰ <= b⁰) then [LH_C a⁰ enumFromTo_lh_₄((a⁰ + 1), b⁰)] else [LH_N]
+//│ def enumFrom_lh_₁(a⁶) = lazy⁰([LH_C a⁶ enumFrom_lh_₁((a⁶ + 1))])
+//│ def enumFrom_lh_₂(a⁴) = lazy⁰([LH_C a⁴ enumFrom_lh_₂((a⁴ + 1))])
 //│ def foldl_lh_₁(f²¹, i¹, ls²⁰) = case ls²⁰ of {
-//│ 	LH_C h²⁰ t²⁰ => foldl_lh_₁^2528(f²¹, f²¹(i¹, h²⁰), t²⁰)
+//│ 	LH_C h²⁰ t²⁰ => foldl_lh_₁(f²¹, f²¹(i¹, h²⁰), t²⁰)
 //│ 	| LH_N  => i¹}
 //│ def foldr_lh_₁(f¹, i⁰, ls¹) = case ls¹ of {
-//│ 	LH_C h¹ t¹ => f¹(h¹, foldr_lh_₁^618(f¹, i⁰, t¹))
+//│ 	LH_C h¹ t¹ => f¹(h¹, foldr_lh_₁(f¹, i⁰, t¹))
 //│ 	| LH_N  => i⁰}
 //│ def get_lh_₁(_lh_get_arg1⁰) = case _lh_get_arg1⁰ of {
 //│ 	Cell _lh_get_Cell_0⁰ => [LH_C _lh_get_Cell_0⁰ [LH_N]]
-//│ 	| Node _lh_get_Node_0⁰ _lh_get_Node_1⁰ _lh_get_Node_2⁰ => mappend_lh_₃^254(get_lh_₁^255(_lh_get_Node_1⁰), get_lh_₁^259(_lh_get_Node_2⁰))
+//│ 	| Node _lh_get_Node_0⁰ _lh_get_Node_1⁰ _lh_get_Node_2⁰ => mappend_lh_₃(get_lh_₁(_lh_get_Node_1⁰), get_lh_₁(_lh_get_Node_2⁰))
 //│ 	| _  => error⁰}
 //│ def head_lh_₁(ls²⁶) = case ls²⁶ of {
 //│ 	LH_C h²⁶ t²⁶ => h²⁶
@@ -497,7 +497,7 @@ testCircsim_nofib $ primId 40
 //│ def head_lh_₃(ls¹⁸) = case ls¹⁸ of {
 //│ 	LH_C h¹⁸ t¹⁸ => h¹⁸
 //│ 	| LH_N  => error⁰}
-//│ def init_dffs_lh_₁(_lh_init_dffs_arg1⁰) = if polyEq⁰(compType_lh_₁^2915(_lh_init_dffs_arg1⁰), [Dff]) then update_outports_lh_₁^2921(_lh_init_dffs_arg1⁰, [F]) else _lh_init_dffs_arg1⁰
+//│ def init_dffs_lh_₁(_lh_init_dffs_arg1⁰) = if polyEq⁰(compType_lh_₁(_lh_init_dffs_arg1⁰), [Dff]) then update_outports_lh_₁(_lh_init_dffs_arg1⁰, [F]) else _lh_init_dffs_arg1⁰
 //│ def inports_lh_₁(_lh_inports_arg1⁴) = case _lh_inports_arg1⁴ of {
 //│ 	PS _lh_inports_PS_0⁴ _lh_inports_PS_1⁴ _lh_inports_PS_2⁴ _lh_inports_PS_3⁴ _lh_inports_PS_4⁴ => _lh_inports_PS_3⁴
 //│ 	| _  => error⁰}
@@ -515,93 +515,93 @@ testCircsim_nofib $ primId 40
 //│ 	| _  => error⁰}
 //│ def inv_lh_₁(_lh_inv_arg1⁰) = if polyEq⁰(_lh_inv_arg1⁰, [T]) then [F] else [T]
 //│ def length_lh_₁(ls³) = case ls³ of {
-//│ 	LH_C h³ t³ => (1 + length_lh_₁^748(t³))
+//│ 	LH_C h³ t³ => (1 + length_lh_₁(t³))
 //│ 	| LH_N  => 0}
 //│ def make_packet_lh_₁(_lh_make_packet_arg1¹) = 
 //│ 	let _lh_listcomp_fun⁸ = (fun _lh_listcomp_fun_para⁸ -> case _lh_listcomp_fun_para⁸ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁸ _lh_listcomp_fun_ls_t⁸ => case _lh_listcomp_fun_ls_h⁸ of {
-//│ 			LH_P6 _lh_make_packet_LH_P6_0¹ _lh_make_packet_LH_P6_1¹ _lh_make_packet_LH_P6_2¹ _lh_make_packet_LH_P6_3¹ _lh_make_packet_LH_P6_4¹ _lh_make_packet_LH_P6_5¹ => [LH_C [LH_P8 pid_lh_₄^1892(_lh_make_packet_arg1¹) _lh_make_packet_LH_P6_0¹ _lh_make_packet_LH_P6_1¹ _lh_make_packet_LH_P6_2¹ _lh_make_packet_LH_P6_3¹ _lh_make_packet_LH_P6_4¹ _lh_make_packet_LH_P6_5¹ 1] _lh_listcomp_fun⁸(_lh_listcomp_fun_ls_t⁸)]
+//│ 			LH_P6 _lh_make_packet_LH_P6_0¹ _lh_make_packet_LH_P6_1¹ _lh_make_packet_LH_P6_2¹ _lh_make_packet_LH_P6_3¹ _lh_make_packet_LH_P6_4¹ _lh_make_packet_LH_P6_5¹ => [LH_C [LH_P8 pid_lh_₄(_lh_make_packet_arg1¹) _lh_make_packet_LH_P6_0¹ _lh_make_packet_LH_P6_1¹ _lh_make_packet_LH_P6_2¹ _lh_make_packet_LH_P6_3¹ _lh_make_packet_LH_P6_4¹ _lh_make_packet_LH_P6_5¹ 1] _lh_listcomp_fun⁸(_lh_listcomp_fun_ls_t⁸)]
 //│ 			| _  => _lh_listcomp_fun⁸(_lh_listcomp_fun_ls_t⁸)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun⁸(outports_lh_₇^1915(_lh_make_packet_arg1¹))
+//│ 	in _lh_listcomp_fun⁸(outports_lh_₇(_lh_make_packet_arg1¹))
 //│ def make_packet_lh_₂(_lh_make_packet_arg1⁰) = 
 //│ 	let _lh_listcomp_fun⁴ = (fun _lh_listcomp_fun_para⁴ -> case _lh_listcomp_fun_para⁴ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁴ _lh_listcomp_fun_ls_t⁴ => case _lh_listcomp_fun_ls_h⁴ of {
-//│ 			LH_P6 _lh_make_packet_LH_P6_0⁰ _lh_make_packet_LH_P6_1⁰ _lh_make_packet_LH_P6_2⁰ _lh_make_packet_LH_P6_3⁰ _lh_make_packet_LH_P6_4⁰ _lh_make_packet_LH_P6_5⁰ => [LH_C [LH_P8 pid_lh_₄^1347(_lh_make_packet_arg1⁰) _lh_make_packet_LH_P6_0⁰ _lh_make_packet_LH_P6_1⁰ _lh_make_packet_LH_P6_2⁰ _lh_make_packet_LH_P6_3⁰ _lh_make_packet_LH_P6_4⁰ _lh_make_packet_LH_P6_5⁰ 1] _lh_listcomp_fun⁴(_lh_listcomp_fun_ls_t⁴)]
+//│ 			LH_P6 _lh_make_packet_LH_P6_0⁰ _lh_make_packet_LH_P6_1⁰ _lh_make_packet_LH_P6_2⁰ _lh_make_packet_LH_P6_3⁰ _lh_make_packet_LH_P6_4⁰ _lh_make_packet_LH_P6_5⁰ => [LH_C [LH_P8 pid_lh_₄(_lh_make_packet_arg1⁰) _lh_make_packet_LH_P6_0⁰ _lh_make_packet_LH_P6_1⁰ _lh_make_packet_LH_P6_2⁰ _lh_make_packet_LH_P6_3⁰ _lh_make_packet_LH_P6_4⁰ _lh_make_packet_LH_P6_5⁰ 1] _lh_listcomp_fun⁴(_lh_listcomp_fun_ls_t⁴)]
 //│ 			| _  => _lh_listcomp_fun⁴(_lh_listcomp_fun_ls_t⁴)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun⁴(outports_lh_₉^1370(_lh_make_packet_arg1⁰))
+//│ 	in _lh_listcomp_fun⁴(outports_lh_₉(_lh_make_packet_arg1⁰))
 //│ def map_lh_₁(f²⁹, ls³⁰) = case ls³⁰ of {
-//│ 	LH_C h³⁴ t³⁴ => [LH_C f²⁹(h³⁴) map_lh_₁^3560(f²⁹, t³⁴)]
+//│ 	LH_C h³⁴ t³⁴ => [LH_C f²⁹(h³⁴) map_lh_₁(f²⁹, t³⁴)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₀(f¹⁵, ls¹⁵) = case ls¹⁵ of {
-//│ 	LH_C h¹⁵ t¹⁵ => [LH_C f¹⁵(h¹⁵) map_lh_₁₀^2016(f¹⁵, t¹⁵)]
+//│ 	LH_C h¹⁵ t¹⁵ => [LH_C f¹⁵(h¹⁵) map_lh_₁₀(f¹⁵, t¹⁵)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₁(f¹⁴, ls¹⁴) = case ls¹⁴ of {
-//│ 	LH_C h¹⁴ t¹⁴ => [LH_C f¹⁴(h¹⁴) map_lh_₁₁^1985(f¹⁴, t¹⁴)]
+//│ 	LH_C h¹⁴ t¹⁴ => [LH_C f¹⁴(h¹⁴) map_lh_₁₁(f¹⁴, t¹⁴)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₂(f¹³, ls¹³) = case ls¹³ of {
-//│ 	LH_C h¹³ t¹³ => [LH_C f¹³(h¹³) map_lh_₁₂^1971(f¹³, t¹³)]
+//│ 	LH_C h¹³ t¹³ => [LH_C f¹³(h¹³) map_lh_₁₂(f¹³, t¹³)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₃(f¹¹, ls¹²) = case ls¹² of {
-//│ 	LH_C h¹² t¹² => [LH_C f¹¹(h¹²) map_lh_₁₃^1783(f¹¹, t¹²)]
+//│ 	LH_C h¹² t¹² => [LH_C f¹¹(h¹²) map_lh_₁₃(f¹¹, t¹²)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₄(f¹⁰, ls¹¹) = case ls¹¹ of {
-//│ 	LH_C h¹¹ t¹¹ => [LH_C f¹⁰(h¹¹) map_lh_₁₄^1550(f¹⁰, t¹¹)]
+//│ 	LH_C h¹¹ t¹¹ => [LH_C f¹⁰(h¹¹) map_lh_₁₄(f¹⁰, t¹¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₅(f⁹, ls¹⁰) = case ls¹⁰ of {
-//│ 	LH_C h¹⁰ t¹⁰ => [LH_C f⁹(h¹⁰) map_lh_₁₅^1520(f⁹, t¹⁰)]
+//│ 	LH_C h¹⁰ t¹⁰ => [LH_C f⁹(h¹⁰) map_lh_₁₅(f⁹, t¹⁰)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₆(f⁸, ls⁹) = case ls⁹ of {
-//│ 	LH_C h⁹ t⁹ => [LH_C f⁸(h⁹) map_lh_₁₆^1506(f⁸, t⁹)]
+//│ 	LH_C h⁹ t⁹ => [LH_C f⁸(h⁹) map_lh_₁₆(f⁸, t⁹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₇(f⁷, ls⁸) = case ls⁸ of {
-//│ 	LH_C h⁸ t⁸ => [LH_C f⁷(h⁸) map_lh_₁₇^1476(f⁷, t⁸)]
+//│ 	LH_C h⁸ t⁸ => [LH_C f⁷(h⁸) map_lh_₁₇(f⁷, t⁸)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₈(f⁶, ls⁷) = case ls⁷ of {
-//│ 	LH_C h⁷ t⁷ => [LH_C f⁶(h⁷) map_lh_₁₈^1462(f⁶, t⁷)]
+//│ 	LH_C h⁷ t⁷ => [LH_C f⁶(h⁷) map_lh_₁₈(f⁶, t⁷)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₁₉(f⁵, ls⁶) = case ls⁶ of {
-//│ 	LH_C h⁶ t⁶ => [LH_C f⁵(h⁶) map_lh_₁₉^1448(f⁵, t⁶)]
+//│ 	LH_C h⁶ t⁶ => [LH_C f⁵(h⁶) map_lh_₁₉(f⁵, t⁶)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f²⁶, ls²⁹) = case ls²⁹ of {
-//│ 	LH_C h³⁰ t³⁰ => [LH_C f²⁶(h³⁰) map_lh_₂^3186(f²⁶, t³⁰)]
+//│ 	LH_C h³⁰ t³⁰ => [LH_C f²⁶(h³⁰) map_lh_₂(f²⁶, t³⁰)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂₀(f³, ls⁵) = case ls⁵ of {
-//│ 	LH_C h⁵ t⁵ => [LH_C f³(h⁵) map_lh_₂₀^814(f³, t⁵)]
+//│ 	LH_C h⁵ t⁵ => [LH_C f³(h⁵) map_lh_₂₀(f³, t⁵)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂₁(f², ls⁴) = case ls⁴ of {
-//│ 	LH_C h⁴ t⁴ => [LH_C f²(h⁴) map_lh_₂₁^800(f², t⁴)]
+//│ 	LH_C h⁴ t⁴ => [LH_C f²(h⁴) map_lh_₂₁(f², t⁴)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₃(f²⁵, ls²⁷) = case ls²⁷ of {
-//│ 	LH_C h²⁷ t²⁷ => [LH_C f²⁵(h²⁷) map_lh_₃^2973(f²⁵, t²⁷)]
+//│ 	LH_C h²⁷ t²⁷ => [LH_C f²⁵(h²⁷) map_lh_₃(f²⁵, t²⁷)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₄(f²⁴, ls²⁴) = case ls²⁴ of {
-//│ 	LH_C h²⁴ t²⁴ => [LH_C f²⁴(h²⁴) map_lh_₄^2944(f²⁴, t²⁴)]
+//│ 	LH_C h²⁴ t²⁴ => [LH_C f²⁴(h²⁴) map_lh_₄(f²⁴, t²⁴)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₅(f²³, ls²²) = case ls²² of {
-//│ 	LH_C h²² t²² => [LH_C f²³(h²²) map_lh_₅^2764(f²³, t²²)]
+//│ 	LH_C h²² t²² => [LH_C f²³(h²²) map_lh_₅(f²³, t²²)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₆(f²², ls²¹) = case ls²¹ of {
-//│ 	LH_C h²¹ t²¹ => [LH_C f²²(h²¹) map_lh_₆^2632(f²², t²¹)]
+//│ 	LH_C h²¹ t²¹ => [LH_C f²²(h²¹) map_lh_₆(f²², t²¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₇(f¹⁸, ls¹⁹) = case ls¹⁹ of {
-//│ 	LH_C h¹⁹ t¹⁹ => [LH_C f¹⁸(h¹⁹) map_lh_₇^2322(f¹⁸, t¹⁹)]
+//│ 	LH_C h¹⁹ t¹⁹ => [LH_C f¹⁸(h¹⁹) map_lh_₇(f¹⁸, t¹⁹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₈(f¹⁷, ls¹⁷) = case ls¹⁷ of {
-//│ 	LH_C h¹⁷ t¹⁷ => [LH_C f¹⁷(h¹⁷) map_lh_₈^2087(f¹⁷, t¹⁷)]
+//│ 	LH_C h¹⁷ t¹⁷ => [LH_C f¹⁷(h¹⁷) map_lh_₈(f¹⁷, t¹⁷)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₉(f¹⁶, ls¹⁶) = case ls¹⁶ of {
-//│ 	LH_C h¹⁶ t¹⁶ => [LH_C f¹⁶(h¹⁶) map_lh_₉^2030(f¹⁶, t¹⁶)]
+//│ 	LH_C h¹⁶ t¹⁶ => [LH_C f¹⁶(h¹⁶) map_lh_₉(f¹⁶, t¹⁶)]
 //│ 	| LH_N  => [LH_N]}
 //│ def mappend_lh_₁(xs¹¹, ys⁹) = case xs¹¹ of {
-//│ 	LH_C h³³ t³³ => [LH_C h³³ mappend_lh_₁^3470(t³³, ys⁹)]
+//│ 	LH_C h³³ t³³ => [LH_C h³³ mappend_lh_₁(t³³, ys⁹)]
 //│ 	| LH_N  => ys⁹}
 //│ def mappend_lh_₂(xs¹⁰, ys⁸) = case xs¹⁰ of {
-//│ 	LH_C h³¹ t³¹ => [LH_C h³¹ mappend_lh_₂^3242(t³¹, ys⁸)]
+//│ 	LH_C h³¹ t³¹ => [LH_C h³¹ mappend_lh_₂(t³¹, ys⁸)]
 //│ 	| LH_N  => ys⁸}
 //│ def mappend_lh_₃(xs⁸, ys⁶) = case xs⁸ of {
-//│ 	LH_C h²⁸ t²⁸ => [LH_C h²⁸ mappend_lh_₃^2990(t²⁸, ys⁶)]
+//│ 	LH_C h²⁸ t²⁸ => [LH_C h²⁸ mappend_lh_₃(t²⁸, ys⁶)]
 //│ 	| LH_N  => ys⁶}
 //│ def maximum_lh_₁(_lh_maximum_arg1¹) = case _lh_maximum_arg1¹ of {
 //│ 	LH_C _lh_maximum_LH_C_0¹ _lh_maximum_LH_C_1¹ => 
@@ -619,23 +619,23 @@ testCircsim_nofib $ primId 40
 //│ 			| _  => error⁰}))
 //│ 		in go⁰(_lh_maximum_LH_C_0⁰, _lh_maximum_LH_C_1⁰)
 //│ 	| _  => error⁰}
-//│ def nearest_power_of_two_lh_₁(_lh_nearest_power_of_two_arg1⁰) = until_lh_₁^3049((fun a¹ -> (a¹ >= _lh_nearest_power_of_two_arg1⁰)), (fun a² -> (a² * 2)), 1)
+//│ def nearest_power_of_two_lh_₁(_lh_nearest_power_of_two_arg1⁰) = until_lh_₁((fun a¹ -> (a¹ >= _lh_nearest_power_of_two_arg1⁰)), (fun a² -> (a² * 2)), 1)
 //│ def or2_lh_₁(_lh_or2_arg1⁰, _lh_or2_arg2⁰) = if (polyEq⁰(_lh_or2_arg1⁰, [T]) || polyEq⁰(_lh_or2_arg2⁰, [T])) then [T] else [F]
 //│ def or_lh_₁(_lh_or_arg1³) = case _lh_or_arg1³ of {
 //│ 	LH_N  => [False]
-//│ 	| LH_C _lh_or_LH_C_0³ _lh_or_LH_C_1³ => if _lh_or_LH_C_0³ then [True] else or_lh_₁^2060(_lh_or_LH_C_1³)
+//│ 	| LH_C _lh_or_LH_C_0³ _lh_or_LH_C_1³ => if _lh_or_LH_C_0³ then [True] else or_lh_₁(_lh_or_LH_C_1³)
 //│ 	| _  => error⁰}
 //│ def or_lh_₂(_lh_or_arg1²) = case _lh_or_arg1² of {
 //│ 	LH_N  => [False]
-//│ 	| LH_C _lh_or_LH_C_0² _lh_or_LH_C_1² => if _lh_or_LH_C_0² then [True] else or_lh_₂^2049(_lh_or_LH_C_1²)
+//│ 	| LH_C _lh_or_LH_C_0² _lh_or_LH_C_1² => if _lh_or_LH_C_0² then [True] else or_lh_₂(_lh_or_LH_C_1²)
 //│ 	| _  => error⁰}
 //│ def or_lh_₃(_lh_or_arg1¹) = case _lh_or_arg1¹ of {
 //│ 	LH_N  => [False]
-//│ 	| LH_C _lh_or_LH_C_0¹ _lh_or_LH_C_1¹ => if _lh_or_LH_C_0¹ then [True] else or_lh_₃^1564(_lh_or_LH_C_1¹)
+//│ 	| LH_C _lh_or_LH_C_0¹ _lh_or_LH_C_1¹ => if _lh_or_LH_C_0¹ then [True] else or_lh_₃(_lh_or_LH_C_1¹)
 //│ 	| _  => error⁰}
 //│ def or_lh_₄(_lh_or_arg1⁰) = case _lh_or_arg1⁰ of {
 //│ 	LH_N  => [False]
-//│ 	| LH_C _lh_or_LH_C_0⁰ _lh_or_LH_C_1⁰ => if _lh_or_LH_C_0⁰ then [True] else or_lh_₄^1534(_lh_or_LH_C_1⁰)
+//│ 	| LH_C _lh_or_LH_C_0⁰ _lh_or_LH_C_1⁰ => if _lh_or_LH_C_0⁰ then [True] else or_lh_₄(_lh_or_LH_C_1⁰)
 //│ 	| _  => error⁰}
 //│ def outports_lh_₁(_lh_outports_arg1⁸) = case _lh_outports_arg1⁸ of {
 //│ 	PS _lh_outports_PS_0⁸ _lh_outports_PS_1⁸ _lh_outports_PS_2⁸ _lh_outports_PS_3⁸ _lh_outports_PS_4⁸ => _lh_outports_PS_4⁸
@@ -666,19 +666,19 @@ testCircsim_nofib $ primId 40
 //│ 	| _  => error⁰}
 //│ def pad_circuit_lh_₁(_lh_pad_circuit_arg1⁰) = case _lh_pad_circuit_arg1⁰ of {
 //│ 	LH_P4 _lh_pad_circuit_LH_P4_0⁰ _lh_pad_circuit_LH_P4_1⁰ _lh_pad_circuit_LH_P4_2⁰ _lh_pad_circuit_LH_P4_3⁰ => 
-//│ 		let p2⁰ = nearest_power_of_two_lh_₁^3611(_lh_pad_circuit_LH_P4_0⁰)
-//│ 		in [LH_P4 p2⁰ _lh_pad_circuit_LH_P4_1⁰ _lh_pad_circuit_LH_P4_2⁰ take_lz_lh_₁^3617(p2⁰, append__lz_lh_₁^3620(_lh_pad_circuit_LH_P4_3⁰, copy_lz_lh_₁^3623(p2⁰, emptyState_lh_₁^3626)))]
+//│ 		let p2⁰ = nearest_power_of_two_lh_₁(_lh_pad_circuit_LH_P4_0⁰)
+//│ 		in [LH_P4 p2⁰ _lh_pad_circuit_LH_P4_1⁰ _lh_pad_circuit_LH_P4_2⁰ take_lz_lh_₁(p2⁰, append__lz_lh_₁(_lh_pad_circuit_LH_P4_3⁰, copy_lz_lh_₁(p2⁰, emptyState_lh_₁)))]
 //│ 	| _  => error⁰}
 //│ def pad_packets_lh_₁(_lh_pad_packets_arg1¹) = 
 //│ 	let pad¹ = (fun xs⁴ -> 
-//│ 		let max_ps¹ = maximum_lh_₂^1861(map_lh_₂₁^1862(length_lh_₁^1863, _lh_pad_packets_arg1¹))
-//│ 		in take_lz_lh_₂^1868(max_ps¹, append__lz_lh_₂^1871(xs⁴, copy_lz_lh_₂^1874(max_ps¹, emptyPacket_lh_₃^1877))))
-//│ 	in map_lh_₂₀^1883(pad¹, _lh_pad_packets_arg1¹)
+//│ 		let max_ps¹ = maximum_lh_₂(map_lh_₂₁(length_lh_₁, _lh_pad_packets_arg1¹))
+//│ 		in take_lz_lh_₂(max_ps¹, append__lz_lh_₂(xs⁴, copy_lz_lh_₂(max_ps¹, emptyPacket_lh_₃))))
+//│ 	in map_lh_₂₀(pad¹, _lh_pad_packets_arg1¹)
 //│ def pad_packets_lh_₂(_lh_pad_packets_arg1⁰) = 
 //│ 	let pad⁰ = (fun xs¹ -> 
-//│ 		let max_ps⁰ = maximum_lh_₂^1248(map_lh_₂₁^1249(length_lh_₁^1250, _lh_pad_packets_arg1⁰))
-//│ 		in take_lz_lh_₂^1255(max_ps⁰, append__lz_lh_₂^1258(xs¹, copy_lz_lh_₂^1261(max_ps⁰, emptyPacket_lh_₃^1264))))
-//│ 	in map_lh_₂₁^1270(pad⁰, _lh_pad_packets_arg1⁰)
+//│ 		let max_ps⁰ = maximum_lh_₂(map_lh_₂₁(length_lh_₁, _lh_pad_packets_arg1⁰))
+//│ 		in take_lz_lh_₂(max_ps⁰, append__lz_lh_₂(xs¹, copy_lz_lh_₂(max_ps⁰, emptyPacket_lh_₃))))
+//│ 	in map_lh_₂₁(pad⁰, _lh_pad_packets_arg1⁰)
 //│ def pathDepth_lh_₁(_lh_pathDepth_arg1⁷) = case _lh_pathDepth_arg1⁷ of {
 //│ 	PS _lh_pathDepth_PS_0⁷ _lh_pathDepth_PS_1⁷ _lh_pathDepth_PS_2⁷ _lh_pathDepth_PS_3⁷ _lh_pathDepth_PS_4⁷ => _lh_pathDepth_PS_2⁷
 //│ 	| _  => error⁰}
@@ -719,54 +719,54 @@ testCircsim_nofib $ primId 40
 //│ 	LH_C _lh_put_LH_C_0⁰ _lh_put_LH_C_1⁰ => case _lh_put_LH_C_1⁰ of {
 //│ 		LH_N  => [Cell _lh_put_LH_C_0⁰]
 //│ 		| _  => 
-//│ 			let _lh_matchIdent⁴ = splitAt_lh_₁^270(div⁰(length_lh_₁^272(_lh_put_arg1⁰), 2), _lh_put_arg1⁰)
+//│ 			let _lh_matchIdent⁴ = splitAt_lh_₁(div⁰(length_lh_₁(_lh_put_arg1⁰), 2), _lh_put_arg1⁰)
 //│ 			in case _lh_matchIdent⁴ of {
-//│ 				LH_P2 _lh_put_LH_P2_0⁰ _lh_put_LH_P2_1⁰ => [Node [Unit] put_lh_₁^283(_lh_put_LH_P2_0⁰) put_lh_₁^286(_lh_put_LH_P2_1⁰)]
+//│ 				LH_P2 _lh_put_LH_P2_0⁰ _lh_put_LH_P2_1⁰ => [Node [Unit] put_lh_₁(_lh_put_LH_P2_0⁰) put_lh_₁(_lh_put_LH_P2_1⁰)]
 //│ 				| _  => error⁰}}
 //│ 	| _  => 
-//│ 		let _lh_matchIdent⁵ = splitAt_lh_₁^294(div⁰(length_lh_₁^296(_lh_put_arg1⁰), 2), _lh_put_arg1⁰)
+//│ 		let _lh_matchIdent⁵ = splitAt_lh_₁(div⁰(length_lh_₁(_lh_put_arg1⁰), 2), _lh_put_arg1⁰)
 //│ 		in case _lh_matchIdent⁵ of {
-//│ 			LH_P2 _lh_put_LH_P2_0¹ _lh_put_LH_P2_1¹ => [Node [Unit] put_lh_₁^307(_lh_put_LH_P2_0¹) put_lh_₁^310(_lh_put_LH_P2_1¹)]
+//│ 			LH_P2 _lh_put_LH_P2_0¹ _lh_put_LH_P2_1¹ => [Node [Unit] put_lh_₁(_lh_put_LH_P2_0¹) put_lh_₁(_lh_put_LH_P2_1¹)]
 //│ 			| _  => error⁰}}
 //│ def reg_lh_₁(_lh_reg_arg1⁰, _lh_reg_arg2⁰) = [LH_C [PS _lh_reg_arg2⁰ [Inp] 0 [LH_N] [LH_C [LH_P6 0 [F] [False] 0 [True] 4] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 1) [Dff] 1 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 5) 0 [F]] [LH_N]] [LH_C [LH_P6 0 [F] [False] 0 [True] 5] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 2) [Inv] 1 [LH_C [LH_P3 _lh_reg_arg1⁰ 0 [F]] [LH_N]] [LH_C [LH_P6 0 [F] [False] 0 [True] 1] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 3) [And2] 2 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 1) 0 [F]] [LH_C [LH_P3 (_lh_reg_arg2⁰ + 2) 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [False] 0 [True] 2] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 4) [And2] 1 [LH_C [LH_P3 _lh_reg_arg1⁰ 0 [F]] [LH_C [LH_P3 _lh_reg_arg2⁰ 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [False] 0 [True] 1] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 5) [Or2] 3 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 3) 0 [F]] [LH_C [LH_P3 (_lh_reg_arg2⁰ + 4) 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [True] 4 [False] 0] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 6) [Outp] 4 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 1) 0 [F]] [LH_N]] [LH_N]] [LH_N]]]]]]]]
 //│ def regs_lh_₁(_lh_regs_arg1⁰) = 
-//│ 	let ilabel⁰ = (fun _lh_ilabel_arg1⁰ -> (fun _lh_ilabel_arg2⁰ -> [LH_P2 mappend_lh_₂^3646([LH_C 'x' [LH_N]], string_of_int⁰(_lh_ilabel_arg1⁰)) _lh_ilabel_arg2⁰]))
-//│ 	and olabel⁰ = (fun _lh_olabel_arg1⁰ -> (fun _lh_olabel_arg2⁰ -> [LH_P2 mappend_lh_₁^3659([LH_C 'y' [LH_N]], string_of_int⁰(_lh_olabel_arg1⁰)) _lh_olabel_arg2⁰])) 
-//│ 	in let is⁰ = [LH_C [LH_P2 [LH_C 's' [LH_C 't' [LH_C 'o' [LH_N]]]] 0] zipWith_lz_nl_lh_₁^3681(ilabel⁰, enumFrom_lh_₂^3684(0), 
+//│ 	let ilabel⁰ = (fun _lh_ilabel_arg1⁰ -> (fun _lh_ilabel_arg2⁰ -> [LH_P2 mappend_lh_₂([LH_C 'x' [LH_N]], string_of_int⁰(_lh_ilabel_arg1⁰)) _lh_ilabel_arg2⁰]))
+//│ 	and olabel⁰ = (fun _lh_olabel_arg1⁰ -> (fun _lh_olabel_arg2⁰ -> [LH_P2 mappend_lh_₁([LH_C 'y' [LH_N]], string_of_int⁰(_lh_olabel_arg1⁰)) _lh_olabel_arg2⁰])) 
+//│ 	in let is⁰ = [LH_C [LH_P2 [LH_C 's' [LH_C 't' [LH_C 'o' [LH_N]]]] 0] zipWith_lz_nl_lh_₁(ilabel⁰, enumFrom_lh_₂(0), 
 //│ 		let _lh_listcomp_fun¹⁵ = (fun _lh_listcomp_fun_para¹⁵ -> case _lh_listcomp_fun_para¹⁵ of {
 //│ 			LH_C _lh_listcomp_fun_ls_h¹⁵ _lh_listcomp_fun_ls_t¹⁵ => [LH_C ((7 * _lh_listcomp_fun_ls_h¹⁵) + 1) _lh_listcomp_fun¹⁵(_lh_listcomp_fun_ls_t¹⁵)]
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun¹⁵(enumFromTo_lh_₁^3706(0, (_lh_regs_arg1⁰ - 1))))]
-//│ 	in let os⁰ = zipWith_lz_nl_lh_₂^3719(olabel⁰, enumFrom_lh_₁^3722(0), 
+//│ 		in _lh_listcomp_fun¹⁵(enumFromTo_lh_₁(0, (_lh_regs_arg1⁰ - 1))))]
+//│ 	in let os⁰ = zipWith_lz_nl_lh_₂(olabel⁰, enumFrom_lh_₁(0), 
 //│ 		let _lh_listcomp_fun¹⁶ = (fun _lh_listcomp_fun_para¹⁶ -> case _lh_listcomp_fun_para¹⁶ of {
 //│ 			LH_C _lh_listcomp_fun_ls_h¹⁶ _lh_listcomp_fun_ls_t¹⁶ => [LH_C ((7 * _lh_listcomp_fun_ls_h¹⁶) + 7) _lh_listcomp_fun¹⁶(_lh_listcomp_fun_ls_t¹⁶)]
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun¹⁶(enumFromTo_lh_₂^3744(0, (_lh_regs_arg1⁰ - 1))))
+//│ 		in _lh_listcomp_fun¹⁶(enumFromTo_lh_₂(0, (_lh_regs_arg1⁰ - 1))))
 //│ 	in let sto⁰ = [PS 0 [Inp] 0 [LH_N] [LH_C [LH_P6 0 [F] [False] 0 [True] ((8 * (_lh_regs_arg1⁰ - 1)) + 5)] [LH_N]]]
-//│ 	in let states⁰ = [LH_C sto⁰ concat_lh_₁^3783(map_lh_₁^3784(reg_lh_₁^3785(0), 
+//│ 	in let states⁰ = [LH_C sto⁰ concat_lh_₁(map_lh_₁(reg_lh_₁(0), 
 //│ 		let _lh_listcomp_fun¹⁷ = (fun _lh_listcomp_fun_para¹⁷ -> case _lh_listcomp_fun_para¹⁷ of {
 //│ 			LH_C _lh_listcomp_fun_ls_h¹⁷ _lh_listcomp_fun_ls_t¹⁷ => [LH_C ((7 * _lh_listcomp_fun_ls_h¹⁷) + 1) _lh_listcomp_fun¹⁷(_lh_listcomp_fun_ls_t¹⁷)]
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun¹⁷(enumFromTo_lh_₃^3807(0, (_lh_regs_arg1⁰ - 1)))))]
+//│ 		in _lh_listcomp_fun¹⁷(enumFromTo_lh_₃(0, (_lh_regs_arg1⁰ - 1)))))]
 //│ 	in [LH_P4 (1 + (7 * _lh_regs_arg1⁰)) is⁰ os⁰ states⁰]
 //│ def restore_requests_lh_₁(_lh_restore_requests_arg1⁰, _lh_restore_requests_arg2⁰) = 
-//│ 	let restore⁰ = (fun _lh_restore_arg1⁰ -> (fun _lh_restore_arg2⁰ -> updateOutports_lh_₂^2668(_lh_restore_arg2⁰, zipWith_lh_₁^2671(restore_outport⁰, outports_lh_₂^2674(_lh_restore_arg1⁰), outports_lh_₃^2678(_lh_restore_arg2⁰)))))
+//│ 	let restore⁰ = (fun _lh_restore_arg1⁰ -> (fun _lh_restore_arg2⁰ -> updateOutports_lh_₂(_lh_restore_arg2⁰, zipWith_lh_₁(restore_outport⁰, outports_lh_₂(_lh_restore_arg1⁰), outports_lh_₃(_lh_restore_arg2⁰)))))
 //│ 	and restore_outport⁰ = (fun _lh_restore_outport_arg1⁰ -> (fun _lh_restore_outport_arg2⁰ -> case _lh_restore_outport_arg1⁰ of {
 //│ 			LH_P6 _lh_restore_outport_LH_P6_0⁰ _lh_restore_outport_LH_P6_1⁰ _lh_restore_outport_LH_P6_2⁰ _lh_restore_outport_LH_P6_3⁰ _lh_restore_outport_LH_P6_4⁰ _lh_restore_outport_LH_P6_5⁰ => case _lh_restore_outport_arg2⁰ of {
 //│ 				LH_P6 _lh_restore_outport_LH_P6_0¹ _lh_restore_outport_LH_P6_1¹ _lh_restore_outport_LH_P6_2¹ _lh_restore_outport_LH_P6_3¹ _lh_restore_outport_LH_P6_4¹ _lh_restore_outport_LH_P6_5¹ => [LH_P6 _lh_restore_outport_LH_P6_0⁰ _lh_restore_outport_LH_P6_1¹ _lh_restore_outport_LH_P6_2⁰ _lh_restore_outport_LH_P6_3⁰ _lh_restore_outport_LH_P6_4⁰ _lh_restore_outport_LH_P6_5⁰]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰})) 
-//│ 	in zipWith_lh_₂^2700(restore⁰, _lh_restore_requests_arg1⁰, _lh_restore_requests_arg2⁰)
+//│ 	in zipWith_lh_₂(restore⁰, _lh_restore_requests_arg1⁰, _lh_restore_requests_arg2⁰)
 //│ def run_lh_₁(_lh_run_arg1⁰, _lh_run_arg2⁰) = 
-//│ 	let example⁰ = pad_circuit_lh_₁^3840(regs_lh_₁^3841(_lh_run_arg1⁰))
-//│ 	in let inputs⁰ = copy_lh_₂^3845((_lh_run_arg1⁰ + 1), [T])
-//│ 	in let cycles⁰ = copy_lh_₁^3854(_lh_run_arg2⁰, inputs⁰)
-//│ 	in circuit_simulate_lh_₁^3859(cycles⁰, example⁰)
+//│ 	let example⁰ = pad_circuit_lh_₁(regs_lh_₁(_lh_run_arg1⁰))
+//│ 	in let inputs⁰ = copy_lh_₂((_lh_run_arg1⁰ + 1), [T])
+//│ 	in let cycles⁰ = copy_lh_₁(_lh_run_arg2⁰, inputs⁰)
+//│ 	in circuit_simulate_lh_₁(cycles⁰, example⁰)
 //│ def scanl_lh_₁(_lh_scanl_arg1⁰, _lh_scanl_arg2⁰, _lh_scanl_arg3⁰) = [LH_C _lh_scanl_arg2⁰ 
 //│ 	let _lh_matchIdent²⁰ = _lh_scanl_arg3⁰
 //│ 	in case _lh_matchIdent²⁰ of {
 //│ 		LH_N  => [LH_N]
-//│ 		| LH_C _lh_scanl_LH_C_0⁰ _lh_scanl_LH_C_1⁰ => scanl_lh_₁^2896(_lh_scanl_arg1⁰, _lh_scanl_arg1⁰(_lh_scanl_arg2⁰, _lh_scanl_LH_C_0⁰), _lh_scanl_LH_C_1⁰)
+//│ 		| LH_C _lh_scanl_LH_C_0⁰ _lh_scanl_LH_C_1⁰ => scanl_lh_₁(_lh_scanl_arg1⁰, _lh_scanl_arg1⁰(_lh_scanl_arg2⁰, _lh_scanl_LH_C_0⁰), _lh_scanl_LH_C_1⁰)
 //│ 		| _  => error⁰}]
 //│ def scanlr_lh_₁(_lh_scanlr_arg1⁰, _lh_scanlr_arg2⁰, _lh_scanlr_arg3⁰, _lh_scanlr_arg4⁰, _lh_scanlr_arg5⁰) = 
 //│ 	let down⁰ = (fun _lh_down_arg1⁰ -> (fun _lh_down_arg2⁰ -> (fun _lh_down_arg3⁰ -> (fun _lh_down_arg4⁰ -> (fun _lh_down_arg5⁰ -> case _lh_down_arg3⁰ of {
@@ -781,13 +781,13 @@ testCircsim_nofib $ primId 40
 //│ 				LH_P2 _lh_up_LH_P2_0¹ _lh_up_LH_P2_1¹ => [LH_P2 _lh_up_arg1⁰(_lh_up_LH_P2_0⁰, _lh_up_LH_P2_0¹) _lh_up_arg2⁰(_lh_up_LH_P2_1⁰, _lh_up_LH_P2_1¹)]
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰})))) 
-//│ 	in let xs'⁰ = map_lh_₂₁^1072((fun x⁰ -> [LH_P2 x⁰ x⁰]), _lh_scanlr_arg5⁰)
-//│ 	in let _lh_matchIdent¹⁴ = sweep_ud_lh_₁^1080(up⁰(_lh_scanlr_arg1⁰, _lh_scanlr_arg2⁰), down⁰(_lh_scanlr_arg1⁰, _lh_scanlr_arg2⁰), [LH_P2 _lh_scanlr_arg3⁰ _lh_scanlr_arg4⁰], put_lh_₁^1097(xs'⁰))
+//│ 	in let xs'⁰ = map_lh_₂₁((fun x⁰ -> [LH_P2 x⁰ x⁰]), _lh_scanlr_arg5⁰)
+//│ 	in let _lh_matchIdent¹⁴ = sweep_ud_lh_₁(up⁰(_lh_scanlr_arg1⁰, _lh_scanlr_arg2⁰), down⁰(_lh_scanlr_arg1⁰, _lh_scanlr_arg2⁰), [LH_P2 _lh_scanlr_arg3⁰ _lh_scanlr_arg4⁰], put_lh_₁(xs'⁰))
 //│ 	in case _lh_matchIdent¹⁴ of {
 //│ 		LH_P2 _lh_scanlr_LH_P2_0⁰ _lh_scanlr_LH_P2_1⁰ => case _lh_scanlr_LH_P2_0⁰ of {
 //│ 			LH_P2 _lh_scanlr_LH_P2_0¹ _lh_scanlr_LH_P2_1¹ => 
 //│ 				let ans⁰ = [LH_P2 _lh_scanlr_arg2⁰(_lh_scanlr_LH_P2_1¹, _lh_scanlr_arg4⁰) _lh_scanlr_arg1⁰(_lh_scanlr_arg3⁰, _lh_scanlr_LH_P2_0¹)]
-//│ 				in [LH_P2 ans⁰ get_lh_₁^1115(_lh_scanlr_LH_P2_1⁰)]
+//│ 				in [LH_P2 ans⁰ get_lh_₁(_lh_scanlr_LH_P2_1⁰)]
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ def send_left_lh_₁(_lh_send_left_arg1⁰, _lh_send_left_arg2⁰) = case _lh_send_left_arg1⁰ of {
@@ -795,8 +795,8 @@ testCircsim_nofib $ primId 40
 //│ 		LH_P8 _lh_send_left_LH_P8_0¹ _lh_send_left_LH_P8_1¹ _lh_send_left_LH_P8_2¹ _lh_send_left_LH_P8_3¹ _lh_send_left_LH_P8_4¹ _lh_send_left_LH_P8_5¹ _lh_send_left_LH_P8_6¹ _lh_send_left_LH_P8_7¹ => if (_lh_send_left_LH_P8_3¹ && (_lh_send_left_LH_P8_4¹ > _lh_send_left_LH_P8_7⁰)) then [LH_P8 _lh_send_left_LH_P8_0¹ _lh_send_left_LH_P8_1¹ _lh_send_left_LH_P8_2¹ _lh_send_left_LH_P8_3¹ (_lh_send_left_LH_P8_4¹ - _lh_send_left_LH_P8_7⁰) _lh_send_left_LH_P8_5¹ _lh_send_left_LH_P8_6¹ (_lh_send_left_LH_P8_7⁰ + _lh_send_left_LH_P8_7¹)] else [LH_P8 _lh_send_left_LH_P8_0⁰ _lh_send_left_LH_P8_1⁰ _lh_send_left_LH_P8_2⁰ _lh_send_left_LH_P8_3⁰ _lh_send_left_LH_P8_4⁰ _lh_send_left_LH_P8_5⁰ _lh_send_left_LH_P8_6⁰ (_lh_send_left_LH_P8_7⁰ + _lh_send_left_LH_P8_7¹)]
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def send_lh_₁(_lh_send_arg1¹) = scanlr_lh_₁^2000(send_right_lh_₁^2001, send_left_lh_₁^2003, emptyPacket_lh_₁^2005, emptyPacket_lh_₂^2007, _lh_send_arg1¹)
-//│ def send_lh_₂(_lh_send_arg1⁰) = scanlr_lh_₁^1190(send_right_lh_₁^1191, send_left_lh_₁^1193, emptyPacket_lh_₃^1195, emptyPacket_lh_₃^1197, _lh_send_arg1⁰)
+//│ def send_lh_₁(_lh_send_arg1¹) = scanlr_lh_₁(send_right_lh_₁, send_left_lh_₁, emptyPacket_lh_₁, emptyPacket_lh_₂, _lh_send_arg1¹)
+//│ def send_lh_₂(_lh_send_arg1⁰) = scanlr_lh_₁(send_right_lh_₁, send_left_lh_₁, emptyPacket_lh_₃, emptyPacket_lh_₃, _lh_send_arg1⁰)
 //│ def send_right_lh_₁(_lh_send_right_arg1⁰, _lh_send_right_arg2⁰) = case _lh_send_right_arg1⁰ of {
 //│ 	LH_P8 _lh_send_right_LH_P8_0⁰ _lh_send_right_LH_P8_1⁰ _lh_send_right_LH_P8_2⁰ _lh_send_right_LH_P8_3⁰ _lh_send_right_LH_P8_4⁰ _lh_send_right_LH_P8_5⁰ _lh_send_right_LH_P8_6⁰ _lh_send_right_LH_P8_7⁰ => case _lh_send_right_arg2⁰ of {
 //│ 		LH_P8 _lh_send_right_LH_P8_0¹ _lh_send_right_LH_P8_1¹ _lh_send_right_LH_P8_2¹ _lh_send_right_LH_P8_3¹ _lh_send_right_LH_P8_4¹ _lh_send_right_LH_P8_5¹ _lh_send_right_LH_P8_6¹ _lh_send_right_LH_P8_7¹ => if (_lh_send_right_LH_P8_5⁰ && (_lh_send_right_LH_P8_6⁰ > _lh_send_right_LH_P8_7¹)) then [LH_P8 _lh_send_right_LH_P8_0⁰ _lh_send_right_LH_P8_1⁰ _lh_send_right_LH_P8_2⁰ _lh_send_right_LH_P8_3⁰ _lh_send_right_LH_P8_4⁰ _lh_send_right_LH_P8_5⁰ (_lh_send_right_LH_P8_6⁰ - _lh_send_right_LH_P8_7¹) (_lh_send_right_LH_P8_7⁰ + _lh_send_right_LH_P8_7¹)] else [LH_P8 _lh_send_right_LH_P8_0¹ _lh_send_right_LH_P8_1¹ _lh_send_right_LH_P8_2¹ _lh_send_right_LH_P8_3¹ _lh_send_right_LH_P8_4¹ _lh_send_right_LH_P8_5¹ _lh_send_right_LH_P8_6¹ (_lh_send_right_LH_P8_7⁰ + _lh_send_right_LH_P8_7¹)]
@@ -809,16 +809,16 @@ testCircsim_nofib $ primId 40
 //│ 				LH_P3 _lh_simulate_component_LH_P3_0⁰ _lh_simulate_component_LH_P3_1⁰ _lh_simulate_component_LH_P3_2⁰ => [LH_C _lh_simulate_component_LH_P3_2⁰ _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t¹¹)]
 //│ 				| _  => _lh_listcomp_fun¹¹(_lh_listcomp_fun_ls_t¹¹)}
 //│ 			| LH_N  => [LH_N]})
-//│ 		in _lh_listcomp_fun¹¹(inports_lh_₄^2273(_lh_simulate_component_arg2⁰))
-//│ 	in let new_value⁰ = apply_component_lh_₁^2278(compType_lh_₄^2279(_lh_simulate_component_arg2⁰), out_signals⁰)
-//│ 	in if ((_lh_simulate_component_arg1⁰ == pathDepth_lh_₄^2289(_lh_simulate_component_arg2⁰)) && not⁰(polyEq⁰(new_value⁰, [Nothing]))) then 
+//│ 		in _lh_listcomp_fun¹¹(inports_lh_₄(_lh_simulate_component_arg2⁰))
+//│ 	in let new_value⁰ = apply_component_lh_₁(compType_lh_₄(_lh_simulate_component_arg2⁰), out_signals⁰)
+//│ 	in if ((_lh_simulate_component_arg1⁰ == pathDepth_lh_₄(_lh_simulate_component_arg2⁰)) && not⁰(polyEq⁰(new_value⁰, [Nothing]))) then 
 //│ 		let _lh_matchIdent¹⁹ = new_value⁰
 //│ 		in case _lh_matchIdent¹⁹ of {
-//│ 			Just _lh_simulate_component_Just_0⁰ => update_outports_lh_₃^2304(_lh_simulate_component_arg2⁰, _lh_simulate_component_Just_0⁰)
+//│ 			Just _lh_simulate_component_Just_0⁰ => update_outports_lh_₃(_lh_simulate_component_arg2⁰, _lh_simulate_component_Just_0⁰)
 //│ 			| _  => error⁰} else _lh_simulate_component_arg2⁰
-//│ def simulate_components_lh_₁(_lh_simulate_components_arg1⁰, _lh_simulate_components_arg2⁰) = map_lh_₇^2642(simulate_component_lh_₁^2643(_lh_simulate_components_arg1⁰), _lh_simulate_components_arg2⁰)
+//│ def simulate_components_lh_₁(_lh_simulate_components_arg1⁰, _lh_simulate_components_arg2⁰) = map_lh_₇(simulate_component_lh_₁(_lh_simulate_components_arg1⁰), _lh_simulate_components_arg2⁰)
 //│ def simulate_lh_₁(_lh_simulate_arg1⁰, _lh_simulate_arg2⁰) = case _lh_simulate_arg2⁰ of {
-//│ 	LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ _lh_simulate_LH_P4_3⁰ => tail_lh_₁^3099(scanl_lh_₁^3100(do_cycle_lh_₁^3101(critical_path_depth_lh_₁^3102([LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ _lh_simulate_LH_P4_3⁰])), [LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ map_lh_₄^3114(init_dffs_lh_₁^3115, _lh_simulate_LH_P4_3⁰)], _lh_simulate_arg1⁰))
+//│ 	LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ _lh_simulate_LH_P4_3⁰ => tail_lh_₁(scanl_lh_₁(do_cycle_lh_₁(critical_path_depth_lh_₁([LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ _lh_simulate_LH_P4_3⁰])), [LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ map_lh_₄(init_dffs_lh_₁, _lh_simulate_LH_P4_3⁰)], _lh_simulate_arg1⁰))
 //│ 	| _  => error⁰}
 //│ def snd_lh_₁(_lh_snd_arg1¹) = case _lh_snd_arg1¹ of {
 //│ 	LH_P2 _lh_snd_LH_P2_0¹ _lh_snd_LH_P2_1¹ => _lh_snd_LH_P2_1¹
@@ -826,14 +826,14 @@ testCircsim_nofib $ primId 40
 //│ def snd_lh_₂(_lh_snd_arg1⁰) = case _lh_snd_arg1⁰ of {
 //│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰
 //│ 	| _  => error⁰}
-//│ def splitAt_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰) = [LH_P2 take_lh_₁^74(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰) drop_lh_₁^79(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰)]
+//│ def splitAt_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰) = [LH_P2 take_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰) drop_lh_₁(_lh_splitAt_arg1⁰, _lh_splitAt_arg2⁰)]
 //│ def store_inputs_lh_₁(_lh_store_inputs_arg1⁰, _lh_store_inputs_arg2⁰) = case _lh_store_inputs_arg2⁰ of {
 //│ 	PS _lh_store_inputs_PS_0⁰ _lh_store_inputs_PS_1⁰ _lh_store_inputs_PS_2⁰ _lh_store_inputs_PS_3⁰ _lh_store_inputs_PS_4⁰ => case _lh_store_inputs_PS_1⁰ of {
-//│ 		Inp  => head_lh_₃^2566(
+//│ 		Inp  => head_lh_₃(
 //│ 			let _lh_listcomp_fun¹² = (fun _lh_listcomp_fun_para¹² -> case _lh_listcomp_fun_para¹² of {
 //│ 				LH_C _lh_listcomp_fun_ls_h¹² _lh_listcomp_fun_ls_t¹² => case _lh_listcomp_fun_ls_h¹² of {
 //│ 					LH_P2 _lh_store_inputs_LH_P2_0⁰ _lh_store_inputs_LH_P2_1⁰ => case _lh_store_inputs_LH_P2_0⁰ of {
-//│ 						LH_P2 _lh_store_inputs_LH_P2_0¹ _lh_store_inputs_LH_P2_1¹ => if (_lh_store_inputs_PS_0⁰ == _lh_store_inputs_LH_P2_1¹) then [LH_C update_outports_lh_₂^2575([PS _lh_store_inputs_PS_0⁰ [Inp] _lh_store_inputs_PS_2⁰ _lh_store_inputs_PS_3⁰ _lh_store_inputs_PS_4⁰], _lh_store_inputs_LH_P2_1⁰) _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)] else _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)
+//│ 						LH_P2 _lh_store_inputs_LH_P2_0¹ _lh_store_inputs_LH_P2_1¹ => if (_lh_store_inputs_PS_0⁰ == _lh_store_inputs_LH_P2_1¹) then [LH_C update_outports_lh_₂([PS _lh_store_inputs_PS_0⁰ [Inp] _lh_store_inputs_PS_2⁰ _lh_store_inputs_PS_3⁰ _lh_store_inputs_PS_4⁰], _lh_store_inputs_LH_P2_1⁰) _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)] else _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)
 //│ 						| _  => _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)}
 //│ 					| _  => _lh_listcomp_fun¹²(_lh_listcomp_fun_ls_t¹²)}
 //│ 				| LH_N  => [LH_N]})
@@ -841,29 +841,29 @@ testCircsim_nofib $ primId 40
 //│ 		| _  => _lh_store_inputs_arg2⁰}
 //│ 	| _  => _lh_store_inputs_arg2⁰}
 //│ def sweep_ud_lh_₁(_lh_sweep_ud_arg1⁰, _lh_sweep_ud_arg2⁰, _lh_sweep_ud_arg3⁰, _lh_sweep_ud_arg4⁰) = 
-//│ 	let _lh_matchIdent⁶ = upsweep_lh_₁^319(_lh_sweep_ud_arg1⁰, _lh_sweep_ud_arg4⁰)
+//│ 	let _lh_matchIdent⁶ = upsweep_lh_₁(_lh_sweep_ud_arg1⁰, _lh_sweep_ud_arg4⁰)
 //│ 	in case _lh_matchIdent⁶ of {
-//│ 		LH_P2 _lh_sweep_ud_LH_P2_0⁰ _lh_sweep_ud_LH_P2_1⁰ => [LH_P2 _lh_sweep_ud_LH_P2_0⁰ downsweep_lh_₁^326(_lh_sweep_ud_arg2⁰, _lh_sweep_ud_arg3⁰, _lh_sweep_ud_LH_P2_1⁰)]
+//│ 		LH_P2 _lh_sweep_ud_LH_P2_0⁰ _lh_sweep_ud_LH_P2_1⁰ => [LH_P2 _lh_sweep_ud_LH_P2_0⁰ downsweep_lh_₁(_lh_sweep_ud_arg2⁰, _lh_sweep_ud_arg3⁰, _lh_sweep_ud_LH_P2_1⁰)]
 //│ 		| _  => error⁰}
 //│ def tail_lh_₁(ls²³) = case ls²³ of {
 //│ 	LH_C h²³ t²³ => t²³
 //│ 	| LH_N  => error⁰}
 //│ def take_lh_₁(n⁰, ls⁰) = if (n⁰ > 0) then case ls⁰ of {
-//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁^32((n⁰ - 1), t⁰)]
+//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
 //│ def take_lz_lh_₁(n², ls²⁸) = if (n² > 0) then case force⁰(ls²⁸) of {
-//│ 	LH_C h²⁹ t²⁹ => [LH_C h²⁹ take_lz_lh_₁^3033((n² - 1), t²⁹)]
+//│ 	LH_C h²⁹ t²⁹ => [LH_C h²⁹ take_lz_lh_₁((n² - 1), t²⁹)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
 //│ def take_lz_lh_₂(n¹, ls²) = if (n¹ > 0) then case force⁰(ls²) of {
-//│ 	LH_C h² t² => [LH_C h² take_lz_lh_₂^696((n¹ - 1), t²)]
+//│ 	LH_C h² t² => [LH_C h² take_lz_lh_₂((n¹ - 1), t²)]
 //│ 	| LH_N  => [LH_N]} else [LH_N]
-//│ def testCircsim_nofib_lh_₁(_lh_testCircsim_nofib_arg1⁰) = run_lh_₁^3869(8, _lh_testCircsim_nofib_arg1⁰)
+//│ def testCircsim_nofib_lh_₁(_lh_testCircsim_nofib_arg1⁰) = run_lh_₁(8, _lh_testCircsim_nofib_arg1⁰)
 //│ def transpose_lh_₁(_lh_transpose_arg1³) = case _lh_transpose_arg1³ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_transpose_LH_C_0⁹ _lh_transpose_LH_C_1⁹ => case _lh_transpose_LH_C_0⁹ of {
-//│ 		LH_N  => transpose_lh_₁^1924(_lh_transpose_LH_C_1⁹)
+//│ 		LH_N  => transpose_lh_₁(_lh_transpose_LH_C_1⁹)
 //│ 		| LH_C _lh_transpose_LH_C_0¹⁰ _lh_transpose_LH_C_1¹⁰ => 
-//│ 			let _lh_matchIdent¹⁸ = unzip_lh_₁^1927(
+//│ 			let _lh_matchIdent¹⁸ = unzip_lh_₁(
 //│ 				let _lh_listcomp_fun⁹ = (fun _lh_listcomp_fun_para⁹ -> case _lh_listcomp_fun_para⁹ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h⁹ _lh_listcomp_fun_ls_t⁹ => case _lh_listcomp_fun_ls_h⁹ of {
 //│ 						LH_C _lh_transpose_LH_C_0¹¹ _lh_transpose_LH_C_1¹¹ => [LH_C [LH_P2 _lh_transpose_LH_C_0¹¹ _lh_transpose_LH_C_1¹¹] _lh_listcomp_fun⁹(_lh_listcomp_fun_ls_t⁹)]
@@ -871,16 +871,16 @@ testCircsim_nofib $ primId 40
 //│ 					| LH_N  => [LH_N]})
 //│ 				in _lh_listcomp_fun⁹(_lh_transpose_LH_C_1⁹))
 //│ 			in case _lh_matchIdent¹⁸ of {
-//│ 				LH_P2 _lh_transpose_LH_P2_0³ _lh_transpose_LH_P2_1³ => combine_lh_₁^1950(_lh_transpose_LH_C_0¹⁰, _lh_transpose_LH_P2_0³, _lh_transpose_LH_C_1¹⁰, _lh_transpose_LH_P2_1³)
+//│ 				LH_P2 _lh_transpose_LH_P2_0³ _lh_transpose_LH_P2_1³ => combine_lh_₁(_lh_transpose_LH_C_0¹⁰, _lh_transpose_LH_P2_0³, _lh_transpose_LH_C_1¹⁰, _lh_transpose_LH_P2_1³)
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def transpose_lh_₂(_lh_transpose_arg1²) = case _lh_transpose_arg1² of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_transpose_LH_C_0⁶ _lh_transpose_LH_C_1⁶ => case _lh_transpose_LH_C_0⁶ of {
-//│ 		LH_N  => transpose_lh_₂^1818(_lh_transpose_LH_C_1⁶)
+//│ 		LH_N  => transpose_lh_₂(_lh_transpose_LH_C_1⁶)
 //│ 		| LH_C _lh_transpose_LH_C_0⁷ _lh_transpose_LH_C_1⁷ => 
-//│ 			let _lh_matchIdent¹⁷ = unzip_lh_₂^1821(
+//│ 			let _lh_matchIdent¹⁷ = unzip_lh_₂(
 //│ 				let _lh_listcomp_fun⁷ = (fun _lh_listcomp_fun_para⁷ -> case _lh_listcomp_fun_para⁷ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h⁷ _lh_listcomp_fun_ls_t⁷ => case _lh_listcomp_fun_ls_h⁷ of {
 //│ 						LH_C _lh_transpose_LH_C_0⁸ _lh_transpose_LH_C_1⁸ => [LH_C [LH_P2 _lh_transpose_LH_C_0⁸ _lh_transpose_LH_C_1⁸] _lh_listcomp_fun⁷(_lh_listcomp_fun_ls_t⁷)]
@@ -888,16 +888,16 @@ testCircsim_nofib $ primId 40
 //│ 					| LH_N  => [LH_N]})
 //│ 				in _lh_listcomp_fun⁷(_lh_transpose_LH_C_1⁶))
 //│ 			in case _lh_matchIdent¹⁷ of {
-//│ 				LH_P2 _lh_transpose_LH_P2_0² _lh_transpose_LH_P2_1² => combine_lh_₂^1844(_lh_transpose_LH_C_0⁷, _lh_transpose_LH_P2_0², _lh_transpose_LH_C_1⁷, _lh_transpose_LH_P2_1²)
+//│ 				LH_P2 _lh_transpose_LH_P2_0² _lh_transpose_LH_P2_1² => combine_lh_₂(_lh_transpose_LH_C_0⁷, _lh_transpose_LH_P2_0², _lh_transpose_LH_C_1⁷, _lh_transpose_LH_P2_1²)
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def transpose_lh_₃(_lh_transpose_arg1¹) = case _lh_transpose_arg1¹ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_transpose_LH_C_0³ _lh_transpose_LH_C_1³ => case _lh_transpose_LH_C_0³ of {
-//│ 		LH_N  => transpose_lh_₃^1401(_lh_transpose_LH_C_1³)
+//│ 		LH_N  => transpose_lh_₃(_lh_transpose_LH_C_1³)
 //│ 		| LH_C _lh_transpose_LH_C_0⁴ _lh_transpose_LH_C_1⁴ => 
-//│ 			let _lh_matchIdent¹⁶ = unzip_lh_₃^1404(
+//│ 			let _lh_matchIdent¹⁶ = unzip_lh_₃(
 //│ 				let _lh_listcomp_fun⁵ = (fun _lh_listcomp_fun_para⁵ -> case _lh_listcomp_fun_para⁵ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h⁵ _lh_listcomp_fun_ls_t⁵ => case _lh_listcomp_fun_ls_h⁵ of {
 //│ 						LH_C _lh_transpose_LH_C_0⁵ _lh_transpose_LH_C_1⁵ => [LH_C [LH_P2 _lh_transpose_LH_C_0⁵ _lh_transpose_LH_C_1⁵] _lh_listcomp_fun⁵(_lh_listcomp_fun_ls_t⁵)]
@@ -905,16 +905,16 @@ testCircsim_nofib $ primId 40
 //│ 					| LH_N  => [LH_N]})
 //│ 				in _lh_listcomp_fun⁵(_lh_transpose_LH_C_1³))
 //│ 			in case _lh_matchIdent¹⁶ of {
-//│ 				LH_P2 _lh_transpose_LH_P2_0¹ _lh_transpose_LH_P2_1¹ => combine_lh_₃^1427(_lh_transpose_LH_C_0⁴, _lh_transpose_LH_P2_0¹, _lh_transpose_LH_C_1⁴, _lh_transpose_LH_P2_1¹)
+//│ 				LH_P2 _lh_transpose_LH_P2_0¹ _lh_transpose_LH_P2_1¹ => combine_lh_₃(_lh_transpose_LH_C_0⁴, _lh_transpose_LH_P2_0¹, _lh_transpose_LH_C_1⁴, _lh_transpose_LH_P2_1¹)
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def transpose_lh_₄(_lh_transpose_arg1⁰) = case _lh_transpose_arg1⁰ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_transpose_LH_C_0⁰ _lh_transpose_LH_C_1⁰ => case _lh_transpose_LH_C_0⁰ of {
-//│ 		LH_N  => transpose_lh_₄^1205(_lh_transpose_LH_C_1⁰)
+//│ 		LH_N  => transpose_lh_₄(_lh_transpose_LH_C_1⁰)
 //│ 		| LH_C _lh_transpose_LH_C_0¹ _lh_transpose_LH_C_1¹ => 
-//│ 			let _lh_matchIdent¹⁵ = unzip_lh_₃^1208(
+//│ 			let _lh_matchIdent¹⁵ = unzip_lh_₃(
 //│ 				let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para³ -> case _lh_listcomp_fun_para³ of {
 //│ 					LH_C _lh_listcomp_fun_ls_h³ _lh_listcomp_fun_ls_t³ => case _lh_listcomp_fun_ls_h³ of {
 //│ 						LH_C _lh_transpose_LH_C_0² _lh_transpose_LH_C_1² => [LH_C [LH_P2 _lh_transpose_LH_C_0² _lh_transpose_LH_C_1²] _lh_listcomp_fun³(_lh_listcomp_fun_ls_t³)]
@@ -922,14 +922,14 @@ testCircsim_nofib $ primId 40
 //│ 					| LH_N  => [LH_N]})
 //│ 				in _lh_listcomp_fun³(_lh_transpose_LH_C_1⁰))
 //│ 			in case _lh_matchIdent¹⁵ of {
-//│ 				LH_P2 _lh_transpose_LH_P2_0⁰ _lh_transpose_LH_P2_1⁰ => combine_lh_₃^1231(_lh_transpose_LH_C_0¹, _lh_transpose_LH_P2_0⁰, _lh_transpose_LH_C_1¹, _lh_transpose_LH_P2_1⁰)
+//│ 				LH_P2 _lh_transpose_LH_P2_0⁰ _lh_transpose_LH_P2_1⁰ => combine_lh_₃(_lh_transpose_LH_C_0¹, _lh_transpose_LH_P2_0⁰, _lh_transpose_LH_C_1¹, _lh_transpose_LH_P2_1⁰)
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
-//│ def until_lh_₁(_lh_until_arg1², _lh_until_arg2², _lh_until_arg3²) = if _lh_until_arg1²(_lh_until_arg3²) then _lh_until_arg3² else until_lh_₁^2815(_lh_until_arg1², _lh_until_arg2², _lh_until_arg2²(_lh_until_arg3²))
-//│ def until_lh_₂(_lh_until_arg1¹, _lh_until_arg2¹, _lh_until_arg3¹) = if _lh_until_arg1¹(_lh_until_arg3¹) then _lh_until_arg3¹ else until_lh_₂^2493(_lh_until_arg1¹, _lh_until_arg2¹, _lh_until_arg2¹(_lh_until_arg3¹))
-//│ def until_lh_₃(_lh_until_arg1⁰, _lh_until_arg2⁰, _lh_until_arg3⁰) = if _lh_until_arg1⁰(_lh_until_arg3⁰) then _lh_until_arg3⁰ else until_lh_₃^2245(_lh_until_arg1⁰, _lh_until_arg2⁰, _lh_until_arg2⁰(_lh_until_arg3⁰))
-//│ def unzip_lh_₁(_lh_unzip_arg1²) = foldr_lh_₁^864((fun ab² -> (fun asbs² -> 
+//│ def until_lh_₁(_lh_until_arg1², _lh_until_arg2², _lh_until_arg3²) = if _lh_until_arg1²(_lh_until_arg3²) then _lh_until_arg3² else until_lh_₁(_lh_until_arg1², _lh_until_arg2², _lh_until_arg2²(_lh_until_arg3²))
+//│ def until_lh_₂(_lh_until_arg1¹, _lh_until_arg2¹, _lh_until_arg3¹) = if _lh_until_arg1¹(_lh_until_arg3¹) then _lh_until_arg3¹ else until_lh_₂(_lh_until_arg1¹, _lh_until_arg2¹, _lh_until_arg2¹(_lh_until_arg3¹))
+//│ def until_lh_₃(_lh_until_arg1⁰, _lh_until_arg2⁰, _lh_until_arg3⁰) = if _lh_until_arg1⁰(_lh_until_arg3⁰) then _lh_until_arg3⁰ else until_lh_₃(_lh_until_arg1⁰, _lh_until_arg2⁰, _lh_until_arg2⁰(_lh_until_arg3⁰))
+//│ def unzip_lh_₁(_lh_unzip_arg1²) = foldr_lh_₁((fun ab² -> (fun asbs² -> 
 //│ 	let _lh_matchIdent¹² = ab²
 //│ 	in case _lh_matchIdent¹² of {
 //│ 		LH_P2 _lh_unzip_LH_P2_0⁴ _lh_unzip_LH_P2_1⁴ => 
@@ -938,7 +938,7 @@ testCircsim_nofib $ primId 40
 //│ 				LH_P2 _lh_unzip_LH_P2_0⁵ _lh_unzip_LH_P2_1⁵ => [LH_P2 [LH_C _lh_unzip_LH_P2_0⁴ _lh_unzip_LH_P2_0⁵] [LH_C _lh_unzip_LH_P2_1⁴ _lh_unzip_LH_P2_1⁵]]
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰})), [LH_P2 [LH_N] [LH_N]], _lh_unzip_arg1²)
-//│ def unzip_lh_₂(_lh_unzip_arg1¹) = foldr_lh_₁^659((fun ab¹ -> (fun asbs¹ -> 
+//│ def unzip_lh_₂(_lh_unzip_arg1¹) = foldr_lh_₁((fun ab¹ -> (fun asbs¹ -> 
 //│ 	let _lh_matchIdent⁹ = ab¹
 //│ 	in case _lh_matchIdent⁹ of {
 //│ 		LH_P2 _lh_unzip_LH_P2_0² _lh_unzip_LH_P2_1² => 
@@ -947,7 +947,7 @@ testCircsim_nofib $ primId 40
 //│ 				LH_P2 _lh_unzip_LH_P2_0³ _lh_unzip_LH_P2_1³ => [LH_P2 [LH_C _lh_unzip_LH_P2_0² _lh_unzip_LH_P2_0³] [LH_C _lh_unzip_LH_P2_1² _lh_unzip_LH_P2_1³]]
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰})), [LH_P2 [LH_N] [LH_N]], _lh_unzip_arg1¹)
-//│ def unzip_lh_₃(_lh_unzip_arg1⁰) = foldr_lh_₁^354((fun ab⁰ -> (fun asbs⁰ -> 
+//│ def unzip_lh_₃(_lh_unzip_arg1⁰) = foldr_lh_₁((fun ab⁰ -> (fun asbs⁰ -> 
 //│ 	let _lh_matchIdent⁷ = ab⁰
 //│ 	in case _lh_matchIdent⁷ of {
 //│ 		LH_P2 _lh_unzip_LH_P2_0⁰ _lh_unzip_LH_P2_1⁰ => 
@@ -957,77 +957,77 @@ testCircsim_nofib $ primId 40
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰})), [LH_P2 [LH_N] [LH_N]], _lh_unzip_arg1⁰)
 //│ def up_i_lh_₁(_lh_up_i_arg1⁰, _lh_up_i_arg2⁰) = case _lh_up_i_arg1⁰ of {
-//│ 	LH_P8 _lh_up_i_LH_P8_0⁰ _lh_up_i_LH_P8_1⁰ _lh_up_i_LH_P8_2⁰ _lh_up_i_LH_P8_3⁰ _lh_up_i_LH_P8_4⁰ _lh_up_i_LH_P8_5⁰ _lh_up_i_LH_P8_6⁰ _lh_up_i_LH_P8_7⁰ => map_lh_₂₁^236(compare_and_update_lh_₁^237([LH_P3 _lh_up_i_LH_P8_0⁰ _lh_up_i_LH_P8_1⁰ _lh_up_i_LH_P8_2⁰]), _lh_up_i_arg2⁰)
+//│ 	LH_P8 _lh_up_i_LH_P8_0⁰ _lh_up_i_LH_P8_1⁰ _lh_up_i_LH_P8_2⁰ _lh_up_i_LH_P8_3⁰ _lh_up_i_LH_P8_4⁰ _lh_up_i_LH_P8_5⁰ _lh_up_i_LH_P8_6⁰ _lh_up_i_LH_P8_7⁰ => map_lh_₂₁(compare_and_update_lh_₁([LH_P3 _lh_up_i_LH_P8_0⁰ _lh_up_i_LH_P8_1⁰ _lh_up_i_LH_P8_2⁰]), _lh_up_i_arg2⁰)
 //│ 	| _  => error⁰}
-//│ def updateInports_lh_₁(_lh_updateInports_arg1⁰, _lh_updateInports_arg2⁰) = [PS pid_lh_₄^562(_lh_updateInports_arg1⁰) compType_lh_₄^565(_lh_updateInports_arg1⁰) pathDepth_lh_₈^568(_lh_updateInports_arg1⁰) _lh_updateInports_arg2⁰ outports_lh_₉^572(_lh_updateInports_arg1⁰)]
-//│ def updateOutports_lh_₁(_lh_updateOutports_arg1⁴, _lh_updateOutports_arg2⁴) = [PS pid_lh_₂^2511(_lh_updateOutports_arg1⁴) compType_lh_₂^2514(_lh_updateOutports_arg1⁴) pathDepth_lh_₂^2517(_lh_updateOutports_arg1⁴) inports_lh_₂^2520(_lh_updateOutports_arg1⁴) _lh_updateOutports_arg2⁴]
-//│ def updateOutports_lh_₂(_lh_updateOutports_arg1³, _lh_updateOutports_arg2³) = [PS pid_lh_₃^2332(_lh_updateOutports_arg1³) compType_lh_₃^2335(_lh_updateOutports_arg1³) pathDepth_lh_₃^2338(_lh_updateOutports_arg1³) inports_lh_₃^2341(_lh_updateOutports_arg1³) _lh_updateOutports_arg2³]
-//│ def updateOutports_lh_₃(_lh_updateOutports_arg1², _lh_updateOutports_arg2²) = [PS pid_lh_₄^1174(_lh_updateOutports_arg1²) compType_lh_₄^1177(_lh_updateOutports_arg1²) pathDepth_lh_₈^1180(_lh_updateOutports_arg1²) inports_lh_₅^1183(_lh_updateOutports_arg1²) _lh_updateOutports_arg2²]
-//│ def updateOutports_lh_₄(_lh_updateOutports_arg1¹, _lh_updateOutports_arg2¹) = [PS pid_lh_₄^532(_lh_updateOutports_arg1¹) compType_lh_₄^535(_lh_updateOutports_arg1¹) pathDepth_lh_₈^538(_lh_updateOutports_arg1¹) inports_lh_₅^541(_lh_updateOutports_arg1¹) _lh_updateOutports_arg2¹]
-//│ def updateOutports_lh_₅(_lh_updateOutports_arg1⁰, _lh_updateOutports_arg2⁰) = [PS pid_lh_₄^424(_lh_updateOutports_arg1⁰) compType_lh_₄^427(_lh_updateOutports_arg1⁰) pathDepth_lh_₈^430(_lh_updateOutports_arg1⁰) inports_lh_₅^433(_lh_updateOutports_arg1⁰) _lh_updateOutports_arg2⁰]
+//│ def updateInports_lh_₁(_lh_updateInports_arg1⁰, _lh_updateInports_arg2⁰) = [PS pid_lh_₄(_lh_updateInports_arg1⁰) compType_lh_₄(_lh_updateInports_arg1⁰) pathDepth_lh_₈(_lh_updateInports_arg1⁰) _lh_updateInports_arg2⁰ outports_lh_₉(_lh_updateInports_arg1⁰)]
+//│ def updateOutports_lh_₁(_lh_updateOutports_arg1⁴, _lh_updateOutports_arg2⁴) = [PS pid_lh_₂(_lh_updateOutports_arg1⁴) compType_lh_₂(_lh_updateOutports_arg1⁴) pathDepth_lh_₂(_lh_updateOutports_arg1⁴) inports_lh_₂(_lh_updateOutports_arg1⁴) _lh_updateOutports_arg2⁴]
+//│ def updateOutports_lh_₂(_lh_updateOutports_arg1³, _lh_updateOutports_arg2³) = [PS pid_lh_₃(_lh_updateOutports_arg1³) compType_lh_₃(_lh_updateOutports_arg1³) pathDepth_lh_₃(_lh_updateOutports_arg1³) inports_lh_₃(_lh_updateOutports_arg1³) _lh_updateOutports_arg2³]
+//│ def updateOutports_lh_₃(_lh_updateOutports_arg1², _lh_updateOutports_arg2²) = [PS pid_lh_₄(_lh_updateOutports_arg1²) compType_lh_₄(_lh_updateOutports_arg1²) pathDepth_lh_₈(_lh_updateOutports_arg1²) inports_lh_₅(_lh_updateOutports_arg1²) _lh_updateOutports_arg2²]
+//│ def updateOutports_lh_₄(_lh_updateOutports_arg1¹, _lh_updateOutports_arg2¹) = [PS pid_lh_₄(_lh_updateOutports_arg1¹) compType_lh_₄(_lh_updateOutports_arg1¹) pathDepth_lh_₈(_lh_updateOutports_arg1¹) inports_lh_₅(_lh_updateOutports_arg1¹) _lh_updateOutports_arg2¹]
+//│ def updateOutports_lh_₅(_lh_updateOutports_arg1⁰, _lh_updateOutports_arg2⁰) = [PS pid_lh_₄(_lh_updateOutports_arg1⁰) compType_lh_₄(_lh_updateOutports_arg1⁰) pathDepth_lh_₈(_lh_updateOutports_arg1⁰) inports_lh_₅(_lh_updateOutports_arg1⁰) _lh_updateOutports_arg2⁰]
 //│ def update_i_lh_₁(_lh_update_i_arg1⁰, _lh_update_i_arg2⁰) = case _lh_update_i_arg1⁰ of {
-//│ 	LH_P2 _lh_update_i_LH_P2_0⁰ _lh_update_i_LH_P2_1⁰ => up_i_lh_₁^579(_lh_update_i_LH_P2_0⁰, up_i_lh_₁^582(_lh_update_i_LH_P2_1⁰, _lh_update_i_arg2⁰))
+//│ 	LH_P2 _lh_update_i_LH_P2_0⁰ _lh_update_i_LH_P2_1⁰ => up_i_lh_₁(_lh_update_i_LH_P2_0⁰, up_i_lh_₁(_lh_update_i_LH_P2_1⁰, _lh_update_i_arg2⁰))
 //│ 	| _  => error⁰}
 //│ def update_io_lh_₁(_lh_update_io_arg1¹, _lh_update_io_arg2¹, _lh_update_io_arg3¹) = 
-//│ 	let update_is¹ = (fun state² -> updateInports_lh_₁^1732(state², foldr_lh_₁^1735(update_i_lh_₁^1736, inports_lh_₅^1738(state²), _lh_update_io_arg2¹)))
-//│ 	in let update_os¹ = (fun state³ -> if (pathDepth_lh_₆^1747(state³) == _lh_update_io_arg1¹) then updateOutports_lh_₄^1753(state³, zipWith_lh_₅^1756(update_o_lh_₁^1757, _lh_update_io_arg2¹, outports_lh_₈^1761(state³))) else state³)
+//│ 	let update_is¹ = (fun state² -> updateInports_lh_₁(state², foldr_lh_₁(update_i_lh_₁, inports_lh_₅(state²), _lh_update_io_arg2¹)))
+//│ 	in let update_os¹ = (fun state³ -> if (pathDepth_lh_₆(state³) == _lh_update_io_arg1¹) then updateOutports_lh_₄(state³, zipWith_lh_₅(update_o_lh_₁, _lh_update_io_arg2¹, outports_lh_₈(state³))) else state³)
 //│ 	in update_os¹(update_is¹(_lh_update_io_arg3¹))
 //│ def update_io_lh_₂(_lh_update_io_arg1⁰, _lh_update_io_arg2⁰, _lh_update_io_arg3⁰) = 
-//│ 	let update_is⁰ = (fun state⁰ -> updateInports_lh_₁^1298(state⁰, foldr_lh_₁^1301(update_i_lh_₁^1302, inports_lh_₅^1304(state⁰), _lh_update_io_arg2⁰)))
-//│ 	in let update_os⁰ = (fun state¹ -> if (pathDepth_lh_₈^1313(state¹) == _lh_update_io_arg1⁰) then updateOutports_lh_₅^1319(state¹, zipWith_lh_₅^1322(update_o_lh_₁^1323, _lh_update_io_arg2⁰, outports_lh_₉^1327(state¹))) else state¹)
+//│ 	let update_is⁰ = (fun state⁰ -> updateInports_lh_₁(state⁰, foldr_lh_₁(update_i_lh_₁, inports_lh_₅(state⁰), _lh_update_io_arg2⁰)))
+//│ 	in let update_os⁰ = (fun state¹ -> if (pathDepth_lh_₈(state¹) == _lh_update_io_arg1⁰) then updateOutports_lh_₅(state¹, zipWith_lh_₅(update_o_lh_₁, _lh_update_io_arg2⁰, outports_lh_₉(state¹))) else state¹)
 //│ 	in update_os⁰(update_is⁰(_lh_update_io_arg3⁰))
 //│ def update_o_lh_₁(_lh_update_o_arg1⁰, _lh_update_o_arg2⁰) = case _lh_update_o_arg1⁰ of {
-//│ 	LH_P2 _lh_update_o_LH_P2_0⁰ _lh_update_o_LH_P2_1⁰ => check_left_lh_₁^549(_lh_update_o_LH_P2_0⁰, check_right_lh_₁^552(_lh_update_o_LH_P2_1⁰, _lh_update_o_arg2⁰))
+//│ 	LH_P2 _lh_update_o_LH_P2_0⁰ _lh_update_o_LH_P2_1⁰ => check_left_lh_₁(_lh_update_o_LH_P2_0⁰, check_right_lh_₁(_lh_update_o_LH_P2_1⁰, _lh_update_o_arg2⁰))
 //│ 	| _  => error⁰}
-//│ def update_outports_lh_₁(_lh_update_outports_arg1², _lh_update_outports_arg2²) = updateOutports_lh_₁^2728(_lh_update_outports_arg1², 
+//│ def update_outports_lh_₁(_lh_update_outports_arg1², _lh_update_outports_arg2²) = updateOutports_lh_₁(_lh_update_outports_arg1², 
 //│ 	let _lh_listcomp_fun¹³ = (fun _lh_listcomp_fun_para¹³ -> case _lh_listcomp_fun_para¹³ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h¹³ _lh_listcomp_fun_ls_t¹³ => case _lh_listcomp_fun_ls_h¹³ of {
 //│ 			LH_P6 _lh_update_outports_LH_P6_0² _lh_update_outports_LH_P6_1² _lh_update_outports_LH_P6_2² _lh_update_outports_LH_P6_3² _lh_update_outports_LH_P6_4² _lh_update_outports_LH_P6_5² => [LH_C [LH_P6 _lh_update_outports_LH_P6_0² _lh_update_outports_arg2² _lh_update_outports_LH_P6_2² _lh_update_outports_LH_P6_3² _lh_update_outports_LH_P6_4² _lh_update_outports_LH_P6_5²] _lh_listcomp_fun¹³(_lh_listcomp_fun_ls_t¹³)]
 //│ 			| _  => _lh_listcomp_fun¹³(_lh_listcomp_fun_ls_t¹³)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun¹³(outports_lh_₁^2752(_lh_update_outports_arg1²)))
-//│ def update_outports_lh_₂(_lh_update_outports_arg1¹, _lh_update_outports_arg2¹) = updateOutports_lh_₃^2117(_lh_update_outports_arg1¹, 
+//│ 	in _lh_listcomp_fun¹³(outports_lh_₁(_lh_update_outports_arg1²)))
+//│ def update_outports_lh_₂(_lh_update_outports_arg1¹, _lh_update_outports_arg2¹) = updateOutports_lh_₃(_lh_update_outports_arg1¹, 
 //│ 	let _lh_listcomp_fun¹⁰ = (fun _lh_listcomp_fun_para¹⁰ -> case _lh_listcomp_fun_para¹⁰ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h¹⁰ _lh_listcomp_fun_ls_t¹⁰ => case _lh_listcomp_fun_ls_h¹⁰ of {
 //│ 			LH_P6 _lh_update_outports_LH_P6_0¹ _lh_update_outports_LH_P6_1¹ _lh_update_outports_LH_P6_2¹ _lh_update_outports_LH_P6_3¹ _lh_update_outports_LH_P6_4¹ _lh_update_outports_LH_P6_5¹ => [LH_C [LH_P6 _lh_update_outports_LH_P6_0¹ _lh_update_outports_arg2¹ _lh_update_outports_LH_P6_2¹ _lh_update_outports_LH_P6_3¹ _lh_update_outports_LH_P6_4¹ _lh_update_outports_LH_P6_5¹] _lh_listcomp_fun¹⁰(_lh_listcomp_fun_ls_t¹⁰)]
 //│ 			| _  => _lh_listcomp_fun¹⁰(_lh_listcomp_fun_ls_t¹⁰)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun¹⁰(outports_lh_₆^2141(_lh_update_outports_arg1¹)))
-//│ def update_outports_lh_₃(_lh_update_outports_arg1⁰, _lh_update_outports_arg2⁰) = updateOutports_lh_₅^1571(_lh_update_outports_arg1⁰, 
+//│ 	in _lh_listcomp_fun¹⁰(outports_lh_₆(_lh_update_outports_arg1¹)))
+//│ def update_outports_lh_₃(_lh_update_outports_arg1⁰, _lh_update_outports_arg2⁰) = updateOutports_lh_₅(_lh_update_outports_arg1⁰, 
 //│ 	let _lh_listcomp_fun⁶ = (fun _lh_listcomp_fun_para⁶ -> case _lh_listcomp_fun_para⁶ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁶ _lh_listcomp_fun_ls_t⁶ => case _lh_listcomp_fun_ls_h⁶ of {
 //│ 			LH_P6 _lh_update_outports_LH_P6_0⁰ _lh_update_outports_LH_P6_1⁰ _lh_update_outports_LH_P6_2⁰ _lh_update_outports_LH_P6_3⁰ _lh_update_outports_LH_P6_4⁰ _lh_update_outports_LH_P6_5⁰ => [LH_C [LH_P6 _lh_update_outports_LH_P6_0⁰ _lh_update_outports_arg2⁰ _lh_update_outports_LH_P6_2⁰ _lh_update_outports_LH_P6_3⁰ _lh_update_outports_LH_P6_4⁰ _lh_update_outports_LH_P6_5⁰] _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t⁶)]
 //│ 			| _  => _lh_listcomp_fun⁶(_lh_listcomp_fun_ls_t⁶)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun⁶(outports_lh_₉^1595(_lh_update_outports_arg1⁰)))
-//│ def update_requests_lh_₁(_lh_update_requests_arg1², _lh_update_requests_arg2²) = updateOutports_lh_₅^1137(_lh_update_requests_arg2², 
+//│ 	in _lh_listcomp_fun⁶(outports_lh_₉(_lh_update_outports_arg1⁰)))
+//│ def update_requests_lh_₁(_lh_update_requests_arg1², _lh_update_requests_arg2²) = updateOutports_lh_₅(_lh_update_requests_arg2², 
 //│ 	let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {
 //│ 		LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => case _lh_listcomp_fun_ls_h² of {
 //│ 			LH_P6 _lh_update_requests_LH_P6_0² _lh_update_requests_LH_P6_1² _lh_update_requests_LH_P6_2² _lh_update_requests_LH_P6_3² _lh_update_requests_LH_P6_4² _lh_update_requests_LH_P6_5² => [LH_C [LH_P6 _lh_update_requests_LH_P6_0² _lh_update_requests_LH_P6_1² _lh_update_requests_arg1² _lh_update_requests_LH_P6_3² _lh_update_requests_arg1² _lh_update_requests_LH_P6_5²] _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)]
 //│ 			| _  => _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun²(outports_lh_₉^1161(_lh_update_requests_arg2²)))
-//│ def update_requests_lh_₂(_lh_update_requests_arg1¹, _lh_update_requests_arg2¹) = updateOutports_lh_₅^500(_lh_update_requests_arg2¹, 
+//│ 	in _lh_listcomp_fun²(outports_lh_₉(_lh_update_requests_arg2²)))
+//│ def update_requests_lh_₂(_lh_update_requests_arg1¹, _lh_update_requests_arg2¹) = updateOutports_lh_₅(_lh_update_requests_arg2¹, 
 //│ 	let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => case _lh_listcomp_fun_ls_h¹ of {
 //│ 			LH_P6 _lh_update_requests_LH_P6_0¹ _lh_update_requests_LH_P6_1¹ _lh_update_requests_LH_P6_2¹ _lh_update_requests_LH_P6_3¹ _lh_update_requests_LH_P6_4¹ _lh_update_requests_LH_P6_5¹ => [LH_C [LH_P6 _lh_update_requests_LH_P6_0¹ _lh_update_requests_LH_P6_1¹ _lh_update_requests_arg1¹ _lh_update_requests_LH_P6_3¹ _lh_update_requests_arg1¹ _lh_update_requests_LH_P6_5¹] _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)]
 //│ 			| _  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun¹(outports_lh_₉^524(_lh_update_requests_arg2¹)))
-//│ def update_requests_lh_₃(_lh_update_requests_arg1⁰, _lh_update_requests_arg2⁰) = updateOutports_lh_₅^387(_lh_update_requests_arg2⁰, 
+//│ 	in _lh_listcomp_fun¹(outports_lh_₉(_lh_update_requests_arg2¹)))
+//│ def update_requests_lh_₃(_lh_update_requests_arg1⁰, _lh_update_requests_arg2⁰) = updateOutports_lh_₅(_lh_update_requests_arg2⁰, 
 //│ 	let _lh_listcomp_fun⁰ = (fun _lh_listcomp_fun_para⁰ -> case _lh_listcomp_fun_para⁰ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => case _lh_listcomp_fun_ls_h⁰ of {
 //│ 			LH_P6 _lh_update_requests_LH_P6_0⁰ _lh_update_requests_LH_P6_1⁰ _lh_update_requests_LH_P6_2⁰ _lh_update_requests_LH_P6_3⁰ _lh_update_requests_LH_P6_4⁰ _lh_update_requests_LH_P6_5⁰ => [LH_C [LH_P6 _lh_update_requests_LH_P6_0⁰ _lh_update_requests_LH_P6_1⁰ _lh_update_requests_arg1⁰ _lh_update_requests_LH_P6_3⁰ _lh_update_requests_arg1⁰ _lh_update_requests_LH_P6_5⁰] _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)]
 //│ 			| _  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}
 //│ 		| LH_N  => [LH_N]})
-//│ 	in _lh_listcomp_fun⁰(outports_lh_₉^411(_lh_update_requests_arg2⁰)))
+//│ 	in _lh_listcomp_fun⁰(outports_lh_₉(_lh_update_requests_arg2⁰)))
 //│ def upsweep_lh_₁(_lh_upsweep_arg1⁰, _lh_upsweep_arg2⁰) = case _lh_upsweep_arg2⁰ of {
 //│ 	Cell _lh_upsweep_Cell_0⁰ => [LH_P2 _lh_upsweep_Cell_0⁰ [Cell _lh_upsweep_Cell_0⁰]]
 //│ 	| Node _lh_upsweep_Node_0⁰ _lh_upsweep_Node_1⁰ _lh_upsweep_Node_2⁰ => 
-//│ 		let _lh_matchIdent² = upsweep_lh_₁^137(_lh_upsweep_arg1⁰, _lh_upsweep_Node_1⁰)
+//│ 		let _lh_matchIdent² = upsweep_lh_₁(_lh_upsweep_arg1⁰, _lh_upsweep_Node_1⁰)
 //│ 		in case _lh_matchIdent² of {
 //│ 			LH_P2 _lh_upsweep_LH_P2_0⁰ _lh_upsweep_LH_P2_1⁰ => 
-//│ 				let _lh_matchIdent³ = upsweep_lh_₁^143(_lh_upsweep_arg1⁰, _lh_upsweep_Node_2⁰)
+//│ 				let _lh_matchIdent³ = upsweep_lh_₁(_lh_upsweep_arg1⁰, _lh_upsweep_Node_2⁰)
 //│ 				in case _lh_matchIdent³ of {
 //│ 					LH_P2 _lh_upsweep_LH_P2_0¹ _lh_upsweep_LH_P2_1¹ => [LH_P2 _lh_upsweep_arg1⁰(_lh_upsweep_LH_P2_0⁰, _lh_upsweep_LH_P2_0¹) [Node [LH_P2 _lh_upsweep_LH_P2_0⁰ _lh_upsweep_LH_P2_0¹] _lh_upsweep_LH_P2_1⁰ _lh_upsweep_LH_P2_1¹]]
 //│ 					| _  => error⁰}
@@ -1036,42 +1036,42 @@ testCircsim_nofib $ primId 40
 //│ def xor_lh_₁(_lh_xor_arg1⁰, _lh_xor_arg2⁰) = if polyEq⁰(_lh_xor_arg1⁰, _lh_xor_arg2⁰) then [T] else [F]
 //│ def zipWith_lh_₁(f²⁰, xs⁶, ys⁴) = case xs⁶ of {
 //│ 	LH_C hx⁴ tx⁴ => case ys⁴ of {
-//│ 		LH_C hy⁴ ty⁴ => [LH_C f²⁰(hx⁴, hy⁴) zipWith_lh_₁^2382(f²⁰, tx⁴, ty⁴)]
+//│ 		LH_C hy⁴ ty⁴ => [LH_C f²⁰(hx⁴, hy⁴) zipWith_lh_₁(f²⁰, tx⁴, ty⁴)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lh_₂(f¹⁹, xs⁵, ys³) = case xs⁵ of {
 //│ 	LH_C hx³ tx³ => case ys³ of {
-//│ 		LH_C hy³ ty³ => [LH_C f¹⁹(hx³, hy³) zipWith_lh_₂^2355(f¹⁹, tx³, ty³)]
+//│ 		LH_C hy³ ty³ => [LH_C f¹⁹(hx³, hy³) zipWith_lh_₂(f¹⁹, tx³, ty³)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lh_₃(f¹², xs³, ys²) = case xs³ of {
 //│ 	LH_C hx² tx² => case ys² of {
-//│ 		LH_C hy² ty² => [LH_C f¹²(hx², hy²) zipWith_lh_₃^1800(f¹², tx², ty²)]
+//│ 		LH_C hy² ty² => [LH_C f¹²(hx², hy²) zipWith_lh_₃(f¹², tx², ty²)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lh_₄(f⁴, xs², ys¹) = case xs² of {
 //│ 	LH_C hx¹ tx¹ => case ys¹ of {
-//│ 		LH_C hy¹ ty¹ => [LH_C f⁴(hx¹, hy¹) zipWith_lh_₄^1383(f⁴, tx¹, ty¹)]
+//│ 		LH_C hy¹ ty¹ => [LH_C f⁴(hx¹, hy¹) zipWith_lh_₄(f⁴, tx¹, ty¹)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lh_₅(f⁰, xs⁰, ys⁰) = case xs⁰ of {
 //│ 	LH_C hx⁰ tx⁰ => case ys⁰ of {
-//│ 		LH_C hy⁰ ty⁰ => [LH_C f⁰(hx⁰, hy⁰) zipWith_lh_₅^599(f⁰, tx⁰, ty⁰)]
+//│ 		LH_C hy⁰ ty⁰ => [LH_C f⁰(hx⁰, hy⁰) zipWith_lh_₅(f⁰, tx⁰, ty⁰)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lz_nl_lh_₁(f²⁸, xs¹², ys¹⁰) = case ys¹⁰ of {
 //│ 	LH_C hy⁷ ty⁷ => case force⁰(xs¹²) of {
-//│ 		LH_C hx⁷ tx⁷ => [LH_C f²⁸(hx⁷, hy⁷) zipWith_lz_nl_lh_₁^3509(f²⁸, tx⁷, ty⁷)]
+//│ 		LH_C hx⁷ tx⁷ => [LH_C f²⁸(hx⁷, hy⁷) zipWith_lz_nl_lh_₁(f²⁸, tx⁷, ty⁷)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zipWith_lz_nl_lh_₂(f²⁷, xs⁹, ys⁷) = case ys⁷ of {
 //│ 	LH_C hy⁶ ty⁶ => case force⁰(xs⁹) of {
-//│ 		LH_C hx⁶ tx⁶ => [LH_C f²⁷(hx⁶, hy⁶) zipWith_lz_nl_lh_₂^3205(f²⁷, tx⁶, ty⁶)]
+//│ 		LH_C hx⁶ tx⁶ => [LH_C f²⁷(hx⁶, hy⁶) zipWith_lz_nl_lh_₂(f²⁷, tx⁶, ty⁶)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ def zip_lh_₁(xs⁷, ys⁵) = case xs⁷ of {
 //│ 	LH_C hx⁵ tx⁵ => case ys⁵ of {
-//│ 		LH_C hy⁵ ty⁵ => [LH_C [LH_P2 hx⁵ hy⁵] zip_lh_₁^2656(tx⁵, ty⁵)]
+//│ 		LH_C hy⁵ ty⁵ => [LH_C [LH_P2 hx⁵ hy⁵] zip_lh_₁(tx⁵, ty⁵)]
 //│ 		| LH_N  => [LH_N]}
 //│ 	| LH_N  => [LH_N]}
 //│ 		---------- unoptimized ocaml gen ----------
