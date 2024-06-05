@@ -4,7 +4,16 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 ## Abstract
 
-[TODO:]
+This artifact consists of an `sbt` project with a
+Scala implementation of Lumberhack as introduced in the
+corresponding paper. Lumberhack aims to optimize
+the execution time and memory usage of programs by
+eliminating intermediate data structures.
+We provide a test suite containing
+all the examples in the paper and all the `nofib` benchmarks
+we have ported and presented in the paper. Related
+scripts in bash, R and Python to generate the figures and tables
+in the paper are also contained in this artifact.
 
 ## Artifact Instructions
 
@@ -168,11 +177,11 @@ between this artifact and the paper, please refer to [the section below](#corres
   
   The testing infrastructure for Lumberhack's `sbt` project is set up so that
   if there are any unstaged changes (as determined by `git`) in any test file
-(those in `lumberhack/shared/src/test/resources`), only the corresponding files will be processed.
-So one can make select modifications to some test files and run the test command (`testOnly mlscript.lumberhack.DiffTestLumberhack`) again in `sbt` shell,
-and only your modified tests will be run.
-There is a `lumberhack/shared/src/test/resources/PaperExamples.mls` file with examples for you to start editing
-and getting new results from Lumberhack.
+  (those in `lumberhack/shared/src/test/resources`), only the corresponding files will be processed.
+  So one can make select modifications to some test files and run the test command (`testOnly mlscript.lumberhack.DiffTestLumberhack`) again in `sbt` shell,
+  and only your modified tests will be run.
+  There is a `lumberhack/shared/src/test/resources/PaperExamples.mls` file with examples for you to start editing
+  and getting new results from Lumberhack.
 
   Test output (program after expansion, producer/consumer matches and program after optimization)
   is inserted **in place** in the test file after each corresponding block, as comments beginning with `//│`.
@@ -181,7 +190,7 @@ and getting new results from Lumberhack.
   VSCode and Sublime Text work well for this.
 
   Currently, we support input programs using
-  a subset of MLscript syntax (explained below) and
+  a subset of MLscript syntax ([explained below](#supported-mlscript-syntax)) and
   Haskell syntax (so that we can port the `nofib` benchmarks).
   We recommend using MLscript syntax to manually write programs as inputs to Lumberhack, because
   the generated output tends to be more readable due to less name mangling.
@@ -190,10 +199,10 @@ and getting new results from Lumberhack.
     We also implemented the example programs we described in the paper using
     this syntax in `lumberhack/shared/src/test/resources/PaperExamples.mls`.
     One can refer to that for a general idea of the MLscript syntax.
-  - The supported Haskell syntax suffices to enable us to port the related
+  - The Haskell syntax is supported to the extent that suffices to enable us to port the related
     `nofib` benchmarks. Some Haskell features are not supported (including but not limited to):
       - the Haskell record
-      - the "as" pattern: `ls@(x : xs)`
+      - the "as" pattern: `ls@(x:xs)`
       - lambda definition with patterns as its parameters: `\(x:xs) -> ...`
       - `let` groups: `let a = x; b = x in ...`
       - `let` bindings with patterns as its binder: `let (x:xs) = [1] in ...`
@@ -220,7 +229,13 @@ and getting new results from Lumberhack.
 
 ### Correspondence with the Paper
 
-[TODO:]
+- All the examples shown throughout the paper are presented in MLscript syntax in `lumberhack/shared/src/test/resources/PaperExamples.mls`.
+
+- After `./bench.sh` successfully finishes, `./plot.sh` will output Fig. 8 and Fig. 9
+  in section 6.3 Analysis of Results.
+
+- An `csv` table aggregating the data in Table 1 and Table 2 in Appendix D can be generated
+  by `./table.sh`.
 
 
 
@@ -285,34 +300,41 @@ and getting new results from Lumberhack.
 
 ## Additional Artifact Description
 
-In this artifact, the implementation of Lumberhack is intertwined with MLscript,
+In this artifact, the implementation of Lumberhack is presented together with MLscript,
 a nascent functional programming language intended for real-world usage. This allows
 Lumberhack to leverage the DiffTests utility implemented for MLscript.
-Additionally, this also makes it possible for Lumberhack to take MLscript
-programs as inputs and perform optimization on them.
+Additionally, this also enables Lumberhack to use the lexer and parser for MLscript,
+such that MLscript programs can be taken as inputs for Lumberhack.
 Although the support for generating MLscript programs is not available yet, it is
 anticipated that Lumberhack will be integrated into the MLscript compiler in the future.
-[TODO: the examples in the introduction section of the paper are written in MLscript in this artifact]
 
+The implementation of Lumberhack is self-contained, meaning that there is no dependency
+on MLscript after input MLscript programs are translated into Lumberhack's core AST.
+The `shared` directory contains the sources for MLscript, and
+the sources for Lumberhack are located in `lumberhack`,
+whose project structure is illustrated as follows.
 
-The `lumberhack` directory contains the sources of implementation of Lumberhack
-[TODO:]
+- `lumberhack/shared/src/main/scala/CodeGen.scala` contains the implementation of the
+  translation from Haskell's parse tree from tree-sitter to Lumberhack's AST, and the
+  generation of OCaml programs from the optimized programs in Lumberhack's core AST.
 
-The `shared` directory contains the sources for MLscript.
+- `lumberhack/shared/src/main/scala/Deforest.scala` contains the implementation of Lumberhack's
+  fusion strategy inference algorithm.
 
-- The `shared/src/main/scala/mlscript` directory contains the sources of the MLscript compiler.
-- The `shared/src/test/scala/mlscript` directory contains the sources of the testing infrastructure.
-[TODO:]
+- `lumberhack/shared/src/main/scala/Expr.scala` contains the implementation of Lumberhack's core Language AST.
 
+- `lumberhack/shared/src/main/scala/Main.scala` contains a dummy implementation of the entry point function
+  for Lumberhack, because currently Lumberhack takes its inputs solely from the DiffTest files located
+  in `lumberhack/shared/src/test/resources`.
+  
+  The overall workflow of Lumberhack can be found at
+  `lumberhack/shared/src/test/scala/DiffTestLumberhack.scala`.
 
+- `lumberhack/shared/src/main/scala/Rewrite.scala` contains the implementation of
+  Lumberhack's transformation, including expansion, fusion and floating-out.
 
+- `lumberhack/shared/src/main/scala/Uid.scala` contains the implementation of a `Uid` class
+  which helps the assignment of unique id to expressions, type variables and identifiers.
 
-<!-- # MLscript
-
-#### Directories
-
-- The `shared/src/main/scala/mlscript` directory contains the sources of the MLscript compiler.
-
-- The `shared/src/test/scala/mlscript` directory contains the sources of the testing infrastructure.
-
-- The `shared/src/test/diff` directory contains the actual tests.
+- `lumberhack/shared/src/main/scala/utils/Document.scala` contains the implementation of a `Document`
+  class and several helper functions that facilitate the pretty-printing of programs.
