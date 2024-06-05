@@ -36,7 +36,7 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 - Setting up from Scratch
 
   1. **To compile the project and run the tests**: you need [JDK (≥11) supported by Scala][supported-jdk-versions], [`sbt`][sbt], [`java-tree-sitter`][java-tree-sitter] (Java binding of tree-sitter)
-  and [`tree-sitter-haskell`][tree-sitter-haskell] (Haskell syntax for tree-sitter). The `java-tree-sitter` and `tree-sitter-haskell` are needed to
+  and [`tree-sitter-haskell`][tree-sitter-haskell] (Haskell syntax for tree-sitter). `java-tree-sitter` and `tree-sitter-haskell` are needed to
   parse input Haskell programs into our core language AST so that Lumberhack can perform optimization on them.
 
       We recommend you install JDK and `sbt` via [coursier][coursier].
@@ -46,18 +46,23 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
       The changes are:
       - Enabling c++ compilation for `java-tree-sitter` (explained at point 3 from [this PR](https://github.com/serenadeai/java-tree-sitter/pull/18)).
       This can be done by executing
-        ```
+        ```sh
         sed -i "s/if cpp/if cpp or True/g" ./build.py
         ```
         at the root directory of `java-tree-sitter`
       - Checking out to commit `b6ec26f181dd059eedd506fa5fbeae1b8e5556c8` for `tree-sitter-haskell`
 
       After the above changes are made, run at the root directory of `java-tree-sitter`:
-      ```
+      ```sh
       ./build.py -o libjava-tree-sitter-haskell -v ../tree-sitter-haskell
       ``` 
-      to compile the dynamic library. Then move the output file to
+      to compile the dynamic library. Then copy the output file to
       `java.library.path` (which can be shown by executing `java -XshowSettings:properties`).
+      On linux machine, this can be done by the following command because `/lib` should be a
+      `java.library.path`.
+      ```sh
+      cp ./libjava-tree-sitter-haskell.so /lib/libjava-tree-sitter-haskell.so
+      ```
 
       After installing the prerequisites, change your working directory to the root of this repository and
       launch the SBT shell by typing `sbt` in the terminal.
@@ -73,10 +78,10 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
       opam install zarith core_bench -y
       ```
 
-  3. **To generate the figures we used in paper**: you need [R (≥3.5)][R] and
+  3. **To generate the plots we used in paper**: you need [R (≥3.5)][R] and
   R packages [ggplot2][ggplot2], [RColorBrewer][], [gridExtra][gridExtra].
 
-      After install R, run the following command in your shell to install the required packages:
+      After installing R, run the following command in your shell to install the required packages:
       ```sh
       R -e "install.packages(c('RColorBrewer', 'ggplot2', 'gridExtra'), repos='http://cran.rstudio.com/')"
       ```
@@ -99,13 +104,16 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 ### Evaluation Instructions
 
-- To perform and test Lumberhack's optimization on the `nofib` benchmark tests we presented in the paper:
+This section describes how to run Lumberhack and its generated OCaml program, as well as
+how to generate the plots and tables we used in the paper. For the correspondence
+between this artifact and the paper, please refer to [the section below](#correspondance-with-claims-in-the-paper).
+
+- To perform and test Lumberhack's optimization on the `nofib` benchmark tests we used in the paper:
 
   run the following command in your shell:
   ```sh
   sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'
   ```
-  [TODO: mention the warnings or remove them]
   This will start the `sbt` shell and execute the `sbt` command `testOnly mlscript.lumberhack.DiffTestLumberhack`.
   Alternatively, you can start `sbt` shell first and then execute manually the command `testOnly mlscript.lumberhack.DiffTestLumberhack`.
 
@@ -121,11 +129,20 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
   ```
   The raw output from `core_bench` about the execution stats and the compiled
   binary size information will be printed to stdout, `plot/time.txt` and `plot/size.txt`.
-Some programs require longer running duration to enable `core_bench` to report
-reliable 95% confidence intervals, and their test durations
-are adjusted accordingly in `bench.sh` based on the results of
-executing the tests from the authors machine.
-Depending on the machine executing the tests, the numbers may need to be further adjusted.
+  
+  **NOTE**: some programs require longer running duration to enable `core_bench` to report
+  reliable 95% confidence intervals, and their test durations
+  are adjusted accordingly in `bench.sh` based on the results of
+  executing the tests from the authors' machines.
+  Depending on the machine executing the tests, the numbers may need to be further adjusted.
+  To make the adjustment, modify `bench.sh` and add an `elif` case after line 35:
+  ```sh
+  ...
+  elif [ "$dir" = "<benchmark_name>" ]
+  then
+    c=$cmd" -q"" <duration_in_seconds>"
+  ...
+  ```
 
 - To test output OCaml benchmark programs individually:
   `cd` to the corresponding sub-directory in `new-nofib-ocaml-gen`
@@ -142,7 +159,7 @@ Depending on the machine executing the tests, the numbers may need to be further
   95% confidence interval. The default benchmarking
   duration is 10 seconds, and it can be changed by passing
   `-q <time_in_seconds>` to the executable. More options
-  are also provided by `core_bench`, they can be listed by
+  are also provided by `core_bench`, and they can be listed by
   running `./<benchmark_name>.out --help`.
   
 
@@ -155,12 +172,18 @@ So one can make select modifications to some test files and run the test command
 and only your modified tests will be run.
 There is a `lumberhack/shared/src/test/resources/PaperExamples.mls` file with examples for you to start editing
 and getting new results from Lumberhack.
-[TODO: explain the output will be inserted in-place, and how to generate ocaml programs]
-Currently, we support input programs using
-a subset of MLscript syntax (explained below) and
-Haskell syntax (so that we can port the `nofib` benchmarks).
-We recommend using MLscript syntax to manually write programs as inputs to Lumberhack, because
-the generated output will likely be more readable due to less name mangling
+
+  Test output (program after expansion, producer/consumer matches and program after optimization)
+  is inserted **in place** in the test file after each corresponding block, as comments beginning with `//│`.
+  This makes it very easy and convenient to see the test results for each code block.
+  For this reason, we recommend using an editor that automatically reloads open files on changes.
+  VSCode and Sublime Text work well for this.
+
+  Currently, we support input programs using
+  a subset of MLscript syntax (explained below) and
+  Haskell syntax (so that we can port the `nofib` benchmarks).
+  We recommend using MLscript syntax to manually write programs as inputs to Lumberhack, because
+  the generated output tends to be more readable due to less name mangling.
 
   - The supported MLscript syntax is [described below](#supported-mlscript-syntax).
     We also implemented the example programs we described in the paper using
@@ -175,30 +198,37 @@ the generated output will likely be more readable due to less name mangling
       - `let` bindings with patterns as its binder: `let (x:xs) = [1] in ...`
       - `where` clauses that refer to variables defined at the outer scope: `f x = g x where g _ = x`
 
-- To generate figures in the paper:
+- To generate plots in the paper:
 
   After the execution of `bench.sh`, `plot/time.txt` and `plot/size.txt`
   should be ready. Then run
   ```bash
   ./plot.sh
   ```
-  The scripts in `plot` will be automatically called, and the figures
-  will be generated as `size.pdf` and `plot.pdf`. `size.csv` and `time.csv`
+  The scripts in `plot/` will be automatically called, and the plots
+  will be generated as `plot/size.pdf` and `plot/time.pdf`. `plot/size.csv` and `plot/time.csv`
   will also be generated along the way as intermediate files, which
-  collect information in `csv` formate from the raw outputs from `core_bench`.
+  collect information in `csv` format from the raw outputs from `core_bench`.
 
-  Additionally, to generate the tables we present in Appendix D
-  (table 1 and table 2) in `csv` format, run `table.csv`.
+  Additionally, to generate the tables (in `csv` format) we present in Appendix D
+  (table 1 and table 2), run
+  ```sh
+  ./table.sh
+  ```
 
 
------
+### Correspondence with the Paper
+
+[TODO:]
+
+
 
 ## Supported MLscript Syntax
 
 [TODO:]
 [NOTE: we currently do not support nested patterns for input programs written in MLscript syntax]
 
------
+
 
 ## Additional Artifact Description
 
@@ -226,21 +256,6 @@ The `shared` directory contains the sources for MLscript.
 
 <!-- # MLscript
 
-What would TypeScript look like if it had been designed with type inference and soundness in mind?
-
-We provide one possible answer in MLscript, an object-oriented and functional programming language with records, generic classes, mix-in traits, first-class unions and intersections, instance matching, and ML-style principal type inference.
-These features can be used to implement expressive class hierarchies as well as extensible sums and products.
-
-MLscript supports union, intersection, and complement (or negation) connectives, making sure they form a Boolean algebra, and add enough structure to derive a sound and complete type inference algorithm.
-
-## Getting Started
-
-### Project Structure
-
-#### Sub-Projects
-
-- The ts2mls sub-project allows you to use TypeScript libraries in MLscript. It can generate libraries' declaration information in MLscript by parsing TypeScript AST, which can be used in MLscript type checking.
-
 #### Directories
 
 - The `shared/src/main/scala/mlscript` directory contains the sources of the MLscript compiler.
@@ -248,71 +263,3 @@ MLscript supports union, intersection, and complement (or negation) connectives,
 - The `shared/src/test/scala/mlscript` directory contains the sources of the testing infrastructure.
 
 - The `shared/src/test/diff` directory contains the actual tests.
-
-- The `ts2mls/js/src/main/scala/ts2mls` directory contains the sources of the ts2mls module.
-
-- The `ts2mls/js/src/test/scala/ts2mls` directory contains the sources of the ts2mls declaration generation test code.
-
-- The `ts2mls/jvm/src/test/scala/ts2mls` directory contains the sources of the ts2mls diff test code.
-
-- The `ts2mls/js/src/test/typescript` directory contains the TypeScript test code.
-
-- The `ts2mls/js/src/test/diff` directory contains the declarations generated by ts2mls.
-
-### Prerequisites
-
-You need [JDK supported by Scala][supported-jdk-versions], [sbt][sbt], [Node.js][node.js], and TypeScript to compile the project and run the tests.
-
-We recommend you to install JDK and sbt via [coursier][coursier]. The versions of Node.js that passed our tests are from v16.14 to v16.17, v17 and v18. Run `npm install` to install TypeScript. **Note that ScalaJS cannot find the global installed TypeScript.** We explicitly support TypeScript v4.7.4.
-
-[supported-jdk-versions]: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
-[sbt]: https://www.scala-sbt.org/
-[node.js]: https://nodejs.org/
-[coursier]: https://get-coursier.io/
-
-### Running the tests
-
-Running the main MLscript tests only requires the Scala Build Tool installed.
-In the terminal, run `sbt mlscriptJVM/test`.
-
-Running the ts2mls MLscript tests requires NodeJS, and TypeScript in addition.
-In the terminal, run `sbt ts2mlsTest/test`.
-
-You can also run all tests simultaneously.
-In the terminal, run `sbt test`.
-
-### Running tests individually
-
-Individual tests can be run with `-z`.
-For example, `~mlscriptJVM/testOnly mlscript.DiffTests -- -z parser` will watch for file changes and continuously run all parser tests (those that have "parser" in their name).
-
-You can also indicate the test you want in `shared/src/test/scala/mlscript/DiffTests.scala`:
-
-```scala
-  // Allow overriding which specific tests to run, sometimes easier for development:
-  private val focused = Set[Str](
-    // Add the test file path here like this:
-    "shared/src/test/diff/mlscript/Methods.mls"
-  ).map(os.RelPath(_))
-```
-
-To run the tests in ts2mls sub-project individually,
-you can indicate the test you want in `ts2mls/js/src/test/scala/ts2mls/TSTypeGenerationTests.scala`:
-
-```scala
-private val testsData = List(
-    // Put all input files in the `Seq`
-    // Then indicate the output file's name
-    (Seq("Array.ts"), "Array.d.mls")
-  )
-```
-
-### Running the web demo locally
-
-To run the demo on your computer, compile the project with `sbt fastOptJS`, then open the `local_testing.html` file in your browser.
-
-You can make changes to the type inference code
-in `shared/src/main/scala/mlscript`,
-have it compile to JavaScript on file change with command
-`sbt ~fastOptJS`,
-and immediately see the results in your browser by refreshing the page with `F5`. -->
