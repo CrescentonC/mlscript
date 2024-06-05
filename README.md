@@ -2,6 +2,10 @@
 
 Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique for Removing Intermediate Data Structures
 
+## Abstract
+
+[TODO:]
+
 ## Artifact Instructions
 
 ### Setting up the Artifact
@@ -48,12 +52,11 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
         at the root directory of `java-tree-sitter`
       - Checking out to commit `b6ec26f181dd059eedd506fa5fbeae1b8e5556c8` for `tree-sitter-haskell`
 
-      After the above changes are made, run
+      After the above changes are made, run at the root directory of `java-tree-sitter`:
       ```
       ./build.py -o libjava-tree-sitter-haskell -v ../tree-sitter-haskell
       ``` 
-      at the root
-      directory of `java-tree-sitter` to compile the dynamic library. Then move the output file to
+      to compile the dynamic library. Then move the output file to
       `java.library.path` (which can be shown by executing `java -XshowSettings:properties`).
 
       After installing the prerequisites, change your working directory to the root of this repository and
@@ -98,26 +101,33 @@ Name: The Long Way to Deforestation: A Type Inference and Elaboration Technique 
 
 - To perform and test Lumberhack's optimization on the `nofib` benchmark tests we presented in the paper:
 
-  run
-`sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'`. [TODO: mention the warnings or remove them]
-The output OCaml programs will be located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
-These sub-directories contain both the unoptimized programs and the optimized ones, and each of the sub-directories also includes a `main.ml` that contains codes
-utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
-benchmark both the original program and the optimized ones and show the execution time and GC data.
+  run the following command in your shell:
+  ```sh
+  sbt 'testOnly mlscript.lumberhack.DiffTestLumberhack'
+  ```
+  [TODO: mention the warnings or remove them]
+  This will start the `sbt` shell and execute the `sbt` command `testOnly mlscript.lumberhack.DiffTestLumberhack`.
+  Alternatively, you can start `sbt` shell first and then execute manually the command `testOnly mlscript.lumberhack.DiffTestLumberhack`.
+
+  The output OCaml programs will be located in `new-nofib-ocaml-gen`, grouped by sub-directories following their names.
+  These sub-directories contain both the unoptimized programs and the optimized ones, and each of the sub-directories also includes a `main.ml` that contains codes
+  utilizing OCaml's benchmark library [`core_bench`](https://opam.ocaml.org/packages/core_bench/) to
+  benchmark both the original program and the optimized ones and show the execution time and GC data.
 
   After OCaml programs are generated, run the following command
-  to start executing the OCaml benchmarks.
+  to start executing them.
   ```sh
   ./bench.sh
   ```
-  The raw output from [`core_bench`] about the execution stats and the compiled
+  The raw output from `core_bench` about the execution stats and the compiled
   binary size information will be printed to stdout, `plot/time.txt` and `plot/size.txt`.
-Some programs require longer running time to enable `core_bench` to report
+Some programs require longer running duration to enable `core_bench` to report
 reliable 95% confidence intervals, and their test durations
-are adjusted accordingly in `bench.sh`.
+are adjusted accordingly in `bench.sh` based on the results of
+executing the tests from the authors machine.
 Depending on the machine executing the tests, the numbers may need to be further adjusted.
 
-- To test output OCaml benchmark programs individually,
+- To test output OCaml benchmark programs individually:
   `cd` to the corresponding sub-directory in `new-nofib-ocaml-gen`
   and run the following command to show the suggested command for
   compiling and running the generated OCaml programs.
@@ -126,30 +136,46 @@ Depending on the machine executing the tests, the numbers may need to be further
   ```
   The suggested command is composed of two commands, the first
   compiles the OCaml programs using `ocamlopt -O3` to produce
-  an executable `<benchmark name>.out`, the second launches
-  the generated executable `./<benchmark name>.out +time`.
+  an executable `<benchmark_name>.out`, the second launches
+  the generated executable: `./<benchmark_name>.out +time`.
   The `+time` flag tells `core_bench` to measure the
   95% confidence interval. The default benchmarking
   duration is 10 seconds, and it can be changed by passing
-  `-q <time in seconds>` to the executable. More options
+  `-q <time_in_seconds>` to the executable. More options
   are also provided by `core_bench`, they can be listed by
-  running `./<benchmark name>.out --help`.
+  running `./<benchmark_name>.out --help`.
   
 
-- To write your own programs and test Lumberhack's optimization on them
+- To write one's own programs and test Lumberhack's optimization on them:
   
-  The testing infrastructure for Lumberhack is set up so that
+  The testing infrastructure for Lumberhack's `sbt` project is set up so that
   if there are any unstaged changes (as determined by `git`) in any test file
-(those in `lumberhack/shared/src/test/resources`), only the corresponding files will be tested.
-So you can make select modifications to some test files and run the test command again,
-and it will only run your modified tests. There is an `Empty.mls` file for you to start.
-Currently, we support the MLscript (explained below) syntax and a subset of Haskell syntax (so that we can port
-the `nofib` benchmarks). To use the Haskell syntax, add `:lhInHaskell` at the first line of
-your Haskell programs (examples can be seen in `lumberhack/shared/src/test/resources/nofib_benchmarks`)
-  - [TODO: describe MLscript syntax]
-  - [TODO: describe Haskell syntax (and no empty lines allowed)]
+(those in `lumberhack/shared/src/test/resources`), only the corresponding files will be processed.
+So one can make select modifications to some test files and run the test command (`testOnly mlscript.lumberhack.DiffTestLumberhack`) again in `sbt` shell,
+and only your modified tests will be run.
+There is a `lumberhack/shared/src/test/resources/PaperExamples.mls` file with examples for you to start editing
+and getting new results from Lumberhack.
+[TODO: explain the output will be inserted in-place, and how to generate ocaml programs]
+Currently, we support input programs using
+a subset of MLscript syntax (explained below) and
+Haskell syntax (so that we can port the `nofib` benchmarks).
+We recommend using MLscript syntax to manually write programs as inputs to Lumberhack, because
+the generated output will likely be more readable due to less name mangling
 
-- To generate figures in the paper
+  - The supported MLscript syntax is [described below](#supported-mlscript-syntax).
+    We also implemented the example programs we described in the paper using
+    this syntax in `lumberhack/shared/src/test/resources/PaperExamples.mls`.
+    One can refer to that for a general idea of the MLscript syntax.
+  - The supported Haskell syntax suffices to enable us to port the related
+    `nofib` benchmarks. Some Haskell features are not supported (including but not limited to):
+      - the Haskell record
+      - the "as" pattern: `ls@(x : xs)`
+      - lambda definition with patterns as its parameters: `\(x:xs) -> ...`
+      - `let` groups: `let a = x; b = x in ...`
+      - `let` bindings with patterns as its binder: `let (x:xs) = [1] in ...`
+      - `where` clauses that refer to variables defined at the outer scope: `f x = g x where g _ = x`
+
+- To generate figures in the paper:
 
   After the execution of `bench.sh`, `plot/time.txt` and `plot/size.txt`
   should be ready. Then run
@@ -164,6 +190,13 @@ your Haskell programs (examples can be seen in `lumberhack/shared/src/test/resou
   Additionally, to generate the tables we present in Appendix D
   (table 1 and table 2) in `csv` format, run `table.csv`.
 
+
+-----
+
+## Supported MLscript Syntax
+
+[TODO:]
+[NOTE: we currently do not support nested patterns for input programs written in MLscript syntax]
 
 -----
 
@@ -187,7 +220,6 @@ The `shared` directory contains the sources for MLscript.
 - The `shared/src/main/scala/mlscript` directory contains the sources of the MLscript compiler.
 - The `shared/src/test/scala/mlscript` directory contains the sources of the testing infrastructure.
 [TODO:]
-
 
 
 
