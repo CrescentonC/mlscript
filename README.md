@@ -27,14 +27,14 @@ in the paper are also contained in this artifact.
 
   ```
   docker load -i lumberhack-docker-amd64.tar
-  docker run -it --rm crescentonc/lumberhack-docker:v0-amd64
+  docker run -it --rm lumberhack/lumberhack-docker:v0-amd64
   ```
   
   If one wants to use the `arm64` image, the commands are:
   
   ```
   docker load -i lumberhack-docker-arm64.tar
-  docker run -it --rm crescentonc/lumberhack-docker:v0-arm64
+  docker run -it --rm lumberhack/lumberhack-docker:v0-arm64
   ```
   
   The user will be attached to the shell of the container after the image gets
