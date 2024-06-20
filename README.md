@@ -137,6 +137,10 @@ between this artifact and the paper, please refer to [the section below](#corres
   ```
   The raw output from `core_bench` about the execution stats and the compiled
   binary size information will be printed to stdout, `plot/time.txt` and `plot/size.txt`.
+
+  Examples in the paper are located in `lumberhack/shared/src/test/resources/PaperExamples.mls`.
+  For some of the examples, their corresponding OCaml programs are generated and located in the folder `ocaml-gen`.
+  These OCaml programs are not compiled and executed by running `./bench.sh`. Please refer to the instructions below for running them individually.
   
   **NOTE**: some programs require longer running duration to enable `core_bench` to report
   reliable 95% confidence intervals, and their test durations
