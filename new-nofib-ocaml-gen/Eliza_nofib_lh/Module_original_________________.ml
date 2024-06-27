@@ -280,7 +280,9 @@ let rec answer_lh _lh_answer_arg1_0 _lh_answer_arg2_0 =
                       (if (null_lz_lh rs_0) then
                         ((cons_2 _lh_ans_LH_C_0_0) ((ans_0 _lh_ans_LH_C_1_0) _lh_ans_arg2_0))
                       else
-                        (`LH_P2(((makeResponse_lh _lh_ans_LH_C_0_1) (head_lz_lh rs_0)), (`LH_C((`LH_P2(_lh_ans_LH_P2_0_0, _lh_ans_LH_C_1_1)), _lh_ans_LH_C_1_0))))))))))))
+                        (`LH_P2(((makeResponse_lh _lh_ans_LH_C_0_1) (head_lz_lh rs_0)), (`LH_C((`LH_P2(_lh_ans_LH_P2_0_0, _lh_ans_LH_C_1_1)), _lh_ans_LH_C_1_0))))))))))
+      | `LH_N -> 
+        (failwith "lh_default_error")))
   in (let rec _lh_matchIdent_9 = ((ans_0 (keyTabOf_lh _lh_answer_arg1_0)) _lh_answer_arg2_0) in
     (match _lh_matchIdent_9 with
       | `LH_P2(_lh_answer_LH_P2_0_0, _lh_answer_LH_P2_1_0) -> 
