@@ -22,7 +22,9 @@ let rec fold1_lh _lh_fold1_arg1_0 _lh_fold1_arg2_0 _lh_fold1_arg3_0 =
         | `LH_N -> 
           (_lh_fold1_arg2_0 _lh_fold1_LH_C_0_0)
         | _ -> 
-          ((_lh_fold1_arg1_0 _lh_fold1_LH_C_0_0) (((fold1_lh _lh_fold1_arg1_0) _lh_fold1_arg2_0) _lh_fold1_LH_C_1_0))));;
+          ((_lh_fold1_arg1_0 _lh_fold1_LH_C_0_0) (((fold1_lh _lh_fold1_arg1_0) _lh_fold1_arg2_0) _lh_fold1_LH_C_1_0)))
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec unformat_lh _lh_unformat_arg1_0 =
   ((fold1_lh (fun xs_1 ys_1 -> 
     ((mappend_lh ((mappend_lh xs_1) (`LH_C(_lh_unformat_arg1_0, (`LH_N))))) ys_1))) (fun x_1 -> 
