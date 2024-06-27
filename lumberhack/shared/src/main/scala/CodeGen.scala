@@ -313,7 +313,7 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
             mergeMatchPatterns(
               matchIdent :: Nil,
               arms.toList,
-              Expr.Ref(ctx("error"))
+              Expr.Ref(ctx("internal_tmp_error_for_patmat_ast_conversion"))
             )
           )
         }
@@ -330,6 +330,10 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
     if vars.isEmpty then {
       if patList.isEmpty then
         elze
+        // elze match {
+        //   case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => Expr.Ref(ctx("error"))
+        //   case e => e
+        // }
       else
         val h = patList.head
         assert(h._1.isEmpty)
@@ -394,7 +398,11 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
               Nil,
               body
             )
-          }) :+ (Var("_"), Nil, elze)
+          }) ++ { elze match {
+            case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => None
+            // case _ => Some((Var("_"), Nil, elze))
+            case _ => Some((Var("_"), Nil, elze))
+          }} // else branch is still needed, otherwise there maybe type error
         )
       } else if firstPatterns.forall(_.isInstanceOf[NestedPat.CtorPat]) then {
         // the ctor rule
@@ -436,8 +444,8 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
               body
             )
           }) ++ { elze match {
-            // case Call(Ref(id), Const(StrLit(lit)))
-            //   if id.tree.name == "error" && lit == "match error" => None
+            case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => None
+            // case _ => Some((Var("_"), Nil, elze))
             case _ => Some((Var("_"), Nil, elze))
           }} // else branch is still needed, otherwise there maybe type error
         )
@@ -861,7 +869,7 @@ fun reverse_helper(ls, a) = if ls is
       patsAndBodies.toList,
       {
         given Option[Ident] = Some(funName)
-        Expr.Ref(initCtx("error"))
+        Expr.Ref(initCtx("internal_tmp_error_for_patmat_ast_conversion"))
       }
     )(using initCtx, Some(funName))
     val funDef = funArgNames.foldRight(body) { case (arg, acc) => Expr.Function(arg, acc)(using d, Some(funName)) }
@@ -926,7 +934,7 @@ trait CodeGen {
 
 class OCamlGen(val usePolymorphicVariant: Bool, val backToBuiltInType: Bool = false) extends CodeGen {
   override val primitives = Map(
-    "add" -> "(+)", "sub" -> "(-)", "%" -> "mod", "==" -> "=", "error" -> "(failwith \"error\")", "/=" -> "<>",
+    "add" -> "(+)", "sub" -> "(-)", "%" -> "mod", "==" -> "=", "error" -> "(failwith \"lh_default_error\")", "/=" -> "<>",
     "force" -> "Lazy.force", "polyEq" -> "=", "polyLt" -> "<", "polyGt" -> ">", "polyLeq" -> "<=",
     "polyGeq" -> ">=", "polyNeq" -> "<>", "div" -> "/", "ceiling" -> "ceil", "lumberhack_obj_magic" -> "Obj.magic",
     "z_add" -> "Z.add", "z_sub" -> "Z.sub", "z_mul" -> "Z.mul", "z_div" -> "Z.div", "z_mod" -> "Z.rem",
@@ -1026,6 +1034,7 @@ class OCamlGen(val usePolymorphicVariant: Bool, val backToBuiltInType: Bool = fa
     case Call(Ref(Ident(_, Var("from_large_str"), _)), Const(StrLit(s))) => this.handleLargeString(s)
     case Call(Ref(Ident(_, Var("z_of_string"), _)), Const(StrLit(s))) => this.handleLargeInt(s)
     case Call(Ref(Ident(_, Var("primId"), _)), arg) => rec(arg)
+    case Call(Ref(Ident(_, Var("error"), _)), arg) => "(failwith \"msg\"" <:> rec(arg) <:> ")"
     case Call(Call(Ref(Ident(_, Var(op), _)), fst), snd)
       if Deforest.lumberhackBinOps(op) || Deforest.lumberhackPolyOps(op) || (op == "div") =>
       "(" <:> rec(fst) <:> s" ${transformPrimitive(op)} " <:> rec(snd) <:> ")"

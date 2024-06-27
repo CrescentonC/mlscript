@@ -609,7 +609,7 @@ object Deforest {
       ++ lumberhackFloatBinOps ++ lumberhackFloatUnaryOps)
       + "string_of_int" + "int_of_char" + "char_of_int" + "ceiling" + "float_of_int" + "int_of_float" + "string_of_float"
       + "primitive" + "primId" + "error" + "lazy" + "force" + "lumberhack_obj_magic" + "from_large_str"
-      + "z_of_int" + "z_to_int" + "z_of_string" + "string_of_z"
+      + "z_of_int" + "z_to_int" + "z_of_string" + "string_of_z" + "internal_tmp_error_for_patmat_ast_conversion"
   lazy val lumberhackPolyOps: Set[String] = Set("polyEq", "polyLt", "polyGt", "polyLeq", "polyGeq", "polyNeq")
   lazy val lumberhackBinOps = lumberhackIntBinOps ++ lumberhackBoolBinOps ++ lumberhackFloatBinOps
   lazy val lumberhackIntFun: Set[String] = lumberhackIntValueFun ++ lumberhackIntComparisonFun

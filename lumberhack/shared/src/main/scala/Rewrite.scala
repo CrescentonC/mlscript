@@ -305,10 +305,10 @@ trait ExprRewrite { this: Expr =>
     def inexpensiveMatchingArmBody(e: Expr): Boolean = e match {
       case _: (Function | Const) => true
       case Ref(Ident(_, Var(v), _)) => v != "error"
-      case Ctor(_, args) => args.forall(a => inexpensiveMatchingArmBody(a))
+      case Ctor(_, args) => false
       case Sequence(a, b) => inexpensiveMatchingArmBody(a) && inexpensiveMatchingArmBody(b)
       case IfThenElse(b, t, f) => inexpensiveMatchingArmBody(b) && inexpensiveMatchingArmBody(t) && inexpensiveMatchingArmBody(f)
-      case Match(s, arms) => inexpensiveMatchingArmBody(s) && (arms.forall(a => inexpensiveMatchingArmBody(a._3)))
+      case Match(s, arms) => false
       case LetIn(_, rhs, body) => inexpensiveMatchingArmBody(rhs) && inexpensiveMatchingArmBody(body)
       case LetGroup(lets, body) => inexpensiveMatchingArmBody(body) && lets.forall(l => inexpensiveMatchingArmBody(l._2))
       case Call(_, _) => false
@@ -708,7 +708,7 @@ trait ProgramRewrite { this: Program =>
           case _ => 0
         }
         if afterLambdaCnt > preLambdaCnt then {
-          // println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt") else ()
+          println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt")
         }
         L(ProgDef(id, afterPoppedOut))
       }.toList
