@@ -16,6 +16,10 @@ let rec noPieces_lh _lh_noPieces_arg1_0 =
   (match _lh_noPieces_arg1_0 with
     | `Board(_lh_noPieces_Board_0_0, _lh_noPieces_Board_1_0, _lh_noPieces_Board_2_0, _lh_noPieces_Board_3_0) -> 
       _lh_noPieces_Board_1_0);;
+let rec sizeBoard_lh _lh_sizeBoard_arg1_0 =
+  (match _lh_sizeBoard_arg1_0 with
+    | `Board(_lh_sizeBoard_Board_0_0, _lh_sizeBoard_Board_1_0, _lh_sizeBoard_Board_2_0, _lh_sizeBoard_Board_3_0) -> 
+      _lh_sizeBoard_Board_0_0);;
 let rec inList_lh _lh_inList_arg1_0 _lh_inList_arg2_0 =
   (match _lh_inList_arg2_0 with
     | `LH_C(_lh_inList_LH_C_0_0, _lh_inList_LH_C_1_0) -> 
@@ -29,15 +33,21 @@ let rec isSquareFree_lh _lh_isSquareFree_arg1_0 _lh_isSquareFree_arg2_0 =
   (match _lh_isSquareFree_arg2_0 with
     | `Board(_lh_isSquareFree_Board_0_0, _lh_isSquareFree_Board_1_0, _lh_isSquareFree_Board_2_0, _lh_isSquareFree_Board_3_0) -> 
       (not ((inList_lh _lh_isSquareFree_arg1_0) _lh_isSquareFree_Board_3_0)));;
-let rec sizeBoard_lh _lh_sizeBoard_arg1_0 =
-  (match _lh_sizeBoard_arg1_0 with
-    | `Board(_lh_sizeBoard_Board_0_0, _lh_sizeBoard_Board_1_0, _lh_sizeBoard_Board_2_0, _lh_sizeBoard_Board_3_0) -> 
-      _lh_sizeBoard_Board_0_0);;
 let rec canMoveTo_lh _lh_canMoveTo_arg1_0 _lh_canMoveTo_arg2_0 =
   (match _lh_canMoveTo_arg1_0 with
     | `LH_P2(_lh_canMoveTo_LH_P2_0_0, _lh_canMoveTo_LH_P2_1_0) -> 
       (let rec sze_1 = (sizeBoard_lh _lh_canMoveTo_arg2_0) in
         (((((_lh_canMoveTo_LH_P2_0_0 >= 1) && (_lh_canMoveTo_LH_P2_0_0 <= sze_1)) && (_lh_canMoveTo_LH_P2_1_0 >= 1)) && (_lh_canMoveTo_LH_P2_1_0 <= sze_1)) && ((isSquareFree_lh (`LH_P2(_lh_canMoveTo_LH_P2_0_0, _lh_canMoveTo_LH_P2_1_0))) _lh_canMoveTo_arg2_0))));;
+let rec myInit_lh _lh_myInit_arg1_0 =
+  (match _lh_myInit_arg1_0 with
+    | `LH_C(_lh_myInit_LH_C_0_0, _lh_myInit_LH_C_1_0) -> 
+      (match _lh_myInit_LH_C_1_0 with
+        | `LH_N -> 
+          (`LH_N)
+        | _ -> 
+          (`LH_C(_lh_myInit_LH_C_0_0, (myInit_lh _lh_myInit_LH_C_1_0))))
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec myLast_lh _lh_myLast_arg1_0 =
   (match _lh_myLast_arg1_0 with
     | `LH_N -> 
@@ -50,14 +60,6 @@ let rec myLast_lh _lh_myLast_arg1_0 =
           | `LH_C(_lh_go_LH_C_0_0, _lh_go_LH_C_1_0) -> 
             ((go_0 _lh_go_LH_C_0_0) _lh_go_LH_C_1_0))) in
         ((go_0 _lh_myLast_LH_C_0_0) _lh_myLast_LH_C_1_0)));;
-let rec myInit_lh _lh_myInit_arg1_0 =
-  (match _lh_myInit_arg1_0 with
-    | `LH_C(_lh_myInit_LH_C_0_0, _lh_myInit_LH_C_1_0) -> 
-      (match _lh_myInit_LH_C_1_0 with
-        | `LH_N -> 
-          (`LH_N)
-        | _ -> 
-          (`LH_C(_lh_myInit_LH_C_0_0, (myInit_lh _lh_myInit_LH_C_1_0)))));;
 let rec deleteFirst_lh _lh_deleteFirst_arg1_0 =
   (match _lh_deleteFirst_arg1_0 with
     | `Board(_lh_deleteFirst_Board_0_0, _lh_deleteFirst_Board_1_0, _lh_deleteFirst_Board_2_0, _lh_deleteFirst_Board_3_0) -> 
@@ -109,6 +111,36 @@ let rec depthSearch_lh _lh_depthSearch_arg1_0 _lh_depthSearch_arg2_0 _lh_depthSe
       (lazy (`LH_C((inquireFront_lh _lh_depthSearch_arg1_0), (((depthSearch_lh (removeFront_lh _lh_depthSearch_arg1_0)) _lh_depthSearch_arg2_0) _lh_depthSearch_arg3_0))))
     else
       (((depthSearch_lh ((addAllFront_lh (_lh_depthSearch_arg2_0 (inquireFront_lh _lh_depthSearch_arg1_0))) (removeFront_lh _lh_depthSearch_arg1_0))) _lh_depthSearch_arg2_0) _lh_depthSearch_arg3_0)));;
+let rec intintComp_lh _lh_intintComp_arg1_0 _lh_intintComp_arg2_0 =
+  (match _lh_intintComp_arg1_0 with
+    | `LH_P2(_lh_intintComp_LH_P2_0_0, _lh_intintComp_LH_P2_1_0) -> 
+      (match _lh_intintComp_arg2_0 with
+        | `LH_P2(_lh_intintComp_LH_P2_0_1, _lh_intintComp_LH_P2_1_1) -> 
+          ((_lh_intintComp_LH_P2_0_0 < _lh_intintComp_LH_P2_0_1) || ((_lh_intintComp_LH_P2_0_0 = _lh_intintComp_LH_P2_0_1) && (_lh_intintComp_LH_P2_1_0 < _lh_intintComp_LH_P2_1_1)))));;
+let rec quickSortIntInt_lh _lh_quickSortIntInt_arg1_0 =
+  (match _lh_quickSortIntInt_arg1_0 with
+    | `LH_N -> 
+      (`LH_N)
+    | `LH_C(_lh_quickSortIntInt_LH_C_0_0, _lh_quickSortIntInt_LH_C_1_0) -> 
+      ((mappend_lh ((mappend_lh (quickSortIntInt_lh (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
+        (match _lh_listcomp_fun_para_0 with
+          | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
+            (if ((intintComp_lh _lh_listcomp_fun_ls_h_0) _lh_quickSortIntInt_LH_C_0_0) then
+              (`LH_C(_lh_listcomp_fun_ls_h_0, (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+            else
+              (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0))
+          | `LH_N -> 
+            (`LH_N))) in
+        (_lh_listcomp_fun_0 _lh_quickSortIntInt_LH_C_1_0)))) (`LH_C(_lh_quickSortIntInt_LH_C_0_0, (`LH_N))))) (quickSortIntInt_lh (let rec _lh_listcomp_fun_1 = (fun _lh_listcomp_fun_para_1 -> 
+        (match _lh_listcomp_fun_para_1 with
+          | `LH_C(_lh_listcomp_fun_ls_h_1, _lh_listcomp_fun_ls_t_1) -> 
+            (if (not ((intintComp_lh _lh_listcomp_fun_ls_h_1) _lh_quickSortIntInt_LH_C_0_0)) then
+              (`LH_C(_lh_listcomp_fun_ls_h_1, (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1)))
+            else
+              (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1))
+          | `LH_N -> 
+            (`LH_N))) in
+        (_lh_listcomp_fun_1 _lh_quickSortIntInt_LH_C_1_0)))));;
 let rec copy_lh _lh_copy_arg1_0 _lh_copy_arg2_0 =
   (if (_lh_copy_arg1_0 <= 0) then
     (`LH_N)
@@ -159,36 +191,6 @@ let rec assignMoveNo_lh _lh_assignMoveNo_arg1_0 _lh_assignMoveNo_arg2_0 _lh_assi
       (match _lh_assignMoveNo_LH_C_0_0 with
         | `LH_P2(_lh_assignMoveNo_LH_P2_0_0, _lh_assignMoveNo_LH_P2_1_0) -> 
           (`LH_C((`LH_P2((((_lh_assignMoveNo_LH_P2_1_0 - 1) * _lh_assignMoveNo_arg2_0) + _lh_assignMoveNo_LH_P2_0_0), _lh_assignMoveNo_arg3_0)), (((assignMoveNo_lh _lh_assignMoveNo_LH_C_1_0) _lh_assignMoveNo_arg2_0) (_lh_assignMoveNo_arg3_0 - 1))))));;
-let rec intintComp_lh _lh_intintComp_arg1_0 _lh_intintComp_arg2_0 =
-  (match _lh_intintComp_arg1_0 with
-    | `LH_P2(_lh_intintComp_LH_P2_0_0, _lh_intintComp_LH_P2_1_0) -> 
-      (match _lh_intintComp_arg2_0 with
-        | `LH_P2(_lh_intintComp_LH_P2_0_1, _lh_intintComp_LH_P2_1_1) -> 
-          ((_lh_intintComp_LH_P2_0_0 < _lh_intintComp_LH_P2_0_1) || ((_lh_intintComp_LH_P2_0_0 = _lh_intintComp_LH_P2_0_1) && (_lh_intintComp_LH_P2_1_0 < _lh_intintComp_LH_P2_1_1)))));;
-let rec quickSortIntInt_lh _lh_quickSortIntInt_arg1_0 =
-  (match _lh_quickSortIntInt_arg1_0 with
-    | `LH_N -> 
-      (`LH_N)
-    | `LH_C(_lh_quickSortIntInt_LH_C_0_0, _lh_quickSortIntInt_LH_C_1_0) -> 
-      ((mappend_lh ((mappend_lh (quickSortIntInt_lh (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
-        (match _lh_listcomp_fun_para_0 with
-          | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
-            (if ((intintComp_lh _lh_listcomp_fun_ls_h_0) _lh_quickSortIntInt_LH_C_0_0) then
-              (`LH_C(_lh_listcomp_fun_ls_h_0, (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
-            else
-              (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0))
-          | `LH_N -> 
-            (`LH_N))) in
-        (_lh_listcomp_fun_0 _lh_quickSortIntInt_LH_C_1_0)))) (`LH_C(_lh_quickSortIntInt_LH_C_0_0, (`LH_N))))) (quickSortIntInt_lh (let rec _lh_listcomp_fun_1 = (fun _lh_listcomp_fun_para_1 -> 
-        (match _lh_listcomp_fun_para_1 with
-          | `LH_C(_lh_listcomp_fun_ls_h_1, _lh_listcomp_fun_ls_t_1) -> 
-            (if (not ((intintComp_lh _lh_listcomp_fun_ls_h_1) _lh_quickSortIntInt_LH_C_0_0)) then
-              (`LH_C(_lh_listcomp_fun_ls_h_1, (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1)))
-            else
-              (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1))
-          | `LH_N -> 
-            (`LH_N))) in
-        (_lh_listcomp_fun_1 _lh_quickSortIntInt_LH_C_1_0)))));;
 let rec showChessSet_lh _lh_showChessSet_arg1_0 =
   (match _lh_showChessSet_arg1_0 with
     | `Board(_lh_showChessSet_Board_0_0, _lh_showChessSet_Board_1_0, _lh_showChessSet_Board_2_0, _lh_showChessSet_Board_3_0) -> 
@@ -254,12 +256,20 @@ let rec mySnd_lh _lh_mySnd_arg1_0 =
   (match _lh_mySnd_arg1_0 with
     | `LH_P2(_lh_mySnd_LH_P2_0_0, _lh_mySnd_LH_P2_1_0) -> 
       _lh_mySnd_LH_P2_1_0);;
+let rec length_lh ls_3 =
+  (match ls_3 with
+    | `LH_C(h_3, t_3) -> 
+      (1 + (length_lh t_3))
+    | `LH_N -> 
+      0);;
 let rec lastPiece_lh _lh_lastPiece_arg1_0 =
   (match _lh_lastPiece_arg1_0 with
     | `Board(_lh_lastPiece_Board_0_0, _lh_lastPiece_Board_1_0, _lh_lastPiece_Board_2_0, _lh_lastPiece_Board_3_0) -> 
       (match _lh_lastPiece_Board_3_0 with
         | `LH_C(_lh_lastPiece_LH_C_0_0, _lh_lastPiece_LH_C_1_0) -> 
-          _lh_lastPiece_LH_C_0_0));;
+          _lh_lastPiece_LH_C_0_0
+        | `LH_N -> 
+          (failwith "lh_default_error")));;
 let rec move_lh _lh_move_arg1_0 _lh_move_arg2_0 =
   (match _lh_move_arg1_0 with
     | `UL -> 
@@ -307,12 +317,6 @@ let rec possibleMoves_lh _lh_possibleMoves_arg1_0 =
       | `LH_N -> 
         (`LH_N))) in
     (_lh_listcomp_fun_4 (`LH_C((`UL), (`LH_C((`UR), (`LH_C((`DL), (`LH_C((`DR), (`LH_C((`LU), (`LH_C((`LD), (`LH_C((`RU), (`LH_C((`RD), (`LH_N)))))))))))))))))));;
-let rec length_lh ls_3 =
-  (match ls_3 with
-    | `LH_C(h_3, t_3) -> 
-      (1 + (length_lh t_3))
-    | `LH_N -> 
-      0);;
 let rec addPiece_lh _lh_addPiece_arg1_0 _lh_addPiece_arg2_0 =
   (match _lh_addPiece_arg2_0 with
     | `Board(_lh_addPiece_Board_0_0, _lh_addPiece_Board_1_0, _lh_addPiece_Board_2_0, _lh_addPiece_Board_3_0) -> 
@@ -415,7 +419,13 @@ let rec printTour_lh _lh_printTour_arg1_0 =
           | `LH_C(_lh_printTour_LH_C_0_1, _lh_printTour_LH_C_1_1) -> 
             (match _lh_printTour_LH_C_1_1 with
               | `LH_N -> 
-                (pp_0 ((take_lz_lh _lh_printTour_LH_C_0_1) (((depthSearch_lh (root_lh _lh_printTour_LH_C_0_0)) grow_lh) isFinished_lh)))))));;
+                (pp_0 ((take_lz_lh _lh_printTour_LH_C_0_1) (((depthSearch_lh (root_lh _lh_printTour_LH_C_0_0)) grow_lh) isFinished_lh)))
+              | _ -> 
+                (failwith "lh_default_error"))
+          | _ -> 
+            (failwith "lh_default_error"))
+      | _ -> 
+        (failwith "lh_default_error")));;
 let rec foldr_lh f_1 i_0 ls_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
