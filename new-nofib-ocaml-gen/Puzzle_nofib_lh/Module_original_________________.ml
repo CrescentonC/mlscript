@@ -3,6 +3,16 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
+let rec totalTime_lh _lh_totalTime_arg1_0 =
+  (match _lh_totalTime_arg1_0 with
+    | `LH_C(_lh_totalTime_LH_C_0_0, _lh_totalTime_LH_C_1_0) -> 
+      (match _lh_totalTime_LH_C_0_0 with
+        | `LH_P2(_lh_totalTime_LH_P2_0_0, _lh_totalTime_LH_P2_1_0) -> 
+          _lh_totalTime_LH_P2_0_0
+        | _ -> 
+          (failwith "lh_default_error"))
+    | _ -> 
+      (failwith "lh_default_error"));;
 let rec reverse_helper_lh ls_3 a_0 =
   (match ls_3 with
     | `LH_C(h_4, t_4) -> 
@@ -11,12 +21,6 @@ let rec reverse_helper_lh ls_3 a_0 =
       a_0);;
 let rec reverse_lh ls_2 =
   ((reverse_helper_lh ls_2) (`LH_N));;
-let rec totalTime_lh _lh_totalTime_arg1_0 =
-  (match _lh_totalTime_arg1_0 with
-    | `LH_C(_lh_totalTime_LH_C_0_0, _lh_totalTime_LH_C_1_0) -> 
-      (match _lh_totalTime_LH_C_0_0 with
-        | `LH_P2(_lh_totalTime_LH_P2_0_0, _lh_totalTime_LH_P2_1_0) -> 
-          _lh_totalTime_LH_P2_0_0));;
 let rec minSolutions_lh _lh_minSolutions_arg1_0 =
   (match _lh_minSolutions_arg1_0 with
     | `LH_N -> 
@@ -177,7 +181,9 @@ let rec succItem_lh _lh_succItem_arg1_0 =
     | `Edge -> 
       (`Larry)
     | `Larry -> 
-      (`Adam));;
+      (`Adam)
+    | _ -> 
+      (failwith "lh_default_error"));;
 let rec itemFromTo_lh _lh_itemFromTo_arg1_0 _lh_itemFromTo_arg2_0 =
   (if (_lh_itemFromTo_arg1_0 = _lh_itemFromTo_arg2_0) then
     (`LH_C(_lh_itemFromTo_arg1_0, (`LH_N)))
