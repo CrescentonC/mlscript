@@ -56,7 +56,9 @@ let rec init_lh _lh_init_arg1_0 =
         | `LH_N -> 
           (`LH_N)
         | _ -> 
-          (`LH_C(_lh_init_LH_C_0_0, (init_lh _lh_init_LH_C_1_0)))));;
+          (`LH_C(_lh_init_LH_C_0_0, (init_lh _lh_init_LH_C_1_0))))
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec shiftr_lh _lh_shiftr_arg1_0 _lh_shiftr_arg2_0 =
   ((mappend_lh (`LH_C(_lh_shiftr_arg1_0, (`LH_N)))) (init_lh _lh_shiftr_arg2_0));;
 let rec zip3_lh _lh_zip3_arg1_0 _lh_zip3_arg2_0 _lh_zip3_arg3_0 =
@@ -122,18 +124,18 @@ let rec row_lh _lh_row_arg1_0 =
   (match _lh_row_arg1_0 with
     | `LH_P3(_lh_row_LH_P3_0_0, _lh_row_LH_P3_1_0, _lh_row_LH_P3_2_0) -> 
       ((((zipWith3_lh elt_lh) ((shift_lh 0) _lh_row_LH_P3_0_0)) ((shift_lh 0) _lh_row_LH_P3_1_0)) ((shift_lh 0) _lh_row_LH_P3_2_0)));;
-let rec map_lh f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
-    | `LH_N -> 
-      (`LH_N));;
 let rec copy_lh _lh_copy_arg1_0 _lh_copy_arg2_0 =
   (match _lh_copy_arg1_0 with
     | 0 -> 
       (`LH_N)
     | _ -> 
       (`LH_C(_lh_copy_arg2_0, ((copy_lh (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0))));;
+let rec map_lh f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec gen_lh _lh_gen_arg1_0 _lh_gen_arg2_0 =
   ((map_lh row_lh) ((shift_lh ((copy_lh _lh_gen_arg1_0) 0)) _lh_gen_arg2_0));;
 let rec copy_lz_lh _lh_copy_lz_arg1_0 _lh_copy_lz_arg2_0 =
@@ -208,7 +210,9 @@ let rec last_lh _lh_last_arg1_0 =
   (let rec _lh_matchIdent_1 = _lh_last_arg1_0 in
     (match _lh_matchIdent_1 with
       | `LH_C(_lh_last_LH_C_0_0, _lh_last_LH_C_1_0) -> 
-        ((lastt_lh _lh_last_LH_C_1_0) _lh_last_LH_C_0_0)));;
+        ((lastt_lh _lh_last_LH_C_1_0) _lh_last_LH_C_0_0)
+      | `LH_N -> 
+        (failwith "lh_default_error")));;
 let rec testLife_nofib_lh _lh_testLife_nofib_arg1_0 =
   (length_lh (Lazy.force (last_lh (generations_lh _lh_testLife_nofib_arg1_0))));;
 let run () = 1 + (Obj.magic ((testLife_nofib_lh 29)));
