@@ -18,6 +18,8 @@ let rec f2_lh _lh_f2_arg1_0 =
           (abs_lh ((Z.add ((Z.add _lh_f2_LH_P3_0_1) _lh_f2_LH_P3_1_1)) _lh_f2_LH_P3_2_1))));;
 let rec max'_lh _lh_max'_arg1_0 =
   (match _lh_max'_arg1_0 with
+    | `LH_N -> 
+      (failwith "lh_default_error")
     | `LH_C(_lh_max'_LH_C_0_0, _lh_max'_LH_C_1_0) -> 
       (match _lh_max'_LH_C_1_0 with
         | `LH_N -> 
