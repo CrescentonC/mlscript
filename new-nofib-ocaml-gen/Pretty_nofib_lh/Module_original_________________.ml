@@ -42,7 +42,9 @@ let rec foldr1_lh _lh_foldr1_arg1_0 _lh_foldr1_arg2_0 =
         | `LH_N -> 
           _lh_foldr1_LH_C_0_0
         | _ -> 
-          ((_lh_foldr1_arg1_0 _lh_foldr1_LH_C_0_0) ((foldr1_lh _lh_foldr1_arg1_0) _lh_foldr1_LH_C_1_0))));;
+          ((_lh_foldr1_arg1_0 _lh_foldr1_LH_C_0_0) ((foldr1_lh _lh_foldr1_arg1_0) _lh_foldr1_LH_C_1_0)))
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec ppAboves_lh _lh_ppAboves_arg1_0 =
   (match _lh_ppAboves_arg1_0 with
     | `LH_N -> 
