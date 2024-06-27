@@ -3,6 +3,10 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
+let rec label_lh _lh_label_arg1_0 =
+  (match _lh_label_arg1_0 with
+    | `Node(_lh_label_Node_0_0, _lh_label_Node_1_0) -> 
+      _lh_label_Node_0_0);;
 let rec flip_lh _lh_flip_arg1_0 _lh_flip_arg2_0 _lh_flip_arg3_0 =
   ((_lh_flip_arg1_0 _lh_flip_arg3_0) _lh_flip_arg2_0);;
 let rec deleteBy_lh _lh_deleteBy_arg1_0 _lh_deleteBy_arg2_0 _lh_deleteBy_arg3_0 =
@@ -76,17 +80,15 @@ let rec combine_lh _lh_combine_arg1_0 _lh_combine_arg2_0 =
               (if ((notElem_lh (maxLevel_lh _lh_combine_LH_P2_0_0)) _lh_combine_Known_0_0) then
                 _lh_combine_Known_0_0
               else
-                ((combine_lh _lh_combine_LH_C_1_0) ((union_lh _lh_combine_Known_0_0) _lh_combine_arg2_0))))));;
+                ((combine_lh _lh_combine_LH_C_1_0) ((union_lh _lh_combine_Known_0_0) _lh_combine_arg2_0)))
+            | _ -> 
+              (failwith "lh_default_error"))));;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
       (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
-let rec label_lh _lh_label_arg1_0 =
-  (match _lh_label_arg1_0 with
-    | `Node(_lh_label_Node_0_0, _lh_label_Node_1_0) -> 
-      _lh_label_Node_0_0);;
 let rec foldTree_lh _lh_foldTree_arg1_0 _lh_foldTree_arg2_0 =
   (match _lh_foldTree_arg2_0 with
     | `Node(_lh_foldTree_Node_0_0, _lh_foldTree_Node_1_0) -> 
@@ -101,10 +103,6 @@ let rec bj_lh _lh_bj_arg1_0 =
           | `Unknown -> 
             (`Node((`LH_P2(_lh_f_LH_P2_0_0, (`Known(((combine_lh ((map_lh label_lh) _lh_f_arg2_0)) (`LH_N)))))), _lh_f_arg2_0))))) in
     (foldTree_lh f_5));;
-let rec mapTree_lh _lh_mapTree_arg1_0 _lh_mapTree_arg2_0 =
-  (match _lh_mapTree_arg2_0 with
-    | `Node(_lh_mapTree_Node_0_0, _lh_mapTree_Node_1_0) -> 
-      (`Node((_lh_mapTree_arg1_0 _lh_mapTree_Node_0_0), ((map_lh (mapTree_lh _lh_mapTree_arg1_0)) _lh_mapTree_Node_1_0))));;
 let rec complete_lh _lh_complete_arg1_0 _lh_complete_arg2_0 =
   (match _lh_complete_arg1_0 with
     | `CSP(_lh_complete_CSP_0_0, _lh_complete_CSP_1_0, _lh_complete_CSP_2_0) -> 
@@ -140,6 +138,10 @@ let rec earliestInconsistency_lh _lh_earliestInconsistency_arg1_0 _lh_earliestIn
                 (`Nothing)
               | `LH_C(_lh_earliestInconsistency_LH_C_0_1, _lh_earliestInconsistency_LH_C_1_1) -> 
                 (`Just((`LH_P2((level_lh _lh_earliestInconsistency_LH_C_0_0), (level_lh _lh_earliestInconsistency_LH_C_0_1)))))))));;
+let rec mapTree_lh _lh_mapTree_arg1_0 _lh_mapTree_arg2_0 =
+  (match _lh_mapTree_arg2_0 with
+    | `Node(_lh_mapTree_Node_0_0, _lh_mapTree_Node_1_0) -> 
+      (`Node((_lh_mapTree_arg1_0 _lh_mapTree_Node_0_0), ((map_lh (mapTree_lh _lh_mapTree_arg1_0)) _lh_mapTree_Node_1_0))));;
 let rec bt_lh _lh_bt_arg1_0 =
   (let rec f_4 = (fun s_0 -> 
     (`LH_P2(s_0, (let rec _lh_matchIdent_0 = ((earliestInconsistency_lh _lh_bt_arg1_0) s_0) in
@@ -153,19 +155,6 @@ let rec bt_lh _lh_bt_arg1_0 =
     (mapTree_lh f_4));;
 let rec bjbt_lh _lh_bjbt_arg1_0 _lh_funcomp_x_3 =
   ((bj_lh _lh_bjbt_arg1_0) ((bt_lh _lh_bjbt_arg1_0) _lh_funcomp_x_3));;
-let rec abs_lh _lh_abs_arg1_0 =
-  (if (_lh_abs_arg1_0 > 0) then
-    _lh_abs_arg1_0
-  else
-    (0 - _lh_abs_arg1_0));;
-let rec safe_lh _lh_safe_arg1_0 _lh_safe_arg2_0 =
-  (match _lh_safe_arg1_0 with
-    | `Assign(_lh_safe_Assign_0_0, _lh_safe_Assign_1_0) -> 
-      (match _lh_safe_arg2_0 with
-        | `Assign(_lh_safe_Assign_0_1, _lh_safe_Assign_1_1) -> 
-          ((_lh_safe_Assign_1_0 <> _lh_safe_Assign_1_1) && ((abs_lh (_lh_safe_Assign_0_0 - _lh_safe_Assign_0_1)) <> (abs_lh (_lh_safe_Assign_1_0 - _lh_safe_Assign_1_1))))));;
-let rec queens_lh _lh_queens_arg1_0 =
-  (`CSP(_lh_queens_arg1_0, _lh_queens_arg1_0, safe_lh));;
 let rec filterTree_lh _lh_filterTree_arg1_0 =
   (let rec f_8 = (fun a_3 cs_0 -> 
     (`Node(a_3, ((filter_lh (fun _lh_funcomp_x_8 -> 
@@ -247,6 +236,19 @@ let rec search_lh _lh_search_arg1_0 _lh_search_arg2_0 =
             ((map_lh fst_lh) ((filter_lh (fun _lh_funcomp_x_1_4 -> 
               (knownSolution_lh (snd_lh _lh_funcomp_x_1_4)))) _lh_funcomp_x_1_3))) (leaves_lh _lh_funcomp_x_1_2))) ((prune_lh (fun _lh_funcomp_x_1_5 -> 
           (knownConflict_lh (snd_lh _lh_funcomp_x_1_5)))) _lh_funcomp_x_1_1))) ((_lh_search_arg1_0 _lh_search_arg2_0) _lh_funcomp_x_1_0))) (mkTree_lh _lh_funcomp_x_9))) _lh_search_arg2_0);;
+let rec abs_lh _lh_abs_arg1_0 =
+  (if (_lh_abs_arg1_0 > 0) then
+    _lh_abs_arg1_0
+  else
+    (0 - _lh_abs_arg1_0));;
+let rec safe_lh _lh_safe_arg1_0 _lh_safe_arg2_0 =
+  (match _lh_safe_arg1_0 with
+    | `Assign(_lh_safe_Assign_0_0, _lh_safe_Assign_1_0) -> 
+      (match _lh_safe_arg2_0 with
+        | `Assign(_lh_safe_Assign_0_1, _lh_safe_Assign_1_1) -> 
+          ((_lh_safe_Assign_1_0 <> _lh_safe_Assign_1_1) && ((abs_lh (_lh_safe_Assign_0_0 - _lh_safe_Assign_0_1)) <> (abs_lh (_lh_safe_Assign_1_0 - _lh_safe_Assign_1_1))))));;
+let rec queens_lh _lh_queens_arg1_0 =
+  (`CSP(_lh_queens_arg1_0, _lh_queens_arg1_0, safe_lh));;
 let rec length_lh ls_5 =
   (match ls_5 with
     | `LH_C(h_5, t_5) -> 
@@ -368,7 +370,9 @@ let rec collect_lh _lh_collect_arg1_0 =
     | `LH_C(_lh_collect_LH_C_0_0, _lh_collect_LH_C_1_0) -> 
       (match _lh_collect_LH_C_0_0 with
         | `Known(_lh_collect_Known_0_0) -> 
-          ((union_lh _lh_collect_Known_0_0) (collect_lh _lh_collect_LH_C_1_0))));;
+          ((union_lh _lh_collect_Known_0_0) (collect_lh _lh_collect_LH_C_1_0))
+        | _ -> 
+          (failwith "lh_default_error")));;
 let rec all_lh _lh_all_arg1_0 _lh_all_arg2_0 =
   (match _lh_all_arg2_0 with
     | `LH_N -> 
