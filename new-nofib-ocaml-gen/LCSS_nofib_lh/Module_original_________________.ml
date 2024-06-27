@@ -15,12 +15,15 @@ let rec length_lh ls_2 =
     | `LH_N -> 
       0);;
 let rec drop_lh _lh_drop_arg1_0 _lh_drop_arg2_0 =
-  (match _lh_drop_arg2_0 with
-    | `LH_C(_lh_drop_LH_C_0_0, _lh_drop_LH_C_1_0) -> 
-      (if (_lh_drop_arg1_0 = 0) then
-        (`LH_C(_lh_drop_LH_C_0_0, _lh_drop_LH_C_1_0))
-      else
-        ((drop_lh (_lh_drop_arg1_0 - 1)) _lh_drop_LH_C_1_0)));;
+  (if (_lh_drop_arg1_0 <= 0) then
+    _lh_drop_arg2_0
+  else
+    (let rec _lh_matchIdent_0 = _lh_drop_arg2_0 in
+      (match _lh_matchIdent_0 with
+        | `LH_N -> 
+          (`LH_N)
+        | `LH_C(_lh_drop_LH_C_0_0, _lh_drop_LH_C_1_0) -> 
+          ((drop_lh (_lh_drop_arg1_0 - 1)) _lh_drop_LH_C_1_0))));;
 let rec reverse_helper_lh ls_4 a_1 =
   (match ls_4 with
     | `LH_C(h_3, t_4) -> 
