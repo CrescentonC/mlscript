@@ -3,16 +3,10 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec mappend_lh xs_0 ys_0 =
-  (match xs_0 with
-    | `LH_C(h_3, t_3) -> 
-      (`LH_C(h_3, ((mappend_lh t_3) ys_0)))
-    | `LH_N -> 
-      ys_0);;
-let rec concat_lh lss_0 =
-  (match lss_0 with
-    | `LH_C(h_4, t_4) -> 
-      ((mappend_lh h_4) (concat_lh t_4))
+let rec map_lh f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
 let rec splitHelper_lh _lh_splitHelper_arg1_0 _lh_splitHelper_arg2_0 =
@@ -23,10 +17,16 @@ let rec splitHelper_lh _lh_splitHelper_arg1_0 _lh_splitHelper_arg2_0 =
       (`LH_C(_lh_splitHelper_arg1_0, _lh_splitHelper_arg2_0)));;
 let rec split_lh _lh_split_arg1_0 =
   ((splitHelper_lh _lh_split_arg1_0) (`LH_N));;
-let rec map_lh f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
+let rec mappend_lh xs_0 ys_0 =
+  (match xs_0 with
+    | `LH_C(h_3, t_3) -> 
+      (`LH_C(h_3, ((mappend_lh t_3) ys_0)))
+    | `LH_N -> 
+      ys_0);;
+let rec concat_lh lss_0 =
+  (match lss_0 with
+    | `LH_C(h_4, t_4) -> 
+      ((mappend_lh h_4) (concat_lh t_4))
     | `LH_N -> 
       (`LH_N));;
 let rec elim_lh _lh_elim_arg1_0 =
@@ -136,6 +136,8 @@ let rec red_lh _lh_red_arg1_0 =
         | _ -> 
           (failwith "lh_default_error"))
     | `LH_N -> 
+      (failwith "lh_default_error")
+    | _ -> 
       (failwith "lh_default_error"));;
 let rec while_lh _lh_while_arg1_0 _lh_while_arg2_0 _lh_while_arg3_0 =
   (if (_lh_while_arg1_0 _lh_while_arg3_0) then
@@ -224,25 +226,12 @@ let rec disp_lh _lh_disp_arg1_0 =
   (match _lh_disp_arg1_0 with
     | `LH_P2(_lh_disp_LH_P2_0_0, _lh_disp_LH_P2_1_0) -> 
       ((mappend_lh ((mappend_lh ((interleave_lh _lh_disp_LH_P2_0_0) (spaces_lh (length_lh _lh_disp_LH_P2_0_0)))) (`LH_C('<', (`LH_C('=', (`LH_N))))))) ((mappend_lh ((interleave_lh (spaces_lh (length_lh _lh_disp_LH_P2_1_0))) _lh_disp_LH_P2_1_0)) (`LH_C('n', (`LH_N))))));;
-let rec contains_lh _lh_contains_arg1_0 _lh_contains_arg2_0 =
-  (match _lh_contains_arg2_0 with
-    | `LH_C(_lh_contains_LH_C_0_0, _lh_contains_LH_C_1_0) -> 
-      ((_lh_contains_arg1_0 = _lh_contains_LH_C_0_0) || ((contains_lh _lh_contains_arg1_0) _lh_contains_LH_C_1_0))
+let rec foldr_lh f_1 i_0 ls_1 =
+  (match ls_1 with
+    | `LH_C(h_1, t_1) -> 
+      ((f_1 h_1) (((foldr_lh f_1) i_0) t_1))
     | `LH_N -> 
-      false);;
-let rec tautclause_lh _lh_tautclause_arg1_0 =
-  (match _lh_tautclause_arg1_0 with
-    | `LH_P2(_lh_tautclause_LH_P2_0_0, _lh_tautclause_LH_P2_1_0) -> 
-      ((let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
-        (match _lh_listcomp_fun_para_0 with
-          | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
-            (if ((contains_lh _lh_listcomp_fun_ls_h_0) _lh_tautclause_LH_P2_1_0) then
-              (`LH_C(_lh_listcomp_fun_ls_h_0, (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
-            else
-              (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0))
-          | `LH_N -> 
-            (`LH_N))) in
-        (_lh_listcomp_fun_0 _lh_tautclause_LH_P2_0_0)) <> (`LH_N)));;
+      i_0);;
 let rec insert_lh _lh_insert_arg1_0 _lh_insert_arg2_0 =
   (match _lh_insert_arg2_0 with
     | `LH_N -> 
@@ -262,27 +251,48 @@ let rec clauseHelper_lh _lh_clauseHelper_arg1_0 _lh_clauseHelper_arg2_0 =
     | `Sym(_lh_clauseHelper_Sym_0_0) -> 
       (match _lh_clauseHelper_arg2_0 with
         | `LH_P2(_lh_clauseHelper_LH_P2_0_0, _lh_clauseHelper_LH_P2_1_0) -> 
-          (`LH_P2(((insert_lh _lh_clauseHelper_Sym_0_0) _lh_clauseHelper_LH_P2_0_0), _lh_clauseHelper_LH_P2_1_0)))
+          (`LH_P2(((insert_lh _lh_clauseHelper_Sym_0_0) _lh_clauseHelper_LH_P2_0_0), _lh_clauseHelper_LH_P2_1_0))
+        | _ -> 
+          (failwith "lh_default_error"))
     | `Not(_lh_clauseHelper_Not_0_0) -> 
       (match _lh_clauseHelper_Not_0_0 with
         | `Sym(_lh_clauseHelper_Sym_0_1) -> 
           (match _lh_clauseHelper_arg2_0 with
             | `LH_P2(_lh_clauseHelper_LH_P2_0_1, _lh_clauseHelper_LH_P2_1_1) -> 
-              (`LH_P2(_lh_clauseHelper_LH_P2_0_1, ((insert_lh _lh_clauseHelper_Sym_0_1) _lh_clauseHelper_LH_P2_1_1))))));;
+              (`LH_P2(_lh_clauseHelper_LH_P2_0_1, ((insert_lh _lh_clauseHelper_Sym_0_1) _lh_clauseHelper_LH_P2_1_1)))
+            | _ -> 
+              (failwith "lh_default_error"))
+        | _ -> 
+          (failwith "lh_default_error"))
+    | _ -> 
+      (failwith "lh_default_error"));;
 let rec clause_lh _lh_clause_arg1_0 =
   ((clauseHelper_lh _lh_clause_arg1_0) (`LH_P2((`LH_N), (`LH_N))));;
+let rec contains_lh _lh_contains_arg1_0 _lh_contains_arg2_0 =
+  (match _lh_contains_arg2_0 with
+    | `LH_C(_lh_contains_LH_C_0_0, _lh_contains_LH_C_1_0) -> 
+      ((_lh_contains_arg1_0 = _lh_contains_LH_C_0_0) || ((contains_lh _lh_contains_arg1_0) _lh_contains_LH_C_1_0))
+    | `LH_N -> 
+      false);;
+let rec tautclause_lh _lh_tautclause_arg1_0 =
+  (match _lh_tautclause_arg1_0 with
+    | `LH_P2(_lh_tautclause_LH_P2_0_0, _lh_tautclause_LH_P2_1_0) -> 
+      ((let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
+        (match _lh_listcomp_fun_para_0 with
+          | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
+            (if ((contains_lh _lh_listcomp_fun_ls_h_0) _lh_tautclause_LH_P2_1_0) then
+              (`LH_C(_lh_listcomp_fun_ls_h_0, (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+            else
+              (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0))
+          | `LH_N -> 
+            (`LH_N))) in
+        (_lh_listcomp_fun_0 _lh_tautclause_LH_P2_0_0)) <> (`LH_N)));;
 let rec uniclHelper_lh _lh_uniclHelper_arg1_0 _lh_uniclHelper_arg2_0 =
   (let rec cp_0 = (clause_lh _lh_uniclHelper_arg1_0) in
     (if (tautclause_lh cp_0) then
       _lh_uniclHelper_arg2_0
     else
       ((insert_lh cp_0) _lh_uniclHelper_arg2_0)));;
-let rec foldr_lh f_1 i_0 ls_1 =
-  (match ls_1 with
-    | `LH_C(h_1, t_1) -> 
-      ((f_1 h_1) (((foldr_lh f_1) i_0) t_1))
-    | `LH_N -> 
-      i_0);;
 let rec unicl_lh _lh_unicl_arg1_0 =
   (((foldr_lh uniclHelper_lh) (`LH_N)) _lh_unicl_arg1_0);;
 let rec conjunct_lh _lh_conjunct_arg1_0 =

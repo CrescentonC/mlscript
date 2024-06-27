@@ -8,6 +8,7 @@ contains x [] = False
 clauseHelper (Dis p q)       x   = clauseHelper p (clauseHelper q x)
 clauseHelper (Sym s)       (c,a) = (insert s c , a)
 clauseHelper (Not (Sym s)) (c,a) = (c , insert s a)
+clauseHelper _ _ = error
 clause p = clauseHelper p ([] , [])
 clauses t = (concat . map disp . unicl . split . disin . negin . elim . parse) t
 conjunct (Con p q) = True
@@ -58,10 +59,11 @@ red ((Ast p) : (Lex '>') : (Ast q) : s) = (Ast (Imp q p)) : s
 red ((Ast p) : (Lex '|') : (Ast q) : s) = (Ast (Dis q p)) : s
 red ((Ast p) : (Lex '&') : (Ast q) : s) = (Ast (Con q p)) : s
 red ((Ast p) : (Lex '~') : s) = (Ast (Not p)) : s
+red ((Ast p) : (Lex _) : s) = error
+red ((Ast p) : s) = error
+red (h:s) = error
 red [] = error
-red (a:b) = error
-red (a:b:c) = error
-red (a:b:c:d) = error
+red _ = error
 redstar s = (while ((/=) 0 . spri) red) s
 spaces n = copy n ' '
 splitHelper (Con p q) a = splitHelper p (splitHelper q a)
@@ -69,8 +71,6 @@ splitHelper p a = p : a
 split p = splitHelper p []
 spri ((Ast x) : (Lex c) : s) = opri c
 spri s = 0
-spri (a:b) = 0
-spri (a:b:c) = 0
 tautclause (c,a) = polyNeq [x | x <- c, (contains x a)] []
 uniclHelper p x = let cp = (clause p) in (if tautclause cp then x else insert cp x)
 unicl a = foldr uniclHelper [] a
@@ -84,17 +84,21 @@ testClausify_nofib $ primId 10
 //│ def clauseHelper_lh_₁(_lh_clauseHelper_arg1⁰, _lh_clauseHelper_arg2⁰) = case _lh_clauseHelper_arg1⁰ of {
 //│ 	Dis _lh_clauseHelper_Dis_0⁰ _lh_clauseHelper_Dis_1⁰ => clauseHelper_lh_₁(_lh_clauseHelper_Dis_0⁰, clauseHelper_lh_₁(_lh_clauseHelper_Dis_1⁰, _lh_clauseHelper_arg2⁰))
 //│ 	| Sym _lh_clauseHelper_Sym_0⁰ => case _lh_clauseHelper_arg2⁰ of {
-//│ 		LH_P2 _lh_clauseHelper_LH_P2_0⁰ _lh_clauseHelper_LH_P2_1⁰ => [LH_P2 insert_lh_₃(_lh_clauseHelper_Sym_0⁰, _lh_clauseHelper_LH_P2_0⁰) _lh_clauseHelper_LH_P2_1⁰]}
+//│ 		LH_P2 _lh_clauseHelper_LH_P2_0⁰ _lh_clauseHelper_LH_P2_1⁰ => [LH_P2 insert_lh_₃(_lh_clauseHelper_Sym_0⁰, _lh_clauseHelper_LH_P2_0⁰) _lh_clauseHelper_LH_P2_1⁰]
+//│ 		| _  => error⁰}
 //│ 	| Not _lh_clauseHelper_Not_0⁰ => case _lh_clauseHelper_Not_0⁰ of {
 //│ 		Sym _lh_clauseHelper_Sym_0¹ => case _lh_clauseHelper_arg2⁰ of {
-//│ 			LH_P2 _lh_clauseHelper_LH_P2_0¹ _lh_clauseHelper_LH_P2_1¹ => [LH_P2 _lh_clauseHelper_LH_P2_0¹ insert_lh_₂(_lh_clauseHelper_Sym_0¹, _lh_clauseHelper_LH_P2_1¹)]}}}
+//│ 			LH_P2 _lh_clauseHelper_LH_P2_0¹ _lh_clauseHelper_LH_P2_1¹ => [LH_P2 _lh_clauseHelper_LH_P2_0¹ insert_lh_₂(_lh_clauseHelper_Sym_0¹, _lh_clauseHelper_LH_P2_1¹)]
+//│ 			| _  => error⁰}
+//│ 		| _  => error⁰}
+//│ 	| _  => error⁰}
 //│ def clause_lh_₁(_lh_clause_arg1⁰) = clauseHelper_lh_₁(_lh_clause_arg1⁰, [LH_P2 [LH_N] [LH_N]])
 //│ def clauses_lh_₁(_lh_clauses_arg1⁰) = (fun _lh_funcomp_x² -> (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> (fun _lh_funcomp_x⁵ -> (fun _lh_funcomp_x⁶ -> (fun _lh_funcomp_x⁷ -> (fun _lh_funcomp_x⁸ -> concat_lh_₂(map_lh_₂(disp_lh_₁, _lh_funcomp_x⁸)))(unicl_lh_₁(_lh_funcomp_x⁷)))(split_lh_₁(_lh_funcomp_x⁶)))(disin_lh_₁(_lh_funcomp_x⁵)))(negin_lh_₁(_lh_funcomp_x⁴)))(elim_lh_₁(_lh_funcomp_x³)))(parse_lh_₁(_lh_funcomp_x²)))(_lh_clauses_arg1⁰)
 //│ def concat_lh_₁(lss¹) = case lss¹ of {
-//│ 	LH_C h¹¹ t¹¹ => mappend_lh_₁(h¹¹, concat_lh_₁(t¹¹))
+//│ 	LH_C h¹⁰ t¹⁰ => mappend_lh_₁(h¹⁰, concat_lh_₁(t¹⁰))
 //│ 	| LH_N  => [LH_N]}
 //│ def concat_lh_₂(lss⁰) = case lss⁰ of {
-//│ 	LH_C h⁷ t⁷ => mappend_lh_₂(h⁷, concat_lh_₂(t⁷))
+//│ 	LH_C h⁹ t⁹ => mappend_lh_₂(h⁹, concat_lh_₂(t⁹))
 //│ 	| LH_N  => [LH_N]}
 //│ def conjunct_lh_₁(_lh_conjunct_arg1¹) = case _lh_conjunct_arg1¹ of {
 //│ 	Con _lh_conjunct_Con_0¹ _lh_conjunct_Con_1¹ => [True]
@@ -116,11 +120,11 @@ testClausify_nofib $ primId 10
 //│ 			| _  => 
 //│ 				let dp⁰ = disin_lh_₁(_lh_disin_Dis_0⁰)
 //│ 				in let dq⁰ = disin_lh_₁(_lh_disin_Dis_1⁰)
-//│ 				in if (conjunct_lh_₁(dp⁰) || conjunct_lh_₂(dq⁰)) then disin_lh_₁([Dis dp⁰ dq⁰]) else [Dis dp⁰ dq⁰]}}
+//│ 				in if (conjunct_lh_₂(dp⁰) || conjunct_lh_₁(dq⁰)) then disin_lh_₁([Dis dp⁰ dq⁰]) else [Dis dp⁰ dq⁰]}}
 //│ 	| Con _lh_disin_Con_0² _lh_disin_Con_1² => [Con disin_lh_₁(_lh_disin_Con_0²) disin_lh_₁(_lh_disin_Con_1²)]
 //│ 	| _  => _lh_disin_arg1⁰}
 //│ def disp_lh_₁(_lh_disp_arg1⁰) = case _lh_disp_arg1⁰ of {
-//│ 	LH_P2 _lh_disp_LH_P2_0⁰ _lh_disp_LH_P2_1⁰ => mappend_lh_₃(mappend_lh_₅(interleave_lh_₁(_lh_disp_LH_P2_0⁰, spaces_lh_₁(length_lh_₁(_lh_disp_LH_P2_0⁰))), [LH_C '<' [LH_C '=' [LH_N]]]), mappend_lh_₄(interleave_lh_₂(spaces_lh_₂(length_lh_₂(_lh_disp_LH_P2_1⁰)), _lh_disp_LH_P2_1⁰), [LH_C 'n' [LH_N]]))}
+//│ 	LH_P2 _lh_disp_LH_P2_0⁰ _lh_disp_LH_P2_1⁰ => mappend_lh_₅(mappend_lh_₃(interleave_lh_₂(_lh_disp_LH_P2_0⁰, spaces_lh_₁(length_lh_₁(_lh_disp_LH_P2_0⁰))), [LH_C '<' [LH_C '=' [LH_N]]]), mappend_lh_₄(interleave_lh_₁(spaces_lh_₂(length_lh_₂(_lh_disp_LH_P2_1⁰)), _lh_disp_LH_P2_1⁰), [LH_C 'n' [LH_N]]))}
 //│ def elim_lh_₁(_lh_elim_arg1⁰) = case _lh_elim_arg1⁰ of {
 //│ 	Sym _lh_elim_Sym_0⁰ => [Sym _lh_elim_Sym_0⁰]
 //│ 	| Not _lh_elim_Not_0⁰ => [Not elim_lh_₁(_lh_elim_Not_0⁰)]
@@ -150,28 +154,28 @@ testClausify_nofib $ primId 10
 //│ 	LH_C h⁴ t⁴ => (1 + length_lh_₁(t⁴))
 //│ 	| LH_N  => 0}
 //│ def length_lh_₂(ls⁰) = case ls⁰ of {
-//│ 	LH_C h³ t³ => (1 + length_lh_₂(t³))
+//│ 	LH_C h⁰ t⁰ => (1 + length_lh_₂(t⁰))
 //│ 	| LH_N  => 0}
 //│ def map_lh_₁(f², ls⁴) = case ls⁴ of {
-//│ 	LH_C h¹⁰ t¹⁰ => [LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)]
+//│ 	LH_C h¹¹ t¹¹ => [LH_C f²(h¹¹) map_lh_₁(f², t¹¹)]
 //│ 	| LH_N  => [LH_N]}
 //│ def map_lh_₂(f¹, ls³) = case ls³ of {
 //│ 	LH_C h⁸ t⁸ => [LH_C f¹(h⁸) map_lh_₂(f¹, t⁸)]
 //│ 	| LH_N  => [LH_N]}
 //│ def mappend_lh_₁(xs⁴, ys⁴) = case xs⁴ of {
-//│ 	LH_C h⁹ t⁹ => [LH_C h⁹ mappend_lh_₁(t⁹, ys⁴)]
+//│ 	LH_C h⁷ t⁷ => [LH_C h⁷ mappend_lh_₁(t⁷, ys⁴)]
 //│ 	| LH_N  => ys⁴}
 //│ def mappend_lh_₂(xs³, ys³) = case xs³ of {
 //│ 	LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)]
 //│ 	| LH_N  => ys³}
 //│ def mappend_lh_₃(xs², ys²) = case xs² of {
-//│ 	LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)]
+//│ 	LH_C h³ t³ => [LH_C h³ mappend_lh_₃(t³, ys²)]
 //│ 	| LH_N  => ys²}
 //│ def mappend_lh_₄(xs¹, ys¹) = case xs¹ of {
-//│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₄(t¹, ys¹)]
+//│ 	LH_C h² t² => [LH_C h² mappend_lh_₄(t², ys¹)]
 //│ 	| LH_N  => ys¹}
 //│ def mappend_lh_₅(xs⁰, ys⁰) = case xs⁰ of {
-//│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)]
+//│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)]
 //│ 	| LH_N  => ys⁰}
 //│ def negin_lh_₁(_lh_negin_arg1⁰) = case _lh_negin_arg1⁰ of {
 //│ 	Not _lh_negin_Not_0⁰ => case _lh_negin_Not_0⁰ of {
@@ -211,12 +215,12 @@ testClausify_nofib $ primId 10
 //│ 	| '&'  => 4
 //│ 	| '~'  => 5}
 //│ def parseHelper_lh_₁(_lh_parseHelper_arg1⁰, _lh_parseHelper_arg2⁰) = case _lh_parseHelper_arg1⁰ of {
-//│ 	LH_N  => redstar_lh_₁(_lh_parseHelper_arg2⁰)
+//│ 	LH_N  => redstar_lh_₂(_lh_parseHelper_arg2⁰)
 //│ 	| LH_C _lh_parseHelper_LH_C_0⁰ _lh_parseHelper_LH_C_1⁰ => case _lh_parseHelper_LH_C_0⁰ of {
 //│ 		' '  => parseHelper_lh_₁(_lh_parseHelper_LH_C_1⁰, _lh_parseHelper_arg2⁰)
 //│ 		| '('  => parseHelper_lh_₁(_lh_parseHelper_LH_C_1⁰, [LH_C [Lex '('] _lh_parseHelper_arg2⁰])
 //│ 		| ')'  => 
-//│ 			let _lh_matchIdent⁰ = redstar_lh_₂(_lh_parseHelper_arg2⁰)
+//│ 			let _lh_matchIdent⁰ = redstar_lh_₁(_lh_parseHelper_arg2⁰)
 //│ 			in case _lh_matchIdent⁰ of {
 //│ 				LH_C _lh_parseHelper_LH_C_0¹ _lh_parseHelper_LH_C_1¹ => case _lh_parseHelper_LH_C_1¹ of {
 //│ 					LH_C _lh_parseHelper_LH_C_0² _lh_parseHelper_LH_C_1² => case _lh_parseHelper_LH_C_0² of {
@@ -259,7 +263,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def red_lh_₂(_lh_red_arg1¹) = case _lh_red_arg1¹ of {
 //│ 	LH_C _lh_red_LH_C_0⁶ _lh_red_LH_C_1⁶ => case _lh_red_LH_C_0⁶ of {
 //│ 		Ast _lh_red_Ast_0⁵ => case _lh_red_LH_C_1⁶ of {
@@ -290,7 +295,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def red_lh_₃(_lh_red_arg1⁰) = case _lh_red_arg1⁰ of {
 //│ 	LH_C _lh_red_LH_C_0⁰ _lh_red_LH_C_1⁰ => case _lh_red_LH_C_0⁰ of {
 //│ 		Ast _lh_red_Ast_0⁰ => case _lh_red_LH_C_1⁰ of {
@@ -321,7 +327,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def redstar_lh_₁(_lh_redstar_arg1¹) = while_lh_₁((fun _lh_funcomp_x¹ -> (0 /= spri_lh_₂(_lh_funcomp_x¹))), red_lh_₂, _lh_redstar_arg1¹)
 //│ def redstar_lh_₂(_lh_redstar_arg1⁰) = while_lh_₂((fun _lh_funcomp_x⁰ -> (0 /= spri_lh_₃(_lh_funcomp_x⁰))), red_lh_₃, _lh_redstar_arg1⁰)
 //│ def spaces_lh_₁(_lh_spaces_arg1¹) = copy_lh_₂(_lh_spaces_arg1¹, ' ')
@@ -373,6 +380,29 @@ testClausify_nofib $ primId 10
 //│ def while_lh_₁(_lh_while_arg1¹, _lh_while_arg2¹, _lh_while_arg3¹) = if _lh_while_arg1¹(_lh_while_arg3¹) then while_lh_₁(_lh_while_arg1¹, _lh_while_arg2¹, _lh_while_arg2¹(_lh_while_arg3¹)) else _lh_while_arg3¹
 //│ def while_lh_₂(_lh_while_arg1⁰, _lh_while_arg2⁰, _lh_while_arg3⁰) = if _lh_while_arg1⁰(_lh_while_arg3⁰) then while_lh_₂(_lh_while_arg1⁰, _lh_while_arg2⁰, _lh_while_arg2⁰(_lh_while_arg3⁰)) else _lh_while_arg3⁰
 //│ 		---------- unoptimized ocaml gen ----------
+//│ 		let rec mappend_lh__d1 xs_4 ys_4 =
+//│ 		  (match xs_4 with
+//│ 		    | `LH_C(h_7, t_7) -> 
+//│ 		      (`LH_C(h_7, ((mappend_lh__d1 t_7) ys_4)))
+//│ 		    | `LH_N -> 
+//│ 		      ys_4);;
+//│ 		let rec concat_lh__d1 lss_1 =
+//│ 		  (match lss_1 with
+//│ 		    | `LH_C(h_1_0, t_1_0) -> 
+//│ 		      ((mappend_lh__d1 h_1_0) (concat_lh__d1 t_1_0))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
+//│ 		let rec copy_lh__d1 _lh_copy_arg1_2 _lh_copy_arg2_2 =
+//│ 		  (if (_lh_copy_arg1_2 > 0) then
+//│ 		    (`LH_C(_lh_copy_arg2_2, ((copy_lh__d1 (_lh_copy_arg1_2 - 1)) _lh_copy_arg2_2)))
+//│ 		  else
+//│ 		    (`LH_N));;
+//│ 		let rec map_lh__d1 f_2 ls_4 =
+//│ 		  (match ls_4 with
+//│ 		    | `LH_C(h_1_1, t_1_1) -> 
+//│ 		      (`LH_C((f_2 h_1_1), ((map_lh__d1 f_2) t_1_1)))
+//│ 		    | `LH_N -> 
+//│ 		      (`LH_N));;
 //│ 		let rec conjunct_lh__d2 _lh_conjunct_arg1_0 =
 //│ 		  (match _lh_conjunct_arg1_0 with
 //│ 		    | `Con(_lh_conjunct_Con_0_0, _lh_conjunct_Con_1_0) -> 
@@ -398,7 +428,7 @@ testClausify_nofib $ primId 10
 //│ 		            | _ -> 
 //│ 		              (let rec dp_0 = (disin_lh__d1 _lh_disin_Dis_0_0) in
 //│ 		                (let rec dq_0 = (disin_lh__d1 _lh_disin_Dis_1_0) in
-//│ 		                  (if ((conjunct_lh__d1 dp_0) || (conjunct_lh__d2 dq_0)) then
+//│ 		                  (if ((conjunct_lh__d2 dp_0) || (conjunct_lh__d1 dq_0)) then
 //│ 		                    (disin_lh__d1 (`Dis(dp_0, dq_0)))
 //│ 		                  else
 //│ 		                    (`Dis(dp_0, dq_0)))))))
@@ -436,8 +466,8 @@ testClausify_nofib $ primId 10
 //│ 		  ((splitHelper_lh__d1 _lh_split_arg1_0) (`LH_N));;
 //│ 		let rec mappend_lh__d3 xs_2 ys_2 =
 //│ 		  (match xs_2 with
-//│ 		    | `LH_C(h_2, t_2) -> 
-//│ 		      (`LH_C(h_2, ((mappend_lh__d3 t_2) ys_2)))
+//│ 		    | `LH_C(h_3, t_3) -> 
+//│ 		      (`LH_C(h_3, ((mappend_lh__d3 t_3) ys_2)))
 //│ 		    | `LH_N -> 
 //│ 		      ys_2);;
 //│ 		let rec interleave_lh__d2 _lh_interleave_arg1_0 _lh_interleave_arg2_0 =
@@ -448,8 +478,8 @@ testClausify_nofib $ primId 10
 //│ 		      (`LH_N));;
 //│ 		let rec mappend_lh__d5 xs_0 ys_0 =
 //│ 		  (match xs_0 with
-//│ 		    | `LH_C(h_0, t_0) -> 
-//│ 		      (`LH_C(h_0, ((mappend_lh__d5 t_0) ys_0)))
+//│ 		    | `LH_C(h_1, t_1) -> 
+//│ 		      (`LH_C(h_1, ((mappend_lh__d5 t_1) ys_0)))
 //│ 		    | `LH_N -> 
 //│ 		      ys_0);;
 //│ 		let rec interleave_lh__d1 _lh_interleave_arg1_1 _lh_interleave_arg2_1 =
@@ -467,8 +497,8 @@ testClausify_nofib $ primId 10
 //│ 		  ((copy_lh__d3 _lh_spaces_arg1_0) ' ');;
 //│ 		let rec mappend_lh__d4 xs_1 ys_1 =
 //│ 		  (match xs_1 with
-//│ 		    | `LH_C(h_1, t_1) -> 
-//│ 		      (`LH_C(h_1, ((mappend_lh__d4 t_1) ys_1)))
+//│ 		    | `LH_C(h_2, t_2) -> 
+//│ 		      (`LH_C(h_2, ((mappend_lh__d4 t_2) ys_1)))
 //│ 		    | `LH_N -> 
 //│ 		      ys_1);;
 //│ 		let rec length_lh__d1 ls_1 =
@@ -486,14 +516,14 @@ testClausify_nofib $ primId 10
 //│ 		  ((copy_lh__d2 _lh_spaces_arg1_1) ' ');;
 //│ 		let rec length_lh__d2 ls_0 =
 //│ 		  (match ls_0 with
-//│ 		    | `LH_C(h_3, t_3) -> 
-//│ 		      (1 + (length_lh__d2 t_3))
+//│ 		    | `LH_C(h_0, t_0) -> 
+//│ 		      (1 + (length_lh__d2 t_0))
 //│ 		    | `LH_N -> 
 //│ 		      0);;
 //│ 		let rec disp_lh__d1 _lh_disp_arg1_0 =
 //│ 		  (match _lh_disp_arg1_0 with
 //│ 		    | `LH_P2(_lh_disp_LH_P2_0_0, _lh_disp_LH_P2_1_0) -> 
-//│ 		      ((mappend_lh__d3 ((mappend_lh__d5 ((interleave_lh__d1 _lh_disp_LH_P2_0_0) (spaces_lh__d1 (length_lh__d1 _lh_disp_LH_P2_0_0)))) (`LH_C('<', (`LH_C('=', (`LH_N))))))) ((mappend_lh__d4 ((interleave_lh__d2 (spaces_lh__d2 (length_lh__d2 _lh_disp_LH_P2_1_0))) _lh_disp_LH_P2_1_0)) (`LH_C('n', (`LH_N))))));;
+//│ 		      ((mappend_lh__d5 ((mappend_lh__d3 ((interleave_lh__d2 _lh_disp_LH_P2_0_0) (spaces_lh__d1 (length_lh__d1 _lh_disp_LH_P2_0_0)))) (`LH_C('<', (`LH_C('=', (`LH_N))))))) ((mappend_lh__d4 ((interleave_lh__d1 (spaces_lh__d2 (length_lh__d2 _lh_disp_LH_P2_1_0))) _lh_disp_LH_P2_1_0)) (`LH_C('n', (`LH_N))))));;
 //│ 		let rec mappend_lh__d2 xs_3 ys_3 =
 //│ 		  (match xs_3 with
 //│ 		    | `LH_C(h_5, t_5) -> 
@@ -502,16 +532,10 @@ testClausify_nofib $ primId 10
 //│ 		      ys_3);;
 //│ 		let rec concat_lh__d2 lss_0 =
 //│ 		  (match lss_0 with
-//│ 		    | `LH_C(h_7, t_7) -> 
-//│ 		      ((mappend_lh__d2 h_7) (concat_lh__d2 t_7))
+//│ 		    | `LH_C(h_9, t_9) -> 
+//│ 		      ((mappend_lh__d2 h_9) (concat_lh__d2 t_9))
 //│ 		    | `LH_N -> 
 //│ 		      (`LH_N));;
-//│ 		let rec foldr_lh__d1 f_0 i_0 ls_2 =
-//│ 		  (match ls_2 with
-//│ 		    | `LH_C(h_6, t_6) -> 
-//│ 		      ((f_0 h_6) (((foldr_lh__d1 f_0) i_0) t_6))
-//│ 		    | `LH_N -> 
-//│ 		      i_0);;
 //│ 		let rec insert_lh__d2 _lh_insert_arg1_1 _lh_insert_arg2_1 =
 //│ 		  (match _lh_insert_arg2_1 with
 //│ 		    | `LH_N -> 
@@ -543,13 +567,21 @@ testClausify_nofib $ primId 10
 //│ 		    | `Sym(_lh_clauseHelper_Sym_0_0) -> 
 //│ 		      (match _lh_clauseHelper_arg2_0 with
 //│ 		        | `LH_P2(_lh_clauseHelper_LH_P2_0_0, _lh_clauseHelper_LH_P2_1_0) -> 
-//│ 		          (`LH_P2(((insert_lh__d3 _lh_clauseHelper_Sym_0_0) _lh_clauseHelper_LH_P2_0_0), _lh_clauseHelper_LH_P2_1_0)))
+//│ 		          (`LH_P2(((insert_lh__d3 _lh_clauseHelper_Sym_0_0) _lh_clauseHelper_LH_P2_0_0), _lh_clauseHelper_LH_P2_1_0))
+//│ 		        | _ -> 
+//│ 		          (failwith "lh_default_error"))
 //│ 		    | `Not(_lh_clauseHelper_Not_0_0) -> 
 //│ 		      (match _lh_clauseHelper_Not_0_0 with
 //│ 		        | `Sym(_lh_clauseHelper_Sym_0_1) -> 
 //│ 		          (match _lh_clauseHelper_arg2_0 with
 //│ 		            | `LH_P2(_lh_clauseHelper_LH_P2_0_1, _lh_clauseHelper_LH_P2_1_1) -> 
-//│ 		              (`LH_P2(_lh_clauseHelper_LH_P2_0_1, ((insert_lh__d2 _lh_clauseHelper_Sym_0_1) _lh_clauseHelper_LH_P2_1_1))))));;
+//│ 		              (`LH_P2(_lh_clauseHelper_LH_P2_0_1, ((insert_lh__d2 _lh_clauseHelper_Sym_0_1) _lh_clauseHelper_LH_P2_1_1)))
+//│ 		            | _ -> 
+//│ 		              (failwith "lh_default_error"))
+//│ 		        | _ -> 
+//│ 		          (failwith "lh_default_error"))
+//│ 		    | _ -> 
+//│ 		      (failwith "lh_default_error"));;
 //│ 		let rec clause_lh__d1 _lh_clause_arg1_0 =
 //│ 		  ((clauseHelper_lh__d1 _lh_clause_arg1_0) (`LH_P2((`LH_N), (`LH_N))));;
 //│ 		let rec insert_lh__d1 _lh_insert_arg1_2 _lh_insert_arg2_2 =
@@ -589,6 +621,12 @@ testClausify_nofib $ primId 10
 //│ 		      _lh_uniclHelper_arg2_0
 //│ 		    else
 //│ 		      ((insert_lh__d1 cp_0) _lh_uniclHelper_arg2_0)));;
+//│ 		let rec foldr_lh__d1 f_0 i_0 ls_2 =
+//│ 		  (match ls_2 with
+//│ 		    | `LH_C(h_6, t_6) -> 
+//│ 		      ((f_0 h_6) (((foldr_lh__d1 f_0) i_0) t_6))
+//│ 		    | `LH_N -> 
+//│ 		      i_0);;
 //│ 		let rec unicl_lh__d1 _lh_unicl_arg1_0 =
 //│ 		  (((foldr_lh__d1 uniclHelper_lh__d1) (`LH_N)) _lh_unicl_arg1_0);;
 //│ 		let rec negin_lh__d1 _lh_negin_arg1_0 =
@@ -670,6 +708,8 @@ testClausify_nofib $ primId 10
 //│ 		        | _ -> 
 //│ 		          (failwith "lh_default_error"))
 //│ 		    | `LH_N -> 
+//│ 		      (failwith "lh_default_error")
+//│ 		    | _ -> 
 //│ 		      (failwith "lh_default_error"));;
 //│ 		let rec opri_lh__d3 _lh_opri_arg1_1 =
 //│ 		  (match _lh_opri_arg1_1 with
@@ -818,7 +858,14 @@ testClausify_nofib $ primId 10
 //│ 		        | _ -> 
 //│ 		          (failwith "lh_default_error"))
 //│ 		    | `LH_N -> 
+//│ 		      (failwith "lh_default_error")
+//│ 		    | _ -> 
 //│ 		      (failwith "lh_default_error"));;
+//│ 		let rec while_lh__d2 _lh_while_arg1_0 _lh_while_arg2_0 _lh_while_arg3_0 =
+//│ 		  (if (_lh_while_arg1_0 _lh_while_arg3_0) then
+//│ 		    (((while_lh__d2 _lh_while_arg1_0) _lh_while_arg2_0) (_lh_while_arg2_0 _lh_while_arg3_0))
+//│ 		  else
+//│ 		    _lh_while_arg3_0);;
 //│ 		let rec opri_lh__d4 _lh_opri_arg1_0 =
 //│ 		  (match _lh_opri_arg1_0 with
 //│ 		    | '(' -> 
@@ -851,11 +898,6 @@ testClausify_nofib $ primId 10
 //│ 		          0)
 //│ 		    | _ -> 
 //│ 		      0);;
-//│ 		let rec while_lh__d2 _lh_while_arg1_0 _lh_while_arg2_0 _lh_while_arg3_0 =
-//│ 		  (if (_lh_while_arg1_0 _lh_while_arg3_0) then
-//│ 		    (((while_lh__d2 _lh_while_arg1_0) _lh_while_arg2_0) (_lh_while_arg2_0 _lh_while_arg3_0))
-//│ 		  else
-//│ 		    _lh_while_arg3_0);;
 //│ 		let rec redstar_lh__d2 _lh_redstar_arg1_0 =
 //│ 		  (((while_lh__d2 (fun _lh_funcomp_x_0 -> 
 //│ 		    (0 <> (spri_lh__d3 _lh_funcomp_x_0)))) red_lh__d3) _lh_redstar_arg1_0);;
@@ -920,11 +962,13 @@ testClausify_nofib $ primId 10
 //│ 		        | _ -> 
 //│ 		          (failwith "lh_default_error"))
 //│ 		    | `LH_N -> 
+//│ 		      (failwith "lh_default_error")
+//│ 		    | _ -> 
 //│ 		      (failwith "lh_default_error"));;
 //│ 		let rec parseHelper_lh__d1 _lh_parseHelper_arg1_0 _lh_parseHelper_arg2_0 =
 //│ 		  (match _lh_parseHelper_arg1_0 with
 //│ 		    | `LH_N -> 
-//│ 		      (redstar_lh__d1 _lh_parseHelper_arg2_0)
+//│ 		      (redstar_lh__d2 _lh_parseHelper_arg2_0)
 //│ 		    | `LH_C(_lh_parseHelper_LH_C_0_0, _lh_parseHelper_LH_C_1_0) -> 
 //│ 		      (match _lh_parseHelper_LH_C_0_0 with
 //│ 		        | ' ' -> 
@@ -932,7 +976,7 @@ testClausify_nofib $ primId 10
 //│ 		        | '(' -> 
 //│ 		          ((parseHelper_lh__d1 _lh_parseHelper_LH_C_1_0) (`LH_C((`Lex('(')), _lh_parseHelper_arg2_0)))
 //│ 		        | ')' -> 
-//│ 		          (let rec _lh_matchIdent_0 = (redstar_lh__d2 _lh_parseHelper_arg2_0) in
+//│ 		          (let rec _lh_matchIdent_0 = (redstar_lh__d1 _lh_parseHelper_arg2_0) in
 //│ 		            (match _lh_matchIdent_0 with
 //│ 		              | `LH_C(_lh_parseHelper_LH_C_0_1, _lh_parseHelper_LH_C_1_1) -> 
 //│ 		                (match _lh_parseHelper_LH_C_1_1 with
@@ -968,29 +1012,6 @@ testClausify_nofib $ primId 10
 //│ 		            ((fun _lh_funcomp_x_7 -> 
 //│ 		              ((fun _lh_funcomp_x_8 -> 
 //│ 		                (concat_lh__d2 ((map_lh__d2 disp_lh__d1) _lh_funcomp_x_8))) (unicl_lh__d1 _lh_funcomp_x_7))) (split_lh__d1 _lh_funcomp_x_6))) (disin_lh__d1 _lh_funcomp_x_5))) (negin_lh__d1 _lh_funcomp_x_4))) (elim_lh__d1 _lh_funcomp_x_3))) (parse_lh__d1 _lh_funcomp_x_2))) _lh_clauses_arg1_0);;
-//│ 		let rec copy_lh__d1 _lh_copy_arg1_2 _lh_copy_arg2_2 =
-//│ 		  (if (_lh_copy_arg1_2 > 0) then
-//│ 		    (`LH_C(_lh_copy_arg2_2, ((copy_lh__d1 (_lh_copy_arg1_2 - 1)) _lh_copy_arg2_2)))
-//│ 		  else
-//│ 		    (`LH_N));;
-//│ 		let rec map_lh__d1 f_2 ls_4 =
-//│ 		  (match ls_4 with
-//│ 		    | `LH_C(h_1_0, t_1_0) -> 
-//│ 		      (`LH_C((f_2 h_1_0), ((map_lh__d1 f_2) t_1_0)))
-//│ 		    | `LH_N -> 
-//│ 		      (`LH_N));;
-//│ 		let rec mappend_lh__d1 xs_4 ys_4 =
-//│ 		  (match xs_4 with
-//│ 		    | `LH_C(h_9, t_9) -> 
-//│ 		      (`LH_C(h_9, ((mappend_lh__d1 t_9) ys_4)))
-//│ 		    | `LH_N -> 
-//│ 		      ys_4);;
-//│ 		let rec concat_lh__d1 lss_1 =
-//│ 		  (match lss_1 with
-//│ 		    | `LH_C(h_1_1, t_1_1) -> 
-//│ 		      ((mappend_lh__d1 h_1_1) (concat_lh__d1 t_1_1))
-//│ 		    | `LH_N -> 
-//│ 		      (`LH_N));;
 //│ 		let rec testClausify_nofib_lh__d1 _lh_testClausify_nofib_arg1_0 =
 //│ 		  (let rec xs_5 = ((copy_lh__d1 _lh_testClausify_nofib_arg1_0) (`LH_C('(', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(')', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('(', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(')', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('(', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(' ', (`LH_C('=', (`LH_C(' ', (`LH_C('a', (`LH_C(')', (`LH_N)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) in
 //│ 		    (concat_lh__d1 ((map_lh__d1 clauses_lh__d1) xs_5)));;
@@ -999,82 +1020,82 @@ testClausify_nofib $ primId 10
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
 //│ >>>>>>> fusion matches >>>>>>>
-//│ [LH_C _lh_splitHelper_arg1⁰ _lh_splitHelper_arg2⁰]: 608 --->
-//│ 	case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 822
-//│ [LH_C _lh_interleave_LH_C_0⁰ interleave_lh_₂(_lh_interleave_arg2⁰, _lh_interleave_LH_C_1⁰)]: 619 --->
-//│ 	case xs¹ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₄(t¹, ys¹)] | LH_N  => ys¹}: 657
-//│ [LH_N]: 620 --->
-//│ 	case xs¹ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₄(t¹, ys¹)] | LH_N  => ys¹}: 657
-//│ [LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)]: 643 --->
-//│ 	case xs² of {LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)] | LH_N  => ys²}: 669
-//│ [LH_C h¹ mappend_lh_₄(t¹, ys¹)]: 655 --->
-//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 806
-//│ [LH_C h² mappend_lh_₃(t², ys²)]: 667 --->
-//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 806
-//│ [LH_C _lh_interleave_LH_C_0¹ interleave_lh_₁(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)]: 690 --->
-//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)] | LH_N  => ys⁰}: 645
-//│ [LH_N]: 691 --->
-//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)] | LH_N  => ys⁰}: 645
-//│ [LH_C h⁵ mappend_lh_₂(t⁵, ys³)]: 804 --->
-//│ 	case xs⁴ of {LH_C h⁹ t⁹ => [LH_C h⁹ mappend_lh_₁(t⁹, ys⁴)] | LH_N  => ys⁴}: 1089
-//│ [LH_N]: 950 --->
-//│ 	case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 822
-//│ [LH_N]: 1010 --->
-//│ 	case xs² of {LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)] | LH_N  => ys²}: 669
-//│ [LH_C '=' [LH_N]]: 1011 --->
-//│ 	case xs² of {LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)] | LH_N  => ys²}: 669
-//│ [LH_C '<' [LH_C '=' [LH_N]]]: 1012 --->
-//│ 	case xs² of {LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)] | LH_N  => ys²}: 669
-//│ [LH_N]: 1027 --->
-//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 806
-//│ [LH_C 'n' [LH_N]]: 1028 --->
-//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 806
-//│ [LH_N]: 1055 --->
-//│ 	case xs⁴ of {LH_C h⁹ t⁹ => [LH_C h⁹ mappend_lh_₁(t⁹, ys⁴)] | LH_N  => ys⁴}: 1089
-//│ [LH_C f¹(h⁸) map_lh_₂(f¹, t⁸)]: 1075 --->
-//│ 	case lss⁰ of {LH_C h⁷ t⁷ => mappend_lh_₂(h⁷, concat_lh_₂(t⁷)) | LH_N  => [LH_N]}: 1056
-//│ [LH_N]: 1076 --->
-//│ 	case lss⁰ of {LH_C h⁷ t⁷ => mappend_lh_₂(h⁷, concat_lh_₂(t⁷)) | LH_N  => [LH_N]}: 1056
-//│ [LH_C _lh_copy_arg2² copy_lh_₁((_lh_copy_arg1² - 1), _lh_copy_arg2²)]: 1107 --->
-//│ 	case ls⁴ of {LH_C h¹⁰ t¹⁰ => [LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)] | LH_N  => [LH_N]}: 1123
-//│ [LH_N]: 1108 --->
-//│ 	case ls⁴ of {LH_C h¹⁰ t¹⁰ => [LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)] | LH_N  => [LH_N]}: 1123
-//│ [LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)]: 1121 --->
-//│ 	case lss¹ of {LH_C h¹¹ t¹¹ => mappend_lh_₁(h¹¹, concat_lh_₁(t¹¹)) | LH_N  => [LH_N]}: 1176
-//│ [LH_N]: 1122 --->
-//│ 	case lss¹ of {LH_C h¹¹ t¹¹ => mappend_lh_₁(h¹¹, concat_lh_₁(t¹¹)) | LH_N  => [LH_N]}: 1176
+//│ [LH_C h¹ mappend_lh_₅(t¹, ys⁰)]: 702 --->
+//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 787
+//│ [LH_C _lh_interleave_LH_C_0⁰ interleave_lh_₂(_lh_interleave_arg2⁰, _lh_interleave_LH_C_1⁰)]: 714 --->
+//│ 	case xs² of {LH_C h³ t³ => [LH_C h³ mappend_lh_₃(t³, ys²)] | LH_N  => ys²}: 764
+//│ [LH_N]: 715 --->
+//│ 	case xs² of {LH_C h³ t³ => [LH_C h³ mappend_lh_₃(t³, ys²)] | LH_N  => ys²}: 764
+//│ [LH_C _lh_interleave_LH_C_0¹ interleave_lh_₁(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)]: 738 --->
+//│ 	case xs¹ of {LH_C h² t² => [LH_C h² mappend_lh_₄(t², ys¹)] | LH_N  => ys¹}: 752
+//│ [LH_N]: 739 --->
+//│ 	case xs¹ of {LH_C h² t² => [LH_C h² mappend_lh_₄(t², ys¹)] | LH_N  => ys¹}: 752
+//│ [LH_C h² mappend_lh_₄(t², ys¹)]: 750 --->
+//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 787
+//│ [LH_C h³ mappend_lh_₃(t³, ys²)]: 762 --->
+//│ 	case xs⁰ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)] | LH_N  => ys⁰}: 704
+//│ [LH_C h⁵ mappend_lh_₂(t⁵, ys³)]: 785 --->
+//│ 	case xs⁴ of {LH_C h⁷ t⁷ => [LH_C h⁷ mappend_lh_₁(t⁷, ys⁴)] | LH_N  => ys⁴}: 858
+//│ [LH_C _lh_splitHelper_arg1⁰ _lh_splitHelper_arg2⁰]: 802 --->
+//│ 	case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 835
+//│ [LH_C f¹(h⁸) map_lh_₂(f¹, t⁸)]: 884 --->
+//│ 	case lss⁰ of {LH_C h⁹ t⁹ => mappend_lh_₂(h⁹, concat_lh_₂(t⁹)) | LH_N  => [LH_N]}: 978
+//│ [LH_N]: 885 --->
+//│ 	case lss⁰ of {LH_C h⁹ t⁹ => mappend_lh_₂(h⁹, concat_lh_₂(t⁹)) | LH_N  => [LH_N]}: 978
+//│ [LH_N]: 904 --->
+//│ 	case xs⁰ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)] | LH_N  => ys⁰}: 704
+//│ [LH_C '=' [LH_N]]: 905 --->
+//│ 	case xs⁰ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)] | LH_N  => ys⁰}: 704
+//│ [LH_C '<' [LH_C '=' [LH_N]]]: 906 --->
+//│ 	case xs⁰ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)] | LH_N  => ys⁰}: 704
+//│ [LH_N]: 921 --->
+//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 787
+//│ [LH_C 'n' [LH_N]]: 922 --->
+//│ 	case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 787
+//│ [LH_N]: 977 --->
+//│ 	case xs⁴ of {LH_C h⁷ t⁷ => [LH_C h⁷ mappend_lh_₁(t⁷, ys⁴)] | LH_N  => ys⁴}: 858
+//│ [LH_N]: 983 --->
+//│ 	case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 835
+//│ [LH_C _lh_copy_arg2² copy_lh_₁((_lh_copy_arg1² - 1), _lh_copy_arg2²)]: 1125 --->
+//│ 	case ls⁴ of {LH_C h¹¹ t¹¹ => [LH_C f²(h¹¹) map_lh_₁(f², t¹¹)] | LH_N  => [LH_N]}: 1182
+//│ [LH_N]: 1126 --->
+//│ 	case ls⁴ of {LH_C h¹¹ t¹¹ => [LH_C f²(h¹¹) map_lh_₁(f², t¹¹)] | LH_N  => [LH_N]}: 1182
+//│ [LH_C f²(h¹¹) map_lh_₁(f², t¹¹)]: 1180 --->
+//│ 	case lss¹ of {LH_C h¹⁰ t¹⁰ => mappend_lh_₁(h¹⁰, concat_lh_₁(t¹⁰)) | LH_N  => [LH_N]}: 1108
+//│ [LH_N]: 1181 --->
+//│ 	case lss¹ of {LH_C h¹⁰ t¹⁰ => mappend_lh_₁(h¹⁰, concat_lh_₁(t¹⁰)) | LH_N  => [LH_N]}: 1108
 //│ ------------------
-//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)] | LH_N  => ys⁰}: 645 --->
-//│ 	[LH_C _lh_interleave_LH_C_0¹ interleave_lh_₁(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)]: 690
-//│ 	[LH_N]: 691
-//│ case xs¹ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₄(t¹, ys¹)] | LH_N  => ys¹}: 657 --->
-//│ 	[LH_C _lh_interleave_LH_C_0⁰ interleave_lh_₂(_lh_interleave_arg2⁰, _lh_interleave_LH_C_1⁰)]: 619
-//│ 	[LH_N]: 620
-//│ case xs² of {LH_C h² t² => [LH_C h² mappend_lh_₃(t², ys²)] | LH_N  => ys²}: 669 --->
-//│ 	[LH_C h⁰ mappend_lh_₅(t⁰, ys⁰)]: 643
-//│ 	[LH_N]: 1010
-//│ 	[LH_C '=' [LH_N]]: 1011
-//│ 	[LH_C '<' [LH_C '=' [LH_N]]]: 1012
-//│ case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 806 --->
-//│ 	[LH_C h¹ mappend_lh_₄(t¹, ys¹)]: 655
-//│ 	[LH_C h² mappend_lh_₃(t², ys²)]: 667
-//│ 	[LH_N]: 1027
-//│ 	[LH_C 'n' [LH_N]]: 1028
-//│ case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 822 --->
-//│ 	[LH_C _lh_splitHelper_arg1⁰ _lh_splitHelper_arg2⁰]: 608
-//│ 	[LH_N]: 950
-//│ case lss⁰ of {LH_C h⁷ t⁷ => mappend_lh_₂(h⁷, concat_lh_₂(t⁷)) | LH_N  => [LH_N]}: 1056 --->
-//│ 	[LH_C f¹(h⁸) map_lh_₂(f¹, t⁸)]: 1075
-//│ 	[LH_N]: 1076
-//│ case xs⁴ of {LH_C h⁹ t⁹ => [LH_C h⁹ mappend_lh_₁(t⁹, ys⁴)] | LH_N  => ys⁴}: 1089 --->
-//│ 	[LH_C h⁵ mappend_lh_₂(t⁵, ys³)]: 804
-//│ 	[LH_N]: 1055
-//│ case ls⁴ of {LH_C h¹⁰ t¹⁰ => [LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)] | LH_N  => [LH_N]}: 1123 --->
-//│ 	[LH_C _lh_copy_arg2² copy_lh_₁((_lh_copy_arg1² - 1), _lh_copy_arg2²)]: 1107
-//│ 	[LH_N]: 1108
-//│ case lss¹ of {LH_C h¹¹ t¹¹ => mappend_lh_₁(h¹¹, concat_lh_₁(t¹¹)) | LH_N  => [LH_N]}: 1176 --->
-//│ 	[LH_C f²(h¹⁰) map_lh_₁(f², t¹⁰)]: 1121
-//│ 	[LH_N]: 1122
+//│ case xs⁰ of {LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₅(t¹, ys⁰)] | LH_N  => ys⁰}: 704 --->
+//│ 	[LH_C h³ mappend_lh_₃(t³, ys²)]: 762
+//│ 	[LH_N]: 904
+//│ 	[LH_C '=' [LH_N]]: 905
+//│ 	[LH_C '<' [LH_C '=' [LH_N]]]: 906
+//│ case xs¹ of {LH_C h² t² => [LH_C h² mappend_lh_₄(t², ys¹)] | LH_N  => ys¹}: 752 --->
+//│ 	[LH_C _lh_interleave_LH_C_0¹ interleave_lh_₁(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)]: 738
+//│ 	[LH_N]: 739
+//│ case xs² of {LH_C h³ t³ => [LH_C h³ mappend_lh_₃(t³, ys²)] | LH_N  => ys²}: 764 --->
+//│ 	[LH_C _lh_interleave_LH_C_0⁰ interleave_lh_₂(_lh_interleave_arg2⁰, _lh_interleave_LH_C_1⁰)]: 714
+//│ 	[LH_N]: 715
+//│ case xs³ of {LH_C h⁵ t⁵ => [LH_C h⁵ mappend_lh_₂(t⁵, ys³)] | LH_N  => ys³}: 787 --->
+//│ 	[LH_C h¹ mappend_lh_₅(t¹, ys⁰)]: 702
+//│ 	[LH_C h² mappend_lh_₄(t², ys¹)]: 750
+//│ 	[LH_N]: 921
+//│ 	[LH_C 'n' [LH_N]]: 922
+//│ case ls² of {LH_C h⁶ t⁶ => f⁰(h⁶, foldr_lh_₁(f⁰, i⁰, t⁶)) | LH_N  => i⁰}: 835 --->
+//│ 	[LH_C _lh_splitHelper_arg1⁰ _lh_splitHelper_arg2⁰]: 802
+//│ 	[LH_N]: 983
+//│ case xs⁴ of {LH_C h⁷ t⁷ => [LH_C h⁷ mappend_lh_₁(t⁷, ys⁴)] | LH_N  => ys⁴}: 858 --->
+//│ 	[LH_C h⁵ mappend_lh_₂(t⁵, ys³)]: 785
+//│ 	[LH_N]: 977
+//│ case lss⁰ of {LH_C h⁹ t⁹ => mappend_lh_₂(h⁹, concat_lh_₂(t⁹)) | LH_N  => [LH_N]}: 978 --->
+//│ 	[LH_C f¹(h⁸) map_lh_₂(f¹, t⁸)]: 884
+//│ 	[LH_N]: 885
+//│ case lss¹ of {LH_C h¹⁰ t¹⁰ => mappend_lh_₁(h¹⁰, concat_lh_₁(t¹⁰)) | LH_N  => [LH_N]}: 1108 --->
+//│ 	[LH_C f²(h¹¹) map_lh_₁(f², t¹¹)]: 1180
+//│ 	[LH_N]: 1181
+//│ case ls⁴ of {LH_C h¹¹ t¹¹ => [LH_C f²(h¹¹) map_lh_₁(f², t¹¹)] | LH_N  => [LH_N]}: 1182 --->
+//│ 	[LH_C _lh_copy_arg2² copy_lh_₁((_lh_copy_arg1² - 1), _lh_copy_arg2²)]: 1125
+//│ 	[LH_N]: 1126
 //│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
@@ -1082,10 +1103,14 @@ testClausify_nofib $ primId 10
 //│ def clauseHelper_lh_₁(_lh_clauseHelper_arg1⁰, _lh_clauseHelper_arg2⁰) = case _lh_clauseHelper_arg1⁰ of {
 //│ 	Dis _lh_clauseHelper_Dis_0⁰ _lh_clauseHelper_Dis_1⁰ => clauseHelper_lh_₁(_lh_clauseHelper_Dis_0⁰, clauseHelper_lh_₁(_lh_clauseHelper_Dis_1⁰, _lh_clauseHelper_arg2⁰))
 //│ 	| Sym _lh_clauseHelper_Sym_0⁰ => case _lh_clauseHelper_arg2⁰ of {
-//│ 		LH_P2 _lh_clauseHelper_LH_P2_0⁰ _lh_clauseHelper_LH_P2_1⁰ => [LH_P2 insert_lh_₃(_lh_clauseHelper_Sym_0⁰, _lh_clauseHelper_LH_P2_0⁰) _lh_clauseHelper_LH_P2_1⁰]}
+//│ 		LH_P2 _lh_clauseHelper_LH_P2_0⁰ _lh_clauseHelper_LH_P2_1⁰ => [LH_P2 insert_lh_₃(_lh_clauseHelper_Sym_0⁰, _lh_clauseHelper_LH_P2_0⁰) _lh_clauseHelper_LH_P2_1⁰]
+//│ 		| _  => error⁰}
 //│ 	| Not _lh_clauseHelper_Not_0⁰ => case _lh_clauseHelper_Not_0⁰ of {
 //│ 		Sym _lh_clauseHelper_Sym_0¹ => case _lh_clauseHelper_arg2⁰ of {
-//│ 			LH_P2 _lh_clauseHelper_LH_P2_0¹ _lh_clauseHelper_LH_P2_1¹ => [LH_P2 _lh_clauseHelper_LH_P2_0¹ insert_lh_₂(_lh_clauseHelper_Sym_0¹, _lh_clauseHelper_LH_P2_1¹)]}}}
+//│ 			LH_P2 _lh_clauseHelper_LH_P2_0¹ _lh_clauseHelper_LH_P2_1¹ => [LH_P2 _lh_clauseHelper_LH_P2_0¹ insert_lh_₂(_lh_clauseHelper_Sym_0¹, _lh_clauseHelper_LH_P2_1¹)]
+//│ 			| _  => error⁰}
+//│ 		| _  => error⁰}
+//│ 	| _  => error⁰}
 //│ def clause_lh_₁(_lh_clause_arg1⁰) = clauseHelper_lh_₁(_lh_clause_arg1⁰, [LH_P2 [LH_N] [LH_N]])
 //│ def clauses_lh_₁(_lh_clauses_arg1⁰) = (fun _lh_funcomp_x² -> (fun _lh_funcomp_x³ -> (fun _lh_funcomp_x⁴ -> (fun _lh_funcomp_x⁵ -> (fun _lh_funcomp_x⁶ -> (fun _lh_funcomp_x⁷ -> (fun _lh_funcomp_x⁸ -> concat_lh_₂(map_lh_₂(disp_lh_₁, _lh_funcomp_x⁸)))(unicl_lh_₁(_lh_funcomp_x⁷)))(split_lh_₁(_lh_funcomp_x⁶)))(disin_lh_₁(_lh_funcomp_x⁵)))(negin_lh_₁(_lh_funcomp_x⁴)))(elim_lh_₁(_lh_funcomp_x³)))(parse_lh_₁(_lh_funcomp_x²)))(_lh_clauses_arg1⁰)
 //│ def concat_lh_₁(lss⁰) = lss⁰([lh_Unit])
@@ -1115,16 +1140,16 @@ testClausify_nofib $ primId 10
 //│ 			| _  => 
 //│ 				let dp⁰ = disin_lh_₁(_lh_disin_Dis_0⁰)
 //│ 				in let dq⁰ = disin_lh_₁(_lh_disin_Dis_1⁰)
-//│ 				in if (conjunct_lh_₁(dp⁰) || conjunct_lh_₂(dq⁰)) then disin_lh_₁([Dis dp⁰ dq⁰]) else [Dis dp⁰ dq⁰]}}
+//│ 				in if (conjunct_lh_₂(dp⁰) || conjunct_lh_₁(dq⁰)) then disin_lh_₁([Dis dp⁰ dq⁰]) else [Dis dp⁰ dq⁰]}}
 //│ 	| Con _lh_disin_Con_0² _lh_disin_Con_1² => [Con disin_lh_₁(_lh_disin_Con_0²) disin_lh_₁(_lh_disin_Con_1²)]
 //│ 	| _  => _lh_disin_arg1⁰}
 //│ def disp_lh_₁(_lh_disp_arg1⁰) = case _lh_disp_arg1⁰ of {
-//│ 	LH_P2 _lh_disp_LH_P2_0⁰ _lh_disp_LH_P2_1⁰ => mappend_lh_₃(mappend_lh_₅(interleave_lh_₁(_lh_disp_LH_P2_0⁰, spaces_lh_₁(length_lh_₁(_lh_disp_LH_P2_0⁰))), 
+//│ 	LH_P2 _lh_disp_LH_P2_0⁰ _lh_disp_LH_P2_1⁰ => mappend_lh_₅(mappend_lh_₃(interleave_lh_₂(_lh_disp_LH_P2_0⁰, spaces_lh_₁(length_lh_₁(_lh_disp_LH_P2_0⁰))), 
 //│ 		let t¹³ = 	
 //│ 			let t¹⁴ = (fun ys¹⁵ -> ys¹⁵)
 //│ 			in let h¹³ = '='
 //│ 			in (fun ys¹⁶ -> 
-//│ 				let t¹⁵ = mappend_lh_₃(t¹⁴, ys¹⁶)
+//│ 				let t¹⁵ = mappend_lh_₅(t¹⁴, ys¹⁶)
 //│ 				in let h¹⁴ = h¹³
 //│ 				in (fun ys¹⁷ -> 
 //│ 					let t¹⁶ = mappend_lh_₂(t¹⁵, ys¹⁷)
@@ -1132,12 +1157,12 @@ testClausify_nofib $ primId 10
 //│ 					in (fun ys¹⁸ -> [LH_C h¹⁵ mappend_lh_₁(t¹⁶, ys¹⁸)])))
 //│ 		in let h¹⁶ = '<'
 //│ 		in (fun ys¹⁹ -> 
-//│ 			let t¹⁷ = mappend_lh_₃(t¹³, ys¹⁹)
+//│ 			let t¹⁷ = mappend_lh_₅(t¹³, ys¹⁹)
 //│ 			in let h¹⁷ = h¹⁶
 //│ 			in (fun ys²⁰ -> 
 //│ 				let t¹⁸ = mappend_lh_₂(t¹⁷, ys²⁰)
 //│ 				in let h¹⁸ = h¹⁷
-//│ 				in (fun ys²¹ -> [LH_C h¹⁸ mappend_lh_₁(t¹⁸, ys²¹)])))), mappend_lh_₄(interleave_lh_₂(spaces_lh_₂(length_lh_₂(_lh_disp_LH_P2_1⁰)), _lh_disp_LH_P2_1⁰), 
+//│ 				in (fun ys²¹ -> [LH_C h¹⁸ mappend_lh_₁(t¹⁸, ys²¹)])))), mappend_lh_₄(interleave_lh_₁(spaces_lh_₂(length_lh_₂(_lh_disp_LH_P2_1⁰)), _lh_disp_LH_P2_1⁰), 
 //│ 		let t¹⁹ = (fun ys²² -> ys²²)
 //│ 		in let h¹⁹ = 'n'
 //│ 		in (fun ys²³ -> 
@@ -1162,26 +1187,26 @@ testClausify_nofib $ primId 10
 //│ 	LH_N  => [LH_C _lh_insert_arg1⁰ [LH_N]]
 //│ 	| LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰ => if polyLt⁰(_lh_insert_arg1⁰, _lh_insert_LH_C_0⁰) then [LH_C _lh_insert_arg1⁰ [LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰]] else if polyGt⁰(_lh_insert_arg1⁰, _lh_insert_LH_C_0⁰) then [LH_C _lh_insert_LH_C_0⁰ insert_lh_₃(_lh_insert_arg1⁰, _lh_insert_LH_C_1⁰)] else [LH_C _lh_insert_LH_C_0⁰ _lh_insert_LH_C_1⁰]}
 //│ def interleave_lh_₁(_lh_interleave_arg1⁰, _lh_interleave_arg2⁰, _lh_floatOutId_0¹) = case _lh_interleave_arg1⁰ of {
-//│ 	LH_C _lh_interleave_LH_C_0⁰ _lh_interleave_LH_C_1⁰ => (fun ys² -> (fun ys³ -> (fun ys⁴ -> 
+//│ 	LH_C _lh_interleave_LH_C_0⁰ _lh_interleave_LH_C_1⁰ => (fun ys² -> (fun ys³ -> 
 //│ 		let t² = interleave_lh_₁(_lh_interleave_arg2⁰, _lh_interleave_LH_C_1⁰)
 //│ 		in let h² = _lh_interleave_LH_C_0⁰
-//│ 		in let t³ = mappend_lh_₅(t², _lh_floatOutId_0¹)
+//│ 		in let t³ = mappend_lh_₄(t², _lh_floatOutId_0¹)
 //│ 		in let h³ = h²
-//│ 		in let t⁴ = mappend_lh_₃(t³, ys²)
+//│ 		in let t⁴ = mappend_lh_₂(t³, ys²)
 //│ 		in let h⁴ = h³
-//│ 		in let t⁵ = mappend_lh_₂(t⁴, ys³)
-//│ 		in let h⁵ = h⁴
-//│ 		in [LH_C h⁵ mappend_lh_₁(t⁵, ys⁴)])))
+//│ 		in [LH_C h⁴ mappend_lh_₁(t⁴, ys³)]))
 //│ 	| LH_N  => _lh_floatOutId_0¹}
 //│ def interleave_lh_₂(_lh_interleave_arg1¹, _lh_interleave_arg2¹, _lh_floatOutId_0²) = case _lh_interleave_arg1¹ of {
-//│ 	LH_C _lh_interleave_LH_C_0¹ _lh_interleave_LH_C_1¹ => (fun ys⁸ -> (fun ys⁹ -> 
-//│ 		let t⁷ = interleave_lh_₂(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)
-//│ 		in let h⁷ = _lh_interleave_LH_C_0¹
-//│ 		in let t⁸ = mappend_lh_₄(t⁷, _lh_floatOutId_0²)
+//│ 	LH_C _lh_interleave_LH_C_0¹ _lh_interleave_LH_C_1¹ => (fun ys⁷ -> (fun ys⁸ -> (fun ys⁹ -> 
+//│ 		let t⁶ = interleave_lh_₂(_lh_interleave_arg2¹, _lh_interleave_LH_C_1¹)
+//│ 		in let h⁶ = _lh_interleave_LH_C_0¹
+//│ 		in let t⁷ = mappend_lh_₃(t⁶, _lh_floatOutId_0²)
+//│ 		in let h⁷ = h⁶
+//│ 		in let t⁸ = mappend_lh_₅(t⁷, ys⁷)
 //│ 		in let h⁸ = h⁷
 //│ 		in let t⁹ = mappend_lh_₂(t⁸, ys⁸)
 //│ 		in let h⁹ = h⁸
-//│ 		in [LH_C h⁹ mappend_lh_₁(t⁹, ys⁹)]))
+//│ 		in [LH_C h⁹ mappend_lh_₁(t⁹, ys⁹)])))
 //│ 	| LH_N  => _lh_floatOutId_0²}
 //│ def length_lh_₁(ls³) = case ls³ of {
 //│ 	LH_C h¹² t¹² => (1 + length_lh_₁(t¹²))
@@ -1198,7 +1223,7 @@ testClausify_nofib $ primId 10
 //│ 	| LH_N  => (fun ys¹⁴ -> ys¹⁴)}
 //│ def mappend_lh_₁(xs⁰, ys⁰) = xs⁰(ys⁰)
 //│ def mappend_lh_₂(xs², ys¹¹) = xs²(ys¹¹)
-//│ def mappend_lh_₃(xs¹, ys⁶) = xs¹(ys⁶)
+//│ def mappend_lh_₃(xs¹, ys⁵) = xs¹(ys⁵)
 //│ def mappend_lh_₄(xs⁴, ys¹³) = xs⁴(ys¹³)
 //│ def mappend_lh_₅(xs³, ys¹²) = xs³(ys¹²)
 //│ def negin_lh_₁(_lh_negin_arg1⁰) = case _lh_negin_arg1⁰ of {
@@ -1239,12 +1264,12 @@ testClausify_nofib $ primId 10
 //│ 	| '&'  => 4
 //│ 	| '~'  => 5}
 //│ def parseHelper_lh_₁(_lh_parseHelper_arg1⁰, _lh_parseHelper_arg2⁰) = case _lh_parseHelper_arg1⁰ of {
-//│ 	LH_N  => redstar_lh_₁(_lh_parseHelper_arg2⁰)
+//│ 	LH_N  => redstar_lh_₂(_lh_parseHelper_arg2⁰)
 //│ 	| LH_C _lh_parseHelper_LH_C_0⁰ _lh_parseHelper_LH_C_1⁰ => case _lh_parseHelper_LH_C_0⁰ of {
 //│ 		' '  => parseHelper_lh_₁(_lh_parseHelper_LH_C_1⁰, _lh_parseHelper_arg2⁰)
 //│ 		| '('  => parseHelper_lh_₁(_lh_parseHelper_LH_C_1⁰, [LH_C [Lex '('] _lh_parseHelper_arg2⁰])
 //│ 		| ')'  => 
-//│ 			let _lh_matchIdent⁰ = redstar_lh_₂(_lh_parseHelper_arg2⁰)
+//│ 			let _lh_matchIdent⁰ = redstar_lh_₁(_lh_parseHelper_arg2⁰)
 //│ 			in case _lh_matchIdent⁰ of {
 //│ 				LH_C _lh_parseHelper_LH_C_0¹ _lh_parseHelper_LH_C_1¹ => case _lh_parseHelper_LH_C_1¹ of {
 //│ 					LH_C _lh_parseHelper_LH_C_0² _lh_parseHelper_LH_C_1² => case _lh_parseHelper_LH_C_0² of {
@@ -1287,7 +1312,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def red_lh_₂(_lh_red_arg1¹) = case _lh_red_arg1¹ of {
 //│ 	LH_C _lh_red_LH_C_0⁶ _lh_red_LH_C_1⁶ => case _lh_red_LH_C_0⁶ of {
 //│ 		Ast _lh_red_Ast_0⁵ => case _lh_red_LH_C_1⁶ of {
@@ -1318,7 +1344,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def red_lh_₃(_lh_red_arg1⁰) = case _lh_red_arg1⁰ of {
 //│ 	LH_C _lh_red_LH_C_0⁰ _lh_red_LH_C_1⁰ => case _lh_red_LH_C_0⁰ of {
 //│ 		Ast _lh_red_Ast_0⁰ => case _lh_red_LH_C_1⁰ of {
@@ -1349,7 +1376,8 @@ testClausify_nofib $ primId 10
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰}
 //│ 		| _  => error⁰}
-//│ 	| LH_N  => error⁰}
+//│ 	| LH_N  => error⁰
+//│ 	| _  => error⁰}
 //│ def redstar_lh_₁(_lh_redstar_arg1⁰) = while_lh_₁((fun _lh_funcomp_x⁰ -> (0 /= spri_lh_₂(_lh_funcomp_x⁰))), red_lh_₂, _lh_redstar_arg1⁰)
 //│ def redstar_lh_₂(_lh_redstar_arg1¹) = while_lh_₂((fun _lh_funcomp_x¹ -> (0 /= spri_lh_₃(_lh_funcomp_x¹))), red_lh_₃, _lh_redstar_arg1¹)
 //│ def spaces_lh_₁(_lh_spaces_arg1¹) = copy_lh_₂(_lh_spaces_arg1¹, ' ')
@@ -1357,9 +1385,9 @@ testClausify_nofib $ primId 10
 //│ def splitHelper_lh_₁(_lh_splitHelper_arg1⁰, _lh_splitHelper_arg2⁰) = case _lh_splitHelper_arg1⁰ of {
 //│ 	Con _lh_splitHelper_Con_0⁰ _lh_splitHelper_Con_1⁰ => splitHelper_lh_₁(_lh_splitHelper_Con_0⁰, splitHelper_lh_₁(_lh_splitHelper_Con_1⁰, _lh_splitHelper_arg2⁰))
 //│ 	| _  => 
-//│ 		let t⁶ = _lh_splitHelper_arg2⁰
-//│ 		in let h⁶ = _lh_splitHelper_arg1⁰
-//│ 		in (fun f³ -> (fun i¹ -> f³(h⁶, foldr_lh_₁(f³, i¹, t⁶))))}
+//│ 		let t⁵ = _lh_splitHelper_arg2⁰
+//│ 		in let h⁵ = _lh_splitHelper_arg1⁰
+//│ 		in (fun f³ -> (fun i¹ -> f³(h⁵, foldr_lh_₁(f³, i¹, t⁵))))}
 //│ def split_lh_₁(_lh_split_arg1⁰) = splitHelper_lh_₁(_lh_split_arg1⁰, (fun f⁶ -> (fun i² -> i²)))
 //│ def spri_lh_₁(_lh_spri_arg1²) = case _lh_spri_arg1² of {
 //│ 	LH_C _lh_spri_LH_C_0⁴ _lh_spri_LH_C_1⁴ => case _lh_spri_LH_C_0⁴ of {
