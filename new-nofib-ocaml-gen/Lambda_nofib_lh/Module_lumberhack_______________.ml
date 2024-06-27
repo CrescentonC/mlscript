@@ -118,7 +118,7 @@ let rec ppn_lh__d3 _lh_ppn_arg1_2 _lh_ppn_arg2_2 =
 let rec pp_lh__d3 _lh_pp_arg1_1 =
   ((ppn_lh__d3 0) _lh_pp_arg1_1);;
 let rec myRunState_lh__d1 _lh_myRunState_arg1_0 =
-  _lh_myRunState_arg1_0;;
+  (_lh_myRunState_arg1_0 99);;
 let rec mappend_lh__d6 xs_1_6 ys_2_7 =
   (xs_1_6 ys_2_7);;
 let rec mappend_lh__d5 xs_1_4 ys_2_0 =
@@ -213,7 +213,8 @@ let rec lookup_lh__d1 _lh_lookup_arg1_0 _lh_lookup_arg2_0 =
 let rec myReturn_lh__d1 _lh_myReturn_arg1_0 =
   (let rec _lh_myRunState_MyState_0_0 = (fun s_0 -> 
     (`LH_P2(s_0, _lh_myReturn_arg1_0))) in
-    _lh_myRunState_MyState_0_0);;
+    (fun _lh_dummy_0 -> 
+      _lh_myRunState_MyState_0_0));;
 let rec myBind_lh__d1 _lh_myBind_arg1_0 _lh_myBind_arg2_0 =
   (let rec _lh_myRunState_MyState_0_1 = (fun s_1 -> 
     (let rec _lh_matchIdent_6 = ((myRunState_lh__d1 _lh_myBind_arg1_0) s_1) in
@@ -222,11 +223,13 @@ let rec myBind_lh__d1 _lh_myBind_arg1_0 _lh_myBind_arg2_0 =
           ((myRunState_lh__d1 (_lh_myBind_arg2_0 _lh_myBind_LH_P2_1_0)) _lh_myBind_LH_P2_0_0)
         | _ -> 
           (failwith "error")))) in
-    _lh_myRunState_MyState_0_1);;
+    (fun _lh_dummy_1 -> 
+      _lh_myRunState_MyState_0_1));;
 let rec myGet_lh__d1 =
   (let rec _lh_myRunState_MyState_0_2 = (fun s_2 -> 
     (`LH_P2(s_2, s_2))) in
-    _lh_myRunState_MyState_0_2);;
+    (fun _lh_dummy_2 -> 
+      _lh_myRunState_MyState_0_2));;
 let rec myMaybe_lh__d1 _lh_myMaybe_arg1_2 _lh_myMaybe_arg2_2 _lh_myMaybe_arg3_0 =
   ((_lh_myMaybe_arg3_0 _lh_myMaybe_arg1_2) _lh_myMaybe_arg2_2);;
 let rec lookupVar_lh__d1 _lh_lookupVar_arg1_0 =
@@ -448,20 +451,14 @@ let rec nMinus1_lh__d2 =
   (`Add((`Var((`LH_C('n', (`LH_N))))), (`Con((0 - 1)))));;
 let rec partialSum0_lh__d2 =
   (`Lam((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))), (`Lam((`LH_C('n', (`LH_N))), (`IfZero((`Var((`LH_C('n', (`LH_N))))), (`Con(0)), (`Add((`Var((`LH_C('n', (`LH_N))))), (`App((`Var((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))))), nMinus1_lh__d2))))))))));;
-let rec lfxx_lh__d4 =
-  (`Lam((`LH_C('x', (`LH_N))), (`App((`Var((`LH_C('F', (`LH_N))))), (`App((`Var((`LH_C('x', (`LH_N))))), (`Var((`LH_C('x', (`LH_N)))))))))));;
 let rec lfxx_lh__d3 =
+  (`Lam((`LH_C('x', (`LH_N))), (`App((`Var((`LH_C('F', (`LH_N))))), (`App((`Var((`LH_C('x', (`LH_N))))), (`Var((`LH_C('x', (`LH_N)))))))))));;
+let rec lfxx_lh__d4 =
   (`Lam((`LH_C('x', (`LH_N))), (`App((`Var((`LH_C('F', (`LH_N))))), (`App((`Var((`LH_C('x', (`LH_N))))), (`Var((`LH_C('x', (`LH_N)))))))))));;
 let rec fix_lh__d2 =
   (`Lam((`LH_C('F', (`LH_N))), (`App(lfxx_lh__d3, lfxx_lh__d4))));;
 let rec sum0_lh__d2 =
   (`App(fix_lh__d2, partialSum0_lh__d2));;
-let rec head_lh__d2 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_6, t_6) -> 
-      h_6
-    | `LH_N -> 
-      (failwith "error"));;
 let rec null_lh__d2 _lh_null_arg1_0 =
   (match _lh_null_arg1_0 with
     | `LH_N -> 
@@ -469,6 +466,12 @@ let rec null_lh__d2 _lh_null_arg1_0 =
     | `LH_C(_lh_null_LH_C_0_0, _lh_null_LH_C_1_0) -> 
       false
     | _ -> 
+      (failwith "error"));;
+let rec head_lh__d2 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_6, t_6) -> 
+      h_6
+    | `LH_N -> 
       (failwith "error"));;
 let rec mainMonad_lh__d1 _lh_mainMonad_arg1_0 =
   (if (null_lh__d2 _lh_mainMonad_arg1_0) then
@@ -682,16 +685,16 @@ let rec showTerm_lh__d1 _lh_showTerm_arg1_0 =
             (`LH_C(h_1_4, ((mappend_lh__d1 t_1_1) ys_1_5))))))) (string_of_int _lh_showTerm_Con_0_0))
     | _ -> 
       ((failwith "error") (`LH_C('u', (`LH_C('n', (`LH_C('i', (`LH_C('m', (`LH_C('p', (`LH_C('l', (`LH_C('e', (`LH_C('m', (`LH_C('e', (`LH_C('n', (`LH_C('t', (`LH_C('e', (`LH_C('d', (`LH_N)))))))))))))))))))))))))))));;
+let rec nMinus1_lh__d1 =
+  (`Add((`Var((`LH_C('n', (`LH_N))))), (`Con((0 - 1)))));;
+let rec partialSum0_lh__d1 =
+  (`Lam((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))), (`Lam((`LH_C('n', (`LH_N))), (`IfZero((`Var((`LH_C('n', (`LH_N))))), (`Con(0)), (`Add((`Var((`LH_C('n', (`LH_N))))), (`App((`Var((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))))), nMinus1_lh__d1))))))))));;
 let rec lfxx_lh__d1 =
   (`Lam((`LH_C('x', (`LH_N))), (`App((`Var((`LH_C('F', (`LH_N))))), (`App((`Var((`LH_C('x', (`LH_N))))), (`Var((`LH_C('x', (`LH_N)))))))))));;
 let rec lfxx_lh__d2 =
   (`Lam((`LH_C('x', (`LH_N))), (`App((`Var((`LH_C('F', (`LH_N))))), (`App((`Var((`LH_C('x', (`LH_N))))), (`Var((`LH_C('x', (`LH_N)))))))))));;
 let rec fix_lh__d1 =
   (`Lam((`LH_C('F', (`LH_N))), (`App(lfxx_lh__d1, lfxx_lh__d2))));;
-let rec nMinus1_lh__d1 =
-  (`Add((`Var((`LH_C('n', (`LH_N))))), (`Con((0 - 1)))));;
-let rec partialSum0_lh__d1 =
-  (`Lam((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))), (`Lam((`LH_C('n', (`LH_N))), (`IfZero((`Var((`LH_C('n', (`LH_N))))), (`Con(0)), (`Add((`Var((`LH_C('n', (`LH_N))))), (`App((`Var((`LH_C('s', (`LH_C('u', (`LH_C('m', (`LH_N))))))))), nMinus1_lh__d1))))))))));;
 let rec sum0_lh__d1 =
   (`App(fix_lh__d1, partialSum0_lh__d1));;
 let rec null_lh__d1 _lh_null_arg1_1 =

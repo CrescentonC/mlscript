@@ -91,14 +91,6 @@ let rec copy_lh__d2 _lh_copy_arg1_1 _lh_copy_arg2_1 =
   else
     (fun hx_7 tx_7 _lh_listcomp_fun_1_4 _lh_store_inputs_PS_0_3 _lh_store_inputs_PS_2_3 _lh_store_inputs_PS_3_3 _lh_store_inputs_PS_4_3 -> 
       (`LH_N)));;
-let rec map_lh__d2 f_2_5 ls_1_4 =
-  (match ls_1_4 with
-    | `LH_C(h_1_8, t_1_8) -> 
-      (`LH_C((f_2_5 h_1_8), ((map_lh__d2 f_2_5) t_1_8)))
-    | `LH_N -> 
-      (`LH_N));;
-let rec simulate_lh__d1 _lh_simulate_arg1_0 _lh_simulate_arg2_0 =
-  (_lh_simulate_arg2_0 _lh_simulate_arg1_0);;
 let rec head_lh__d2 ls_4 =
   (match ls_4 with
     | `LH_C(h_5, t_5) -> 
@@ -156,6 +148,14 @@ let rec collect_outputs_lh__d1 _lh_collect_outputs_arg1_0 =
       in ((map_lh__d3 (get_output_0 _lh_collect_outputs_LH_P4_3_0)) _lh_collect_outputs_LH_P4_2_0)
     | _ -> 
       (failwith "error"));;
+let rec simulate_lh__d1 _lh_simulate_arg1_0 _lh_simulate_arg2_0 =
+  (_lh_simulate_arg2_0 _lh_simulate_arg1_0);;
+let rec map_lh__d2 f_2_5 ls_1_4 =
+  (match ls_1_4 with
+    | `LH_C(h_1_8, t_1_8) -> 
+      (`LH_C((f_2_5 h_1_8), ((map_lh__d2 f_2_5) t_1_8)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec circuit_simulate_lh__d1 _lh_circuit_simulate_arg1_0 _lh_circuit_simulate_arg2_0 =
   ((map_lh__d2 collect_outputs_lh__d1) ((simulate_lh__d1 _lh_circuit_simulate_arg1_0) _lh_circuit_simulate_arg2_0));;
 let rec outports_lh__d2 _lh_outports_arg1_1 =
@@ -848,8 +848,9 @@ let rec scanlr_lh__d1 _lh_scanlr_arg1_1 _lh_scanlr_arg2_1 _lh_scanlr_arg3_1 _lh_
                     (fun _lh_downsweep_Node_1_4 _lh_downsweep_Node_2_4 _lh_downsweep_arg1_6 -> 
                       (let rec _lh_matchIdent_2_1 = (let rec _lh_downsweep_LH_P2_1_3 = (((downsweep_lh__d1 _lh_downsweep_arg1_6) _lh_downsweep_LH_P2_1_2) _lh_downsweep_Node_2_4) in
                         (let rec _lh_downsweep_LH_P2_0_3 = (((downsweep_lh__d1 _lh_downsweep_arg1_6) _lh_downsweep_LH_P2_0_2) _lh_downsweep_Node_1_4) in
-                          (`Node((`Unit), _lh_downsweep_LH_P2_0_3, _lh_downsweep_LH_P2_1_3)))) in
-                        _lh_matchIdent_2_1))))
+                          (fun _lh_dummy_4 -> 
+                            (`Node((`Unit), _lh_downsweep_LH_P2_0_3, _lh_downsweep_LH_P2_1_3))))) in
+                        (_lh_matchIdent_2_1 99)))))
               | _ -> 
                 (failwith "error"))
           | _ -> 
@@ -935,13 +936,13 @@ let rec map_lh__d1_d6 f_4_8 ls_2_8 =
     | `LH_C(h_3_3, t_3_3) -> 
       (let rec _lh_or_LH_C_1_2 = ((map_lh__d1_d6 f_4_8) t_3_3) in
         (let rec _lh_or_LH_C_0_2 = (f_4_8 h_3_3) in
-          (fun _lh_dummy_6 -> 
+          (fun _lh_dummy_7 -> 
             (if _lh_or_LH_C_0_2 then
               true
             else
               (or_lh__d4 _lh_or_LH_C_1_2)))))
     | `LH_N -> 
-      (fun _lh_dummy_7 -> 
+      (fun _lh_dummy_8 -> 
         false));;
 let rec acknowledge_lh__d2 _lh_acknowledge_arg1_1 _lh_acknowledge_arg2_1 =
   let rec check_requests_1 = (fun _lh_check_requests_arg1_1 -> 
@@ -1189,26 +1190,26 @@ let rec map_lh__d1_d0 f_4_4 ls_2_7 =
           (fun f_4_5 -> 
             (let rec _lh_or_LH_C_1_1 = ((map_lh__d9 f_4_5) t_3_2) in
               (let rec _lh_or_LH_C_0_1 = (f_4_5 h_3_2) in
-                (fun _lh_dummy_4 -> 
+                (fun _lh_dummy_5 -> 
                   (if _lh_or_LH_C_0_1 then
                     true
                   else
                     (or_lh__d1 _lh_or_LH_C_1_1))))))))
     | `LH_N -> 
-      (fun f_4_6 _lh_dummy_5 -> 
+      (fun f_4_6 _lh_dummy_6 -> 
         false));;
 let rec map_lh__d8 f_4_9 ls_2_9 =
   (match ls_2_9 with
     | `LH_C(h_3_4, t_3_4) -> 
       (let rec _lh_or_LH_C_1_3 = ((map_lh__d8 f_4_9) t_3_4) in
         (let rec _lh_or_LH_C_0_3 = (f_4_9 h_3_4) in
-          (fun _lh_dummy_8 -> 
+          (fun _lh_dummy_9 -> 
             (if _lh_or_LH_C_0_3 then
               true
             else
               (or_lh__d2 _lh_or_LH_C_1_3)))))
     | `LH_N -> 
-      (fun _lh_dummy_9 -> 
+      (fun _lh_dummy_1_0 -> 
         false));;
 let rec pathDepth_lh__d5 _lh_pathDepth_arg1_2 =
   (match _lh_pathDepth_arg1_2 with
@@ -1513,7 +1514,7 @@ let rec regs_lh__d1 _lh_regs_arg1_0 =
             (let rec _lh_pad_circuit_LH_P4_2_0 = os_0 in
               (let rec _lh_pad_circuit_LH_P4_1_0 = is_0 in
                 (let rec _lh_pad_circuit_LH_P4_0_0 = (1 + (7 * _lh_regs_arg1_0)) in
-                  (fun _lh_dummy_1_0 -> 
+                  (fun _lh_dummy_1_1 -> 
                     (let rec p2_0 = (nearest_power_of_two_lh__d1 _lh_pad_circuit_LH_P4_0_0) in
                       (let rec _lh_simulate_LH_P4_3_0 = ((take_lz_lh__d1 p2_0) ((append__lz_lh__d1 _lh_pad_circuit_LH_P4_3_0) ((copy_lz_lh__d1 p2_0) emptyState_lh__d1))) in
                         (let rec _lh_simulate_LH_P4_2_0 = _lh_pad_circuit_LH_P4_2_0 in
@@ -1524,7 +1525,7 @@ let rec regs_lh__d1 _lh_regs_arg1_0 =
                                   (let rec _lh_critical_path_depth_LH_P4_2_0 = _lh_simulate_LH_P4_2_0 in
                                     (let rec _lh_critical_path_depth_LH_P4_1_0 = _lh_simulate_LH_P4_1_0 in
                                       (let rec _lh_critical_path_depth_LH_P4_0_0 = _lh_simulate_LH_P4_0_0 in
-                                        (fun _lh_dummy_1_1 -> 
+                                        (fun _lh_dummy_1_2 -> 
                                           (maximum_lh__d1 ((map_lh__d5 pathDepth_lh__d1) _lh_critical_path_depth_LH_P4_3_0)))))))))) (`LH_P4(_lh_simulate_LH_P4_0_0, _lh_simulate_LH_P4_1_0, _lh_simulate_LH_P4_2_0, ((map_lh__d4 init_dffs_lh__d1) _lh_simulate_LH_P4_3_0)))) _lh_simulate_arg1_1)))))))))))))))));;
 let rec run_lh__d1 _lh_run_arg1_0 _lh_run_arg2_0 =
   (let rec example_0 = (pad_circuit_lh__d1 (regs_lh__d1 _lh_run_arg1_0)) in

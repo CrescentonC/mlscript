@@ -2179,13 +2179,13 @@ testConstraints_nofib $ primId 6
 //│ 				LH_N  => 
 //│ 					let _lh_fst_LH_P2_1¹ = _lh_f_LH_P2_1⁹
 //│ 					in let _lh_fst_LH_P2_0¹ = [LH_P2 [LH_N] [Unknown]]
-//│ 					in _lh_fst_LH_P2_0¹
+//│ 					in (fun _lh_dummy⁵ -> _lh_fst_LH_P2_0¹)
 //│ 				| LH_C _lh_f_LH_C_0¹ _lh_f_LH_C_1¹ => 
 //│ 					let tableEntry¹ = atIndex_lh_₁((value_lh_₁(_lh_f_LH_C_0¹) - 1), head_lh_₁(_lh_f_LH_P2_1⁹))
 //│ 					in let cs⁵ = if polyEq⁰(tableEntry¹, [Unknown]) then checkComplete_lh_₃(_lh_f_arg1⁵, [LH_C _lh_f_LH_C_0¹ _lh_f_LH_C_1¹]) else tableEntry¹
 //│ 					in let _lh_fst_LH_P2_1² = _lh_f_LH_P2_1⁹
 //│ 					in let _lh_fst_LH_P2_0² = [LH_P2 [LH_C _lh_f_LH_C_0¹ _lh_f_LH_C_1¹] cs⁵]
-//│ 					in _lh_fst_LH_P2_0²
+//│ 					in (fun _lh_dummy⁶ -> _lh_fst_LH_P2_0²)
 //│ 				| _  => error⁰})
 //│ 		in (fun _lh_mapTree_arg1⁷ -> 
 //│ 			let _lh_mapTree_Node_1⁵ = map_lh_₁₁(mapTree_lh_₄(_lh_mapTree_arg1⁷), _lh_mapTree_Node_1⁴)
@@ -2212,7 +2212,7 @@ testConstraints_nofib $ primId 6
 //│ 								in _lh_listcomp_fun¹⁵(_lh_f_LH_P2_1⁴)
 //│ 							in let cs'⁰ = if null_lh_₁(wipedDomains⁰) then _lh_f_LH_P2_1³ else [Known collect_lh_₁(head_lh_₂(wipedDomains⁰))]
 //│ 							in [LH_P2 _lh_f_LH_P2_0⁴ cs'⁰])
-//│ 					in (fun _lh_dummy⁰ -> _lh_f_LH_P2_0³(_lh_f_LH_P2_1²))
+//│ 					in (fun _lh_dummy³ -> _lh_f_LH_P2_0³(_lh_f_LH_P2_1²))
 //│ 				| LH_C _lh_f_LH_C_0⁰ _lh_f_LH_C_1⁰ => 
 //│ 					let tableEntry⁰ = atIndex_lh_₂((value_lh_₂(_lh_f_LH_C_0⁰) - 1), head_lh_₃(_lh_f_LH_P2_1¹))
 //│ 					in let cs² = if polyEq⁰(tableEntry⁰, [Unknown]) then checkComplete_lh_₄(_lh_f_arg1³, [LH_C _lh_f_LH_C_0⁰ _lh_f_LH_C_1⁰]) else tableEntry⁰
@@ -2228,7 +2228,7 @@ testConstraints_nofib $ primId 6
 //│ 								in _lh_listcomp_fun¹⁶(_lh_f_LH_P2_1⁷)
 //│ 							in let cs'¹ = if null_lh_₁(wipedDomains¹) then _lh_f_LH_P2_1⁶ else [Known collect_lh_₁(head_lh_₂(wipedDomains¹))]
 //│ 							in [LH_P2 _lh_f_LH_P2_0⁶ cs'¹])
-//│ 					in (fun _lh_dummy¹ -> _lh_f_LH_P2_0⁵(_lh_f_LH_P2_1⁵))
+//│ 					in (fun _lh_dummy⁴ -> _lh_f_LH_P2_0⁵(_lh_f_LH_P2_1⁵))
 //│ 				| _  => error⁰})
 //│ 		in (fun _lh_mapTree_arg1³ -> 
 //│ 			let _lh_mapTree_Node_1² = map_lh_₁₃(mapTree_lh_₆(_lh_mapTree_arg1³), _lh_mapTree_Node_1¹)
@@ -2285,8 +2285,8 @@ testConstraints_nofib $ primId 6
 //│ 					let _lh_bt_Just_0² = 	
 //│ 						let _lh_bt_LH_P2_1² = level_lh_₂(_lh_earliestInconsistency_LH_C_0⁵)
 //│ 						in let _lh_bt_LH_P2_0² = level_lh_₁(_lh_earliestInconsistency_LH_C_0⁴)
-//│ 						in [Known [LH_C _lh_bt_LH_P2_0² [LH_C _lh_bt_LH_P2_1² [LH_N]]]]
-//│ 					in (fun _lh_bt_arg1¹¹ -> (fun s¹¹ -> _lh_bt_Just_0²))
+//│ 						in (fun _lh_dummy² -> [Known [LH_C _lh_bt_LH_P2_0² [LH_C _lh_bt_LH_P2_1² [LH_N]]]])
+//│ 					in (fun _lh_bt_arg1¹¹ -> (fun s¹¹ -> _lh_bt_Just_0²([lh_Unit])))
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -2301,9 +2301,10 @@ testConstraints_nofib $ primId 6
 //│ 					let _lh_bt_Just_0⁰ = 	
 //│ 						let _lh_bt_LH_P2_1⁰ = level_lh_₄(_lh_earliestInconsistency_LH_C_0¹)
 //│ 						in let _lh_bt_LH_P2_0⁰ = level_lh_₃(_lh_earliestInconsistency_LH_C_0⁰)
-//│ 						in let _lh_f_Known_0⁰ = [LH_C _lh_bt_LH_P2_0⁰ [LH_C _lh_bt_LH_P2_1⁰ [LH_N]]]
-//│ 						in (fun _lh_f_LH_P2_0⁰ -> (fun _lh_f_arg2⁰ -> [Node [LH_P2 _lh_f_LH_P2_0⁰ [Known _lh_f_Known_0⁰]] _lh_f_arg2⁰]))
-//│ 					in (fun _lh_bt_arg1² -> (fun s² -> _lh_bt_Just_0⁰))
+//│ 						in (fun _lh_dummy⁰ -> 
+//│ 							let _lh_f_Known_0⁰ = [LH_C _lh_bt_LH_P2_0⁰ [LH_C _lh_bt_LH_P2_1⁰ [LH_N]]]
+//│ 							in (fun _lh_f_LH_P2_0⁰ -> (fun _lh_f_arg2⁰ -> [Node [LH_P2 _lh_f_LH_P2_0⁰ [Known _lh_f_Known_0⁰]] _lh_f_arg2⁰])))
+//│ 					in (fun _lh_bt_arg1² -> (fun s² -> _lh_bt_Just_0⁰([lh_Unit])))
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -2318,8 +2319,8 @@ testConstraints_nofib $ primId 6
 //│ 					let _lh_bt_Just_0¹ = 	
 //│ 						let _lh_bt_LH_P2_1¹ = level_lh_₄(_lh_earliestInconsistency_LH_C_0³)
 //│ 						in let _lh_bt_LH_P2_0¹ = level_lh_₄(_lh_earliestInconsistency_LH_C_0²)
-//│ 						in [Known [LH_C _lh_bt_LH_P2_0¹ [LH_C _lh_bt_LH_P2_1¹ [LH_N]]]]
-//│ 					in (fun _lh_bt_arg1⁸ -> (fun s⁸ -> _lh_bt_Just_0¹))
+//│ 						in (fun _lh_dummy¹ -> [Known [LH_C _lh_bt_LH_P2_0¹ [LH_C _lh_bt_LH_P2_1¹ [LH_N]]]])
+//│ 					in (fun _lh_bt_arg1⁸ -> (fun s⁸ -> _lh_bt_Just_0¹([lh_Unit])))
 //│ 				| _  => error⁰}
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
@@ -2433,8 +2434,8 @@ testConstraints_nofib $ primId 6
 //│ 		in (fun f⁵⁴ -> 
 //│ 			let t²⁹ = map_lh_₇(f⁵⁴, t²⁸)
 //│ 			in let h²⁹ = f⁵⁴(h²⁸)
-//│ 			in (fun _lh_dummy² -> (1 + length_lh_₁(t²⁹)))) else filter_lh_₂(f⁵³, t²⁷)
-//│ 	| LH_N  => (fun f⁵⁵ -> (fun _lh_dummy³ -> 0))}
+//│ 			in (fun _lh_dummy⁷ -> (1 + length_lh_₁(t²⁹)))) else filter_lh_₂(f⁵³, t²⁷)
+//│ 	| LH_N  => (fun f⁵⁵ -> (fun _lh_dummy⁸ -> 0))}
 //│ def filter_lh_₃(f³, ls⁰) = case ls⁰ of {
 //│ 	LH_C h⁰ t⁰ => if f³(h⁰) then [LH_C h⁰ filter_lh_₃(f³, t⁰)] else filter_lh_₃(f³, t⁰)
 //│ 	| LH_N  => [LH_N]}
@@ -2446,7 +2447,7 @@ testConstraints_nofib $ primId 6
 //│ def foldl_lh_₁(f⁷, i⁰, ls²) = case ls² of {
 //│ 	LH_C h³ t³ => foldl_lh_₁(f⁷, f⁷(i⁰, h³), t³)
 //│ 	| LH_N  => i⁰}
-//│ def fst_lh_₁(_lh_fst_arg1¹) = _lh_fst_arg1¹
+//│ def fst_lh_₁(_lh_fst_arg1¹) = _lh_fst_arg1¹([lh_Unit])
 //│ def fst_lh_₂(_lh_fst_arg1⁰) = case _lh_fst_arg1⁰ of {
 //│ 	LH_P2 _lh_fst_LH_P2_0⁰ _lh_fst_LH_P2_1⁰ => _lh_fst_LH_P2_0⁰
 //│ 	| _  => error⁰}

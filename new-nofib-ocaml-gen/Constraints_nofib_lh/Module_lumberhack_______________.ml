@@ -73,9 +73,10 @@ let rec earliestInconsistency_lh__d1 _lh_earliestInconsistency_arg1_2 _lh_earlie
               | `LH_C(_lh_earliestInconsistency_LH_C_0_5, _lh_earliestInconsistency_LH_C_1_5) -> 
                 (let rec _lh_bt_Just_0_2 = (let rec _lh_bt_LH_P2_1_2 = (level_lh__d2 _lh_earliestInconsistency_LH_C_0_5) in
                   (let rec _lh_bt_LH_P2_0_2 = (level_lh__d1 _lh_earliestInconsistency_LH_C_0_4) in
-                    (`Known((`LH_C(_lh_bt_LH_P2_0_2, (`LH_C(_lh_bt_LH_P2_1_2, (`LH_N))))))))) in
+                    (fun _lh_dummy_2 -> 
+                      (`Known((`LH_C(_lh_bt_LH_P2_0_2, (`LH_C(_lh_bt_LH_P2_1_2, (`LH_N)))))))))) in
                   (fun _lh_bt_arg1_1_1 s_1_1 -> 
-                    _lh_bt_Just_0_2))
+                    (_lh_bt_Just_0_2 99)))
               | _ -> 
                 (failwith "error")))
         | _ -> 
@@ -107,16 +108,6 @@ let rec lookupCache_lh__d2 _lh_lookupCache_arg1_1 _lh_lookupCache_arg2_1 =
   (let rec f_5_7 = (fun _lh_f_arg1_6 _lh_f_arg2_7 -> 
     (_lh_f_arg2_7 _lh_f_arg1_6)) in
     ((mapTree_lh__d6 (f_5_7 _lh_lookupCache_arg1_1)) _lh_lookupCache_arg2_1));;
-let rec mapTree_lh__d5 _lh_mapTree_arg1_1 _lh_mapTree_arg2_1 =
-  (_lh_mapTree_arg2_1 _lh_mapTree_arg1_1);;
-let rec domainWipeOut_lh__d1 _lh_domainWipeOut_arg1_0 _lh_domainWipeOut_arg2_0 =
-  (match _lh_domainWipeOut_arg1_0 with
-    | `CSP(_lh_domainWipeOut_CSP_0_0, _lh_domainWipeOut_CSP_1_0, _lh_domainWipeOut_CSP_2_0) -> 
-      (let rec f_0 = (fun _lh_f_arg1_0 -> 
-        (_lh_f_arg1_0 99)) in
-        ((mapTree_lh__d5 f_0) _lh_domainWipeOut_arg2_0))
-    | _ -> 
-      (failwith "error"));;
 let rec head_lh__d2 ls_4 =
   (match ls_4 with
     | `LH_C(h_5, t_5) -> 
@@ -249,16 +240,16 @@ let rec null_lh__d1 _lh_null_arg1_0 =
       false
     | _ -> 
       (failwith "error"));;
-let rec zipWith_lh__d4 f_5_6 xs_4 ys_4 =
-  (match xs_4 with
-    | `LH_C(hx_1_1, tx_1_1) -> 
-      (((ys_4 f_5_6) hx_1_1) tx_1_1)
-    | `LH_N -> 
-      (`LH_N));;
 let rec zipWith_lh__d3 f_4_8 xs_3 ys_3 =
   (match xs_3 with
     | `LH_C(hx_8, tx_8) -> 
       (((ys_3 f_4_8) hx_8) tx_8)
+    | `LH_N -> 
+      (`LH_N));;
+let rec zipWith_lh__d4 f_5_6 xs_4 ys_4 =
+  (match xs_4 with
+    | `LH_C(hx_1_1, tx_1_1) -> 
+      (((ys_4 f_5_6) hx_1_1) tx_1_1)
     | `LH_N -> 
       (`LH_N));;
 let rec enumFromTo_lh__d7 a_8 b_6 =
@@ -332,6 +323,8 @@ let rec tail_lh__d2 ls_8 =
       t_7
     | `LH_N -> 
       (failwith "error"));;
+let rec mapTree_lh__d5 _lh_mapTree_arg1_1 _lh_mapTree_arg2_1 =
+  (_lh_mapTree_arg2_1 _lh_mapTree_arg1_1);;
 let rec map_lh__d1_d2 f_2_3 ls_1_0 =
   (ls_1_0 f_2_3);;
 let rec map_lh__d6 f_1_8 ls_9 =
@@ -375,7 +368,7 @@ let rec cacheChecks_lh__d2 _lh_cacheChecks_arg1_0 _lh_cacheChecks_arg2_0 _lh_cac
                             else
                               (`Known((collect_lh__d1 (head_lh__d2 wipedDomains_0))))) in
                               (`LH_P2(_lh_f_LH_P2_0_4, cs'_0))))))) in
-                      (fun _lh_dummy_0 -> 
+                      (fun _lh_dummy_3 -> 
                         (_lh_f_LH_P2_0_3 _lh_f_LH_P2_1_2))))
                 | `LH_C(_lh_f_LH_C_0_0, _lh_f_LH_C_1_0) -> 
                   (let rec tableEntry_0 = ((atIndex_lh__d2 ((value_lh__d2 _lh_f_LH_C_0_0) - 1)) (head_lh__d3 _lh_f_LH_P2_1_1)) in
@@ -402,7 +395,7 @@ let rec cacheChecks_lh__d2 _lh_cacheChecks_arg1_0 _lh_cacheChecks_arg2_0 _lh_cac
                                 else
                                   (`Known((collect_lh__d1 (head_lh__d2 wipedDomains_1))))) in
                                   (`LH_P2(_lh_f_LH_P2_0_6, cs'_1))))))) in
-                          (fun _lh_dummy_1 -> 
+                          (fun _lh_dummy_4 -> 
                             (_lh_f_LH_P2_0_5 _lh_f_LH_P2_1_5))))))
                 | _ -> 
                   (failwith "error"))))) in
@@ -411,6 +404,14 @@ let rec cacheChecks_lh__d2 _lh_cacheChecks_arg1_0 _lh_cacheChecks_arg2_0 _lh_cac
               (let rec _lh_mapTree_Node_0_2 = (_lh_mapTree_arg1_3 _lh_mapTree_Node_0_1) in
                 (fun _lh_mapTree_arg1_4 -> 
                   (`Node((_lh_mapTree_arg1_4 _lh_mapTree_Node_0_2), ((map_lh__d1_d2 (mapTree_lh__d5 _lh_mapTree_arg1_4)) _lh_mapTree_Node_1_2)))))))))
+    | _ -> 
+      (failwith "error"));;
+let rec domainWipeOut_lh__d1 _lh_domainWipeOut_arg1_0 _lh_domainWipeOut_arg2_0 =
+  (match _lh_domainWipeOut_arg1_0 with
+    | `CSP(_lh_domainWipeOut_CSP_0_0, _lh_domainWipeOut_CSP_1_0, _lh_domainWipeOut_CSP_2_0) -> 
+      (let rec f_0 = (fun _lh_f_arg1_0 -> 
+        (_lh_f_arg1_0 99)) in
+        ((mapTree_lh__d5 f_0) _lh_domainWipeOut_arg2_0))
     | _ -> 
       (failwith "error"));;
 let rec enumFromTo_lh__d4 a_2 b_1 =
@@ -444,16 +445,16 @@ let rec emptyTable_lh__d2 _lh_emptyTable_arg1_0 =
 let rec fc_lh__d1 _lh_fc_arg1_0 _lh_funcomp_x_8 =
   ((fun _lh_funcomp_x_9 -> 
     ((domainWipeOut_lh__d1 _lh_fc_arg1_0) ((lookupCache_lh__d2 _lh_fc_arg1_0) _lh_funcomp_x_9))) (((cacheChecks_lh__d2 _lh_fc_arg1_0) (emptyTable_lh__d2 _lh_fc_arg1_0)) _lh_funcomp_x_8));;
-let rec abs_lh__d1 _lh_abs_arg1_1 =
-  (if (_lh_abs_arg1_1 > 0) then
-    _lh_abs_arg1_1
-  else
-    (0 - _lh_abs_arg1_1));;
 let rec abs_lh__d2 _lh_abs_arg1_0 =
   (if (_lh_abs_arg1_0 > 0) then
     _lh_abs_arg1_0
   else
     (0 - _lh_abs_arg1_0));;
+let rec abs_lh__d1 _lh_abs_arg1_1 =
+  (if (_lh_abs_arg1_1 > 0) then
+    _lh_abs_arg1_1
+  else
+    (0 - _lh_abs_arg1_1));;
 let rec safe_lh__d1 _lh_safe_arg1_0 _lh_safe_arg2_0 =
   (match _lh_safe_arg1_0 with
     | `Assign(_lh_safe_Assign_0_0, _lh_safe_Assign_1_0) -> 
@@ -492,6 +493,8 @@ let rec filterTree_lh__d1 _lh_filterTree_arg1_0 =
 let rec prune_lh__d1 _lh_prune_arg1_0 =
   (filterTree_lh__d1 (fun _lh_funcomp_x_0 -> 
     (not (_lh_prune_arg1_0 _lh_funcomp_x_0))));;
+let rec initTree_lh__d1 _lh_initTree_arg1_0 _lh_initTree_arg2_0 =
+  (`Node(_lh_initTree_arg2_0, ((map_lh__d1_d4 (initTree_lh__d1 _lh_initTree_arg1_0)) (_lh_initTree_arg1_0 _lh_initTree_arg2_0))));;
 let rec maxLevel_lh__d3 _lh_maxLevel_arg1_1 =
   (match _lh_maxLevel_arg1_1 with
     | `LH_N -> 
@@ -513,8 +516,6 @@ let rec enumFromTo_lh__d9 a_6 b_4 =
   else
     (fun _lh_listcomp_fun_1_0 ss_2 -> 
       (`LH_N)));;
-let rec initTree_lh__d1 _lh_initTree_arg1_0 _lh_initTree_arg2_0 =
-  (`Node(_lh_initTree_arg2_0, ((map_lh__d1_d4 (initTree_lh__d1 _lh_initTree_arg1_0)) (_lh_initTree_arg1_0 _lh_initTree_arg2_0))));;
 let rec mkTree_lh__d1 _lh_mkTree_arg1_0 =
   (match _lh_mkTree_arg1_0 with
     | `CSP(_lh_mkTree_CSP_0_0, _lh_mkTree_CSP_1_0, _lh_mkTree_CSP_2_0) -> 
@@ -595,12 +596,12 @@ let rec filter_lh__d2 f_5_3 ls_2_4 =
             (fun f_5_4 -> 
               (let rec t_2_9 = ((map_lh__d7 f_5_4) t_2_8) in
                 (let rec h_2_9 = (f_5_4 h_2_8) in
-                  (fun _lh_dummy_2 -> 
+                  (fun _lh_dummy_7 -> 
                     (1 + (length_lh__d1 t_2_9))))))))
       else
         ((filter_lh__d2 f_5_3) t_2_7))
     | `LH_N -> 
-      (fun f_5_5 _lh_dummy_3 -> 
+      (fun f_5_5 _lh_dummy_8 -> 
         0));;
 let rec search_lh__d1 _lh_search_arg1_0 _lh_search_arg2_0 =
   ((fun _lh_funcomp_x_1_0 -> 
@@ -660,12 +661,6 @@ let rec complete_lh__d2 _lh_complete_arg1_3 _lh_complete_arg2_3 =
       ((maxLevel_lh__d4 _lh_complete_arg2_3) = _lh_complete_CSP_0_3)
     | _ -> 
       (failwith "error"));;
-let rec label_lh__d1 _lh_label_arg1_1 =
-  (match _lh_label_arg1_1 with
-    | `Node(_lh_label_Node_0_1, _lh_label_Node_1_1) -> 
-      _lh_label_Node_0_1
-    | _ -> 
-      (failwith "error"));;
 let rec union_lh__d1 _lh_union_arg1_0 _lh_union_arg2_0 =
   (((unionBy_lh__d1 (fun a_0 b_0 -> 
     (a_0 = b_0))) _lh_union_arg1_0) _lh_union_arg2_0);;
@@ -713,6 +708,12 @@ let rec map_lh__d2 f_2_4 ls_1_1 =
     | `LH_N -> 
       (fun _lh_combine_arg2_3 -> 
         _lh_combine_arg2_3));;
+let rec label_lh__d1 _lh_label_arg1_1 =
+  (match _lh_label_arg1_1 with
+    | `Node(_lh_label_Node_0_1, _lh_label_Node_1_1) -> 
+      _lh_label_Node_0_1
+    | _ -> 
+      (failwith "error"));;
 let rec checkComplete_lh__d2 _lh_checkComplete_arg1_4 _lh_checkComplete_arg2_4 =
   (if ((complete_lh__d2 _lh_checkComplete_arg1_4) _lh_checkComplete_arg2_4) then
     (let rec _lh_f_Known_0_2 = (`LH_N) in
@@ -740,11 +741,12 @@ let rec earliestInconsistency_lh__d2 _lh_earliestInconsistency_arg1_0 _lh_earlie
               | `LH_C(_lh_earliestInconsistency_LH_C_0_1, _lh_earliestInconsistency_LH_C_1_1) -> 
                 (let rec _lh_bt_Just_0_0 = (let rec _lh_bt_LH_P2_1_0 = (level_lh__d4 _lh_earliestInconsistency_LH_C_0_1) in
                   (let rec _lh_bt_LH_P2_0_0 = (level_lh__d3 _lh_earliestInconsistency_LH_C_0_0) in
-                    (let rec _lh_f_Known_0_0 = (`LH_C(_lh_bt_LH_P2_0_0, (`LH_C(_lh_bt_LH_P2_1_0, (`LH_N))))) in
-                      (fun _lh_f_LH_P2_0_0 _lh_f_arg2_0 -> 
-                        (`Node((`LH_P2(_lh_f_LH_P2_0_0, (`Known(_lh_f_Known_0_0)))), _lh_f_arg2_0)))))) in
+                    (fun _lh_dummy_0 -> 
+                      (let rec _lh_f_Known_0_0 = (`LH_C(_lh_bt_LH_P2_0_0, (`LH_C(_lh_bt_LH_P2_1_0, (`LH_N))))) in
+                        (fun _lh_f_LH_P2_0_0 _lh_f_arg2_0 -> 
+                          (`Node((`LH_P2(_lh_f_LH_P2_0_0, (`Known(_lh_f_Known_0_0)))), _lh_f_arg2_0))))))) in
                   (fun _lh_bt_arg1_2 s_2 -> 
-                    _lh_bt_Just_0_0))
+                    (_lh_bt_Just_0_0 99)))
               | _ -> 
                 (failwith "error")))
         | _ -> 
@@ -761,6 +763,12 @@ let rec bt_lh__d2 _lh_bt_arg1_4 =
     (mapTree_lh__d3 f_1_5));;
 let rec bjbt_lh__d1 _lh_bjbt_arg1_0 _lh_funcomp_x_1_7 =
   ((bj_lh__d1 _lh_bjbt_arg1_0) ((bt_lh__d2 _lh_bjbt_arg1_0) _lh_funcomp_x_1_7));;
+let rec mapTree_lh__d7 _lh_mapTree_arg1_6 _lh_mapTree_arg2_4 =
+  (match _lh_mapTree_arg2_4 with
+    | `Node(_lh_mapTree_Node_0_3, _lh_mapTree_Node_1_3) -> 
+      (`Node((_lh_mapTree_arg1_6 _lh_mapTree_Node_0_3), ((map_lh__d1_d4 (mapTree_lh__d7 _lh_mapTree_arg1_6)) _lh_mapTree_Node_1_3)))
+    | _ -> 
+      (failwith "error"));;
 let rec checkComplete_lh__d5 _lh_checkComplete_arg1_1 _lh_checkComplete_arg2_1 =
   (if ((complete_lh__d4 _lh_checkComplete_arg1_1) _lh_checkComplete_arg2_1) then
     (`Known((`LH_N)))
@@ -783,19 +791,14 @@ let rec earliestInconsistency_lh__d3 _lh_earliestInconsistency_arg1_1 _lh_earlie
               | `LH_C(_lh_earliestInconsistency_LH_C_0_3, _lh_earliestInconsistency_LH_C_1_3) -> 
                 (let rec _lh_bt_Just_0_1 = (let rec _lh_bt_LH_P2_1_1 = (level_lh__d4 _lh_earliestInconsistency_LH_C_0_3) in
                   (let rec _lh_bt_LH_P2_0_1 = (level_lh__d4 _lh_earliestInconsistency_LH_C_0_2) in
-                    (`Known((`LH_C(_lh_bt_LH_P2_0_1, (`LH_C(_lh_bt_LH_P2_1_1, (`LH_N))))))))) in
+                    (fun _lh_dummy_1 -> 
+                      (`Known((`LH_C(_lh_bt_LH_P2_0_1, (`LH_C(_lh_bt_LH_P2_1_1, (`LH_N)))))))))) in
                   (fun _lh_bt_arg1_8 s_8 -> 
-                    _lh_bt_Just_0_1))
+                    (_lh_bt_Just_0_1 99)))
               | _ -> 
                 (failwith "error")))
         | _ -> 
           (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec mapTree_lh__d7 _lh_mapTree_arg1_6 _lh_mapTree_arg2_4 =
-  (match _lh_mapTree_arg2_4 with
-    | `Node(_lh_mapTree_Node_0_3, _lh_mapTree_Node_1_3) -> 
-      (`Node((_lh_mapTree_arg1_6 _lh_mapTree_Node_0_3), ((map_lh__d1_d4 (mapTree_lh__d7 _lh_mapTree_arg1_6)) _lh_mapTree_Node_1_3)))
     | _ -> 
       (failwith "error"));;
 let rec bt_lh__d3 _lh_bt_arg1_3 =
@@ -857,7 +860,7 @@ let rec bj'_lh__d1 _lh_bj'_arg1_0 =
 let rec bjbt'_lh__d1 _lh_bjbt'_arg1_0 _lh_funcomp_x_3 =
   ((bj'_lh__d1 _lh_bjbt'_arg1_0) ((bt_lh__d3 _lh_bjbt'_arg1_0) _lh_funcomp_x_3));;
 let rec fst_lh__d1 _lh_fst_arg1_1 =
-  _lh_fst_arg1_1;;
+  (_lh_fst_arg1_1 99);;
 let rec mapTree_lh__d4 _lh_mapTree_arg1_5 _lh_mapTree_arg2_3 =
   (_lh_mapTree_arg2_3 _lh_mapTree_arg1_5);;
 let rec lookupCache_lh__d1 _lh_lookupCache_arg1_0 _lh_lookupCache_arg2_0 =
@@ -1000,7 +1003,8 @@ let rec cacheChecks_lh__d1 _lh_cacheChecks_arg1_1 _lh_cacheChecks_arg2_1 _lh_cac
                 | `LH_N -> 
                   (let rec _lh_fst_LH_P2_1_1 = _lh_f_LH_P2_1_9 in
                     (let rec _lh_fst_LH_P2_0_1 = (`LH_P2((`LH_N), (`Unknown))) in
-                      _lh_fst_LH_P2_0_1))
+                      (fun _lh_dummy_5 -> 
+                        _lh_fst_LH_P2_0_1)))
                 | `LH_C(_lh_f_LH_C_0_1, _lh_f_LH_C_1_1) -> 
                   (let rec tableEntry_1 = ((atIndex_lh__d1 ((value_lh__d1 _lh_f_LH_C_0_1) - 1)) (head_lh__d1 _lh_f_LH_P2_1_9)) in
                     (let rec cs_5 = (if (tableEntry_1 = (`Unknown)) then
@@ -1009,7 +1013,8 @@ let rec cacheChecks_lh__d1 _lh_cacheChecks_arg1_1 _lh_cacheChecks_arg2_1 _lh_cac
                       tableEntry_1) in
                       (let rec _lh_fst_LH_P2_1_2 = _lh_f_LH_P2_1_9 in
                         (let rec _lh_fst_LH_P2_0_2 = (`LH_P2((`LH_C(_lh_f_LH_C_0_1, _lh_f_LH_C_1_1)), cs_5)) in
-                          _lh_fst_LH_P2_0_2))))
+                          (fun _lh_dummy_6 -> 
+                            _lh_fst_LH_P2_0_2)))))
                 | _ -> 
                   (failwith "error"))))) in
           (fun _lh_mapTree_arg1_7 -> 

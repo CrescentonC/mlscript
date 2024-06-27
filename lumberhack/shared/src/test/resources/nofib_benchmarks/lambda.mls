@@ -1542,7 +1542,7 @@ testLambda_nofib $ primId 80
 //│ def mappend_lh_₉(xs⁰, ys⁰) = case xs⁰ of {
 //│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₉(t⁰, ys⁰)]
 //│ 	| LH_N  => ys⁰}
-//│ def myBind_lh_₁(_lh_myBind_arg1⁰, _lh_myBind_arg2⁰) = 
+//│ def myBind_lh_₁(_lh_myBind_arg1⁰, _lh_myBind_arg2⁰, _lh_dummy¹) = 
 //│ 	let _lh_myRunState_MyState_0¹ = (fun s¹ -> 
 //│ 		let _lh_matchIdent⁶ = myRunState_lh_₁(_lh_myBind_arg1⁰, s¹)
 //│ 		in case _lh_matchIdent⁶ of {
@@ -1554,14 +1554,14 @@ testLambda_nofib $ primId 80
 //│ 	in case _lh_matchIdent¹ of {
 //│ 		LH_P2 _lh_myEvalState_LH_P2_0⁰ _lh_myEvalState_LH_P2_1⁰ => _lh_myEvalState_LH_P2_1⁰
 //│ 		| _  => error⁰}
-//│ def myGet_lh_₁ = 
+//│ def myGet_lh_₁(_lh_dummy²) = 
 //│ 	let _lh_myRunState_MyState_0² = (fun s² -> [LH_P2 s² s²])
 //│ 	in _lh_myRunState_MyState_0²
 //│ def myMaybe_lh_₁(_lh_myMaybe_arg1², _lh_myMaybe_arg2², _lh_myMaybe_arg3⁰) = _lh_myMaybe_arg3⁰(_lh_myMaybe_arg1², _lh_myMaybe_arg2²)
-//│ def myReturn_lh_₁(_lh_myReturn_arg1⁰) = 
+//│ def myReturn_lh_₁(_lh_myReturn_arg1⁰, _lh_dummy⁰) = 
 //│ 	let _lh_myRunState_MyState_0⁰ = (fun s⁰ -> [LH_P2 s⁰ _lh_myReturn_arg1⁰])
 //│ 	in _lh_myRunState_MyState_0⁰
-//│ def myRunState_lh_₁(_lh_myRunState_arg1⁰) = _lh_myRunState_arg1⁰
+//│ def myRunState_lh_₁(_lh_myRunState_arg1⁰) = _lh_myRunState_arg1⁰([lh_Unit])
 //│ def nMinus1_lh_₁ = [Add [Var [LH_C 'n' [LH_N]]] [Con (0 - 1)]]
 //│ def nMinus1_lh_₂ = [Add [Var [LH_C 'n' [LH_N]]] [Con (0 - 1)]]
 //│ def null_lh_₁(_lh_null_arg1¹) = case _lh_null_arg1¹ of {

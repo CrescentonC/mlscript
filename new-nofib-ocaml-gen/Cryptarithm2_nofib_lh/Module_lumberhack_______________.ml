@@ -33,14 +33,14 @@ let rec nub_lh__d1 _lh_nub_arg1_0 =
 let rec lookup_lh__d1 _lh_lookup_arg1_0 _lh_lookup_arg2_0 =
   (match _lh_lookup_arg2_0 with
     | `LH_N -> 
-      (fun _lh_dummy_6 -> 
+      (fun _lh_dummy_9 -> 
         (failwith "error"))
     | `LH_C(_lh_lookup_LH_C_0_0, _lh_lookup_LH_C_1_0) -> 
       (match _lh_lookup_LH_C_0_0 with
         | `LH_P2(_lh_lookup_LH_P2_0_0, _lh_lookup_LH_P2_1_0) -> 
           (if (_lh_lookup_arg1_0 = _lh_lookup_LH_P2_0_0) then
             (let rec _lh_fromJust_Just_0_0 = _lh_lookup_LH_P2_1_0 in
-              (fun _lh_dummy_7 -> 
+              (fun _lh_dummy_1_0 -> 
                 _lh_fromJust_Just_0_0))
           else
             ((lookup_lh__d1 _lh_lookup_arg1_0) _lh_lookup_LH_C_1_0))
@@ -56,24 +56,18 @@ let rec digitEnv_lh__d1 _lh_digitEnv_arg1_1 =
       (failwith "error"));;
 let rec concat_lh__d2 lss_4 =
   (lss_4 99);;
-let rec return_lh__d5 _lh_return_arg1_2 =
-  (`StateT((fun s_2 -> 
-    (`LH_C((`LH_P2(_lh_return_arg1_2, s_2)), (`LH_N))))));;
 let rec digitEnv_lh__d4 _lh_digitEnv_arg1_0 =
   (match _lh_digitEnv_arg1_0 with
     | `Digits(_lh_digitEnv_Digits_0_0, _lh_digitEnv_Digits_1_0) -> 
       _lh_digitEnv_Digits_1_0
     | _ -> 
       (failwith "error"));;
+let rec return_lh__d5 _lh_return_arg1_2 =
+  (`StateT((fun s_2 -> 
+    (`LH_C((`LH_P2(_lh_return_arg1_2, s_2)), (`LH_N))))));;
 let rec get_lh__d2 =
   (`StateT((fun s_9 -> 
     (`LH_C((`LH_P2(s_9, s_9)), (`LH_N))))));;
-let rec runStateT_lh__d8 _lh_runStateT_arg1_4 =
-  (match _lh_runStateT_arg1_4 with
-    | `StateT(_lh_runStateT_StateT_0_7) -> 
-      _lh_runStateT_StateT_0_7
-    | _ -> 
-      (failwith "error"));;
 let rec concat_lh__d7 lss_1 =
   (lss_1 99);;
 let rec mappend_lh__d6 xs_5 ys_5 =
@@ -87,11 +81,17 @@ let rec map_lh__d7 f_2 ls_2 =
     | `LH_C(h_4, t_4) -> 
       (let rec t_5 = ((map_lh__d7 f_2) t_4) in
         (let rec h_5 = (f_2 h_4) in
-          (fun _lh_dummy_4 -> 
+          (fun _lh_dummy_7 -> 
             ((mappend_lh__d6 h_5) (concat_lh__d7 t_5)))))
     | `LH_N -> 
-      (fun _lh_dummy_5 -> 
+      (fun _lh_dummy_8 -> 
         (`LH_N)));;
+let rec runStateT_lh__d8 _lh_runStateT_arg1_4 =
+  (match _lh_runStateT_arg1_4 with
+    | `StateT(_lh_runStateT_StateT_0_7) -> 
+      _lh_runStateT_StateT_0_7
+    | _ -> 
+      (failwith "error"));;
 let rec bind_lh__d6 _lh_bind_arg1_2 _lh_bind_arg2_2 =
   (`StateT((fun s_1_0 -> 
     (concat_lh__d7 ((map_lh__d7 (fun as_2 -> 
@@ -114,12 +114,6 @@ let rec lift_lh__d1 _lh_lift_arg1_0 =
   (`StateT((fun s_5 -> 
     (concat_lh__d7 ((map_lh__d7 (fun x_1 -> 
       (`LH_C((`LH_P2(x_1, s_5)), (`LH_N))))) _lh_lift_arg1_0)))));;
-let rec foldl_lh__d1 f_1 i_0 ls_1 =
-  (match ls_1 with
-    | `LH_C(h_3, t_3) -> 
-      (((foldl_lh__d1 f_1) ((f_1 i_0) h_3)) t_3)
-    | `LH_N -> 
-      i_0);;
 let rec delete_lh__d1 _lh_delete_arg1_0 _lh_delete_arg2_0 =
   (match _lh_delete_arg1_0 with
     | `LH_C(_lh_delete_LH_C_0_0, _lh_delete_LH_C_1_0) -> 
@@ -131,6 +125,12 @@ let rec delete_lh__d1 _lh_delete_arg1_0 _lh_delete_arg2_0 =
       (`LH_N)
     | _ -> 
       (failwith "error"));;
+let rec foldl_lh__d1 f_1 i_0 ls_1 =
+  (match ls_1 with
+    | `LH_C(h_3, t_3) -> 
+      (((foldl_lh__d1 f_1) ((f_1 i_0) h_3)) t_3)
+    | `LH_N -> 
+      i_0);;
 let rec listDiff_lh__d1 =
   (foldl_lh__d1 delete_lh__d1);;
 let rec permute_lh__d2 _lh_permute_arg1_0 =
@@ -172,9 +172,6 @@ let rec select_lh__d2 _lh_select_arg1_0 =
   ((bind_lh__d6 get_lh__d2) (fun st_0 -> 
     (let rec _lh_matchIdent_0 = ((lookup_lh__d3 _lh_select_arg1_0) (digitEnv_lh__d4 st_0)) in
       (_lh_matchIdent_0 _lh_select_arg1_0))));;
-let rec get_lh__d1 =
-  (`StateT((fun s_1_3 -> 
-    (`LH_C((`LH_P2(s_1_3, s_1_3)), (`LH_N))))));;
 let rec bind_lh__d5 _lh_bind_arg1_4 _lh_bind_arg2_4 =
   (let rec _lh_runStateT_StateT_0_8 = (fun s_1_5 -> 
     (concat_lh__d7 ((map_lh__d7 (fun as_4 -> 
@@ -184,13 +181,11 @@ let rec bind_lh__d5 _lh_bind_arg1_4 _lh_bind_arg2_4 =
             ((runStateT_lh__d8 (_lh_bind_arg2_4 _lh_bind_LH_P2_0_4)) _lh_bind_LH_P2_1_4)
           | _ -> 
             (failwith "error"))))) ((runStateT_lh__d8 _lh_bind_arg1_4) s_1_5)))) in
-    _lh_runStateT_StateT_0_8);;
-let rec digitEnv_lh__d3 _lh_digitEnv_arg1_2 =
-  (match _lh_digitEnv_arg1_2 with
-    | `Digits(_lh_digitEnv_Digits_0_2, _lh_digitEnv_Digits_1_2) -> 
-      _lh_digitEnv_Digits_1_2
-    | _ -> 
-      (failwith "error"));;
+    (fun _lh_dummy_2_1 -> 
+      _lh_runStateT_StateT_0_8));;
+let rec return_lh__d4 _lh_return_arg1_4 =
+  (`StateT((fun s_1_4 -> 
+    (`LH_C((`LH_P2(_lh_return_arg1_4, s_1_4)), (`LH_N))))));;
 let rec permute_lh__d1 _lh_permute_arg1_1 =
   ((bind_lh__d6 get_lh__d2) (fun st_3 -> 
     ((bind_lh__d6 (let rec xs_8 = (digits_lh__d1 st_3) in
@@ -208,9 +203,6 @@ let rec permute_lh__d1 _lh_permute_arg1_1 =
               (return_lh__d5 _lh_permute_LH_P2_0_1)))
           | _ -> 
             (failwith "error")))))));;
-let rec return_lh__d4 _lh_return_arg1_4 =
-  (`StateT((fun s_1_4 -> 
-    (`LH_C((`LH_P2(_lh_return_arg1_4, s_1_4)), (`LH_N))))));;
 let rec lookup_lh__d2 _lh_lookup_arg1_1 _lh_lookup_arg2_1 =
   (match _lh_lookup_arg2_1 with
     | `LH_N -> 
@@ -229,6 +221,15 @@ let rec lookup_lh__d2 _lh_lookup_arg1_1 _lh_lookup_arg2_1 =
           (failwith "error"))
     | _ -> 
       (failwith "error"));;
+let rec get_lh__d1 =
+  (`StateT((fun s_1_3 -> 
+    (`LH_C((`LH_P2(s_1_3, s_1_3)), (`LH_N))))));;
+let rec digitEnv_lh__d3 _lh_digitEnv_arg1_2 =
+  (match _lh_digitEnv_arg1_2 with
+    | `Digits(_lh_digitEnv_Digits_0_2, _lh_digitEnv_Digits_1_2) -> 
+      _lh_digitEnv_Digits_1_2
+    | _ -> 
+      (failwith "error"));;
 let rec select_lh__d1 _lh_select_arg1_1 =
   ((bind_lh__d5 get_lh__d1) (fun st_1 -> 
     (let rec _lh_matchIdent_1 = ((lookup_lh__d2 _lh_select_arg1_1) (digitEnv_lh__d3 st_1)) in
@@ -243,26 +244,26 @@ let rec guard_lh__d1 _lh_guard_arg1_0 =
         (`LH_N))))
     | _ -> 
       (failwith "error"));;
-let rec concat_lh__d6 lss_5 =
-  (lss_5 99);;
 let rec runStateT_lh__d6 _lh_runStateT_arg1_2 =
   (match _lh_runStateT_arg1_2 with
     | `StateT(_lh_runStateT_StateT_0_4) -> 
       _lh_runStateT_StateT_0_4
     | _ -> 
       (failwith "error"));;
+let rec concat_lh__d6 lss_5 =
+  (lss_5 99);;
 let rec map_lh__d6 f_4 ls_8 =
   (match ls_8 with
     | `LH_C(h_1_2, t_1_2) -> 
       (let rec t_1_3 = ((map_lh__d6 f_4) t_1_2) in
         (let rec h_1_3 = (f_4 h_1_2) in
-          (fun _lh_dummy_8 -> 
+          (fun _lh_dummy_1_3 -> 
             ((mappend_lh__d6 h_1_3) (concat_lh__d6 t_1_3)))))
     | `LH_N -> 
-      (fun _lh_dummy_9 -> 
+      (fun _lh_dummy_1_4 -> 
         (`LH_N)));;
 let rec runStateT_lh__d7 _lh_runStateT_arg1_7 =
-  _lh_runStateT_arg1_7;;
+  (_lh_runStateT_arg1_7 99);;
 let rec bind_lh__d3 _lh_bind_arg1_3 _lh_bind_arg2_3 =
   (let rec _lh_runStateT_StateT_0_6 = (fun s_1_1 -> 
     (concat_lh__d6 ((map_lh__d6 (fun as_3 -> 
@@ -272,7 +273,8 @@ let rec bind_lh__d3 _lh_bind_arg1_3 _lh_bind_arg2_3 =
             ((runStateT_lh__d7 (_lh_bind_arg2_3 _lh_bind_LH_P2_0_3)) _lh_bind_LH_P2_1_3)
           | _ -> 
             (failwith "error"))))) ((runStateT_lh__d6 _lh_bind_arg1_3) s_1_1)))) in
-    _lh_runStateT_StateT_0_6);;
+    (fun _lh_dummy_1_2 -> 
+      _lh_runStateT_StateT_0_6));;
 let rec rest_lh__d1 _lh_rest_arg1_0 =
   (match _lh_rest_arg1_0 with
     | `LH_N -> 
@@ -281,6 +283,10 @@ let rec rest_lh__d1 _lh_rest_arg1_0 =
       _lh_rest_LH_C_1_0
     | _ -> 
       (failwith "error"));;
+let rec runStateT_lh__d3 _lh_runStateT_arg1_5 =
+  (_lh_runStateT_arg1_5 99);;
+let rec runStateT_lh__d2 _lh_runStateT_arg1_3 =
+  (_lh_runStateT_arg1_3 99);;
 let rec concat_lh__d4 lss_2 =
   (lss_2 99);;
 let rec map_lh__d4 f_1_1 ls_1_6 =
@@ -288,15 +294,11 @@ let rec map_lh__d4 f_1_1 ls_1_6 =
     | `LH_C(h_3_3, t_3_3) -> 
       (let rec t_3_4 = ((map_lh__d4 f_1_1) t_3_3) in
         (let rec h_3_4 = (f_1_1 h_3_3) in
-          (fun _lh_dummy_1_4 -> 
+          (fun _lh_dummy_1_9 -> 
             ((mappend_lh__d6 h_3_4) (concat_lh__d4 t_3_4)))))
     | `LH_N -> 
-      (fun _lh_dummy_1_5 -> 
+      (fun _lh_dummy_2_0 -> 
         (`LH_N)));;
-let rec runStateT_lh__d2 _lh_runStateT_arg1_3 =
-  _lh_runStateT_arg1_3;;
-let rec runStateT_lh__d3 _lh_runStateT_arg1_5 =
-  _lh_runStateT_arg1_5;;
 let rec bind_lh__d1 _lh_bind_arg1_5 _lh_bind_arg2_5 =
   (`StateT((fun s_1_6 -> 
     (concat_lh__d4 ((map_lh__d4 (fun as_5 -> 
@@ -312,7 +314,8 @@ let rec return_lh__d3 _lh_return_arg1_0 =
 let rec return_lh__d2 _lh_return_arg1_1 =
   (let rec _lh_runStateT_StateT_0_0 = (fun s_1 -> 
     (`LH_C((`LH_P2(_lh_return_arg1_1, s_1)), (`LH_N)))) in
-    _lh_runStateT_StateT_0_0);;
+    (fun _lh_dummy_4 -> 
+      _lh_runStateT_StateT_0_0));;
 let rec bind_lh__d4 _lh_bind_arg1_0 _lh_bind_arg2_0 =
   (let rec _lh_runStateT_StateT_0_1 = (fun s_3 -> 
     (concat_lh__d7 ((map_lh__d7 (fun as_0 -> 
@@ -322,11 +325,13 @@ let rec bind_lh__d4 _lh_bind_arg1_0 _lh_bind_arg2_0 =
             ((runStateT_lh__d8 (_lh_bind_arg2_0 _lh_bind_LH_P2_0_0)) _lh_bind_LH_P2_1_0)
           | _ -> 
             (failwith "error"))))) ((runStateT_lh__d8 _lh_bind_arg1_0) s_3)))) in
-    _lh_runStateT_StateT_0_1);;
+    (fun _lh_dummy_5 -> 
+      _lh_runStateT_StateT_0_1));;
 let rec return_lh__d1 _lh_return_arg1_3 =
   (let rec _lh_runStateT_StateT_0_2 = (fun s_4 -> 
     (`LH_C((`LH_P2(_lh_return_arg1_3, s_4)), (`LH_N)))) in
-    _lh_runStateT_StateT_0_2);;
+    (fun _lh_dummy_6 -> 
+      _lh_runStateT_StateT_0_2));;
 let rec foldr_lh__d1 f_3 i_1 ls_6 =
   (match ls_6 with
     | `LH_C(h_8, t_8) -> 
@@ -349,18 +354,18 @@ let rec sum_lh__d2 ls_5 =
 let rec concat_lh__d5 lss_0 =
   (lss_0 99);;
 let rec runStateT_lh__d5 _lh_runStateT_arg1_0 =
-  _lh_runStateT_arg1_0;;
+  (_lh_runStateT_arg1_0 99);;
 let rec runStateT_lh__d4 _lh_runStateT_arg1_6 =
-  _lh_runStateT_arg1_6;;
+  (_lh_runStateT_arg1_6 99);;
 let rec map_lh__d5 f_9 ls_1_3 =
   (match ls_1_3 with
     | `LH_C(h_2_4, t_2_4) -> 
       (let rec t_2_5 = ((map_lh__d5 f_9) t_2_4) in
         (let rec h_2_5 = (f_9 h_2_4) in
-          (fun _lh_dummy_1_2 -> 
+          (fun _lh_dummy_1_7 -> 
             ((mappend_lh__d6 h_2_5) (concat_lh__d5 t_2_5)))))
     | `LH_N -> 
-      (fun _lh_dummy_1_3 -> 
+      (fun _lh_dummy_1_8 -> 
         (`LH_N)));;
 let rec bind_lh__d2 _lh_bind_arg1_1 _lh_bind_arg2_1 =
   (let rec _lh_runStateT_StateT_0_5 = (fun s_6 -> 
@@ -371,7 +376,8 @@ let rec bind_lh__d2 _lh_bind_arg1_1 _lh_bind_arg2_1 =
             ((runStateT_lh__d5 (_lh_bind_arg2_1 _lh_bind_LH_P2_0_1)) _lh_bind_LH_P2_1_1)
           | _ -> 
             (failwith "error"))))) ((runStateT_lh__d4 _lh_bind_arg1_1) s_6)))) in
-    _lh_runStateT_StateT_0_5);;
+    (fun _lh_dummy_1_1 -> 
+      _lh_runStateT_StateT_0_5));;
 let rec solve_lh__d1 _lh_solve_arg1_0 _lh_solve_arg2_0 _lh_solve_arg3_0 =
   (match _lh_solve_arg2_0 with
     | `LH_C(_lh_solve_LH_C_0_0, _lh_solve_LH_C_1_0) -> 
@@ -423,6 +429,12 @@ let rec enumFromTo_lh__d1 a_0 b_0 =
     (`LH_N));;
 let rec concat_lh__d3 lss_3 =
   (lss_3 99);;
+let rec runStateT_lh__d1 _lh_runStateT_arg1_1 =
+  (match _lh_runStateT_arg1_1 with
+    | `StateT(_lh_runStateT_StateT_0_3) -> 
+      _lh_runStateT_StateT_0_3
+    | _ -> 
+      (failwith "error"));;
 let rec map_lh__d3 f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_1, t_1) -> 
@@ -433,12 +445,6 @@ let rec map_lh__d3 f_0 ls_0 =
     | `LH_N -> 
       (fun _lh_dummy_3 -> 
         (`LH_N)));;
-let rec runStateT_lh__d1 _lh_runStateT_arg1_1 =
-  (match _lh_runStateT_arg1_1 with
-    | `StateT(_lh_runStateT_StateT_0_3) -> 
-      _lh_runStateT_StateT_0_3
-    | _ -> 
-      (failwith "error"));;
 let rec execStateT_lh__d1 _lh_execStateT_arg1_0 _lh_execStateT_arg2_0 =
   (concat_lh__d3 ((map_lh__d3 (fun x_2 -> 
     (let rec _lh_matchIdent_1_1 = x_2 in
@@ -605,12 +611,12 @@ let rec puzzle_lh__d1 _lh_puzzle_arg1_0 _lh_puzzle_arg2_0 =
                                   (fun f_6 -> 
                                     (let rec t_2_2 = ((map_lh__d2 f_6) t_1_5) in
                                       (let rec h_2_2 = (f_6 h_1_5) in
-                                        (fun _lh_dummy_1_0 -> 
+                                        (fun _lh_dummy_1_5 -> 
                                           ((mappend_lh__d6 h_2_2) (concat_lh__d2 t_2_2))))))))
                             | _ -> 
                               (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1))
                         | `LH_N -> 
-                          (fun f_7 _lh_dummy_1_1 -> 
+                          (fun f_7 _lh_dummy_1_6 -> 
                             (`LH_N)))) in
                       (_lh_listcomp_fun_1 (digitEnv_lh__d1 answer_0)))))))))))));;
 let rec testCryptarithm2_nofib_lh__d1 _lh_testCryptarithm2_nofib_arg1_0 =

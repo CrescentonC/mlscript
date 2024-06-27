@@ -86,14 +86,6 @@ let rec copy_lh__d2 _lh_copy_arg1_1 _lh_copy_arg2_1 _lh_floatOutId_0_7 _lh_float
             ((((((_lh_listcomp_fun_ls_h_9 _lh_listcomp_fun_ls_t_9) _lh_floatOutId_2_2) _lh_floatOutId_3_0) _lh_floatOutId_4_0) _lh_floatOutId_5_0) _lh_floatOutId_6_0)))))
   else
     (`LH_N));;
-let rec map_lh__d2 f_2_5 ls_1_4 =
-  (match ls_1_4 with
-    | `LH_C(h_1_8, t_1_8) -> 
-      (`LH_C((f_2_5 h_1_8), ((map_lh__d2 f_2_5) t_1_8)))
-    | `LH_N -> 
-      (`LH_N));;
-let rec simulate_lh__d1 _lh_simulate_arg1_0 _lh_simulate_arg2_0 =
-  (_lh_simulate_arg2_0 _lh_simulate_arg1_0);;
 let rec head_lh__d2 ls_4 =
   (match ls_4 with
     | `LH_C(h_5, t_5) -> 
@@ -151,6 +143,14 @@ let rec collect_outputs_lh__d1 _lh_collect_outputs_arg1_0 =
       in ((map_lh__d3 (get_output_0 _lh_collect_outputs_LH_P4_3_0)) _lh_collect_outputs_LH_P4_2_0)
     | _ -> 
       (failwith "error"));;
+let rec simulate_lh__d1 _lh_simulate_arg1_0 _lh_simulate_arg2_0 =
+  (_lh_simulate_arg2_0 _lh_simulate_arg1_0);;
+let rec map_lh__d2 f_2_5 ls_1_4 =
+  (match ls_1_4 with
+    | `LH_C(h_1_8, t_1_8) -> 
+      (`LH_C((f_2_5 h_1_8), ((map_lh__d2 f_2_5) t_1_8)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec circuit_simulate_lh__d1 _lh_circuit_simulate_arg1_0 _lh_circuit_simulate_arg2_0 =
   ((map_lh__d2 collect_outputs_lh__d1) ((simulate_lh__d1 _lh_circuit_simulate_arg1_0) _lh_circuit_simulate_arg2_0));;
 let rec outports_lh__d2 _lh_outports_arg1_1 =
@@ -839,8 +839,9 @@ let rec scanlr_lh__d1 _lh_scanlr_arg1_1 _lh_scanlr_arg2_1 _lh_scanlr_arg3_1 _lh_
                     (fun _lh_downsweep_Node_1_4 _lh_downsweep_Node_2_4 _lh_downsweep_arg1_6 -> 
                       (let rec _lh_matchIdent_2_1 = (let rec _lh_downsweep_LH_P2_1_3 = (((downsweep_lh__d1 _lh_downsweep_arg1_6) _lh_downsweep_LH_P2_1_2) _lh_downsweep_Node_2_4) in
                         (let rec _lh_downsweep_LH_P2_0_3 = (((downsweep_lh__d1 _lh_downsweep_arg1_6) _lh_downsweep_LH_P2_0_2) _lh_downsweep_Node_1_4) in
-                          (`Node((`Unit), _lh_downsweep_LH_P2_0_3, _lh_downsweep_LH_P2_1_3)))) in
-                        _lh_matchIdent_2_1))))
+                          (fun _lh_dummy_4 -> 
+                            (`Node((`Unit), _lh_downsweep_LH_P2_0_3, _lh_downsweep_LH_P2_1_3))))) in
+                        (_lh_matchIdent_2_1 99)))))
               | _ -> 
                 (failwith "error"))
           | _ -> 
@@ -888,10 +889,10 @@ let rec until_lh__d3 _lh_until_arg1_0 _lh_until_arg2_0 _lh_until_arg3_0 =
     _lh_until_arg3_0
   else
     (((until_lh__d3 _lh_until_arg1_0) _lh_until_arg2_0) (_lh_until_arg2_0 _lh_until_arg3_0)));;
-let rec map_lh__d1_d4 f_3_4 ls_2_0 =
-  (ls_2_0 f_3_4);;
 let rec or_lh__d3 _lh_or_arg1_0 =
   (_lh_or_arg1_0 99);;
+let rec map_lh__d1_d4 f_3_4 ls_2_0 =
+  (ls_2_0 f_3_4);;
 let rec map_lh__d1_d5 f_1 ls_1 _lh_floatOutId_0_1 _lh_floatOutId_1_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
@@ -1453,7 +1454,7 @@ let rec emptyState_lh__d1 =
   (`PS((0 - 1), (`None), (0 - 1), (`LH_N), (`LH_N)));;
 let rec critical_path_depth_lh__d1 _lh_critical_path_depth_arg1_0 =
   (_lh_critical_path_depth_arg1_0 99);;
-let rec regs_lh__d1 _lh_regs_arg1_0 _lh_dummy_1_0 _lh_simulate_arg1_1 =
+let rec regs_lh__d1 _lh_regs_arg1_0 _lh_dummy_1_1 _lh_simulate_arg1_1 =
   let rec ilabel_0 = (fun _lh_ilabel_arg1_0 _lh_ilabel_arg2_0 -> 
     (`LH_P2(((mappend_lh__d2 (let rec t_3_5 = (fun ys_1_3 -> 
       ys_1_3) in
@@ -1489,7 +1490,7 @@ let rec regs_lh__d1 _lh_regs_arg1_0 _lh_dummy_1_0 _lh_simulate_arg1_1 =
                               (let rec _lh_critical_path_depth_LH_P4_2_0 = _lh_simulate_LH_P4_2_0 in
                                 (let rec _lh_critical_path_depth_LH_P4_1_0 = _lh_simulate_LH_P4_1_0 in
                                   (let rec _lh_critical_path_depth_LH_P4_0_0 = _lh_simulate_LH_P4_0_0 in
-                                    (fun _lh_dummy_1_1 -> 
+                                    (fun _lh_dummy_1_2 -> 
                                       (maximum_lh__d1 ((map_lh__d5 pathDepth_lh__d1) _lh_critical_path_depth_LH_P4_3_0)))))))))) (`LH_P4(_lh_simulate_LH_P4_0_0, _lh_simulate_LH_P4_1_0, _lh_simulate_LH_P4_2_0, ((map_lh__d4 init_dffs_lh__d1) _lh_simulate_LH_P4_3_0)))) _lh_simulate_arg1_1)))))))))))))));;
 let rec run_lh__d1 _lh_run_arg1_0 _lh_run_arg2_0 =
   (let rec example_0 = (pad_circuit_lh__d1 (regs_lh__d1 _lh_run_arg1_0)) in

@@ -3858,10 +3858,10 @@ testRewrite_nofib $ primId 50
 //│ 	| Just _lh_lift_Just_0⁶ => [Just _lh_lift_arg1⁶(_lh_lift_Just_0⁶)]
 //│ 	| _  => error⁰}
 //│ def lift_lh_₄(_lh_lift_arg1¹, _lh_lift_arg2¹) = case _lh_lift_arg2¹ of {
-//│ 	Nothing  => [Nothing]
+//│ 	Nothing  => (fun _lh_dummy¹ -> [Nothing])
 //│ 	| Just _lh_lift_Just_0¹ => 
 //│ 		let _lh_squash_Just_0⁰ = _lh_lift_arg1¹(_lh_lift_Just_0¹)
-//│ 		in _lh_squash_Just_0⁰
+//│ 		in (fun _lh_dummy² -> _lh_squash_Just_0⁰)
 //│ 	| _  => error⁰}
 //│ def lift_lh_₅(_lh_lift_arg1⁴, _lh_lift_arg2⁴) = case _lh_lift_arg2⁴ of {
 //│ 	Nothing  => [Nothing]
@@ -3882,10 +3882,10 @@ testRewrite_nofib $ primId 50
 //│ 		in (fun _lh_getOrElse_arg2⁵ -> _lh_getOrElse_Just_0¹)
 //│ 	| _  => error⁰}
 //│ def lift_lh_₉(_lh_lift_arg1⁹, _lh_lift_arg2⁹) = case _lh_lift_arg2⁹ of {
-//│ 	Nothing  => [Nothing]
+//│ 	Nothing  => (fun _lh_dummy³ -> [Nothing])
 //│ 	| Just _lh_lift_Just_0⁹ => 
 //│ 		let _lh_squash_Just_0¹ = _lh_lift_arg1⁹(_lh_lift_Just_0⁹)
-//│ 		in _lh_squash_Just_0¹
+//│ 		in (fun _lh_dummy⁴ -> _lh_squash_Just_0¹)
 //│ 	| _  => error⁰}
 //│ def listify_lh_₁(_lh_listify_arg1⁰) = getOrElse_lh_₄(lift_lh_₁₁(box_lh_₁, _lh_listify_arg1⁰), [LH_N])
 //│ def ltRewrite_lh_₁(_lh_ltRewrite_arg1³, _lh_ltRewrite_arg2³, _lh_ltRewrite_arg3³) = polyEq⁰(_lh_ltRewrite_arg1³([LH_P2 _lh_ltRewrite_arg2³ _lh_ltRewrite_arg3³]), [Less])
@@ -4075,8 +4075,8 @@ testRewrite_nofib $ primId 50
 //│ def snd_lh_₃(_lh_snd_arg1²) = case _lh_snd_arg1² of {
 //│ 	LH_P2 _lh_snd_LH_P2_0² _lh_snd_LH_P2_1² => _lh_snd_LH_P2_1²
 //│ 	| _  => error⁰}
-//│ def squash_lh_₁(_lh_squash_arg1¹) = _lh_squash_arg1¹
-//│ def squash_lh_₂(_lh_squash_arg1⁰) = _lh_squash_arg1⁰
+//│ def squash_lh_₁(_lh_squash_arg1¹) = _lh_squash_arg1¹([lh_Unit])
+//│ def squash_lh_₂(_lh_squash_arg1⁰) = _lh_squash_arg1⁰([lh_Unit])
 //│ def stand_eqn_lh_₁(_lh_stand_eqn_arg1², _lh_stand_eqn_arg2²) = case _lh_stand_eqn_arg2² of {
 //│ 	Eqn _lh_stand_eqn_Eqn_0² _lh_stand_eqn_Eqn_1² => case _lh_stand_eqn_Eqn_1² of {
 //│ 		LH_P2 _lh_stand_eqn_LH_P2_0² _lh_stand_eqn_LH_P2_1² => [Eqn _lh_stand_eqn_Eqn_0² [LH_P2 stand_lh_₂(_lh_stand_eqn_arg1², _lh_stand_eqn_LH_P2_0²) stand_lh_₁(_lh_stand_eqn_arg1², _lh_stand_eqn_LH_P2_1²)]]

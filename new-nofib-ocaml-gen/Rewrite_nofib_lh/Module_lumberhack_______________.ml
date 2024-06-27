@@ -273,11 +273,6 @@ let rec occurs_lh__d2 _lh_occurs_arg1_0 =
   ((expr_fold_lh__d1 (fun dum_2 -> 
     or_lh__d1)) (fun x_1_4 -> 
     (x_1_4 = _lh_occurs_arg1_0)));;
-let rec maybeX_lh__d1 _lh_maybeX_arg1_0 _lh_maybeX_arg2_0 =
-  (if _lh_maybeX_arg1_0 then
-    (`Just(_lh_maybeX_arg2_0))
-  else
-    (`Nothing));;
 let rec foldr_lh__d2 f_3_3 i_1_9 ls_7 =
   (match ls_7 with
     | `LH_C(h_2_6, t_3_2) -> 
@@ -286,6 +281,11 @@ let rec foldr_lh__d2 f_3_3 i_1_9 ls_7 =
       i_1_9);;
 let rec first_ok_lh__d1 _lh_first_ok_arg1_0 =
   (((foldr_lh__d2 orElse_lh__d1) (`Nothing)) _lh_first_ok_arg1_0);;
+let rec maybeX_lh__d1 _lh_maybeX_arg1_0 _lh_maybeX_arg2_0 =
+  (if _lh_maybeX_arg1_0 then
+    (`Just(_lh_maybeX_arg2_0))
+  else
+    (`Nothing));;
 let rec assoc_lh__d1 _lh_assoc_arg1_0 _lh_assoc_arg2_0 =
   (let rec match_x_0 = (fun uv_0 -> 
     (let rec _lh_matchIdent_1_2 = uv_0 in
@@ -611,10 +611,12 @@ let rec croak_lh__d2 =
 let rec lift_lh__d4 _lh_lift_arg1_1 _lh_lift_arg2_1 =
   (match _lh_lift_arg2_1 with
     | `Nothing -> 
-      (`Nothing)
+      (fun _lh_dummy_1 -> 
+        (`Nothing))
     | `Just(_lh_lift_Just_0_1) -> 
       (let rec _lh_squash_Just_0_0 = (_lh_lift_arg1_1 _lh_lift_Just_0_1) in
-        _lh_squash_Just_0_0)
+        (fun _lh_dummy_2 -> 
+          _lh_squash_Just_0_0))
     | _ -> 
       (failwith "error"));;
 let rec lhs_lh__d2 _lh_lhs_arg1_2 =
@@ -632,7 +634,7 @@ let rec getOrElse_lh__d1 _lh_getOrElse_arg1_1 _lh_getOrElse_arg2_1 =
 let rec ltRewrite_lh__d2 _lh_ltRewrite_arg1_0 _lh_ltRewrite_arg2_0 _lh_ltRewrite_arg3_0 =
   ((_lh_ltRewrite_arg1_0 (`LH_P2(_lh_ltRewrite_arg2_0, _lh_ltRewrite_arg3_0))) = (`Less));;
 let rec squash_lh__d2 _lh_squash_arg1_0 =
-  _lh_squash_arg1_0;;
+  (_lh_squash_arg1_0 99);;
 let rec foldr_lh__d1 f_3_2 i_1_8 ls_6 =
   ((ls_6 f_3_2) i_1_8);;
 let rec lift_lh__d7 _lh_lift_arg1_3 _lh_lift_arg2_3 =
@@ -927,7 +929,7 @@ let rec all_lh__d4 _lh_all_arg1_4 _lh_all_arg2_2 =
 let rec succeed_lh__d3 _lh_succeed_arg1_2 =
   (`Just(_lh_succeed_arg1_2));;
 let rec squash_lh__d1 _lh_squash_arg1_1 =
-  _lh_squash_arg1_1;;
+  (_lh_squash_arg1_1 99);;
 let rec try_all_lh__d1 _lh_try_all_arg1_0 =
   (((foldr_lh__d2 orElseMap_lh__d4) (fun dum_3 -> 
     croak_lh__d4)) _lh_try_all_arg1_0);;
@@ -1015,10 +1017,12 @@ let rec lift_lh__d2 _lh_lift_arg1_8 _lh_lift_arg2_8 =
 let rec lift_lh__d9 _lh_lift_arg1_9 _lh_lift_arg2_9 =
   (match _lh_lift_arg2_9 with
     | `Nothing -> 
-      (`Nothing)
+      (fun _lh_dummy_3 -> 
+        (`Nothing))
     | `Just(_lh_lift_Just_0_9) -> 
       (let rec _lh_squash_Just_0_1 = (_lh_lift_arg1_9 _lh_lift_Just_0_9) in
-        _lh_squash_Just_0_1)
+        (fun _lh_dummy_4 -> 
+          _lh_squash_Just_0_1))
     | _ -> 
       (failwith "error"));;
 let rec map_lh__d3 f_4_0 ls_1_7 =

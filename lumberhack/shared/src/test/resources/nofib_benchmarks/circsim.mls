@@ -3379,7 +3379,7 @@ testCircsim_nofib $ primId 40
 //│ 						| _  => error⁰})
 //│ 			| _  => error⁰}}
 //│ def reg_lh_₁(_lh_reg_arg1⁰, _lh_reg_arg2⁰) = [LH_C [PS _lh_reg_arg2⁰ [Inp] 0 [LH_N] [LH_C [LH_P6 0 [F] [False] 0 [True] 4] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 1) [Dff] 1 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 5) 0 [F]] [LH_N]] [LH_C [LH_P6 0 [F] [False] 0 [True] 5] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 2) [Inv] 1 [LH_C [LH_P3 _lh_reg_arg1⁰ 0 [F]] [LH_N]] [LH_C [LH_P6 0 [F] [False] 0 [True] 1] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 3) [And2] 2 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 1) 0 [F]] [LH_C [LH_P3 (_lh_reg_arg2⁰ + 2) 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [False] 0 [True] 2] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 4) [And2] 1 [LH_C [LH_P3 _lh_reg_arg1⁰ 0 [F]] [LH_C [LH_P3 _lh_reg_arg2⁰ 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [False] 0 [True] 1] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 5) [Or2] 3 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 3) 0 [F]] [LH_C [LH_P3 (_lh_reg_arg2⁰ + 4) 0 [F]] [LH_N]]] [LH_C [LH_P6 0 [F] [True] 4 [False] 0] [LH_N]]] [LH_C [PS (_lh_reg_arg2⁰ + 6) [Outp] 4 [LH_C [LH_P3 (_lh_reg_arg2⁰ + 1) 0 [F]] [LH_N]] [LH_N]] [LH_N]]]]]]]]
-//│ def regs_lh_₁(_lh_regs_arg1⁰, _lh_dummy¹⁰, _lh_simulate_arg1¹) = 
+//│ def regs_lh_₁(_lh_regs_arg1⁰, _lh_dummy¹¹, _lh_simulate_arg1¹) = 
 //│ 	let ilabel⁰ = (fun _lh_ilabel_arg1⁰ -> (fun _lh_ilabel_arg2⁰ -> [LH_P2 mappend_lh_₂(
 //│ 			let t³⁵ = (fun ys¹³ -> ys¹³)
 //│ 			in let h³⁵ = 'x'
@@ -3412,7 +3412,7 @@ testCircsim_nofib $ primId 40
 //│ 		in let _lh_critical_path_depth_LH_P4_2⁰ = _lh_simulate_LH_P4_2⁰
 //│ 		in let _lh_critical_path_depth_LH_P4_1⁰ = _lh_simulate_LH_P4_1⁰
 //│ 		in let _lh_critical_path_depth_LH_P4_0⁰ = _lh_simulate_LH_P4_0⁰
-//│ 		in (fun _lh_dummy¹¹ -> maximum_lh_₁(map_lh_₅(pathDepth_lh_₁, _lh_critical_path_depth_LH_P4_3⁰))))), [LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ map_lh_₄(init_dffs_lh_₁, _lh_simulate_LH_P4_3⁰)], _lh_simulate_arg1¹))
+//│ 		in (fun _lh_dummy¹² -> maximum_lh_₁(map_lh_₅(pathDepth_lh_₁, _lh_critical_path_depth_LH_P4_3⁰))))), [LH_P4 _lh_simulate_LH_P4_0⁰ _lh_simulate_LH_P4_1⁰ _lh_simulate_LH_P4_2⁰ map_lh_₄(init_dffs_lh_₁, _lh_simulate_LH_P4_3⁰)], _lh_simulate_arg1¹))
 //│ def restore_requests_lh_₁(_lh_restore_requests_arg1⁰, _lh_restore_requests_arg2⁰) = 
 //│ 	let restore⁰ = (fun _lh_restore_arg1⁰ -> (fun _lh_restore_arg2⁰ -> updateOutports_lh_₂(_lh_restore_arg2⁰, zipWith_lh_₁(restore_outport⁰, outports_lh_₂(_lh_restore_arg1⁰), outports_lh_₃(_lh_restore_arg2⁰)))))
 //│ 	and restore_outport⁰ = (fun _lh_restore_outport_arg1⁰ -> (fun _lh_restore_outport_arg2⁰ -> case _lh_restore_outport_arg1⁰ of {
@@ -3440,8 +3440,8 @@ testCircsim_nofib $ primId 40
 //│ 							let _lh_matchIdent²¹ = 	
 //│ 								let _lh_downsweep_LH_P2_1³ = downsweep_lh_₁(_lh_downsweep_arg1⁶, _lh_downsweep_LH_P2_1², _lh_downsweep_Node_2⁴)
 //│ 								in let _lh_downsweep_LH_P2_0³ = downsweep_lh_₁(_lh_downsweep_arg1⁶, _lh_downsweep_LH_P2_0², _lh_downsweep_Node_1⁴)
-//│ 								in [Node [Unit] _lh_downsweep_LH_P2_0³ _lh_downsweep_LH_P2_1³]
-//│ 							in _lh_matchIdent²¹)))
+//│ 								in (fun _lh_dummy⁴ -> [Node [Unit] _lh_downsweep_LH_P2_0³ _lh_downsweep_LH_P2_1³])
+//│ 							in _lh_matchIdent²¹([lh_Unit]))))
 //│ 					| _  => error⁰}
 //│ 				| _  => error⁰}
 //│ 			| _  => error⁰})))))

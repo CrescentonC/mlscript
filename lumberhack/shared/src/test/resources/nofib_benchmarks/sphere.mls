@@ -2192,7 +2192,7 @@ testSphere_nofib $ primId 30
 //│ 	in let h⁷ = 	
 //│ 		let _lh_snd_LH_P2_1⁰ = _lh_floatOutId_2¹(_lh_floatOutId_0¹, _lh_listcomp_fun_ls_h⁵)
 //│ 		in let _lh_snd_LH_P2_0⁰ = [LH_P2 _lh_floatOutId_0¹ _lh_listcomp_fun_ls_h⁵]
-//│ 		in _lh_snd_LH_P2_1⁰
+//│ 		in (fun _lh_dummy² -> _lh_snd_LH_P2_1⁰)
 //│ 	in let t¹⁰ = map_lh_₁(f², t⁹)
 //│ 	in let h⁸ = f²(h⁷)
 //│ 	in f³(h⁸, foldr_lh_₁(f³, i¹, t¹⁰))))) else _lh_floatOutId_4⁰(_lh_floatOutId_3¹)
@@ -2505,7 +2505,7 @@ testSphere_nofib $ primId 30
 //│ 						in (fun _lh_vecadd_LH_P3_0⁹ -> (fun _lh_vecadd_LH_P3_1⁹ -> (fun _lh_vecadd_LH_P3_2⁹ -> [LH_P3 (_lh_vecadd_LH_P3_0⁹ +. _lh_vecadd_LH_P3_0⁸) (_lh_vecadd_LH_P3_1⁹ +. _lh_vecadd_LH_P3_1⁸) (_lh_vecadd_LH_P3_2⁹ +. _lh_vecadd_LH_P3_2⁸)]))) else vecmult_lh_₄(vecscale_lh_₁₂(spec¹, (cosalpha³ ** spow¹)), _lh_lightray_LH_P2_1¹)
 //│ 					in vecadd_lh_₈(diffcont³, speccont³)))))
 //│ 		| _  => error⁰}
-//│ def snd_lh_₁(_lh_snd_arg1⁰) = _lh_snd_arg1⁰
+//│ def snd_lh_₁(_lh_snd_arg1⁰) = _lh_snd_arg1⁰([lh_Unit])
 //│ def specpowsurf_lh_₁(_lh_specpowsurf_arg1⁰) = head_lh_₅(mappend_lh_₃(
 //│ 	let _lh_listcomp_fun³ = (fun _lh_listcomp_fun_para³ -> case _lh_listcomp_fun_para³ of {
 //│ 		LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => case _lh_listcomp_fun_ls_h² of {

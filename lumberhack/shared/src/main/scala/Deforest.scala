@@ -400,7 +400,7 @@ class Deforest(var debug: Boolean) {
     ProdStratEnum.Sum |
     ProdStratEnum.NoProd
   ]
-  val isNotDeadBranch = mutable.Map.empty[Destruct, Set[Int]]
+  // val isNotDeadBranch = mutable.Map.empty[Destruct, Set[Int]]
   val errorTypes = scala.collection.mutable.Set.empty[ProdStratEnum | ConsStratEnum]
   def resolveConstraints: Unit = {
     // if constraint resolver has already been executed, do not execute it more than once
@@ -431,7 +431,7 @@ class Deforest(var debug: Boolean) {
           handle(r -> NoCons()(using noExprId).toStrat())
           handle(NoProd()(using noExprId).toStrat() -> l)
         case (np@NoProd(), dtor@Destruct(ds)) =>
-          isNotDeadBranch.update(dtor, (0 until ds.length).toSet)
+          // isNotDeadBranch.update(dtor, (0 until ds.length).toSet)
           given Int = numOfTypeCtor + 1
           if this.isRealCtorOrDtor(dtor.euid) then {
             dtorSources += dtor -> (dtorSources(dtor) + prod.s)
@@ -473,15 +473,15 @@ class Deforest(var debug: Boolean) {
             given Int = numOfTypeCtor + 1
             (ds.indexWhere {case Destructor(ds_ctor, argCons) => ds_ctor == ctor || ds_ctor.name == "_"}) match {
               case -1 =>
-                isNotDeadBranch.updateWith(dtors) {
-                  case None => Some(Set(-1))
-                  case Some(idxs) => Some(idxs + (-1))
-                }
+                // isNotDeadBranch.updateWith(dtors) {
+                //   case None => Some(Set(-1))
+                //   case Some(idxs) => Some(idxs + (-1))
+                // }
               case armIndex => {
-                isNotDeadBranch.updateWith(dtors) {
-                  case None => Some(Set(armIndex))
-                  case Some(idxs) => Some(idxs + armIndex)
-                }
+                // isNotDeadBranch.updateWith(dtors) {
+                //   case None => Some(Set(armIndex))
+                //   case Some(idxs) => Some(idxs + armIndex)
+                // }
                 val Destructor(ds_ctor, argCons) = ds(armIndex)  
                 if ds_ctor == ctor then {
                   assert(args.size == argCons.size)

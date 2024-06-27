@@ -1265,28 +1265,28 @@ testCryptarithm2_nofib $ primId 1500
 //│ 	in case _lh_matchIdent¹⁵ of {
 //│ 		LH_P2 _lh_bind_LH_P2_0⁵ _lh_bind_LH_P2_1⁵ => runStateT_lh_₃(_lh_bind_arg2⁵(_lh_bind_LH_P2_0⁵), _lh_bind_LH_P2_1⁵)
 //│ 		| _  => error⁰}), runStateT_lh_₂(_lh_bind_arg1⁵, s¹⁶))))]
-//│ def bind_lh_₂(_lh_bind_arg1¹, _lh_bind_arg2¹) = 
+//│ def bind_lh_₂(_lh_bind_arg1¹, _lh_bind_arg2¹, _lh_dummy¹¹) = 
 //│ 	let _lh_runStateT_StateT_0⁵ = (fun s⁶ -> concat_lh_₅(map_lh_₅((fun as¹ -> 
 //│ 		let _lh_matchIdent⁴ = as¹
 //│ 		in case _lh_matchIdent⁴ of {
 //│ 			LH_P2 _lh_bind_LH_P2_0¹ _lh_bind_LH_P2_1¹ => runStateT_lh_₅(_lh_bind_arg2¹(_lh_bind_LH_P2_0¹), _lh_bind_LH_P2_1¹)
 //│ 			| _  => error⁰}), runStateT_lh_₄(_lh_bind_arg1¹, s⁶))))
 //│ 	in _lh_runStateT_StateT_0⁵
-//│ def bind_lh_₃(_lh_bind_arg1³, _lh_bind_arg2³) = 
+//│ def bind_lh_₃(_lh_bind_arg1³, _lh_bind_arg2³, _lh_dummy¹²) = 
 //│ 	let _lh_runStateT_StateT_0⁶ = (fun s¹¹ -> concat_lh_₆(map_lh_₆((fun as³ -> 
 //│ 		let _lh_matchIdent⁸ = as³
 //│ 		in case _lh_matchIdent⁸ of {
 //│ 			LH_P2 _lh_bind_LH_P2_0³ _lh_bind_LH_P2_1³ => runStateT_lh_₇(_lh_bind_arg2³(_lh_bind_LH_P2_0³), _lh_bind_LH_P2_1³)
 //│ 			| _  => error⁰}), runStateT_lh_₆(_lh_bind_arg1³, s¹¹))))
 //│ 	in _lh_runStateT_StateT_0⁶
-//│ def bind_lh_₄(_lh_bind_arg1⁰, _lh_bind_arg2⁰) = 
+//│ def bind_lh_₄(_lh_bind_arg1⁰, _lh_bind_arg2⁰, _lh_dummy⁵) = 
 //│ 	let _lh_runStateT_StateT_0¹ = (fun s³ -> concat_lh_₇(map_lh_₇((fun as⁰ -> 
 //│ 		let _lh_matchIdent² = as⁰
 //│ 		in case _lh_matchIdent² of {
 //│ 			LH_P2 _lh_bind_LH_P2_0⁰ _lh_bind_LH_P2_1⁰ => runStateT_lh_₈(_lh_bind_arg2⁰(_lh_bind_LH_P2_0⁰), _lh_bind_LH_P2_1⁰)
 //│ 			| _  => error⁰}), runStateT_lh_₈(_lh_bind_arg1⁰, s³))))
 //│ 	in _lh_runStateT_StateT_0¹
-//│ def bind_lh_₅(_lh_bind_arg1⁴, _lh_bind_arg2⁴) = 
+//│ def bind_lh_₅(_lh_bind_arg1⁴, _lh_bind_arg2⁴, _lh_dummy²¹) = 
 //│ 	let _lh_runStateT_StateT_0⁸ = (fun s¹⁵ -> concat_lh_₇(map_lh_₇((fun as⁴ -> 
 //│ 		let _lh_matchIdent¹⁴ = as⁴
 //│ 		in case _lh_matchIdent¹⁴ of {
@@ -1353,11 +1353,11 @@ testCryptarithm2_nofib $ primId 1500
 //│ def lift_lh_₁(_lh_lift_arg1⁰) = [StateT (fun s⁵ -> concat_lh_₇(map_lh_₇((fun x¹ -> [LH_C [LH_P2 x¹ s⁵] [LH_N]]), _lh_lift_arg1⁰)))]
 //│ def listDiff_lh_₁ = foldl_lh_₁(delete_lh_₁)
 //│ def lookup_lh_₁(_lh_lookup_arg1⁰, _lh_lookup_arg2⁰) = case _lh_lookup_arg2⁰ of {
-//│ 	LH_N  => (fun _lh_dummy⁶ -> error⁰)
+//│ 	LH_N  => (fun _lh_dummy⁹ -> error⁰)
 //│ 	| LH_C _lh_lookup_LH_C_0⁰ _lh_lookup_LH_C_1⁰ => case _lh_lookup_LH_C_0⁰ of {
 //│ 		LH_P2 _lh_lookup_LH_P2_0⁰ _lh_lookup_LH_P2_1⁰ => if polyEq⁰(_lh_lookup_arg1⁰, _lh_lookup_LH_P2_0⁰) then 
 //│ 			let _lh_fromJust_Just_0⁰ = _lh_lookup_LH_P2_1⁰
-//│ 			in (fun _lh_dummy⁷ -> _lh_fromJust_Just_0⁰) else lookup_lh_₁(_lh_lookup_arg1⁰, _lh_lookup_LH_C_1⁰)
+//│ 			in (fun _lh_dummy¹⁰ -> _lh_fromJust_Just_0⁰) else lookup_lh_₁(_lh_lookup_arg1⁰, _lh_lookup_LH_C_1⁰)
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def lookup_lh_₂(_lh_lookup_arg1¹, _lh_lookup_arg2¹) = case _lh_lookup_arg2¹ of {
@@ -1501,18 +1501,18 @@ testCryptarithm2_nofib $ primId 1500
 //│ 					in (fun f⁶ -> 
 //│ 						let t²² = map_lh_₂(f⁶, t¹⁵)
 //│ 						in let h²² = f⁶(h¹⁵)
-//│ 						in (fun _lh_dummy¹⁰ -> mappend_lh_₆(h²², concat_lh_₂(t²²))))
+//│ 						in (fun _lh_dummy¹⁵ -> mappend_lh_₆(h²², concat_lh_₂(t²²))))
 //│ 				| _  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)}
-//│ 			| LH_N  => (fun f⁷ -> (fun _lh_dummy¹¹ -> [LH_N]))})
+//│ 			| LH_N  => (fun f⁷ -> (fun _lh_dummy¹⁶ -> [LH_N]))})
 //│ 		in _lh_listcomp_fun¹(digitEnv_lh_₁(answer⁰)))
 //│ def rest_lh_₁(_lh_rest_arg1⁰) = case _lh_rest_arg1⁰ of {
 //│ 	LH_N  => [LH_N]
 //│ 	| LH_C _lh_rest_LH_C_0⁰ _lh_rest_LH_C_1⁰ => _lh_rest_LH_C_1⁰
 //│ 	| _  => error⁰}
-//│ def return_lh_₁(_lh_return_arg1³) = 
+//│ def return_lh_₁(_lh_return_arg1³, _lh_dummy⁶) = 
 //│ 	let _lh_runStateT_StateT_0² = (fun s⁴ -> [LH_C [LH_P2 _lh_return_arg1³ s⁴] [LH_N]])
 //│ 	in _lh_runStateT_StateT_0²
-//│ def return_lh_₂(_lh_return_arg1¹) = 
+//│ def return_lh_₂(_lh_return_arg1¹, _lh_dummy⁴) = 
 //│ 	let _lh_runStateT_StateT_0⁰ = (fun s¹ -> [LH_C [LH_P2 _lh_return_arg1¹ s¹] [LH_N]])
 //│ 	in _lh_runStateT_StateT_0⁰
 //│ def return_lh_₃(_lh_return_arg1⁰) = [StateT (fun s⁰ -> [LH_C [LH_P2 _lh_return_arg1⁰ s⁰] [LH_N]])]
@@ -1529,14 +1529,14 @@ testCryptarithm2_nofib $ primId 1500
 //│ def runStateT_lh_₁(_lh_runStateT_arg1¹) = case _lh_runStateT_arg1¹ of {
 //│ 	StateT _lh_runStateT_StateT_0³ => _lh_runStateT_StateT_0³
 //│ 	| _  => error⁰}
-//│ def runStateT_lh_₂(_lh_runStateT_arg1³) = _lh_runStateT_arg1³
-//│ def runStateT_lh_₃(_lh_runStateT_arg1⁵) = _lh_runStateT_arg1⁵
-//│ def runStateT_lh_₄(_lh_runStateT_arg1⁶) = _lh_runStateT_arg1⁶
-//│ def runStateT_lh_₅(_lh_runStateT_arg1⁰) = _lh_runStateT_arg1⁰
+//│ def runStateT_lh_₂(_lh_runStateT_arg1³) = _lh_runStateT_arg1³([lh_Unit])
+//│ def runStateT_lh_₃(_lh_runStateT_arg1⁵) = _lh_runStateT_arg1⁵([lh_Unit])
+//│ def runStateT_lh_₄(_lh_runStateT_arg1⁶) = _lh_runStateT_arg1⁶([lh_Unit])
+//│ def runStateT_lh_₅(_lh_runStateT_arg1⁰) = _lh_runStateT_arg1⁰([lh_Unit])
 //│ def runStateT_lh_₆(_lh_runStateT_arg1²) = case _lh_runStateT_arg1² of {
 //│ 	StateT _lh_runStateT_StateT_0⁴ => _lh_runStateT_StateT_0⁴
 //│ 	| _  => error⁰}
-//│ def runStateT_lh_₇(_lh_runStateT_arg1⁷) = _lh_runStateT_arg1⁷
+//│ def runStateT_lh_₇(_lh_runStateT_arg1⁷) = _lh_runStateT_arg1⁷([lh_Unit])
 //│ def runStateT_lh_₈(_lh_runStateT_arg1⁴) = case _lh_runStateT_arg1⁴ of {
 //│ 	StateT _lh_runStateT_StateT_0⁷ => _lh_runStateT_StateT_0⁷
 //│ 	| _  => error⁰}

@@ -656,7 +656,7 @@ let rec flip_lh__d1 _lh_flip_arg1_2 =
     | _ -> 
       (failwith "error"));;
 let rec isJust_lh__d1 _lh_isJust_arg1_0 =
-  _lh_isJust_arg1_0;;
+  (_lh_isJust_arg1_0 99);;
 let rec compareIntInt_lh__d3 _lh_compareIntInt_arg1_4 _lh_compareIntInt_arg2_5_2 =
   (match _lh_compareIntInt_arg1_4 with
     | `LH_P2(_lh_compareIntInt_LH_P2_0_1_0_0, _lh_compareIntInt_LH_P2_1_1_0_0) -> 
@@ -680,7 +680,8 @@ let rec compareIntInt_lh__d3 _lh_compareIntInt_arg1_4 _lh_compareIntInt_arg2_5_2
                 else
                   (fun _lh_mapLookup_Bin_3_2_4_6 _lh_mapLookup_arg1_2_4_6 _lh_mapLookup_Bin_4_2_4_6 _lh_mapLookup_Bin_2_2_4_6 -> 
                     (let rec _lh_isJust_Just_0_0 = _lh_mapLookup_Bin_2_2_4_6 in
-                      true))))))
+                      (fun _lh_dummy_0 -> 
+                        true)))))))
         | _ -> 
           (failwith "error"))
     | _ -> 
@@ -689,7 +690,8 @@ and
 mapLookup_lh__d2 _lh_mapLookup_arg1_3_4_7 _lh_mapLookup_arg2_2 =
   (match _lh_mapLookup_arg2_2 with
     | `Tip -> 
-      false
+      (fun _lh_dummy_1 -> 
+        false)
     | `Bin(_lh_mapLookup_Bin_0_2, _lh_mapLookup_Bin_1_2, _lh_mapLookup_Bin_2_3_4_7, _lh_mapLookup_Bin_3_3_4_7, _lh_mapLookup_Bin_4_3_4_7) -> 
       (let rec _lh_matchIdent_1_5_9 = ((compareIntInt_lh__d3 _lh_mapLookup_arg1_3_4_7) _lh_mapLookup_Bin_1_2) in
         ((((_lh_matchIdent_1_5_9 _lh_mapLookup_Bin_3_3_4_7) _lh_mapLookup_arg1_3_4_7) _lh_mapLookup_Bin_4_3_4_7) _lh_mapLookup_Bin_2_3_4_7))
@@ -9499,10 +9501,10 @@ let rec maxRow_lh__d1 =
   8;;
 let rec maxRow_lh__d2 =
   8;;
-let rec foldr_lh__d2 f_5 i_3 ls_1 =
-  ((ls_1 f_5) i_3);;
 let rec map_lh__d3 f_1_4 ls_5 =
   (ls_5 f_1_4);;
+let rec foldr_lh__d2 f_5 i_3 ls_1 =
+  ((ls_1 f_5) i_3);;
 let rec enumFromTo_lh__d2 a_0 b_0 =
   (if (a_0 <= b_0) then
     (let rec t_1 = ((enumFromTo_lh__d2 (a_0 + 1)) b_0) in
@@ -10071,7 +10073,7 @@ let rec testLastPiece_nofib_lh__d1 _lh_testLastPiece_nofib_arg1_0 =
             (failwith "error")))))
   in (let rec initialBoard_0 = (fromJust_lh__d1 ((((fit_lh__d1 emptyBoard_lh__d1) (`LH_P2(1, 1))) 'a') (let rec _lh_fit_LH_C_1_1_0_8 = (let rec _lh_fit_LH_C_1_1_0_9 = (fun _lh_fit_arg1_1_3_9 _lh_fit_arg2_1_3_9 _lh_fit_arg3_1_3_9 -> 
     (let rec _lh_fromJust_Just_0_0 = (((extend_lh__d1 _lh_fit_arg1_1_3_9) _lh_fit_arg2_1_3_9) _lh_fit_arg3_1_3_9) in
-      (fun _lh_dummy_0 -> 
+      (fun _lh_dummy_2 -> 
         _lh_fromJust_Just_0_0))) in
     (let rec _lh_fit_LH_C_0_1_0_8 = (let rec _lh_addIntInt_LH_P2_1_2_1_8 = 1 in
       (let rec _lh_addIntInt_LH_P2_0_2_1_8 = 1 in
@@ -10116,7 +10118,7 @@ let rec testLastPiece_nofib_lh__d1 _lh_testLastPiece_nofib_arg1_0 =
             | `Just(_lh_fit_Just_0_1_0_8) -> 
               ((((fit_lh__d1 _lh_fit_Just_0_1_0_8) _lh_fit_arg2_1_4_0) _lh_fit_arg3_1_4_0) _lh_fit_LH_C_1_1_0_9)
             | `Nothing -> 
-              (fun _lh_dummy_1 -> 
+              (fun _lh_dummy_3 -> 
                 (failwith "error"))
             | _ -> 
               (failwith "error")))))) in
@@ -10163,7 +10165,7 @@ let rec testLastPiece_nofib_lh__d1 _lh_testLastPiece_nofib_arg1_0 =
             | `Just(_lh_fit_Just_0_1_0_9) -> 
               ((((fit_lh__d1 _lh_fit_Just_0_1_0_9) _lh_fit_arg2_1_4_1) _lh_fit_arg3_1_4_1) _lh_fit_LH_C_1_1_0_8)
             | `Nothing -> 
-              (fun _lh_dummy_2 -> 
+              (fun _lh_dummy_4 -> 
                 (failwith "error"))
             | _ -> 
               (failwith "error")))))))) in

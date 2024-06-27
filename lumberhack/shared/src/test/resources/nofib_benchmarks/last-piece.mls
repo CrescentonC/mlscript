@@ -5725,7 +5725,7 @@ testLastPiece_nofib $ primId 0
 //│ 	LH_P2 _lh_compareIntInt_LH_P2_0¹⁰⁰ _lh_compareIntInt_LH_P2_1¹⁰⁰ => case _lh_compareIntInt_arg2⁵² of {
 //│ 		LH_P2 _lh_compareIntInt_LH_P2_0¹⁰¹ _lh_compareIntInt_LH_P2_1¹⁰¹ => if (_lh_compareIntInt_LH_P2_0¹⁰⁰ > _lh_compareIntInt_LH_P2_0¹⁰¹) then (fun _lh_mapLookup_Bin_3²⁴² -> (fun _lh_mapLookup_arg1²⁴² -> (fun _lh_mapLookup_Bin_4²⁴² -> (fun _lh_mapLookup_Bin_2²⁴² -> mapLookup_lh_₂(_lh_mapLookup_arg1²⁴², _lh_mapLookup_Bin_4²⁴²))))) else if (_lh_compareIntInt_LH_P2_0¹⁰⁰ < _lh_compareIntInt_LH_P2_0¹⁰¹) then (fun _lh_mapLookup_Bin_3²⁴³ -> (fun _lh_mapLookup_arg1²⁴³ -> (fun _lh_mapLookup_Bin_4²⁴³ -> (fun _lh_mapLookup_Bin_2²⁴³ -> mapLookup_lh_₂(_lh_mapLookup_arg1²⁴³, _lh_mapLookup_Bin_3²⁴³))))) else if (_lh_compareIntInt_LH_P2_1¹⁰⁰ > _lh_compareIntInt_LH_P2_1¹⁰¹) then (fun _lh_mapLookup_Bin_3²⁴⁴ -> (fun _lh_mapLookup_arg1²⁴⁴ -> (fun _lh_mapLookup_Bin_4²⁴⁴ -> (fun _lh_mapLookup_Bin_2²⁴⁴ -> mapLookup_lh_₂(_lh_mapLookup_arg1²⁴⁴, _lh_mapLookup_Bin_4²⁴⁴))))) else if (_lh_compareIntInt_LH_P2_1¹⁰⁰ < _lh_compareIntInt_LH_P2_1¹⁰¹) then (fun _lh_mapLookup_Bin_3²⁴⁵ -> (fun _lh_mapLookup_arg1²⁴⁵ -> (fun _lh_mapLookup_Bin_4²⁴⁵ -> (fun _lh_mapLookup_Bin_2²⁴⁵ -> mapLookup_lh_₂(_lh_mapLookup_arg1²⁴⁵, _lh_mapLookup_Bin_3²⁴⁵))))) else (fun _lh_mapLookup_Bin_3²⁴⁶ -> (fun _lh_mapLookup_arg1²⁴⁶ -> (fun _lh_mapLookup_Bin_4²⁴⁶ -> (fun _lh_mapLookup_Bin_2²⁴⁶ -> 
 //│ 			let _lh_isJust_Just_0⁰ = _lh_mapLookup_Bin_2²⁴⁶
-//│ 			in [True]))))
+//│ 			in (fun _lh_dummy⁰ -> [True])))))
 //│ 		| _  => error⁰}
 //│ 	| _  => error⁰}
 //│ def compareIntInt_lh_₄(_lh_compareIntInt_arg1³, _lh_compareIntInt_arg2³⁵) = _lh_compareIntInt_arg1³(_lh_compareIntInt_arg2³⁵)
@@ -8384,7 +8384,7 @@ testLastPiece_nofib $ primId 0
 //│ 		in let _lh_matchIdent¹⁰⁸ = compareIntInt_lh_₈(_lh_insert_arg1¹⁰, _lh_insert_Bin_1¹⁰)
 //│ 		in _lh_matchIdent¹⁰⁸(_lh_insert_Bin_1¹⁰, _lh_insert_Bin_2¹⁰, _lh_insert_Bin_3¹⁰, _lh_insert_Bin_4¹⁰, _lh_insert_arg1¹⁰, _lh_insert_arg2¹⁰, balance¹⁰, _lh_insert_Bin_0¹⁰)
 //│ 	| _  => error⁰}
-//│ def isJust_lh_₁(_lh_isJust_arg1⁰) = _lh_isJust_arg1⁰
+//│ def isJust_lh_₁(_lh_isJust_arg1⁰) = _lh_isJust_arg1⁰([lh_Unit])
 //│ def jPiece_lh_₁(_lh_listcomp_fun_ls_t²¹, _lh_listcomp_fun²⁶, _lh_search_LH_P2_1¹³, _lh_search_arg2¹) = 
 //│ 	let _lh_search_P_2¹ = 	
 //│ 		let _lh_listcomp_fun_ls_t¹¹ = (fun _lh_listcomp_fun¹⁴ -> (fun _lh_search_LH_P2_1⁷ -> (fun _lh_search_P_0⁷ -> (fun _lh_listcomp_fun_ls_t¹² -> (fun _lh_listcomp_fun¹⁵ -> _lh_listcomp_fun¹⁵(_lh_listcomp_fun_ls_t¹²))))))
@@ -9726,7 +9726,7 @@ testLastPiece_nofib $ primId 0
 //│ 		in _lh_matchIdent²²⁹(_lh_mapLookup_Bin_3⁴⁸⁸, _lh_mapLookup_arg1⁴⁸⁸, _lh_mapLookup_Bin_4⁴⁸⁸, _lh_mapLookup_Bin_2⁴⁸⁸)
 //│ 	| _  => error⁰}
 //│ def mapLookup_lh_₂(_lh_mapLookup_arg1³⁴⁷, _lh_mapLookup_arg2²) = case _lh_mapLookup_arg2² of {
-//│ 	Tip  => [False]
+//│ 	Tip  => (fun _lh_dummy¹ -> [False])
 //│ 	| Bin _lh_mapLookup_Bin_0² _lh_mapLookup_Bin_1² _lh_mapLookup_Bin_2³⁴⁷ _lh_mapLookup_Bin_3³⁴⁷ _lh_mapLookup_Bin_4³⁴⁷ => 
 //│ 		let _lh_matchIdent¹⁵⁹ = compareIntInt_lh_₃(_lh_mapLookup_arg1³⁴⁷, _lh_mapLookup_Bin_1²)
 //│ 		in _lh_matchIdent¹⁵⁹(_lh_mapLookup_Bin_3³⁴⁷, _lh_mapLookup_arg1³⁴⁷, _lh_mapLookup_Bin_4³⁴⁷, _lh_mapLookup_Bin_2³⁴⁷)
@@ -10270,7 +10270,7 @@ testLastPiece_nofib $ primId 0
 //│ 		let _lh_fit_LH_C_1¹⁰⁸ = 	
 //│ 			let _lh_fit_LH_C_1¹⁰⁹ = (fun _lh_fit_arg1¹³⁹ -> (fun _lh_fit_arg2¹³⁹ -> (fun _lh_fit_arg3¹³⁹ -> 
 //│ 				let _lh_fromJust_Just_0⁰ = extend_lh_₁(_lh_fit_arg1¹³⁹, _lh_fit_arg2¹³⁹, _lh_fit_arg3¹³⁹)
-//│ 				in (fun _lh_dummy⁰ -> _lh_fromJust_Just_0⁰))))
+//│ 				in (fun _lh_dummy² -> _lh_fromJust_Just_0⁰))))
 //│ 			in let _lh_fit_LH_C_0¹⁰⁸ = 	
 //│ 				let _lh_addIntInt_LH_P2_1²¹⁸ = 1
 //│ 				in let _lh_addIntInt_LH_P2_0²¹⁸ = 1
@@ -10291,7 +10291,7 @@ testLastPiece_nofib $ primId 0
 //│ 				let _lh_matchIdent²⁷¹ = extend_maybe_lh_₁(_lh_fit_arg1¹⁴⁰, addIntInt_lh_₁(_lh_fit_arg2¹⁴⁰, _lh_fit_LH_C_0¹⁰⁸), _lh_fit_arg3¹⁴⁰)
 //│ 				in case _lh_matchIdent²⁷¹ of {
 //│ 					Just _lh_fit_Just_0¹⁰⁸ => fit_lh_₁(_lh_fit_Just_0¹⁰⁸, _lh_fit_arg2¹⁴⁰, _lh_fit_arg3¹⁴⁰, _lh_fit_LH_C_1¹⁰⁹)
-//│ 					| Nothing  => (fun _lh_dummy¹ -> error⁰)
+//│ 					| Nothing  => (fun _lh_dummy³ -> error⁰)
 //│ 					| _  => error⁰})))
 //│ 		in let _lh_fit_LH_C_0¹⁰⁹ = 	
 //│ 			let _lh_addIntInt_LH_P2_1²²⁰ = 0
@@ -10313,7 +10313,7 @@ testLastPiece_nofib $ primId 0
 //│ 			let _lh_matchIdent²⁷³ = extend_maybe_lh_₁(_lh_fit_arg1¹⁴¹, addIntInt_lh_₁(_lh_fit_arg2¹⁴¹, _lh_fit_LH_C_0¹⁰⁹), _lh_fit_arg3¹⁴¹)
 //│ 			in case _lh_matchIdent²⁷³ of {
 //│ 				Just _lh_fit_Just_0¹⁰⁹ => fit_lh_₁(_lh_fit_Just_0¹⁰⁹, _lh_fit_arg2¹⁴¹, _lh_fit_arg3¹⁴¹, _lh_fit_LH_C_1¹⁰⁸)
-//│ 				| Nothing  => (fun _lh_dummy² -> error⁰)
+//│ 				| Nothing  => (fun _lh_dummy⁴ -> error⁰)
 //│ 				| _  => error⁰})))))
 //│ 	in let solutions⁰ = search_lh_₁([LH_P2 1 2], [Female], initialBoard⁰, initialPieces_lh_₁)
 //│ 	in printDoc⁰(display⁰(solutions⁰))

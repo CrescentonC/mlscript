@@ -346,12 +346,13 @@ trait ExprRewrite { this: Expr =>
           val extrudedIds = scopeExtrusionInfo(this.uid)
           // make a call the triggerd the computation moved due to deforestation to keep termination behavior
           val noNeedThunking = {
-            val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(this.uid))
-            arms.zipWithIndex.filter(x => nonDeadBranches(x._2)).forall {
+            // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(this.uid))
+            arms.zipWithIndex.filter(x => true).forall {
               case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
-            } && !nonDeadBranches(-1)
+            } // && !nonDeadBranches(-1)
           }
           if extrudedIds.isEmpty && (!noNeedThunking) then
+          // if extrudedIds.isEmpty then
             Call(scrut.rewriteFusion, Ctor(Var("lh_Unit"), Nil))
           else
             extrudedIds.foldLeft(scrut.rewriteFusion){
@@ -392,13 +393,14 @@ trait ExprRewrite { this: Expr =>
             Function(newId._2, acc)
           }
           val noNeedThunking = {
-            val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(matchId))
-            newd.exprs(matchId).asInstanceOf[Match].arms.zipWithIndex.filter(x => nonDeadBranches(x._2)).forall {
+            // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(matchId))
+            newd.exprs(matchId).asInstanceOf[Match].arms.zipWithIndex.filter(x => true).forall {
               case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
-            } && !nonDeadBranches(-1)
+            } // && !nonDeadBranches(-1)
           }
           
           if extrudedIds.isEmpty && (!noNeedThunking) then
+          // if extrudedIds.isEmpty then
             Function(newd.nextIdent(false, Var("_lh_dummy")), res)
           else
             res

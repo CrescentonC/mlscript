@@ -1030,10 +1030,10 @@ let rec vecsub_lh__d1 _lh_vecsub_arg1_1 _lh_vecsub_arg2_1 =
       (((_lh_vecsub_arg2_1 _lh_vecsub_LH_P3_0_4) _lh_vecsub_LH_P3_1_4) _lh_vecsub_LH_P3_2_4)
     | _ -> 
       (failwith "error"));;
-let rec foldr_lh__d1 f_5 i_2 ls_2 =
-  ((ls_2 f_5) i_2);;
 let rec map_lh__d1 f_9 ls_8 =
   (ls_8 f_9);;
+let rec foldr_lh__d1 f_5 i_2 ls_2 =
+  ((ls_2 f_5) i_2);;
 let rec enumFromTo_lh__d2 a_0 b_0 =
   (if (a_0 <= b_0) then
     (let rec _lh_listcomp_fun_ls_t_5 = ((enumFromTo_lh__d2 (a_0 + 1)) b_0) in
@@ -1042,7 +1042,8 @@ let rec enumFromTo_lh__d2 a_0 b_0 =
           (let rec t_9 = (_lh_listcomp_fun_6 _lh_listcomp_fun_ls_t_5) in
             (let rec h_7 = (let rec _lh_snd_LH_P2_1_0 = ((f_1 _lh_listcomp_fun_ls_h_6) _lh_listcomp_fun_ls_h_5) in
               (let rec _lh_snd_LH_P2_0_0 = (`LH_P2(_lh_listcomp_fun_ls_h_6, _lh_listcomp_fun_ls_h_5)) in
-                _lh_snd_LH_P2_1_0)) in
+                (fun _lh_dummy_2 -> 
+                  _lh_snd_LH_P2_1_0))) in
               (fun f_2 -> 
                 (let rec t_1_0 = ((map_lh__d1 f_2) t_9) in
                   (let rec h_8 = (f_2 h_7) in
@@ -1183,7 +1184,7 @@ let rec hash_lh__d1 _lh_hash_arg1_0 =
           | _ -> 
             (failwith "error"))))) 0) _lh_hash_arg1_0));;
 let rec snd_lh__d1 _lh_snd_arg1_0 =
-  _lh_snd_arg1_0;;
+  (_lh_snd_arg1_0 99);;
 let rec run_lh__d1 _lh_run_arg1_0 =
   (hash_lh__d1 ((map_lh__d1 snd_lh__d1) (ray_lh__d1 _lh_run_arg1_0)));;
 let rec testSphere_nofib_lh__d1 _lh_testSphere_nofib_arg1_0 =
