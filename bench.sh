@@ -3,11 +3,11 @@
 dirlist=$(ls new-nofib-ocaml-gen)
 
 # special test durations for some tests that last longer
-Cryptarithm_nofib_lh=1200
-Fish_nofib_lh=30
-LastPiece_nofib_lh=30
-Mate_nofib_lh=90
-Secretary_nofib_lh=400
+Cryptarithm_nofib_lh=900
+Fish_nofib_lh=20
+LastPiece_nofib_lh=20
+Mate_nofib_lh=60
+Secretary_nofib_lh=300
 
 echo compile and running the tests ...
 # compile and run the tests
@@ -34,7 +34,7 @@ do
   then
     c=$cmd" -q"" $Secretary_nofib_lh"
   else
-    c=$cmd" -q"" 20"
+    c=$cmd" -q"" 10"
   fi
 
   eval $c

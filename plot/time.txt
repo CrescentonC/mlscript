@@ -4,10 +4,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Ansi_nofib_lh                 │     1.00 │  17.27ms │ -0.35% +0.37% │ 14.16Mw │ 294.54kw │ 294.54kw │    100.00% │
-│ lumberhack_only_expanded_Ansi_nofib_lh │     1.00 │  17.16ms │ -0.38% +0.37% │ 14.16Mw │ 297.42kw │ 297.42kw │     99.31% │
-│ lumberhack_Ansi_nofib_lh               │     1.00 │  16.29ms │ -0.07% +0.08% │ 13.71Mw │ 300.48kw │ 300.48kw │     94.30% │
-│ lumberhack_float_out_Ansi_nofib_lh     │     1.00 │  16.30ms │ -0.06% +0.05% │ 13.71Mw │ 301.49kw │ 301.49kw │     94.37% │
+│ original_Ansi_nofib_lh                 │     1.00 │  16.63ms │ -0.39% +0.43% │ 14.16Mw │ 297.95kw │ 297.95kw │    100.00% │
+│ lumberhack_only_expanded_Ansi_nofib_lh │     1.00 │  16.43ms │ -0.41% +0.45% │ 14.16Mw │ 297.95kw │ 297.95kw │     98.77% │
+│ lumberhack_Ansi_nofib_lh               │     1.00 │  15.60ms │ -0.12% +0.17% │ 13.70Mw │ 296.73kw │ 296.73kw │     93.80% │
+│ lumberhack_float_out_Ansi_nofib_lh     │     1.00 │  15.78ms │ -0.15% +0.20% │ 13.70Mw │ 297.78kw │ 297.78kw │     94.88% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Atom_nofib_lh vvvv
@@ -15,10 +15,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Atom_nofib_lh                 │     1.00 │ 164.33ms │ -0.24% +0.24% │ 41.02Mw │  22.43Mw │  22.43Mw │    100.00% │
-│ lumberhack_only_expanded_Atom_nofib_lh │     1.00 │ 163.08ms │ -0.18% +0.19% │ 41.02Mw │  22.43Mw │  22.43Mw │     99.24% │
-│ lumberhack_Atom_nofib_lh               │     1.00 │ 151.19ms │ -0.08% +0.09% │ 40.47Mw │  21.89Mw │  21.89Mw │     92.01% │
-│ lumberhack_float_out_Atom_nofib_lh     │     1.00 │ 153.95ms │ -0.06% +0.04% │ 40.48Mw │  21.92Mw │  21.92Mw │     93.68% │
+│ original_Atom_nofib_lh                 │     1.00 │ 156.60ms │ -0.35% +0.45% │ 41.02Mw │  22.43Mw │  22.43Mw │     98.04% │
+│ lumberhack_only_expanded_Atom_nofib_lh │     0.99 │ 159.73ms │ -2.94% +3.20% │ 41.02Mw │  22.43Mw │  22.43Mw │    100.00% │
+│ lumberhack_Atom_nofib_lh               │     1.00 │ 142.97ms │ -0.03% +0.03% │ 40.47Mw │  21.89Mw │  21.89Mw │     89.51% │
+│ lumberhack_float_out_Atom_nofib_lh     │     1.00 │ 158.45ms │ -0.03% +0.05% │ 39.48Mw │  24.84Mw │  24.84Mw │     99.20% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -28,10 +28,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Awards_nofib_lh                 │     1.00 │  33.22ms │ -0.10% +0.11% │ 30.25Mw │ 489.12kw │ 489.12kw │    100.00% │
-│ lumberhack_only_expanded_Awards_nofib_lh │     1.00 │  33.14ms │ -0.11% +0.14% │ 30.25Mw │ 489.12kw │ 489.12kw │     99.74% │
-│ lumberhack_Awards_nofib_lh               │     1.00 │  32.15ms │ -0.36% +0.59% │ 29.76Mw │ 478.81kw │ 478.81kw │     96.76% │
-│ lumberhack_float_out_Awards_nofib_lh     │     1.00 │  31.83ms │ -0.47% +0.69% │ 28.75Mw │ 490.08kw │ 490.08kw │     95.82% │
+│ original_Awards_nofib_lh                 │     1.00 │  31.84ms │ -0.31% +0.53% │ 30.13Mw │ 488.35kw │ 488.35kw │    100.00% │
+│ lumberhack_only_expanded_Awards_nofib_lh │     1.00 │  31.43ms │ -0.08% +0.12% │ 30.13Mw │ 488.35kw │ 488.35kw │     98.71% │
+│ lumberhack_Awards_nofib_lh               │     1.00 │  31.16ms │ -0.15% +0.20% │ 29.75Mw │ 478.88kw │ 478.88kw │     97.86% │
+│ lumberhack_float_out_Awards_nofib_lh     │     1.00 │  30.22ms │ -0.13% +0.22% │ 28.64Mw │ 490.06kw │ 490.06kw │     94.93% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Banner_nofib_lh vvvv
@@ -39,10 +39,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Banner_nofib_lh                 │     1.00 │  11.41ms │ -0.15% +0.17% │  2.55Mw │   1.70Mw │   1.70Mw │     99.96% │
-│ lumberhack_only_expanded_Banner_nofib_lh │     1.00 │  11.42ms │ -0.15% +0.16% │  2.55Mw │   1.70Mw │   1.70Mw │    100.00% │
-│ lumberhack_Banner_nofib_lh               │     1.00 │   9.79ms │ -0.27% +0.28% │  2.36Mw │   1.60Mw │   1.60Mw │     85.74% │
-│ lumberhack_float_out_Banner_nofib_lh     │     1.00 │   9.05ms │ -0.54% +0.56% │  2.37Mw │   1.44Mw │   1.44Mw │     79.29% │
+│ original_Banner_nofib_lh                 │     0.99 │  11.52ms │ -0.65% +1.17% │  2.55Mw │   1.70Mw │   1.70Mw │    100.00% │
+│ lumberhack_only_expanded_Banner_nofib_lh │     1.00 │  11.42ms │ -0.22% +0.25% │  2.55Mw │   1.70Mw │   1.70Mw │     99.19% │
+│ lumberhack_Banner_nofib_lh               │     1.00 │   9.83ms │ -0.59% +0.68% │  2.36Mw │   1.60Mw │   1.60Mw │     85.37% │
+│ lumberhack_float_out_Banner_nofib_lh     │     1.00 │   9.06ms │ -0.60% +0.59% │  2.37Mw │   1.44Mw │   1.44Mw │     78.70% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Boyer2_nofib_lh vvvv
@@ -50,10 +50,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Boyer2_nofib_lh                 │     1.00 │  35.93ms │ -0.13% +0.16% │  7.69Mw │   1.06Mw │   1.06Mw │    100.00% │
-│ lumberhack_only_expanded_Boyer2_nofib_lh │     1.00 │  35.84ms │ -0.13% +0.13% │  7.69Mw │   1.06Mw │   1.06Mw │     99.77% │
-│ lumberhack_Boyer2_nofib_lh               │     1.00 │  35.75ms │ -0.15% +0.18% │  7.69Mw │   1.06Mw │   1.06Mw │     99.51% │
-│ lumberhack_float_out_Boyer2_nofib_lh     │     1.00 │  35.74ms │ -0.09% +0.12% │  7.69Mw │   1.06Mw │   1.06Mw │     99.48% │
+│ original_Boyer2_nofib_lh                 │     1.00 │  35.59ms │ -0.10% +0.15% │  7.69Mw │   1.06Mw │   1.06Mw │     99.01% │
+│ lumberhack_only_expanded_Boyer2_nofib_lh │     0.99 │  35.95ms │ -1.40% +2.44% │  7.69Mw │   1.06Mw │   1.06Mw │    100.00% │
+│ lumberhack_Boyer2_nofib_lh               │     1.00 │  35.44ms │ -0.09% +0.08% │  7.68Mw │   1.06Mw │   1.06Mw │     98.59% │
+│ lumberhack_float_out_Boyer2_nofib_lh     │     1.00 │  35.22ms │ -0.06% +0.05% │  7.68Mw │   1.06Mw │   1.06Mw │     97.99% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Boyer_nofib_lh vvvv
@@ -61,10 +61,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌─────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                    │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Boyer_nofib_lh                 │     1.00 │  53.05ms │ -0.17% +0.15% │ 24.39Mw │   5.67Mw │   5.67Mw │     99.72% │
-│ lumberhack_only_expanded_Boyer_nofib_lh │     1.00 │  53.20ms │ -0.75% +1.13% │ 24.39Mw │   5.67Mw │   5.67Mw │    100.00% │
-│ lumberhack_Boyer_nofib_lh               │     1.00 │  52.46ms │ -0.19% +0.26% │ 23.96Mw │   5.65Mw │   5.65Mw │     98.62% │
-│ lumberhack_float_out_Boyer_nofib_lh     │     1.00 │  52.25ms │ -0.11% +0.11% │ 23.96Mw │   5.65Mw │   5.65Mw │     98.21% │
+│ original_Boyer_nofib_lh                 │     1.00 │  52.31ms │ -0.19% +0.20% │ 24.39Mw │   5.67Mw │   5.67Mw │    100.00% │
+│ lumberhack_only_expanded_Boyer_nofib_lh │     1.00 │  52.24ms │ -0.17% +0.17% │ 24.39Mw │   5.67Mw │   5.67Mw │     99.85% │
+│ lumberhack_Boyer_nofib_lh               │     1.00 │  52.04ms │ -0.15% +0.18% │ 23.96Mw │   5.65Mw │   5.65Mw │     99.48% │
+│ lumberhack_float_out_Boyer_nofib_lh     │     1.00 │  51.78ms │ -0.26% +0.27% │ 23.96Mw │   5.65Mw │   5.65Mw │     98.98% │
 └─────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Calendar_nofib_lh vvvv
@@ -72,10 +72,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                       │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Calendar_nofib_lh                 │     1.00 │  12.34ms │ -0.42% +0.42% │  8.82Mw │ 369.52kw │ 369.52kw │    100.00% │
-│ lumberhack_only_expanded_Calendar_nofib_lh │     1.00 │  12.19ms │ -0.43% +0.40% │  8.82Mw │ 364.72kw │ 364.72kw │     98.77% │
-│ lumberhack_Calendar_nofib_lh               │     1.00 │  12.07ms │ -0.09% +0.11% │  8.76Mw │ 358.98kw │ 358.98kw │     97.79% │
-│ lumberhack_float_out_Calendar_nofib_lh     │     1.00 │  11.36ms │ -0.08% +0.13% │  8.45Mw │ 291.78kw │ 291.78kw │     92.01% │
+│ original_Calendar_nofib_lh                 │     1.00 │  12.36ms │ -0.62% +0.68% │  8.82Mw │ 366.59kw │ 366.59kw │    100.00% │
+│ lumberhack_only_expanded_Calendar_nofib_lh │     1.00 │  12.21ms │ -0.57% +0.53% │  8.82Mw │ 366.59kw │ 366.59kw │     98.76% │
+│ lumberhack_Calendar_nofib_lh               │     1.00 │  12.10ms │ -0.12% +0.19% │  8.75Mw │ 358.60kw │ 358.60kw │     97.87% │
+│ lumberhack_float_out_Calendar_nofib_lh     │     1.00 │  11.23ms │ -0.07% +0.09% │  8.39Mw │ 288.87kw │ 288.87kw │     90.84% │
 └────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Cichelli_nofib_lh vvvv
@@ -83,10 +83,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                       │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Cichelli_nofib_lh                 │     1.00 │  35.56ms │ -0.08% +0.12% │ 12.78Mw │ 155.28kw │ 155.28kw │     97.17% │
-│ lumberhack_only_expanded_Cichelli_nofib_lh │     1.00 │  35.34ms │ -0.06% +0.07% │ 12.80Mw │ 155.86kw │ 155.86kw │     96.56% │
-│ lumberhack_Cichelli_nofib_lh               │     1.00 │  36.60ms │ -0.12% +0.13% │ 13.50Mw │ 154.76kw │ 154.76kw │    100.00% │
-│ lumberhack_float_out_Cichelli_nofib_lh     │     1.00 │  35.88ms │ -0.10% +0.11% │ 13.50Mw │ 155.22kw │ 155.22kw │     98.05% │
+│ original_Cichelli_nofib_lh                 │     1.00 │  34.31ms │ -0.09% +0.14% │ 12.78Mw │ 155.52kw │ 155.52kw │     97.57% │
+│ lumberhack_only_expanded_Cichelli_nofib_lh │     1.00 │  34.23ms │ -0.08% +0.13% │ 12.80Mw │ 155.07kw │ 155.07kw │     97.33% │
+│ lumberhack_Cichelli_nofib_lh               │     1.00 │  35.09ms │ -0.22% +0.29% │ 13.50Mw │ 154.05kw │ 154.05kw │     99.79% │
+│ lumberhack_float_out_Cichelli_nofib_lh     │     1.00 │  35.17ms │ -0.13% +0.15% │ 13.50Mw │ 154.20kw │ 154.20kw │    100.00% │
 └────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Circsim_nofib_lh vvvv
@@ -94,10 +94,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Circsim_nofib_lh                 │     1.00 │  21.49ms │ -0.08% +0.11% │ 13.69Mw │ 331.40kw │ 331.40kw │    100.00% │
-│ lumberhack_only_expanded_Circsim_nofib_lh │     1.00 │  21.44ms │ -0.09% +0.10% │ 13.69Mw │ 331.48kw │ 331.48kw │     99.80% │
-│ lumberhack_Circsim_nofib_lh               │     1.00 │  21.33ms │ -0.26% +0.41% │ 13.28Mw │ 321.60kw │ 321.60kw │     99.28% │
-│ lumberhack_float_out_Circsim_nofib_lh     │     1.00 │  20.32ms │ -0.12% +0.17% │ 12.58Mw │ 307.37kw │ 307.37kw │     94.57% │
+│ original_Circsim_nofib_lh                 │     1.00 │  21.28ms │ -0.08% +0.11% │ 13.61Mw │ 329.37kw │ 329.37kw │    100.00% │
+│ lumberhack_only_expanded_Circsim_nofib_lh │     1.00 │  21.24ms │ -0.04% +0.07% │ 13.61Mw │ 329.37kw │ 329.37kw │     99.79% │
+│ lumberhack_Circsim_nofib_lh               │     1.00 │  21.12ms │ -0.07% +0.08% │ 13.19Mw │ 319.09kw │ 319.09kw │     99.24% │
+│ lumberhack_float_out_Circsim_nofib_lh     │     1.00 │  20.14ms │ -0.10% +0.13% │ 12.31Mw │ 300.39kw │ 300.39kw │     94.61% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Clausify_nofib_lh vvvv
@@ -105,10 +105,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                       │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Clausify_nofib_lh                 │     1.00 │  36.26ms │ -0.19% +0.26% │ 11.67Mw │   3.55Mw │   3.55Mw │     99.75% │
-│ lumberhack_only_expanded_Clausify_nofib_lh │     1.00 │  36.35ms │ -0.14% +0.12% │ 11.67Mw │   3.55Mw │   3.55Mw │    100.00% │
-│ lumberhack_Clausify_nofib_lh               │     1.00 │  36.15ms │ -0.41% +0.55% │ 11.68Mw │   3.55Mw │   3.55Mw │     99.43% │
-│ lumberhack_float_out_Clausify_nofib_lh     │     1.00 │  36.10ms │ -0.17% +0.19% │ 11.68Mw │   3.55Mw │   3.55Mw │     99.31% │
+│ original_Clausify_nofib_lh                 │     1.00 │  35.77ms │ -0.17% +0.22% │ 11.68Mw │   3.55Mw │   3.55Mw │     99.59% │
+│ lumberhack_only_expanded_Clausify_nofib_lh │     1.00 │  35.92ms │ -0.15% +0.19% │ 11.68Mw │   3.55Mw │   3.55Mw │    100.00% │
+│ lumberhack_Clausify_nofib_lh               │     1.00 │  35.45ms │ -0.06% +0.07% │ 11.68Mw │   3.55Mw │   3.55Mw │     98.69% │
+│ lumberhack_float_out_Clausify_nofib_lh     │     1.00 │  35.62ms │ -0.09% +0.12% │ 11.68Mw │   3.55Mw │   3.55Mw │     99.16% │
 └────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Constraints_nofib_lh vvvv
@@ -116,10 +116,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                          │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Constraints_nofib_lh                 │     1.00 │ 208.14ms │ -2.08% +2.81% │ 57.89Mw │  22.52Mw │  22.52Mw │    100.00% │
-│ lumberhack_only_expanded_Constraints_nofib_lh │     1.00 │ 208.10ms │ -1.57% +1.53% │ 57.89Mw │  22.52Mw │  22.52Mw │     99.98% │
-│ lumberhack_Constraints_nofib_lh               │     1.00 │ 188.92ms │ -0.74% +0.57% │ 58.91Mw │  22.43Mw │  22.43Mw │     90.76% │
-│ lumberhack_float_out_Constraints_nofib_lh     │     1.00 │ 143.84ms │ -0.30% +0.41% │ 55.43Mw │  16.11Mw │  16.11Mw │     69.10% │
+│ original_Constraints_nofib_lh                 │     0.99 │ 210.82ms │ -2.96% +3.49% │ 56.92Mw │  22.51Mw │  22.51Mw │    100.00% │
+│ lumberhack_only_expanded_Constraints_nofib_lh │     1.00 │ 208.29ms │ -1.57% +0.94% │ 56.92Mw │  22.51Mw │  22.51Mw │     98.80% │
+│ lumberhack_Constraints_nofib_lh               │     1.00 │ 189.69ms │ -1.35% +1.06% │ 58.68Mw │  22.44Mw │  22.44Mw │     89.98% │
+│ lumberhack_float_out_Constraints_nofib_lh     │     1.00 │ 140.22ms │ -0.59% +0.61% │ 51.21Mw │  15.77Mw │  15.77Mw │     66.51% │
 └───────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -129,10 +129,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                           │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Cryptarithm2_nofib_lh                 │     1.00 │  10.51ms │ -0.24% +0.30% │ 17.61Mw │ 195.99kw │ 195.99kw │     98.61% │
-│ lumberhack_only_expanded_Cryptarithm2_nofib_lh │     1.00 │  10.66ms │ -0.10% +0.14% │ 17.61Mw │ 196.05kw │ 196.05kw │    100.00% │
-│ lumberhack_Cryptarithm2_nofib_lh               │     1.00 │  10.21ms │ -0.08% +0.14% │ 17.06Mw │ 189.65kw │ 189.65kw │     95.83% │
-│ lumberhack_float_out_Cryptarithm2_nofib_lh     │     1.00 │   8.76ms │ -0.08% +0.13% │ 15.00Mw │ 137.88kw │ 137.88kw │     82.20% │
+│ original_Cryptarithm2_nofib_lh                 │     1.00 │  10.33ms │ -0.17% +0.22% │ 16.21Mw │ 183.44kw │ 183.44kw │     98.74% │
+│ lumberhack_only_expanded_Cryptarithm2_nofib_lh │     1.00 │  10.46ms │ -0.16% +0.22% │ 16.21Mw │ 183.44kw │ 183.44kw │    100.00% │
+│ lumberhack_Cryptarithm2_nofib_lh               │     1.00 │  10.21ms │ -0.19% +0.21% │ 15.93Mw │ 179.49kw │ 179.49kw │     97.65% │
+│ lumberhack_float_out_Cryptarithm2_nofib_lh     │     1.00 │   8.62ms │ -0.13% +0.16% │ 13.85Mw │ 126.94kw │ 126.94kw │     82.45% │
 └────────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Cryptarithm_nofib_lh vvvv
@@ -140,10 +140,10 @@ Estimated testing time 1h (4 benchmarks x 15m). Change using '-quota'.
 ┌───────────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                          │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Cryptarithm_nofib_lh                 │     1.00 │   13.10s │ -0.39% +0.29% │ 325.89Mw │ 200.74Mw │ 200.74Mw │     91.56% │
-│ lumberhack_only_expanded_Cryptarithm_nofib_lh │     1.00 │   13.16s │ -0.42% +0.28% │ 325.89Mw │ 200.74Mw │ 200.74Mw │     92.00% │
-│ lumberhack_Cryptarithm_nofib_lh               │     1.00 │   14.31s │ -0.12% +0.19% │ 326.30Mw │ 200.74Mw │ 200.74Mw │    100.00% │
-│ lumberhack_float_out_Cryptarithm_nofib_lh     │     1.00 │   13.12s │ -0.31% +0.35% │ 325.93Mw │ 200.77Mw │ 200.77Mw │     91.67% │
+│ original_Cryptarithm_nofib_lh                 │     1.00 │   13.79s │ -0.30% +0.22% │ 326.30Mw │ 200.74Mw │ 200.74Mw │     99.90% │
+│ lumberhack_only_expanded_Cryptarithm_nofib_lh │     1.00 │   13.76s │ -0.22% +0.29% │ 326.30Mw │ 200.74Mw │ 200.74Mw │     99.63% │
+│ lumberhack_Cryptarithm_nofib_lh               │     1.00 │   13.81s │ -0.18% +0.22% │ 326.30Mw │ 200.74Mw │ 200.74Mw │    100.00% │
+│ lumberhack_float_out_Cryptarithm_nofib_lh     │     1.00 │   12.66s │ -0.41% +0.50% │ 325.93Mw │ 200.77Mw │ 200.77Mw │     91.68% │
 └───────────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -153,10 +153,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                  │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Cse_nofib_lh                 │     1.00 │   2.95ms │ -0.17% +0.20% │  2.01Mw │ 164.61kw │ 164.61kw │    100.00% │
-│ lumberhack_only_expanded_Cse_nofib_lh │     1.00 │   2.94ms │ -0.13% +0.13% │  2.01Mw │ 164.60kw │ 164.60kw │     99.58% │
-│ lumberhack_Cse_nofib_lh               │     1.00 │   2.91ms │ -0.10% +0.11% │  1.87Mw │ 163.47kw │ 163.47kw │     98.62% │
-│ lumberhack_float_out_Cse_nofib_lh     │     1.00 │   2.87ms │ -0.13% +0.15% │  1.79Mw │ 162.50kw │ 162.50kw │     97.24% │
+│ original_Cse_nofib_lh                 │     1.00 │   2.91ms │ -0.24% +0.26% │  2.01Mw │ 164.61kw │ 164.61kw │    100.00% │
+│ lumberhack_only_expanded_Cse_nofib_lh │     1.00 │   2.90ms │ -0.10% +0.13% │  2.01Mw │ 164.61kw │ 164.61kw │     99.79% │
+│ lumberhack_Cse_nofib_lh               │     1.00 │   2.85ms │ -0.15% +0.18% │  1.87Mw │ 163.52kw │ 163.52kw │     98.07% │
+│ lumberhack_float_out_Cse_nofib_lh     │     1.00 │   2.83ms │ -0.19% +0.23% │  1.81Mw │ 162.94kw │ 162.94kw │     97.20% │
 └───────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Eliza_nofib_lh vvvv
@@ -164,10 +164,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌─────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                    │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Eliza_nofib_lh                 │     1.00 │   2.42ms │ -0.10% +0.15% │  1.87Mw │  16.72kw │  16.72kw │    100.00% │
-│ lumberhack_only_expanded_Eliza_nofib_lh │     1.00 │   2.42ms │ -0.19% +0.24% │  1.87Mw │  16.72kw │  16.72kw │     99.93% │
-│ lumberhack_Eliza_nofib_lh               │     1.00 │   2.32ms │ -0.09% +0.14% │  1.83Mw │  16.47kw │  16.47kw │     95.70% │
-│ lumberhack_float_out_Eliza_nofib_lh     │     1.00 │   2.31ms │ -0.10% +0.16% │  1.83Mw │  16.43kw │  16.43kw │     95.49% │
+│ original_Eliza_nofib_lh                 │     1.00 │   2.46ms │ -0.13% +0.18% │  1.87Mw │  16.75kw │  16.75kw │    100.00% │
+│ lumberhack_only_expanded_Eliza_nofib_lh │     1.00 │   2.45ms │ -0.16% +0.21% │  1.87Mw │  16.75kw │  16.75kw │     99.50% │
+│ lumberhack_Eliza_nofib_lh               │     1.00 │   2.33ms │ -0.20% +0.24% │  1.83Mw │  16.48kw │  16.48kw │     94.86% │
+│ lumberhack_float_out_Eliza_nofib_lh     │     1.00 │   2.30ms │ -0.25% +0.30% │  1.83Mw │  13.09kw │  13.09kw │     93.36% │
 └─────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Fish_nofib_lh vvvv
@@ -175,10 +175,10 @@ Estimated testing time 1m20s (4 benchmarks x 20s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Fish_nofib_lh                 │     1.00 │ 425.99ms │ -0.11% +0.15% │ 194.08Mw │  35.93Mw │  35.93Mw │    100.00% │
-│ lumberhack_only_expanded_Fish_nofib_lh │     1.00 │ 423.44ms │ -0.11% +0.15% │ 194.08Mw │  35.93Mw │  35.93Mw │     99.40% │
-│ lumberhack_Fish_nofib_lh               │     1.00 │ 326.31ms │ -0.15% +0.17% │ 180.51Mw │  24.51Mw │  24.51Mw │     76.60% │
-│ lumberhack_float_out_Fish_nofib_lh     │     1.00 │ 325.15ms │ -0.10% +0.08% │ 180.51Mw │  24.51Mw │  24.51Mw │     76.33% │
+│ original_Fish_nofib_lh                 │     1.00 │ 427.68ms │ -0.11% +0.21% │ 194.08Mw │  35.93Mw │  35.93Mw │    100.00% │
+│ lumberhack_only_expanded_Fish_nofib_lh │     1.00 │ 425.92ms │ -0.20% +0.20% │ 194.08Mw │  35.93Mw │  35.93Mw │     99.59% │
+│ lumberhack_Fish_nofib_lh               │     1.00 │ 319.14ms │ -0.09% +0.12% │ 177.22Mw │  24.50Mw │  24.50Mw │     74.62% │
+│ lumberhack_float_out_Fish_nofib_lh     │     1.00 │ 320.36ms │ -0.11% +0.16% │ 177.23Mw │  24.50Mw │  24.50Mw │     74.91% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -188,10 +188,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                  │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Gcd_nofib_lh                 │     1.00 │ 131.18ms │ -0.27% +0.29% │ 33.14Mw │   6.05Mw │   6.05Mw │    100.00% │
-│ lumberhack_only_expanded_Gcd_nofib_lh │     1.00 │ 130.94ms │ -0.24% +0.21% │ 33.14Mw │   6.05Mw │   6.05Mw │     99.82% │
-│ lumberhack_Gcd_nofib_lh               │     1.00 │ 119.26ms │ -0.27% +0.40% │ 32.18Mw │   5.08Mw │   5.08Mw │     90.91% │
-│ lumberhack_float_out_Gcd_nofib_lh     │     1.00 │  89.86ms │ -0.57% +0.62% │ 25.81Mw │   2.66Mw │   2.66Mw │     68.50% │
+│ original_Gcd_nofib_lh                 │     1.00 │ 131.47ms │ -0.44% +0.42% │ 33.14Mw │   6.05Mw │   6.05Mw │    100.00% │
+│ lumberhack_only_expanded_Gcd_nofib_lh │     1.00 │ 131.08ms │ -0.25% +0.25% │ 33.14Mw │   6.05Mw │   6.05Mw │     99.70% │
+│ lumberhack_Gcd_nofib_lh               │     1.00 │ 118.83ms │ -0.31% +0.28% │ 32.18Mw │   5.08Mw │   5.08Mw │     90.38% │
+│ lumberhack_float_out_Gcd_nofib_lh     │     1.00 │  89.88ms │ -0.28% +0.23% │ 25.81Mw │   2.66Mw │   2.66Mw │     68.37% │
 └───────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -201,10 +201,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Integer_nofib_lh                 │     1.00 │ 173.73ms │ -0.18% +0.15% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.12% │
-│ lumberhack_only_expanded_Integer_nofib_lh │     1.00 │ 174.41ms │ -0.27% +0.18% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.51% │
-│ lumberhack_Integer_nofib_lh               │     1.00 │ 173.77ms │ -0.18% +0.12% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.15% │
-│ lumberhack_float_out_Integer_nofib_lh     │     1.00 │ 175.27ms │ -0.49% +0.36% │ 21.68Mw │  18.88Mw │  18.88Mw │    100.00% │
+│ original_Integer_nofib_lh                 │     1.00 │ 170.04ms │ -0.16% +0.18% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.71% │
+│ lumberhack_only_expanded_Integer_nofib_lh │     1.00 │ 170.31ms │ -0.21% +0.20% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.86% │
+│ lumberhack_Integer_nofib_lh               │     1.00 │ 169.81ms │ -0.21% +0.20% │ 21.68Mw │  18.88Mw │  18.88Mw │     99.57% │
+│ lumberhack_float_out_Integer_nofib_lh     │     1.00 │ 170.54ms │ -0.21% +0.17% │ 21.68Mw │  18.88Mw │  18.88Mw │    100.00% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -214,10 +214,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Knights_nofib_lh                 │     1.00 │   1.31ms │ -0.16% +0.18% │ 198.00kw │   3.42kw │   3.42kw │    100.00% │
-│ lumberhack_only_expanded_Knights_nofib_lh │     1.00 │   1.31ms │ -0.16% +0.19% │ 197.95kw │   3.41kw │   3.41kw │     99.85% │
-│ lumberhack_Knights_nofib_lh               │     1.00 │   1.30ms │ -0.14% +0.18% │ 199.16kw │   3.43kw │   3.43kw │     99.21% │
-│ lumberhack_float_out_Knights_nofib_lh     │     1.00 │   1.30ms │ -0.16% +0.18% │ 200.21kw │   3.43kw │   3.43kw │     99.04% │
+│ original_Knights_nofib_lh                 │     1.00 │   1.29ms │ -0.10% +0.15% │ 198.53kw │   3.40kw │   3.40kw │     99.86% │
+│ lumberhack_only_expanded_Knights_nofib_lh │     1.00 │   1.29ms │ -0.10% +0.17% │ 198.60kw │   3.41kw │   3.41kw │    100.00% │
+│ lumberhack_Knights_nofib_lh               │     1.00 │   1.28ms │ -0.10% +0.13% │ 199.16kw │   3.43kw │   3.43kw │     99.18% │
+│ lumberhack_float_out_Knights_nofib_lh     │     1.00 │   1.28ms │ -0.11% +0.18% │ 200.27kw │   3.43kw │   3.43kw │     98.85% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 
 vvvv LCSS_nofib_lh vvvv
@@ -225,32 +225,32 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_LCSS_nofib_lh                 │     1.00 │ 141.32us │ -0.13% +0.15% │ 113.54kw │  572.46w │  572.46w │    100.00% │
-│ lumberhack_only_expanded_LCSS_nofib_lh │     1.00 │ 140.70us │ -0.12% +0.14% │ 113.54kw │  572.36w │  572.36w │     99.56% │
-│ lumberhack_LCSS_nofib_lh               │     1.00 │ 140.35us │ -0.11% +0.12% │ 113.18kw │  565.73w │  565.73w │     99.31% │
-│ lumberhack_float_out_LCSS_nofib_lh     │     1.00 │ 139.97us │ -0.14% +0.15% │ 112.69kw │  522.90w │  522.90w │     99.05% │
+│ original_LCSS_nofib_lh                 │     1.00 │ 136.47us │ -0.09% +0.11% │ 113.13kw │  563.68w │  563.68w │    100.00% │
+│ lumberhack_only_expanded_LCSS_nofib_lh │     1.00 │ 136.25us │ -0.08% +0.12% │ 113.13kw │  563.68w │  563.68w │     99.84% │
+│ lumberhack_LCSS_nofib_lh               │     1.00 │ 135.67us │ -0.11% +0.14% │ 112.60kw │  554.95w │  554.95w │     99.42% │
+│ lumberhack_float_out_LCSS_nofib_lh     │     1.00 │ 135.04us │ -0.10% +0.15% │ 112.11kw │  517.40w │  517.40w │     98.96% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 
 vvvv Lambda_nofib_lh vvvv
 Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
-┌──────────────────────────────────────────┬──────────┬────────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
-│ Name                                     │ Time R^2 │   Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
-├──────────────────────────────────────────┼──────────┼────────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Lambda_nofib_lh                 │     1.00 │ 1_049.58us │ -0.09% +0.12% │  1.39Mw │  11.60kw │  11.60kw │    100.00% │
-│ lumberhack_only_expanded_Lambda_nofib_lh │     1.00 │ 1_045.95us │ -0.07% +0.08% │  1.39Mw │  11.60kw │  11.60kw │     99.65% │
-│ lumberhack_Lambda_nofib_lh               │     1.00 │   935.53us │ -0.06% +0.08% │  1.09Mw │   9.36kw │   9.36kw │     89.13% │
-│ lumberhack_float_out_Lambda_nofib_lh     │     1.00 │   929.92us │ -0.11% +0.13% │  1.09Mw │   9.36kw │   9.36kw │     88.60% │
-└──────────────────────────────────────────┴──────────┴────────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
+┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
+│ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
+├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
+│ original_Lambda_nofib_lh                 │     1.00 │ 932.69us │ -0.15% +0.20% │  1.31Mw │  10.56kw │  10.56kw │    100.00% │
+│ lumberhack_only_expanded_Lambda_nofib_lh │     1.00 │ 926.25us │ -0.09% +0.13% │  1.31Mw │  10.56kw │  10.56kw │     99.31% │
+│ lumberhack_Lambda_nofib_lh               │     1.00 │ 845.06us │ -0.10% +0.13% │  1.08Mw │   9.17kw │   9.17kw │     90.60% │
+│ lumberhack_float_out_Lambda_nofib_lh     │     1.00 │ 844.37us │ -0.12% +0.19% │  1.08Mw │   9.17kw │   9.17kw │     90.53% │
+└──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv LastPiece_nofib_lh vvvv
 Estimated testing time 1m20s (4 benchmarks x 20s). Change using '-quota'.
 ┌─────────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                        │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_LastPiece_nofib_lh                 │     1.00 │ 413.19ms │ -0.25% +0.35% │ 132.17Mw │  14.52Mw │  14.52Mw │    100.00% │
-│ lumberhack_only_expanded_LastPiece_nofib_lh │     1.00 │ 410.33ms │ -0.34% +0.36% │ 132.17Mw │  14.52Mw │  14.52Mw │     99.31% │
-│ lumberhack_LastPiece_nofib_lh               │     1.00 │ 391.68ms │ -0.42% +0.45% │ 138.43Mw │  14.60Mw │  14.60Mw │     94.80% │
-│ lumberhack_float_out_LastPiece_nofib_lh     │     1.00 │ 391.79ms │ -0.26% +0.48% │ 137.81Mw │  14.60Mw │  14.60Mw │     94.82% │
+│ original_LastPiece_nofib_lh                 │     1.00 │ 391.15ms │ -0.74% +1.12% │ 132.06Mw │  14.53Mw │  14.53Mw │    100.00% │
+│ lumberhack_only_expanded_LastPiece_nofib_lh │     1.00 │ 387.95ms │ -0.25% +0.28% │ 132.06Mw │  14.53Mw │  14.53Mw │     99.18% │
+│ lumberhack_LastPiece_nofib_lh               │     1.00 │ 376.51ms │ -0.23% +0.35% │ 138.43Mw │  14.60Mw │  14.60Mw │     96.26% │
+│ lumberhack_float_out_LastPiece_nofib_lh     │     1.00 │ 368.61ms │ -0.34% +0.40% │ 137.81Mw │  14.60Mw │  14.60Mw │     94.24% │
 └─────────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -260,32 +260,32 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Life_nofib_lh                 │     1.00 │  13.19ms │ -0.14% +0.18% │ 12.74Mw │   1.03Mw │   1.03Mw │     98.20% │
-│ lumberhack_only_expanded_Life_nofib_lh │     1.00 │  13.11ms │ -0.10% +0.14% │ 12.74Mw │   1.03Mw │   1.03Mw │     97.64% │
-│ lumberhack_Life_nofib_lh               │     1.00 │  13.41ms │ -0.09% +0.12% │ 12.75Mw │   1.02Mw │   1.02Mw │     99.87% │
-│ lumberhack_float_out_Life_nofib_lh     │     1.00 │  13.43ms │ -0.22% +0.28% │ 12.75Mw │   1.02Mw │   1.02Mw │    100.00% │
+│ original_Life_nofib_lh                 │     1.00 │  13.09ms │ -0.15% +0.19% │ 12.74Mw │   1.03Mw │   1.03Mw │     98.32% │
+│ lumberhack_only_expanded_Life_nofib_lh │     1.00 │  12.96ms │ -0.14% +0.20% │ 12.74Mw │   1.03Mw │   1.03Mw │     97.38% │
+│ lumberhack_Life_nofib_lh               │     1.00 │  13.31ms │ -0.13% +0.18% │ 12.77Mw │   1.02Mw │   1.02Mw │    100.00% │
+│ lumberhack_float_out_Life_nofib_lh     │     1.00 │  13.02ms │ -0.16% +0.21% │ 12.96Mw │   1.03Mw │   1.03Mw │     97.83% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Mandel2_nofib_lh vvvv
 Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
-┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
-│ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
-├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Mandel2_nofib_lh                 │     1.00 │   5.23ms │ -0.07% +0.11% │  3.37Mw │  35.04kw │  35.04kw │    100.00% │
-│ lumberhack_only_expanded_Mandel2_nofib_lh │     1.00 │   5.02ms │ -0.05% +0.08% │  3.37Mw │  35.05kw │  35.05kw │     95.96% │
-│ lumberhack_Mandel2_nofib_lh               │     1.00 │   4.08ms │ -0.07% +0.09% │  3.37Mw │  35.06kw │  35.06kw │     77.95% │
-│ lumberhack_float_out_Mandel2_nofib_lh     │     1.00 │   4.06ms │ -0.05% +0.08% │  3.37Mw │  35.06kw │  35.06kw │     77.54% │
-└───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
+┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬────────────┬────────────┬────────────┐
+│ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │   mjWd/Run │   Prom/Run │ Percentage │
+├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼────────────┼────────────┼────────────┤
+│ original_Mandel2_nofib_lh                 │     1.00 │   5.21ms │ -0.11% +0.18% │  3.37Mw │ 35_044.75w │ 35_044.75w │    100.00% │
+│ lumberhack_only_expanded_Mandel2_nofib_lh │     1.00 │   5.01ms │ -0.13% +0.18% │  3.37Mw │ 35_050.96w │ 35_050.96w │     96.17% │
+│ lumberhack_Mandel2_nofib_lh               │     1.00 │   4.06ms │ -0.11% +0.21% │  3.37Mw │ 35_060.13w │ 35_060.13w │     77.93% │
+│ lumberhack_float_out_Mandel2_nofib_lh     │     1.00 │   3.82ms │ -0.10% +0.18% │  3.33Mw │    978.62w │    978.62w │     73.35% │
+└───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴────────────┴────────────┴────────────┘
 
 vvvv Mandel_nofib_lh vvvv
 Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Mandel_nofib_lh                 │     1.00 │   4.23ms │ -0.33% +0.31% │  3.39Mw │ 168.64kw │ 168.64kw │    100.00% │
-│ lumberhack_only_expanded_Mandel_nofib_lh │     1.00 │   4.21ms │ -0.14% +0.15% │  3.39Mw │ 168.64kw │ 168.64kw │     99.53% │
-│ lumberhack_Mandel_nofib_lh               │     0.97 │   4.11ms │ -2.87% +2.98% │  3.32Mw │ 156.08kw │ 156.08kw │     97.11% │
-│ lumberhack_float_out_Mandel_nofib_lh     │     1.00 │   3.12ms │ -0.06% +0.07% │  3.34Mw │  21.52kw │  21.52kw │     73.61% │
+│ original_Mandel_nofib_lh                 │     1.00 │   3.98ms │ -0.15% +0.18% │  3.27Mw │ 168.37kw │ 168.37kw │    100.00% │
+│ lumberhack_only_expanded_Mandel_nofib_lh │     1.00 │   3.94ms │ -0.19% +0.20% │  3.27Mw │ 168.37kw │ 168.37kw │     99.03% │
+│ lumberhack_Mandel_nofib_lh               │     1.00 │   3.84ms │ -0.12% +0.18% │  3.20Mw │ 155.60kw │ 155.60kw │     96.38% │
+│ lumberhack_float_out_Mandel_nofib_lh     │     1.00 │   2.86ms │ -0.16% +0.21% │  2.70Mw │  19.49kw │  19.49kw │     71.92% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Mate_nofib_lh vvvv
@@ -293,10 +293,10 @@ Estimated testing time 4m (4 benchmarks x 1m). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Mate_nofib_lh                 │     1.00 │ 829.21ms │ -0.04% +0.04% │ 288.01Mw │   5.86Mw │   5.86Mw │    100.00% │
-│ lumberhack_only_expanded_Mate_nofib_lh │     1.00 │ 828.83ms │ -0.06% +0.07% │ 288.01Mw │   5.86Mw │   5.86Mw │     99.95% │
-│ lumberhack_Mate_nofib_lh               │     1.00 │ 827.39ms │ -0.05% +0.07% │ 288.33Mw │   5.87Mw │   5.87Mw │     99.78% │
-│ lumberhack_float_out_Mate_nofib_lh     │     1.00 │ 826.93ms │ -0.04% +0.05% │ 288.33Mw │   5.86Mw │   5.86Mw │     99.73% │
+│ original_Mate_nofib_lh                 │     1.00 │ 797.64ms │ -0.03% +0.04% │ 287.92Mw │   5.85Mw │   5.85Mw │    100.00% │
+│ lumberhack_only_expanded_Mate_nofib_lh │     1.00 │ 793.33ms │ -0.04% +0.03% │ 287.92Mw │   5.85Mw │   5.85Mw │     99.46% │
+│ lumberhack_Mate_nofib_lh               │     1.00 │ 792.60ms │ -0.06% +0.04% │ 287.78Mw │   5.86Mw │   5.86Mw │     99.37% │
+│ lumberhack_float_out_Mate_nofib_lh     │     1.00 │ 791.88ms │ -0.06% +0.09% │ 287.58Mw │   5.86Mw │   5.86Mw │     99.28% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -306,10 +306,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Minimax_nofib_lh                 │     1.00 │  16.80ms │ -0.15% +0.22% │ 13.84Mw │ 915.39kw │ 915.39kw │     99.74% │
-│ lumberhack_only_expanded_Minimax_nofib_lh │     1.00 │  16.54ms │ -0.37% +0.65% │ 13.84Mw │ 915.47kw │ 915.47kw │     98.22% │
-│ lumberhack_Minimax_nofib_lh               │     1.00 │  16.84ms │ -0.10% +0.14% │ 13.99Mw │ 918.17kw │ 918.17kw │    100.00% │
-│ lumberhack_float_out_Minimax_nofib_lh     │     1.00 │  16.13ms │ -0.15% +0.15% │ 12.80Mw │ 893.79kw │ 893.79kw │     95.78% │
+│ original_Minimax_nofib_lh                 │     1.00 │  17.24ms │ -0.24% +0.31% │ 13.84Mw │ 915.08kw │ 915.08kw │    100.00% │
+│ lumberhack_only_expanded_Minimax_nofib_lh │     1.00 │  16.54ms │ -0.19% +0.21% │ 13.84Mw │ 915.48kw │ 915.48kw │     95.94% │
+│ lumberhack_Minimax_nofib_lh               │     1.00 │  16.98ms │ -0.17% +0.18% │ 13.99Mw │ 917.80kw │ 917.80kw │     98.50% │
+│ lumberhack_float_out_Minimax_nofib_lh     │     1.00 │  16.17ms │ -0.20% +0.22% │ 12.80Mw │ 893.26kw │ 893.26kw │     93.81% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Para_nofib_lh vvvv
@@ -317,10 +317,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Para_nofib_lh                 │     1.00 │  91.05us │ -0.06% +0.07% │ 58.50kw │  981.83w │  981.83w │     99.32% │
-│ lumberhack_only_expanded_Para_nofib_lh │     1.00 │  91.67us │ -0.33% +0.40% │ 58.50kw │  982.51w │  982.51w │    100.00% │
-│ lumberhack_Para_nofib_lh               │     1.00 │  90.09us │ -0.22% +0.26% │ 57.01kw │  912.55w │  912.55w │     98.28% │
-│ lumberhack_float_out_Para_nofib_lh     │     1.00 │  89.91us │ -0.54% +0.99% │ 56.91kw │  883.77w │  883.77w │     98.08% │
+│ original_Para_nofib_lh                 │     1.00 │  65.61us │ -0.07% +0.09% │ 57.77kw │  965.84w │  965.84w │     99.64% │
+│ lumberhack_only_expanded_Para_nofib_lh │     1.00 │  65.30us │ -0.06% +0.06% │ 57.77kw │  966.28w │  966.28w │     99.17% │
+│ lumberhack_Para_nofib_lh               │     1.00 │  65.24us │ -0.06% +0.07% │ 57.66kw │  965.24w │  965.24w │     99.07% │
+│ lumberhack_float_out_Para_nofib_lh     │     1.00 │  65.85us │ -0.07% +0.08% │ 57.46kw │  899.30w │  899.30w │    100.00% │
 └────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Power_nofib_lh vvvv
@@ -328,10 +328,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌─────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                    │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Power_nofib_lh                 │     1.00 │ 767.02us │ -0.13% +0.15% │ 388.83kw │  50.72kw │  50.72kw │     98.69% │
-│ lumberhack_only_expanded_Power_nofib_lh │     1.00 │ 777.19us │ -0.11% +0.13% │ 388.87kw │  50.74kw │  50.74kw │    100.00% │
-│ lumberhack_Power_nofib_lh               │     1.00 │ 763.68us │ -0.11% +0.15% │ 388.83kw │  50.73kw │  50.73kw │     98.26% │
-│ lumberhack_float_out_Power_nofib_lh     │     1.00 │ 764.33us │ -0.10% +0.14% │ 388.83kw │  50.73kw │  50.73kw │     98.35% │
+│ original_Power_nofib_lh                 │     1.00 │ 768.02us │ -0.15% +0.16% │ 388.83kw │  50.72kw │  50.72kw │     99.93% │
+│ lumberhack_only_expanded_Power_nofib_lh │     1.00 │ 765.04us │ -0.13% +0.13% │ 388.86kw │  50.74kw │  50.74kw │     99.54% │
+│ lumberhack_Power_nofib_lh               │     1.00 │ 764.27us │ -0.16% +0.17% │ 388.72kw │  50.73kw │  50.73kw │     99.44% │
+│ lumberhack_float_out_Power_nofib_lh     │     1.00 │ 768.54us │ -0.16% +0.16% │ 388.74kw │  50.71kw │  50.71kw │    100.00% │
 └─────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 
 vvvv Pretty_nofib_lh vvvv
@@ -339,10 +339,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Pretty_nofib_lh                 │     1.00 │   7.50us │ -0.06% +0.06% │ 10.09kw │   61.48w │   61.48w │     99.75% │
-│ lumberhack_only_expanded_Pretty_nofib_lh │     1.00 │   7.52us │ -0.08% +0.09% │ 10.09kw │   61.48w │   61.48w │    100.00% │
-│ lumberhack_Pretty_nofib_lh               │     1.00 │   7.38us │ -0.08% +0.09% │  9.45kw │   56.26w │   56.26w │     98.17% │
-│ lumberhack_float_out_Pretty_nofib_lh     │     1.00 │   7.39us │ -0.03% +0.04% │  9.46kw │   56.27w │   56.27w │     98.20% │
+│ original_Pretty_nofib_lh                 │     1.00 │   7.49us │ -0.07% +0.08% │ 10.09kw │   61.48w │   61.48w │     99.84% │
+│ lumberhack_only_expanded_Pretty_nofib_lh │     1.00 │   7.51us │ -0.05% +0.05% │ 10.09kw │   61.48w │   61.48w │    100.00% │
+│ lumberhack_Pretty_nofib_lh               │     1.00 │   7.39us │ -0.08% +0.09% │  9.45kw │   56.26w │   56.26w │     98.49% │
+│ lumberhack_float_out_Pretty_nofib_lh     │     1.00 │   7.42us │ -0.26% +0.46% │  9.46kw │   56.26w │   56.26w │     98.83% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Puzzle_nofib_lh vvvv
@@ -350,10 +350,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Puzzle_nofib_lh                 │     1.00 │  87.11ms │ -0.09% +0.11% │ 18.32Mw │   1.77Mw │   1.77Mw │     92.76% │
-│ lumberhack_only_expanded_Puzzle_nofib_lh │     1.00 │  86.44ms │ -0.12% +0.13% │ 18.32Mw │   1.77Mw │   1.77Mw │     92.04% │
-│ lumberhack_Puzzle_nofib_lh               │     1.00 │  93.91ms │ -0.27% +0.23% │ 24.12Mw │   1.87Mw │   1.87Mw │    100.00% │
-│ lumberhack_float_out_Puzzle_nofib_lh     │     1.00 │  93.37ms │ -0.10% +0.11% │ 22.46Mw │   1.82Mw │   1.82Mw │     99.43% │
+│ original_Puzzle_nofib_lh                 │     1.00 │  60.63ms │ -0.25% +0.25% │ 18.16Mw │   1.76Mw │   1.76Mw │     99.77% │
+│ lumberhack_only_expanded_Puzzle_nofib_lh │     1.00 │  59.40ms │ -0.26% +0.28% │ 18.16Mw │   1.76Mw │   1.76Mw │     97.75% │
+│ lumberhack_Puzzle_nofib_lh               │     1.00 │  60.76ms │ -0.22% +0.20% │ 24.39Mw │   1.82Mw │   1.82Mw │    100.00% │
+│ lumberhack_float_out_Puzzle_nofib_lh     │     1.00 │  60.03ms │ -0.24% +0.19% │ 21.79Mw │   1.81Mw │   1.81Mw │     98.79% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Rewrite_nofib_lh vvvv
@@ -361,10 +361,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Rewrite_nofib_lh                 │     1.00 │  57.01ms │ -0.05% +0.05% │ 35.65Mw │ 467.28kw │ 467.28kw │     99.54% │
-│ lumberhack_only_expanded_Rewrite_nofib_lh │     1.00 │  57.19ms │ -0.03% +0.03% │ 35.65Mw │ 467.28kw │ 467.28kw │     99.86% │
-│ lumberhack_Rewrite_nofib_lh               │     1.00 │  57.00ms │ -0.06% +0.08% │ 35.79Mw │ 469.83kw │ 469.83kw │     99.53% │
-│ lumberhack_float_out_Rewrite_nofib_lh     │     1.00 │  57.27ms │ -0.09% +0.14% │ 35.76Mw │ 463.32kw │ 463.32kw │    100.00% │
+│ original_Rewrite_nofib_lh                 │     1.00 │  42.67ms │ -0.16% +0.22% │ 35.76Mw │ 468.32kw │ 468.32kw │     98.85% │
+│ lumberhack_only_expanded_Rewrite_nofib_lh │     1.00 │  42.70ms │ -0.16% +0.23% │ 35.76Mw │ 468.32kw │ 468.32kw │     98.93% │
+│ lumberhack_Rewrite_nofib_lh               │     1.00 │  43.17ms │ -0.20% +0.26% │ 35.80Mw │ 470.70kw │ 470.70kw │    100.00% │
+│ lumberhack_float_out_Rewrite_nofib_lh     │     1.00 │  42.39ms │ -0.21% +0.26% │ 34.94Mw │ 461.60kw │ 461.60kw │     98.21% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Rsa_nofib_lh vvvv
@@ -372,10 +372,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                  │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Rsa_nofib_lh                 │     1.00 │  83.73ms │ -0.15% +0.26% │  8.87Mw │  34.07Mw │ 413.62kw │     95.41% │
-│ lumberhack_only_expanded_Rsa_nofib_lh │     1.00 │  85.08ms │ -0.18% +0.24% │  8.87Mw │  34.07Mw │ 413.62kw │     96.95% │
-│ lumberhack_Rsa_nofib_lh               │     1.00 │  87.76ms │ -0.85% +0.98% │  8.84Mw │  34.06Mw │ 404.39kw │    100.00% │
-│ lumberhack_float_out_Rsa_nofib_lh     │     1.00 │  85.60ms │ -1.18% +2.03% │  8.78Mw │  33.88Mw │ 222.88kw │     97.54% │
+│ original_Rsa_nofib_lh                 │     1.00 │  64.76ms │ -0.30% +0.41% │  8.87Mw │  34.07Mw │ 413.62kw │     98.50% │
+│ lumberhack_only_expanded_Rsa_nofib_lh │     1.00 │  65.75ms │ -0.23% +0.24% │  8.87Mw │  34.07Mw │ 413.62kw │    100.00% │
+│ lumberhack_Rsa_nofib_lh               │     1.00 │  65.34ms │ -0.27% +0.32% │  8.84Mw │  34.06Mw │ 404.39kw │     99.38% │
+│ lumberhack_float_out_Rsa_nofib_lh     │     1.00 │  65.19ms │ -0.11% +0.18% │  8.78Mw │  33.88Mw │ 222.88kw │     99.15% │
 └───────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Scc_nofib_lh vvvv
@@ -383,10 +383,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                  │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Scc_nofib_lh                 │     1.00 │   2.16us │ -0.07% +0.07% │ 820.00w │    0.36w │    0.36w │    100.00% │
-│ lumberhack_only_expanded_Scc_nofib_lh │     1.00 │   2.15us │ -0.05% +0.05% │ 820.03w │    0.36w │    0.36w │     99.29% │
-│ lumberhack_Scc_nofib_lh               │     1.00 │   2.14us │ -0.06% +0.06% │ 820.03w │    0.36w │    0.36w │     99.06% │
-│ lumberhack_float_out_Scc_nofib_lh     │     1.00 │   2.14us │ -0.05% +0.05% │ 820.03w │    0.36w │    0.36w │     99.07% │
+│ original_Scc_nofib_lh                 │     1.00 │   1.65us │ -0.15% +0.19% │ 844.02w │    0.37w │    0.37w │    100.00% │
+│ lumberhack_only_expanded_Scc_nofib_lh │     1.00 │   1.62us │ -0.20% +0.24% │ 844.05w │    0.37w │    0.37w │     98.10% │
+│ lumberhack_Scc_nofib_lh               │     1.00 │   1.61us │ -0.19% +0.23% │ 844.05w │    0.37w │    0.37w │     97.50% │
+│ lumberhack_float_out_Scc_nofib_lh     │     1.00 │   1.60us │ -0.18% +0.21% │ 844.01w │    0.37w │    0.37w │     97.33% │
 └───────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Secretary_nofib_lh vvvv
@@ -394,10 +394,10 @@ Estimated testing time 20m (4 benchmarks x 5m). Change using '-quota'.
 ┌─────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                        │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Secretary_nofib_lh                 │     1.00 │    5.30s │ -0.50% +0.91% │  2.05Gw │ 115.45Mw │ 115.45Mw │    100.00% │
-│ lumberhack_only_expanded_Secretary_nofib_lh │     1.00 │    5.25s │ -0.11% +0.10% │  2.05Gw │ 115.45Mw │ 115.45Mw │     99.06% │
-│ lumberhack_Secretary_nofib_lh               │     1.00 │    5.28s │ -0.59% +0.92% │  2.05Gw │ 114.96Mw │ 114.96Mw │     99.56% │
-│ lumberhack_float_out_Secretary_nofib_lh     │     1.00 │    5.23s │ -0.21% +0.20% │  2.05Gw │ 115.00Mw │ 115.00Mw │     98.70% │
+│ original_Secretary_nofib_lh                 │     1.00 │    5.24s │               │  2.05Gw │ 115.45Mw │ 115.45Mw │    100.00% │
+│ lumberhack_only_expanded_Secretary_nofib_lh │     1.00 │    5.23s │ -0.04% +0.04% │  2.05Gw │ 115.45Mw │ 115.45Mw │     99.82% │
+│ lumberhack_Secretary_nofib_lh               │     1.00 │    5.23s │ -0.10% +0.13% │  2.05Gw │ 114.94Mw │ 114.94Mw │     99.78% │
+│ lumberhack_float_out_Secretary_nofib_lh     │     1.00 │    5.22s │ -0.17% +0.17% │  2.05Gw │ 115.00Mw │ 115.00Mw │     99.48% │
 └─────────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 Benchmarks that take 1ns to 100ms can be estimated precisely. For more reliable 
 estimates, redesign your benchmark to have a shorter execution time.
@@ -407,10 +407,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌───────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                      │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├───────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Sorting_nofib_lh                 │     1.00 │  56.25us │ -0.06% +0.07% │ 42.95kw │  610.41w │  610.41w │    100.00% │
-│ lumberhack_only_expanded_Sorting_nofib_lh │     1.00 │  54.97us │ -0.07% +0.08% │ 42.94kw │  610.36w │  610.36w │     97.71% │
-│ lumberhack_Sorting_nofib_lh               │     1.00 │  53.90us │ -0.05% +0.05% │ 42.83kw │  614.96w │  614.96w │     95.82% │
-│ lumberhack_float_out_Sorting_nofib_lh     │     1.00 │  53.98us │ -0.07% +0.07% │ 42.67kw │  555.09w │  555.09w │     95.96% │
+│ original_Sorting_nofib_lh                 │     1.00 │  41.81us │ -0.10% +0.10% │ 42.92kw │  611.40w │  611.40w │    100.00% │
+│ lumberhack_only_expanded_Sorting_nofib_lh │     1.00 │  40.57us │ -0.08% +0.08% │ 42.92kw │  611.35w │  611.35w │     97.04% │
+│ lumberhack_Sorting_nofib_lh               │     1.00 │  40.36us │ -0.06% +0.07% │ 42.83kw │  615.08w │  615.08w │     96.51% │
+│ lumberhack_float_out_Sorting_nofib_lh     │     1.00 │  39.88us │ -0.08% +0.09% │ 42.66kw │  554.28w │  554.28w │     95.38% │
 └───────────────────────────────────────────┴──────────┴──────────┴───────────────┴─────────┴──────────┴──────────┴────────────┘
 
 vvvv Sphere_nofib_lh vvvv
@@ -418,10 +418,10 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌──────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                     │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├──────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Sphere_nofib_lh                 │     1.00 │ 715.18us │ -0.11% +0.14% │ 649.13kw │  14.46kw │  14.46kw │     99.80% │
-│ lumberhack_only_expanded_Sphere_nofib_lh │     1.00 │ 716.60us │ -0.05% +0.05% │ 649.13kw │  14.46kw │  14.46kw │    100.00% │
-│ lumberhack_Sphere_nofib_lh               │     1.00 │ 681.06us │ -0.09% +0.11% │ 623.70kw │   9.61kw │   9.61kw │     95.04% │
-│ lumberhack_float_out_Sphere_nofib_lh     │     1.00 │ 625.55us │ -0.04% +0.03% │ 627.26kw │   2.46kw │   2.46kw │     87.29% │
+│ original_Sphere_nofib_lh                 │     1.00 │ 433.16us │ -0.13% +0.20% │ 568.63kw │  13.96kw │  13.96kw │     99.76% │
+│ lumberhack_only_expanded_Sphere_nofib_lh │     1.00 │ 434.19us │ -0.15% +0.18% │ 568.63kw │  13.96kw │  13.96kw │    100.00% │
+│ lumberhack_Sphere_nofib_lh               │     1.00 │ 414.38us │ -0.17% +0.22% │ 547.13kw │   9.28kw │   9.28kw │     95.44% │
+│ lumberhack_float_out_Sphere_nofib_lh     │     1.00 │ 313.32us │ -0.14% +0.20% │ 469.16kw │   2.17kw │   2.17kw │     72.16% │
 └──────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
 
 vvvv Treejoin_nofib_lh vvvv
@@ -429,8 +429,8 @@ Estimated testing time 40s (4 benchmarks x 10s). Change using '-quota'.
 ┌────────────────────────────────────────────┬──────────┬──────────┬───────────────┬──────────┬──────────┬──────────┬────────────┐
 │ Name                                       │ Time R^2 │ Time/Run │          95ci │  mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├────────────────────────────────────────────┼──────────┼──────────┼───────────────┼──────────┼──────────┼──────────┼────────────┤
-│ original_Treejoin_nofib_lh                 │     1.00 │   1.18ms │ -0.12% +0.13% │ 435.35kw │  45.81kw │  45.81kw │    100.00% │
-│ lumberhack_only_expanded_Treejoin_nofib_lh │     1.00 │   1.16ms │ -0.16% +0.17% │ 435.30kw │  45.78kw │  45.78kw │     98.66% │
-│ lumberhack_Treejoin_nofib_lh               │     1.00 │   1.16ms │ -0.12% +0.12% │ 435.40kw │  45.81kw │  45.81kw │     98.39% │
-│ lumberhack_float_out_Treejoin_nofib_lh     │     1.00 │   1.16ms │ -0.13% +0.12% │ 435.40kw │  45.81kw │  45.81kw │     98.61% │
+│ original_Treejoin_nofib_lh                 │     1.00 │ 895.49us │ -0.20% +0.22% │ 435.34kw │  45.80kw │  45.80kw │    100.00% │
+│ lumberhack_only_expanded_Treejoin_nofib_lh │     1.00 │ 889.59us │ -0.22% +0.25% │ 435.33kw │  45.79kw │  45.79kw │     99.34% │
+│ lumberhack_Treejoin_nofib_lh               │     1.00 │ 882.00us │ -0.19% +0.22% │ 435.39kw │  45.81kw │  45.81kw │     98.49% │
+│ lumberhack_float_out_Treejoin_nofib_lh     │     1.00 │ 880.25us │ -0.21% +0.22% │ 435.34kw │  45.80kw │  45.80kw │     98.30% │
 └────────────────────────────────────────────┴──────────┴──────────┴───────────────┴──────────┴──────────┴──────────┴────────────┘
