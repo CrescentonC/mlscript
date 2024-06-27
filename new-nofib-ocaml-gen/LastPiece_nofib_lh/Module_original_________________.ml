@@ -14,7 +14,7 @@ let rec addIntInt_lh _lh_addIntInt_arg1_0 _lh_addIntInt_arg2_0 =
       (match _lh_addIntInt_arg2_0 with
         | `LH_P2(_lh_addIntInt_LH_P2_0_1, _lh_addIntInt_LH_P2_1_1) -> 
           (`LH_P2((_lh_addIntInt_LH_P2_0_0 + _lh_addIntInt_LH_P2_0_1), (_lh_addIntInt_LH_P2_1_0 + _lh_addIntInt_LH_P2_1_1)))));;
-let rec maxRow_lh =
+let rec maxCol_lh =
   8;;
 let rec compareIntInt_lh _lh_compareIntInt_arg1_0 _lh_compareIntInt_arg2_0 =
   (match _lh_compareIntInt_arg1_0 with
@@ -34,6 +34,21 @@ let rec compareIntInt_lh _lh_compareIntInt_arg1_0 _lh_compareIntInt_arg2_0 =
                   (`LT)
                 else
                   (`EQ)))))));;
+let rec mapLookup_lh _lh_mapLookup_arg1_0 _lh_mapLookup_arg2_0 =
+  (match _lh_mapLookup_arg2_0 with
+    | `Tip -> 
+      (`Nothing)
+    | `Bin(_lh_mapLookup_Bin_0_0, _lh_mapLookup_Bin_1_0, _lh_mapLookup_Bin_2_0, _lh_mapLookup_Bin_3_0, _lh_mapLookup_Bin_4_0) -> 
+      (let rec _lh_matchIdent_2_7 = ((compareIntInt_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_1_0) in
+        (match _lh_matchIdent_2_7 with
+          | `LT -> 
+            ((mapLookup_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_3_0)
+          | `GT -> 
+            ((mapLookup_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_4_0)
+          | `EQ -> 
+            (`Just(_lh_mapLookup_Bin_2_0)))));;
+let rec check_lh _lh_check_arg1_0 _lh_check_arg2_0 =
+  ((mapLookup_lh _lh_check_arg2_0) _lh_check_arg1_0);;
 let rec insert_lh _lh_insert_arg1_0 _lh_insert_arg2_0 _lh_insert_arg3_0 =
   (match _lh_insert_arg3_0 with
     | `Tip -> 
@@ -172,23 +187,8 @@ let rec insert_lh _lh_insert_arg1_0 _lh_insert_arg2_0 _lh_insert_arg3_0 =
             (`Bin(_lh_insert_Bin_0_0, _lh_insert_arg1_0, _lh_insert_arg2_0, _lh_insert_Bin_3_0, _lh_insert_Bin_4_0)))));;
 let rec extend_lh _lh_extend_arg1_0 _lh_extend_arg2_0 _lh_extend_arg3_0 =
   (((insert_lh _lh_extend_arg2_0) _lh_extend_arg3_0) _lh_extend_arg1_0);;
-let rec maxCol_lh =
+let rec maxRow_lh =
   8;;
-let rec mapLookup_lh _lh_mapLookup_arg1_0 _lh_mapLookup_arg2_0 =
-  (match _lh_mapLookup_arg2_0 with
-    | `Tip -> 
-      (`Nothing)
-    | `Bin(_lh_mapLookup_Bin_0_0, _lh_mapLookup_Bin_1_0, _lh_mapLookup_Bin_2_0, _lh_mapLookup_Bin_3_0, _lh_mapLookup_Bin_4_0) -> 
-      (let rec _lh_matchIdent_2_7 = ((compareIntInt_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_1_0) in
-        (match _lh_matchIdent_2_7 with
-          | `LT -> 
-            ((mapLookup_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_3_0)
-          | `GT -> 
-            ((mapLookup_lh _lh_mapLookup_arg1_0) _lh_mapLookup_Bin_4_0)
-          | `EQ -> 
-            (`Just(_lh_mapLookup_Bin_2_0)))));;
-let rec check_lh _lh_check_arg1_0 _lh_check_arg2_0 =
-  ((mapLookup_lh _lh_check_arg2_0) _lh_check_arg1_0);;
 let rec extend_maybe_lh _lh_extend_maybe_arg1_0 _lh_extend_maybe_arg2_0 _lh_extend_maybe_arg3_0 =
   (match _lh_extend_maybe_arg2_0 with
     | `LH_P2(_lh_extend_maybe_LH_P2_0_0, _lh_extend_maybe_LH_P2_1_0) -> 
@@ -220,7 +220,9 @@ let rec copy_lh _lh_copy_arg1_0 _lh_copy_arg2_0 =
 let rec fromJust_lh _lh_fromJust_arg1_0 =
   (match _lh_fromJust_arg1_0 with
     | `Just(_lh_fromJust_Just_0_0) -> 
-      _lh_fromJust_Just_0_0);;
+      _lh_fromJust_Just_0_0
+    | `Nothing -> 
+      (failwith "lh_default_error"));;
 let rec indent_lh _lh_indent_arg1_0 =
   (if (_lh_indent_arg1_0 <= 0) then
     (`LH_N)
