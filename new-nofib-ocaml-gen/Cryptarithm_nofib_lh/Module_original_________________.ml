@@ -33,29 +33,7 @@ let rec condition_lh _lh_condition_arg1_0 =
                                         | `LH_C(_lh_condition_LH_C_0_9, _lh_condition_LH_C_1_9) -> 
                                           (match _lh_condition_LH_C_1_9 with
                                             | `LH_N -> 
-                                              ((((((((expand_lh _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_1) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_3) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4) + (5 * ((((((expand_lh _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_5) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_7) _lh_condition_LH_C_0_8) _lh_condition_LH_C_0_6))) = ((((((expand_lh _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4))
-                                            | _ -> 
-                                              (failwith "error"))
-                                        | _ -> 
-                                          (failwith "error"))
-                                    | _ -> 
-                                      (failwith "error"))
-                                | _ -> 
-                                  (failwith "error"))
-                            | _ -> 
-                              (failwith "error"))
-                        | _ -> 
-                          (failwith "error"))
-                    | _ -> 
-                      (failwith "error"))
-                | _ -> 
-                  (failwith "error"))
-            | _ -> 
-              (failwith "error"))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+                                              ((((((((expand_lh _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_1) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_3) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4) + (5 * ((((((expand_lh _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_5) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_7) _lh_condition_LH_C_0_8) _lh_condition_LH_C_0_6))) = ((((((expand_lh _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4)))))))))))));;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
@@ -82,9 +60,7 @@ let rec addj_lh _lh_addj_arg1_0 _lh_addj_arg2_0 =
             (`LH_C((`LH_C(_lh_addj_LH_C_0_0, _lh_listcomp_fun_ls_h_0)), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
           | `LH_N -> 
             (`LH_N))) in
-        (_lh_listcomp_fun_0 ((addj_lh _lh_addj_arg1_0) _lh_addj_LH_C_1_0)))))
-    | _ -> 
-      (failwith "error"));;
+        (_lh_listcomp_fun_0 ((addj_lh _lh_addj_arg1_0) _lh_addj_LH_C_1_0))))));;
 let rec permutations_lh _lh_permutations_arg1_0 =
   (match _lh_permutations_arg1_0 with
     | `LH_N -> 
@@ -102,9 +78,7 @@ let rec permutations_lh _lh_permutations_arg1_0 =
               (_lh_listcomp_fun_2 ((addj_lh _lh_permutations_LH_C_0_0) _lh_listcomp_fun_ls_h_1)))
           | `LH_N -> 
             (`LH_N))) in
-        (_lh_listcomp_fun_1 (permutations_lh _lh_permutations_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+        (_lh_listcomp_fun_1 (permutations_lh _lh_permutations_LH_C_1_0))));;
 let rec take_lh n_0 ls_2 =
   (if (n_0 > 0) then
     (match ls_2 with

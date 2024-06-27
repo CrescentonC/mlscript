@@ -44,9 +44,7 @@ let rec createPixmap_lh__d1 _lh_createPixmap_arg1_0 _lh_createPixmap_arg2_0 _lh_
 let rec comp_magnitude_lh__d1 _lh_comp_magnitude_arg1_0 =
   (match _lh_comp_magnitude_arg1_0 with
     | `Complex(_lh_comp_magnitude_Complex_0_0, _lh_comp_magnitude_Complex_1_0) -> 
-      ((_lh_comp_magnitude_Complex_0_0 *. _lh_comp_magnitude_Complex_0_0) +. (_lh_comp_magnitude_Complex_1_0 *. _lh_comp_magnitude_Complex_1_0))
-    | _ -> 
-      (failwith "error"));;
+      ((_lh_comp_magnitude_Complex_0_0 *. _lh_comp_magnitude_Complex_0_0) +. (_lh_comp_magnitude_Complex_1_0 *. _lh_comp_magnitude_Complex_1_0)));;
 let rec diverge_lh__d1 _lh_diverge_arg1_0 _lh_diverge_arg2_0 =
   ((comp_magnitude_lh__d1 _lh_diverge_arg1_0) > _lh_diverge_arg2_0);;
 let rec take_lz_lz_lh__d1 _lh_take_lz_lz_arg1_0 _lh_take_lz_lz_arg2_0 =
@@ -63,9 +61,7 @@ let rec take_lz_lz_lh__d1 _lh_take_lz_lz_arg1_0 _lh_take_lz_lz_arg2_0 =
                 (if ((diverge_lh__d1 _lh_whenDiverge_LH_C_0_0) _lh_whenDiverge_arg2_1) then
                   0
                 else
-                  (1 + (walkIt_1 _lh_whenDiverge_LH_C_1_0)))))))
-        | _ -> 
-          (failwith "error")))
+                  (1 + (walkIt_1 _lh_whenDiverge_LH_C_1_0)))))))))
   else
     (lazy (fun _lh_whenDiverge_arg2_2 walkIt_2 -> 
       0)));;
@@ -79,21 +75,15 @@ let rec comp_times_lh__d1 _lh_comp_times_arg1_0 _lh_comp_times_arg2_0 =
               (fun _lh_comp_plus_arg2_0 -> 
                 (match _lh_comp_plus_arg2_0 with
                   | `Complex(_lh_comp_plus_Complex_0_1, _lh_comp_plus_Complex_1_1) -> 
-                    (`Complex((_lh_comp_plus_Complex_0_0 +. _lh_comp_plus_Complex_0_1), (_lh_comp_plus_Complex_1_0 +. _lh_comp_plus_Complex_1_1)))
-                  | _ -> 
-                    (failwith "error")))))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec comp_plus_lh__d1 _lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1 =
-  (_lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1);;
+                    (`Complex((_lh_comp_plus_Complex_0_0 +. _lh_comp_plus_Complex_0_1), (_lh_comp_plus_Complex_1_0 +. _lh_comp_plus_Complex_1_1)))))))));;
 let rec map_lz_lh__d1 f_4 ls_2 =
   (lazy (match (Lazy.force ls_2) with
     | `LH_C(h_2, t_2) -> 
       (`LH_C((f_4 h_2), ((map_lz_lh__d1 f_4) t_2)))
     | `LH_N -> 
       (`LH_N)));;
+let rec comp_plus_lh__d1 _lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1 =
+  (_lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1);;
 let rec mandel_lh__d1 _lh_mandel_arg1_0 =
   (let rec infiniteMandel_0 = (lazy (`LH_C(_lh_mandel_arg1_0, ((map_lz_lh__d1 (fun z_0 -> 
     ((comp_plus_lh__d1 ((comp_times_lh__d1 z_0) z_0)) _lh_mandel_arg1_0))) infiniteMandel_0)))) in

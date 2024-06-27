@@ -12,18 +12,18 @@ let rec foldl_lh f_1 i_0 ls_1 =
 let rec hash_lh _lh_hash_arg1_0 =
   (((foldl_lh (fun acc_0 c_0 -> 
     ((int_of_char c_0) + (acc_0 * 31)))) 0) _lh_hash_arg1_0);;
-let rec mappend_lh xs_0 ys_0 =
-  (match xs_0 with
-    | `LH_C(h_3, t_3) -> 
-      (`LH_C(h_3, ((mappend_lh t_3) ys_0)))
-    | `LH_N -> 
-      ys_0);;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
       (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
+let rec mappend_lh xs_0 ys_0 =
+  (match xs_0 with
+    | `LH_C(h_3, t_3) -> 
+      (`LH_C(h_3, ((mappend_lh t_3) ys_0)))
+    | `LH_N -> 
+      ys_0);;
 let rec concat_lh lss_0 =
   (match lss_0 with
     | `LH_C(h_4, t_4) -> 
@@ -33,12 +33,6 @@ let rec concat_lh lss_0 =
 let rec unlines_lh _lh_unlines_arg1_0 =
   (concat_lh ((map_lh (fun l_0 -> 
     ((mappend_lh l_0) (`LH_C('|', (`LH_N)))))) _lh_unlines_arg1_0));;
-let rec foldr_lh f_2 i_1 ls_2 =
-  (match ls_2 with
-    | `LH_C(h_2, t_2) -> 
-      ((f_2 h_2) (((foldr_lh f_2) i_1) t_2))
-    | `LH_N -> 
-      i_1);;
 let rec compareList_lh _lh_compareList_arg1_0 _lh_compareList_arg2_0 =
   (match _lh_compareList_arg1_0 with
     | `LH_N -> 
@@ -46,9 +40,7 @@ let rec compareList_lh _lh_compareList_arg1_0 _lh_compareList_arg2_0 =
         | `LH_N -> 
           (`EQ)
         | `LH_C(_lh_compareList_LH_C_0_0, _lh_compareList_LH_C_1_0) -> 
-          (`LT)
-        | _ -> 
-          (failwith "error"))
+          (`LT))
     | `LH_C(_lh_compareList_LH_C_0_1, _lh_compareList_LH_C_1_1) -> 
       (match _lh_compareList_arg2_0 with
         | `LH_N -> 
@@ -60,11 +52,7 @@ let rec compareList_lh _lh_compareList_arg1_0 _lh_compareList_arg2_0 =
             (if ((int_of_char _lh_compareList_LH_C_0_1) < (int_of_char _lh_compareList_LH_C_0_2)) then
               (`LT)
             else
-              (`GT)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+              (`GT)))));;
 let rec gtList_lh _lh_gtList_arg1_0 _lh_gtList_arg2_0 =
   (let rec _lh_matchIdent_8 = ((compareList_lh _lh_gtList_arg1_0) _lh_gtList_arg2_0) in
     (match _lh_matchIdent_8 with
@@ -74,6 +62,12 @@ let rec gtList_lh _lh_gtList_arg1_0 _lh_gtList_arg2_0 =
         false));;
 let rec leList_lh _lh_leList_arg1_0 _lh_leList_arg2_0 =
   (not ((gtList_lh _lh_leList_arg1_0) _lh_leList_arg2_0));;
+let rec foldr_lh f_2 i_1 ls_2 =
+  (match ls_2 with
+    | `LH_C(h_2, t_2) -> 
+      ((f_2 h_2) (((foldr_lh f_2) i_1) t_2))
+    | `LH_N -> 
+      i_1);;
 let rec treeSort_lh _lh_treeSort_arg1_0 =
   let rec mkTree_1 = (fun _lh_mkTree_arg1_1 -> 
     (let rec to_tree_1 = (fun _lh_to_tree_arg1_1 _lh_to_tree_arg2_1 -> 
@@ -84,18 +78,14 @@ let rec treeSort_lh _lh_treeSort_arg1_0 =
           (if ((leList_lh _lh_to_tree_arg1_1) _lh_to_tree_Branch_0_0) then
             (`Branch(_lh_to_tree_Branch_0_0, ((to_tree_1 _lh_to_tree_arg1_1) _lh_to_tree_Branch_1_0), _lh_to_tree_Branch_2_0))
           else
-            (`Branch(_lh_to_tree_Branch_0_0, _lh_to_tree_Branch_1_0, ((to_tree_1 _lh_to_tree_arg1_1) _lh_to_tree_Branch_2_0))))
-        | _ -> 
-          (failwith "error"))) in
+            (`Branch(_lh_to_tree_Branch_0_0, _lh_to_tree_Branch_1_0, ((to_tree_1 _lh_to_tree_arg1_1) _lh_to_tree_Branch_2_0)))))) in
       (((foldr_lh to_tree_1) (`Tip)) _lh_mkTree_arg1_1)))
   and readTree_1 = (fun _lh_readTree_arg1_1 -> 
     (match _lh_readTree_arg1_1 with
       | `Tip -> 
         (`LH_N)
       | `Branch(_lh_readTree_Branch_0_0, _lh_readTree_Branch_1_0, _lh_readTree_Branch_2_0) -> 
-        ((mappend_lh (readTree_1 _lh_readTree_Branch_1_0)) (`LH_C(_lh_readTree_Branch_0_0, (readTree_1 _lh_readTree_Branch_2_0))))
-      | _ -> 
-        (failwith "error")))
+        ((mappend_lh (readTree_1 _lh_readTree_Branch_1_0)) (`LH_C(_lh_readTree_Branch_0_0, (readTree_1 _lh_readTree_Branch_2_0))))))
   in ((fun _lh_funcomp_x_1 -> 
     (readTree_1 (mkTree_1 _lh_funcomp_x_1))) _lh_treeSort_arg1_0);;
 let rec odd_lh _lh_odd_arg1_0 =
@@ -108,9 +98,7 @@ let rec heapSort_lh _lh_heapSort_arg1_0 =
       | `Tip -> 
         (`LH_N)
       | `Branch(_lh_clear_Branch_0_0, _lh_clear_Branch_1_0, _lh_clear_Branch_2_0) -> 
-        (`LH_C(_lh_clear_Branch_0_0, (clear_0 ((mix_0 _lh_clear_Branch_1_0) _lh_clear_Branch_2_0))))
-      | _ -> 
-        (failwith "error")))
+        (`LH_C(_lh_clear_Branch_0_0, (clear_0 ((mix_0 _lh_clear_Branch_1_0) _lh_clear_Branch_2_0))))))
   and mix_0 = (fun _lh_mix_arg1_0 _lh_mix_arg2_0 -> 
     (match _lh_mix_arg1_0 with
       | `Tip -> 
@@ -127,19 +115,13 @@ let rec heapSort_lh _lh_heapSort_arg1_0 =
                     (if ((leList_lh _lh_mix_Branch_0_0) _lh_mix_Branch_0_1) then
                       (`Branch(_lh_mix_Branch_0_0, ((mix_0 _lh_mix_Branch_1_0) _lh_mix_Branch_2_0), (`Branch(_lh_mix_Branch_0_1, _lh_mix_Branch_1_1, _lh_mix_Branch_2_1))))
                     else
-                      (`Branch(_lh_mix_Branch_0_1, (`Branch(_lh_mix_Branch_0_0, _lh_mix_Branch_1_0, _lh_mix_Branch_2_0)), ((mix_0 _lh_mix_Branch_1_1) _lh_mix_Branch_2_1))))
-                  | _ -> 
-                    (failwith "error"))
-              | _ -> 
-                (failwith "error")))))
+                      (`Branch(_lh_mix_Branch_0_1, (`Branch(_lh_mix_Branch_0_0, _lh_mix_Branch_1_0, _lh_mix_Branch_2_0)), ((mix_0 _lh_mix_Branch_1_1) _lh_mix_Branch_2_1)))))))))
   and heap_0 = (fun _lh_heap_arg1_0 _lh_heap_arg2_0 -> 
     (match _lh_heap_arg2_0 with
       | `LH_N -> 
         (`Tip)
       | `LH_C(_lh_heap_LH_C_0_0, _lh_heap_LH_C_1_0) -> 
-        (((to_heap_0 _lh_heap_arg1_0) _lh_heap_LH_C_0_0) ((heap_0 (_lh_heap_arg1_0 + 1)) _lh_heap_LH_C_1_0))
-      | _ -> 
-        (failwith "error")))
+        (((to_heap_0 _lh_heap_arg1_0) _lh_heap_LH_C_0_0) ((heap_0 (_lh_heap_arg1_0 + 1)) _lh_heap_LH_C_1_0))))
   and to_heap_0 = (fun _lh_to_heap_arg1_0 _lh_to_heap_arg2_0 _lh_to_heap_arg3_0 -> 
     (match _lh_to_heap_arg3_0 with
       | `Tip -> 
@@ -154,9 +136,7 @@ let rec heapSort_lh _lh_heapSort_arg1_0 =
             (if (odd_lh _lh_to_heap_arg1_0) then
               (`Branch(_lh_to_heap_Branch_0_0, (((to_heap_0 (div2_0 _lh_to_heap_arg1_0)) _lh_to_heap_arg2_0) _lh_to_heap_Branch_1_0), _lh_to_heap_Branch_2_0))
             else
-              (`Branch(_lh_to_heap_Branch_0_0, _lh_to_heap_Branch_1_0, (((to_heap_0 (div2_0 _lh_to_heap_arg1_0)) _lh_to_heap_arg2_0) _lh_to_heap_Branch_2_0))))))
-      | _ -> 
-        (failwith "error")))
+              (`Branch(_lh_to_heap_Branch_0_0, _lh_to_heap_Branch_1_0, (((to_heap_0 (div2_0 _lh_to_heap_arg1_0)) _lh_to_heap_arg2_0) _lh_to_heap_Branch_2_0))))))))
   in (clear_0 ((heap_0 0) _lh_heapSort_arg1_0));;
 let rec reverse_helper_lh ls_4 a_0 =
   (match ls_4 with
@@ -183,12 +163,8 @@ let rec quickerSort_lh _lh_quickerSort_arg1_0 =
                 (if ((leList_lh _lh_split_LH_C_0_0) _lh_split_arg1_0) then
                   ((((split_0 _lh_split_arg1_0) (`LH_C(_lh_split_LH_C_0_0, _lh_split_arg2_0))) _lh_split_arg3_0) _lh_split_LH_C_1_0)
                 else
-                  ((((split_0 _lh_split_arg1_0) _lh_split_arg2_0) (`LH_C(_lh_split_LH_C_0_0, _lh_split_arg3_0))) _lh_split_LH_C_1_0))
-              | _ -> 
-                (failwith "error"))) in
-            ((((split_0 _lh_quickerSort_LH_C_0_0) (`LH_N)) (`LH_N)) _lh_quickerSort_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+                  ((((split_0 _lh_split_arg1_0) _lh_split_arg2_0) (`LH_C(_lh_split_LH_C_0_0, _lh_split_arg3_0))) _lh_split_LH_C_1_0)))) in
+            ((((split_0 _lh_quickerSort_LH_C_0_0) (`LH_N)) (`LH_N)) _lh_quickerSort_LH_C_1_0))));;
 let rec eqList_lh _lh_eqList_arg1_0 _lh_eqList_arg2_0 =
   (((compareList_lh _lh_eqList_arg1_0) _lh_eqList_arg2_0) = (`EQ));;
 let rec ltList_lh _lh_ltList_arg1_0 _lh_ltList_arg2_0 =
@@ -204,9 +180,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
       | `LH_N -> 
         (`LH_N)
       | `LH_C(_lh_merge_lists_LH_C_0_0, _lh_merge_lists_LH_C_1_0) -> 
-        ((merge_0 _lh_merge_lists_LH_C_0_0) (merge_lists_0 _lh_merge_lists_LH_C_1_0))
-      | _ -> 
-        (failwith "error")))
+        ((merge_0 _lh_merge_lists_LH_C_0_0) (merge_lists_0 _lh_merge_lists_LH_C_1_0))))
   and runsplit_0 = (fun _lh_runsplit_arg1_0 _lh_runsplit_arg2_0 -> 
     (match _lh_runsplit_arg1_0 with
       | `LH_N -> 
@@ -242,11 +216,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
                                       (if ((leList_lh _lh_runsplit_LH_C_0_2) _lh_runsplit_LH_C_0_1) then
                                         ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_2, (`LH_C(_lh_runsplit_LH_C_0_1, _lh_matchIdent_4))))) _lh_runsplit_LH_C_1_2)
                                       else
-                                        (`LH_C((`LH_C(_lh_runsplit_LH_C_0_1, _lh_matchIdent_4)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_2, (`LH_N)))) _lh_runsplit_LH_C_1_2))))))
-                              | _ -> 
-                                (failwith "error"))
-                          | _ -> 
-                            (failwith "error")))
+                                        (`LH_C((`LH_C(_lh_runsplit_LH_C_0_1, _lh_matchIdent_4)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_2, (`LH_N)))) _lh_runsplit_LH_C_1_2)))))))))
                   | _ -> 
                     (match _lh_runsplit_arg1_0 with
                       | `LH_C(_lh_runsplit_LH_C_0_3, _lh_runsplit_LH_C_1_3) -> 
@@ -266,11 +236,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
                                   (if ((leList_lh _lh_runsplit_LH_C_0_4) _lh_runsplit_LH_C_0_3) then
                                     ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_4, (`LH_C(_lh_runsplit_LH_C_0_3, _lh_matchIdent_5))))) _lh_runsplit_LH_C_1_4)
                                   else
-                                    (`LH_C((`LH_C(_lh_runsplit_LH_C_0_3, _lh_matchIdent_5)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_4, (`LH_N)))) _lh_runsplit_LH_C_1_4))))))
-                          | _ -> 
-                            (failwith "error"))
-                      | _ -> 
-                        (failwith "error")))))
+                                    (`LH_C((`LH_C(_lh_runsplit_LH_C_0_3, _lh_matchIdent_5)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_4, (`LH_N)))) _lh_runsplit_LH_C_1_4)))))))))))
       | _ -> 
         (match _lh_runsplit_arg2_0 with
           | `LH_N -> 
@@ -300,11 +266,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
                                   (if ((leList_lh _lh_runsplit_LH_C_0_7) _lh_runsplit_LH_C_0_6) then
                                     ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_7, (`LH_C(_lh_runsplit_LH_C_0_6, _lh_matchIdent_6))))) _lh_runsplit_LH_C_1_7)
                                   else
-                                    (`LH_C((`LH_C(_lh_runsplit_LH_C_0_6, _lh_matchIdent_6)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_7, (`LH_N)))) _lh_runsplit_LH_C_1_7))))))
-                          | _ -> 
-                            (failwith "error"))
-                      | _ -> 
-                        (failwith "error")))
+                                    (`LH_C((`LH_C(_lh_runsplit_LH_C_0_6, _lh_matchIdent_6)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_7, (`LH_N)))) _lh_runsplit_LH_C_1_7)))))))))
               | _ -> 
                 (match _lh_runsplit_arg1_0 with
                   | `LH_C(_lh_runsplit_LH_C_0_8, _lh_runsplit_LH_C_1_8) -> 
@@ -324,11 +286,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
                               (if ((leList_lh _lh_runsplit_LH_C_0_9) _lh_runsplit_LH_C_0_8) then
                                 ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_9, (`LH_C(_lh_runsplit_LH_C_0_8, _lh_matchIdent_7))))) _lh_runsplit_LH_C_1_9)
                               else
-                                (`LH_C((`LH_C(_lh_runsplit_LH_C_0_8, _lh_matchIdent_7)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_9, (`LH_N)))) _lh_runsplit_LH_C_1_9))))))
-                      | _ -> 
-                        (failwith "error"))
-                  | _ -> 
-                    (failwith "error"))))))
+                                (`LH_C((`LH_C(_lh_runsplit_LH_C_0_8, _lh_matchIdent_7)), ((runsplit_0 (`LH_C(_lh_runsplit_LH_C_0_9, (`LH_N)))) _lh_runsplit_LH_C_1_9))))))))))))
   and merge_0 = (fun _lh_merge_arg1_0 _lh_merge_arg2_0 -> 
     (match _lh_merge_arg1_0 with
       | `LH_N -> 
@@ -348,11 +306,7 @@ let rec mergeSort_lh _lh_mergeSort_arg1_0 =
                       (if ((ltList_lh _lh_merge_LH_C_0_0) _lh_merge_LH_C_0_1) then
                         (`LH_C(_lh_merge_LH_C_0_0, ((merge_0 _lh_merge_LH_C_1_0) (`LH_C(_lh_merge_LH_C_0_1, _lh_merge_LH_C_1_1)))))
                       else
-                        (`LH_C(_lh_merge_LH_C_0_1, ((merge_0 (`LH_C(_lh_merge_LH_C_0_0, _lh_merge_LH_C_1_0))) _lh_merge_LH_C_1_1)))))
-                  | _ -> 
-                    (failwith "error"))
-              | _ -> 
-                (failwith "error")))))
+                        (`LH_C(_lh_merge_LH_C_0_1, ((merge_0 (`LH_C(_lh_merge_LH_C_0_0, _lh_merge_LH_C_1_0))) _lh_merge_LH_C_1_1))))))))))
   in ((fun _lh_funcomp_x_2 -> 
     (merge_lists_0 ((runsplit_0 (`LH_N)) _lh_funcomp_x_2))) _lh_mergeSort_arg1_0);;
 let rec prependToAll_lh _lh_prependToAll_arg1_0 _lh_prependToAll_arg2_0 =
@@ -360,17 +314,13 @@ let rec prependToAll_lh _lh_prependToAll_arg1_0 _lh_prependToAll_arg2_0 =
     | `LH_N -> 
       (`LH_N)
     | `LH_C(_lh_prependToAll_LH_C_0_0, _lh_prependToAll_LH_C_1_0) -> 
-      (`LH_C(_lh_prependToAll_arg1_0, (`LH_C(_lh_prependToAll_LH_C_0_0, ((prependToAll_lh _lh_prependToAll_arg1_0) _lh_prependToAll_LH_C_1_0)))))
-    | _ -> 
-      (failwith "error"));;
+      (`LH_C(_lh_prependToAll_arg1_0, (`LH_C(_lh_prependToAll_LH_C_0_0, ((prependToAll_lh _lh_prependToAll_arg1_0) _lh_prependToAll_LH_C_1_0))))));;
 let rec intersperse_lh _lh_intersperse_arg1_0 _lh_intersperse_arg2_0 =
   (match _lh_intersperse_arg2_0 with
     | `LH_N -> 
       (`LH_N)
     | `LH_C(_lh_intersperse_LH_C_0_0, _lh_intersperse_LH_C_1_0) -> 
-      (`LH_C(_lh_intersperse_LH_C_0_0, ((prependToAll_lh _lh_intersperse_arg1_0) _lh_intersperse_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+      (`LH_C(_lh_intersperse_LH_C_0_0, ((prependToAll_lh _lh_intersperse_arg1_0) _lh_intersperse_LH_C_1_0))));;
 let rec break_lh _lh_break_arg1_0 _lh_break_arg2_0 =
   (match _lh_break_arg2_0 with
     | `LH_N -> 
@@ -382,11 +332,7 @@ let rec break_lh _lh_break_arg1_0 _lh_break_arg2_0 =
         (let rec _lh_matchIdent_1 = ((break_lh _lh_break_arg1_0) _lh_break_LH_C_1_0) in
           (match _lh_matchIdent_1 with
             | `LH_P2(_lh_break_LH_P2_0_0, _lh_break_LH_P2_1_0) -> 
-              (`LH_P2((`LH_C(_lh_break_LH_C_0_0, _lh_break_LH_P2_0_0)), _lh_break_LH_P2_1_0))
-            | _ -> 
-              (failwith "error"))))
-    | _ -> 
-      (failwith "error"));;
+              (`LH_P2((`LH_C(_lh_break_LH_C_0_0, _lh_break_LH_P2_0_0)), _lh_break_LH_P2_1_0))))));;
 let rec lines_lh _lh_lines_arg1_0 =
   (match _lh_lines_arg1_0 with
     | `LH_N -> 
@@ -401,11 +347,7 @@ let rec lines_lh _lh_lines_arg1_0 =
                 | `LH_N -> 
                   (`LH_N)
                 | `LH_C(_lh_lines_LH_C_0_0, _lh_lines_LH_C_1_0) -> 
-                  (lines_lh _lh_lines_LH_C_1_0)
-                | _ -> 
-                  (failwith "error")))))
-          | _ -> 
-            (failwith "error"))));;
+                  (lines_lh _lh_lines_LH_C_1_0))))))));;
 let rec quickSort_lh _lh_quickSort_arg1_0 =
   (match _lh_quickSort_arg1_0 with
     | `LH_N -> 
@@ -429,9 +371,7 @@ let rec quickSort_lh _lh_quickSort_arg1_0 =
               (_lh_listcomp_fun_1 _lh_listcomp_fun_ls_t_1))
           | `LH_N -> 
             (`LH_N))) in
-        (_lh_listcomp_fun_1 _lh_quickSort_LH_C_1_0))))))
-    | _ -> 
-      (failwith "error"));;
+        (_lh_listcomp_fun_1 _lh_quickSort_LH_C_1_0)))))));;
 let rec geList_lh _lh_geList_arg1_0 _lh_geList_arg2_0 =
   (not ((ltList_lh _lh_geList_arg1_0) _lh_geList_arg2_0));;
 let rec select_lh _lh_select_arg1_0 _lh_select_arg2_0 _lh_select_arg3_0 =
@@ -440,9 +380,7 @@ let rec select_lh _lh_select_arg1_0 _lh_select_arg2_0 _lh_select_arg3_0 =
       (if (_lh_select_arg1_0 _lh_select_arg2_0) then
         (`LH_P2((`LH_C(_lh_select_arg2_0, _lh_select_LH_P2_0_0)), _lh_select_LH_P2_1_0))
       else
-        (`LH_P2(_lh_select_LH_P2_0_0, (`LH_C(_lh_select_arg2_0, _lh_select_LH_P2_1_0)))))
-    | _ -> 
-      (failwith "error"));;
+        (`LH_P2(_lh_select_LH_P2_0_0, (`LH_C(_lh_select_arg2_0, _lh_select_LH_P2_1_0))))));;
 let rec partition_lh _lh_partition_arg1_0 _lh_partition_arg2_0 =
   (((foldr_lh (select_lh _lh_partition_arg1_0)) (`LH_P2((`LH_N), (`LH_N)))) _lh_partition_arg2_0);;
 let rec quickSort2_lh _lh_quickSort2_arg1_0 =
@@ -454,11 +392,7 @@ let rec quickSort2_lh _lh_quickSort2_arg1_0 =
         ((geList_lh x_2) y_0)) _lh_quickSort2_LH_C_0_0)) _lh_quickSort2_LH_C_1_0) in
         (match _lh_matchIdent_9 with
           | `LH_P2(_lh_quickSort2_LH_P2_0_0, _lh_quickSort2_LH_P2_1_0) -> 
-            ((mappend_lh (quickSort2_lh _lh_quickSort2_LH_P2_0_0)) (`LH_C(_lh_quickSort2_LH_C_0_0, (quickSort2_lh _lh_quickSort2_LH_P2_1_0))))
-          | _ -> 
-            (failwith "error")))
-    | _ -> 
-      (failwith "error"));;
+            ((mappend_lh (quickSort2_lh _lh_quickSort2_LH_P2_0_0)) (`LH_C(_lh_quickSort2_LH_C_0_0, (quickSort2_lh _lh_quickSort2_LH_P2_1_0)))))));;
 let rec insertSort_lh _lh_insertSort_arg1_0 =
   (match _lh_insertSort_arg1_0 with
     | `LH_N -> 
@@ -482,11 +416,7 @@ let rec insertSort_lh _lh_insertSort_arg1_0 =
                             (if ((ltList_lh _lh_trins_LH_C_0_1) _lh_trins_LH_C_0_2) then
                               (((trins_0 (`LH_C(_lh_trins_LH_C_0_1, _lh_trins_arg1_0))) _lh_trins_LH_C_1_1) (`LH_C(_lh_trins_LH_C_0_2, _lh_trins_LH_C_1_2)))
                             else
-                              (((trins_0 (`LH_N)) ((mappend_lh (reverse_lh _lh_trins_arg1_0)) (`LH_C(_lh_trins_LH_C_0_2, (`LH_C(_lh_trins_LH_C_0_1, _lh_trins_LH_C_1_1)))))) _lh_trins_LH_C_1_2))
-                          | _ -> 
-                            (failwith "error"))
-                      | _ -> 
-                        (failwith "error"))))
+                              (((trins_0 (`LH_N)) ((mappend_lh (reverse_lh _lh_trins_arg1_0)) (`LH_C(_lh_trins_LH_C_0_2, (`LH_C(_lh_trins_LH_C_0_1, _lh_trins_LH_C_1_1)))))) _lh_trins_LH_C_1_2))))))
           | _ -> 
             (match _lh_trins_arg3_0 with
               | `LH_N -> 
@@ -499,14 +429,8 @@ let rec insertSort_lh _lh_insertSort_arg1_0 =
                         (if ((ltList_lh _lh_trins_LH_C_0_3) _lh_trins_LH_C_0_4) then
                           (((trins_0 (`LH_C(_lh_trins_LH_C_0_3, _lh_trins_arg1_0))) _lh_trins_LH_C_1_3) (`LH_C(_lh_trins_LH_C_0_4, _lh_trins_LH_C_1_4)))
                         else
-                          (((trins_0 (`LH_N)) ((mappend_lh (reverse_lh _lh_trins_arg1_0)) (`LH_C(_lh_trins_LH_C_0_4, (`LH_C(_lh_trins_LH_C_0_3, _lh_trins_LH_C_1_3)))))) _lh_trins_LH_C_1_4))
-                      | _ -> 
-                        (failwith "error"))
-                  | _ -> 
-                    (failwith "error"))))) in
-        (((trins_0 (`LH_N)) (`LH_C(_lh_insertSort_LH_C_0_0, (`LH_N)))) _lh_insertSort_LH_C_1_0))
-    | _ -> 
-      (failwith "error"));;
+                          (((trins_0 (`LH_N)) ((mappend_lh (reverse_lh _lh_trins_arg1_0)) (`LH_C(_lh_trins_LH_C_0_4, (`LH_C(_lh_trins_LH_C_0_3, _lh_trins_LH_C_1_3)))))) _lh_trins_LH_C_1_4))))))) in
+        (((trins_0 (`LH_N)) (`LH_C(_lh_insertSort_LH_C_0_0, (`LH_N)))) _lh_insertSort_LH_C_1_0)));;
 let rec treeSort2_lh _lh_treeSort2_arg1_0 =
   let rec mkTree_0 = (fun _lh_mkTree_arg1_0 -> 
     (let rec to_tree_0 = (fun _lh_to_tree_arg1_0 _lh_to_tree_arg2_0 -> 
@@ -522,9 +446,7 @@ let rec treeSort2_lh _lh_treeSort2_arg1_0 =
           (if ((leList_lh _lh_to_tree_arg1_0) _lh_to_tree_Branch2_0_0) then
             (`Branch2(_lh_to_tree_Branch2_0_0, ((to_tree_0 _lh_to_tree_arg1_0) _lh_to_tree_Branch2_1_0), _lh_to_tree_Branch2_2_0))
           else
-            (`Branch2(_lh_to_tree_Branch2_0_0, _lh_to_tree_Branch2_1_0, ((to_tree_0 _lh_to_tree_arg1_0) _lh_to_tree_Branch2_2_0))))
-        | _ -> 
-          (failwith "error"))) in
+            (`Branch2(_lh_to_tree_Branch2_0_0, _lh_to_tree_Branch2_1_0, ((to_tree_0 _lh_to_tree_arg1_0) _lh_to_tree_Branch2_2_0)))))) in
       (((foldr_lh to_tree_0) (`Tip2)) _lh_mkTree_arg1_0)))
   and readTree_0 = (fun _lh_readTree_arg1_0 -> 
     (match _lh_readTree_arg1_0 with
@@ -533,9 +455,7 @@ let rec treeSort2_lh _lh_treeSort2_arg1_0 =
       | `Twig2(_lh_readTree_Twig2_0_0) -> 
         (`LH_C(_lh_readTree_Twig2_0_0, (`LH_N)))
       | `Branch2(_lh_readTree_Branch2_0_0, _lh_readTree_Branch2_1_0, _lh_readTree_Branch2_2_0) -> 
-        ((mappend_lh (readTree_0 _lh_readTree_Branch2_1_0)) (`LH_C(_lh_readTree_Branch2_0_0, (readTree_0 _lh_readTree_Branch2_2_0))))
-      | _ -> 
-        (failwith "error")))
+        ((mappend_lh (readTree_0 _lh_readTree_Branch2_1_0)) (`LH_C(_lh_readTree_Branch2_0_0, (readTree_0 _lh_readTree_Branch2_2_0))))))
   in ((fun _lh_funcomp_x_0 -> 
     (readTree_0 (mkTree_0 _lh_funcomp_x_0))) _lh_treeSort2_arg1_0);;
 let rec mangle_lh _lh_mangle_arg1_0 =

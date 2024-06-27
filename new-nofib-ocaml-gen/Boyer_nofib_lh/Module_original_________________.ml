@@ -3,23 +3,6 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec all_lh _lh_all_arg1_0 _lh_all_arg2_0 =
-  (match _lh_all_arg2_0 with
-    | `LH_N -> 
-      true
-    | `LH_C(_lh_all_LH_C_0_0, _lh_all_LH_C_1_0) -> 
-      (if (_lh_all_arg1_0 _lh_all_LH_C_0_0) then
-        ((all_lh _lh_all_arg1_0) _lh_all_LH_C_1_0)
-      else
-        false)
-    | _ -> 
-      (failwith "error"));;
-let rec map_lh f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
-    | `LH_N -> 
-      (`LH_N));;
 let rec find_lh _lh_find_arg1_0 _lh_find_arg2_0 =
   (match _lh_find_arg2_0 with
     | `LH_N -> 
@@ -30,11 +13,13 @@ let rec find_lh _lh_find_arg1_0 _lh_find_arg2_0 =
           (if (_lh_find_arg1_0 = _lh_find_LH_P2_0_0) then
             (`LH_P2(true, _lh_find_LH_P2_1_0))
           else
-            ((find_lh _lh_find_arg1_0) _lh_find_LH_C_1_0))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+            ((find_lh _lh_find_arg1_0) _lh_find_LH_C_1_0))));;
+let rec map_lh f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec apply_subst_lh _lh_apply_subst_arg1_0 _lh_apply_subst_arg2_0 =
   (match _lh_apply_subst_arg2_0 with
     | `Var(_lh_apply_subst_Var_0_0) -> 
@@ -44,13 +29,11 @@ let rec apply_subst_lh _lh_apply_subst_arg1_0 _lh_apply_subst_arg2_0 =
             (if _lh_apply_subst_LH_P2_0_0 then
               _lh_apply_subst_LH_P2_1_0
             else
-              (`Var(_lh_apply_subst_Var_0_0)))
-          | _ -> 
-            (failwith "error")))
+              (`Var(_lh_apply_subst_Var_0_0)))))
     | `Fun(_lh_apply_subst_Fun_0_0, _lh_apply_subst_Fun_1_0, _lh_apply_subst_Fun_2_0) -> 
       (`Fun(_lh_apply_subst_Fun_0_0, ((map_lh (apply_subst_lh _lh_apply_subst_arg1_0)) _lh_apply_subst_Fun_1_0), _lh_apply_subst_Fun_2_0))
     | _ -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
 let rec termEq_lh _lh_termEq_arg1_0 _lh_termEq_arg2_0 =
   (match _lh_termEq_arg1_0 with
     | `Var(_lh_termEq_Var_0_0) -> 
@@ -78,15 +61,15 @@ termLsEq_lh _lh_termLsEq_arg1_0 _lh_termLsEq_arg2_0 =
           else
             false)
         | _ -> 
-          (failwith "error"))
+          false)
     | `LH_N -> 
       (match _lh_termLsEq_arg2_0 with
         | `LH_N -> 
           true
         | _ -> 
-          (failwith "error"))
+          false)
     | _ -> 
-      (failwith "error"));;
+      false);;
 let rec termInList_lh _lh_termInList_arg1_0 _lh_termInList_arg2_0 =
   (match _lh_termInList_arg2_0 with
     | `LH_C(_lh_termInList_LH_C_0_0, _lh_termInList_LH_C_1_0) -> 
@@ -95,9 +78,7 @@ let rec termInList_lh _lh_termInList_arg1_0 _lh_termInList_arg2_0 =
       else
         ((termInList_lh _lh_termInList_arg1_0) _lh_termInList_LH_C_1_0))
     | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
+      false);;
 let rec truep_lh _lh_truep_arg1_0 _lh_truep_arg2_0 =
   (match _lh_truep_arg1_0 with
     | `Fun(_lh_truep_Fun_0_0, _lh_truep_Fun_1_0, _lh_truep_Fun_2_0) -> 
@@ -166,9 +147,7 @@ let rec one_way_unify1_lh _lh_one_way_unify1_arg1_0 _lh_one_way_unify1_arg2_0 _l
             (if _lh_one_way_unify1_LH_P2_0_0 then
               (`LH_P2(((termEq_lh _lh_one_way_unify1_arg1_0) _lh_one_way_unify1_LH_P2_1_0), _lh_one_way_unify1_arg3_0))
             else
-              (`LH_P2(true, (`LH_C((`LH_P2(_lh_one_way_unify1_Var_0_0, _lh_one_way_unify1_arg1_0)), _lh_one_way_unify1_arg3_0)))))
-          | _ -> 
-            (failwith "error")))
+              (`LH_P2(true, (`LH_C((`LH_P2(_lh_one_way_unify1_Var_0_0, _lh_one_way_unify1_arg1_0)), _lh_one_way_unify1_arg3_0)))))))
     | _ -> 
       (match _lh_one_way_unify1_arg1_0 with
         | `Fun(_lh_one_way_unify1_Fun_0_0, _lh_one_way_unify1_Fun_1_0, _lh_one_way_unify1_Fun_2_0) -> 
@@ -200,11 +179,7 @@ one_way_unify1_lst_lh _lh_one_way_unify1_lst_arg1_0 _lh_one_way_unify1_lst_arg2_
                 (let rec _lh_matchIdent_6 = (((one_way_unify1_lst_lh _lh_one_way_unify1_lst_LH_C_1_0) _lh_one_way_unify1_lst_LH_C_1_1) _lh_one_way_unify1_lst_LH_P2_1_0) in
                   (match _lh_matchIdent_6 with
                     | `LH_P2(_lh_one_way_unify1_lst_LH_P2_0_1, _lh_one_way_unify1_lst_LH_P2_1_1) -> 
-                      (`LH_P2((_lh_one_way_unify1_lst_LH_P2_0_0 && _lh_one_way_unify1_lst_LH_P2_0_1), _lh_one_way_unify1_lst_LH_P2_1_1))
-                    | _ -> 
-                      (failwith "error")))
-              | _ -> 
-                (failwith "error")))
+                      (`LH_P2((_lh_one_way_unify1_lst_LH_P2_0_0 && _lh_one_way_unify1_lst_LH_P2_0_1), _lh_one_way_unify1_lst_LH_P2_1_1))))))
         | _ -> 
           (`LH_P2(false, (`LH_N))))
     | _ -> 
@@ -218,7 +193,7 @@ let rec rewrite_lh _lh_rewrite_arg1_0 =
     | `Fun(_lh_rewrite_Fun_0_0, _lh_rewrite_Fun_1_0, _lh_rewrite_Fun_2_0) -> 
       ((rewrite_with_lemmas_lh (`Fun(_lh_rewrite_Fun_0_0, ((map_lh rewrite_lh) _lh_rewrite_Fun_1_0), _lh_rewrite_Fun_2_0))) _lh_rewrite_Fun_2_0)
     | _ -> 
-      (failwith "error"))
+      (failwith "lh_default_error"))
 and
 rewrite_with_lemmas_helper_lh _lh_rewrite_with_lemmas_helper_arg1_0 _lh_rewrite_with_lemmas_helper_arg2_0 =
   (let rec _lh_matchIdent_3 = _lh_rewrite_with_lemmas_helper_arg2_0 in
@@ -234,13 +209,7 @@ rewrite_with_lemmas_helper_lh _lh_rewrite_with_lemmas_helper_arg1_0 _lh_rewrite_
                   (if _lh_rewrite_with_lemmas_helper_LH_P2_0_1 then
                     (rewrite_lh ((apply_subst_lh _lh_rewrite_with_lemmas_helper_LH_P2_1_1) _lh_rewrite_with_lemmas_helper_LH_P2_1_0))
                   else
-                    ((rewrite_with_lemmas_helper_lh _lh_rewrite_with_lemmas_helper_arg1_0) _lh_rewrite_with_lemmas_helper_LH_C_1_0))
-                | _ -> 
-                  (failwith "error")))
-          | _ -> 
-            (failwith "error"))
-      | _ -> 
-        (failwith "error")))
+                    ((rewrite_with_lemmas_helper_lh _lh_rewrite_with_lemmas_helper_arg1_0) _lh_rewrite_with_lemmas_helper_LH_C_1_0)))))))
 and
 rewrite_with_lemmas_lh _lh_rewrite_with_lemmas_arg1_0 _lh_rewrite_with_lemmas_arg2_0 =
   ((rewrite_with_lemmas_helper_lh _lh_rewrite_with_lemmas_arg1_0) (Lazy.force _lh_rewrite_with_lemmas_arg2_0));;
@@ -339,6 +308,15 @@ let rec replicate_lh _lh_replicate_arg1_0 _lh_replicate_arg2_0 =
     (`LH_N)
   else
     (`LH_C(_lh_replicate_arg2_0, ((replicate_lh (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0))));;
+let rec all_lh _lh_all_arg1_0 _lh_all_arg2_0 =
+  (match _lh_all_arg2_0 with
+    | `LH_N -> 
+      true
+    | `LH_C(_lh_all_LH_C_0_0, _lh_all_LH_C_1_0) -> 
+      (if (_lh_all_arg1_0 _lh_all_LH_C_0_0) then
+        ((all_lh _lh_all_arg1_0) _lh_all_LH_C_1_0)
+      else
+        false));;
 let rec testBoyer_nofib_lh _lh_testBoyer_nofib_arg1_0 =
   ((all_lh test0_lh) ((replicate_lh _lh_testBoyer_nofib_arg1_0) (`Var((`X)))));;
 let run () = 1 + (Obj.magic ((testBoyer_nofib_lh 5)));

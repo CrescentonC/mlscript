@@ -6,12 +6,6 @@ open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_lumberhack_float_out_____(LH_Dum: sig end): sig val run: unit -> int end = struct
 let rec permutations_lh__d1 _lh_permutations_arg1_0 =
   (_lh_permutations_arg1_0 99);;
-let rec take_lh__d1 n_2 ls_0 =
-  (if (n_2 > 0) then
-    (ls_0 n_2)
-  else
-    (fun _lh_dummy_2 -> 
-      (`LH_C((`LH_N), (`LH_N)))));;
 let rec addj_lh__d1 _lh_addj_arg1_0 _lh_addj_arg2_0 =
   (match _lh_addj_arg2_0 with
     | `LH_N -> 
@@ -23,9 +17,13 @@ let rec addj_lh__d1 _lh_addj_arg1_0 _lh_addj_arg2_0 =
             (`LH_C((`LH_C(_lh_addj_LH_C_0_0, _lh_listcomp_fun_ls_h_2)), (_lh_listcomp_fun_2 _lh_listcomp_fun_ls_t_2)))
           | `LH_N -> 
             (`LH_N))) in
-        (_lh_listcomp_fun_2 ((addj_lh__d1 _lh_addj_arg1_0) _lh_addj_LH_C_1_0)))))
-    | _ -> 
-      (failwith "error"));;
+        (_lh_listcomp_fun_2 ((addj_lh__d1 _lh_addj_arg1_0) _lh_addj_LH_C_1_0))))));;
+let rec take_lh__d1 n_2 ls_0 =
+  (if (n_2 > 0) then
+    (ls_0 n_2)
+  else
+    (fun _lh_dummy_2 -> 
+      (`LH_C((`LH_N), (`LH_N)))));;
 let rec enumFromTo_lh__d2 a_0 b_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 =
   (if (a_0 <= b_0) then
     (let rec t_0 = ((enumFromTo_lh__d2 (a_0 + 1)) b_0) in
@@ -56,12 +54,12 @@ let rec enumFromTo_lh__d1 a_1 b_1 _lh_floatOutId_0_1 =
         (`LH_C((_lh_floatOutId_0_1 h_1), ((map_lh__d1 _lh_floatOutId_0_1) t_1)))))
   else
     (`LH_N));;
+let rec expand_lh__d3 _lh_expand_arg1_0 _lh_expand_arg2_0 _lh_expand_arg3_0 _lh_expand_arg4_0 _lh_expand_arg5_0 _lh_expand_arg6_0 =
+  (((((_lh_expand_arg6_0 + (_lh_expand_arg5_0 * 10)) + (_lh_expand_arg4_0 * 100)) + (_lh_expand_arg3_0 * 1000)) + (_lh_expand_arg2_0 * 10000)) + (_lh_expand_arg1_0 * 100000));;
 let rec expand_lh__d1 _lh_expand_arg1_2 _lh_expand_arg2_2 _lh_expand_arg3_2 _lh_expand_arg4_2 _lh_expand_arg5_2 _lh_expand_arg6_2 =
   (((((_lh_expand_arg6_2 + (_lh_expand_arg5_2 * 10)) + (_lh_expand_arg4_2 * 100)) + (_lh_expand_arg3_2 * 1000)) + (_lh_expand_arg2_2 * 10000)) + (_lh_expand_arg1_2 * 100000));;
 let rec expand_lh__d2 _lh_expand_arg1_1 _lh_expand_arg2_1 _lh_expand_arg3_1 _lh_expand_arg4_1 _lh_expand_arg5_1 _lh_expand_arg6_1 =
   (((((_lh_expand_arg6_1 + (_lh_expand_arg5_1 * 10)) + (_lh_expand_arg4_1 * 100)) + (_lh_expand_arg3_1 * 1000)) + (_lh_expand_arg2_1 * 10000)) + (_lh_expand_arg1_1 * 100000));;
-let rec expand_lh__d3 _lh_expand_arg1_0 _lh_expand_arg2_0 _lh_expand_arg3_0 _lh_expand_arg4_0 _lh_expand_arg5_0 _lh_expand_arg6_0 =
-  (((((_lh_expand_arg6_0 + (_lh_expand_arg5_0 * 10)) + (_lh_expand_arg4_0 * 100)) + (_lh_expand_arg3_0 * 1000)) + (_lh_expand_arg2_0 * 10000)) + (_lh_expand_arg1_0 * 100000));;
 let rec condition_lh__d1 _lh_condition_arg1_0 =
   (match _lh_condition_arg1_0 with
     | `LH_C(_lh_condition_LH_C_0_0, _lh_condition_LH_C_1_0) -> 
@@ -85,29 +83,7 @@ let rec condition_lh__d1 _lh_condition_arg1_0 =
                                         | `LH_C(_lh_condition_LH_C_0_9, _lh_condition_LH_C_1_9) -> 
                                           (match _lh_condition_LH_C_1_9 with
                                             | `LH_N -> 
-                                              ((((((((expand_lh__d3 _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_1) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_3) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4) + (5 * ((((((expand_lh__d1 _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_5) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_7) _lh_condition_LH_C_0_8) _lh_condition_LH_C_0_6))) = ((((((expand_lh__d2 _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4))
-                                            | _ -> 
-                                              (failwith "error"))
-                                        | _ -> 
-                                          (failwith "error"))
-                                    | _ -> 
-                                      (failwith "error"))
-                                | _ -> 
-                                  (failwith "error"))
-                            | _ -> 
-                              (failwith "error"))
-                        | _ -> 
-                          (failwith "error"))
-                    | _ -> 
-                      (failwith "error"))
-                | _ -> 
-                  (failwith "error"))
-            | _ -> 
-              (failwith "error"))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+                                              ((((((((expand_lh__d1 _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_1) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_3) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4) + (5 * ((((((expand_lh__d3 _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_5) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_7) _lh_condition_LH_C_0_8) _lh_condition_LH_C_0_6))) = ((((((expand_lh__d2 _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_2) _lh_condition_LH_C_0_9) _lh_condition_LH_C_0_6) _lh_condition_LH_C_0_0) _lh_condition_LH_C_0_4)))))))))))));;
 let rec filter_lh__d1 f_3 ls_2 =
   (match ls_2 with
     | `LH_C(h_2, t_2) -> 

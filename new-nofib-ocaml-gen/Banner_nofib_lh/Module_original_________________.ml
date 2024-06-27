@@ -3,11 +3,6 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec replicate_lh _lh_replicate_arg1_0 _lh_replicate_arg2_0 =
-  (if (_lh_replicate_arg1_0 = 0) then
-    (`LH_N)
-  else
-    (`LH_C(_lh_replicate_arg2_0, ((replicate_lh (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0))));;
 let rec mappend_lh xs_0 ys_0 =
   (match xs_0 with
     | `LH_C(h_3, t_3) -> 
@@ -20,6 +15,11 @@ let rec concat_lh lss_0 =
       ((mappend_lh h_5) (concat_lh t_5))
     | `LH_N -> 
       (`LH_N));;
+let rec replicate_lh _lh_replicate_arg1_0 _lh_replicate_arg2_0 =
+  (if (_lh_replicate_arg1_0 = 0) then
+    (`LH_N)
+  else
+    (`LH_C(_lh_replicate_arg2_0, ((replicate_lh (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0))));;
 let rec foldr_lh f_1 i_0 ls_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
@@ -34,11 +34,7 @@ let rec unzip_lh _lh_unzip_arg1_0 =
           (let rec _lh_matchIdent_1 = asbs_0 in
             (match _lh_matchIdent_1 with
               | `LH_P2(_lh_unzip_LH_P2_0_1, _lh_unzip_LH_P2_1_1) -> 
-                (`LH_P2((`LH_C(_lh_unzip_LH_P2_0_0, _lh_unzip_LH_P2_0_1)), (`LH_C(_lh_unzip_LH_P2_1_0, _lh_unzip_LH_P2_1_1))))
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))))) (`LH_P2((`LH_N), (`LH_N)))) _lh_unzip_arg1_0);;
+                (`LH_P2((`LH_C(_lh_unzip_LH_P2_0_0, _lh_unzip_LH_P2_0_1)), (`LH_C(_lh_unzip_LH_P2_1_0, _lh_unzip_LH_P2_1_1)))))))))) (`LH_P2((`LH_N), (`LH_N)))) _lh_unzip_arg1_0);;
 let rec combine_lh _lh_combine_arg1_0 _lh_combine_arg2_0 _lh_combine_arg3_0 _lh_combine_arg4_0 =
   (`LH_C((`LH_C(_lh_combine_arg1_0, _lh_combine_arg2_0)), (transpose_lh (`LH_C(_lh_combine_arg3_0, _lh_combine_arg4_0)))))
 and
@@ -64,13 +60,7 @@ transpose_lh _lh_transpose_arg1_0 =
             (_lh_listcomp_fun_1 _lh_transpose_LH_C_1_0))) in
             (match _lh_matchIdent_2 with
               | `LH_P2(_lh_transpose_LH_P2_0_0, _lh_transpose_LH_P2_1_0) -> 
-                ((((combine_lh _lh_transpose_LH_C_0_1) _lh_transpose_LH_P2_0_0) _lh_transpose_LH_C_1_1) _lh_transpose_LH_P2_1_0)
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+                ((((combine_lh _lh_transpose_LH_C_0_1) _lh_transpose_LH_P2_0_0) _lh_transpose_LH_C_1_1) _lh_transpose_LH_P2_1_0)))));;
 let rec blank_lh =
   (`LH_C((`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_N))))))))))), (`LH_C((`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_N))))))))))), (`LH_C((`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_N))))))))))), (`LH_C((`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_N))))))))))), (`LH_C((`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_C(' ', (`LH_N))))))))))), (`LH_N)))))))))));;
 let rec isSpace_lh _lh_isSpace_arg1_0 =
@@ -85,10 +75,10 @@ let rec head_lh ls_2 =
     | `LH_C(h_2, t_2) -> 
       h_2
     | `LH_N -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
 let rec atIndex_lh n_0 ls_3 =
   (if (n_0 < 0) then
-    (failwith "error")
+    (failwith "lh_default_error")
   else
     (match ls_3 with
       | `LH_C(h_4, t_4) -> 
@@ -97,7 +87,7 @@ let rec atIndex_lh n_0 ls_3 =
         else
           ((atIndex_lh (n_0 - 1)) t_4))
       | `LH_N -> 
-        (failwith "error")));;
+        (failwith "lh_default_error")));;
 let rec reverse_helper_lh ls_5 a_0 =
   (match ls_5 with
     | `LH_C(h_6, t_6) -> 
@@ -169,8 +159,8 @@ let rec foldr1_lh _lh_foldr1_arg1_0 _lh_foldr1_arg2_0 =
           _lh_foldr1_LH_C_0_0
         | _ -> 
           ((_lh_foldr1_arg1_0 _lh_foldr1_LH_C_0_0) ((foldr1_lh _lh_foldr1_arg1_0) _lh_foldr1_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec join_lh _lh_join_arg1_0 =
   ((foldr1_lh (fun xs_1 ys_1 -> 
     ((mappend_lh ((mappend_lh xs_1) (`LH_C(' ', (`LH_C(' ', (`LH_N))))))) ys_1))) _lh_join_arg1_0);;

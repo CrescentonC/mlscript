@@ -51,32 +51,23 @@ testScc_nofib $ primId 0
 //│ 		| LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_C_1¹ => if inList_lh_₂(_lh_dfs_LH_C_0¹, _lh_dfs_LH_P2_0²) then dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0² _lh_dfs_LH_P2_1²], _lh_dfs_LH_C_1¹) else 
 //│ 			let _lh_matchIdent¹ = dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 [LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_0²] [LH_N]], _lh_dfs_arg1¹(_lh_dfs_LH_C_0¹))
 //│ 			in case _lh_matchIdent¹ of {
-//│ 				LH_P2 _lh_dfs_LH_P2_0³ _lh_dfs_LH_P2_1³ => dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0³ mappend_lh_₁([LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_1³], _lh_dfs_LH_P2_1²)], _lh_dfs_LH_C_1¹)
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
+//│ 				LH_P2 _lh_dfs_LH_P2_0³ _lh_dfs_LH_P2_1³ => dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0³ mappend_lh_₁([LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_1³], _lh_dfs_LH_P2_1²)], _lh_dfs_LH_C_1¹)}}}
 //│ def dfs_lh_₂(_lh_dfs_arg1⁰, _lh_dfs_arg2⁰, _lh_dfs_arg3⁰) = case _lh_dfs_arg2⁰ of {
 //│ 	LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰ => case _lh_dfs_arg3⁰ of {
 //│ 		LH_N  => [LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰]
 //│ 		| LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_C_1⁰ => if inList_lh_₃(_lh_dfs_LH_C_0⁰, _lh_dfs_LH_P2_0⁰) then dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰], _lh_dfs_LH_C_1⁰) else 
 //│ 			let _lh_matchIdent⁰ = dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 [LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_0⁰] [LH_N]], _lh_dfs_arg1⁰(_lh_dfs_LH_C_0⁰))
 //│ 			in case _lh_matchIdent⁰ of {
-//│ 				LH_P2 _lh_dfs_LH_P2_0¹ _lh_dfs_LH_P2_1¹ => dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0¹ mappend_lh_₂([LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_1¹], _lh_dfs_LH_P2_1⁰)], _lh_dfs_LH_C_1⁰)
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
+//│ 				LH_P2 _lh_dfs_LH_P2_0¹ _lh_dfs_LH_P2_1¹ => dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0¹ mappend_lh_₂([LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_1¹], _lh_dfs_LH_P2_1⁰)], _lh_dfs_LH_C_1⁰)}}}
 //│ def inList_lh_₁(_lh_inList_arg1², _lh_inList_arg2²) = case _lh_inList_arg2² of {
 //│ 	LH_C _lh_inList_LH_C_0² _lh_inList_LH_C_1² => if (_lh_inList_arg1² == _lh_inList_LH_C_0²) then [True] else inList_lh_₁(_lh_inList_arg1², _lh_inList_LH_C_1²)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def inList_lh_₂(_lh_inList_arg1¹, _lh_inList_arg2¹) = case _lh_inList_arg2¹ of {
 //│ 	LH_C _lh_inList_LH_C_0¹ _lh_inList_LH_C_1¹ => if (_lh_inList_arg1¹ == _lh_inList_LH_C_0¹) then [True] else inList_lh_₂(_lh_inList_arg1¹, _lh_inList_LH_C_1¹)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def inList_lh_₃(_lh_inList_arg1⁰, _lh_inList_arg2⁰) = case _lh_inList_arg2⁰ of {
 //│ 	LH_C _lh_inList_LH_C_0⁰ _lh_inList_LH_C_1⁰ => if (_lh_inList_arg1⁰ == _lh_inList_LH_C_0⁰) then [True] else inList_lh_₃(_lh_inList_arg1⁰, _lh_inList_LH_C_1⁰)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def map_lh_₁(f⁰, ls⁰) = case ls⁰ of {
 //│ 	LH_C h² t² => [LH_C f⁰(h²) map_lh_₁(f⁰, t²)]
 //│ 	| LH_N  => [LH_N]}
@@ -87,31 +78,23 @@ testScc_nofib $ primId 0
 //│ 	LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]
 //│ 	| LH_N  => ys⁰}
 //│ def snd_lh_₁(_lh_snd_arg1¹) = case _lh_snd_arg1¹ of {
-//│ 	LH_P2 _lh_snd_LH_P2_0¹ _lh_snd_LH_P2_1¹ => _lh_snd_LH_P2_1¹
-//│ 	| _  => error⁰}
+//│ 	LH_P2 _lh_snd_LH_P2_0¹ _lh_snd_LH_P2_1¹ => _lh_snd_LH_P2_1¹}
 //│ def snd_lh_₂(_lh_snd_arg1⁰) = case _lh_snd_arg1⁰ of {
-//│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰
-//│ 	| _  => error⁰}
+//│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰}
 //│ def stronglyConnComp_lh_₁(_lh_stronglyConnComp_arg1⁰, _lh_stronglyConnComp_arg2⁰) = 
 //│ 	let new_range⁰ = (fun _lh_new_range_arg1⁰ -> (fun _lh_new_range_arg2⁰ -> case _lh_new_range_arg1⁰ of {
 //│ 			LH_N  => [LH_N]
 //│ 			| LH_C _lh_new_range_LH_C_0⁰ _lh_new_range_LH_C_1⁰ => case _lh_new_range_LH_C_0⁰ of {
-//│ 				LH_P2 _lh_new_range_LH_P2_0⁰ _lh_new_range_LH_P2_1⁰ => if (_lh_new_range_LH_P2_0⁰ == _lh_new_range_arg2⁰) then [LH_C _lh_new_range_LH_P2_1⁰ new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)] else new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)
-//│ 				| _  => error⁰}
-//│ 			| _  => error⁰}))
+//│ 				LH_P2 _lh_new_range_LH_P2_0⁰ _lh_new_range_LH_P2_1⁰ => if (_lh_new_range_LH_P2_0⁰ == _lh_new_range_arg2⁰) then [LH_C _lh_new_range_LH_P2_1⁰ new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)] else new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)}}))
 //│ 	and span_tree⁰ = (fun _lh_span_tree_arg1⁰ -> (fun _lh_span_tree_arg2⁰ -> (fun _lh_span_tree_arg3⁰ -> case _lh_span_tree_arg2⁰ of {
 //│ 			LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰ => case _lh_span_tree_arg3⁰ of {
 //│ 				LH_N  => [LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰]
 //│ 				| LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_C_1⁰ => if inList_lh_₁(_lh_span_tree_LH_C_0⁰, _lh_span_tree_LH_P2_0⁰) then span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰], _lh_span_tree_LH_C_1⁰) else 
 //│ 					let _lh_matchIdent² = dfs_lh_₁(_lh_span_tree_arg1⁰, [LH_P2 [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_0⁰] [LH_N]], _lh_span_tree_arg1⁰(_lh_span_tree_LH_C_0⁰))
 //│ 					in case _lh_matchIdent² of {
-//│ 						LH_P2 _lh_span_tree_LH_P2_0¹ _lh_span_tree_LH_P2_1¹ => span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0¹ [LH_C [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_1¹] _lh_span_tree_LH_P2_1⁰]], _lh_span_tree_LH_C_1⁰)
-//│ 						| _  => error⁰}
-//│ 				| _  => error⁰}
-//│ 			| _  => error⁰})))
+//│ 						LH_P2 _lh_span_tree_LH_P2_0¹ _lh_span_tree_LH_P2_1¹ => span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0¹ [LH_C [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_1¹] _lh_span_tree_LH_P2_1⁰]], _lh_span_tree_LH_C_1⁰)}}})))
 //│ 	and swap⁰ = (fun _lh_swap_arg1⁰ -> case _lh_swap_arg1⁰ of {
-//│ 			LH_P2 _lh_swap_LH_P2_0⁰ _lh_swap_LH_P2_1⁰ => [LH_P2 _lh_swap_LH_P2_1⁰ _lh_swap_LH_P2_0⁰]
-//│ 			| _  => error⁰}) 
+//│ 			LH_P2 _lh_swap_LH_P2_0⁰ _lh_swap_LH_P2_1⁰ => [LH_P2 _lh_swap_LH_P2_1⁰ _lh_swap_LH_P2_0⁰]}) 
 //│ 	in snd_lh_₂(span_tree⁰(new_range⁰(map_lh_₁(swap⁰, _lh_stronglyConnComp_arg1⁰)), [LH_P2 [LH_N] [LH_N]], snd_lh_₁(dfs_lh_₂(new_range⁰(_lh_stronglyConnComp_arg1⁰), [LH_P2 [LH_N] [LH_N]], _lh_stronglyConnComp_arg2⁰))))
 //│ def testScc_nofib_lh_₁(_lh_testScc_nofib_arg1⁰) = 
 //│ 	let a⁰ = 1
@@ -128,9 +111,7 @@ testScc_nofib $ primId 0
 //│ 		let rec snd_lh__d2 _lh_snd_arg1_0 =
 //│ 		  (match _lh_snd_arg1_0 with
 //│ 		    | `LH_P2(_lh_snd_LH_P2_0_0, _lh_snd_LH_P2_1_0) -> 
-//│ 		      _lh_snd_LH_P2_1_0
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		      _lh_snd_LH_P2_1_0);;
 //│ 		let rec inList_lh__d1 _lh_inList_arg1_2 _lh_inList_arg2_2 =
 //│ 		  (match _lh_inList_arg2_2 with
 //│ 		    | `LH_C(_lh_inList_LH_C_0_2, _lh_inList_LH_C_1_2) -> 
@@ -139,15 +120,11 @@ testScc_nofib $ primId 0
 //│ 		      else
 //│ 		        ((inList_lh__d1 _lh_inList_arg1_2) _lh_inList_LH_C_1_2))
 //│ 		    | `LH_N -> 
-//│ 		      false
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		      false);;
 //│ 		let rec snd_lh__d1 _lh_snd_arg1_1 =
 //│ 		  (match _lh_snd_arg1_1 with
 //│ 		    | `LH_P2(_lh_snd_LH_P2_0_1, _lh_snd_LH_P2_1_1) -> 
-//│ 		      _lh_snd_LH_P2_1_1
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		      _lh_snd_LH_P2_1_1);;
 //│ 		let rec map_lh__d1 f_0 ls_0 =
 //│ 		  (match ls_0 with
 //│ 		    | `LH_C(h_2, t_2) -> 
@@ -162,9 +139,7 @@ testScc_nofib $ primId 0
 //│ 		      else
 //│ 		        ((inList_lh__d3 _lh_inList_arg1_0) _lh_inList_LH_C_1_0))
 //│ 		    | `LH_N -> 
-//│ 		      false
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		      false);;
 //│ 		let rec mappend_lh__d2 xs_0 ys_0 =
 //│ 		  (match xs_0 with
 //│ 		    | `LH_C(h_0, t_0) -> 
@@ -184,13 +159,7 @@ testScc_nofib $ primId 0
 //│ 		            (let rec _lh_matchIdent_0 = (((dfs_lh__d2 _lh_dfs_arg1_0) (`LH_P2((`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_0_0)), (`LH_N)))) (_lh_dfs_arg1_0 _lh_dfs_LH_C_0_0)) in
 //│ 		              (match _lh_matchIdent_0 with
 //│ 		                | `LH_P2(_lh_dfs_LH_P2_0_1, _lh_dfs_LH_P2_1_1) -> 
-//│ 		                  (((dfs_lh__d2 _lh_dfs_arg1_0) (`LH_P2(_lh_dfs_LH_P2_0_1, ((mappend_lh__d2 (`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_1_1))) _lh_dfs_LH_P2_1_0)))) _lh_dfs_LH_C_1_0)
-//│ 		                | _ -> 
-//│ 		                  (failwith "error"))))
-//│ 		        | _ -> 
-//│ 		          (failwith "error"))
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		                  (((dfs_lh__d2 _lh_dfs_arg1_0) (`LH_P2(_lh_dfs_LH_P2_0_1, ((mappend_lh__d2 (`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_1_1))) _lh_dfs_LH_P2_1_0)))) _lh_dfs_LH_C_1_0))))));;
 //│ 		let rec mappend_lh__d1 xs_1 ys_1 =
 //│ 		  (match xs_1 with
 //│ 		    | `LH_C(h_1, t_1) -> 
@@ -205,9 +174,7 @@ testScc_nofib $ primId 0
 //│ 		      else
 //│ 		        ((inList_lh__d2 _lh_inList_arg1_1) _lh_inList_LH_C_1_1))
 //│ 		    | `LH_N -> 
-//│ 		      false
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		      false);;
 //│ 		let rec dfs_lh__d1 _lh_dfs_arg1_1 _lh_dfs_arg2_1 _lh_dfs_arg3_1 =
 //│ 		  (match _lh_dfs_arg2_1 with
 //│ 		    | `LH_P2(_lh_dfs_LH_P2_0_2, _lh_dfs_LH_P2_1_2) -> 
@@ -221,13 +188,7 @@ testScc_nofib $ primId 0
 //│ 		            (let rec _lh_matchIdent_1 = (((dfs_lh__d1 _lh_dfs_arg1_1) (`LH_P2((`LH_C(_lh_dfs_LH_C_0_1, _lh_dfs_LH_P2_0_2)), (`LH_N)))) (_lh_dfs_arg1_1 _lh_dfs_LH_C_0_1)) in
 //│ 		              (match _lh_matchIdent_1 with
 //│ 		                | `LH_P2(_lh_dfs_LH_P2_0_3, _lh_dfs_LH_P2_1_3) -> 
-//│ 		                  (((dfs_lh__d1 _lh_dfs_arg1_1) (`LH_P2(_lh_dfs_LH_P2_0_3, ((mappend_lh__d1 (`LH_C(_lh_dfs_LH_C_0_1, _lh_dfs_LH_P2_1_3))) _lh_dfs_LH_P2_1_2)))) _lh_dfs_LH_C_1_1)
-//│ 		                | _ -> 
-//│ 		                  (failwith "error"))))
-//│ 		        | _ -> 
-//│ 		          (failwith "error"))
-//│ 		    | _ -> 
-//│ 		      (failwith "error"));;
+//│ 		                  (((dfs_lh__d1 _lh_dfs_arg1_1) (`LH_P2(_lh_dfs_LH_P2_0_3, ((mappend_lh__d1 (`LH_C(_lh_dfs_LH_C_0_1, _lh_dfs_LH_P2_1_3))) _lh_dfs_LH_P2_1_2)))) _lh_dfs_LH_C_1_1))))));;
 //│ 		let rec stronglyConnComp_lh__d1 _lh_stronglyConnComp_arg1_0 _lh_stronglyConnComp_arg2_0 =
 //│ 		  let rec new_range_0 = (fun _lh_new_range_arg1_0 _lh_new_range_arg2_0 -> 
 //│ 		    (match _lh_new_range_arg1_0 with
@@ -239,11 +200,7 @@ testScc_nofib $ primId 0
 //│ 		            (if (_lh_new_range_LH_P2_0_0 = _lh_new_range_arg2_0) then
 //│ 		              (`LH_C(_lh_new_range_LH_P2_1_0, ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0)))
 //│ 		            else
-//│ 		              ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0))
-//│ 		          | _ -> 
-//│ 		            (failwith "error"))
-//│ 		      | _ -> 
-//│ 		        (failwith "error")))
+//│ 		              ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0)))))
 //│ 		  and span_tree_0 = (fun _lh_span_tree_arg1_0 _lh_span_tree_arg2_0 _lh_span_tree_arg3_0 -> 
 //│ 		    (match _lh_span_tree_arg2_0 with
 //│ 		      | `LH_P2(_lh_span_tree_LH_P2_0_0, _lh_span_tree_LH_P2_1_0) -> 
@@ -257,19 +214,11 @@ testScc_nofib $ primId 0
 //│ 		              (let rec _lh_matchIdent_2 = (((dfs_lh__d1 _lh_span_tree_arg1_0) (`LH_P2((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_0_0)), (`LH_N)))) (_lh_span_tree_arg1_0 _lh_span_tree_LH_C_0_0)) in
 //│ 		                (match _lh_matchIdent_2 with
 //│ 		                  | `LH_P2(_lh_span_tree_LH_P2_0_1, _lh_span_tree_LH_P2_1_1) -> 
-//│ 		                    (((span_tree_0 _lh_span_tree_arg1_0) (`LH_P2(_lh_span_tree_LH_P2_0_1, (`LH_C((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_1_1)), _lh_span_tree_LH_P2_1_0))))) _lh_span_tree_LH_C_1_0)
-//│ 		                  | _ -> 
-//│ 		                    (failwith "error"))))
-//│ 		          | _ -> 
-//│ 		            (failwith "error"))
-//│ 		      | _ -> 
-//│ 		        (failwith "error")))
+//│ 		                    (((span_tree_0 _lh_span_tree_arg1_0) (`LH_P2(_lh_span_tree_LH_P2_0_1, (`LH_C((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_1_1)), _lh_span_tree_LH_P2_1_0))))) _lh_span_tree_LH_C_1_0)))))))
 //│ 		  and swap_0 = (fun _lh_swap_arg1_0 -> 
 //│ 		    (match _lh_swap_arg1_0 with
 //│ 		      | `LH_P2(_lh_swap_LH_P2_0_0, _lh_swap_LH_P2_1_0) -> 
-//│ 		        (`LH_P2(_lh_swap_LH_P2_1_0, _lh_swap_LH_P2_0_0))
-//│ 		      | _ -> 
-//│ 		        (failwith "error")))
+//│ 		        (`LH_P2(_lh_swap_LH_P2_1_0, _lh_swap_LH_P2_0_0))))
 //│ 		  in (snd_lh__d2 (((span_tree_0 (new_range_0 ((map_lh__d1 swap_0) _lh_stronglyConnComp_arg1_0))) (`LH_P2((`LH_N), (`LH_N)))) (snd_lh__d1 (((dfs_lh__d2 (new_range_0 _lh_stronglyConnComp_arg1_0)) (`LH_P2((`LH_N), (`LH_N)))) _lh_stronglyConnComp_arg2_0))));;
 //│ 		let rec testScc_nofib_lh__d1 _lh_testScc_nofib_arg1_0 =
 //│ 		  (let rec a_0 = 1 in
@@ -300,32 +249,23 @@ testScc_nofib $ primId 0
 //│ 		| LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_C_1¹ => if inList_lh_₂(_lh_dfs_LH_C_0¹, _lh_dfs_LH_P2_0²) then dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0² _lh_dfs_LH_P2_1²], _lh_dfs_LH_C_1¹) else 
 //│ 			let _lh_matchIdent¹ = dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 [LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_0²] [LH_N]], _lh_dfs_arg1¹(_lh_dfs_LH_C_0¹))
 //│ 			in case _lh_matchIdent¹ of {
-//│ 				LH_P2 _lh_dfs_LH_P2_0³ _lh_dfs_LH_P2_1³ => dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0³ mappend_lh_₁([LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_1³], _lh_dfs_LH_P2_1²)], _lh_dfs_LH_C_1¹)
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
+//│ 				LH_P2 _lh_dfs_LH_P2_0³ _lh_dfs_LH_P2_1³ => dfs_lh_₁(_lh_dfs_arg1¹, [LH_P2 _lh_dfs_LH_P2_0³ mappend_lh_₁([LH_C _lh_dfs_LH_C_0¹ _lh_dfs_LH_P2_1³], _lh_dfs_LH_P2_1²)], _lh_dfs_LH_C_1¹)}}}
 //│ def dfs_lh_₂(_lh_dfs_arg1⁰, _lh_dfs_arg2⁰, _lh_dfs_arg3⁰) = case _lh_dfs_arg2⁰ of {
 //│ 	LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰ => case _lh_dfs_arg3⁰ of {
 //│ 		LH_N  => [LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰]
 //│ 		| LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_C_1⁰ => if inList_lh_₃(_lh_dfs_LH_C_0⁰, _lh_dfs_LH_P2_0⁰) then dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0⁰ _lh_dfs_LH_P2_1⁰], _lh_dfs_LH_C_1⁰) else 
 //│ 			let _lh_matchIdent⁰ = dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 [LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_0⁰] [LH_N]], _lh_dfs_arg1⁰(_lh_dfs_LH_C_0⁰))
 //│ 			in case _lh_matchIdent⁰ of {
-//│ 				LH_P2 _lh_dfs_LH_P2_0¹ _lh_dfs_LH_P2_1¹ => dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0¹ mappend_lh_₂([LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_1¹], _lh_dfs_LH_P2_1⁰)], _lh_dfs_LH_C_1⁰)
-//│ 				| _  => error⁰}
-//│ 		| _  => error⁰}
-//│ 	| _  => error⁰}
+//│ 				LH_P2 _lh_dfs_LH_P2_0¹ _lh_dfs_LH_P2_1¹ => dfs_lh_₂(_lh_dfs_arg1⁰, [LH_P2 _lh_dfs_LH_P2_0¹ mappend_lh_₂([LH_C _lh_dfs_LH_C_0⁰ _lh_dfs_LH_P2_1¹], _lh_dfs_LH_P2_1⁰)], _lh_dfs_LH_C_1⁰)}}}
 //│ def inList_lh_₁(_lh_inList_arg1¹, _lh_inList_arg2¹) = case _lh_inList_arg2¹ of {
 //│ 	LH_C _lh_inList_LH_C_0¹ _lh_inList_LH_C_1¹ => if (_lh_inList_arg1¹ == _lh_inList_LH_C_0¹) then [True] else inList_lh_₁(_lh_inList_arg1¹, _lh_inList_LH_C_1¹)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def inList_lh_₂(_lh_inList_arg1², _lh_inList_arg2²) = case _lh_inList_arg2² of {
 //│ 	LH_C _lh_inList_LH_C_0² _lh_inList_LH_C_1² => if (_lh_inList_arg1² == _lh_inList_LH_C_0²) then [True] else inList_lh_₂(_lh_inList_arg1², _lh_inList_LH_C_1²)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def inList_lh_₃(_lh_inList_arg1⁰, _lh_inList_arg2⁰) = case _lh_inList_arg2⁰ of {
 //│ 	LH_C _lh_inList_LH_C_0⁰ _lh_inList_LH_C_1⁰ => if (_lh_inList_arg1⁰ == _lh_inList_LH_C_0⁰) then [True] else inList_lh_₃(_lh_inList_arg1⁰, _lh_inList_LH_C_1⁰)
-//│ 	| LH_N  => [False]
-//│ 	| _  => error⁰}
+//│ 	| LH_N  => [False]}
 //│ def map_lh_₁(f⁰, ls⁰) = case ls⁰ of {
 //│ 	LH_C h² t² => [LH_C f⁰(h²) map_lh_₁(f⁰, t²)]
 //│ 	| LH_N  => [LH_N]}
@@ -336,31 +276,23 @@ testScc_nofib $ primId 0
 //│ 	LH_C h¹ t¹ => [LH_C h¹ mappend_lh_₂(t¹, ys¹)]
 //│ 	| LH_N  => ys¹}
 //│ def snd_lh_₁(_lh_snd_arg1¹) = case _lh_snd_arg1¹ of {
-//│ 	LH_P2 _lh_snd_LH_P2_0¹ _lh_snd_LH_P2_1¹ => _lh_snd_LH_P2_1¹
-//│ 	| _  => error⁰}
+//│ 	LH_P2 _lh_snd_LH_P2_0¹ _lh_snd_LH_P2_1¹ => _lh_snd_LH_P2_1¹}
 //│ def snd_lh_₂(_lh_snd_arg1⁰) = case _lh_snd_arg1⁰ of {
-//│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰
-//│ 	| _  => error⁰}
+//│ 	LH_P2 _lh_snd_LH_P2_0⁰ _lh_snd_LH_P2_1⁰ => _lh_snd_LH_P2_1⁰}
 //│ def stronglyConnComp_lh_₁(_lh_stronglyConnComp_arg1⁰, _lh_stronglyConnComp_arg2⁰) = 
 //│ 	let new_range⁰ = (fun _lh_new_range_arg1⁰ -> (fun _lh_new_range_arg2⁰ -> case _lh_new_range_arg1⁰ of {
 //│ 			LH_N  => [LH_N]
 //│ 			| LH_C _lh_new_range_LH_C_0⁰ _lh_new_range_LH_C_1⁰ => case _lh_new_range_LH_C_0⁰ of {
-//│ 				LH_P2 _lh_new_range_LH_P2_0⁰ _lh_new_range_LH_P2_1⁰ => if (_lh_new_range_LH_P2_0⁰ == _lh_new_range_arg2⁰) then [LH_C _lh_new_range_LH_P2_1⁰ new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)] else new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)
-//│ 				| _  => error⁰}
-//│ 			| _  => error⁰}))
+//│ 				LH_P2 _lh_new_range_LH_P2_0⁰ _lh_new_range_LH_P2_1⁰ => if (_lh_new_range_LH_P2_0⁰ == _lh_new_range_arg2⁰) then [LH_C _lh_new_range_LH_P2_1⁰ new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)] else new_range⁰(_lh_new_range_LH_C_1⁰, _lh_new_range_arg2⁰)}}))
 //│ 	and span_tree⁰ = (fun _lh_span_tree_arg1⁰ -> (fun _lh_span_tree_arg2⁰ -> (fun _lh_span_tree_arg3⁰ -> case _lh_span_tree_arg2⁰ of {
 //│ 			LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰ => case _lh_span_tree_arg3⁰ of {
 //│ 				LH_N  => [LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰]
 //│ 				| LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_C_1⁰ => if inList_lh_₁(_lh_span_tree_LH_C_0⁰, _lh_span_tree_LH_P2_0⁰) then span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0⁰ _lh_span_tree_LH_P2_1⁰], _lh_span_tree_LH_C_1⁰) else 
 //│ 					let _lh_matchIdent² = dfs_lh_₁(_lh_span_tree_arg1⁰, [LH_P2 [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_0⁰] [LH_N]], _lh_span_tree_arg1⁰(_lh_span_tree_LH_C_0⁰))
 //│ 					in case _lh_matchIdent² of {
-//│ 						LH_P2 _lh_span_tree_LH_P2_0¹ _lh_span_tree_LH_P2_1¹ => span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0¹ [LH_C [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_1¹] _lh_span_tree_LH_P2_1⁰]], _lh_span_tree_LH_C_1⁰)
-//│ 						| _  => error⁰}
-//│ 				| _  => error⁰}
-//│ 			| _  => error⁰})))
+//│ 						LH_P2 _lh_span_tree_LH_P2_0¹ _lh_span_tree_LH_P2_1¹ => span_tree⁰(_lh_span_tree_arg1⁰, [LH_P2 _lh_span_tree_LH_P2_0¹ [LH_C [LH_C _lh_span_tree_LH_C_0⁰ _lh_span_tree_LH_P2_1¹] _lh_span_tree_LH_P2_1⁰]], _lh_span_tree_LH_C_1⁰)}}})))
 //│ 	and swap⁰ = (fun _lh_swap_arg1⁰ -> case _lh_swap_arg1⁰ of {
-//│ 			LH_P2 _lh_swap_LH_P2_0⁰ _lh_swap_LH_P2_1⁰ => [LH_P2 _lh_swap_LH_P2_1⁰ _lh_swap_LH_P2_0⁰]
-//│ 			| _  => error⁰}) 
+//│ 			LH_P2 _lh_swap_LH_P2_0⁰ _lh_swap_LH_P2_1⁰ => [LH_P2 _lh_swap_LH_P2_1⁰ _lh_swap_LH_P2_0⁰]}) 
 //│ 	in snd_lh_₂(span_tree⁰(new_range⁰(map_lh_₁(swap⁰, _lh_stronglyConnComp_arg1⁰)), [LH_P2 [LH_N] [LH_N]], snd_lh_₁(dfs_lh_₂(new_range⁰(_lh_stronglyConnComp_arg1⁰), [LH_P2 [LH_N] [LH_N]], _lh_stronglyConnComp_arg2⁰))))
 //│ def testScc_nofib_lh_₁(_lh_testScc_nofib_arg1⁰) = 
 //│ 	let a⁰ = 1

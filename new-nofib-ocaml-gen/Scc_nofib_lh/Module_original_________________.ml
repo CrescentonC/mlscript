@@ -6,9 +6,7 @@ module Module_original_________________(LH_Dum: sig end): sig val run: unit -> i
 let rec snd_lh _lh_snd_arg1_0 =
   (match _lh_snd_arg1_0 with
     | `LH_P2(_lh_snd_LH_P2_0_0, _lh_snd_LH_P2_1_0) -> 
-      _lh_snd_LH_P2_1_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_snd_LH_P2_1_0);;
 let rec inList_lh _lh_inList_arg1_0 _lh_inList_arg2_0 =
   (match _lh_inList_arg2_0 with
     | `LH_C(_lh_inList_LH_C_0_0, _lh_inList_LH_C_1_0) -> 
@@ -17,9 +15,7 @@ let rec inList_lh _lh_inList_arg1_0 _lh_inList_arg2_0 =
       else
         ((inList_lh _lh_inList_arg1_0) _lh_inList_LH_C_1_0))
     | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
+      false);;
 let rec mappend_lh xs_0 ys_0 =
   (match xs_0 with
     | `LH_C(h_1, t_1) -> 
@@ -39,13 +35,7 @@ let rec dfs_lh _lh_dfs_arg1_0 _lh_dfs_arg2_0 _lh_dfs_arg3_0 =
             (let rec _lh_matchIdent_1 = (((dfs_lh _lh_dfs_arg1_0) (`LH_P2((`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_0_0)), (`LH_N)))) (_lh_dfs_arg1_0 _lh_dfs_LH_C_0_0)) in
               (match _lh_matchIdent_1 with
                 | `LH_P2(_lh_dfs_LH_P2_0_1, _lh_dfs_LH_P2_1_1) -> 
-                  (((dfs_lh _lh_dfs_arg1_0) (`LH_P2(_lh_dfs_LH_P2_0_1, ((mappend_lh (`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_1_1))) _lh_dfs_LH_P2_1_0)))) _lh_dfs_LH_C_1_0)
-                | _ -> 
-                  (failwith "error"))))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+                  (((dfs_lh _lh_dfs_arg1_0) (`LH_P2(_lh_dfs_LH_P2_0_1, ((mappend_lh (`LH_C(_lh_dfs_LH_C_0_0, _lh_dfs_LH_P2_1_1))) _lh_dfs_LH_P2_1_0)))) _lh_dfs_LH_C_1_0))))));;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
@@ -63,11 +53,7 @@ let rec stronglyConnComp_lh _lh_stronglyConnComp_arg1_0 _lh_stronglyConnComp_arg
             (if (_lh_new_range_LH_P2_0_0 = _lh_new_range_arg2_0) then
               (`LH_C(_lh_new_range_LH_P2_1_0, ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0)))
             else
-              ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0))
-          | _ -> 
-            (failwith "error"))
-      | _ -> 
-        (failwith "error")))
+              ((new_range_0 _lh_new_range_LH_C_1_0) _lh_new_range_arg2_0)))))
   and span_tree_0 = (fun _lh_span_tree_arg1_0 _lh_span_tree_arg2_0 _lh_span_tree_arg3_0 -> 
     (match _lh_span_tree_arg2_0 with
       | `LH_P2(_lh_span_tree_LH_P2_0_0, _lh_span_tree_LH_P2_1_0) -> 
@@ -81,19 +67,11 @@ let rec stronglyConnComp_lh _lh_stronglyConnComp_arg1_0 _lh_stronglyConnComp_arg
               (let rec _lh_matchIdent_0 = (((dfs_lh _lh_span_tree_arg1_0) (`LH_P2((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_0_0)), (`LH_N)))) (_lh_span_tree_arg1_0 _lh_span_tree_LH_C_0_0)) in
                 (match _lh_matchIdent_0 with
                   | `LH_P2(_lh_span_tree_LH_P2_0_1, _lh_span_tree_LH_P2_1_1) -> 
-                    (((span_tree_0 _lh_span_tree_arg1_0) (`LH_P2(_lh_span_tree_LH_P2_0_1, (`LH_C((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_1_1)), _lh_span_tree_LH_P2_1_0))))) _lh_span_tree_LH_C_1_0)
-                  | _ -> 
-                    (failwith "error"))))
-          | _ -> 
-            (failwith "error"))
-      | _ -> 
-        (failwith "error")))
+                    (((span_tree_0 _lh_span_tree_arg1_0) (`LH_P2(_lh_span_tree_LH_P2_0_1, (`LH_C((`LH_C(_lh_span_tree_LH_C_0_0, _lh_span_tree_LH_P2_1_1)), _lh_span_tree_LH_P2_1_0))))) _lh_span_tree_LH_C_1_0)))))))
   and swap_0 = (fun _lh_swap_arg1_0 -> 
     (match _lh_swap_arg1_0 with
       | `LH_P2(_lh_swap_LH_P2_0_0, _lh_swap_LH_P2_1_0) -> 
-        (`LH_P2(_lh_swap_LH_P2_1_0, _lh_swap_LH_P2_0_0))
-      | _ -> 
-        (failwith "error")))
+        (`LH_P2(_lh_swap_LH_P2_1_0, _lh_swap_LH_P2_0_0))))
   in (snd_lh (((span_tree_0 (new_range_0 ((map_lh swap_0) _lh_stronglyConnComp_arg1_0))) (`LH_P2((`LH_N), (`LH_N)))) (snd_lh (((dfs_lh (new_range_0 _lh_stronglyConnComp_arg1_0)) (`LH_P2((`LH_N), (`LH_N)))) _lh_stronglyConnComp_arg2_0))));;
 let rec testScc_nofib_lh _lh_testScc_nofib_arg1_0 =
   (let rec a_0 = 1 in

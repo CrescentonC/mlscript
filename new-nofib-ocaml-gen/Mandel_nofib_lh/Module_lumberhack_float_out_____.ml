@@ -4,10 +4,10 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_lumberhack_float_out_____(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec map_lh__d2 f_0 ls_0 =
-  (ls_0 f_0);;
 let rec map_lh__d1 f_1 ls_1 =
   (ls_1 f_1);;
+let rec map_lh__d2 f_0 ls_0 =
+  (ls_0 f_0);;
 let rec enumFromTo_lh__d1 a_0 b_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 _lh_floatOutId_2_0 _lh_floatOutId_3_0 _lh_floatOutId_4_0 =
   (if (a_0 <= b_0) then
     (fun f_2 f_3 -> 
@@ -20,12 +20,12 @@ let rec enumFromTo_lh__d1 a_0 b_0 _lh_floatOutId_0_0 _lh_floatOutId_1_0 _lh_floa
                   (`LH_C((f_3 h_1), ((map_lh__d1 f_3) t_1))))))))))
   else
     (_lh_floatOutId_4_0 _lh_floatOutId_3_0));;
-let rec enumFromTo_lh__d2 a_1 b_1 _lh_floatOutId_0_1 _lh_floatOutId_1_1 _lh_floatOutId_2_1 =
+let rec enumFromTo_lh__d2 a_1 b_1 _lh_floatOutId_0_3 _lh_floatOutId_1_1 _lh_floatOutId_2_1 =
   (if (a_1 <= b_1) then
     (let rec _lh_listcomp_fun_ls_t_3 = ((enumFromTo_lh__d2 (a_1 + 1)) b_1) in
       (let rec _lh_listcomp_fun_ls_h_3 = a_1 in
         (let rec _lh_listcomp_fun_5 = (fun _lh_listcomp_fun_para_0 -> 
-          (((((_lh_listcomp_fun_para_0 _lh_listcomp_fun_ls_h_3) _lh_listcomp_fun_5) _lh_floatOutId_2_1) _lh_listcomp_fun_ls_t_3) _lh_floatOutId_0_1)) in
+          (((((_lh_listcomp_fun_para_0 _lh_listcomp_fun_ls_h_3) _lh_listcomp_fun_5) _lh_floatOutId_2_1) _lh_listcomp_fun_ls_t_3) _lh_floatOutId_0_3)) in
           (_lh_listcomp_fun_5 ((enumFromTo_lh__d1 1) _lh_floatOutId_1_1)))))
   else
     (fun f_5 f_6 -> 
@@ -40,9 +40,7 @@ let rec createPixmap_lh__d1 _lh_createPixmap_arg1_0 _lh_createPixmap_arg2_0 _lh_
 let rec comp_magnitude_lh__d1 _lh_comp_magnitude_arg1_0 =
   (match _lh_comp_magnitude_arg1_0 with
     | `Complex(_lh_comp_magnitude_Complex_0_0, _lh_comp_magnitude_Complex_1_0) -> 
-      ((_lh_comp_magnitude_Complex_0_0 *. _lh_comp_magnitude_Complex_0_0) +. (_lh_comp_magnitude_Complex_1_0 *. _lh_comp_magnitude_Complex_1_0))
-    | _ -> 
-      (failwith "error"));;
+      ((_lh_comp_magnitude_Complex_0_0 *. _lh_comp_magnitude_Complex_0_0) +. (_lh_comp_magnitude_Complex_1_0 *. _lh_comp_magnitude_Complex_1_0)));;
 let rec diverge_lh__d1 _lh_diverge_arg1_0 _lh_diverge_arg2_0 =
   ((comp_magnitude_lh__d1 _lh_diverge_arg1_0) > _lh_diverge_arg2_0);;
 let rec take_lz_lz_lh__d1 _lh_take_lz_lz_arg1_0 _lh_take_lz_lz_arg2_0 =
@@ -59,37 +57,28 @@ let rec take_lz_lz_lh__d1 _lh_take_lz_lz_arg1_0 _lh_take_lz_lz_arg2_0 =
                 (if ((diverge_lh__d1 _lh_whenDiverge_LH_C_0_0) _lh_whenDiverge_arg2_1) then
                   0
                 else
-                  (1 + (walkIt_1 _lh_whenDiverge_LH_C_1_0)))))))
-        | _ -> 
-          (failwith "error")))
+                  (1 + (walkIt_1 _lh_whenDiverge_LH_C_1_0)))))))))
   else
     (lazy (fun _lh_whenDiverge_arg2_2 walkIt_2 -> 
       0)));;
-let rec comp_times_lh__d1 _lh_comp_times_arg1_0 _lh_comp_times_arg2_0 =
+let rec comp_times_lh__d1 _lh_comp_times_arg1_0 _lh_comp_times_arg2_0 _lh_floatOutId_0_2 =
   (match _lh_comp_times_arg1_0 with
     | `Complex(_lh_comp_times_Complex_0_0, _lh_comp_times_Complex_1_0) -> 
       (match _lh_comp_times_arg2_0 with
         | `Complex(_lh_comp_times_Complex_0_1, _lh_comp_times_Complex_1_1) -> 
           (let rec _lh_comp_plus_Complex_1_0 = ((_lh_comp_times_Complex_0_0 *. _lh_comp_times_Complex_1_1) +. (_lh_comp_times_Complex_1_0 *. _lh_comp_times_Complex_0_1)) in
             (let rec _lh_comp_plus_Complex_0_0 = ((_lh_comp_times_Complex_0_0 *. _lh_comp_times_Complex_0_1) -. (_lh_comp_times_Complex_1_0 *. _lh_comp_times_Complex_1_1)) in
-              (fun _lh_comp_plus_arg2_0 -> 
-                (match _lh_comp_plus_arg2_0 with
-                  | `Complex(_lh_comp_plus_Complex_0_1, _lh_comp_plus_Complex_1_1) -> 
-                    (`Complex((_lh_comp_plus_Complex_0_0 +. _lh_comp_plus_Complex_0_1), (_lh_comp_plus_Complex_1_0 +. _lh_comp_plus_Complex_1_1)))
-                  | _ -> 
-                    (failwith "error")))))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec comp_plus_lh__d1 _lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1 =
-  (_lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1);;
+              (match _lh_floatOutId_0_2 with
+                | `Complex(_lh_comp_plus_Complex_0_1, _lh_comp_plus_Complex_1_1) -> 
+                  (`Complex((_lh_comp_plus_Complex_0_0 +. _lh_comp_plus_Complex_0_1), (_lh_comp_plus_Complex_1_0 +. _lh_comp_plus_Complex_1_1))))))));;
 let rec map_lz_lh__d1 f_4 ls_2 =
   (lazy (match (Lazy.force ls_2) with
     | `LH_C(h_2, t_2) -> 
       (`LH_C((f_4 h_2), ((map_lz_lh__d1 f_4) t_2)))
     | `LH_N -> 
       (`LH_N)));;
+let rec comp_plus_lh__d1 _lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1 =
+  (_lh_comp_plus_arg1_0 _lh_comp_plus_arg2_1);;
 let rec mandel_lh__d1 _lh_mandel_arg1_0 =
   (let rec infiniteMandel_0 = (lazy (`LH_C(_lh_mandel_arg1_0, ((map_lz_lh__d1 (fun z_0 -> 
     ((comp_plus_lh__d1 ((comp_times_lh__d1 z_0) z_0)) _lh_mandel_arg1_0))) infiniteMandel_0)))) in

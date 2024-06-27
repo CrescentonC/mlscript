@@ -3,6 +3,12 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
+let rec mappend_lh xs_0 ys_0 =
+  (match xs_0 with
+    | `LH_C(h_5, t_5) -> 
+      (`LH_C(h_5, ((mappend_lh t_5) ys_0)))
+    | `LH_N -> 
+      ys_0);;
 let rec enumFromTo_lh a_0 b_0 =
   (if (a_0 <= b_0) then
     (`LH_C(a_0, ((enumFromTo_lh (a_0 + 1)) b_0)))
@@ -14,31 +20,21 @@ let rec return_lh _lh_return_arg1_0 =
 let rec digitEnv_lh _lh_digitEnv_arg1_0 =
   (match _lh_digitEnv_arg1_0 with
     | `Digits(_lh_digitEnv_Digits_0_0, _lh_digitEnv_Digits_1_0) -> 
-      _lh_digitEnv_Digits_1_0
-    | _ -> 
-      (failwith "error"));;
-let rec mappend_lh xs_0 ys_0 =
-  (match xs_0 with
-    | `LH_C(h_5, t_5) -> 
-      (`LH_C(h_5, ((mappend_lh t_5) ys_0)))
-    | `LH_N -> 
-      ys_0);;
-let rec concat_lh lss_0 =
-  (match lss_0 with
-    | `LH_C(h_7, t_7) -> 
-      ((mappend_lh h_7) (concat_lh t_7))
+      _lh_digitEnv_Digits_1_0);;
+let rec map_lh f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
 let rec runStateT_lh _lh_runStateT_arg1_0 =
   (match _lh_runStateT_arg1_0 with
     | `StateT(_lh_runStateT_StateT_0_0) -> 
-      _lh_runStateT_StateT_0_0
-    | _ -> 
-      (failwith "error"));;
-let rec map_lh f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
+      _lh_runStateT_StateT_0_0);;
+let rec concat_lh lss_0 =
+  (match lss_0 with
+    | `LH_C(h_7, t_7) -> 
+      ((mappend_lh h_7) (concat_lh t_7))
     | `LH_N -> 
       (`LH_N));;
 let rec bind_lh _lh_bind_arg1_0 _lh_bind_arg2_0 =
@@ -47,9 +43,7 @@ let rec bind_lh _lh_bind_arg1_0 _lh_bind_arg2_0 =
       (let rec _lh_matchIdent_7 = as_0 in
         (match _lh_matchIdent_7 with
           | `LH_P2(_lh_bind_LH_P2_0_0, _lh_bind_LH_P2_1_0) -> 
-            ((runStateT_lh (_lh_bind_arg2_0 _lh_bind_LH_P2_0_0)) _lh_bind_LH_P2_1_0)
-          | _ -> 
-            (failwith "error"))))) ((runStateT_lh _lh_bind_arg1_0) s_2))))));;
+            ((runStateT_lh (_lh_bind_arg2_0 _lh_bind_LH_P2_0_0)) _lh_bind_LH_P2_1_0))))) ((runStateT_lh _lh_bind_arg1_0) s_2))))));;
 let rec get_lh =
   (`StateT((fun s_4 -> 
     (`LH_C((`LH_P2(s_4, s_4)), (`LH_N))))));;
@@ -59,9 +53,7 @@ let rec put_lh _lh_put_arg1_0 =
 let rec digits_lh _lh_digits_arg1_0 =
   (match _lh_digits_arg1_0 with
     | `Digits(_lh_digits_Digits_0_0, _lh_digits_Digits_1_0) -> 
-      _lh_digits_Digits_0_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_digits_Digits_0_0);;
 let rec lift_lh _lh_lift_arg1_0 =
   (`StateT((fun s_1 -> 
     (concat_lh ((map_lh (fun x_2 -> 
@@ -80,9 +72,7 @@ let rec delete_lh _lh_delete_arg1_0 _lh_delete_arg2_0 =
       else
         (`LH_C(_lh_delete_LH_C_0_0, ((delete_lh _lh_delete_LH_C_1_0) _lh_delete_arg2_0))))
     | `LH_N -> 
-      (`LH_N)
-    | _ -> 
-      (failwith "error"));;
+      (`LH_N));;
 let rec listDiff_lh =
   (foldl_lh delete_lh);;
 let rec permute_lh _lh_permute_arg1_0 =
@@ -99,9 +89,7 @@ let rec permute_lh _lh_permute_arg1_0 =
         (match _lh_matchIdent_5 with
           | `LH_P2(_lh_permute_LH_P2_0_0, _lh_permute_LH_P2_1_0) -> 
             ((bind_lh (put_lh (`Digits(_lh_permute_LH_P2_1_0, (`LH_C((`LH_P2(_lh_permute_arg1_0, _lh_permute_LH_P2_0_0)), (digitEnv_lh st_1))))))) (fun _p_0 -> 
-              (return_lh _lh_permute_LH_P2_0_0)))
-          | _ -> 
-            (failwith "error")))))));;
+              (return_lh _lh_permute_LH_P2_0_0)))))))));;
 let rec lookup_lh _lh_lookup_arg1_0 _lh_lookup_arg2_0 =
   (match _lh_lookup_arg2_0 with
     | `LH_N -> 
@@ -112,11 +100,7 @@ let rec lookup_lh _lh_lookup_arg1_0 _lh_lookup_arg2_0 =
           (if (_lh_lookup_arg1_0 = _lh_lookup_LH_P2_0_0) then
             (`Just(_lh_lookup_LH_P2_1_0))
           else
-            ((lookup_lh _lh_lookup_arg1_0) _lh_lookup_LH_C_1_0))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+            ((lookup_lh _lh_lookup_arg1_0) _lh_lookup_LH_C_1_0))));;
 let rec select_lh _lh_select_arg1_0 =
   ((bind_lh get_lh) (fun st_0 -> 
     (let rec _lh_matchIdent_3 = ((lookup_lh _lh_select_arg1_0) (digitEnv_lh st_0)) in
@@ -124,9 +108,7 @@ let rec select_lh _lh_select_arg1_0 =
         | `Just(_lh_select_Just_0_0) -> 
           (return_lh _lh_select_Just_0_0)
         | `Nothing -> 
-          (permute_lh _lh_select_arg1_0)
-        | _ -> 
-          (failwith "error")))));;
+          (permute_lh _lh_select_arg1_0)))));;
 let rec sumAux_lh ls_6 a_1 =
   (match ls_6 with
     | `LH_N -> 
@@ -142,17 +124,13 @@ let rec guard_lh _lh_guard_arg1_0 =
         (`LH_C((`LH_P2((`Unit), s_5)), (`LH_N))))))
     | false -> 
       (`StateT((fun s_6 -> 
-        (`LH_N))))
-    | _ -> 
-      (failwith "error"));;
+        (`LH_N)))));;
 let rec rest_lh _lh_rest_arg1_0 =
   (match _lh_rest_arg1_0 with
     | `LH_N -> 
       (`LH_N)
     | `LH_C(_lh_rest_LH_C_0_0, _lh_rest_LH_C_1_0) -> 
-      _lh_rest_LH_C_1_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_rest_LH_C_1_0);;
 let rec foldr_lh f_3 i_1 ls_3 =
   (match ls_3 with
     | `LH_C(h_3, t_3) -> 
@@ -173,9 +151,7 @@ let rec solve_lh _lh_solve_arg1_0 _lh_solve_arg2_0 _lh_solve_arg3_0 =
             (return_lh _lh_solve_arg3_0)
           | `LH_C(_lh_solve_LH_C_0_1, _lh_solve_LH_C_1_1) -> 
             ((bind_lh ((mapM_lh select_lh) _lh_solve_LH_C_0_1)) (fun topNS_0 -> 
-              (return_lh ((sum_lh topNS_0) + _lh_solve_arg3_0))))
-          | _ -> 
-            (failwith "error")))) (fun topN_0 -> 
+              (return_lh ((sum_lh topNS_0) + _lh_solve_arg3_0))))))) (fun topN_0 -> 
         ((bind_lh (select_lh _lh_solve_LH_C_0_0)) (fun botN_0 -> 
           ((bind_lh (guard_lh ((topN_0 mod 10) = botN_0))) (fun _s_0 -> 
             (((solve_lh (rest_lh _lh_solve_arg1_0)) _lh_solve_LH_C_1_0) (topN_0 / 10))))))))
@@ -207,9 +183,7 @@ let rec reverse_lh ls_7 =
 let rec fromJust_lh _lh_fromJust_arg1_0 =
   (match _lh_fromJust_arg1_0 with
     | `Just(_lh_fromJust_Just_0_0) -> 
-      _lh_fromJust_Just_0_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_fromJust_Just_0_0);;
 let rec filter_lh f_1 ls_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
@@ -225,9 +199,7 @@ let rec nub_lh _lh_nub_arg1_0 =
       (`LH_N)
     | `LH_C(_lh_nub_LH_C_0_0, _lh_nub_LH_C_1_0) -> 
       (`LH_C(_lh_nub_LH_C_0_0, (nub_lh ((filter_lh (fun y_0 -> 
-        (not (_lh_nub_LH_C_0_0 = y_0)))) _lh_nub_LH_C_1_0))))
-    | _ -> 
-      (failwith "error"));;
+        (not (_lh_nub_LH_C_0_0 = y_0)))) _lh_nub_LH_C_1_0)))));;
 let rec unlines_lh _lh_unlines_arg1_0 =
   (concat_lh ((map_lh (fun l_0 -> 
     ((mappend_lh l_0) (`LH_C('n', (`LH_N)))))) _lh_unlines_arg1_0));;
@@ -239,11 +211,7 @@ let rec unzip_lh _lh_unzip_arg1_0 =
           (let rec _lh_matchIdent_1 = asbs_0 in
             (match _lh_matchIdent_1 with
               | `LH_P2(_lh_unzip_LH_P2_0_1, _lh_unzip_LH_P2_1_1) -> 
-                (`LH_P2((`LH_C(_lh_unzip_LH_P2_0_0, _lh_unzip_LH_P2_0_1)), (`LH_C(_lh_unzip_LH_P2_1_0, _lh_unzip_LH_P2_1_1))))
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))))) (`LH_P2((`LH_N), (`LH_N)))) _lh_unzip_arg1_0);;
+                (`LH_P2((`LH_C(_lh_unzip_LH_P2_0_0, _lh_unzip_LH_P2_0_1)), (`LH_C(_lh_unzip_LH_P2_1_0, _lh_unzip_LH_P2_1_1)))))))))) (`LH_P2((`LH_N), (`LH_N)))) _lh_unzip_arg1_0);;
 let rec combine_lh _lh_combine_arg1_0 _lh_combine_arg2_0 _lh_combine_arg3_0 _lh_combine_arg4_0 =
   (`LH_C((`LH_C(_lh_combine_arg1_0, _lh_combine_arg2_0)), (transpose_lh (`LH_C(_lh_combine_arg3_0, _lh_combine_arg4_0)))))
 and
@@ -269,21 +237,13 @@ transpose_lh _lh_transpose_arg1_0 =
             (_lh_listcomp_fun_3 _lh_transpose_LH_C_1_0))) in
             (match _lh_matchIdent_8 with
               | `LH_P2(_lh_transpose_LH_P2_0_0, _lh_transpose_LH_P2_1_0) -> 
-                ((((combine_lh _lh_transpose_LH_C_0_1) _lh_transpose_LH_P2_0_0) _lh_transpose_LH_C_1_1) _lh_transpose_LH_P2_1_0)
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+                ((((combine_lh _lh_transpose_LH_C_0_1) _lh_transpose_LH_P2_0_0) _lh_transpose_LH_C_1_1) _lh_transpose_LH_P2_1_0)))));;
 let rec execStateT_lh _lh_execStateT_arg1_0 _lh_execStateT_arg2_0 =
   (concat_lh ((map_lh (fun x_1 -> 
     (let rec _lh_matchIdent_4 = x_1 in
       (match _lh_matchIdent_4 with
         | `LH_P2(_lh_execStateT_LH_P2_0_0, _lh_execStateT_LH_P2_1_0) -> 
-          (`LH_C(_lh_execStateT_LH_P2_1_0, (`LH_N)))
-        | _ -> 
-          (failwith "error"))))) ((runStateT_lh _lh_execStateT_arg1_0) _lh_execStateT_arg2_0)));;
+          (`LH_C(_lh_execStateT_LH_P2_1_0, (`LH_N))))))) ((runStateT_lh _lh_execStateT_arg1_0) _lh_execStateT_arg2_0)));;
 let rec length_lh ls_4 =
   (match ls_4 with
     | `LH_C(h_4, t_4) -> 
@@ -297,9 +257,7 @@ let rec puzzle_lh _lh_puzzle_arg1_0 _lh_puzzle_arg2_0 =
         | `LH_C(_lh_puzzle_LH_C_0_0, _lh_puzzle_LH_C_1_0) -> 
           _lh_puzzle_LH_C_0_0
         | `LH_N -> 
-          (failwith "error")
-        | _ -> 
-          (failwith "error"))) in
+          (failwith "lh_default_error"))) in
       (let rec env_0 = (digitEnv_lh answer_0) in
         (let rec look_0 = (fun c_0 -> 
           (fromJust_lh ((lookup_lh c_0) env_0))) in
@@ -315,10 +273,10 @@ let rec puzzle_lh _lh_puzzle_arg1_0 _lh_puzzle_arg2_0 =
               (_lh_listcomp_fun_0 _lh_puzzle_arg1_0))) in
               (let rec botVal_0 = (expand_0 _lh_puzzle_arg2_0) in
                 (if ((length_lh (nub_lh ((mappend_lh (concat_lh _lh_puzzle_arg1_0)) _lh_puzzle_arg2_0))) > 10) then
-                  (failwith "error")
+                  (failwith "lh_default_error")
                 else
                   (if (topVal_0 <> botVal_0) then
-                    (failwith "error")
+                    (failwith "lh_default_error")
                   else
                     (unlines_lh (let rec _lh_listcomp_fun_1 = (fun _lh_listcomp_fun_para_1 -> 
                       (match _lh_listcomp_fun_para_1 with

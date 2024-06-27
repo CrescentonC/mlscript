@@ -52,14 +52,14 @@ let rec concat_lh lss_0 =
 let rec unlines_lh _lh_unlines_arg1_0 =
   (concat_lh ((map_lh (fun l_0 -> 
     ((mappend_lh l_0) (`LH_C('n', (`LH_N)))))) _lh_unlines_arg1_0));;
+let rec const128_lh =
+  (Z.of_int 128);;
 let rec foldl_lh f_1 i_0 ls_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
       (((foldl_lh f_1) ((f_1 i_0) h_1)) t_1)
     | `LH_N -> 
       i_0);;
-let rec const128_lh =
-  (Z.of_int 128);;
 let rec code_lh _lh_code_arg1_0 =
   (((foldl_lh (fun x_0 y_0 -> 
     ((Z.add ((Z.mul const128_lh) x_0)) (Z.of_int (int_of_char y_0))))) const0_lh) _lh_code_arg1_0);;
@@ -71,9 +71,7 @@ let rec drop_lh _lh_drop_arg1_0 _lh_drop_arg2_0 =
       (if (_lh_drop_arg1_0 > 0) then
         ((drop_lh (_lh_drop_arg1_0 - 1)) _lh_drop_LH_C_1_0)
       else
-        (`LH_C(_lh_drop_LH_C_0_0, _lh_drop_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+        (`LH_C(_lh_drop_LH_C_0_0, _lh_drop_LH_C_1_0))));;
 let rec take_lh n_0 ls_2 =
   (if (n_0 > 0) then
     (match ls_2 with

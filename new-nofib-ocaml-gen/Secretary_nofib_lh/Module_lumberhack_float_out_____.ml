@@ -13,9 +13,7 @@ let rec foldl_lh__d1 f_0 i_0 ls_0 =
 let rec foldl1_lh__d1 _lh_foldl1_arg1_0 _lh_foldl1_arg2_0 =
   (match _lh_foldl1_arg2_0 with
     | `LH_C(_lh_foldl1_LH_C_0_0, _lh_foldl1_LH_C_1_0) -> 
-      (((foldl_lh__d1 _lh_foldl1_arg1_0) _lh_foldl1_LH_C_0_0) _lh_foldl1_LH_C_1_0)
-    | _ -> 
-      (failwith "error"));;
+      (((foldl_lh__d1 _lh_foldl1_arg1_0) _lh_foldl1_LH_C_0_0) _lh_foldl1_LH_C_1_0));;
 let rec maximum_lh__d1 _lh_maximum_arg1_0 =
   ((foldl1_lh__d1 (fun x_0 y_0 -> 
     (if (x_0 > y_0) then
@@ -57,9 +55,7 @@ let rec nub_lz_lh__d1 _lh_nub_lz_arg1_0 =
           (not (_lh_nub_lz_LH_C_0_0 = y_1)))) _lh_nub_lz_LH_C_1_0)) in
           (let rec _lh_take_lz_LH_C_0_0 = _lh_nub_lz_LH_C_0_0 in
             (fun _lh_take_lz_arg1_1 -> 
-              (`LH_C(_lh_take_lz_LH_C_0_0, ((take_lz_lh__d1 (_lh_take_lz_arg1_1 - 1)) _lh_take_lz_LH_C_1_0))))))
-      | _ -> 
-        (failwith "error"))));;
+              (`LH_C(_lh_take_lz_LH_C_0_0, ((take_lz_lh__d1 (_lh_take_lz_arg1_1 - 1)) _lh_take_lz_LH_C_1_0)))))))));;
 let rec drop_lh__d1 _lh_drop_arg1_0 _lh_drop_arg2_0 =
   (match _lh_drop_arg2_0 with
     | `LH_N -> 
@@ -68,13 +64,11 @@ let rec drop_lh__d1 _lh_drop_arg1_0 _lh_drop_arg2_0 =
       (if (_lh_drop_arg1_0 > 0) then
         ((drop_lh__d1 (_lh_drop_arg1_0 - 1)) _lh_drop_LH_C_1_0)
       else
-        _lh_drop_LH_C_1_0)
-    | _ -> 
-      (failwith "error"));;
-let rec filter_lh__d1 f_3 ls_3 =
-  (ls_3 f_3);;
+        _lh_drop_LH_C_1_0));;
 let rec length_lh__d1 ls_2 =
   (ls_2 99);;
+let rec filter_lh__d1 f_3 ls_3 =
+  (ls_3 f_3);;
 let rec power_lh__d1 _lh_power_arg1_0 _lh_power_arg2_0 =
   (if (_lh_power_arg2_0 = 0) then
     1
@@ -113,9 +107,7 @@ let rec dropWhile_lh__d1 _lh_dropWhile_arg1_0 _lh_dropWhile_arg2_0 =
       (if (_lh_dropWhile_arg1_0 _lh_dropWhile_LH_C_0_0) then
         ((dropWhile_lh__d1 _lh_dropWhile_arg1_0) _lh_dropWhile_LH_C_1_0)
       else
-        (`LH_C(_lh_dropWhile_LH_C_0_0, _lh_dropWhile_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+        (`LH_C(_lh_dropWhile_LH_C_0_0, _lh_dropWhile_LH_C_1_0))));;
 let rec take_lh__d2 n_1 ls_5 =
   (if (n_1 > 0) then
     (match ls_5 with
@@ -129,10 +121,10 @@ let rec sim_lh__d1 _lh_sim_arg1_0 =
   (let rec proc_0 = (fun rs_0 -> 
     (let rec xs_0 = ((take_lz_lh__d1 100) (nub_lz_lh__d1 rs_0)) in
       (let rec best_0 = 100 in
-        (let rec bestk_0 = (maximum_lh__d1 ((take_lh__d1 _lh_sim_arg1_0) xs_0)) in
+        (let rec bestk_0 = (maximum_lh__d1 ((take_lh__d2 _lh_sim_arg1_0) xs_0)) in
           (let rec afterk_0 = ((dropWhile_lh__d1 (fun x_2 -> 
             (x_2 < bestk_0))) ((drop_lh__d1 _lh_sim_arg1_0) xs_0)) in
-            ((`LH_C(best_0, (`LH_N))) = ((take_lh__d2 1) afterk_0))))))) in
+            ((`LH_C(best_0, (`LH_N))) = ((take_lh__d1 1) afterk_0))))))) in
     (((simulate_lh__d1 5000) 100) proc_0));;
 let rec enumFromTo_lh__d1 a_1 b_1 _lh_floatOutId_0_1 =
   (if (a_1 <= b_1) then

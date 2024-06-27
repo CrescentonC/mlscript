@@ -329,11 +329,11 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
   ): Expr = {
     if vars.isEmpty then {
       if patList.isEmpty then
-        elze
-        // elze match {
-        //   case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => Expr.Ref(ctx("error"))
-        //   case e => e
-        // }
+        // elze
+        elze match {
+          case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => Expr.Ref(ctx("error"))
+          case e => e
+        }
       else
         val h = patList.head
         assert(h._1.isEmpty)

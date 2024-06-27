@@ -17,9 +17,7 @@ let rec scalarMut_lh _lh_scalarMut_arg1_0 _lh_scalarMut_arg2_0 =
     | `LH_N -> 
       (`LH_N)
     | `LH_C(_lh_scalarMut_LH_C_0_0, _lh_scalarMut_LH_C_1_0) -> 
-      (`LH_C((_lh_scalarMut_arg1_0 *. _lh_scalarMut_LH_C_0_0), ((scalarMut_lh _lh_scalarMut_arg1_0) _lh_scalarMut_LH_C_1_0)))
-    | _ -> 
-      (failwith "error"));;
+      (`LH_C((_lh_scalarMut_arg1_0 *. _lh_scalarMut_LH_C_0_0), ((scalarMut_lh _lh_scalarMut_arg1_0) _lh_scalarMut_LH_C_1_0))));;
 let rec dotPlus_lh _lh_dotPlus_arg1_0 _lh_dotPlus_arg2_0 =
   (match _lh_dotPlus_arg2_0 with
     | `LH_N -> 
@@ -33,17 +31,11 @@ let rec dotPlus_lh _lh_dotPlus_arg1_0 _lh_dotPlus_arg2_0 =
             | `LH_C(_lh_dotPlus_LH_C_0_0, _lh_dotPlus_LH_C_1_0) -> 
               (match _lh_dotPlus_arg2_0 with
                 | `LH_C(_lh_dotPlus_LH_C_0_1, _lh_dotPlus_LH_C_1_1) -> 
-                  (`LH_C((_lh_dotPlus_LH_C_0_0 +. _lh_dotPlus_LH_C_0_1), ((dotPlus_lh _lh_dotPlus_LH_C_1_0) _lh_dotPlus_LH_C_1_1)))
-                | _ -> 
-                  (failwith "error"))
-            | _ -> 
-              (failwith "error"))));;
+                  (`LH_C((_lh_dotPlus_LH_C_0_0 +. _lh_dotPlus_LH_C_0_1), ((dotPlus_lh _lh_dotPlus_LH_C_1_0) _lh_dotPlus_LH_C_1_1)))))));;
 let rec propagate_lh _lh_propagate_arg1_0 _lh_propagate_arg2_0 _lh_propagate_arg3_0 =
   (match _lh_propagate_arg3_0 with
     | `State(_lh_propagate_State_0_0, _lh_propagate_State_1_0) -> 
-      (`State(((dotPlus_lh _lh_propagate_State_0_0) ((scalarMut_lh _lh_propagate_arg1_0) _lh_propagate_State_1_0)), ((dotPlus_lh _lh_propagate_State_1_0) ((scalarMut_lh _lh_propagate_arg1_0) _lh_propagate_arg2_0))))
-    | _ -> 
-      (failwith "error"));;
+      (`State(((dotPlus_lh _lh_propagate_State_0_0) ((scalarMut_lh _lh_propagate_arg1_0) _lh_propagate_State_1_0)), ((dotPlus_lh _lh_propagate_State_1_0) ((scalarMut_lh _lh_propagate_arg1_0) _lh_propagate_arg2_0)))));;
 let rec zipWith_lz_lz_lh f_0 xs_0 ys_0 =
   (lazy (match (Lazy.force xs_0) with
     | `LH_C(hx_0, tx_0) -> 
@@ -78,9 +70,7 @@ let rec show_lh _lh_show_arg1_0 =
             (`LH_C(((mappend_lh (string_of_float _lh_listcomp_fun_ls_h_0)) (`LH_C('t', (`LH_N)))), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
           | `LH_N -> 
             (`LH_N))) in
-        (_lh_listcomp_fun_0 _lh_show_State_0_0)))
-    | _ -> 
-      (failwith "error"));;
+        (_lh_listcomp_fun_0 _lh_show_State_0_0))));;
 let rec dotMult_lh _lh_dotMult_arg1_0 _lh_dotMult_arg2_0 =
   (match _lh_dotMult_arg2_0 with
     | `LH_N -> 
@@ -94,22 +84,16 @@ let rec dotMult_lh _lh_dotMult_arg1_0 _lh_dotMult_arg2_0 =
             | `LH_C(_lh_dotMult_LH_C_0_0, _lh_dotMult_LH_C_1_0) -> 
               (match _lh_dotMult_arg2_0 with
                 | `LH_C(_lh_dotMult_LH_C_0_1, _lh_dotMult_LH_C_1_1) -> 
-                  (`LH_C((_lh_dotMult_LH_C_0_0 *. _lh_dotMult_LH_C_0_1), ((dotMult_lh _lh_dotMult_LH_C_1_0) _lh_dotMult_LH_C_1_1)))
-                | _ -> 
-                  (failwith "error"))
-            | _ -> 
-              (failwith "error"))));;
+                  (`LH_C((_lh_dotMult_LH_C_0_0 *. _lh_dotMult_LH_C_0_1), ((dotMult_lh _lh_dotMult_LH_C_1_0) _lh_dotMult_LH_C_1_1)))))));;
 let rec testforce_lh _lh_testforce_arg1_0 _lh_testforce_arg2_0 =
   (lazy (let rec _lh_matchIdent_0 = (Lazy.force _lh_testforce_arg2_0) in
     (match _lh_matchIdent_0 with
       | `LH_C(_lh_testforce_LH_C_0_0, _lh_testforce_LH_C_1_0) -> 
         (match _lh_testforce_LH_C_0_0 with
           | `State(_lh_testforce_State_0_0, _lh_testforce_State_1_0) -> 
-            (`LH_C(((dotMult_lh ((scalarMut_lh (0.0 -. 1.0)) _lh_testforce_arg1_0)) _lh_testforce_State_0_0), ((testforce_lh _lh_testforce_arg1_0) _lh_testforce_LH_C_1_0)))
-          | _ -> 
-            (failwith "error"))
-      | _ -> 
-        (failwith "error"))));;
+            (`LH_C(((dotMult_lh ((scalarMut_lh (0.0 -. 1.0)) _lh_testforce_arg1_0)) _lh_testforce_State_0_0), ((testforce_lh _lh_testforce_arg1_0) _lh_testforce_LH_C_1_0))))
+      | `LH_N -> 
+        (`LH_N))));;
 let rec testAtom_nofib_lh _lh_testAtom_nofib_arg1_0 =
   (concat_lh (let rec _lh_listcomp_fun_1 = (fun _lh_listcomp_fun_para_1 -> 
     (match _lh_listcomp_fun_para_1 with

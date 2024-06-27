@@ -4,12 +4,20 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_lumberhack_only_expanded_(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec map_lh__d1 f_1 ls_1 =
-  (match ls_1 with
-    | `LH_C(h_1, t_1) -> 
-      (`LH_C((f_1 h_1), ((map_lh__d1 f_1) t_1)))
+let rec replicate_lh__d1 _lh_replicate_arg1_0 _lh_replicate_arg2_0 =
+  (if (_lh_replicate_arg1_0 = 0) then
+    (`LH_N)
+  else
+    (`LH_C(_lh_replicate_arg2_0, ((replicate_lh__d1 (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0))));;
+let rec all_lh__d1 _lh_all_arg1_0 _lh_all_arg2_0 =
+  (match _lh_all_arg2_0 with
     | `LH_N -> 
-      (`LH_N));;
+      true
+    | `LH_C(_lh_all_LH_C_0_0, _lh_all_LH_C_1_0) -> 
+      (if (_lh_all_arg1_0 _lh_all_LH_C_0_0) then
+        ((all_lh__d1 _lh_all_arg1_0) _lh_all_LH_C_1_0)
+      else
+        false));;
 let rec find_lh__d1 _lh_find_arg1_0 _lh_find_arg2_0 =
   (match _lh_find_arg2_0 with
     | `LH_N -> 
@@ -20,11 +28,13 @@ let rec find_lh__d1 _lh_find_arg1_0 _lh_find_arg2_0 =
           (if (_lh_find_arg1_0 = _lh_find_LH_P2_0_0) then
             (`LH_P2(true, _lh_find_LH_P2_1_0))
           else
-            ((find_lh__d1 _lh_find_arg1_0) _lh_find_LH_C_1_0))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+            ((find_lh__d1 _lh_find_arg1_0) _lh_find_LH_C_1_0))));;
+let rec map_lh__d1 f_1 ls_1 =
+  (match ls_1 with
+    | `LH_C(h_1, t_1) -> 
+      (`LH_C((f_1 h_1), ((map_lh__d1 f_1) t_1)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec apply_subst_lh__d1 _lh_apply_subst_arg1_1 _lh_apply_subst_arg2_1 =
   (match _lh_apply_subst_arg2_1 with
     | `Var(_lh_apply_subst_Var_0_1) -> 
@@ -34,13 +44,17 @@ let rec apply_subst_lh__d1 _lh_apply_subst_arg1_1 _lh_apply_subst_arg2_1 =
             (if _lh_apply_subst_LH_P2_0_1 then
               _lh_apply_subst_LH_P2_1_1
             else
-              (`Var(_lh_apply_subst_Var_0_1)))
-          | _ -> 
-            (failwith "error")))
+              (`Var(_lh_apply_subst_Var_0_1)))))
     | `Fun(_lh_apply_subst_Fun_0_1, _lh_apply_subst_Fun_1_1, _lh_apply_subst_Fun_2_1) -> 
       (`Fun(_lh_apply_subst_Fun_0_1, ((map_lh__d1 (apply_subst_lh__d1 _lh_apply_subst_arg1_1)) _lh_apply_subst_Fun_1_1), _lh_apply_subst_Fun_2_1))
     | _ -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
+let rec map_lh__d2 f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh__d2 f_0) t_0)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec termEq_lh__d7 _lh_termEq_arg1_1 _lh_termEq_arg2_1 =
   (match _lh_termEq_arg1_1 with
     | `Var(_lh_termEq_Var_0_2) -> 
@@ -68,26 +82,15 @@ termLsEq_lh__d7 _lh_termLsEq_arg1_0 _lh_termLsEq_arg2_0 =
           else
             false)
         | _ -> 
-          (failwith "error"))
+          false)
     | `LH_N -> 
       (match _lh_termLsEq_arg2_0 with
         | `LH_N -> 
           true
         | _ -> 
-          (failwith "error"))
+          false)
     | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d7 _lh_termInList_arg1_1 _lh_termInList_arg2_1 =
-  (match _lh_termInList_arg2_1 with
-    | `LH_C(_lh_termInList_LH_C_0_1, _lh_termInList_LH_C_1_1) -> 
-      (if ((termEq_lh__d7 _lh_termInList_arg1_1) _lh_termInList_LH_C_0_1) then
-        true
-      else
-        ((termInList_lh__d7 _lh_termInList_arg1_1) _lh_termInList_LH_C_1_1))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
+      false);;
 let rec termEq_lh__d8 _lh_termEq_arg1_0 _lh_termEq_arg2_0 =
   (match _lh_termEq_arg1_0 with
     | `Var(_lh_termEq_Var_0_0) -> 
@@ -104,378 +107,6 @@ let rec termEq_lh__d8 _lh_termEq_arg1_0 _lh_termEq_arg2_0 =
           false)
     | _ -> 
       false);;
-let rec termInList_lh__d8 _lh_termInList_arg1_0 _lh_termInList_arg2_0 =
-  (match _lh_termInList_arg2_0 with
-    | `LH_C(_lh_termInList_LH_C_0_0, _lh_termInList_LH_C_1_0) -> 
-      (if ((termEq_lh__d8 _lh_termInList_arg1_0) _lh_termInList_LH_C_0_0) then
-        true
-      else
-        ((termInList_lh__d8 _lh_termInList_arg1_0) _lh_termInList_LH_C_1_0))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec truep_lh__d2 _lh_truep_arg1_0 _lh_truep_arg2_0 =
-  (match _lh_truep_arg1_0 with
-    | `Fun(_lh_truep_Fun_0_0, _lh_truep_Fun_1_0, _lh_truep_Fun_2_0) -> 
-      (match _lh_truep_Fun_0_0 with
-        | `TRUE -> 
-          true
-        | _ -> 
-          ((termInList_lh__d7 _lh_truep_arg1_0) _lh_truep_arg2_0))
-    | _ -> 
-      ((termInList_lh__d8 _lh_truep_arg1_0) _lh_truep_arg2_0));;
-let rec termEq_lh__d1 _lh_termEq_arg1_7 _lh_termEq_arg2_7 =
-  (match _lh_termEq_arg1_7 with
-    | `Var(_lh_termEq_Var_0_1_4) -> 
-      (match _lh_termEq_arg2_7 with
-        | `Var(_lh_termEq_Var_0_1_5) -> 
-          (_lh_termEq_Var_0_1_4 = _lh_termEq_Var_0_1_5)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_1_4, _lh_termEq_Fun_1_1_4, _lh_termEq_Fun_2_1_4) -> 
-      (match _lh_termEq_arg2_7 with
-        | `Fun(_lh_termEq_Fun_0_1_5, _lh_termEq_Fun_1_1_5, _lh_termEq_Fun_2_1_5) -> 
-          ((_lh_termEq_Fun_0_1_4 = _lh_termEq_Fun_0_1_5) && ((termLsEq_lh__d1 _lh_termEq_Fun_1_1_4) _lh_termEq_Fun_1_1_5))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d1 _lh_termLsEq_arg1_6 _lh_termLsEq_arg2_6 =
-  (match _lh_termLsEq_arg1_6 with
-    | `LH_C(_lh_termLsEq_LH_C_0_1_2, _lh_termLsEq_LH_C_1_1_2) -> 
-      (match _lh_termLsEq_arg2_6 with
-        | `LH_C(_lh_termLsEq_LH_C_0_1_3, _lh_termLsEq_LH_C_1_1_3) -> 
-          (if ((termEq_lh__d1 _lh_termLsEq_LH_C_0_1_2) _lh_termLsEq_LH_C_0_1_3) then
-            ((termLsEq_lh__d1 _lh_termLsEq_LH_C_1_1_2) _lh_termLsEq_LH_C_1_1_3)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_6 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d1 _lh_termInList_arg1_7 _lh_termInList_arg2_7 =
-  (match _lh_termInList_arg2_7 with
-    | `LH_C(_lh_termInList_LH_C_0_7, _lh_termInList_LH_C_1_7) -> 
-      (if ((termEq_lh__d1 _lh_termInList_arg1_7) _lh_termInList_LH_C_0_7) then
-        true
-      else
-        ((termInList_lh__d1 _lh_termInList_arg1_7) _lh_termInList_LH_C_1_7))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec termEq_lh__d2 _lh_termEq_arg1_6 _lh_termEq_arg2_6 =
-  (match _lh_termEq_arg1_6 with
-    | `Var(_lh_termEq_Var_0_1_2) -> 
-      (match _lh_termEq_arg2_6 with
-        | `Var(_lh_termEq_Var_0_1_3) -> 
-          (_lh_termEq_Var_0_1_2 = _lh_termEq_Var_0_1_3)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_1_2, _lh_termEq_Fun_1_1_2, _lh_termEq_Fun_2_1_2) -> 
-      (match _lh_termEq_arg2_6 with
-        | `Fun(_lh_termEq_Fun_0_1_3, _lh_termEq_Fun_1_1_3, _lh_termEq_Fun_2_1_3) -> 
-          ((_lh_termEq_Fun_0_1_2 = _lh_termEq_Fun_0_1_3) && ((termLsEq_lh__d2 _lh_termEq_Fun_1_1_2) _lh_termEq_Fun_1_1_3))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d2 _lh_termLsEq_arg1_5 _lh_termLsEq_arg2_5 =
-  (match _lh_termLsEq_arg1_5 with
-    | `LH_C(_lh_termLsEq_LH_C_0_1_0, _lh_termLsEq_LH_C_1_1_0) -> 
-      (match _lh_termLsEq_arg2_5 with
-        | `LH_C(_lh_termLsEq_LH_C_0_1_1, _lh_termLsEq_LH_C_1_1_1) -> 
-          (if ((termEq_lh__d2 _lh_termLsEq_LH_C_0_1_0) _lh_termLsEq_LH_C_0_1_1) then
-            ((termLsEq_lh__d2 _lh_termLsEq_LH_C_1_1_0) _lh_termLsEq_LH_C_1_1_1)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_5 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d2 _lh_termInList_arg1_6 _lh_termInList_arg2_6 =
-  (match _lh_termInList_arg2_6 with
-    | `LH_C(_lh_termInList_LH_C_0_6, _lh_termInList_LH_C_1_6) -> 
-      (if ((termEq_lh__d2 _lh_termInList_arg1_6) _lh_termInList_LH_C_0_6) then
-        true
-      else
-        ((termInList_lh__d2 _lh_termInList_arg1_6) _lh_termInList_LH_C_1_6))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec falsep_lh__d1 _lh_falsep_arg1_1 _lh_falsep_arg2_1 =
-  (match _lh_falsep_arg1_1 with
-    | `Fun(_lh_falsep_Fun_0_1, _lh_falsep_Fun_1_1, _lh_falsep_Fun_2_1) -> 
-      (match _lh_falsep_Fun_0_1 with
-        | `FALSE -> 
-          true
-        | _ -> 
-          ((termInList_lh__d1 _lh_falsep_arg1_1) _lh_falsep_arg2_1))
-    | _ -> 
-      ((termInList_lh__d2 _lh_falsep_arg1_1) _lh_falsep_arg2_1));;
-let rec termEq_lh__d4 _lh_termEq_arg1_4 _lh_termEq_arg2_4 =
-  (match _lh_termEq_arg1_4 with
-    | `Var(_lh_termEq_Var_0_8) -> 
-      (match _lh_termEq_arg2_4 with
-        | `Var(_lh_termEq_Var_0_9) -> 
-          (_lh_termEq_Var_0_8 = _lh_termEq_Var_0_9)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_8, _lh_termEq_Fun_1_8, _lh_termEq_Fun_2_8) -> 
-      (match _lh_termEq_arg2_4 with
-        | `Fun(_lh_termEq_Fun_0_9, _lh_termEq_Fun_1_9, _lh_termEq_Fun_2_9) -> 
-          ((_lh_termEq_Fun_0_8 = _lh_termEq_Fun_0_9) && ((termLsEq_lh__d4 _lh_termEq_Fun_1_8) _lh_termEq_Fun_1_9))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d4 _lh_termLsEq_arg1_3 _lh_termLsEq_arg2_3 =
-  (match _lh_termLsEq_arg1_3 with
-    | `LH_C(_lh_termLsEq_LH_C_0_6, _lh_termLsEq_LH_C_1_6) -> 
-      (match _lh_termLsEq_arg2_3 with
-        | `LH_C(_lh_termLsEq_LH_C_0_7, _lh_termLsEq_LH_C_1_7) -> 
-          (if ((termEq_lh__d4 _lh_termLsEq_LH_C_0_6) _lh_termLsEq_LH_C_0_7) then
-            ((termLsEq_lh__d4 _lh_termLsEq_LH_C_1_6) _lh_termLsEq_LH_C_1_7)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_3 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d4 _lh_termInList_arg1_4 _lh_termInList_arg2_4 =
-  (match _lh_termInList_arg2_4 with
-    | `LH_C(_lh_termInList_LH_C_0_4, _lh_termInList_LH_C_1_4) -> 
-      (if ((termEq_lh__d4 _lh_termInList_arg1_4) _lh_termInList_LH_C_0_4) then
-        true
-      else
-        ((termInList_lh__d4 _lh_termInList_arg1_4) _lh_termInList_LH_C_1_4))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec termEq_lh__d3 _lh_termEq_arg1_5 _lh_termEq_arg2_5 =
-  (match _lh_termEq_arg1_5 with
-    | `Var(_lh_termEq_Var_0_1_0) -> 
-      (match _lh_termEq_arg2_5 with
-        | `Var(_lh_termEq_Var_0_1_1) -> 
-          (_lh_termEq_Var_0_1_0 = _lh_termEq_Var_0_1_1)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_1_0, _lh_termEq_Fun_1_1_0, _lh_termEq_Fun_2_1_0) -> 
-      (match _lh_termEq_arg2_5 with
-        | `Fun(_lh_termEq_Fun_0_1_1, _lh_termEq_Fun_1_1_1, _lh_termEq_Fun_2_1_1) -> 
-          ((_lh_termEq_Fun_0_1_0 = _lh_termEq_Fun_0_1_1) && ((termLsEq_lh__d3 _lh_termEq_Fun_1_1_0) _lh_termEq_Fun_1_1_1))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d3 _lh_termLsEq_arg1_4 _lh_termLsEq_arg2_4 =
-  (match _lh_termLsEq_arg1_4 with
-    | `LH_C(_lh_termLsEq_LH_C_0_8, _lh_termLsEq_LH_C_1_8) -> 
-      (match _lh_termLsEq_arg2_4 with
-        | `LH_C(_lh_termLsEq_LH_C_0_9, _lh_termLsEq_LH_C_1_9) -> 
-          (if ((termEq_lh__d3 _lh_termLsEq_LH_C_0_8) _lh_termLsEq_LH_C_0_9) then
-            ((termLsEq_lh__d3 _lh_termLsEq_LH_C_1_8) _lh_termLsEq_LH_C_1_9)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_4 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d3 _lh_termInList_arg1_5 _lh_termInList_arg2_5 =
-  (match _lh_termInList_arg2_5 with
-    | `LH_C(_lh_termInList_LH_C_0_5, _lh_termInList_LH_C_1_5) -> 
-      (if ((termEq_lh__d3 _lh_termInList_arg1_5) _lh_termInList_LH_C_0_5) then
-        true
-      else
-        ((termInList_lh__d3 _lh_termInList_arg1_5) _lh_termInList_LH_C_1_5))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec truep_lh__d1 _lh_truep_arg1_1 _lh_truep_arg2_1 =
-  (match _lh_truep_arg1_1 with
-    | `Fun(_lh_truep_Fun_0_1, _lh_truep_Fun_1_1, _lh_truep_Fun_2_1) -> 
-      (match _lh_truep_Fun_0_1 with
-        | `TRUE -> 
-          true
-        | _ -> 
-          ((termInList_lh__d3 _lh_truep_arg1_1) _lh_truep_arg2_1))
-    | _ -> 
-      ((termInList_lh__d4 _lh_truep_arg1_1) _lh_truep_arg2_1));;
-let rec termEq_lh__d5 _lh_termEq_arg1_3 _lh_termEq_arg2_3 =
-  (match _lh_termEq_arg1_3 with
-    | `Var(_lh_termEq_Var_0_6) -> 
-      (match _lh_termEq_arg2_3 with
-        | `Var(_lh_termEq_Var_0_7) -> 
-          (_lh_termEq_Var_0_6 = _lh_termEq_Var_0_7)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_6, _lh_termEq_Fun_1_6, _lh_termEq_Fun_2_6) -> 
-      (match _lh_termEq_arg2_3 with
-        | `Fun(_lh_termEq_Fun_0_7, _lh_termEq_Fun_1_7, _lh_termEq_Fun_2_7) -> 
-          ((_lh_termEq_Fun_0_6 = _lh_termEq_Fun_0_7) && ((termLsEq_lh__d5 _lh_termEq_Fun_1_6) _lh_termEq_Fun_1_7))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d5 _lh_termLsEq_arg1_2 _lh_termLsEq_arg2_2 =
-  (match _lh_termLsEq_arg1_2 with
-    | `LH_C(_lh_termLsEq_LH_C_0_4, _lh_termLsEq_LH_C_1_4) -> 
-      (match _lh_termLsEq_arg2_2 with
-        | `LH_C(_lh_termLsEq_LH_C_0_5, _lh_termLsEq_LH_C_1_5) -> 
-          (if ((termEq_lh__d5 _lh_termLsEq_LH_C_0_4) _lh_termLsEq_LH_C_0_5) then
-            ((termLsEq_lh__d5 _lh_termLsEq_LH_C_1_4) _lh_termLsEq_LH_C_1_5)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_2 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d5 _lh_termInList_arg1_3 _lh_termInList_arg2_3 =
-  (match _lh_termInList_arg2_3 with
-    | `LH_C(_lh_termInList_LH_C_0_3, _lh_termInList_LH_C_1_3) -> 
-      (if ((termEq_lh__d5 _lh_termInList_arg1_3) _lh_termInList_LH_C_0_3) then
-        true
-      else
-        ((termInList_lh__d5 _lh_termInList_arg1_3) _lh_termInList_LH_C_1_3))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec termEq_lh__d6 _lh_termEq_arg1_2 _lh_termEq_arg2_2 =
-  (match _lh_termEq_arg1_2 with
-    | `Var(_lh_termEq_Var_0_4) -> 
-      (match _lh_termEq_arg2_2 with
-        | `Var(_lh_termEq_Var_0_5) -> 
-          (_lh_termEq_Var_0_4 = _lh_termEq_Var_0_5)
-        | _ -> 
-          false)
-    | `Fun(_lh_termEq_Fun_0_4, _lh_termEq_Fun_1_4, _lh_termEq_Fun_2_4) -> 
-      (match _lh_termEq_arg2_2 with
-        | `Fun(_lh_termEq_Fun_0_5, _lh_termEq_Fun_1_5, _lh_termEq_Fun_2_5) -> 
-          ((_lh_termEq_Fun_0_4 = _lh_termEq_Fun_0_5) && ((termLsEq_lh__d6 _lh_termEq_Fun_1_4) _lh_termEq_Fun_1_5))
-        | _ -> 
-          false)
-    | _ -> 
-      false)
-and
-termLsEq_lh__d6 _lh_termLsEq_arg1_1 _lh_termLsEq_arg2_1 =
-  (match _lh_termLsEq_arg1_1 with
-    | `LH_C(_lh_termLsEq_LH_C_0_2, _lh_termLsEq_LH_C_1_2) -> 
-      (match _lh_termLsEq_arg2_1 with
-        | `LH_C(_lh_termLsEq_LH_C_0_3, _lh_termLsEq_LH_C_1_3) -> 
-          (if ((termEq_lh__d6 _lh_termLsEq_LH_C_0_2) _lh_termLsEq_LH_C_0_3) then
-            ((termLsEq_lh__d6 _lh_termLsEq_LH_C_1_2) _lh_termLsEq_LH_C_1_3)
-          else
-            false)
-        | _ -> 
-          (failwith "error"))
-    | `LH_N -> 
-      (match _lh_termLsEq_arg2_1 with
-        | `LH_N -> 
-          true
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec termInList_lh__d6 _lh_termInList_arg1_2 _lh_termInList_arg2_2 =
-  (match _lh_termInList_arg2_2 with
-    | `LH_C(_lh_termInList_LH_C_0_2, _lh_termInList_LH_C_1_2) -> 
-      (if ((termEq_lh__d6 _lh_termInList_arg1_2) _lh_termInList_LH_C_0_2) then
-        true
-      else
-        ((termInList_lh__d6 _lh_termInList_arg1_2) _lh_termInList_LH_C_1_2))
-    | `LH_N -> 
-      false
-    | _ -> 
-      (failwith "error"));;
-let rec falsep_lh__d2 _lh_falsep_arg1_0 _lh_falsep_arg2_0 =
-  (match _lh_falsep_arg1_0 with
-    | `Fun(_lh_falsep_Fun_0_0, _lh_falsep_Fun_1_0, _lh_falsep_Fun_2_0) -> 
-      (match _lh_falsep_Fun_0_0 with
-        | `FALSE -> 
-          true
-        | _ -> 
-          ((termInList_lh__d5 _lh_falsep_arg1_0) _lh_falsep_arg2_0))
-    | _ -> 
-      ((termInList_lh__d6 _lh_falsep_arg1_0) _lh_falsep_arg2_0));;
-let rec tautologyp_lh__d1 _lh_tautologyp_arg1_0 _lh_tautologyp_arg2_0 _lh_tautologyp_arg3_0 =
-  (if ((truep_lh__d2 _lh_tautologyp_arg1_0) _lh_tautologyp_arg2_0) then
-    true
-  else
-    (if ((falsep_lh__d1 _lh_tautologyp_arg1_0) _lh_tautologyp_arg3_0) then
-      false
-    else
-      (let rec _lh_matchIdent_6 = _lh_tautologyp_arg1_0 in
-        (match _lh_matchIdent_6 with
-          | `Fun(_lh_tautologyp_Fun_0_0, _lh_tautologyp_Fun_1_0, _lh_tautologyp_Fun_2_0) -> 
-            (match _lh_tautologyp_Fun_0_0 with
-              | `IF -> 
-                (match _lh_tautologyp_Fun_1_0 with
-                  | `LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_LH_C_1_0) -> 
-                    (match _lh_tautologyp_LH_C_1_0 with
-                      | `LH_C(_lh_tautologyp_LH_C_0_1, _lh_tautologyp_LH_C_1_1) -> 
-                        (match _lh_tautologyp_LH_C_1_1 with
-                          | `LH_C(_lh_tautologyp_LH_C_0_2, _lh_tautologyp_LH_C_1_2) -> 
-                            (match _lh_tautologyp_LH_C_1_2 with
-                              | `LH_N -> 
-                                (if ((truep_lh__d1 _lh_tautologyp_LH_C_0_0) _lh_tautologyp_arg2_0) then
-                                  (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_1) _lh_tautologyp_arg2_0) _lh_tautologyp_arg3_0)
-                                else
-                                  (if ((falsep_lh__d2 _lh_tautologyp_LH_C_0_0) _lh_tautologyp_arg3_0) then
-                                    (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_2) _lh_tautologyp_arg2_0) _lh_tautologyp_arg3_0)
-                                  else
-                                    ((((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_1) (`LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_arg2_0))) _lh_tautologyp_arg3_0) && (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_2) _lh_tautologyp_arg2_0) (`LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_arg3_0))))))
-                              | _ -> 
-                                false)
-                          | _ -> 
-                            false)
-                      | _ -> 
-                        false)
-                  | _ -> 
-                    false)
-              | _ -> 
-                false)
-          | _ -> 
-            false))));;
 let rec one_way_unify1_lh__d1 _lh_one_way_unify1_arg1_0 _lh_one_way_unify1_arg2_0 _lh_one_way_unify1_arg3_0 =
   (match _lh_one_way_unify1_arg2_0 with
     | `Var(_lh_one_way_unify1_Var_0_0) -> 
@@ -485,9 +116,7 @@ let rec one_way_unify1_lh__d1 _lh_one_way_unify1_arg1_0 _lh_one_way_unify1_arg2_
             (if _lh_one_way_unify1_LH_P2_0_0 then
               (`LH_P2(((termEq_lh__d8 _lh_one_way_unify1_arg1_0) _lh_one_way_unify1_LH_P2_1_0), _lh_one_way_unify1_arg3_0))
             else
-              (`LH_P2(true, (`LH_C((`LH_P2(_lh_one_way_unify1_Var_0_0, _lh_one_way_unify1_arg1_0)), _lh_one_way_unify1_arg3_0)))))
-          | _ -> 
-            (failwith "error")))
+              (`LH_P2(true, (`LH_C((`LH_P2(_lh_one_way_unify1_Var_0_0, _lh_one_way_unify1_arg1_0)), _lh_one_way_unify1_arg3_0)))))))
     | _ -> 
       (match _lh_one_way_unify1_arg1_0 with
         | `Fun(_lh_one_way_unify1_Fun_0_0, _lh_one_way_unify1_Fun_1_0, _lh_one_way_unify1_Fun_2_0) -> 
@@ -519,23 +148,13 @@ one_way_unify1_lst_lh__d1 _lh_one_way_unify1_lst_arg1_0 _lh_one_way_unify1_lst_a
                 (let rec _lh_matchIdent_1 = (((one_way_unify1_lst_lh__d1 _lh_one_way_unify1_lst_LH_C_1_0) _lh_one_way_unify1_lst_LH_C_1_1) _lh_one_way_unify1_lst_LH_P2_1_0) in
                   (match _lh_matchIdent_1 with
                     | `LH_P2(_lh_one_way_unify1_lst_LH_P2_0_1, _lh_one_way_unify1_lst_LH_P2_1_1) -> 
-                      (`LH_P2((_lh_one_way_unify1_lst_LH_P2_0_0 && _lh_one_way_unify1_lst_LH_P2_0_1), _lh_one_way_unify1_lst_LH_P2_1_1))
-                    | _ -> 
-                      (failwith "error")))
-              | _ -> 
-                (failwith "error")))
+                      (`LH_P2((_lh_one_way_unify1_lst_LH_P2_0_0 && _lh_one_way_unify1_lst_LH_P2_0_1), _lh_one_way_unify1_lst_LH_P2_1_1))))))
         | _ -> 
           (`LH_P2(false, (`LH_N))))
     | _ -> 
       (`LH_P2(false, (`LH_N))));;
 let rec one_way_unify_lh__d1 _lh_one_way_unify_arg1_0 _lh_one_way_unify_arg2_0 =
   (((one_way_unify1_lh__d1 _lh_one_way_unify_arg1_0) _lh_one_way_unify_arg2_0) (`LH_N));;
-let rec map_lh__d2 f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh__d2 f_0) t_0)))
-    | `LH_N -> 
-      (`LH_N));;
 let rec apply_subst_lh__d2 _lh_apply_subst_arg1_0 _lh_apply_subst_arg2_0 =
   (match _lh_apply_subst_arg2_0 with
     | `Var(_lh_apply_subst_Var_0_0) -> 
@@ -545,13 +164,11 @@ let rec apply_subst_lh__d2 _lh_apply_subst_arg1_0 _lh_apply_subst_arg2_0 =
             (if _lh_apply_subst_LH_P2_0_0 then
               _lh_apply_subst_LH_P2_1_0
             else
-              (`Var(_lh_apply_subst_Var_0_0)))
-          | _ -> 
-            (failwith "error")))
+              (`Var(_lh_apply_subst_Var_0_0)))))
     | `Fun(_lh_apply_subst_Fun_0_0, _lh_apply_subst_Fun_1_0, _lh_apply_subst_Fun_2_0) -> 
       (`Fun(_lh_apply_subst_Fun_0_0, ((map_lh__d2 (apply_subst_lh__d2 _lh_apply_subst_arg1_0)) _lh_apply_subst_Fun_1_0), _lh_apply_subst_Fun_2_0))
     | _ -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
 let rec rewrite_lh__d1 _lh_rewrite_arg1_0 =
   (match _lh_rewrite_arg1_0 with
     | `Var(_lh_rewrite_Var_0_0) -> 
@@ -559,7 +176,7 @@ let rec rewrite_lh__d1 _lh_rewrite_arg1_0 =
     | `Fun(_lh_rewrite_Fun_0_0, _lh_rewrite_Fun_1_0, _lh_rewrite_Fun_2_0) -> 
       ((rewrite_with_lemmas_lh__d1 (`Fun(_lh_rewrite_Fun_0_0, ((map_lh__d2 rewrite_lh__d1) _lh_rewrite_Fun_1_0), _lh_rewrite_Fun_2_0))) _lh_rewrite_Fun_2_0)
     | _ -> 
-      (failwith "error"))
+      (failwith "lh_default_error"))
 and
 rewrite_with_lemmas_helper_lh__d1 _lh_rewrite_with_lemmas_helper_arg1_0 _lh_rewrite_with_lemmas_helper_arg2_0 =
   (let rec _lh_matchIdent_4 = _lh_rewrite_with_lemmas_helper_arg2_0 in
@@ -575,16 +192,377 @@ rewrite_with_lemmas_helper_lh__d1 _lh_rewrite_with_lemmas_helper_arg1_0 _lh_rewr
                   (if _lh_rewrite_with_lemmas_helper_LH_P2_0_1 then
                     (rewrite_lh__d1 ((apply_subst_lh__d2 _lh_rewrite_with_lemmas_helper_LH_P2_1_1) _lh_rewrite_with_lemmas_helper_LH_P2_1_0))
                   else
-                    ((rewrite_with_lemmas_helper_lh__d1 _lh_rewrite_with_lemmas_helper_arg1_0) _lh_rewrite_with_lemmas_helper_LH_C_1_0))
-                | _ -> 
-                  (failwith "error")))
-          | _ -> 
-            (failwith "error"))
-      | _ -> 
-        (failwith "error")))
+                    ((rewrite_with_lemmas_helper_lh__d1 _lh_rewrite_with_lemmas_helper_arg1_0) _lh_rewrite_with_lemmas_helper_LH_C_1_0)))))))
 and
 rewrite_with_lemmas_lh__d1 _lh_rewrite_with_lemmas_arg1_0 _lh_rewrite_with_lemmas_arg2_0 =
   ((rewrite_with_lemmas_helper_lh__d1 _lh_rewrite_with_lemmas_arg1_0) (Lazy.force _lh_rewrite_with_lemmas_arg2_0));;
+let rec termEq_lh__d4 _lh_termEq_arg1_4 _lh_termEq_arg2_4 =
+  (match _lh_termEq_arg1_4 with
+    | `Var(_lh_termEq_Var_0_8) -> 
+      (match _lh_termEq_arg2_4 with
+        | `Var(_lh_termEq_Var_0_9) -> 
+          (_lh_termEq_Var_0_8 = _lh_termEq_Var_0_9)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_8, _lh_termEq_Fun_1_8, _lh_termEq_Fun_2_8) -> 
+      (match _lh_termEq_arg2_4 with
+        | `Fun(_lh_termEq_Fun_0_9, _lh_termEq_Fun_1_9, _lh_termEq_Fun_2_9) -> 
+          ((_lh_termEq_Fun_0_8 = _lh_termEq_Fun_0_9) && ((termLsEq_lh__d4 _lh_termEq_Fun_1_8) _lh_termEq_Fun_1_9))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d4 _lh_termLsEq_arg1_3 _lh_termLsEq_arg2_3 =
+  (match _lh_termLsEq_arg1_3 with
+    | `LH_C(_lh_termLsEq_LH_C_0_6, _lh_termLsEq_LH_C_1_6) -> 
+      (match _lh_termLsEq_arg2_3 with
+        | `LH_C(_lh_termLsEq_LH_C_0_7, _lh_termLsEq_LH_C_1_7) -> 
+          (if ((termEq_lh__d4 _lh_termLsEq_LH_C_0_6) _lh_termLsEq_LH_C_0_7) then
+            ((termLsEq_lh__d4 _lh_termLsEq_LH_C_1_6) _lh_termLsEq_LH_C_1_7)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_3 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d4 _lh_termInList_arg1_4 _lh_termInList_arg2_4 =
+  (match _lh_termInList_arg2_4 with
+    | `LH_C(_lh_termInList_LH_C_0_4, _lh_termInList_LH_C_1_4) -> 
+      (if ((termEq_lh__d4 _lh_termInList_arg1_4) _lh_termInList_LH_C_0_4) then
+        true
+      else
+        ((termInList_lh__d4 _lh_termInList_arg1_4) _lh_termInList_LH_C_1_4))
+    | `LH_N -> 
+      false);;
+let rec termEq_lh__d3 _lh_termEq_arg1_5 _lh_termEq_arg2_5 =
+  (match _lh_termEq_arg1_5 with
+    | `Var(_lh_termEq_Var_0_1_0) -> 
+      (match _lh_termEq_arg2_5 with
+        | `Var(_lh_termEq_Var_0_1_1) -> 
+          (_lh_termEq_Var_0_1_0 = _lh_termEq_Var_0_1_1)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_1_0, _lh_termEq_Fun_1_1_0, _lh_termEq_Fun_2_1_0) -> 
+      (match _lh_termEq_arg2_5 with
+        | `Fun(_lh_termEq_Fun_0_1_1, _lh_termEq_Fun_1_1_1, _lh_termEq_Fun_2_1_1) -> 
+          ((_lh_termEq_Fun_0_1_0 = _lh_termEq_Fun_0_1_1) && ((termLsEq_lh__d3 _lh_termEq_Fun_1_1_0) _lh_termEq_Fun_1_1_1))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d3 _lh_termLsEq_arg1_4 _lh_termLsEq_arg2_4 =
+  (match _lh_termLsEq_arg1_4 with
+    | `LH_C(_lh_termLsEq_LH_C_0_8, _lh_termLsEq_LH_C_1_8) -> 
+      (match _lh_termLsEq_arg2_4 with
+        | `LH_C(_lh_termLsEq_LH_C_0_9, _lh_termLsEq_LH_C_1_9) -> 
+          (if ((termEq_lh__d3 _lh_termLsEq_LH_C_0_8) _lh_termLsEq_LH_C_0_9) then
+            ((termLsEq_lh__d3 _lh_termLsEq_LH_C_1_8) _lh_termLsEq_LH_C_1_9)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_4 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d3 _lh_termInList_arg1_5 _lh_termInList_arg2_5 =
+  (match _lh_termInList_arg2_5 with
+    | `LH_C(_lh_termInList_LH_C_0_5, _lh_termInList_LH_C_1_5) -> 
+      (if ((termEq_lh__d3 _lh_termInList_arg1_5) _lh_termInList_LH_C_0_5) then
+        true
+      else
+        ((termInList_lh__d3 _lh_termInList_arg1_5) _lh_termInList_LH_C_1_5))
+    | `LH_N -> 
+      false);;
+let rec truep_lh__d2 _lh_truep_arg1_0 _lh_truep_arg2_0 =
+  (match _lh_truep_arg1_0 with
+    | `Fun(_lh_truep_Fun_0_0, _lh_truep_Fun_1_0, _lh_truep_Fun_2_0) -> 
+      (match _lh_truep_Fun_0_0 with
+        | `TRUE -> 
+          true
+        | _ -> 
+          ((termInList_lh__d4 _lh_truep_arg1_0) _lh_truep_arg2_0))
+    | _ -> 
+      ((termInList_lh__d3 _lh_truep_arg1_0) _lh_truep_arg2_0));;
+let rec termEq_lh__d5 _lh_termEq_arg1_3 _lh_termEq_arg2_3 =
+  (match _lh_termEq_arg1_3 with
+    | `Var(_lh_termEq_Var_0_6) -> 
+      (match _lh_termEq_arg2_3 with
+        | `Var(_lh_termEq_Var_0_7) -> 
+          (_lh_termEq_Var_0_6 = _lh_termEq_Var_0_7)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_6, _lh_termEq_Fun_1_6, _lh_termEq_Fun_2_6) -> 
+      (match _lh_termEq_arg2_3 with
+        | `Fun(_lh_termEq_Fun_0_7, _lh_termEq_Fun_1_7, _lh_termEq_Fun_2_7) -> 
+          ((_lh_termEq_Fun_0_6 = _lh_termEq_Fun_0_7) && ((termLsEq_lh__d5 _lh_termEq_Fun_1_6) _lh_termEq_Fun_1_7))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d5 _lh_termLsEq_arg1_2 _lh_termLsEq_arg2_2 =
+  (match _lh_termLsEq_arg1_2 with
+    | `LH_C(_lh_termLsEq_LH_C_0_4, _lh_termLsEq_LH_C_1_4) -> 
+      (match _lh_termLsEq_arg2_2 with
+        | `LH_C(_lh_termLsEq_LH_C_0_5, _lh_termLsEq_LH_C_1_5) -> 
+          (if ((termEq_lh__d5 _lh_termLsEq_LH_C_0_4) _lh_termLsEq_LH_C_0_5) then
+            ((termLsEq_lh__d5 _lh_termLsEq_LH_C_1_4) _lh_termLsEq_LH_C_1_5)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_2 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d5 _lh_termInList_arg1_3 _lh_termInList_arg2_3 =
+  (match _lh_termInList_arg2_3 with
+    | `LH_C(_lh_termInList_LH_C_0_3, _lh_termInList_LH_C_1_3) -> 
+      (if ((termEq_lh__d5 _lh_termInList_arg1_3) _lh_termInList_LH_C_0_3) then
+        true
+      else
+        ((termInList_lh__d5 _lh_termInList_arg1_3) _lh_termInList_LH_C_1_3))
+    | `LH_N -> 
+      false);;
+let rec termEq_lh__d6 _lh_termEq_arg1_2 _lh_termEq_arg2_2 =
+  (match _lh_termEq_arg1_2 with
+    | `Var(_lh_termEq_Var_0_4) -> 
+      (match _lh_termEq_arg2_2 with
+        | `Var(_lh_termEq_Var_0_5) -> 
+          (_lh_termEq_Var_0_4 = _lh_termEq_Var_0_5)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_4, _lh_termEq_Fun_1_4, _lh_termEq_Fun_2_4) -> 
+      (match _lh_termEq_arg2_2 with
+        | `Fun(_lh_termEq_Fun_0_5, _lh_termEq_Fun_1_5, _lh_termEq_Fun_2_5) -> 
+          ((_lh_termEq_Fun_0_4 = _lh_termEq_Fun_0_5) && ((termLsEq_lh__d6 _lh_termEq_Fun_1_4) _lh_termEq_Fun_1_5))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d6 _lh_termLsEq_arg1_1 _lh_termLsEq_arg2_1 =
+  (match _lh_termLsEq_arg1_1 with
+    | `LH_C(_lh_termLsEq_LH_C_0_2, _lh_termLsEq_LH_C_1_2) -> 
+      (match _lh_termLsEq_arg2_1 with
+        | `LH_C(_lh_termLsEq_LH_C_0_3, _lh_termLsEq_LH_C_1_3) -> 
+          (if ((termEq_lh__d6 _lh_termLsEq_LH_C_0_2) _lh_termLsEq_LH_C_0_3) then
+            ((termLsEq_lh__d6 _lh_termLsEq_LH_C_1_2) _lh_termLsEq_LH_C_1_3)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_1 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d6 _lh_termInList_arg1_2 _lh_termInList_arg2_2 =
+  (match _lh_termInList_arg2_2 with
+    | `LH_C(_lh_termInList_LH_C_0_2, _lh_termInList_LH_C_1_2) -> 
+      (if ((termEq_lh__d6 _lh_termInList_arg1_2) _lh_termInList_LH_C_0_2) then
+        true
+      else
+        ((termInList_lh__d6 _lh_termInList_arg1_2) _lh_termInList_LH_C_1_2))
+    | `LH_N -> 
+      false);;
+let rec falsep_lh__d1 _lh_falsep_arg1_1 _lh_falsep_arg2_1 =
+  (match _lh_falsep_arg1_1 with
+    | `Fun(_lh_falsep_Fun_0_1, _lh_falsep_Fun_1_1, _lh_falsep_Fun_2_1) -> 
+      (match _lh_falsep_Fun_0_1 with
+        | `FALSE -> 
+          true
+        | _ -> 
+          ((termInList_lh__d5 _lh_falsep_arg1_1) _lh_falsep_arg2_1))
+    | _ -> 
+      ((termInList_lh__d6 _lh_falsep_arg1_1) _lh_falsep_arg2_1));;
+let rec termEq_lh__d1 _lh_termEq_arg1_7 _lh_termEq_arg2_7 =
+  (match _lh_termEq_arg1_7 with
+    | `Var(_lh_termEq_Var_0_1_4) -> 
+      (match _lh_termEq_arg2_7 with
+        | `Var(_lh_termEq_Var_0_1_5) -> 
+          (_lh_termEq_Var_0_1_4 = _lh_termEq_Var_0_1_5)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_1_4, _lh_termEq_Fun_1_1_4, _lh_termEq_Fun_2_1_4) -> 
+      (match _lh_termEq_arg2_7 with
+        | `Fun(_lh_termEq_Fun_0_1_5, _lh_termEq_Fun_1_1_5, _lh_termEq_Fun_2_1_5) -> 
+          ((_lh_termEq_Fun_0_1_4 = _lh_termEq_Fun_0_1_5) && ((termLsEq_lh__d1 _lh_termEq_Fun_1_1_4) _lh_termEq_Fun_1_1_5))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d1 _lh_termLsEq_arg1_6 _lh_termLsEq_arg2_6 =
+  (match _lh_termLsEq_arg1_6 with
+    | `LH_C(_lh_termLsEq_LH_C_0_1_2, _lh_termLsEq_LH_C_1_1_2) -> 
+      (match _lh_termLsEq_arg2_6 with
+        | `LH_C(_lh_termLsEq_LH_C_0_1_3, _lh_termLsEq_LH_C_1_1_3) -> 
+          (if ((termEq_lh__d1 _lh_termLsEq_LH_C_0_1_2) _lh_termLsEq_LH_C_0_1_3) then
+            ((termLsEq_lh__d1 _lh_termLsEq_LH_C_1_1_2) _lh_termLsEq_LH_C_1_1_3)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_6 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d1 _lh_termInList_arg1_7 _lh_termInList_arg2_7 =
+  (match _lh_termInList_arg2_7 with
+    | `LH_C(_lh_termInList_LH_C_0_7, _lh_termInList_LH_C_1_7) -> 
+      (if ((termEq_lh__d1 _lh_termInList_arg1_7) _lh_termInList_LH_C_0_7) then
+        true
+      else
+        ((termInList_lh__d1 _lh_termInList_arg1_7) _lh_termInList_LH_C_1_7))
+    | `LH_N -> 
+      false);;
+let rec termEq_lh__d2 _lh_termEq_arg1_6 _lh_termEq_arg2_6 =
+  (match _lh_termEq_arg1_6 with
+    | `Var(_lh_termEq_Var_0_1_2) -> 
+      (match _lh_termEq_arg2_6 with
+        | `Var(_lh_termEq_Var_0_1_3) -> 
+          (_lh_termEq_Var_0_1_2 = _lh_termEq_Var_0_1_3)
+        | _ -> 
+          false)
+    | `Fun(_lh_termEq_Fun_0_1_2, _lh_termEq_Fun_1_1_2, _lh_termEq_Fun_2_1_2) -> 
+      (match _lh_termEq_arg2_6 with
+        | `Fun(_lh_termEq_Fun_0_1_3, _lh_termEq_Fun_1_1_3, _lh_termEq_Fun_2_1_3) -> 
+          ((_lh_termEq_Fun_0_1_2 = _lh_termEq_Fun_0_1_3) && ((termLsEq_lh__d2 _lh_termEq_Fun_1_1_2) _lh_termEq_Fun_1_1_3))
+        | _ -> 
+          false)
+    | _ -> 
+      false)
+and
+termLsEq_lh__d2 _lh_termLsEq_arg1_5 _lh_termLsEq_arg2_5 =
+  (match _lh_termLsEq_arg1_5 with
+    | `LH_C(_lh_termLsEq_LH_C_0_1_0, _lh_termLsEq_LH_C_1_1_0) -> 
+      (match _lh_termLsEq_arg2_5 with
+        | `LH_C(_lh_termLsEq_LH_C_0_1_1, _lh_termLsEq_LH_C_1_1_1) -> 
+          (if ((termEq_lh__d2 _lh_termLsEq_LH_C_0_1_0) _lh_termLsEq_LH_C_0_1_1) then
+            ((termLsEq_lh__d2 _lh_termLsEq_LH_C_1_1_0) _lh_termLsEq_LH_C_1_1_1)
+          else
+            false)
+        | _ -> 
+          false)
+    | `LH_N -> 
+      (match _lh_termLsEq_arg2_5 with
+        | `LH_N -> 
+          true
+        | _ -> 
+          false)
+    | _ -> 
+      false);;
+let rec termInList_lh__d2 _lh_termInList_arg1_6 _lh_termInList_arg2_6 =
+  (match _lh_termInList_arg2_6 with
+    | `LH_C(_lh_termInList_LH_C_0_6, _lh_termInList_LH_C_1_6) -> 
+      (if ((termEq_lh__d2 _lh_termInList_arg1_6) _lh_termInList_LH_C_0_6) then
+        true
+      else
+        ((termInList_lh__d2 _lh_termInList_arg1_6) _lh_termInList_LH_C_1_6))
+    | `LH_N -> 
+      false);;
+let rec truep_lh__d1 _lh_truep_arg1_1 _lh_truep_arg2_1 =
+  (match _lh_truep_arg1_1 with
+    | `Fun(_lh_truep_Fun_0_1, _lh_truep_Fun_1_1, _lh_truep_Fun_2_1) -> 
+      (match _lh_truep_Fun_0_1 with
+        | `TRUE -> 
+          true
+        | _ -> 
+          ((termInList_lh__d2 _lh_truep_arg1_1) _lh_truep_arg2_1))
+    | _ -> 
+      ((termInList_lh__d1 _lh_truep_arg1_1) _lh_truep_arg2_1));;
+let rec termInList_lh__d7 _lh_termInList_arg1_1 _lh_termInList_arg2_1 =
+  (match _lh_termInList_arg2_1 with
+    | `LH_C(_lh_termInList_LH_C_0_1, _lh_termInList_LH_C_1_1) -> 
+      (if ((termEq_lh__d7 _lh_termInList_arg1_1) _lh_termInList_LH_C_0_1) then
+        true
+      else
+        ((termInList_lh__d7 _lh_termInList_arg1_1) _lh_termInList_LH_C_1_1))
+    | `LH_N -> 
+      false);;
+let rec termInList_lh__d8 _lh_termInList_arg1_0 _lh_termInList_arg2_0 =
+  (match _lh_termInList_arg2_0 with
+    | `LH_C(_lh_termInList_LH_C_0_0, _lh_termInList_LH_C_1_0) -> 
+      (if ((termEq_lh__d8 _lh_termInList_arg1_0) _lh_termInList_LH_C_0_0) then
+        true
+      else
+        ((termInList_lh__d8 _lh_termInList_arg1_0) _lh_termInList_LH_C_1_0))
+    | `LH_N -> 
+      false);;
+let rec falsep_lh__d2 _lh_falsep_arg1_0 _lh_falsep_arg2_0 =
+  (match _lh_falsep_arg1_0 with
+    | `Fun(_lh_falsep_Fun_0_0, _lh_falsep_Fun_1_0, _lh_falsep_Fun_2_0) -> 
+      (match _lh_falsep_Fun_0_0 with
+        | `FALSE -> 
+          true
+        | _ -> 
+          ((termInList_lh__d7 _lh_falsep_arg1_0) _lh_falsep_arg2_0))
+    | _ -> 
+      ((termInList_lh__d8 _lh_falsep_arg1_0) _lh_falsep_arg2_0));;
+let rec tautologyp_lh__d1 _lh_tautologyp_arg1_0 _lh_tautologyp_arg2_0 _lh_tautologyp_arg3_0 =
+  (if ((truep_lh__d1 _lh_tautologyp_arg1_0) _lh_tautologyp_arg2_0) then
+    true
+  else
+    (if ((falsep_lh__d2 _lh_tautologyp_arg1_0) _lh_tautologyp_arg3_0) then
+      false
+    else
+      (let rec _lh_matchIdent_6 = _lh_tautologyp_arg1_0 in
+        (match _lh_matchIdent_6 with
+          | `Fun(_lh_tautologyp_Fun_0_0, _lh_tautologyp_Fun_1_0, _lh_tautologyp_Fun_2_0) -> 
+            (match _lh_tautologyp_Fun_0_0 with
+              | `IF -> 
+                (match _lh_tautologyp_Fun_1_0 with
+                  | `LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_LH_C_1_0) -> 
+                    (match _lh_tautologyp_LH_C_1_0 with
+                      | `LH_C(_lh_tautologyp_LH_C_0_1, _lh_tautologyp_LH_C_1_1) -> 
+                        (match _lh_tautologyp_LH_C_1_1 with
+                          | `LH_C(_lh_tautologyp_LH_C_0_2, _lh_tautologyp_LH_C_1_2) -> 
+                            (match _lh_tautologyp_LH_C_1_2 with
+                              | `LH_N -> 
+                                (if ((truep_lh__d2 _lh_tautologyp_LH_C_0_0) _lh_tautologyp_arg2_0) then
+                                  (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_1) _lh_tautologyp_arg2_0) _lh_tautologyp_arg3_0)
+                                else
+                                  (if ((falsep_lh__d1 _lh_tautologyp_LH_C_0_0) _lh_tautologyp_arg3_0) then
+                                    (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_2) _lh_tautologyp_arg2_0) _lh_tautologyp_arg3_0)
+                                  else
+                                    ((((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_1) (`LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_arg2_0))) _lh_tautologyp_arg3_0) && (((tautologyp_lh__d1 _lh_tautologyp_LH_C_0_2) _lh_tautologyp_arg2_0) (`LH_C(_lh_tautologyp_LH_C_0_0, _lh_tautologyp_arg3_0))))))
+                              | _ -> 
+                                false)
+                          | _ -> 
+                            false)
+                      | _ -> 
+                        false)
+                  | _ -> 
+                    false)
+              | _ -> 
+                false)
+          | _ -> 
+            false))));;
 let rec tautp_lh__d1 _lh_tautp_arg1_0 =
   (((tautologyp_lh__d1 (rewrite_lh__d1 _lh_tautp_arg1_0)) (`LH_N)) (`LH_N));;
 let rec test0_lh__d1 _lh_test0_arg1_0 =
@@ -675,22 +653,6 @@ let rec test0_lh__d1 _lh_test0_arg1_0 =
   in (let rec subst0_0 = (`LH_C((`LH_P2((`X), (f_2 ((plus_0 ((plus_0 a_0) b_0)) ((plus_0 c_0) zero_0))))), (`LH_C((`LH_P2((`Y), (f_2 ((times_0 ((times_0 a_0) b_0)) ((plus_0 c_0) d_0))))), (`LH_C((`LH_P2((`Z), (f_2 (reverse__0 ((append_0 ((append_0 a_0) b_0)) nil_0))))), (`LH_C((`LH_P2((`U), ((equal_0 ((plus_0 a_0) b_0)) ((difference_0 x_0) y_0)))), (`LH_C((`LH_P2((`W), ((lessp_0 ((remainder_0 a_0) b_0)) ((member_0 a_0) (length__0 b_0))))), (`LH_N))))))))))) in
     (let rec theorem_0 = ((implies_0 ((and__0 ((implies_0 _lh_test0_arg1_0) y_0)) ((and__0 ((implies_0 y_0) z_0)) ((and__0 ((implies_0 z_0) u_0)) ((implies_0 u_0) w_0))))) ((implies_0 x_0) w_0)) in
       (tautp_lh__d1 ((apply_subst_lh__d1 subst0_0) theorem_0))));;
-let rec replicate_lh__d1 _lh_replicate_arg1_0 _lh_replicate_arg2_0 =
-  (if (_lh_replicate_arg1_0 = 0) then
-    (`LH_N)
-  else
-    (`LH_C(_lh_replicate_arg2_0, ((replicate_lh__d1 (_lh_replicate_arg1_0 - 1)) _lh_replicate_arg2_0))));;
-let rec all_lh__d1 _lh_all_arg1_0 _lh_all_arg2_0 =
-  (match _lh_all_arg2_0 with
-    | `LH_N -> 
-      true
-    | `LH_C(_lh_all_LH_C_0_0, _lh_all_LH_C_1_0) -> 
-      (if (_lh_all_arg1_0 _lh_all_LH_C_0_0) then
-        ((all_lh__d1 _lh_all_arg1_0) _lh_all_LH_C_1_0)
-      else
-        false)
-    | _ -> 
-      (failwith "error"));;
 let rec testBoyer_nofib_lh__d1 _lh_testBoyer_nofib_arg1_0 =
   ((all_lh__d1 test0_lh__d1) ((replicate_lh__d1 _lh_testBoyer_nofib_arg1_0) (`Var((`X)))));;
 let run () = 1 + (Obj.magic ((testBoyer_nofib_lh__d1 5)));

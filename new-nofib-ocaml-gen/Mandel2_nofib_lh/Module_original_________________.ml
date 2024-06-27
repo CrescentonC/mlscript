@@ -10,9 +10,7 @@ let rec finite_lh _lh_finite_arg1_0 =
     | `NS(_lh_finite_NS_0_0, _lh_finite_NS_1_0) -> 
       ((finite_lh _lh_finite_NS_0_0) && (finite_lh _lh_finite_NS_1_0))
     | `EW(_lh_finite_EW_0_0, _lh_finite_EW_1_0) -> 
-      ((finite_lh _lh_finite_EW_0_0) && (finite_lh _lh_finite_EW_1_0))
-    | _ -> 
-      (failwith "error"));;
+      ((finite_lh _lh_finite_EW_0_0) && (finite_lh _lh_finite_EW_1_0)));;
 let rec max_lh _lh_max_arg1_0 _lh_max_arg2_0 =
   (if (_lh_max_arg1_0 > _lh_max_arg2_0) then
     _lh_max_arg1_0
@@ -33,11 +31,7 @@ let rec equalp_lh _lh_equalp_arg1_0 _lh_equalp_arg2_0 =
     | `LH_P2(_lh_equalp_LH_P2_0_0, _lh_equalp_LH_P2_1_0) -> 
       (match _lh_equalp_arg2_0 with
         | `LH_P2(_lh_equalp_LH_P2_0_1, _lh_equalp_LH_P2_1_1) -> 
-          ((_lh_equalp_LH_P2_0_0 = _lh_equalp_LH_P2_0_1) && (_lh_equalp_LH_P2_1_0 = _lh_equalp_LH_P2_1_1))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          ((_lh_equalp_LH_P2_0_0 = _lh_equalp_LH_P2_0_1) && (_lh_equalp_LH_P2_1_0 = _lh_equalp_LH_P2_1_1))));;
 let rec up_lh =
   (`LH_P2(0, (0 - 1)));;
 let rec down_lh =
@@ -85,9 +79,7 @@ let rec nq_lh _lh_nq_arg1_0 =
 let rec point_colour_lh _lh_point_colour_arg1_0 =
   (match _lh_point_colour_arg1_0 with
     | `LH_P2(_lh_point_colour_LH_P2_0_0, _lh_point_colour_LH_P2_1_0) -> 
-      (((((check_radius_lh (np_lh _lh_point_colour_LH_P2_0_0)) (nq_lh _lh_point_colour_LH_P2_1_0)) 0) 0.0) 0.0)
-    | _ -> 
-      (failwith "error"));;
+      (((((check_radius_lh (np_lh _lh_point_colour_LH_P2_0_0)) (nq_lh _lh_point_colour_LH_P2_1_0)) 0) 0.0) 0.0));;
 let rec check_perim_lh _lh_check_perim_arg1_0 _lh_check_perim_arg2_0 =
   (let rec _lh_matchIdent_0 = _lh_check_perim_arg1_0 in
     (match _lh_matchIdent_0 with
@@ -132,11 +124,7 @@ let rec check_perim_lh _lh_check_perim_arg1_0 _lh_check_perim_arg2_0 =
                                           (if ((point_colour_lh xcyc_0) <> col1_0) then
                                             false
                                           else
-                                            ((check_line_0 (`LH_P2((_lh_check_perim_LH_P2_0_2 + _lh_check_perim_LH_P2_0_3), (_lh_check_perim_LH_P2_1_2 + _lh_check_perim_LH_P2_1_3)))) (`LH_P2(_lh_check_perim_LH_P2_0_3, _lh_check_perim_LH_P2_1_3))))))
-                                    | _ -> 
-                                      (failwith "error")))
-                              | _ -> 
-                                (failwith "error")))) in
+                                            ((check_line_0 (`LH_P2((_lh_check_perim_LH_P2_0_2 + _lh_check_perim_LH_P2_0_3), (_lh_check_perim_LH_P2_1_2 + _lh_check_perim_LH_P2_1_3)))) (`LH_P2(_lh_check_perim_LH_P2_0_3, _lh_check_perim_LH_P2_1_3))))))))))) in
                           (let rec check_sides_0 = (if ((check_line_0 (`LH_P2((_lh_check_perim_LH_P2_0_0 + 1), _lh_check_perim_LH_P2_1_0))) right_lh) then
                             (if ((check_line_0 (`LH_P2(_lh_check_perim_LH_P2_0_1, (_lh_check_perim_LH_P2_1_0 + 1)))) down_lh) then
                               (if ((check_line_0 (`LH_P2((_lh_check_perim_LH_P2_0_1 - 1), _lh_check_perim_LH_P2_1_1))) left_lh) then
@@ -156,11 +144,7 @@ let rec check_perim_lh _lh_check_perim_arg1_0 _lh_check_perim_arg2_0 =
                               (if corners_diff_0 then
                                 (0 - 1)
                               else
-                                check_sides_0)))))))))
-            | _ -> 
-              (failwith "error")))
-      | _ -> 
-        (failwith "error")));;
+                                check_sides_0)))))))))))));;
 let rec build_tree_lh _lh_build_tree_arg1_0 _lh_build_tree_arg2_0 =
   (let rec _lh_matchIdent_4 = _lh_build_tree_arg1_0 in
     (match _lh_matchIdent_4 with
@@ -189,11 +173,7 @@ let rec build_tree_lh _lh_build_tree_arg1_0 _lh_build_tree_arg2_0 =
                                         (if (split_0 = (`LH_C('N', (`LH_C('S', (`LH_N)))))) then
                                           (`NS(((build_tree_lh nsp1_0) nsp2_0), ((build_tree_lh nsp3_0) nsp4_0)))
                                         else
-                                          (`EW(((build_tree_lh ewp1_0) ewp2_0), ((build_tree_lh ewp3_0) ewp4_0)))))))))))))))))
-            | _ -> 
-              (failwith "error")))
-      | _ -> 
-        (failwith "error")));;
+                                          (`EW(((build_tree_lh ewp1_0) ewp2_0), ((build_tree_lh ewp3_0) ewp4_0)))))))))))))))))))));;
 let rec testMandel2_nofib_lh _lh_testMandel2_nofib_arg1_0 =
   (let rec size'_0 = ((max_lh (length_lh _lh_testMandel2_nofib_arg1_0)) size_lh) in
     (let rec tree_0 = ((build_tree_lh (`LH_P2(0, 0))) (`LH_P2(size'_0, (size'_0 / 2)))) in

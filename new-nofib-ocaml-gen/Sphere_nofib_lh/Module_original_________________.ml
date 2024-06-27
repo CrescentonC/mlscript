@@ -3,36 +3,6 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
-let rec map_lh f_0 ls_0 =
-  (match ls_0 with
-    | `LH_C(h_0, t_0) -> 
-      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
-    | `LH_N -> 
-      (`LH_N));;
-let rec snd_lh _lh_snd_arg1_0 =
-  (match _lh_snd_arg1_0 with
-    | `LH_P2(_lh_snd_LH_P2_0_0, _lh_snd_LH_P2_1_0) -> 
-      _lh_snd_LH_P2_1_0
-    | _ -> 
-      (failwith "error"));;
-let rec foldr_lh f_1 i_0 ls_1 =
-  (match ls_1 with
-    | `LH_C(h_1, t_1) -> 
-      ((f_1 h_1) (((foldr_lh f_1) i_0) t_1))
-    | `LH_N -> 
-      i_0);;
-let rec hash_lh _lh_hash_arg1_0 =
-  (let rec u8_0 = (fun x_0 -> 
-    ((fun _lh_funcomp_x_0 -> 
-      (int_of_float ((fun x_1 -> 
-        (255.0 *. x_1)) _lh_funcomp_x_0))) x_0)) in
-    (((foldr_lh (fun rgb_0 acc_0 -> 
-      (let rec _lh_matchIdent_2 = rgb_0 in
-        (match _lh_matchIdent_2 with
-          | `LH_P3(_lh_hash_LH_P3_0_0, _lh_hash_LH_P3_1_0, _lh_hash_LH_P3_2_0) -> 
-            ((((u8_0 _lh_hash_LH_P3_0_0) + ((u8_0 _lh_hash_LH_P3_1_0) * 7)) + ((u8_0 _lh_hash_LH_P3_2_0) * 23)) + (acc_0 * 61))
-          | _ -> 
-            (failwith "error"))))) 0) _lh_hash_arg1_0));;
 let rec enumFromTo_lh a_0 b_0 =
   (if (a_0 <= b_0) then
     (`LH_C(a_0, ((enumFromTo_lh (a_0 + 1)) b_0)))
@@ -41,37 +11,33 @@ let rec enumFromTo_lh a_0 b_0 =
 let rec vecscale_lh _lh_vecscale_arg1_0 _lh_vecscale_arg2_0 =
   (match _lh_vecscale_arg1_0 with
     | `LH_P3(_lh_vecscale_LH_P3_0_0, _lh_vecscale_LH_P3_1_0, _lh_vecscale_LH_P3_2_0) -> 
-      (`LH_P3((_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_0_0), (_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_1_0), (_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_2_0)))
-    | _ -> 
-      (failwith "error"));;
+      (`LH_P3((_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_0_0), (_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_1_0), (_lh_vecscale_arg2_0 *. _lh_vecscale_LH_P3_2_0))));;
 let rec tail_lh ls_3 =
   (match ls_3 with
     | `LH_C(h_3, t_3) -> 
       t_3
     | `LH_N -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
 let rec infinity_lh =
   100000000.0;;
-let rec vecdot_lh _lh_vecdot_arg1_0 _lh_vecdot_arg2_0 =
-  (match _lh_vecdot_arg1_0 with
-    | `LH_P3(_lh_vecdot_LH_P3_0_0, _lh_vecdot_LH_P3_1_0, _lh_vecdot_LH_P3_2_0) -> 
-      (match _lh_vecdot_arg2_0 with
-        | `LH_P3(_lh_vecdot_LH_P3_0_1, _lh_vecdot_LH_P3_1_1, _lh_vecdot_LH_P3_2_1) -> 
-          (((_lh_vecdot_LH_P3_0_0 *. _lh_vecdot_LH_P3_0_1) +. (_lh_vecdot_LH_P3_1_0 *. _lh_vecdot_LH_P3_1_1)) +. (_lh_vecdot_LH_P3_2_0 *. _lh_vecdot_LH_P3_2_1))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+let rec foldr_lh f_1 i_0 ls_1 =
+  (match ls_1 with
+    | `LH_C(h_1, t_1) -> 
+      ((f_1 h_1) (((foldr_lh f_1) i_0) t_1))
+    | `LH_N -> 
+      i_0);;
 let rec vecsub_lh _lh_vecsub_arg1_0 _lh_vecsub_arg2_0 =
   (match _lh_vecsub_arg1_0 with
     | `LH_P3(_lh_vecsub_LH_P3_0_0, _lh_vecsub_LH_P3_1_0, _lh_vecsub_LH_P3_2_0) -> 
       (match _lh_vecsub_arg2_0 with
         | `LH_P3(_lh_vecsub_LH_P3_0_1, _lh_vecsub_LH_P3_1_1, _lh_vecsub_LH_P3_2_1) -> 
-          (`LH_P3((_lh_vecsub_LH_P3_0_0 -. _lh_vecsub_LH_P3_0_1), (_lh_vecsub_LH_P3_1_0 -. _lh_vecsub_LH_P3_1_1), (_lh_vecsub_LH_P3_2_0 -. _lh_vecsub_LH_P3_2_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          (`LH_P3((_lh_vecsub_LH_P3_0_0 -. _lh_vecsub_LH_P3_0_1), (_lh_vecsub_LH_P3_1_0 -. _lh_vecsub_LH_P3_1_1), (_lh_vecsub_LH_P3_2_0 -. _lh_vecsub_LH_P3_2_1)))));;
+let rec vecdot_lh _lh_vecdot_arg1_0 _lh_vecdot_arg2_0 =
+  (match _lh_vecdot_arg1_0 with
+    | `LH_P3(_lh_vecdot_LH_P3_0_0, _lh_vecdot_LH_P3_1_0, _lh_vecdot_LH_P3_2_0) -> 
+      (match _lh_vecdot_arg2_0 with
+        | `LH_P3(_lh_vecdot_LH_P3_0_1, _lh_vecdot_LH_P3_1_1, _lh_vecdot_LH_P3_2_1) -> 
+          (((_lh_vecdot_LH_P3_0_0 *. _lh_vecdot_LH_P3_0_1) +. (_lh_vecdot_LH_P3_1_0 *. _lh_vecdot_LH_P3_1_1)) +. (_lh_vecdot_LH_P3_2_0 *. _lh_vecdot_LH_P3_2_1))));;
 let rec sphereintersect_lh _lh_sphereintersect_arg1_0 _lh_sphereintersect_arg2_0 _lh_sphereintersect_arg3_0 =
   (match _lh_sphereintersect_arg3_0 with
     | `Sphere(_lh_sphereintersect_Sphere_0_0, _lh_sphereintersect_Sphere_1_0, _lh_sphereintersect_Sphere_2_0) -> 
@@ -90,23 +56,19 @@ let rec sphereintersect_lh _lh_sphereintersect_arg1_0 _lh_sphereintersect_arg2_0
                       else
                         (`LH_P2(true, shi_0)))
                     else
-                      (`LH_P2(true, slo_0))))))))))
-    | _ -> 
-      (failwith "error"));;
+                      (`LH_P2(true, slo_0)))))))))));;
 let rec head_lh ls_2 =
   (match ls_2 with
     | `LH_C(h_2, t_2) -> 
       h_2
     | `LH_N -> 
-      (failwith "error"));;
+      (failwith "lh_default_error"));;
 let rec null_lh _lh_null_arg1_0 =
   (match _lh_null_arg1_0 with
     | `LH_N -> 
       true
     | `LH_C(_lh_null_LH_C_0_0, _lh_null_LH_C_1_0) -> 
-      false
-    | _ -> 
-      (failwith "error"));;
+      false);;
 let rec trace_lh _lh_trace_arg1_0 _lh_trace_arg2_0 _lh_trace_arg3_0 =
   (let rec f_2 = (fun d1s1_0 d2s2_0 -> 
     (let rec _lh_matchIdent_3 = d1s1_0 in
@@ -118,11 +80,7 @@ let rec trace_lh _lh_trace_arg1_0 _lh_trace_arg2_0 _lh_trace_arg3_0 =
                 (if (_lh_trace_LH_P2_0_0 < _lh_trace_LH_P2_0_1) then
                   (`LH_P2(_lh_trace_LH_P2_0_0, _lh_trace_LH_P2_1_0))
                 else
-                  (`LH_P2(_lh_trace_LH_P2_0_1, _lh_trace_LH_P2_1_1)))
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error")))) in
+                  (`LH_P2(_lh_trace_LH_P2_0_1, _lh_trace_LH_P2_1_1)))))))) in
     (let rec sphmap_0 = (fun xss_0 -> 
       (let rec _lh_matchIdent_5 = xss_0 in
         (match _lh_matchIdent_5 with
@@ -135,11 +93,7 @@ let rec trace_lh _lh_trace_arg1_0 _lh_trace_arg2_0 _lh_trace_arg3_0 =
                   (if _lh_trace_LH_P2_0_2 then
                     (`LH_C((`LH_P2(_lh_trace_LH_P2_1_2, _lh_trace_LH_C_0_0)), (sphmap_0 _lh_trace_LH_C_1_0)))
                   else
-                    (sphmap_0 _lh_trace_LH_C_1_0))
-                | _ -> 
-                  (failwith "error")))
-          | _ -> 
-            (failwith "error")))) in
+                    (sphmap_0 _lh_trace_LH_C_1_0))))))) in
       (let rec dists_0 = (sphmap_0 _lh_trace_arg1_0) in
         (if (null_lh dists_0) then
           (`LH_P3(false, infinity_lh, (head_lh _lh_trace_arg1_0)))
@@ -147,26 +101,18 @@ let rec trace_lh _lh_trace_arg1_0 _lh_trace_arg2_0 _lh_trace_arg3_0 =
           (let rec _lh_matchIdent_7 = (((foldr_lh f_2) (head_lh dists_0)) (tail_lh dists_0)) in
             (match _lh_matchIdent_7 with
               | `LH_P2(_lh_trace_LH_P2_0_3, _lh_trace_LH_P2_1_3) -> 
-                (`LH_P3(true, _lh_trace_LH_P2_0_3, _lh_trace_LH_P2_1_3))
-              | _ -> 
-                (failwith "error")))))));;
+                (`LH_P3(true, _lh_trace_LH_P2_0_3, _lh_trace_LH_P2_1_3))))))));;
 let rec vecnorm_lh _lh_vecnorm_arg1_0 =
   (match _lh_vecnorm_arg1_0 with
     | `LH_P3(_lh_vecnorm_LH_P3_0_0, _lh_vecnorm_LH_P3_1_0, _lh_vecnorm_LH_P3_2_0) -> 
       (let rec len_0 = (sqrt (((_lh_vecnorm_LH_P3_0_0 *. _lh_vecnorm_LH_P3_0_0) +. (_lh_vecnorm_LH_P3_1_0 *. _lh_vecnorm_LH_P3_1_0)) +. (_lh_vecnorm_LH_P3_2_0 *. _lh_vecnorm_LH_P3_2_0))) in
-        (`LH_P2((`LH_P3((_lh_vecnorm_LH_P3_0_0 /. len_0), (_lh_vecnorm_LH_P3_1_0 /. len_0), (_lh_vecnorm_LH_P3_2_0 /. len_0))), len_0)))
-    | _ -> 
-      (failwith "error"));;
+        (`LH_P2((`LH_P3((_lh_vecnorm_LH_P3_0_0 /. len_0), (_lh_vecnorm_LH_P3_1_0 /. len_0), (_lh_vecnorm_LH_P3_2_0 /. len_0))), len_0))));;
 let rec vecadd_lh _lh_vecadd_arg1_0 _lh_vecadd_arg2_0 =
   (match _lh_vecadd_arg1_0 with
     | `LH_P3(_lh_vecadd_LH_P3_0_0, _lh_vecadd_LH_P3_1_0, _lh_vecadd_LH_P3_2_0) -> 
       (match _lh_vecadd_arg2_0 with
         | `LH_P3(_lh_vecadd_LH_P3_0_1, _lh_vecadd_LH_P3_1_1, _lh_vecadd_LH_P3_2_1) -> 
-          (`LH_P3((_lh_vecadd_LH_P3_0_0 +. _lh_vecadd_LH_P3_0_1), (_lh_vecadd_LH_P3_1_0 +. _lh_vecadd_LH_P3_1_1), (_lh_vecadd_LH_P3_2_0 +. _lh_vecadd_LH_P3_2_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          (`LH_P3((_lh_vecadd_LH_P3_0_0 +. _lh_vecadd_LH_P3_0_1), (_lh_vecadd_LH_P3_1_0 +. _lh_vecadd_LH_P3_1_1), (_lh_vecadd_LH_P3_2_0 +. _lh_vecadd_LH_P3_2_1)))));;
 let rec background_lh =
   (`LH_P3(0.078, 0.361, 0.753));;
 let rec lookfrom_lh =
@@ -226,19 +172,13 @@ let rec shadowed_lh _lh_shadowed_arg1_0 _lh_shadowed_arg2_0 _lh_shadowed_arg3_0 
         (if (not _lh_shadowed_LH_P3_0_0) then
           (`LH_P2(false, _lh_shadowed_arg3_0))
         else
-          (`LH_P2(true, _lh_shadowed_arg3_0)))
-      | _ -> 
-        (failwith "error")));;
+          (`LH_P2(true, _lh_shadowed_arg3_0)))));;
 let rec vecmult_lh _lh_vecmult_arg1_0 _lh_vecmult_arg2_0 =
   (match _lh_vecmult_arg1_0 with
     | `LH_P3(_lh_vecmult_LH_P3_0_0, _lh_vecmult_LH_P3_1_0, _lh_vecmult_LH_P3_2_0) -> 
       (match _lh_vecmult_arg2_0 with
         | `LH_P3(_lh_vecmult_LH_P3_0_1, _lh_vecmult_LH_P3_1_1, _lh_vecmult_LH_P3_2_1) -> 
-          (`LH_P3((_lh_vecmult_LH_P3_0_0 *. _lh_vecmult_LH_P3_0_1), (_lh_vecmult_LH_P3_1_0 *. _lh_vecmult_LH_P3_1_1), (_lh_vecmult_LH_P3_2_0 *. _lh_vecmult_LH_P3_2_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          (`LH_P3((_lh_vecmult_LH_P3_0_0 *. _lh_vecmult_LH_P3_0_1), (_lh_vecmult_LH_P3_1_0 *. _lh_vecmult_LH_P3_1_1), (_lh_vecmult_LH_P3_2_0 *. _lh_vecmult_LH_P3_2_1)))));;
 let rec specularsurf_lh _lh_specularsurf_arg1_0 =
   (head_lh ((mappend_lh (let rec _lh_listcomp_fun_6 = (fun _lh_listcomp_fun_para_6 -> 
     (match _lh_listcomp_fun_para_6 with
@@ -266,25 +206,19 @@ let rec diffusesurf_lh _lh_diffusesurf_arg1_0 =
 let rec fst_lh _lh_fst_arg1_0 =
   (match _lh_fst_arg1_0 with
     | `LH_P2(_lh_fst_LH_P2_0_0, _lh_fst_LH_P2_1_0) -> 
-      _lh_fst_LH_P2_0_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_fst_LH_P2_0_0);;
 let rec lightdirection_lh _lh_lightdirection_arg1_0 _lh_lightdirection_arg2_0 =
   (match _lh_lightdirection_arg1_0 with
     | `Directional(_lh_lightdirection_Directional_0_0, _lh_lightdirection_Directional_1_0) -> 
       (`LH_P2((fst_lh (vecnorm_lh _lh_lightdirection_Directional_0_0)), infinity_lh))
     | `Point(_lh_lightdirection_Point_0_0, _lh_lightdirection_Point_1_0) -> 
-      (vecnorm_lh ((vecsub_lh _lh_lightdirection_Point_0_0) _lh_lightdirection_arg2_0))
-    | _ -> 
-      (failwith "error"));;
+      (vecnorm_lh ((vecsub_lh _lh_lightdirection_Point_0_0) _lh_lightdirection_arg2_0)));;
 let rec lightcolour_lh _lh_lightcolour_arg1_0 =
   (match _lh_lightcolour_arg1_0 with
     | `Directional(_lh_lightcolour_Directional_0_0, _lh_lightcolour_Directional_1_0) -> 
       _lh_lightcolour_Directional_1_0
     | `Point(_lh_lightcolour_Point_0_0, _lh_lightcolour_Point_1_0) -> 
-      _lh_lightcolour_Point_1_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_lightcolour_Point_1_0);;
 let rec bodysurf_lh _lh_bodysurf_arg1_0 =
   (head_lh ((mappend_lh (let rec _lh_listcomp_fun_8 = (fun _lh_listcomp_fun_para_8 -> 
     (match _lh_listcomp_fun_para_8 with
@@ -327,11 +261,7 @@ let rec lightray_lh _lh_lightray_arg1_0 _lh_lightray_arg2_0 _lh_lightray_arg3_0 
                                 (`LH_P3(0.0, 0.0, 0.0))
                               else
                                 ((vecmult_lh ((vecscale_lh spec_0) (cosalpha_1 ** spow_0))) _lh_lightray_LH_P2_1_1)) in
-                                ((vecadd_lh diffcont_1) speccont_1)))))))))
-              | _ -> 
-                (failwith "error"))))
-      | _ -> 
-        (failwith "error")));;
+                                ((vecadd_lh diffcont_1) speccont_1))))))))))))));;
 let rec ambientsurf_lh _lh_ambientsurf_arg1_0 =
   (head_lh ((mappend_lh (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
     (match _lh_listcomp_fun_para_0 with
@@ -356,24 +286,24 @@ let rec transmitsurf_lh _lh_transmitsurf_arg1_0 =
       | `LH_N -> 
         (`LH_N))) in
     (_lh_listcomp_fun_7 _lh_transmitsurf_arg1_0))) (`LH_C(0.0, (`LH_N)))));;
+let rec map_lh f_0 ls_0 =
+  (match ls_0 with
+    | `LH_C(h_0, t_0) -> 
+      (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
+    | `LH_N -> 
+      (`LH_N));;
 let rec spheresurf_lh _lh_spheresurf_arg1_0 =
   (match _lh_spheresurf_arg1_0 with
     | `Sphere(_lh_spheresurf_Sphere_0_0, _lh_spheresurf_Sphere_1_0, _lh_spheresurf_Sphere_2_0) -> 
-      _lh_spheresurf_Sphere_2_0
-    | _ -> 
-      (failwith "error"));;
+      _lh_spheresurf_Sphere_2_0);;
 let rec spherenormal_lh _lh_spherenormal_arg1_0 _lh_spherenormal_arg2_0 =
   (match _lh_spherenormal_arg2_0 with
     | `Sphere(_lh_spherenormal_Sphere_0_0, _lh_spherenormal_Sphere_1_0, _lh_spherenormal_Sphere_2_0) -> 
-      ((vecscale_lh ((vecsub_lh _lh_spherenormal_arg1_0) _lh_spherenormal_Sphere_0_0)) (1.0 /. _lh_spherenormal_Sphere_1_0))
-    | _ -> 
-      (failwith "error"));;
+      ((vecscale_lh ((vecsub_lh _lh_spherenormal_arg1_0) _lh_spherenormal_Sphere_0_0)) (1.0 /. _lh_spherenormal_Sphere_1_0)));;
 let rec is_zerovector_lh _lh_is_zerovector_arg1_0 =
   (match _lh_is_zerovector_arg1_0 with
     | `LH_P3(_lh_is_zerovector_LH_P3_0_0, _lh_is_zerovector_LH_P3_1_0, _lh_is_zerovector_LH_P3_2_0) -> 
-      (((_lh_is_zerovector_LH_P3_0_0 < epsilon_lh) && (_lh_is_zerovector_LH_P3_1_0 < epsilon_lh)) && (_lh_is_zerovector_LH_P3_2_0 < epsilon_lh))
-    | _ -> 
-      (failwith "error"));;
+      (((_lh_is_zerovector_LH_P3_0_0 < epsilon_lh) && (_lh_is_zerovector_LH_P3_1_0 < epsilon_lh)) && (_lh_is_zerovector_LH_P3_2_0 < epsilon_lh)));;
 let rec vecsum_lh _lh_vecsum_arg1_0 =
   (((foldr_lh vecadd_lh) (`LH_P3(0.0, 0.0, 0.0))) _lh_vecsum_arg1_0);;
 let rec refractray_lh _lh_refractray_arg1_0 _lh_refractray_arg2_0 _lh_refractray_arg3_0 =
@@ -389,9 +319,7 @@ let rec refractray_lh _lh_refractray_arg1_0 _lh_refractray_arg2_0 _lh_refractray
               (if (disc_1 < 0.0) then
                 (`LH_P2(true, (`LH_P3(0.0, 0.0, 0.0))))
               else
-                (`LH_P2(false, ((vecadd_lh ((vecscale_lh _lh_refractray_LH_P3_0_0) t_5)) ((vecscale_lh _lh_refractray_arg2_0) _lh_refractray_LH_P3_2_0)))))))
-        | _ -> 
-          (failwith "error"))));;
+                (`LH_P2(false, ((vecadd_lh ((vecscale_lh _lh_refractray_LH_P3_0_0) t_5)) ((vecscale_lh _lh_refractray_arg2_0) _lh_refractray_LH_P3_2_0))))))))));;
 let rec reflectray_lh _lh_reflectray_arg1_0 _lh_reflectray_arg2_0 _lh_reflectray_arg3_0 _lh_reflectray_arg4_0 _lh_reflectray_arg5_0 _lh_reflectray_arg6_0 =
   (let rec newcontrib_0 = ((vecmult_lh _lh_reflectray_arg4_0) _lh_reflectray_arg5_0) in
     (let rec nearpos_0 = ((vecadd_lh _lh_reflectray_arg1_0) ((vecscale_lh _lh_reflectray_arg2_0) epsilon_lh)) in
@@ -405,9 +333,7 @@ let rec reflectray_lh _lh_reflectray_arg1_0 _lh_reflectray_arg2_0 _lh_reflectray
               (if (is_zerovector_lh newcontrib_0) then
                 _lh_reflectray_arg6_0
               else
-                ((vecadd_lh _lh_reflectray_arg6_0) ((vecmult_lh newcol_0) _lh_reflectray_arg4_0))))
-          | _ -> 
-            (failwith "error")))))
+                ((vecadd_lh _lh_reflectray_arg6_0) ((vecmult_lh newcol_0) _lh_reflectray_arg4_0))))))))
 and
 shade_lh _lh_shade_arg1_0 _lh_shade_arg2_0 _lh_shade_arg3_0 _lh_shade_arg4_0 _lh_shade_arg5_0 _lh_shade_arg6_0 =
   (let rec hitpos_0 = ((vecadd_lh _lh_shade_arg3_0) ((vecscale_lh _lh_shade_arg4_0) _lh_shade_arg5_0)) in
@@ -436,9 +362,7 @@ shade_lh _lh_shade_arg1_0 _lh_shade_arg2_0 _lh_shade_arg3_0 _lh_shade_arg4_0 _lh
                                   _lh_shade_LH_P2_1_0
                                 else
                                   ((((((reflectray_lh hitpos_0) refl_0) _lh_shade_arg1_0) reflectiv_0) _lh_shade_arg6_0) _lh_shade_LH_P2_1_0)) in
-                                  rcol_0)))
-                          | _ -> 
-                            (failwith "error")))))))))))))
+                                  rcol_0)))))))))))))))
 and
 transmitray_lh _lh_transmitray_arg1_0 _lh_transmitray_arg2_0 _lh_transmitray_arg3_0 _lh_transmitray_arg4_0 _lh_transmitray_arg5_0 _lh_transmitray_arg6_0 _lh_transmitray_arg7_0 _lh_transmitray_arg8_0 =
   (let rec newcontrib_1 = ((vecmult_lh _lh_transmitray_arg6_0) _lh_transmitray_arg7_0) in
@@ -456,11 +380,7 @@ transmitray_lh _lh_transmitray_arg1_0 _lh_transmitray_arg2_0 _lh_transmitray_arg
                     (if (is_zerovector_lh newcontrib_1) then
                       (`LH_P2(false, _lh_transmitray_arg2_0))
                     else
-                      (`LH_P2(false, ((vecadd_lh ((vecmult_lh newcol_1) _lh_transmitray_arg6_0)) _lh_transmitray_arg2_0)))))
-                | _ -> 
-                  (failwith "error"))))
-        | _ -> 
-          (failwith "error"))));;
+                      (`LH_P2(false, ((vecadd_lh ((vecmult_lh newcol_1) _lh_transmitray_arg6_0)) _lh_transmitray_arg2_0)))))))))));;
 let rec tracepixel_lh _lh_tracepixel_arg1_0 _lh_tracepixel_arg2_0 _lh_tracepixel_arg3_0 _lh_tracepixel_arg4_0 _lh_tracepixel_arg5_0 _lh_tracepixel_arg6_0 _lh_tracepixel_arg7_0 =
   (let rec pos_0 = lookfrom_lh in
     (let rec _lh_matchIdent_1_8 = (vecnorm_lh ((vecadd_lh ((vecadd_lh _lh_tracepixel_arg5_0) ((vecscale_lh _lh_tracepixel_arg6_0) _lh_tracepixel_arg3_0))) ((vecscale_lh _lh_tracepixel_arg7_0) _lh_tracepixel_arg4_0))) in
@@ -472,11 +392,7 @@ let rec tracepixel_lh _lh_tracepixel_arg1_0 _lh_tracepixel_arg2_0 _lh_tracepixel
                 (if _lh_tracepixel_LH_P3_0_0 then
                   ((((((shade_lh _lh_tracepixel_arg2_0) _lh_tracepixel_LH_P3_2_0) pos_0) _lh_tracepixel_LH_P2_0_0) _lh_tracepixel_LH_P3_1_0) (`LH_P3(1.0, 1.0, 1.0)))
                 else
-                  background_lh)
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))));;
+                  background_lh))))));;
 let rec pi_lh =
   3.141592653589793;;
 let rec dtor_lh _lh_dtor_arg1_0 =
@@ -486,11 +402,7 @@ let rec veccross_lh _lh_veccross_arg1_0 _lh_veccross_arg2_0 =
     | `LH_P3(_lh_veccross_LH_P3_0_0, _lh_veccross_LH_P3_1_0, _lh_veccross_LH_P3_2_0) -> 
       (match _lh_veccross_arg2_0 with
         | `LH_P3(_lh_veccross_LH_P3_0_1, _lh_veccross_LH_P3_1_1, _lh_veccross_LH_P3_2_1) -> 
-          (`LH_P3(((_lh_veccross_LH_P3_1_0 *. _lh_veccross_LH_P3_2_1) -. (_lh_veccross_LH_P3_1_1 *. _lh_veccross_LH_P3_2_0)), ((_lh_veccross_LH_P3_2_0 *. _lh_veccross_LH_P3_0_1) -. (_lh_veccross_LH_P3_2_1 *. _lh_veccross_LH_P3_0_0)), ((_lh_veccross_LH_P3_0_0 *. _lh_veccross_LH_P3_1_1) -. (_lh_veccross_LH_P3_0_1 *. _lh_veccross_LH_P3_1_0))))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          (`LH_P3(((_lh_veccross_LH_P3_1_0 *. _lh_veccross_LH_P3_2_1) -. (_lh_veccross_LH_P3_1_1 *. _lh_veccross_LH_P3_2_0)), ((_lh_veccross_LH_P3_2_0 *. _lh_veccross_LH_P3_0_1) -. (_lh_veccross_LH_P3_2_1 *. _lh_veccross_LH_P3_0_0)), ((_lh_veccross_LH_P3_0_0 *. _lh_veccross_LH_P3_1_1) -. (_lh_veccross_LH_P3_0_1 *. _lh_veccross_LH_P3_1_0))))));;
 let rec camparams_lh _lh_camparams_arg1_0 _lh_camparams_arg2_0 _lh_camparams_arg3_0 _lh_camparams_arg4_0 _lh_camparams_arg5_0 =
   (let rec initfirstray_0 = ((vecsub_lh _lh_camparams_arg2_0) _lh_camparams_arg1_0) in
     (let rec _lh_matchIdent_1_0 = (vecnorm_lh initfirstray_0) in
@@ -511,13 +423,7 @@ let rec camparams_lh _lh_camparams_arg1_0 _lh_camparams_arg2_0 _lh_camparams_arg
                                   (let rec scrnx_0 = ((vecscale_lh _lh_camparams_LH_P2_0_1) magx_0) in
                                     (let rec scrny_0 = ((vecscale_lh _lh_camparams_LH_P2_0_2) magy_0) in
                                       (let rec firstray_0 = ((vecsub_lh initfirstray_0) ((vecadd_lh ((vecscale_lh scrnx_0) (0.5 *. xwinsize_0))) ((vecscale_lh scrny_0) (0.5 *. ywinsize_0)))) in
-                                        (`LH_P3(firstray_0, scrnx_0, scrny_0)))))))))))
-                    | _ -> 
-                      (failwith "error")))
-              | _ -> 
-                (failwith "error")))
-        | _ -> 
-          (failwith "error"))));;
+                                        (`LH_P3(firstray_0, scrnx_0, scrny_0))))))))))))))))));;
 let rec fov_lh =
   45.0;;
 let rec lookat_lh =
@@ -545,9 +451,21 @@ let rec ray_lh _lh_ray_arg1_0 =
                     (_lh_listcomp_fun_5 ((enumFromTo_lh 0) (_lh_ray_arg1_0 - 1))))
                 | `LH_N -> 
                   (`LH_N))) in
-              (_lh_listcomp_fun_4 ((enumFromTo_lh 0) (_lh_ray_arg1_0 - 1)))))
-        | _ -> 
-          (failwith "error"))));;
+              (_lh_listcomp_fun_4 ((enumFromTo_lh 0) (_lh_ray_arg1_0 - 1))))))));;
+let rec hash_lh _lh_hash_arg1_0 =
+  (let rec u8_0 = (fun x_0 -> 
+    ((fun _lh_funcomp_x_0 -> 
+      (int_of_float ((fun x_1 -> 
+        (255.0 *. x_1)) _lh_funcomp_x_0))) x_0)) in
+    (((foldr_lh (fun rgb_0 acc_0 -> 
+      (let rec _lh_matchIdent_2 = rgb_0 in
+        (match _lh_matchIdent_2 with
+          | `LH_P3(_lh_hash_LH_P3_0_0, _lh_hash_LH_P3_1_0, _lh_hash_LH_P3_2_0) -> 
+            ((((u8_0 _lh_hash_LH_P3_0_0) + ((u8_0 _lh_hash_LH_P3_1_0) * 7)) + ((u8_0 _lh_hash_LH_P3_2_0) * 23)) + (acc_0 * 61)))))) 0) _lh_hash_arg1_0));;
+let rec snd_lh _lh_snd_arg1_0 =
+  (match _lh_snd_arg1_0 with
+    | `LH_P2(_lh_snd_LH_P2_0_0, _lh_snd_LH_P2_1_0) -> 
+      _lh_snd_LH_P2_1_0);;
 let rec run_lh _lh_run_arg1_0 =
   (hash_lh ((map_lh snd_lh) (ray_lh _lh_run_arg1_0)));;
 let rec testSphere_nofib_lh _lh_testSphere_nofib_arg1_0 =

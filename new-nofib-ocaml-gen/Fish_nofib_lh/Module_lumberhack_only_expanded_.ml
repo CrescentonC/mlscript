@@ -61,9 +61,7 @@ let rec mappend_lh__d7 xs_1_3 ys_1_3 =
 let rec showFourTupleofInt_lh__d1 _lh_showFourTupleofInt_arg1_1 =
   (match _lh_showFourTupleofInt_arg1_1 with
     | `LH_P4(_lh_showFourTupleofInt_LH_P4_0_1, _lh_showFourTupleofInt_LH_P4_1_1, _lh_showFourTupleofInt_LH_P4_2_1, _lh_showFourTupleofInt_LH_P4_3_1) -> 
-      ((mappend_lh__d8 ((mappend_lh__d1_d1 ((mappend_lh__d1_d0 ((mappend_lh__d7 ((mappend_lh__d5 ((mappend_lh__d9 ((mappend_lh__d6 ((mappend_lh__d1_d2 (`LH_C('(', (`LH_N)))) (string_of_int _lh_showFourTupleofInt_LH_P4_0_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_1_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_2_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_3_1))) (`LH_C(')', (`LH_N))))
-    | _ -> 
-      (failwith "error"));;
+      ((mappend_lh__d6 ((mappend_lh__d9 ((mappend_lh__d8 ((mappend_lh__d7 ((mappend_lh__d5 ((mappend_lh__d1_d2 ((mappend_lh__d1_d1 ((mappend_lh__d1_d0 (`LH_C('(', (`LH_N)))) (string_of_int _lh_showFourTupleofInt_LH_P4_0_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_1_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_2_1))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_3_1))) (`LH_C(')', (`LH_N)))));;
 let rec mappend_lh__d1 xs_1_9 ys_1_9 =
   (match xs_1_9 with
     | `LH_C(h_1_9, t_1_9) -> 
@@ -133,9 +131,7 @@ let rec mappend_lh__d1_d3 xs_7 ys_7 =
 let rec showFourTupleofInt_lh__d2 _lh_showFourTupleofInt_arg1_0 =
   (match _lh_showFourTupleofInt_arg1_0 with
     | `LH_P4(_lh_showFourTupleofInt_LH_P4_0_0, _lh_showFourTupleofInt_LH_P4_1_0, _lh_showFourTupleofInt_LH_P4_2_0, _lh_showFourTupleofInt_LH_P4_3_0) -> 
-      ((mappend_lh__d1_d9 ((mappend_lh__d2_d0 ((mappend_lh__d1_d8 ((mappend_lh__d1_d6 ((mappend_lh__d1_d5 ((mappend_lh__d1_d7 ((mappend_lh__d1_d4 ((mappend_lh__d1_d3 (`LH_C('(', (`LH_N)))) (string_of_int _lh_showFourTupleofInt_LH_P4_0_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_1_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_2_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_3_0))) (`LH_C(')', (`LH_N))))
-    | _ -> 
-      (failwith "error"));;
+      ((mappend_lh__d1_d3 ((mappend_lh__d2_d0 ((mappend_lh__d1_d4 ((mappend_lh__d1_d8 ((mappend_lh__d1_d5 ((mappend_lh__d1_d6 ((mappend_lh__d1_d9 ((mappend_lh__d1_d7 (`LH_C('(', (`LH_N)))) (string_of_int _lh_showFourTupleofInt_LH_P4_0_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_1_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_2_0))) (`LH_C(',', (`LH_N))))) (string_of_int _lh_showFourTupleofInt_LH_P4_3_0))) (`LH_C(')', (`LH_N)))));;
 let rec fmt_lh__d1 _lh_fmt_arg1_0 =
   (match _lh_fmt_arg1_0 with
     | `LH_N -> 
@@ -149,70 +145,144 @@ let rec fmt_lh__d1 _lh_fmt_arg1_0 =
             ((fun _lh_funcomp_x_0 -> 
               ((fun _lh_funcomp_x_1 -> 
                 ((fun s_0 -> 
-                  ((mappend_lh__d1 (`LH_C(',', (`LH_C('|', (`LH_N)))))) s_0)) ((fun s_1 -> 
-                  ((mappend_lh__d4 (showFourTupleofInt_lh__d2 _lh_showl_LH_C_0_0)) s_1)) _lh_funcomp_x_1))) ((showl_0 _lh_showl_LH_C_1_0) _lh_funcomp_x_0))) _lh_showl_arg2_0)
-          | _ -> 
-            (failwith "error"))) in
+                  ((mappend_lh__d3 (`LH_C(',', (`LH_C('|', (`LH_N)))))) s_0)) ((fun s_1 -> 
+                  ((mappend_lh__d1 (showFourTupleofInt_lh__d1 _lh_showl_LH_C_0_0)) s_1)) _lh_funcomp_x_1))) ((showl_0 _lh_showl_LH_C_1_0) _lh_funcomp_x_0))) _lh_showl_arg2_0))) in
         ((fun _lh_funcomp_x_2 -> 
           ((fun _lh_funcomp_x_3 -> 
             ((fun s_2 -> 
-              ((mappend_lh__d3 (`LH_C('[', (`LH_C('|', (`LH_N)))))) s_2)) ((fun s_3 -> 
-              ((mappend_lh__d2 (showFourTupleofInt_lh__d1 _lh_fmt_LH_C_0_0)) s_3)) _lh_funcomp_x_3))) ((showl_0 _lh_fmt_LH_C_1_0) _lh_funcomp_x_2))) (`LH_N)))
-    | _ -> 
-      (failwith "error"));;
+              ((mappend_lh__d4 (`LH_C('[', (`LH_C('|', (`LH_N)))))) s_2)) ((fun s_3 -> 
+              ((mappend_lh__d2 (showFourTupleofInt_lh__d2 _lh_fmt_LH_C_0_0)) s_3)) _lh_funcomp_x_3))) ((showl_0 _lh_fmt_LH_C_1_0) _lh_funcomp_x_2))) (`LH_N))));;
+let rec vec_sub_lh__d4 _lh_vec_sub_arg1_4 _lh_vec_sub_arg2_4 =
+  (match _lh_vec_sub_arg1_4 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_8, _lh_vec_sub_LH_P2_1_8) -> 
+      (match _lh_vec_sub_arg2_4 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_9, _lh_vec_sub_LH_P2_1_9) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_8 - _lh_vec_sub_LH_P2_0_9), (_lh_vec_sub_LH_P2_1_8 - _lh_vec_sub_LH_P2_1_9)))));;
+let rec vec_add_lh__d4 _lh_vec_add_arg1_4 _lh_vec_add_arg2_4 =
+  (match _lh_vec_add_arg1_4 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_8, _lh_vec_add_LH_P2_1_8) -> 
+      (match _lh_vec_add_arg2_4 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_9, _lh_vec_add_LH_P2_1_9) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_8 + _lh_vec_add_LH_P2_0_9), (_lh_vec_add_LH_P2_1_8 + _lh_vec_add_LH_P2_1_9)))));;
+let rec rot_lh__d4 _lh_rot_arg1_5 _lh_rot_arg2_5 _lh_rot_arg3_5 _lh_rot_arg4_5 =
+  (((_lh_rot_arg1_5 ((vec_add_lh__d4 _lh_rot_arg2_5) _lh_rot_arg3_5)) _lh_rot_arg4_5) ((vec_sub_lh__d4 (`LH_P2(0, 0))) _lh_rot_arg3_5));;
 let rec scale_vec2_lh__d1 _lh_scale_vec2_arg1_0 _lh_scale_vec2_arg2_0 _lh_scale_vec2_arg3_0 =
   (match _lh_scale_vec2_arg1_0 with
     | `LH_P2(_lh_scale_vec2_LH_P2_0_0, _lh_scale_vec2_LH_P2_1_0) -> 
-      (`LH_P2(((_lh_scale_vec2_LH_P2_0_0 * _lh_scale_vec2_arg2_0) / _lh_scale_vec2_arg3_0), ((_lh_scale_vec2_LH_P2_1_0 * _lh_scale_vec2_arg2_0) / _lh_scale_vec2_arg3_0)))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_add_lh__d7 _lh_vec_add_arg1_0 _lh_vec_add_arg2_0 =
+      (`LH_P2(((_lh_scale_vec2_LH_P2_0_0 * _lh_scale_vec2_arg2_0) / _lh_scale_vec2_arg3_0), ((_lh_scale_vec2_LH_P2_1_0 * _lh_scale_vec2_arg2_0) / _lh_scale_vec2_arg3_0))));;
+let rec vec_add_lh__d8 _lh_vec_add_arg1_0 _lh_vec_add_arg2_0 =
   (match _lh_vec_add_arg1_0 with
     | `LH_P2(_lh_vec_add_LH_P2_0_0, _lh_vec_add_LH_P2_1_0) -> 
       (match _lh_vec_add_arg2_0 with
         | `LH_P2(_lh_vec_add_LH_P2_0_1, _lh_vec_add_LH_P2_1_1) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_0 + _lh_vec_add_LH_P2_0_1), (_lh_vec_add_LH_P2_1_0 + _lh_vec_add_LH_P2_1_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec beside_lh__d2 _lh_beside_arg1_0 _lh_beside_arg2_0 _lh_beside_arg3_0 _lh_beside_arg4_0 _lh_beside_arg5_0 _lh_beside_arg6_0 _lh_beside_arg7_0 =
-  ((mappend_lh__d2_d0 (((_lh_beside_arg3_0 _lh_beside_arg5_0) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg1_0) (_lh_beside_arg1_0 + _lh_beside_arg2_0))) _lh_beside_arg7_0)) (((_lh_beside_arg4_0 ((vec_add_lh__d7 _lh_beside_arg5_0) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg1_0) (_lh_beside_arg1_0 + _lh_beside_arg2_0)))) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg2_0) (_lh_beside_arg2_0 + _lh_beside_arg1_0))) _lh_beside_arg7_0));;
-let rec above_lh__d1 _lh_above_arg1_0 _lh_above_arg2_0 _lh_above_arg3_0 _lh_above_arg4_0 _lh_above_arg5_0 _lh_above_arg6_0 _lh_above_arg7_0 =
-  ((mappend_lh__d2_d0 (((_lh_above_arg3_0 ((vec_add_lh__d7 _lh_above_arg5_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg2_0) (_lh_above_arg1_0 + _lh_above_arg2_0)))) _lh_above_arg6_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg1_0) (_lh_above_arg2_0 + _lh_above_arg1_0)))) (((_lh_above_arg4_0 _lh_above_arg5_0) _lh_above_arg6_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg2_0) (_lh_above_arg1_0 + _lh_above_arg2_0))));;
-let rec quartet_lh__d4 _lh_quartet_arg1_0 _lh_quartet_arg2_0 _lh_quartet_arg3_0 _lh_quartet_arg4_0 =
-  ((((above_lh__d1 1) 1) ((((beside_lh__d2 1) 1) _lh_quartet_arg1_0) _lh_quartet_arg2_0)) ((((beside_lh__d2 1) 1) _lh_quartet_arg3_0) _lh_quartet_arg4_0));;
-let rec vec_sub_lh__d7 _lh_vec_sub_arg1_0 _lh_vec_sub_arg2_0 =
+          (`LH_P2((_lh_vec_add_LH_P2_0_0 + _lh_vec_add_LH_P2_0_1), (_lh_vec_add_LH_P2_1_0 + _lh_vec_add_LH_P2_1_1)))));;
+let rec beside_lh__d1 _lh_beside_arg1_3 _lh_beside_arg2_3 _lh_beside_arg3_3 _lh_beside_arg4_3 _lh_beside_arg5_3 _lh_beside_arg6_3 _lh_beside_arg7_3 =
+  ((mappend_lh__d2_d0 (((_lh_beside_arg3_3 _lh_beside_arg5_3) (((scale_vec2_lh__d1 _lh_beside_arg6_3) _lh_beside_arg1_3) (_lh_beside_arg1_3 + _lh_beside_arg2_3))) _lh_beside_arg7_3)) (((_lh_beside_arg4_3 ((vec_add_lh__d8 _lh_beside_arg5_3) (((scale_vec2_lh__d1 _lh_beside_arg6_3) _lh_beside_arg1_3) (_lh_beside_arg1_3 + _lh_beside_arg2_3)))) (((scale_vec2_lh__d1 _lh_beside_arg6_3) _lh_beside_arg2_3) (_lh_beside_arg2_3 + _lh_beside_arg1_3))) _lh_beside_arg7_3));;
+let rec beside_lh__d2 _lh_beside_arg1_2 _lh_beside_arg2_2 _lh_beside_arg3_2 _lh_beside_arg4_2 _lh_beside_arg5_2 _lh_beside_arg6_2 _lh_beside_arg7_2 =
+  ((mappend_lh__d2_d0 (((_lh_beside_arg3_2 _lh_beside_arg5_2) (((scale_vec2_lh__d1 _lh_beside_arg6_2) _lh_beside_arg1_2) (_lh_beside_arg1_2 + _lh_beside_arg2_2))) _lh_beside_arg7_2)) (((_lh_beside_arg4_2 ((vec_add_lh__d8 _lh_beside_arg5_2) (((scale_vec2_lh__d1 _lh_beside_arg6_2) _lh_beside_arg1_2) (_lh_beside_arg1_2 + _lh_beside_arg2_2)))) (((scale_vec2_lh__d1 _lh_beside_arg6_2) _lh_beside_arg2_2) (_lh_beside_arg2_2 + _lh_beside_arg1_2))) _lh_beside_arg7_2));;
+let rec above_lh__d1 _lh_above_arg1_1 _lh_above_arg2_1 _lh_above_arg3_1 _lh_above_arg4_1 _lh_above_arg5_1 _lh_above_arg6_1 _lh_above_arg7_1 =
+  ((mappend_lh__d2_d0 (((_lh_above_arg3_1 ((vec_add_lh__d8 _lh_above_arg5_1) (((scale_vec2_lh__d1 _lh_above_arg7_1) _lh_above_arg2_1) (_lh_above_arg1_1 + _lh_above_arg2_1)))) _lh_above_arg6_1) (((scale_vec2_lh__d1 _lh_above_arg7_1) _lh_above_arg1_1) (_lh_above_arg2_1 + _lh_above_arg1_1)))) (((_lh_above_arg4_1 _lh_above_arg5_1) _lh_above_arg6_1) (((scale_vec2_lh__d1 _lh_above_arg7_1) _lh_above_arg2_1) (_lh_above_arg1_1 + _lh_above_arg2_1))));;
+let rec quartet_lh__d1 _lh_quartet_arg1_2 _lh_quartet_arg2_2 _lh_quartet_arg3_2 _lh_quartet_arg4_2 =
+  ((((above_lh__d1 1) 1) ((((beside_lh__d1 1) 1) _lh_quartet_arg1_2) _lh_quartet_arg2_2)) ((((beside_lh__d2 1) 1) _lh_quartet_arg3_2) _lh_quartet_arg4_2));;
+let rec vec_add_lh__d1 _lh_vec_add_arg1_7 _lh_vec_add_arg2_7 =
+  (match _lh_vec_add_arg1_7 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_1_4, _lh_vec_add_LH_P2_1_1_4) -> 
+      (match _lh_vec_add_arg2_7 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_1_5, _lh_vec_add_LH_P2_1_1_5) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_1_4 + _lh_vec_add_LH_P2_0_1_5), (_lh_vec_add_LH_P2_1_1_4 + _lh_vec_add_LH_P2_1_1_5)))));;
+let rec vec_sub_lh__d1 _lh_vec_sub_arg1_7 _lh_vec_sub_arg2_7 =
+  (match _lh_vec_sub_arg1_7 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_1_4, _lh_vec_sub_LH_P2_1_1_4) -> 
+      (match _lh_vec_sub_arg2_7 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_1_5, _lh_vec_sub_LH_P2_1_1_5) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_1_4 - _lh_vec_sub_LH_P2_0_1_5), (_lh_vec_sub_LH_P2_1_1_4 - _lh_vec_sub_LH_P2_1_1_5)))));;
+let rec rot_lh__d1 _lh_rot_arg1_8 _lh_rot_arg2_8 _lh_rot_arg3_8 _lh_rot_arg4_8 =
+  (((_lh_rot_arg1_8 ((vec_add_lh__d1 _lh_rot_arg2_8) _lh_rot_arg3_8)) _lh_rot_arg4_8) ((vec_sub_lh__d1 (`LH_P2(0, 0))) _lh_rot_arg3_8));;
+let rec vec_add_lh__d3 _lh_vec_add_arg1_5 _lh_vec_add_arg2_5 =
+  (match _lh_vec_add_arg1_5 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_1_0, _lh_vec_add_LH_P2_1_1_0) -> 
+      (match _lh_vec_add_arg2_5 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_1_1, _lh_vec_add_LH_P2_1_1_1) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_1_0 + _lh_vec_add_LH_P2_0_1_1), (_lh_vec_add_LH_P2_1_1_0 + _lh_vec_add_LH_P2_1_1_1)))));;
+let rec vec_sub_lh__d3 _lh_vec_sub_arg1_5 _lh_vec_sub_arg2_5 =
+  (match _lh_vec_sub_arg1_5 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_1_0, _lh_vec_sub_LH_P2_1_1_0) -> 
+      (match _lh_vec_sub_arg2_5 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_1_1, _lh_vec_sub_LH_P2_1_1_1) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_1_0 - _lh_vec_sub_LH_P2_0_1_1), (_lh_vec_sub_LH_P2_1_1_0 - _lh_vec_sub_LH_P2_1_1_1)))));;
+let rec rot_lh__d3 _lh_rot_arg1_6 _lh_rot_arg2_6 _lh_rot_arg3_6 _lh_rot_arg4_6 =
+  (((_lh_rot_arg1_6 ((vec_add_lh__d3 _lh_rot_arg2_6) _lh_rot_arg3_6)) _lh_rot_arg4_6) ((vec_sub_lh__d3 (`LH_P2(0, 0))) _lh_rot_arg3_6));;
+let rec vec_sub_lh__d6 _lh_vec_sub_arg1_2 _lh_vec_sub_arg2_2 =
+  (match _lh_vec_sub_arg1_2 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_4, _lh_vec_sub_LH_P2_1_4) -> 
+      (match _lh_vec_sub_arg2_2 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_5, _lh_vec_sub_LH_P2_1_5) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_4 - _lh_vec_sub_LH_P2_0_5), (_lh_vec_sub_LH_P2_1_4 - _lh_vec_sub_LH_P2_1_5)))));;
+let rec vec_add_lh__d6 _lh_vec_add_arg1_2 _lh_vec_add_arg2_2 =
+  (match _lh_vec_add_arg1_2 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_4, _lh_vec_add_LH_P2_1_4) -> 
+      (match _lh_vec_add_arg2_2 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_5, _lh_vec_add_LH_P2_1_5) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_4 + _lh_vec_add_LH_P2_0_5), (_lh_vec_add_LH_P2_1_4 + _lh_vec_add_LH_P2_1_5)))));;
+let rec rot_lh__d6 _lh_rot_arg1_3 _lh_rot_arg2_3 _lh_rot_arg3_3 _lh_rot_arg4_3 =
+  (((_lh_rot_arg1_3 ((vec_add_lh__d6 _lh_rot_arg2_3) _lh_rot_arg3_3)) _lh_rot_arg4_3) ((vec_sub_lh__d6 (`LH_P2(0, 0))) _lh_rot_arg3_3));;
+let rec vec_sub_lh__d2 _lh_vec_sub_arg1_6 _lh_vec_sub_arg2_6 =
+  (match _lh_vec_sub_arg1_6 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_1_2, _lh_vec_sub_LH_P2_1_1_2) -> 
+      (match _lh_vec_sub_arg2_6 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_1_3, _lh_vec_sub_LH_P2_1_1_3) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_1_2 - _lh_vec_sub_LH_P2_0_1_3), (_lh_vec_sub_LH_P2_1_1_2 - _lh_vec_sub_LH_P2_1_1_3)))));;
+let rec vec_add_lh__d2 _lh_vec_add_arg1_6 _lh_vec_add_arg2_6 =
+  (match _lh_vec_add_arg1_6 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_1_2, _lh_vec_add_LH_P2_1_1_2) -> 
+      (match _lh_vec_add_arg2_6 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_1_3, _lh_vec_add_LH_P2_1_1_3) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_1_2 + _lh_vec_add_LH_P2_0_1_3), (_lh_vec_add_LH_P2_1_1_2 + _lh_vec_add_LH_P2_1_1_3)))));;
+let rec rot_lh__d2 _lh_rot_arg1_7 _lh_rot_arg2_7 _lh_rot_arg3_7 _lh_rot_arg4_7 =
+  (((_lh_rot_arg1_7 ((vec_add_lh__d2 _lh_rot_arg2_7) _lh_rot_arg3_7)) _lh_rot_arg4_7) ((vec_sub_lh__d2 (`LH_P2(0, 0))) _lh_rot_arg3_7));;
+let rec vec_add_lh__d5 _lh_vec_add_arg1_3 _lh_vec_add_arg2_3 =
+  (match _lh_vec_add_arg1_3 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_6, _lh_vec_add_LH_P2_1_6) -> 
+      (match _lh_vec_add_arg2_3 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_7, _lh_vec_add_LH_P2_1_7) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_6 + _lh_vec_add_LH_P2_0_7), (_lh_vec_add_LH_P2_1_6 + _lh_vec_add_LH_P2_1_7)))));;
+let rec vec_sub_lh__d5 _lh_vec_sub_arg1_3 _lh_vec_sub_arg2_3 =
+  (match _lh_vec_sub_arg1_3 with
+    | `LH_P2(_lh_vec_sub_LH_P2_0_6, _lh_vec_sub_LH_P2_1_6) -> 
+      (match _lh_vec_sub_arg2_3 with
+        | `LH_P2(_lh_vec_sub_LH_P2_0_7, _lh_vec_sub_LH_P2_1_7) -> 
+          (`LH_P2((_lh_vec_sub_LH_P2_0_6 - _lh_vec_sub_LH_P2_0_7), (_lh_vec_sub_LH_P2_1_6 - _lh_vec_sub_LH_P2_1_7)))));;
+let rec rot_lh__d5 _lh_rot_arg1_4 _lh_rot_arg2_4 _lh_rot_arg3_4 _lh_rot_arg4_4 =
+  (((_lh_rot_arg1_4 ((vec_add_lh__d5 _lh_rot_arg2_4) _lh_rot_arg3_4)) _lh_rot_arg4_4) ((vec_sub_lh__d5 (`LH_P2(0, 0))) _lh_rot_arg3_4));;
+let rec cycle'_lh__d1 _lh_cycle'_arg1_0 =
+  ((((quartet_lh__d1 _lh_cycle'_arg1_0) (rot_lh__d1 (rot_lh__d4 (rot_lh__d6 _lh_cycle'_arg1_0)))) (rot_lh__d2 _lh_cycle'_arg1_0)) (rot_lh__d3 (rot_lh__d5 _lh_cycle'_arg1_0)));;
+let rec vec_sub_lh__d8 _lh_vec_sub_arg1_0 _lh_vec_sub_arg2_0 =
   (match _lh_vec_sub_arg1_0 with
     | `LH_P2(_lh_vec_sub_LH_P2_0_0, _lh_vec_sub_LH_P2_1_0) -> 
       (match _lh_vec_sub_arg2_0 with
         | `LH_P2(_lh_vec_sub_LH_P2_0_1, _lh_vec_sub_LH_P2_1_1) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_0 - _lh_vec_sub_LH_P2_0_1), (_lh_vec_sub_LH_P2_1_0 - _lh_vec_sub_LH_P2_1_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d1_d0 _lh_rot_arg1_0 _lh_rot_arg2_0 _lh_rot_arg3_0 _lh_rot_arg4_0 =
-  (((_lh_rot_arg1_0 ((vec_add_lh__d7 _lh_rot_arg2_0) _lh_rot_arg3_0)) _lh_rot_arg4_0) ((vec_sub_lh__d7 (`LH_P2(0, 0))) _lh_rot_arg3_0));;
-let rec p_tile_lh__d1 =
-  (`LH_C((`LH_P4(0, 3, 3, 4)), (`LH_C((`LH_P4(3, 4, 0, 8)), (`LH_C((`LH_P4(0, 8, 0, 3)), (`LH_C((`LH_P4(6, 0, 4, 4)), (`LH_C((`LH_P4(4, 5, 4, 10)), (`LH_C((`LH_P4(4, 10, 7, 6)), (`LH_C((`LH_P4(7, 6, 4, 5)), (`LH_C((`LH_P4(11, 0, 10, 4)), (`LH_C((`LH_P4(10, 4, 9, 6)), (`LH_C((`LH_P4(9, 6, 8, 8)), (`LH_C((`LH_P4(8, 8, 4, 13)), (`LH_C((`LH_P4(4, 13, 0, 16)), (`LH_C((`LH_P4(0, 16, 6, 15)), (`LH_C((`LH_P4(6, 15, 8, 16)), (`LH_C((`LH_P4(8, 16, 12, 12)), (`LH_C((`LH_P4(12, 12, 16, 12)), (`LH_C((`LH_P4(10, 16, 12, 14)), (`LH_C((`LH_P4(12, 14, 16, 13)), (`LH_C((`LH_P4(12, 16, 13, 15)), (`LH_C((`LH_P4(13, 15, 16, 14)), (`LH_C((`LH_P4(14, 16, 16, 15)), (`LH_C((`LH_P4(8, 12, 16, 10)), (`LH_C((`LH_P4(8, 8, 12, 9)), (`LH_C((`LH_P4(12, 9, 16, 8)), (`LH_C((`LH_P4(9, 6, 12, 7)), (`LH_C((`LH_P4(12, 7, 16, 6)), (`LH_C((`LH_P4(10, 4, 13, 5)), (`LH_C((`LH_P4(13, 5, 16, 4)), (`LH_C((`LH_P4(11, 0, 14, 2)), (`LH_C((`LH_P4(14, 2, 16, 2)), (`LH_N)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));;
+          (`LH_P2((_lh_vec_sub_LH_P2_0_0 - _lh_vec_sub_LH_P2_0_1), (_lh_vec_sub_LH_P2_1_0 - _lh_vec_sub_LH_P2_1_1)))));;
+let rec rot_lh__d9 _lh_rot_arg1_0 _lh_rot_arg2_0 _lh_rot_arg3_0 _lh_rot_arg4_0 =
+  (((_lh_rot_arg1_0 ((vec_add_lh__d8 _lh_rot_arg2_0) _lh_rot_arg3_0)) _lh_rot_arg4_0) ((vec_sub_lh__d8 (`LH_P2(0, 0))) _lh_rot_arg3_0));;
+let rec above_lh__d2 _lh_above_arg1_0 _lh_above_arg2_0 _lh_above_arg3_0 _lh_above_arg4_0 _lh_above_arg5_0 _lh_above_arg6_0 _lh_above_arg7_0 =
+  ((mappend_lh__d2_d0 (((_lh_above_arg3_0 ((vec_add_lh__d8 _lh_above_arg5_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg2_0) (_lh_above_arg1_0 + _lh_above_arg2_0)))) _lh_above_arg6_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg1_0) (_lh_above_arg2_0 + _lh_above_arg1_0)))) (((_lh_above_arg4_0 _lh_above_arg5_0) _lh_above_arg6_0) (((scale_vec2_lh__d1 _lh_above_arg7_0) _lh_above_arg2_0) (_lh_above_arg1_0 + _lh_above_arg2_0))));;
+let rec beside_lh__d4 _lh_beside_arg1_0 _lh_beside_arg2_0 _lh_beside_arg3_0 _lh_beside_arg4_0 _lh_beside_arg5_0 _lh_beside_arg6_0 _lh_beside_arg7_0 =
+  ((mappend_lh__d2_d0 (((_lh_beside_arg3_0 _lh_beside_arg5_0) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg1_0) (_lh_beside_arg1_0 + _lh_beside_arg2_0))) _lh_beside_arg7_0)) (((_lh_beside_arg4_0 ((vec_add_lh__d8 _lh_beside_arg5_0) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg1_0) (_lh_beside_arg1_0 + _lh_beside_arg2_0)))) (((scale_vec2_lh__d1 _lh_beside_arg6_0) _lh_beside_arg2_0) (_lh_beside_arg2_0 + _lh_beside_arg1_0))) _lh_beside_arg7_0));;
+let rec quartet_lh__d3 _lh_quartet_arg1_0 _lh_quartet_arg2_0 _lh_quartet_arg3_0 _lh_quartet_arg4_0 =
+  ((((above_lh__d2 1) 1) ((((beside_lh__d4 1) 1) _lh_quartet_arg1_0) _lh_quartet_arg2_0)) ((((beside_lh__d4 1) 1) _lh_quartet_arg3_0) _lh_quartet_arg4_0));;
 let rec tup2_lh__d1 _lh_tup2_arg1_0 _lh_tup2_arg2_0 =
   (match _lh_tup2_arg1_0 with
     | `LH_P2(_lh_tup2_LH_P2_0_0, _lh_tup2_LH_P2_1_0) -> 
       (match _lh_tup2_arg2_0 with
         | `LH_P2(_lh_tup2_LH_P2_0_1, _lh_tup2_LH_P2_1_1) -> 
-          (`LH_P4(_lh_tup2_LH_P2_0_0, _lh_tup2_LH_P2_1_0, _lh_tup2_LH_P2_0_1, _lh_tup2_LH_P2_1_1))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
+          (`LH_P4(_lh_tup2_LH_P2_0_0, _lh_tup2_LH_P2_1_0, _lh_tup2_LH_P2_0_1, _lh_tup2_LH_P2_1_1))));;
 let rec grid_lh__d1 _lh_grid_arg1_0 _lh_grid_arg2_0 _lh_grid_arg3_0 _lh_grid_arg4_0 _lh_grid_arg5_0 _lh_grid_arg6_0 =
   (let rec _lh_listcomp_fun_0 = (fun _lh_listcomp_fun_para_0 -> 
     (match _lh_listcomp_fun_para_0 with
       | `LH_C(_lh_listcomp_fun_ls_h_0, _lh_listcomp_fun_ls_t_0) -> 
         (match _lh_listcomp_fun_ls_h_0 with
           | `LH_P4(_lh_grid_LH_P4_0_0, _lh_grid_LH_P4_1_0, _lh_grid_LH_P4_2_0, _lh_grid_LH_P4_3_0) -> 
-            (`LH_C(((tup2_lh__d1 ((vec_add_lh__d7 ((vec_add_lh__d7 _lh_grid_arg4_0) (((scale_vec2_lh__d1 _lh_grid_arg5_0) _lh_grid_LH_P4_0_0) _lh_grid_arg1_0))) (((scale_vec2_lh__d1 _lh_grid_arg6_0) _lh_grid_LH_P4_1_0) _lh_grid_arg2_0))) ((vec_add_lh__d7 ((vec_add_lh__d7 _lh_grid_arg4_0) (((scale_vec2_lh__d1 _lh_grid_arg5_0) _lh_grid_LH_P4_2_0) _lh_grid_arg1_0))) (((scale_vec2_lh__d1 _lh_grid_arg6_0) _lh_grid_LH_P4_3_0) _lh_grid_arg2_0))), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
+            (`LH_C(((tup2_lh__d1 ((vec_add_lh__d8 ((vec_add_lh__d8 _lh_grid_arg4_0) (((scale_vec2_lh__d1 _lh_grid_arg5_0) _lh_grid_LH_P4_0_0) _lh_grid_arg1_0))) (((scale_vec2_lh__d1 _lh_grid_arg6_0) _lh_grid_LH_P4_1_0) _lh_grid_arg2_0))) ((vec_add_lh__d8 ((vec_add_lh__d8 _lh_grid_arg4_0) (((scale_vec2_lh__d1 _lh_grid_arg5_0) _lh_grid_LH_P4_2_0) _lh_grid_arg1_0))) (((scale_vec2_lh__d1 _lh_grid_arg6_0) _lh_grid_LH_P4_3_0) _lh_grid_arg2_0))), (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0)))
           | _ -> 
             (_lh_listcomp_fun_0 _lh_listcomp_fun_ls_t_0))
       | `LH_N -> 
@@ -220,6 +290,8 @@ let rec grid_lh__d1 _lh_grid_arg1_0 _lh_grid_arg2_0 _lh_grid_arg3_0 _lh_grid_arg
     (_lh_listcomp_fun_0 _lh_grid_arg3_0));;
 let rec tile_to_grid_lh__d1 _lh_tile_to_grid_arg1_0 =
   (((grid_lh__d1 16) 16) _lh_tile_to_grid_arg1_0);;
+let rec p_tile_lh__d1 =
+  (`LH_C((`LH_P4(0, 3, 3, 4)), (`LH_C((`LH_P4(3, 4, 0, 8)), (`LH_C((`LH_P4(0, 8, 0, 3)), (`LH_C((`LH_P4(6, 0, 4, 4)), (`LH_C((`LH_P4(4, 5, 4, 10)), (`LH_C((`LH_P4(4, 10, 7, 6)), (`LH_C((`LH_P4(7, 6, 4, 5)), (`LH_C((`LH_P4(11, 0, 10, 4)), (`LH_C((`LH_P4(10, 4, 9, 6)), (`LH_C((`LH_P4(9, 6, 8, 8)), (`LH_C((`LH_P4(8, 8, 4, 13)), (`LH_C((`LH_P4(4, 13, 0, 16)), (`LH_C((`LH_P4(0, 16, 6, 15)), (`LH_C((`LH_P4(6, 15, 8, 16)), (`LH_C((`LH_P4(8, 16, 12, 12)), (`LH_C((`LH_P4(12, 12, 16, 12)), (`LH_C((`LH_P4(10, 16, 12, 14)), (`LH_C((`LH_P4(12, 14, 16, 13)), (`LH_C((`LH_P4(12, 16, 13, 15)), (`LH_C((`LH_P4(13, 15, 16, 14)), (`LH_C((`LH_P4(14, 16, 16, 15)), (`LH_C((`LH_P4(8, 12, 16, 10)), (`LH_C((`LH_P4(8, 8, 12, 9)), (`LH_C((`LH_P4(12, 9, 16, 8)), (`LH_C((`LH_P4(9, 6, 12, 7)), (`LH_C((`LH_P4(12, 7, 16, 6)), (`LH_C((`LH_P4(10, 4, 13, 5)), (`LH_C((`LH_P4(13, 5, 16, 4)), (`LH_C((`LH_P4(11, 0, 14, 2)), (`LH_C((`LH_P4(14, 2, 16, 2)), (`LH_N)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));;
 let rec p_lh__d1 _lh_p_arg1_0 =
   ((tile_to_grid_lh__d1 p_tile_lh__d1) _lh_p_arg1_0);;
 let rec s_tile_lh__d1 =
@@ -234,194 +306,64 @@ let rec r_tile_lh__d1 =
   (`LH_C((`LH_P4(0, 0, 8, 8)), (`LH_C((`LH_P4(12, 12, 16, 16)), (`LH_C((`LH_P4(0, 4, 5, 10)), (`LH_C((`LH_P4(0, 8, 2, 12)), (`LH_C((`LH_P4(0, 12, 1, 14)), (`LH_C((`LH_P4(16, 6, 11, 10)), (`LH_C((`LH_P4(11, 10, 6, 16)), (`LH_C((`LH_P4(16, 4, 14, 6)), (`LH_C((`LH_P4(14, 6, 8, 8)), (`LH_C((`LH_P4(8, 8, 5, 10)), (`LH_C((`LH_P4(5, 10, 2, 12)), (`LH_C((`LH_P4(2, 12, 0, 16)), (`LH_C((`LH_P4(16, 8, 12, 12)), (`LH_C((`LH_P4(12, 12, 11, 16)), (`LH_C((`LH_P4(1, 1, 4, 0)), (`LH_C((`LH_P4(2, 2, 8, 0)), (`LH_C((`LH_P4(3, 3, 8, 2)), (`LH_C((`LH_P4(8, 2, 12, 0)), (`LH_C((`LH_P4(5, 5, 12, 3)), (`LH_C((`LH_P4(12, 3, 16, 0)), (`LH_C((`LH_P4(11, 16, 12, 12)), (`LH_C((`LH_P4(12, 12, 16, 8)), (`LH_C((`LH_P4(13, 13, 16, 10)), (`LH_C((`LH_P4(14, 14, 16, 12)), (`LH_C((`LH_P4(15, 15, 16, 14)), (`LH_N)))))))))))))))))))))))))))))))))))))))))))))))))));;
 let rec r_lh__d1 _lh_r_arg1_0 =
   ((tile_to_grid_lh__d1 r_tile_lh__d1) _lh_r_arg1_0);;
+let rec t_lh__d2 _lh_t_arg1_1 =
+  (((((quartet_lh__d3 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_1);;
 let rec t_lh__d3 _lh_t_arg1_0 =
-  (((((quartet_lh__d4 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_0);;
+  (((((quartet_lh__d3 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_0);;
 let rec nil_lh__d1 _lh_nil_arg1_0 _lh_nil_arg2_0 _lh_nil_arg3_0 =
   (`LH_N);;
-let rec side1_lh__d4 _lh_side1_arg1_0 =
-  (((((quartet_lh__d4 nil_lh__d1) nil_lh__d1) (rot_lh__d1_d0 t_lh__d3)) t_lh__d3) _lh_side1_arg1_0);;
-let rec side1_lh__d3 _lh_side1_arg1_1 =
-  (((((quartet_lh__d4 nil_lh__d1) nil_lh__d1) (rot_lh__d1_d0 t_lh__d3)) t_lh__d3) _lh_side1_arg1_1);;
-let rec t_lh__d2 _lh_t_arg1_1 =
-  (((((quartet_lh__d4 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_1);;
+let rec side1_lh__d2 _lh_side1_arg1_1 =
+  (((((quartet_lh__d3 nil_lh__d1) nil_lh__d1) (rot_lh__d9 t_lh__d3)) t_lh__d3) _lh_side1_arg1_1);;
+let rec side1_lh__d1 _lh_side1_arg1_2 =
+  (((((quartet_lh__d3 nil_lh__d1) nil_lh__d1) (rot_lh__d9 t_lh__d3)) t_lh__d3) _lh_side1_arg1_2);;
 let rec side2_lh__d1 _lh_side2_arg1_1 =
-  (((((quartet_lh__d4 side1_lh__d4) side1_lh__d3) (rot_lh__d1_d0 t_lh__d3)) t_lh__d2) _lh_side2_arg1_1);;
-let rec quartet_lh__d2 _lh_quartet_arg1_2 _lh_quartet_arg2_2 _lh_quartet_arg3_2 _lh_quartet_arg4_2 =
-  ((((above_lh__d1 1) 1) ((((beside_lh__d2 1) 1) _lh_quartet_arg1_2) _lh_quartet_arg2_2)) ((((beside_lh__d2 1) 1) _lh_quartet_arg3_2) _lh_quartet_arg4_2));;
-let rec rot_lh__d7 _lh_rot_arg1_3 _lh_rot_arg2_3 _lh_rot_arg3_3 _lh_rot_arg4_3 =
-  (((_lh_rot_arg1_3 ((vec_add_lh__d7 _lh_rot_arg2_3) _lh_rot_arg3_3)) _lh_rot_arg4_3) ((vec_sub_lh__d7 (`LH_P2(0, 0))) _lh_rot_arg3_3));;
-let rec rot_lh__d8 _lh_rot_arg1_2 _lh_rot_arg2_2 _lh_rot_arg3_2 _lh_rot_arg4_2 =
-  (((_lh_rot_arg1_2 ((vec_add_lh__d7 _lh_rot_arg2_2) _lh_rot_arg3_2)) _lh_rot_arg4_2) ((vec_sub_lh__d7 (`LH_P2(0, 0))) _lh_rot_arg3_2));;
-let rec side2_lh__d2 _lh_side2_arg1_0 =
-  (((((quartet_lh__d4 side1_lh__d4) side1_lh__d4) (rot_lh__d1_d0 t_lh__d3)) t_lh__d3) _lh_side2_arg1_0);;
-let rec t_lh__d1 _lh_t_arg1_2 =
-  (((((quartet_lh__d4 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_2);;
-let rec vec_add_lh__d4 _lh_vec_add_arg1_3 _lh_vec_add_arg2_3 =
-  (match _lh_vec_add_arg1_3 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_6, _lh_vec_add_LH_P2_1_6) -> 
-      (match _lh_vec_add_arg2_3 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_7, _lh_vec_add_LH_P2_1_7) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_6 + _lh_vec_add_LH_P2_0_7), (_lh_vec_add_LH_P2_1_6 + _lh_vec_add_LH_P2_1_7)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_sub_lh__d4 _lh_vec_sub_arg1_3 _lh_vec_sub_arg2_3 =
-  (match _lh_vec_sub_arg1_3 with
-    | `LH_P2(_lh_vec_sub_LH_P2_0_6, _lh_vec_sub_LH_P2_1_6) -> 
-      (match _lh_vec_sub_arg2_3 with
-        | `LH_P2(_lh_vec_sub_LH_P2_0_7, _lh_vec_sub_LH_P2_1_7) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_6 - _lh_vec_sub_LH_P2_0_7), (_lh_vec_sub_LH_P2_1_6 - _lh_vec_sub_LH_P2_1_7)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d4 _lh_rot_arg1_6 _lh_rot_arg2_6 _lh_rot_arg3_6 _lh_rot_arg4_6 =
-  (((_lh_rot_arg1_6 ((vec_add_lh__d4 _lh_rot_arg2_6) _lh_rot_arg3_6)) _lh_rot_arg4_6) ((vec_sub_lh__d4 (`LH_P2(0, 0))) _lh_rot_arg3_6));;
-let rec beside_lh__d1 _lh_beside_arg1_1 _lh_beside_arg2_1 _lh_beside_arg3_1 _lh_beside_arg4_1 _lh_beside_arg5_1 _lh_beside_arg6_1 _lh_beside_arg7_1 =
-  ((mappend_lh__d2_d0 (((_lh_beside_arg3_1 _lh_beside_arg5_1) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg1_1) (_lh_beside_arg1_1 + _lh_beside_arg2_1))) _lh_beside_arg7_1)) (((_lh_beside_arg4_1 ((vec_add_lh__d7 _lh_beside_arg5_1) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg1_1) (_lh_beside_arg1_1 + _lh_beside_arg2_1)))) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg2_1) (_lh_beside_arg2_1 + _lh_beside_arg1_1))) _lh_beside_arg7_1));;
-let rec quartet_lh__d1 _lh_quartet_arg1_3 _lh_quartet_arg2_3 _lh_quartet_arg3_3 _lh_quartet_arg4_3 =
-  ((((above_lh__d1 1) 1) ((((beside_lh__d1 1) 1) _lh_quartet_arg1_3) _lh_quartet_arg2_3)) ((((beside_lh__d2 1) 1) _lh_quartet_arg3_3) _lh_quartet_arg4_3));;
-let rec vec_sub_lh__d1 _lh_vec_sub_arg1_6 _lh_vec_sub_arg2_6 =
-  (match _lh_vec_sub_arg1_6 with
-    | `LH_P2(_lh_vec_sub_LH_P2_0_1_2, _lh_vec_sub_LH_P2_1_1_2) -> 
-      (match _lh_vec_sub_arg2_6 with
-        | `LH_P2(_lh_vec_sub_LH_P2_0_1_3, _lh_vec_sub_LH_P2_1_1_3) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_1_2 - _lh_vec_sub_LH_P2_0_1_3), (_lh_vec_sub_LH_P2_1_1_2 - _lh_vec_sub_LH_P2_1_1_3)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_add_lh__d1 _lh_vec_add_arg1_6 _lh_vec_add_arg2_6 =
-  (match _lh_vec_add_arg1_6 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_1_2, _lh_vec_add_LH_P2_1_1_2) -> 
-      (match _lh_vec_add_arg2_6 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_1_3, _lh_vec_add_LH_P2_1_1_3) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_1_2 + _lh_vec_add_LH_P2_0_1_3), (_lh_vec_add_LH_P2_1_1_2 + _lh_vec_add_LH_P2_1_1_3)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d1 _lh_rot_arg1_9 _lh_rot_arg2_9 _lh_rot_arg3_9 _lh_rot_arg4_9 =
-  (((_lh_rot_arg1_9 ((vec_add_lh__d1 _lh_rot_arg2_9) _lh_rot_arg3_9)) _lh_rot_arg4_9) ((vec_sub_lh__d1 (`LH_P2(0, 0))) _lh_rot_arg3_9));;
-let rec vec_sub_lh__d3 _lh_vec_sub_arg1_4 _lh_vec_sub_arg2_4 =
-  (match _lh_vec_sub_arg1_4 with
-    | `LH_P2(_lh_vec_sub_LH_P2_0_8, _lh_vec_sub_LH_P2_1_8) -> 
-      (match _lh_vec_sub_arg2_4 with
-        | `LH_P2(_lh_vec_sub_LH_P2_0_9, _lh_vec_sub_LH_P2_1_9) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_8 - _lh_vec_sub_LH_P2_0_9), (_lh_vec_sub_LH_P2_1_8 - _lh_vec_sub_LH_P2_1_9)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_add_lh__d3 _lh_vec_add_arg1_4 _lh_vec_add_arg2_4 =
-  (match _lh_vec_add_arg1_4 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_8, _lh_vec_add_LH_P2_1_8) -> 
-      (match _lh_vec_add_arg2_4 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_9, _lh_vec_add_LH_P2_1_9) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_8 + _lh_vec_add_LH_P2_0_9), (_lh_vec_add_LH_P2_1_8 + _lh_vec_add_LH_P2_1_9)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d3 _lh_rot_arg1_7 _lh_rot_arg2_7 _lh_rot_arg3_7 _lh_rot_arg4_7 =
-  (((_lh_rot_arg1_7 ((vec_add_lh__d3 _lh_rot_arg2_7) _lh_rot_arg3_7)) _lh_rot_arg4_7) ((vec_sub_lh__d3 (`LH_P2(0, 0))) _lh_rot_arg3_7));;
-let rec vec_add_lh__d6 _lh_vec_add_arg1_1 _lh_vec_add_arg2_1 =
-  (match _lh_vec_add_arg1_1 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_2, _lh_vec_add_LH_P2_1_2) -> 
-      (match _lh_vec_add_arg2_1 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_3, _lh_vec_add_LH_P2_1_3) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_2 + _lh_vec_add_LH_P2_0_3), (_lh_vec_add_LH_P2_1_2 + _lh_vec_add_LH_P2_1_3)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_sub_lh__d6 _lh_vec_sub_arg1_1 _lh_vec_sub_arg2_1 =
+  (((((quartet_lh__d3 side1_lh__d2) side1_lh__d1) (rot_lh__d9 t_lh__d2)) t_lh__d3) _lh_side2_arg1_1);;
+let rec beside_lh__d3 _lh_beside_arg1_1 _lh_beside_arg2_1 _lh_beside_arg3_1 _lh_beside_arg4_1 _lh_beside_arg5_1 _lh_beside_arg6_1 _lh_beside_arg7_1 =
+  ((mappend_lh__d2_d0 (((_lh_beside_arg3_1 _lh_beside_arg5_1) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg1_1) (_lh_beside_arg1_1 + _lh_beside_arg2_1))) _lh_beside_arg7_1)) (((_lh_beside_arg4_1 ((vec_add_lh__d8 _lh_beside_arg5_1) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg1_1) (_lh_beside_arg1_1 + _lh_beside_arg2_1)))) (((scale_vec2_lh__d1 _lh_beside_arg6_1) _lh_beside_arg2_1) (_lh_beside_arg2_1 + _lh_beside_arg1_1))) _lh_beside_arg7_1));;
+let rec quartet_lh__d2 _lh_quartet_arg1_1 _lh_quartet_arg2_1 _lh_quartet_arg3_1 _lh_quartet_arg4_1 =
+  ((((above_lh__d2 1) 1) ((((beside_lh__d3 1) 1) _lh_quartet_arg1_1) _lh_quartet_arg2_1)) ((((beside_lh__d4 1) 1) _lh_quartet_arg3_1) _lh_quartet_arg4_1));;
+let rec vec_sub_lh__d7 _lh_vec_sub_arg1_1 _lh_vec_sub_arg2_1 =
   (match _lh_vec_sub_arg1_1 with
     | `LH_P2(_lh_vec_sub_LH_P2_0_2, _lh_vec_sub_LH_P2_1_2) -> 
       (match _lh_vec_sub_arg2_1 with
         | `LH_P2(_lh_vec_sub_LH_P2_0_3, _lh_vec_sub_LH_P2_1_3) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_2 - _lh_vec_sub_LH_P2_0_3), (_lh_vec_sub_LH_P2_1_2 - _lh_vec_sub_LH_P2_1_3)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d6 _lh_rot_arg1_4 _lh_rot_arg2_4 _lh_rot_arg3_4 _lh_rot_arg4_4 =
-  (((_lh_rot_arg1_4 ((vec_add_lh__d6 _lh_rot_arg2_4) _lh_rot_arg3_4)) _lh_rot_arg4_4) ((vec_sub_lh__d6 (`LH_P2(0, 0))) _lh_rot_arg3_4));;
-let rec vec_add_lh__d2 _lh_vec_add_arg1_5 _lh_vec_add_arg2_5 =
-  (match _lh_vec_add_arg1_5 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_1_0, _lh_vec_add_LH_P2_1_1_0) -> 
-      (match _lh_vec_add_arg2_5 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_1_1, _lh_vec_add_LH_P2_1_1_1) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_1_0 + _lh_vec_add_LH_P2_0_1_1), (_lh_vec_add_LH_P2_1_1_0 + _lh_vec_add_LH_P2_1_1_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_sub_lh__d2 _lh_vec_sub_arg1_5 _lh_vec_sub_arg2_5 =
-  (match _lh_vec_sub_arg1_5 with
-    | `LH_P2(_lh_vec_sub_LH_P2_0_1_0, _lh_vec_sub_LH_P2_1_1_0) -> 
-      (match _lh_vec_sub_arg2_5 with
-        | `LH_P2(_lh_vec_sub_LH_P2_0_1_1, _lh_vec_sub_LH_P2_1_1_1) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_1_0 - _lh_vec_sub_LH_P2_0_1_1), (_lh_vec_sub_LH_P2_1_1_0 - _lh_vec_sub_LH_P2_1_1_1)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d2 _lh_rot_arg1_8 _lh_rot_arg2_8 _lh_rot_arg3_8 _lh_rot_arg4_8 =
-  (((_lh_rot_arg1_8 ((vec_add_lh__d2 _lh_rot_arg2_8) _lh_rot_arg3_8)) _lh_rot_arg4_8) ((vec_sub_lh__d2 (`LH_P2(0, 0))) _lh_rot_arg3_8));;
-let rec vec_add_lh__d5 _lh_vec_add_arg1_2 _lh_vec_add_arg2_2 =
-  (match _lh_vec_add_arg1_2 with
-    | `LH_P2(_lh_vec_add_LH_P2_0_4, _lh_vec_add_LH_P2_1_4) -> 
-      (match _lh_vec_add_arg2_2 with
-        | `LH_P2(_lh_vec_add_LH_P2_0_5, _lh_vec_add_LH_P2_1_5) -> 
-          (`LH_P2((_lh_vec_add_LH_P2_0_4 + _lh_vec_add_LH_P2_0_5), (_lh_vec_add_LH_P2_1_4 + _lh_vec_add_LH_P2_1_5)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec vec_sub_lh__d5 _lh_vec_sub_arg1_2 _lh_vec_sub_arg2_2 =
-  (match _lh_vec_sub_arg1_2 with
-    | `LH_P2(_lh_vec_sub_LH_P2_0_4, _lh_vec_sub_LH_P2_1_4) -> 
-      (match _lh_vec_sub_arg2_2 with
-        | `LH_P2(_lh_vec_sub_LH_P2_0_5, _lh_vec_sub_LH_P2_1_5) -> 
-          (`LH_P2((_lh_vec_sub_LH_P2_0_4 - _lh_vec_sub_LH_P2_0_5), (_lh_vec_sub_LH_P2_1_4 - _lh_vec_sub_LH_P2_1_5)))
-        | _ -> 
-          (failwith "error"))
-    | _ -> 
-      (failwith "error"));;
-let rec rot_lh__d5 _lh_rot_arg1_5 _lh_rot_arg2_5 _lh_rot_arg3_5 _lh_rot_arg4_5 =
-  (((_lh_rot_arg1_5 ((vec_add_lh__d5 _lh_rot_arg2_5) _lh_rot_arg3_5)) _lh_rot_arg4_5) ((vec_sub_lh__d5 (`LH_P2(0, 0))) _lh_rot_arg3_5));;
-let rec cycle'_lh__d1 _lh_cycle'_arg1_0 =
-  ((((quartet_lh__d1 _lh_cycle'_arg1_0) (rot_lh__d4 (rot_lh__d3 (rot_lh__d5 _lh_cycle'_arg1_0)))) (rot_lh__d1 _lh_cycle'_arg1_0)) (rot_lh__d6 (rot_lh__d2 _lh_cycle'_arg1_0)));;
+          (`LH_P2((_lh_vec_sub_LH_P2_0_2 - _lh_vec_sub_LH_P2_0_3), (_lh_vec_sub_LH_P2_1_2 - _lh_vec_sub_LH_P2_1_3)))));;
+let rec vec_add_lh__d7 _lh_vec_add_arg1_1 _lh_vec_add_arg2_1 =
+  (match _lh_vec_add_arg1_1 with
+    | `LH_P2(_lh_vec_add_LH_P2_0_2, _lh_vec_add_LH_P2_1_2) -> 
+      (match _lh_vec_add_arg2_1 with
+        | `LH_P2(_lh_vec_add_LH_P2_0_3, _lh_vec_add_LH_P2_1_3) -> 
+          (`LH_P2((_lh_vec_add_LH_P2_0_2 + _lh_vec_add_LH_P2_0_3), (_lh_vec_add_LH_P2_1_2 + _lh_vec_add_LH_P2_1_3)))));;
+let rec rot_lh__d7 _lh_rot_arg1_2 _lh_rot_arg2_2 _lh_rot_arg3_2 _lh_rot_arg4_2 =
+  (((_lh_rot_arg1_2 ((vec_add_lh__d7 _lh_rot_arg2_2) _lh_rot_arg3_2)) _lh_rot_arg4_2) ((vec_sub_lh__d7 (`LH_P2(0, 0))) _lh_rot_arg3_2));;
+let rec rot_lh__d8 _lh_rot_arg1_1 _lh_rot_arg2_1 _lh_rot_arg3_1 _lh_rot_arg4_1 =
+  (((_lh_rot_arg1_1 ((vec_add_lh__d8 _lh_rot_arg2_1) _lh_rot_arg3_1)) _lh_rot_arg4_1) ((vec_sub_lh__d8 (`LH_P2(0, 0))) _lh_rot_arg3_1));;
+let rec side1_lh__d3 _lh_side1_arg1_0 =
+  (((((quartet_lh__d3 nil_lh__d1) nil_lh__d1) (rot_lh__d9 t_lh__d3)) t_lh__d3) _lh_side1_arg1_0);;
+let rec side2_lh__d2 _lh_side2_arg1_0 =
+  (((((quartet_lh__d3 side1_lh__d3) side1_lh__d3) (rot_lh__d9 t_lh__d3)) t_lh__d3) _lh_side2_arg1_0);;
+let rec t_lh__d1 _lh_t_arg1_2 =
+  (((((quartet_lh__d3 p_lh__d1) q_lh__d1) r_lh__d1) s_lh__d1) _lh_t_arg1_2);;
 let rec u_lh__d1 _lh_u_arg1_0 =
-  ((cycle'_lh__d1 (rot_lh__d1_d0 q_lh__d1)) _lh_u_arg1_0);;
+  ((cycle'_lh__d1 (rot_lh__d9 q_lh__d1)) _lh_u_arg1_0);;
 let rec corner1_lh__d1 _lh_corner1_arg1_0 =
-  (((((quartet_lh__d4 nil_lh__d1) nil_lh__d1) nil_lh__d1) u_lh__d1) _lh_corner1_arg1_0);;
-let rec rot_lh__d9 _lh_rot_arg1_1 _lh_rot_arg2_1 _lh_rot_arg3_1 _lh_rot_arg4_1 =
-  (((_lh_rot_arg1_1 ((vec_add_lh__d7 _lh_rot_arg2_1) _lh_rot_arg3_1)) _lh_rot_arg4_1) ((vec_sub_lh__d7 (`LH_P2(0, 0))) _lh_rot_arg3_1));;
-let rec quartet_lh__d3 _lh_quartet_arg1_1 _lh_quartet_arg2_1 _lh_quartet_arg3_1 _lh_quartet_arg4_1 =
-  ((((above_lh__d1 1) 1) ((((beside_lh__d2 1) 1) _lh_quartet_arg1_1) _lh_quartet_arg2_1)) ((((beside_lh__d2 1) 1) _lh_quartet_arg3_1) _lh_quartet_arg4_1));;
-let rec side1_lh__d2 _lh_side1_arg1_2 =
-  (((((quartet_lh__d4 nil_lh__d1) nil_lh__d1) (rot_lh__d1_d0 t_lh__d3)) t_lh__d3) _lh_side1_arg1_2);;
-let rec side1_lh__d1 _lh_side1_arg1_3 =
-  (((((quartet_lh__d4 nil_lh__d1) nil_lh__d1) (rot_lh__d1_d0 t_lh__d3)) t_lh__d3) _lh_side1_arg1_3);;
+  (((((quartet_lh__d3 nil_lh__d1) nil_lh__d1) nil_lh__d1) u_lh__d1) _lh_corner1_arg1_0);;
 let rec corner2_lh__d1 _lh_corner2_arg1_0 =
-  (((((quartet_lh__d3 corner1_lh__d1) side1_lh__d1) (rot_lh__d9 side1_lh__d2)) u_lh__d1) _lh_corner2_arg1_0);;
+  (((((quartet_lh__d3 corner1_lh__d1) side1_lh__d3) (rot_lh__d9 side1_lh__d3)) u_lh__d1) _lh_corner2_arg1_0);;
 let rec pseudocorner_lh__d1 _lh_pseudocorner_arg1_0 =
-  (((((quartet_lh__d2 corner2_lh__d1) side2_lh__d1) (rot_lh__d8 side2_lh__d2)) (rot_lh__d7 t_lh__d1)) _lh_pseudocorner_arg1_0);;
+  (((((quartet_lh__d2 corner2_lh__d1) side2_lh__d2) (rot_lh__d7 side2_lh__d1)) (rot_lh__d8 t_lh__d1)) _lh_pseudocorner_arg1_0);;
 let rec pseudolimit_lh__d1 _lh_pseudolimit_arg1_0 =
   ((cycle'_lh__d1 pseudocorner_lh__d1) _lh_pseudolimit_arg1_0);;
-let rec map_lh__d1 f_0 ls_1 =
-  (match ls_1 with
-    | `LH_C(h_2_1, t_2_1) -> 
-      (`LH_C((f_0 h_2_1), ((map_lh__d1 f_0) t_2_1)))
-    | `LH_N -> 
-      (`LH_N));;
-let rec length_lh__d1 ls_0 =
+let rec map_lh__d1 f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_2_0, t_2_0) -> 
-      (1 + (length_lh__d1 t_2_0))
+      (`LH_C((f_0 h_2_0), ((map_lh__d1 f_0) t_2_0)))
+    | `LH_N -> 
+      (`LH_N));;
+let rec length_lh__d1 ls_1 =
+  (match ls_1 with
+    | `LH_C(h_2_1, t_2_1) -> 
+      (1 + (length_lh__d1 t_2_1))
     | `LH_N -> 
       0);;
 let rec min_lh__d1 _lh_min_arg1_0 _lh_min_arg2_0 =

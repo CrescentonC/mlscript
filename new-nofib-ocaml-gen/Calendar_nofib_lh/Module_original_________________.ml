@@ -3,12 +3,23 @@
 open Lumherhack_Common.Lumherhack_Common;;
 open Lumberhack_LargeStr.Lumberhack_LargeStr;;
 module Module_original_________________(LH_Dum: sig end): sig val run: unit -> int end = struct
+let rec enumFromTo_lh a_0 b_0 =
+  (if (a_0 <= b_0) then
+    (`LH_C(a_0, ((enumFromTo_lh (a_0 + 1)) b_0)))
+  else
+    (`LH_N));;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
       (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
+let rec length_lh ls_3 =
+  (match ls_3 with
+    | `LH_C(h_3, t_3) -> 
+      (1 + (length_lh t_3))
+    | `LH_N -> 
+      0);;
 let rec zipWith_lh f_2 xs_0 ys_0 =
   (match xs_0 with
     | `LH_C(hx_0, tx_0) -> 
@@ -19,17 +30,12 @@ let rec zipWith_lh f_2 xs_0 ys_0 =
           (`LH_N))
     | `LH_N -> 
       (`LH_N));;
-let rec enumFromTo_lh a_0 b_0 =
-  (if (a_0 <= b_0) then
-    (`LH_C(a_0, ((enumFromTo_lh (a_0 + 1)) b_0)))
-  else
-    (`LH_N));;
-let rec length_lh ls_3 =
-  (match ls_3 with
-    | `LH_C(h_3, t_3) -> 
-      (1 + (length_lh t_3))
+let rec mappend_lh xs_1 ys_1 =
+  (match xs_1 with
+    | `LH_C(h_4, t_4) -> 
+      (`LH_C(h_4, ((mappend_lh t_4) ys_1)))
     | `LH_N -> 
-      0);;
+      ys_1);;
 let rec copy_lh _lh_copy_arg1_0 _lh_copy_arg2_0 =
   (if (_lh_copy_arg1_0 > 0) then
     (`LH_C(_lh_copy_arg2_0, ((copy_lh (_lh_copy_arg1_0 - 1)) _lh_copy_arg2_0)))
@@ -37,12 +43,6 @@ let rec copy_lh _lh_copy_arg1_0 _lh_copy_arg2_0 =
     (`LH_N));;
 let rec space_lh _lh_space_arg1_0 =
   ((copy_lh _lh_space_arg1_0) ' ');;
-let rec mappend_lh xs_1 ys_1 =
-  (match xs_1 with
-    | `LH_C(h_4, t_4) -> 
-      (`LH_C(h_4, ((mappend_lh t_4) ys_1)))
-    | `LH_N -> 
-      ys_1);;
 let rec rjustify_lh _lh_rjustify_arg1_0 _lh_rjustify_arg2_0 =
   ((mappend_lh (space_lh (_lh_rjustify_arg1_0 - (length_lh _lh_rjustify_arg2_0)))) _lh_rjustify_arg2_0);;
 let rec date_lh _lh_date_arg1_0 _lh_date_arg2_0 =
@@ -73,9 +73,7 @@ let rec monthNames_lh =
 let rec emptyPic_lh _lh_emptyPic_arg1_0 =
   (match _lh_emptyPic_arg1_0 with
     | `LH_P2(_lh_emptyPic_LH_P2_0_0, _lh_emptyPic_LH_P2_1_0) -> 
-      ((copy_lh _lh_emptyPic_LH_P2_0_0) ((copy_lh _lh_emptyPic_LH_P2_1_0) ' '))
-    | _ -> 
-      (failwith "error"));;
+      ((copy_lh _lh_emptyPic_LH_P2_0_0) ((copy_lh _lh_emptyPic_LH_P2_1_0) ' ')));;
 let rec jan1st_lh _lh_jan1st_arg1_0 =
   (let rec last_0 = (_lh_jan1st_arg1_0 - 1) in
     (((((((_lh_jan1st_arg1_0 + last_0) / 4) - last_0) / 100) + last_0) / 400) mod 7));;
@@ -85,9 +83,7 @@ let rec scanl_lh _lh_scanl_arg1_0 _lh_scanl_arg2_0 _lh_scanl_arg3_0 =
       | `LH_N -> 
         (`LH_N)
       | `LH_C(_lh_scanl_LH_C_0_0, _lh_scanl_LH_C_1_0) -> 
-        (((scanl_lh _lh_scanl_arg1_0) ((_lh_scanl_arg1_0 _lh_scanl_arg2_0) _lh_scanl_LH_C_0_0)) _lh_scanl_LH_C_1_0)
-      | _ -> 
-        (failwith "error")))));;
+        (((scanl_lh _lh_scanl_arg1_0) ((_lh_scanl_arg1_0 _lh_scanl_arg2_0) _lh_scanl_LH_C_0_0)) _lh_scanl_LH_C_1_0)))));;
 let rec take_lh n_0 ls_2 =
   (if (n_0 > 0) then
     (match ls_2 with
@@ -121,13 +117,13 @@ let rec foldr1_lh _lh_foldr1_arg1_0 _lh_foldr1_arg2_0 =
     | `LH_C(_lh_foldr1_LH_C_0_0, _lh_foldr1_LH_C_1_0) -> 
       (((foldr_lh _lh_foldr1_arg1_0) _lh_foldr1_LH_C_0_0) _lh_foldr1_LH_C_1_0)
     | _ -> 
-      (failwith "error"));;
-let rec spread_lh _lh_spread_arg1_0 =
-  ((foldr1_lh (fun a_2 b_2 -> 
-    (((zipWith_lh mappend_lh) a_2) b_2))) _lh_spread_arg1_0);;
+      (failwith "lh_default_error"));;
 let rec stack_lh _lh_stack_arg1_0 =
   ((foldr1_lh (fun a_1 b_1 -> 
     ((mappend_lh a_1) b_1))) _lh_stack_arg1_0);;
+let rec spread_lh _lh_spread_arg1_0 =
+  ((foldr1_lh (fun a_2 b_2 -> 
+    (((zipWith_lh mappend_lh) a_2) b_2))) _lh_spread_arg1_0);;
 let rec drop_lh _lh_drop_arg1_0 _lh_drop_arg2_0 =
   (match _lh_drop_arg2_0 with
     | `LH_N -> 
@@ -136,9 +132,7 @@ let rec drop_lh _lh_drop_arg1_0 _lh_drop_arg2_0 =
       (if (_lh_drop_arg1_0 > 0) then
         ((drop_lh (_lh_drop_arg1_0 - 1)) _lh_drop_LH_C_1_0)
       else
-        _lh_drop_LH_C_1_0)
-    | _ -> 
-      (failwith "error"));;
+        _lh_drop_LH_C_1_0));;
 let rec groop_lh _lh_groop_arg1_0 _lh_groop_arg2_0 =
   (match _lh_groop_arg2_0 with
     | `LH_N -> 
@@ -160,24 +154,16 @@ let rec zip3_lh _lh_zip3_arg1_0 _lh_zip3_arg2_0 _lh_zip3_arg3_0 =
                   | `LH_C(_lh_zip3_LH_C_0_2, _lh_zip3_LH_C_1_2) -> 
                     (`LH_C((`LH_P3(_lh_zip3_LH_C_0_0, _lh_zip3_LH_C_0_1, _lh_zip3_LH_C_0_2)), (((zip3_lh _lh_zip3_LH_C_1_0) _lh_zip3_LH_C_1_1) _lh_zip3_LH_C_1_2)))
                   | `LH_N -> 
-                    (`LH_N)
-                  | _ -> 
-                    (failwith "error")))
+                    (`LH_N)))
             | `LH_N -> 
-              (`LH_N)
-            | _ -> 
-              (failwith "error")))
+              (`LH_N)))
       | `LH_N -> 
-        (`LH_N)
-      | _ -> 
-        (failwith "error")));;
+        (`LH_N)));;
 let rec cal_lh _lh_cal_arg1_0 =
   let rec pic_0 = (fun _lh_pic_arg1_0 -> 
     (match _lh_pic_arg1_0 with
       | `LH_P3(_lh_pic_LH_P3_0_0, _lh_pic_LH_P3_1_0, _lh_pic_LH_P3_2_0) -> 
-        ((mappend_lh (title_0 _lh_pic_LH_P3_0_0)) ((table_0 _lh_pic_LH_P3_1_0) _lh_pic_LH_P3_2_0))
-      | _ -> 
-        (failwith "error")))
+        ((mappend_lh (title_0 _lh_pic_LH_P3_0_0)) ((table_0 _lh_pic_LH_P3_1_0) _lh_pic_LH_P3_2_0))))
   and table_0 = (fun _lh_table_arg1_0 _lh_table_arg2_0 -> 
     ((mappend_lh daynames_0) ((entries_0 _lh_table_arg1_0) _lh_table_arg2_0)))
   and daynames_0 = (`LH_C((`LH_C(' ', (`LH_C('S', (`LH_C('u', (`LH_C(' ', (`LH_C('M', (`LH_C('o', (`LH_C(' ', (`LH_C('T', (`LH_C('u', (`LH_C(' ', (`LH_C('W', (`LH_C('e', (`LH_C(' ', (`LH_C('T', (`LH_C('h', (`LH_C(' ', (`LH_C('F', (`LH_C('r', (`LH_C(' ', (`LH_C('S', (`LH_C('a', (`LH_N))))))))))))))))))))))))))))))))))))))))))), (`LH_N)))
