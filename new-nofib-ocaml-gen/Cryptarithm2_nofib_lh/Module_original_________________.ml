@@ -21,16 +21,16 @@ let rec digitEnv_lh _lh_digitEnv_arg1_0 =
   (match _lh_digitEnv_arg1_0 with
     | `Digits(_lh_digitEnv_Digits_0_0, _lh_digitEnv_Digits_1_0) -> 
       _lh_digitEnv_Digits_1_0);;
+let rec runStateT_lh _lh_runStateT_arg1_0 =
+  (match _lh_runStateT_arg1_0 with
+    | `StateT(_lh_runStateT_StateT_0_0) -> 
+      _lh_runStateT_StateT_0_0);;
 let rec map_lh f_0 ls_0 =
   (match ls_0 with
     | `LH_C(h_0, t_0) -> 
       (`LH_C((f_0 h_0), ((map_lh f_0) t_0)))
     | `LH_N -> 
       (`LH_N));;
-let rec runStateT_lh _lh_runStateT_arg1_0 =
-  (match _lh_runStateT_arg1_0 with
-    | `StateT(_lh_runStateT_StateT_0_0) -> 
-      _lh_runStateT_StateT_0_0);;
 let rec concat_lh lss_0 =
   (match lss_0 with
     | `LH_C(h_7, t_7) -> 
@@ -183,7 +183,9 @@ let rec reverse_lh ls_7 =
 let rec fromJust_lh _lh_fromJust_arg1_0 =
   (match _lh_fromJust_arg1_0 with
     | `Just(_lh_fromJust_Just_0_0) -> 
-      _lh_fromJust_Just_0_0);;
+      _lh_fromJust_Just_0_0
+    | _ -> 
+      (failwith "lh_default_error"));;
 let rec filter_lh f_1 ls_1 =
   (match ls_1 with
     | `LH_C(h_1, t_1) -> 
