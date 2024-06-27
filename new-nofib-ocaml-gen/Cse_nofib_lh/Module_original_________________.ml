@@ -30,7 +30,9 @@ let rec scanr_lh _lh_scanr_arg1_0 _lh_scanr_arg2_0 _lh_scanr_arg3_0 =
       (let rec _lh_matchIdent_2 = (((scanr_lh _lh_scanr_arg1_0) _lh_scanr_arg2_0) _lh_scanr_LH_C_1_0) in
         (match _lh_matchIdent_2 with
           | `LH_C(_lh_scanr_LH_C_0_1, _lh_scanr_LH_C_1_1) -> 
-            (`LH_C(((_lh_scanr_arg1_0 _lh_scanr_LH_C_0_0) _lh_scanr_LH_C_0_1), (`LH_C(_lh_scanr_LH_C_0_1, _lh_scanr_LH_C_1_1)))))));;
+            (`LH_C(((_lh_scanr_arg1_0 _lh_scanr_LH_C_0_0) _lh_scanr_LH_C_0_1), (`LH_C(_lh_scanr_LH_C_0_1, _lh_scanr_LH_C_1_1))))
+          | _ -> 
+            (failwith "lh_default_error"))));;
 let rec prod_lh _lh_prod_arg1_0 =
   (`Node((`LH_C('X', (`LH_N))), _lh_prod_arg1_0));;
 let rec d_lh =
