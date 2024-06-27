@@ -13,7 +13,9 @@ let rec foldl_lh__d1 f_0 i_0 ls_0 =
 let rec foldl1_lh__d1 _lh_foldl1_arg1_0 _lh_foldl1_arg2_0 =
   (match _lh_foldl1_arg2_0 with
     | `LH_C(_lh_foldl1_LH_C_0_0, _lh_foldl1_LH_C_1_0) -> 
-      (((foldl_lh__d1 _lh_foldl1_arg1_0) _lh_foldl1_LH_C_0_0) _lh_foldl1_LH_C_1_0));;
+      (((foldl_lh__d1 _lh_foldl1_arg1_0) _lh_foldl1_LH_C_0_0) _lh_foldl1_LH_C_1_0)
+    | `LH_N -> 
+      (failwith "lh_default_error"));;
 let rec maximum_lh__d1 _lh_maximum_arg1_0 =
   ((foldl1_lh__d1 (fun x_0 y_0 -> 
     (if (x_0 > y_0) then
