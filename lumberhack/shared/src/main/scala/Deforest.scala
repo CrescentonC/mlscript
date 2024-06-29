@@ -394,13 +394,6 @@ class Deforest(var debug: Boolean) {
   val lowerBounds = mutable.Map.empty[TypeVarId, Ls[ProdStrat]].withDefaultValue(Nil)
   val ctorDestinations = mutable.Map.empty[ProdStratEnum.MkCtor, Set[ConsStratEnum]].withDefaultValue(Set())
   val dtorSources = mutable.Map.empty[ConsStratEnum.Destruct, Set[ProdStratEnum]].withDefaultValue(Set())
-  val isNotDead = mutable.Set.empty[
-    ProdStratEnum.MkCtor |
-    ProdStratEnum.ProdFun |
-    ProdStratEnum.Sum |
-    ProdStratEnum.NoProd
-  ]
-  // val isNotDeadBranch = mutable.Map.empty[Destruct, Set[Int]]
   val errorTypes = scala.collection.mutable.Set.empty[ProdStratEnum | ConsStratEnum]
   def resolveConstraints: Unit = {
     // if constraint resolver has already been executed, do not execute it more than once
@@ -448,19 +441,19 @@ class Deforest(var debug: Boolean) {
         case (pv@ProdVar(v, n), _) if n == "_lh_rigid_error_var" => ()
         case (_, cv@ConsVar(v, n)) if n == "_lh_rigid_error_var" => ()
         case (pv@ProdVar(v, _), _) =>
-          cons.s match {
-            case dtor: Destruct if lowerBounds(v).isEmpty && this.isRealCtorOrDtor(dtor.euid) =>
-              dtorSources += dtor -> (dtorSources(dtor) + pv)
-            case _ => ()
-          }
+          // cons.s match {
+          //   // case dtor: Destruct if lowerBounds(v).isEmpty && this.isRealCtorOrDtor(dtor.euid) =>
+          //   //   dtorSources += dtor -> (dtorSources(dtor) + pv)
+          //   case _ => ()
+          // }
           upperBounds += v -> (cons :: upperBounds(v))
           lowerBounds(v).foreach(lb_strat => handle(lb_strat -> cons))
         case (_, cv@ConsVar(v, _)) =>
-          prod.s match {
-            case ctor: MkCtor if upperBounds(v).isEmpty && this.isRealCtorOrDtor(ctor.euid) =>
-              ctorDestinations += ctor -> (ctorDestinations(ctor) + cv)
-            case _ => ()
-          }
+          // prod.s match {
+          //   // case ctor: MkCtor if upperBounds(v).isEmpty && this.isRealCtorOrDtor(ctor.euid) =>
+          //   //   ctorDestinations += ctor -> (ctorDestinations(ctor) + cv)
+          //   case _ => ()
+          // }
           lowerBounds += v -> (prod :: lowerBounds(v))
           upperBounds(v).foreach(ub_strat => handle(prod -> ub_strat))
         case (prodFun@ProdFun(lhs1, rhs1), ConsFun(lhs2, rhs2)) =>
