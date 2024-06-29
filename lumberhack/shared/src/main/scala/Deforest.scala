@@ -394,6 +394,7 @@ class Deforest(var debug: Boolean) {
   val lowerBounds = mutable.Map.empty[TypeVarId, Ls[ProdStrat]].withDefaultValue(Nil)
   val ctorDestinations = mutable.Map.empty[ProdStratEnum.MkCtor, Set[ConsStratEnum]].withDefaultValue(Set())
   val dtorSources = mutable.Map.empty[ConsStratEnum.Destruct, Set[ProdStratEnum]].withDefaultValue(Set())
+  val needImplicitWildCardBranch = scala.collection.mutable.Set.empty[ExprId]
   val errorTypes = scala.collection.mutable.Set.empty[ProdStratEnum | ConsStratEnum]
   def resolveConstraints: Unit = {
     // if constraint resolver has already been executed, do not execute it more than once
@@ -424,7 +425,6 @@ class Deforest(var debug: Boolean) {
           handle(r -> NoCons()(using noExprId).toStrat())
           handle(NoProd()(using noExprId).toStrat() -> l)
         case (np@NoProd(), dtor@Destruct(ds)) =>
-          // isNotDeadBranch.update(dtor, (0 until ds.length).toSet)
           given Int = numOfTypeCtor + 1
           if this.isRealCtorOrDtor(dtor.euid) then {
             dtorSources += dtor -> (dtorSources(dtor) + prod.s)
@@ -441,19 +441,9 @@ class Deforest(var debug: Boolean) {
         case (pv@ProdVar(v, n), _) if n == "_lh_rigid_error_var" => ()
         case (_, cv@ConsVar(v, n)) if n == "_lh_rigid_error_var" => ()
         case (pv@ProdVar(v, _), _) =>
-          // cons.s match {
-          //   // case dtor: Destruct if lowerBounds(v).isEmpty && this.isRealCtorOrDtor(dtor.euid) =>
-          //   //   dtorSources += dtor -> (dtorSources(dtor) + pv)
-          //   case _ => ()
-          // }
           upperBounds += v -> (cons :: upperBounds(v))
           lowerBounds(v).foreach(lb_strat => handle(lb_strat -> cons))
         case (_, cv@ConsVar(v, _)) =>
-          // prod.s match {
-          //   // case ctor: MkCtor if upperBounds(v).isEmpty && this.isRealCtorOrDtor(ctor.euid) =>
-          //   //   ctorDestinations += ctor -> (ctorDestinations(ctor) + cv)
-          //   case _ => ()
-          // }
           lowerBounds += v -> (prod :: lowerBounds(v))
           upperBounds(v).foreach(ub_strat => handle(prod -> ub_strat))
         case (prodFun@ProdFun(lhs1, rhs1), ConsFun(lhs2, rhs2)) =>
@@ -466,15 +456,13 @@ class Deforest(var debug: Boolean) {
             given Int = numOfTypeCtor + 1
             (ds.indexWhere {case Destructor(ds_ctor, argCons) => ds_ctor == ctor || ds_ctor.name == "_"}) match {
               case -1 =>
-                // isNotDeadBranch.updateWith(dtors) {
-                //   case None => Some(Set(-1))
-                //   case Some(idxs) => Some(idxs + (-1))
-                // }
+                if (this.isRealCtorOrDtor(prod.s.euid) && this.isRealCtorOrDtor(cons.s.euid)) then {
+                  fusionMatch.updateWith(prod.s.euid)(_.map(_ + cons.s.euid).orElse(Some(Set(cons.s.euid))))
+                  dtorSources += cons.s.asInstanceOf[Destruct] -> (dtorSources(cons.s.asInstanceOf[Destruct]) + prod.s)
+                  ctorDestinations += prod.s.asInstanceOf[MkCtor] -> (ctorDestinations(prod.s.asInstanceOf[MkCtor]) + cons.s)
+                  needImplicitWildCardBranch += cons.s.euid
+                }
               case armIndex => {
-                // isNotDeadBranch.updateWith(dtors) {
-                //   case None => Some(Set(armIndex))
-                //   case Some(idxs) => Some(idxs + armIndex)
-                // }
                 val Destructor(ds_ctor, argCons) = ds(armIndex)  
                 if ds_ctor == ctor then {
                   assert(args.size == argCons.size)

@@ -296,11 +296,11 @@ trait ExprRewrite { this: Expr =>
 
   def rewriteFusion(using
     ctx: RewriteCtx,
-    needForce: Set[Ident],
     fusionMatch: Map[ExprId, ExprId],
     newd: Deforest,
     inDef: Option[Ident],
     scopeExtrusionInfo: Map[ExprId, List[Ident]],
+    needImplicitWildcardBranch: Set[ExprId]
   ): Expr = this.deforest.Trace.trace(s"fusion handling ${this.pp(using InitPpConfig)}"){
     def inexpensiveMatchingArmBody(e: Expr): Boolean = e match {
       case _: (Function | Const) => true
@@ -337,78 +337,81 @@ trait ExprRewrite { this: Expr =>
         Function(newParamId, body.rewriteFusion(using newCtx))
       case Ref(id) => 
         val mappedId = ctx.getOrElse(id, id)
-        if needForce(mappedId) then
-          Ref(mappedId)
-        else
-          Ref(mappedId)
+        Ref(mappedId)
       case Match(scrut, arms) => {
         if fusionMatch.valuesIterator.contains(this.uid) then {
           val extrudedIds = scopeExtrusionInfo(this.uid)
           // make a call the triggerd the computation moved due to deforestation to keep termination behavior
           val noNeedThunking = {
-            // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(this.uid))
-            arms.zipWithIndex.filter(x => true).forall {
+            val allVisibleBranches = arms.zipWithIndex.filter(x => true).forall {
               case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
-            } // && !nonDeadBranches(-1)
+            }
+            allVisibleBranches && !needImplicitWildcardBranch(this.uid)
           }
-          if extrudedIds.isEmpty && (!noNeedThunking) then
-          // if extrudedIds.isEmpty then
-            Call(scrut.rewriteFusion, Ctor(Var("lh_Unit"), Nil))
-          else
-            extrudedIds.foldLeft(scrut.rewriteFusion){
+          (extrudedIds.isEmpty, noNeedThunking) match {
+            case (true, true) => scrut.rewriteFusion
+            case (true, false) => Call(scrut.rewriteFusion, Ctor(Var("lh_Unit"), Nil))
+            case (false, _) =>
+              extrudedIds.foldLeft(scrut.rewriteFusion){
               (acc, id) =>
                 val mappedId = ctx.getOrElse(id, id)
-                val maybeForcedId = if needForce(mappedId) then
-                  Ref(mappedId)
-                else
-                  Ref(mappedId)
+                val maybeForcedId = Ref(mappedId)
                 Call(acc, maybeForcedId)
             }
+          }
         } else {
           Match(scrut.rewriteFusion, arms.map{(n, args, body) => (n, args, body.rewriteFusion)})
         }
       }
       case ctor@Ctor(name, args) => fusionMatch.get(this.uid).map { matchId =>
-        val matchArm = newd.exprs(matchId).asInstanceOf[Match].arms.find(a => a._1 == name || a._1.name == "_").get
-        // ignore unused fields
-        val allFvs = matchArm._3.getFreeVarsInExpr
-        val usedFieldsWithArgs = {
-          if matchArm._1.name == "_" then // id pattern or wildcard pattern
-            (matchArm._2 zip (ctor :: Nil)).filter(ida => true)
-          else
-            (matchArm._2 zip args).filter(ida => true)
-        }
+        newd.exprs(matchId).asInstanceOf[Match].arms.find(a => a._1 == name || a._1.name == "_") match {
+          case Some(matchArm) => {
+            val usedFieldsWithArgs = {
+              if matchArm._1.name == "_" then // id pattern or wildcard pattern
+                args.map(a => newd.nextIdent(false, Var("_lh_dummy_ctor_arg")) -> a)
+              else
+                (matchArm._2 zip args).filter(ida => true)
+            }
+    
+            val (newIds, newArgs) = usedFieldsWithArgs.unzip.mapFirst(_.map(i => i -> i.copyToNewDeforest))
+            val newCtx = ctx ++ newIds.toMap
+            val extrudedIds = scopeExtrusionInfo(matchId).map(original =>
+              original -> original.copyToNewDeforest
+            )
+            val innerAfterExtrusionHandling =
+              // NOTE: extrudedIds may contain same keys as in newCtx, need to override those entries
+              matchArm._3.rewriteFusion(using newCtx ++ extrudedIds)
+            val inner = {
+              val res = extrudedIds.foldRight(innerAfterExtrusionHandling){ (newId, acc) =>
+                Function(newId._2, acc)
+              }
+              val noNeedThunking = {
+                // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(matchId))
+                newd.exprs(matchId).asInstanceOf[Match].arms.zipWithIndex.filter(x => true).forall {
+                  case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
+                } && !needImplicitWildcardBranch(matchId)
+              }
+              
+              (extrudedIds.isEmpty, noNeedThunking) match {
+                case (true, false) => Function(newd.nextIdent(false, Var("_lh_dummy")), res)
+                case _ => res
+              }
 
-        val (newIds, newArgs) = usedFieldsWithArgs.unzip.mapFirst(_.map(i => i -> i.copyToNewDeforest))
-        val newCtx = ctx ++ newIds.toMap
+            }
+            val fused = (newIds zip newArgs).foldLeft[Expr](inner){case (acc, ((_, param), argExpr)) => 
+              LetIn(param, argExpr.rewriteFusion, acc)
+            }
+            fused
+          }
+          case None => {
+            val newIds_newArgs = args.map(a => newd.nextIdent(false, Var("_lh_dummy_ctor_arg")) -> a)
+            val inner = Function(newd.nextIdent(false, Var("_lh_dummy")), Ref(newd.lumberhackKeywordsIds("error")))
+            newIds_newArgs.foldLeft[Expr](inner){case (acc, (param, argExpr)) => 
+              LetIn(param, argExpr.rewriteFusion, acc)
+            }
+          }
+        }
         
-        val extrudedIds = scopeExtrusionInfo(matchId).map(original =>
-          original -> original.copyToNewDeforest
-        )
-        val innerAfterExtrusionHandling =
-          // NOTE: extrudedIds may contain same keys as in newCtx, need to override those entries
-          matchArm._3.rewriteFusion(using newCtx ++ extrudedIds, needForce ++ newIds.map(_._2).toSet)
-        val inner = {
-          val res = extrudedIds.foldRight(innerAfterExtrusionHandling){ (newId, acc) =>
-            Function(newId._2, acc)
-          }
-          val noNeedThunking = {
-            // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(matchId))
-            newd.exprs(matchId).asInstanceOf[Match].arms.zipWithIndex.filter(x => true).forall {
-              case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
-            } // && !nonDeadBranches(-1)
-          }
-          
-          if extrudedIds.isEmpty && (!noNeedThunking) then
-          // if extrudedIds.isEmpty then
-            Function(newd.nextIdent(false, Var("_lh_dummy")), res)
-          else
-            res
-        }
-        val fused = (newIds zip newArgs).foldLeft[Expr](inner){case (acc, ((_, param), argExpr)) => 
-          LetIn(param, argExpr.rewriteFusion, acc)
-        }
-        fused
       }.getOrElse(Ctor(name, args.map(_.rewriteFusion)))
     }
   }(res => s"done handling fusion with result: ${res.pp(using InitPpConfig)}")
@@ -675,16 +678,17 @@ trait ProgramRewrite { this: Program =>
   def rewrite(d: Deforest, fusionStrategy: FusionStrategy): Program = {
     // given Map[ExprId, ExprId] = d.fusionMatch.map { (p, cs) => p -> cs.head }.toMap
     given Deforest = d
+    given Set[ExprId] = d.needImplicitWildCardBranch.toSet
     given Map[ExprId, ExprId] = fusionStrategy.finallyFilteredStrategies._1.map { (ctor, dtors) =>
       assert(dtors.size == 1 && dtors.head.isInstanceOf[Destruct])
       ctor.euid -> dtors.head.euid
     }
     given Map[ExprId, List[Ident]] = fusionStrategy.scopeExtrusionInfo
     Program(
-      this.defAndExpr._2.map { e => given Option[Ident] = None; R(e.rewriteFusion(using Map.empty, Set.empty)) }
+      this.defAndExpr._2.map { e => given Option[Ident] = None; R(e.rewriteFusion(using Map.empty)) }
       ::: this.defAndExpr._1.map { (id, body) =>
         given Option[Ident] = Some(id)
-        L(ProgDef(id, body.rewriteFusion(using Map.empty, Set.empty)))
+        L(ProgDef(id, body.rewriteFusion(using Map.empty)))
       }.toList
     )
   }
