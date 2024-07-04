@@ -14,12 +14,24 @@ We first propose a change list, and then provide detailed answers to your commen
 
 # Review #70A
 
-The setup is, unfortunately, fairly cumbersome. It's written in Scala, accepts -- alternatively -- Haskell syntax, and generates OCaml. Not many people (hopefully) will be in a situation like this one to reuse this software. While I love the contribution made by the authors, it's hard for me to see the artifact as a reference implementation: 
-  - what parts exist because of the setup, and what's intrinsic of the contribution? (sad given that the contribution is about eliminating intermediate representations)
-  - a handful of comments in the codebase, increasing the amount of detective work required;
-  - many pieces of code were commented out, rather than removed or given a rationale on why it's there.
+> The setup is, unfortunately, fairly cumbersome. It's written in Scala, accepts -- alternatively -- Haskell syntax, and generates OCaml. Not many people (hopefully) will be in a situation like this one to reuse this software.
 
-What I would've hoped for this artifact was the main contribution to exist standalone (either via a parametrised AST or the glue code to exist elsewhere).  For instance, `registerExprToType` in `Deforest.scala` is still dealing with quirks inherited from the Haskell syntax.
+We concur that the current setup seems to be less than ideal, and we do anticipate that later
+we will generate and test Mlscript programs directly instead of OCaml, which we currently rely on due to
+the flexibility of its type system and the availability of its optimizing native code compiler `ocamlopt`.
+While Mlscript has a very flexible type system, its optimizing compiler is still under active development so
+we are currently unable to further streamline the setup in this regard.
+As for the Haskell inputs, since we use the `nofib` test suites this is also somewhat unfortunately inevitable.
+We do hope that our port of the `nofib` tests can contribute to a more comprehensive call-by-value benchmark suite for functional programs.
+
+> While I love the contribution made by the authors, it's hard for me to see the artifact as a reference implementation: 
+>  - what parts exist because of the setup, and what's intrinsic of the contribution? (sad given that the contribution is about eliminating intermediate representations)
+
+>  - a handful of comments in the codebase, increasing the amount of detective work required;
+
+>  - many pieces of code were commented out, rather than removed or given a rationale on why it's there.
+
+> What I would've hoped for this artifact was the main contribution to exist standalone (either via a parametrised AST or the glue code to exist elsewhere).  For instance, `registerExprToType` in `Deforest.scala` is still dealing with quirks inherited from the Haskell syntax.
 
 
 
@@ -48,20 +60,37 @@ The artifact reaches functional quality. In particular:
 
 #### Complaints
 
-The evaluation failed on my AMD64 Linux machine. Although `bench.sh` seemingly finished without issues, `plot.sh` gave me the following error:
+> The evaluation failed on my AMD64 Linux machine. Although `bench.sh` seemingly finished without issues, `plot.sh` gave me the following error:
+> ```
+> Error in if (f(ratio)) { : missing value where TRUE/FALSE needed
+> Calls: sprintf -> unlist -> lapply -> FUN
+> Execution halted
+> ```
+> 
+> It nonetheless generated a time plot for me, which looked wrong. The size plot seems correct though. I will attach `time.txt` and `time.pdf` in a hotcrp comment.
+> 
+> In addition, `table.sh` also gave me an error, perhaps due to the `plot.sh` error:
+> ```
+>     lh = i[3]
+> IndexError: list index out of range
+> ```
+
+Thank you very much for reporting this and providing the detailed `time.txt` and `time.pdf` files!
+From `time.txt` it seems that the errors trace back to the fact that the test named `Fish` only
+outputs two lines of results (for the programs after Lumberhack's transformation) instead of four: there should also be results for the
+original and expanded programs.
+It is a bit surprising because in `time.txt`, the output of `Fish` starts with
+the following content, which says "4 benchmarks x 30s".
+
 ```
-Error in if (f(ratio)) { : missing value where TRUE/FALSE needed
-Calls: sprintf -> unlist -> lapply -> FUN
-Execution halted
+vvvv Fish_nofib_lh vvvv
+Estimated testing time 2m (4 benchmarks x 30s). Change using '-quota'.
 ```
 
-It nonetheless generated a time plot for me, which looked wrong. The size plot seems correct though. I will attach `time.txt` and `time.pdf` in a hotcrp comment.
+Unfortunately we have been unable to reproduce the error on our AMD64 machine so far.
+It could be helpful if files generated in "new-nofib-ocaml-gen/Fish_nofib_lh" are also available,
+and we are happy to look into this. Thank you!
 
-In addition, `table.sh` also gave me an error, perhaps due to the `plot.sh` error:
-```
-    lh = i[3]
-IndexError: list index out of range
-```
 
 #### Nitpicks
 
