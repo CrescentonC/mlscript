@@ -14,7 +14,7 @@ which are desugared into our core IR and transformed.
 Any other work can reuse the IR directly by converting their own AST to it. Of course, if the source language requires additional features that cannot easily be desugared into the IR, the IR may need small adaptations, but these should be straightforward for pure languages that Lumberhack currently focuses on.
 
 In addition, we will further clarify the installation and evaluation instructions in the `README.md` file,
-such that errors like those caused by test duration configuration, which vary from machine to machine,
+such that errors like those caused by test duration configurations, which vary from machine to machine,
 are documented more clearly.
 
 We also propose separating the core contribution into a self-contained and easy-to-compile Scala project that doesn't need any of the extra Haskell toolchain stuff (which is admittedly relatively cumbersome).
@@ -56,19 +56,20 @@ to further improve our `README.md` in general to enhance accessibility.
 
 ## Review #70C
 
-I was able to run and fully evaluate the provided docker for ARM64 architecture on an M1 MacBook Pro. However, I could only partially evaluate the AMD64 one on a Linux box, due to errors in executing `plot.sh` (perhaps `bench.sh` also threw some errors that I didn't catch). Nonetheless, I can verify that the artifact supports the claims in the paper and provides a reusable platform for future researchers.
+> I was able to run and fully evaluate the provided docker for ARM64 architecture on an M1 MacBook Pro. However, I could only partially evaluate the AMD64 one on a Linux box, due to errors in executing `plot.sh` (perhaps `bench.sh` also threw some errors that I didn't catch). Nonetheless, I can verify that the artifact supports the claims in the paper and provides a reusable platform for future researchers.
+> 
+> Note: the "Complaints" sections below are the things I hope the authors address, and "Nitpicks" are some minor comments that will strengthen the artifact IMO but not necessary; the authors may choose to address "nitpicks" if they think it is worth the effort.
 
-Note: the "Complaints" sections below are the things I hope the authors address, and "Nitpicks" are some minor comments that will strengthen the artifact IMO but not necessary; the authors may choose to address "nitpicks" if they think it is worth the effort.
+Thanks for the detailed feedback to help us polish our artifact to make it more accessible!
 
-## Functional
+> ## Functional
+> The artifact reaches functional quality. In particular:
+> - All benchmarks passed, and the generated plots for time and size look very similar to the corresponding figures in the paper.
+> - Almost all examples (except for a few small ones in section 3) presented in the paper are provided in the artifact as MLscript programs. These programs and their "after fusion" results correspond to the code in the paper fairly well.
 
-The artifact reaches functional quality. In particular:
+Thanks for mentioning the missing examples in section 3! We will include them in the updated version of this artifact.
 
-- All benchmarks passed, and the generated plots for time and size look very similar to the corresponding figures in the paper.
-- Almost all examples (except for a few small ones in section 3) presented in the paper are provided in the artifact as MLscript programs. These programs and their "after fusion" results correspond to the code in the paper fairly well.
-
-#### Complaints
-
+> #### Complaints
 > The evaluation failed on my AMD64 Linux machine. Although `bench.sh` seemingly finished without issues, `plot.sh` gave me the following error:
 > ```
 > Error in if (f(ratio)) { : missing value where TRUE/FALSE needed
@@ -86,40 +87,38 @@ The artifact reaches functional quality. In particular:
 
 Thank you very much for reporting this and providing the detailed `time.txt` and `time.pdf` files!
 From `time.txt` it seems that the errors trace back to the fact that the test named `Fish` only
-outputs two lines of results (for the programs after Lumberhack's transformation) instead of four: there should also be results for the
-original and expanded programs.
-It is a bit surprising because in `time.txt`, the output of `Fish` starts with
-the following content, which says "4 benchmarks x 30s".
+outputs two lines of results instead of four:
+there should also be results for the original and expanded programs.
 
+We are still working on reproducing the error on our AMD64 machine.
+This error is a bit surprising for us because in `time.txt`, the output of `Fish` starts with
+the following content, which says "4 benchmarks x 30s", but still it only outputs two results.
 ```
 vvvv Fish_nofib_lh vvvv
 Estimated testing time 2m (4 benchmarks x 30s). Change using '-quota'.
 ```
 
-Unfortunately we have been unable to reproduce the error on our AMD64 machine so far.
-It could be helpful if files generated in "new-nofib-ocaml-gen/Fish_nofib_lh" are also available,
-and we are happy to look into this. Thank you!
+We will update the artifact accordingly as soon as we find the cause and fix it.
+Thanks again for reporting this to us!
 
 
-#### Nitpicks
-
+> #### Nitpicks
 > The generated plots have the benchmarks in a different order than that in the paper. For example, the first 3 benchmarks on the second row are LCSS, Lambda and LastPiece in the paper, but they are Lambda, LastPiece and LCSS in the plots. It will make the correspondence easier to spot if they are arranged in the same way.
 
-TODO: Thanks. Will fix.
+Thanks! We will fix this in the updated version.
 
 
-## Reusable
+> ## Reusable
+> I believe the artifact is reusable. In particular:
+> - The README document is well-structured and well-written. I have no problem following the instructions to evaluate and play with the implementation.
+> - The inline feedback from compiling a program is helpful. I believe they can help readers understand the algorithm and implementation better. That said, there is still room for improvement (see below).
+> - I am able to provide my own programs (including some taken from existing literature) and exercise the deforestation process. This helps me understand the algorithm and limitation, as well as comparing to other approaches. It is also quite fun!
+> - Error messages are good enough. I deliberately introduced some syntactic mistakes, and most of the generated inline error messages are easy to understand and help me debug.
 
-I believe the artifact is reusable. In particular:
-
-- The README document is well-structured and well-written. I have no problem following the instructions to evaluate and play with the implementation.
-- The inline feedback from compiling a program is helpful. I believe they can help readers understand the algorithm and implementation better. That said, there is still room for improvement (see below).
-- I am able to provide my own programs (including some taken from existing literature) and exercise the deforestation process. This helps me understand the algorithm and limitation, as well as comparing to other approaches. It is also quite fun!
-- Error messages are good enough. I deliberately introduced some syntactic mistakes, and most of the generated inline error messages are easy to understand and help me debug.
+Thank you! We are glad that you found our diff-test approach with inlined feedback helpful in general.
 
 
-#### Complaints
-
+> #### Complaints
 > I cannot make sense of the "fusion matches" sections in the inline feedback. Take 2.1 (Fig.2) as an example:
 > 
 > ```
@@ -137,15 +136,34 @@ I believe the artifact is reusable. In particular:
 > 
 > What does it mean, and what are those numbers? I feel this section is important for understanding the algorithm, but it is hard to parse. I suggest the authors clarify this section in README, and ideally connect it to the paper.
 
-TODO: Basically mean the important fusion strategies for constructors (numbers are the ids for expressions),
-will explain more in the readme
+Thank you for the feedback!
+We concur that it is a pity we did not explain this well in the README file,
+and we could have made the pretty printing correspond closer to the
+fusion strategies presented in the paper.
+
+This "fusion matches" section prints out the important fusion strategies information
+for those data constructor calls and pattern-matching expressions that are deforested.
+Above the `------------------`, these information is shown as the consumer (case expression)
+that a producer flows into; and below that it shows the producers that a case expression consumes.
+We could have pretty print it to show that the fusion strategy
+of the expression `[Some 123]` is
+$$\{Some \langle v \mapsto Int \rangle \to v + 1; None \langle \rangle \to 0 \}$$
+to make it clearer how case expressions correspond to fusion strategies.
+
+At the end of the expressions, `: <number>` shows the unique id
+that Lumberhack assigns to each expression.
+The numbers in the superscripts are part of the name of identifiers.
+We also could have made it clearer in the README what those numbers mean.
+
+We will improve both the implementation such that the pretty print corresponds closer
+to the fusion strategies presented in the paper, and the README file such that
+this part of the output 
 
 
-#### Nitpicks
-
+> #### Nitpicks
 > - The error message for unbound / out-of-scope variables and unrecognized operator (e.g., `!=`) is not ideal (some uncaught Java error).
 > - It would be great if the inline feedback also shows the inferred strategies, or some information about the type inference process.
 > - Is there a way to run individual task *and* update the benchmark results? This is helpful when some benchmark fails (e.g., possibly on my Linux), and I need to change some parameters to fix it. I would like to avoid running the whole `bench.sh` again as it takes a long time. I guess at least I can run the individual task using the method in README and then manually copy-paste the output to `time.txt`.
 > - There are not much comments / documents in the Scala source code. While the lack of comments does not necessarily mean the code base is hard to understand (which I cannot testify due to my poor Scala fluency), I think some comments that connect the source code to the algorithm (e.g., Fig.4 and Fig.6) would be great. This can help future researchers build their work on this paper and artifact.
 
-TODO: will fix
+Thank you very much for the detailed list of feedback! We will improve these in the updated version.
