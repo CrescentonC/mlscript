@@ -27,20 +27,24 @@ We do hope that our port of the `nofib` tests can contribute to a more comprehen
 > While I love the contribution made by the authors, it's hard for me to see the artifact as a reference implementation: 
 >  - what parts exist because of the setup, and what's intrinsic of the contribution? (sad given that the contribution is about eliminating intermediate representations)
 
->  - a handful of comments in the codebase, increasing the amount of detective work required;
+TODO: Currently have the "Additional Description" part, can further improve the readme
 
+>  - a handful of comments in the codebase, increasing the amount of detective work required;
 >  - many pieces of code were commented out, rather than removed or given a rationale on why it's there.
+
+TODO: can further clean up the source
 
 > What I would've hoped for this artifact was the main contribution to exist standalone (either via a parametrised AST or the glue code to exist elsewhere).  For instance, `registerExprToType` in `Deforest.scala` is still dealing with quirks inherited from the Haskell syntax.
 
+TODO: Good idea, but need more work ...
 
 
 
 # Review #70B
 
-I recommend restructuring the README to provide clearer and more precise steps for different operations. This will help users follow the instructions more easily and reduce the likelihood of errors and enhance accessibility ; specifically during the installation process, configuration settings, and running various commands.
+> I recommend restructuring the README to provide clearer and more precise steps for different operations. This will help users follow the instructions more easily and reduce the likelihood of errors and enhance accessibility ; specifically during the installation process, configuration settings, and running various commands.
 
-
+TODO:
 
 
 
@@ -94,7 +98,9 @@ and we are happy to look into this. Thank you!
 
 #### Nitpicks
 
-The generated plots have the benchmarks in a different order than that in the paper. For example, the first 3 benchmarks on the second row are LCSS, Lambda and LastPiece in the paper, but they are Lambda, LastPiece and LCSS in the plots. It will make the correspondence easier to spot if they are arranged in the same way.
+> The generated plots have the benchmarks in a different order than that in the paper. For example, the first 3 benchmarks on the second row are LCSS, Lambda and LastPiece in the paper, but they are Lambda, LastPiece and LCSS in the plots. It will make the correspondence easier to spot if they are arranged in the same way.
+
+TODO: Thanks. Will fix.
 
 
 ## Reusable
@@ -109,26 +115,32 @@ I believe the artifact is reusable. In particular:
 
 #### Complaints
 
-I cannot make sense of the "fusion matches" sections in the inline feedback. Take 2.1 (Fig.2) as an example:
+> I cannot make sense of the "fusion matches" sections in the inline feedback. Take 2.1 (Fig.2) as an example:
+> 
+> ```
+> //│ >>>>>>> fusion matches >>>>>>>
+> //│ [Some 123]: 4 --->
+> //│     case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
+> //│ [None]: 5 --->
+> //│     case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
+> //│ ------------------
+> //│ case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16 --->
+> //│     [Some 123]: 4
+> //│     [None]: 5
+> //│ <<<<<<< fusion matches <<<<<<<
+> ```
+> 
+> What does it mean, and what are those numbers? I feel this section is important for understanding the algorithm, but it is hard to parse. I suggest the authors clarify this section in README, and ideally connect it to the paper.
 
-```
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Some 123]: 4 --->
-//│     case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
-//│ [None]: 5 --->
-//│     case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
-//│ ------------------
-//│ case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16 --->
-//│     [Some 123]: 4
-//│     [None]: 5
-//│ <<<<<<< fusion matches <<<<<<<
-```
+TODO: Basically mean the important fusion strategies for constructors (numbers are the ids for expressions),
+will explain more in the readme
 
-What does it mean, and what are those numbers? I feel this section is important for understanding the algorithm, but it is hard to parse. I suggest the authors clarify this section in README, and ideally connect it to the paper.
 
 #### Nitpicks
 
-- The error message for unbound / out-of-scope variables and unrecognized operator (e.g., `!=`) is not ideal (some uncaught Java error).
-- It would be great if the inline feedback also shows the inferred strategies, or some information about the type inference process.
-- Is there a way to run individual task *and* update the benchmark results? This is helpful when some benchmark fails (e.g., possibly on my Linux), and I need to change some parameters to fix it. I would like to avoid running the whole `bench.sh` again as it takes a long time. I guess at least I can run the individual task using the method in README and then manually copy-paste the output to `time.txt`.
-- There are not much comments / documents in the Scala source code. While the lack of comments does not necessarily mean the code base is hard to understand (which I cannot testify due to my poor Scala fluency), I think some comments that connect the source code to the algorithm (e.g., Fig.4 and Fig.6) would be great. This can help future researchers build their work on this paper and artifact.
+> - The error message for unbound / out-of-scope variables and unrecognized operator (e.g., `!=`) is not ideal (some uncaught Java error).
+> - It would be great if the inline feedback also shows the inferred strategies, or some information about the type inference process.
+> - Is there a way to run individual task *and* update the benchmark results? This is helpful when some benchmark fails (e.g., possibly on my Linux), and I need to change some parameters to fix it. I would like to avoid running the whole `bench.sh` again as it takes a long time. I guess at least I can run the individual task using the method in README and then manually copy-paste the output to `time.txt`.
+> - There are not much comments / documents in the Scala source code. While the lack of comments does not necessarily mean the code base is hard to understand (which I cannot testify due to my poor Scala fluency), I think some comments that connect the source code to the algorithm (e.g., Fig.4 and Fig.6) would be great. This can help future researchers build their work on this paper and artifact.
+
+TODO: will fix
