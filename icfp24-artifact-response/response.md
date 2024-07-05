@@ -1,55 +1,60 @@
 
 Thank you for the thorough and constructive reviews!
 
-We first propose a change list, and then provide detailed answers to your comments.
+We first provide a general response with our proposed changes, then provide detailed answers to your comments.
+
+# **1. General Response**
+
+Thanks for the suggestion to clarify our core contribution!
+We propose to make it clearer in the `README.md` file that the core contribution of this artifact is
+**the implementation of Lumberhack's fusion strategy inference and elaboration process performed on Lumberhack's core IR**.
+Other things such as the installation of the tree-sitter Haskell parser are just to handle the
+various input programs (including those in the _nofib_ benchmark suites),
+which are desugared into our core IR and transformed.
+Any other work can reuse the IR directly by converting their own AST to it. Of course, if the source language requires additional features that cannot easily be desugared into the IR, the IR may need small adaptations, but these should be straightforward for pure languages that Lumberhack currently focuses on.
+
+In addition, we will further clarify the installation and evaluation instructions in the `README.md` file,
+such that errors like those caused by test duration configuration, which vary from machine to machine,
+are documented more clearly.
+
+We also propose separating the core contribution into a self-contained and easy-to-compile Scala project that doesn't need any of the extra Haskell toolchain stuff (which is admittedly relatively cumbersome).
+This will further enable us to clean up the code and present a more standalone
+and user-friendly implementation of Lumberhack that corresponds closely to the paper.
+
+For the pipeline to run _nofib_ benchmarks and generate related plots and figures in the paper,
+we also propose to make it more convenient and robust such that fewer unexpected errors will occur.
 
 
-# **2. CHANGE LIST**
+# **2. DETAILED RESPONSE**
 
-
-
-# **3. DETAILED RESPONSE**
-
-
-
-# Review #70A
+## Review #70A
 
 > The setup is, unfortunately, fairly cumbersome. It's written in Scala, accepts -- alternatively -- Haskell syntax, and generates OCaml. Not many people (hopefully) will be in a situation like this one to reuse this software.
-
-We concur that the current setup seems to be less than ideal, and we do anticipate that later
-we will generate and test Mlscript programs directly instead of OCaml, which we currently rely on due to
-the flexibility of its type system and the availability of its optimizing native code compiler `ocamlopt`.
-While Mlscript has a very flexible type system, its optimizing compiler is still under active development so
-we are currently unable to further streamline the setup in this regard.
-As for the Haskell inputs, since we use the `nofib` test suites this is also somewhat unfortunately inevitable.
-We do hope that our port of the `nofib` tests can contribute to a more comprehensive call-by-value benchmark suite for functional programs.
-
 > While I love the contribution made by the authors, it's hard for me to see the artifact as a reference implementation: 
 >  - what parts exist because of the setup, and what's intrinsic of the contribution? (sad given that the contribution is about eliminating intermediate representations)
 
-TODO: Currently have the "Additional Description" part, can further improve the readme
+Thanks for the suggestion! As mentioned in the general response,
+we propose to make it clearer in the `README.md` file what is the core contribution of this artifact and clarify where they are located in the code base in addition to the existing explanation
+in the "Additional Artifact Description" section.
 
 >  - a handful of comments in the codebase, increasing the amount of detective work required;
 >  - many pieces of code were commented out, rather than removed or given a rationale on why it's there.
-
-TODO: can further clean up the source
-
 > What I would've hoped for this artifact was the main contribution to exist standalone (either via a parametrised AST or the glue code to exist elsewhere).  For instance, `registerExprToType` in `Deforest.scala` is still dealing with quirks inherited from the Haskell syntax.
 
-TODO: Good idea, but need more work ...
+Thanks for pointing these out! As mentioned in the general response,
+we propose to further clean up the code and present a more standalone implementation of Lumberhack.
 
 
-
-# Review #70B
+## Review #70B
 
 > I recommend restructuring the README to provide clearer and more precise steps for different operations. This will help users follow the instructions more easily and reduce the likelihood of errors and enhance accessibility ; specifically during the installation process, configuration settings, and running various commands.
 
-TODO:
+Thank you for the comments! As mentioned in the general response, we propose
+to further improve our `README.md` in general to enhance accessibility.
 
 
 
-
-# Review #70C
+## Review #70C
 
 I was able to run and fully evaluate the provided docker for ARM64 architecture on an M1 MacBook Pro. However, I could only partially evaluate the AMD64 one on a Linux box, due to errors in executing `plot.sh` (perhaps `bench.sh` also threw some errors that I didn't catch). Nonetheless, I can verify that the artifact supports the claims in the paper and provides a reusable platform for future researchers.
 
