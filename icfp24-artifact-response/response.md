@@ -34,8 +34,8 @@ we also propose to make it more convenient and robust such that fewer unexpected
 >  - what parts exist because of the setup, and what's intrinsic of the contribution? (sad given that the contribution is about eliminating intermediate representations)
 
 Thanks for the suggestion! As mentioned in the general response,
-we propose to make it clearer in the `README.md` file what is the core contribution of this artifact and clarify where they are located in the code base in addition to the existing explanation
-in the "Additional Artifact Description" section.
+we propose to make it clearer in the `README.md` file what the core contribution of this artifact is and clarify where they are located in the code base in addition to the existing explanations
+in the "Additional Artifact Description" section in README.
 
 >  - a handful of comments in the codebase, increasing the amount of detective work required;
 >  - many pieces of code were commented out, rather than removed or given a rationale on why it's there.
@@ -145,19 +145,19 @@ This "fusion matches" section prints out the important fusion strategies informa
 for those data constructor calls and pattern-matching expressions that are deforested.
 Above the `------------------`, these information is shown as the consumer (case expression)
 that a producer flows into; and below that it shows the producers that a case expression consumes.
-We could have pretty print it to show that the fusion strategy
+To make it clearer, for example, we could have pretty printed it to show that the fusion strategy
 of the expression `[Some 123]` is
 $$\{Some \langle v \mapsto Int \rangle \to v + 1; None \langle \rangle \to 0 \}$$
-to make it clearer how case expressions correspond to fusion strategies.
+to further show how the implementation corresponds to the fusion strategies presented in the paper.
 
 At the end of the expressions, `: <number>` shows the unique id
 that Lumberhack assigns to each expression.
 The numbers in the superscripts are part of the name of identifiers.
-We also could have made it clearer in the README what those numbers mean.
+We also could have made these numbers less noisy in the pretty printing and clarify them in README.
 
-We will improve both the implementation such that the pretty print corresponds closer
+We will improve both the implementation such that the pretty printing corresponds closer
 to the fusion strategies presented in the paper, and the README file such that
-this part of the output 
+this part of the output is further clarified.
 
 
 > #### Nitpicks
