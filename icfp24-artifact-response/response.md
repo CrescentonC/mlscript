@@ -147,7 +147,7 @@ Above the `------------------`, these information is shown as the consumer (case
 that a producer flows into; and below that it shows the producers that a case expression consumes.
 To make it clearer, for example, we could have pretty printed it to show that the fusion strategy
 of the expression `[Some 123]` is
-$$\{Some \langle v \mapsto Int \rangle \to v + 1; None \langle \rangle \to 0 \}$$
+$$\lbrace Some \langle v \mapsto Int \rangle \to v + 1; None \langle \rangle \to 0 \rbrace$$
 to further show how the implementation corresponds to the fusion strategies presented in the paper.
 
 At the end of the expressions, `: <number>` shows the unique id
