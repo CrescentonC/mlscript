@@ -91,7 +91,7 @@ outputs two lines of results instead of four:
 there should also be results for the original and expanded programs.
 
 We are still working on reproducing the error on our AMD64 machine.
-This error is a bit surprising for us because in `time.txt`, the output of `Fish` starts with
+This error is a bit surprising for us because `time.txt` shows that the output of `Fish` starts with
 the following content, which says "4 benchmarks x 30s", but still it only outputs two results.
 ```
 vvvv Fish_nofib_lh vvvv
@@ -143,7 +143,7 @@ fusion strategies presented in the paper.
 
 This "fusion matches" section prints out the important fusion strategies information
 for those data constructor calls and pattern-matching expressions that are deforested.
-Above the `------------------`, these information is shown as the consumer (case expression)
+Above the `------------------`, this information is shown as the consumer (case expression)
 that a producer flows into; and below that it shows the producers that a case expression consumes.
 To make it clearer, for example, we could have pretty printed it to show that the fusion strategy
 of the expression `[Some 123]` is
@@ -153,7 +153,7 @@ to further show how the implementation corresponds to the fusion strategies pres
 At the end of the expressions, `: <number>` shows the unique id
 that Lumberhack assigns to each expression.
 The numbers in the superscripts are part of the name of identifiers.
-We also could have made these numbers less noisy in the pretty printing and clarify them in README.
+We also could have made these numbers less distracting in the pretty printing and clarified them in README.
 
 We will improve both the implementation such that the pretty printing corresponds closer
 to the fusion strategies presented in the paper, and the README file such that
