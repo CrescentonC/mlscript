@@ -1240,69 +1240,6 @@ testPara_nofib $ primId 0
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [LH_P2 take_lh_₁(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹) drop_lh_₂(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹)]: 72 --->
-//│ 	case _lh_matchIdent⁴ of {LH_P2 _lh_tail'_LH_P2_0¹ _lh_tail'_LH_P2_1¹ => [LH_P2 reverse_lh_₁(_lh_tail'_LH_P2_1¹) _lh_tail'_LH_P2_0¹]}: 774
-//│ [LH_C h⁴ filter_lh_₁(f⁰, t⁴)]: 212 --->
-//│ 	case ls¹⁶ of {LH_C h²¹ t²¹ => [LH_C f⁶(h²¹) map_lh_₁(f⁶, t²¹)] | LH_N  => [LH_N]}: 1644
-//│ [LH_N]: 219 --->
-//│ 	case ls¹⁶ of {LH_C h²¹ t²¹ => [LH_C f⁶(h²¹) map_lh_₁(f⁶, t²¹)] | LH_N  => [LH_N]}: 1644
-//│ [LH_N]: 225 --->
-//│ 	case _lh_matchIdent⁶ of {LH_N  => [LH_N] | LH_C _lh_lines_LH_C_0⁰ _lh_lines_LH_C_1⁰ => lines_lh_₁(_lh_lines_LH_C_1⁰)}: 947
-//│ [LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰]: 233 --->
-//│ 	case _lh_matchIdent⁶ of {LH_N  => [LH_N] | LH_C _lh_lines_LH_C_0⁰ _lh_lines_LH_C_1⁰ => lines_lh_₁(_lh_lines_LH_C_1⁰)}: 947
-//│ [LH_N]: 294 --->
-//│ 	case _lh_matchIdent⁷ of {LH_N  => [LH_N] | LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰ => let _lh_matchIdent⁸ = break_lh_₁(isSpace_lh_₁, [LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰])
-//│ in case _lh_matchIdent⁸ of {LH_P2 _lh_words_LH_P2_0⁰ _lh_words_LH_P2_1⁰ => [LH_C _lh_words_LH_P2_0⁰ words_lh_₁(_lh_words_LH_P2_1⁰)]}}: 975
-//│ [LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰]: 305 --->
-//│ 	case _lh_matchIdent⁷ of {LH_N  => [LH_N] | LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰ => let _lh_matchIdent⁸ = break_lh_₁(isSpace_lh_₁, [LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰])
-//│ in case _lh_matchIdent⁸ of {LH_P2 _lh_words_LH_P2_0⁰ _lh_words_LH_P2_1⁰ => [LH_C _lh_words_LH_P2_0⁰ words_lh_₁(_lh_words_LH_P2_1⁰)]}}: 975
-//│ [LH_C f¹(h⁵) map_lh_₆(f¹, t⁵)]: 319 --->
-//│ 	case lss⁰ of {LH_C h⁶ t⁶ => mappend_lh_₁₃(h⁶, concat_lh_₂(t⁶)) | LH_N  => [LH_N]}: 333
-//│ [LH_N]: 320 --->
-//│ 	case lss⁰ of {LH_C h⁶ t⁶ => mappend_lh_₁₃(h⁶, concat_lh_₂(t⁶)) | LH_N  => [LH_N]}: 333
-//│ [LH_P2 [LH_N] [LH_N]]: 827 --->
-//│ 	case _lh_cons'_arg2² of {LH_P2 _lh_cons'_LH_P2_0² _lh_cons'_LH_P2_1² => if not⁰(null_lh_₃(_lh_cons'_LH_P2_1²)) then [LH_P2 [LH_C _lh_cons'_arg1² _lh_cons'_LH_P2_0²] _lh_cons'_LH_P2_1²] else [LH_P2 [LH_C _lh_cons'_arg1² [LH_N]] _lh_cons'_LH_P2_0²]}: 846
-//│ [LH_P2 take_lh_₁(_lh_splitAt_arg1², _lh_splitAt_arg2²) drop_lh_₂(_lh_splitAt_arg1², _lh_splitAt_arg2²)]: 859 --->
-//│ 	case _lh_matchIdent⁹ of {LH_P2 _lh_tile_LH_P2_0¹ _lh_tile_LH_P2_1¹ => [LH_C _lh_tile_LH_P2_0¹ tile_lh_₁(_lh_tile_LH_P2_1¹, [LH_P2 drop_lh_₁(l¹, [LH_C _lh_tile_LH_C_0⁰ _lh_tile_LH_C_1⁰]) _lh_tile_LH_C_0⁰])]}: 1525
-//│ [LH_N]: 943 --->
-//│ 	case ls¹⁰ of {LH_C h¹⁴ t¹⁴ => [LH_C f²(h¹⁴) map_lh_₅(f², t¹⁴)] | LH_N  => [LH_N]}: 908
-//│ [LH_C _lh_lines_LH_P2_0⁰ let _lh_matchIdent⁶ = _lh_lines_LH_P2_1⁰
-//│ in case _lh_matchIdent⁶ of {LH_N  => [LH_N] | LH_C _lh_lines_LH_C_0⁰ _lh_lines_LH_C_1⁰ => lines_lh_₁(_lh_lines_LH_C_1⁰)}]: 949 --->
-//│ 	case ls¹⁰ of {LH_C h¹⁴ t¹⁴ => [LH_C f²(h¹⁴) map_lh_₅(f², t¹⁴)] | LH_N  => [LH_N]}: 908
-//│ [LH_C f³(h¹⁵) map_lh_₄(f³, t¹⁵)]: 987 --->
-//│ 	case ls⁶ of {LH_C h⁵ t⁵ => [LH_C f¹(h⁵) map_lh_₆(f¹, t⁵)] | LH_N  => [LH_N]}: 321
-//│ [LH_N]: 988 --->
-//│ 	case ls⁶ of {LH_C h⁵ t⁵ => [LH_C f¹(h⁵) map_lh_₆(f¹, t⁵)] | LH_N  => [LH_N]}: 321
-//│ ------------------
-//│ case ls⁶ of {LH_C h⁵ t⁵ => [LH_C f¹(h⁵) map_lh_₆(f¹, t⁵)] | LH_N  => [LH_N]}: 321 --->
-//│ 	[LH_C f³(h¹⁵) map_lh_₄(f³, t¹⁵)]: 987
-//│ 	[LH_N]: 988
-//│ case lss⁰ of {LH_C h⁶ t⁶ => mappend_lh_₁₃(h⁶, concat_lh_₂(t⁶)) | LH_N  => [LH_N]}: 333 --->
-//│ 	[LH_C f¹(h⁵) map_lh_₆(f¹, t⁵)]: 319
-//│ 	[LH_N]: 320
-//│ case _lh_matchIdent⁴ of {LH_P2 _lh_tail'_LH_P2_0¹ _lh_tail'_LH_P2_1¹ => [LH_P2 reverse_lh_₁(_lh_tail'_LH_P2_1¹) _lh_tail'_LH_P2_0¹]}: 774 --->
-//│ 	[LH_P2 take_lh_₁(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹) drop_lh_₂(_lh_splitAt_arg1¹, _lh_splitAt_arg2¹)]: 72
-//│ case _lh_cons'_arg2² of {LH_P2 _lh_cons'_LH_P2_0² _lh_cons'_LH_P2_1² => if not⁰(null_lh_₃(_lh_cons'_LH_P2_1²)) then [LH_P2 [LH_C _lh_cons'_arg1² _lh_cons'_LH_P2_0²] _lh_cons'_LH_P2_1²] else [LH_P2 [LH_C _lh_cons'_arg1² [LH_N]] _lh_cons'_LH_P2_0²]}: 846 --->
-//│ 	[LH_P2 [LH_N] [LH_N]]: 827
-//│ case ls¹⁰ of {LH_C h¹⁴ t¹⁴ => [LH_C f²(h¹⁴) map_lh_₅(f², t¹⁴)] | LH_N  => [LH_N]}: 908 --->
-//│ 	[LH_N]: 943
-//│ 	[LH_C _lh_lines_LH_P2_0⁰ let _lh_matchIdent⁶ = _lh_lines_LH_P2_1⁰
-//│ in case _lh_matchIdent⁶ of {LH_N  => [LH_N] | LH_C _lh_lines_LH_C_0⁰ _lh_lines_LH_C_1⁰ => lines_lh_₁(_lh_lines_LH_C_1⁰)}]: 949
-//│ case _lh_matchIdent⁶ of {LH_N  => [LH_N] | LH_C _lh_lines_LH_C_0⁰ _lh_lines_LH_C_1⁰ => lines_lh_₁(_lh_lines_LH_C_1⁰)}: 947 --->
-//│ 	[LH_N]: 225
-//│ 	[LH_C _lh_break_LH_C_0⁰ _lh_break_LH_C_1⁰]: 233
-//│ case _lh_matchIdent⁷ of {LH_N  => [LH_N] | LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰ => let _lh_matchIdent⁸ = break_lh_₁(isSpace_lh_₁, [LH_C _lh_words_LH_C_0⁰ _lh_words_LH_C_1⁰])
-//│ in case _lh_matchIdent⁸ of {LH_P2 _lh_words_LH_P2_0⁰ _lh_words_LH_P2_1⁰ => [LH_C _lh_words_LH_P2_0⁰ words_lh_₁(_lh_words_LH_P2_1⁰)]}}: 975 --->
-//│ 	[LH_N]: 294
-//│ 	[LH_C _lh_dropWhile_LH_C_0⁰ _lh_dropWhile_LH_C_1⁰]: 305
-//│ case _lh_matchIdent⁹ of {LH_P2 _lh_tile_LH_P2_0¹ _lh_tile_LH_P2_1¹ => [LH_C _lh_tile_LH_P2_0¹ tile_lh_₁(_lh_tile_LH_P2_1¹, [LH_P2 drop_lh_₁(l¹, [LH_C _lh_tile_LH_C_0⁰ _lh_tile_LH_C_1⁰]) _lh_tile_LH_C_0⁰])]}: 1525 --->
-//│ 	[LH_P2 take_lh_₁(_lh_splitAt_arg1², _lh_splitAt_arg2²) drop_lh_₂(_lh_splitAt_arg1², _lh_splitAt_arg2²)]: 859
-//│ case ls¹⁶ of {LH_C h²¹ t²¹ => [LH_C f⁶(h²¹) map_lh_₁(f⁶, t²¹)] | LH_N  => [LH_N]}: 1644 --->
-//│ 	[LH_C h⁴ filter_lh_₁(f⁰, t⁴)]: 212
-//│ 	[LH_N]: 219
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testPara_nofib_lh_₁(primId⁰(0))
 //│ def break_lh_₁(_lh_break_arg1², _lh_break_arg2²) = case _lh_break_arg2² of {

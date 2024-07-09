@@ -199,42 +199,6 @@ testCryptarithm_nofib $ primId 1
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)]: 275 --->
-//│ 	case _lh_permutations_arg1⁰ of {LH_N  => [LH_C [LH_N] [LH_N]] | LH_C _lh_permutations_LH_C_0⁰ _lh_permutations_LH_C_1⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => [LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)] | LH_N  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)})
-//│ in _lh_listcomp_fun²(addj_lh_₁(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹)) | LH_N  => [LH_N]})
-//│ in _lh_listcomp_fun¹(permutations_lh_₁(_lh_permutations_LH_C_1⁰))}: 369
-//│ [LH_N]: 276 --->
-//│ 	case _lh_permutations_arg1⁰ of {LH_N  => [LH_C [LH_N] [LH_N]] | LH_C _lh_permutations_LH_C_0⁰ _lh_permutations_LH_C_1⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => [LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)] | LH_N  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)})
-//│ in _lh_listcomp_fun²(addj_lh_₁(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹)) | LH_N  => [LH_N]})
-//│ in _lh_listcomp_fun¹(permutations_lh_₁(_lh_permutations_LH_C_1⁰))}: 369
-//│ [LH_N]: 278 --->
-//│ 	case _lh_permutations_arg1⁰ of {LH_N  => [LH_C [LH_N] [LH_N]] | LH_C _lh_permutations_LH_C_0⁰ _lh_permutations_LH_C_1⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => [LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)] | LH_N  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)})
-//│ in _lh_listcomp_fun²(addj_lh_₁(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹)) | LH_N  => [LH_N]})
-//│ in _lh_listcomp_fun¹(permutations_lh_₁(_lh_permutations_LH_C_1⁰))}: 369
-//│ [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)]: 311 --->
-//│ 	case ls⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)] | LH_N  => [LH_N]}: 277
-//│ [LH_N]: 312 --->
-//│ 	case ls⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)] | LH_N  => [LH_N]}: 277
-//│ [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)]: 331 --->
-//│ 	case ls¹ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 293
-//│ [LH_N]: 332 --->
-//│ 	case ls¹ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 293
-//│ ------------------
-//│ case ls⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)] | LH_N  => [LH_N]}: 277 --->
-//│ 	[LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)]: 311
-//│ 	[LH_N]: 312
-//│ case ls¹ of {LH_C h¹ t¹ => [LH_C f⁰(h¹) map_lh_₁(f⁰, t¹)] | LH_N  => [LH_N]}: 293 --->
-//│ 	[LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)]: 331
-//│ 	[LH_N]: 332
-//│ case _lh_permutations_arg1⁰ of {LH_N  => [LH_C [LH_N] [LH_N]] | LH_C _lh_permutations_LH_C_0⁰ _lh_permutations_LH_C_1⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => let _lh_listcomp_fun² = (fun _lh_listcomp_fun_para² -> case _lh_listcomp_fun_para² of {LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun_ls_t² => [LH_C _lh_listcomp_fun_ls_h² _lh_listcomp_fun²(_lh_listcomp_fun_ls_t²)] | LH_N  => _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)})
-//│ in _lh_listcomp_fun²(addj_lh_₁(_lh_permutations_LH_C_0⁰, _lh_listcomp_fun_ls_h¹)) | LH_N  => [LH_N]})
-//│ in _lh_listcomp_fun¹(permutations_lh_₁(_lh_permutations_LH_C_1⁰))}: 369 --->
-//│ 	[LH_C h⁰ take_lh_₁((n⁰ - 1), t⁰)]: 275
-//│ 	[LH_N]: 276
-//│ 	[LH_N]: 278
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testCryptarithm_nofib_lh_₁(primId⁰(1))
 //│ def addj_lh_₁(_lh_addj_arg1⁰, _lh_addj_arg2⁰) = case _lh_addj_arg2⁰ of {

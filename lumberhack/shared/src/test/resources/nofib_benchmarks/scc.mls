@@ -235,12 +235,6 @@ testScc_nofib $ primId 0
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ 
-//│ ------------------
-//│ 
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testScc_nofib_lh_₁(primId⁰(0))
 //│ def dfs_lh_₁(_lh_dfs_arg1¹, _lh_dfs_arg2¹, _lh_dfs_arg3¹) = case _lh_dfs_arg2¹ of {

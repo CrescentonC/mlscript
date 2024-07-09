@@ -234,55 +234,6 @@ testMandel_nofib $ primId 0
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Complex ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_0¹) -. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_1¹)) ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_1¹) +. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_0¹))]: 47 --->
-//│ 	case _lh_comp_plus_arg1⁰ of {Complex _lh_comp_plus_Complex_0⁰ _lh_comp_plus_Complex_1⁰ => case _lh_comp_plus_arg2⁰ of {Complex _lh_comp_plus_Complex_0¹ _lh_comp_plus_Complex_1¹ => [Complex (_lh_comp_plus_Complex_0⁰ +. _lh_comp_plus_Complex_0¹) (_lh_comp_plus_Complex_1⁰ +. _lh_comp_plus_Complex_1¹)]}}: 66
-//│ [LH_N]: 125 --->
-//│ 	case _lh_matchIdent¹ of {LH_N  => 0 | LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))}: 167
-//│ [LH_C _lh_take_lz_lz_LH_C_0⁰ take_lz_lz_lh_₁((_lh_take_lz_lz_arg1⁰ - 1), _lh_take_lz_lz_LH_C_1⁰)]: 138 --->
-//│ 	case _lh_matchIdent¹ of {LH_N  => 0 | LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))}: 167
-//│ [LH_N]: 143 --->
-//│ 	case _lh_matchIdent¹ of {LH_N  => 0 | LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))}: 167
-//│ [LH_C f¹(h¹) map_lh_₂(f¹, t¹)]: 192 --->
-//│ 	case ls³ of {LH_C h² t² => [LH_C f²(h²) map_lh_₁(f², t²)] | LH_N  => [LH_N]}: 208
-//│ [LH_N]: 193 --->
-//│ 	case ls³ of {LH_C h² t² => [LH_C f²(h²) map_lh_₁(f², t²)] | LH_N  => [LH_N]}: 208
-//│ [LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)]: 226 --->
-//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)})
-//│ in _lh_listcomp_fun¹(enumFromTo_lh_₁(1, _lh_mandelset_arg5⁰)) | LH_N  => [LH_N]}: 364
-//│ [LH_N]: 227 --->
-//│ 	case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)})
-//│ in _lh_listcomp_fun¹(enumFromTo_lh_₁(1, _lh_mandelset_arg5⁰)) | LH_N  => [LH_N]}: 364
-//│ [LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)]: 258 --->
-//│ 	case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}: 353
-//│ [LH_N]: 259 --->
-//│ 	case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}: 353
-//│ [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)]: 349 --->
-//│ 	case ls² of {LH_C h¹ t¹ => [LH_C f¹(h¹) map_lh_₂(f¹, t¹)] | LH_N  => [LH_N]}: 194
-//│ [LH_N]: 363 --->
-//│ 	case ls² of {LH_C h¹ t¹ => [LH_C f¹(h¹) map_lh_₂(f¹, t¹)] | LH_N  => [LH_N]}: 194
-//│ ------------------
-//│ case _lh_comp_plus_arg1⁰ of {Complex _lh_comp_plus_Complex_0⁰ _lh_comp_plus_Complex_1⁰ => case _lh_comp_plus_arg2⁰ of {Complex _lh_comp_plus_Complex_0¹ _lh_comp_plus_Complex_1¹ => [Complex (_lh_comp_plus_Complex_0⁰ +. _lh_comp_plus_Complex_0¹) (_lh_comp_plus_Complex_1⁰ +. _lh_comp_plus_Complex_1¹)]}}: 66 --->
-//│ 	[Complex ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_0¹) -. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_1¹)) ((_lh_comp_times_Complex_0⁰ *. _lh_comp_times_Complex_1¹) +. (_lh_comp_times_Complex_1⁰ *. _lh_comp_times_Complex_0¹))]: 47
-//│ case _lh_matchIdent¹ of {LH_N  => 0 | LH_C _lh_whenDiverge_LH_C_0⁰ _lh_whenDiverge_LH_C_1⁰ => if diverge_lh_₁(_lh_whenDiverge_LH_C_0⁰, _lh_whenDiverge_arg2⁰) then 0 else (1 + walkIt⁰(_lh_whenDiverge_LH_C_1⁰))}: 167 --->
-//│ 	[LH_N]: 125
-//│ 	[LH_C _lh_take_lz_lz_LH_C_0⁰ take_lz_lz_lh_₁((_lh_take_lz_lz_arg1⁰ - 1), _lh_take_lz_lz_LH_C_1⁰)]: 138
-//│ 	[LH_N]: 143
-//│ case ls² of {LH_C h¹ t¹ => [LH_C f¹(h¹) map_lh_₂(f¹, t¹)] | LH_N  => [LH_N]}: 194 --->
-//│ 	[LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)]: 349
-//│ 	[LH_N]: 363
-//│ case ls³ of {LH_C h² t² => [LH_C f²(h²) map_lh_₁(f², t²)] | LH_N  => [LH_N]}: 208 --->
-//│ 	[LH_C f¹(h¹) map_lh_₂(f¹, t¹)]: 192
-//│ 	[LH_N]: 193
-//│ case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)}: 353 --->
-//│ 	[LH_C a¹ enumFromTo_lh_₁((a¹ + 1), b¹)]: 258
-//│ 	[LH_N]: 259
-//│ case _lh_listcomp_fun_para⁰ of {LH_C _lh_listcomp_fun_ls_h⁰ _lh_listcomp_fun_ls_t⁰ => let _lh_listcomp_fun¹ = (fun _lh_listcomp_fun_para¹ -> case _lh_listcomp_fun_para¹ of {LH_C _lh_listcomp_fun_ls_h¹ _lh_listcomp_fun_ls_t¹ => [LH_C windowToViewport⁰(_lh_listcomp_fun_ls_h¹, _lh_listcomp_fun_ls_h⁰) _lh_listcomp_fun¹(_lh_listcomp_fun_ls_t¹)] | LH_N  => _lh_listcomp_fun⁰(_lh_listcomp_fun_ls_t⁰)})
-//│ in _lh_listcomp_fun¹(enumFromTo_lh_₁(1, _lh_mandelset_arg5⁰)) | LH_N  => [LH_N]}: 364 --->
-//│ 	[LH_C a⁰ enumFromTo_lh_₂((a⁰ + 1), b⁰)]: 226
-//│ 	[LH_N]: 227
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMandel_nofib_lh_₁(primId⁰(0))
 //│ def comp_magnitude_lh_₁(_lh_comp_magnitude_arg1⁰) = case _lh_comp_magnitude_arg1⁰ of {

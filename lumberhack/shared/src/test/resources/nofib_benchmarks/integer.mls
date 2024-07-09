@@ -194,12 +194,6 @@ testInteger_nofib $ primId (const14000001)
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ 
-//│ ------------------
-//│ 
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testInteger_nofib_lh_₁(primId⁰(const14000001_lh_₁))
 //│ def const0_lh_₁ = z_of_int⁰(0)

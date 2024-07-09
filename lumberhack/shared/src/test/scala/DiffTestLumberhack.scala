@@ -154,13 +154,13 @@ class DiffTestLumberhack extends DiffTests {
       output("------------------")
       output(fusionStrategy.ppDtorFinalSources)
       output("<<<<<<< fusion matches <<<<<<<")
+      output("\n>>>>>>> fusion matches >>>>>>>")
+      output(fusionStrategy.ppCtorMap(fusionStrategy.finallyFilteredStrategies._1))
+      output("------------------")
+      output(fusionStrategy.ppDtorMap(fusionStrategy.finallyFilteredStrategies._2))
+      output("<<<<<<< fusion matches <<<<<<<")
     }
 
-    output("\n>>>>>>> fusion matches >>>>>>>")
-    output(fusionStrategy.ppCtorMap(fusionStrategy.finallyFilteredStrategies._1))
-    output("------------------")
-    output(fusionStrategy.ppDtorMap(fusionStrategy.finallyFilteredStrategies._2))
-    output("<<<<<<< fusion matches <<<<<<<")
 
 
     val prgmAfterFusion = p.rewrite(d, fusionStrategy)

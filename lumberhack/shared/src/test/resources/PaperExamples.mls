@@ -51,17 +51,6 @@ testFig1(primId(mk(10000)))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Nil]: 22 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
-//│ [Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
-//│ ------------------
-//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12 --->
-//│ 	[Nil]: 22
-//│ 	[Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testFig1_lh_₁(primId⁰(mk_lh_₁(10000)))
 //│ def double_lh_₁(x⁰) = (x⁰ * 2)
@@ -108,17 +97,6 @@ main
 //│ def producer_lh_₁(y⁰) = if y⁰ then [Some 123] else [None]
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Some 123]: 4 --->
-//│ 	case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
-//│ [None]: 5 --->
-//│ 	case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16
-//│ ------------------
-//│ case x⁰ of {Some v⁰ => (v⁰ + 1) | None  => 0}: 16 --->
-//│ 	[Some 123]: 4
-//│ 	[None]: 5
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ main_lh_₁
 //│ def bar_lh_₁ = primitive⁰
@@ -149,14 +127,6 @@ main(primitive)
 //│ 	Unit  => error⁰([Unit])} else 0
 //│ def main_lh_₁(x¹) = foo_lh_₁(x¹, [Unit])
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
-//│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Unit]: 14 --->
-//│ 	case y⁰ of {Unit  => error⁰([Unit])}: 6
-//│ ------------------
-//│ case y⁰ of {Unit  => error⁰([Unit])}: 6 --->
-//│ 	[Unit]: 14
-//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ main_lh_₁(primitive⁰)
@@ -200,17 +170,6 @@ test24FusingRecursiveFunction(primId(10000))
 //│ 		(test24FusingRecursiveFunction_lh__d1 10000)
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
-//│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Cons n⁰ enumerate_lh_₁((n⁰ - 1))]: 25 --->
-//│ 	case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10
-//│ [Nil]: 26 --->
-//│ 	case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10
-//│ ------------------
-//│ case xs⁰ of {Nil  => 0 | Cons x⁰ xs¹ => (x⁰ + sum_lh_₁(xs¹))}: 10 --->
-//│ 	[Cons n⁰ enumerate_lh_₁((n⁰ - 1))]: 25
-//│ 	[Nil]: 26
-//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test24FusingRecursiveFunction_lh_₁(primId⁰(10000))
@@ -279,17 +238,6 @@ test25ComputationWithFreeVariables(primId(mk(10000)))
 //│ 		(test25ComputationWithFreeVariables_lh__d1 (mk_lh__d1 10000))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
-//│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Nil]: 22 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
-//│ [Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12
-//│ ------------------
-//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₂(f⁰, xs¹)]}: 12 --->
-//│ 	[Nil]: 22
-//│ 	[Cons f¹(x²) map_lh_₁(f¹, xs³)]: 31
-//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test25ComputationWithFreeVariables_lh_₁(primId⁰(mk_lh_₁(10000)))
@@ -363,17 +311,6 @@ test262NonfusibleProgramsMapRev(primId(mk(10000)))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Cons x¹ acc⁰]: 21 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12
-//│ [Nil]: 39 --->
-//│ 	case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12
-//│ ------------------
-//│ case xs⁰ of {Nil  => [Nil] | Cons x⁰ xs¹ => [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]}: 12 --->
-//│ 	[Cons x¹ acc⁰]: 21
-//│ 	[Nil]: 39
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test262NonfusibleProgramsMapRev_lh_₁(primId⁰(mk_lh_₁(10000)))
 //│ def incr_lh_₁(x⁰) = (x⁰ + 1)
@@ -445,17 +382,6 @@ test262NonfusibleProgramsRevMap(primId(mk(10000)))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Nil]: 2 --->
-//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24
-//│ [Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11 --->
-//│ 	case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24
-//│ ------------------
-//│ case xs² of {Cons x¹ xs³ => rev_lh_₁(xs³, [Cons x¹ acc⁰]) | Nil  => acc⁰}: 24 --->
-//│ 	[Nil]: 2
-//│ 	[Cons f⁰(x⁰) map_lh_₁(f⁰, xs¹)]: 11
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test262NonfusibleProgramsRevMap_lh_₁(primId⁰(mk_lh_₁(10000)))
 //│ def incr_lh_₁(x⁰) = (x⁰ + 1)
@@ -519,12 +445,6 @@ test263MisalignedProdCons(primId(10000))
 //│ 		(test263MisalignedProdCons_lh__d1 10000)
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
-//│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ 
-//│ ------------------
-//│ 
-//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test263MisalignedProdCons_lh_₁(primId⁰(10000))
@@ -607,17 +527,6 @@ test72LightweightFusion(primId(mk2d(300)))
 //│ 		(test72LightweightFusion_lh__d1 (mk2d_lh__d1 300))
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
-//│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [Cons x⁰ append_lh_₁(xs¹, ys⁰)]: 9 --->
-//│ 	case ls⁰ of {Nil  => 0 | Cons x¹ xs² => (x¹ + sum_lh_₁(xs²))}: 22
-//│ [Nil]: 25 --->
-//│ 	case ls⁰ of {Nil  => 0 | Cons x¹ xs² => (x¹ + sum_lh_₁(xs²))}: 22
-//│ ------------------
-//│ case ls⁰ of {Nil  => 0 | Cons x¹ xs² => (x¹ + sum_lh_₁(xs²))}: 22 --->
-//│ 	[Cons x⁰ append_lh_₁(xs¹, ys⁰)]: 9
-//│ 	[Nil]: 25
-//│ <<<<<<< fusion matches <<<<<<<
 //│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ test72LightweightFusion_lh_₁(primId⁰(mk2d_lh_₁(300)))

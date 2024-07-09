@@ -622,40 +622,6 @@ testMandel2_nofib $ primId [60]
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [LH_P2 (0 - 1) 0]: 658 --->
-//│ 	case _lh_equalp_arg2¹ of {LH_P2 _lh_equalp_LH_P2_0³ _lh_equalp_LH_P2_1³ => ((_lh_equalp_LH_P2_0² == _lh_equalp_LH_P2_0³) && (_lh_equalp_LH_P2_1² == _lh_equalp_LH_P2_1³))}: 738
-//│ [LH_P2 0 1]: 683 --->
-//│ 	case _lh_equalp_arg2² of {LH_P2 _lh_equalp_LH_P2_0⁵ _lh_equalp_LH_P2_1⁵ => ((_lh_equalp_LH_P2_0⁴ == _lh_equalp_LH_P2_0⁵) && (_lh_equalp_LH_P2_1⁴ == _lh_equalp_LH_P2_1⁵))}: 811
-//│ [LH_P2 1 0]: 868 --->
-//│ 	case _lh_equalp_arg2³ of {LH_P2 _lh_equalp_LH_P2_0⁷ _lh_equalp_LH_P2_1⁷ => ((_lh_equalp_LH_P2_0⁶ == _lh_equalp_LH_P2_0⁷) && (_lh_equalp_LH_P2_1⁶ == _lh_equalp_LH_P2_1⁷))}: 862
-//│ [LH_P2 _lh_check_perim_LH_P2_0¹ _lh_check_perim_LH_P2_1⁰]: 879 --->
-//│ 	case _lh_point_colour_arg1⁰ of {LH_P2 _lh_point_colour_LH_P2_0⁰ _lh_point_colour_LH_P2_1⁰ => check_radius_lh_₆(np_lh_₆(_lh_point_colour_LH_P2_0⁰), nq_lh_₆(_lh_point_colour_LH_P2_1⁰), 0, 0.0, 0.0)}: 703
-//│ [LH_P2 _lh_check_perim_LH_P2_0⁰ _lh_check_perim_LH_P2_1¹]: 887 --->
-//│ 	case _lh_point_colour_arg1¹ of {LH_P2 _lh_point_colour_LH_P2_0¹ _lh_point_colour_LH_P2_1¹ => check_radius_lh_₅(np_lh_₅(_lh_point_colour_LH_P2_0¹), nq_lh_₅(_lh_point_colour_LH_P2_1¹), 0, 0.0, 0.0)}: 721
-//│ [Leaf rec_col⁰]: 1173 --->
-//│ 	case _lh_finite_arg1⁰ of {Leaf _lh_finite_Leaf_0⁰ => (_lh_finite_Leaf_0⁰ == _lh_finite_Leaf_0⁰) | NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁(_lh_finite_NS_0⁰) && finite_lh_₁(_lh_finite_NS_1⁰)) | EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁(_lh_finite_EW_0⁰) && finite_lh_₁(_lh_finite_EW_1⁰))}: 1259
-//│ [NS build_tree_lh_₁(nsp1⁰, nsp2⁰) build_tree_lh_₁(nsp3⁰, nsp4⁰)]: 1193 --->
-//│ 	case _lh_finite_arg1⁰ of {Leaf _lh_finite_Leaf_0⁰ => (_lh_finite_Leaf_0⁰ == _lh_finite_Leaf_0⁰) | NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁(_lh_finite_NS_0⁰) && finite_lh_₁(_lh_finite_NS_1⁰)) | EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁(_lh_finite_EW_0⁰) && finite_lh_₁(_lh_finite_EW_1⁰))}: 1259
-//│ [EW build_tree_lh_₁(ewp1⁰, ewp2⁰) build_tree_lh_₁(ewp3⁰, ewp4⁰)]: 1204 --->
-//│ 	case _lh_finite_arg1⁰ of {Leaf _lh_finite_Leaf_0⁰ => (_lh_finite_Leaf_0⁰ == _lh_finite_Leaf_0⁰) | NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁(_lh_finite_NS_0⁰) && finite_lh_₁(_lh_finite_NS_1⁰)) | EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁(_lh_finite_EW_0⁰) && finite_lh_₁(_lh_finite_EW_1⁰))}: 1259
-//│ ------------------
-//│ case _lh_point_colour_arg1⁰ of {LH_P2 _lh_point_colour_LH_P2_0⁰ _lh_point_colour_LH_P2_1⁰ => check_radius_lh_₆(np_lh_₆(_lh_point_colour_LH_P2_0⁰), nq_lh_₆(_lh_point_colour_LH_P2_1⁰), 0, 0.0, 0.0)}: 703 --->
-//│ 	[LH_P2 _lh_check_perim_LH_P2_0¹ _lh_check_perim_LH_P2_1⁰]: 879
-//│ case _lh_point_colour_arg1¹ of {LH_P2 _lh_point_colour_LH_P2_0¹ _lh_point_colour_LH_P2_1¹ => check_radius_lh_₅(np_lh_₅(_lh_point_colour_LH_P2_0¹), nq_lh_₅(_lh_point_colour_LH_P2_1¹), 0, 0.0, 0.0)}: 721 --->
-//│ 	[LH_P2 _lh_check_perim_LH_P2_0⁰ _lh_check_perim_LH_P2_1¹]: 887
-//│ case _lh_equalp_arg2¹ of {LH_P2 _lh_equalp_LH_P2_0³ _lh_equalp_LH_P2_1³ => ((_lh_equalp_LH_P2_0² == _lh_equalp_LH_P2_0³) && (_lh_equalp_LH_P2_1² == _lh_equalp_LH_P2_1³))}: 738 --->
-//│ 	[LH_P2 (0 - 1) 0]: 658
-//│ case _lh_equalp_arg2² of {LH_P2 _lh_equalp_LH_P2_0⁵ _lh_equalp_LH_P2_1⁵ => ((_lh_equalp_LH_P2_0⁴ == _lh_equalp_LH_P2_0⁵) && (_lh_equalp_LH_P2_1⁴ == _lh_equalp_LH_P2_1⁵))}: 811 --->
-//│ 	[LH_P2 0 1]: 683
-//│ case _lh_equalp_arg2³ of {LH_P2 _lh_equalp_LH_P2_0⁷ _lh_equalp_LH_P2_1⁷ => ((_lh_equalp_LH_P2_0⁶ == _lh_equalp_LH_P2_0⁷) && (_lh_equalp_LH_P2_1⁶ == _lh_equalp_LH_P2_1⁷))}: 862 --->
-//│ 	[LH_P2 1 0]: 868
-//│ case _lh_finite_arg1⁰ of {Leaf _lh_finite_Leaf_0⁰ => (_lh_finite_Leaf_0⁰ == _lh_finite_Leaf_0⁰) | NS _lh_finite_NS_0⁰ _lh_finite_NS_1⁰ => (finite_lh_₁(_lh_finite_NS_0⁰) && finite_lh_₁(_lh_finite_NS_1⁰)) | EW _lh_finite_EW_0⁰ _lh_finite_EW_1⁰ => (finite_lh_₁(_lh_finite_EW_0⁰) && finite_lh_₁(_lh_finite_EW_1⁰))}: 1259 --->
-//│ 	[Leaf rec_col⁰]: 1173
-//│ 	[NS build_tree_lh_₁(nsp1⁰, nsp2⁰) build_tree_lh_₁(nsp3⁰, nsp4⁰)]: 1193
-//│ 	[EW build_tree_lh_₁(ewp1⁰, ewp2⁰) build_tree_lh_₁(ewp3⁰, ewp4⁰)]: 1204
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testMandel2_nofib_lh_₁(primId⁰([LH_C 60 [LH_N]]))
 //│ def build_tree_lh_₁(_lh_build_tree_arg1⁰, _lh_build_tree_arg2⁰, _lh_floatOutId_0³) = 

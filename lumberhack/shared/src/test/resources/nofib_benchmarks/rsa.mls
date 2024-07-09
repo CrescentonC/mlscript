@@ -228,61 +228,6 @@ testRsa_nofib $ primId 0
 //│ 		---------- unoptimized ocaml gen ----------
 //│ <<<<<<<<<< after expansion <<<<<<<<<<
 //│ 
-//│ >>>>>>> fusion matches >>>>>>>
-//│ [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]: 8 --->
-//│ 	case ls⁴ of {LH_C h⁷ t⁷ => foldl_lh_₁(f², f²(i¹, h⁷), t⁷) | LH_N  => i¹}: 180
-//│ [LH_N]: 38 --->
-//│ 	case ls⁴ of {LH_C h⁷ t⁷ => foldl_lh_₁(f², f²(i¹, h⁷), t⁷) | LH_N  => i¹}: 180
-//│ [LH_C h³ mappend_lh_₁(t³, ys¹)]: 48 --->
-//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
-//│ [LH_C f⁰(h⁴) map_lh_₂(f⁰, t⁴)]: 62 --->
-//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₂(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 39
-//│ [LH_N]: 63 --->
-//│ 	case lss⁰ of {LH_C h² t² => mappend_lh_₂(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 39
-//│ [LH_C h⁵ take_lh_₁((n⁰ - 1), t⁵)]: 83 --->
-//│ 	case ls³ of {LH_C h⁶ t⁶ => foldl_lh_₂(f¹, f¹(i⁰, h⁶), t⁶) | LH_N  => i⁰}: 126
-//│ [LH_N]: 84 --->
-//│ 	case ls³ of {LH_C h⁶ t⁶ => foldl_lh_₂(f¹, f¹(i⁰, h⁶), t⁶) | LH_N  => i⁰}: 126
-//│ [LH_N]: 86 --->
-//│ 	case ls³ of {LH_C h⁶ t⁶ => foldl_lh_₂(f¹, f¹(i⁰, h⁶), t⁶) | LH_N  => i⁰}: 126
-//│ [LH_C f³(h⁸) map_lh_₁(f³, t⁸)]: 210 --->
-//│ 	case ls¹ of {LH_C h⁴ t⁴ => [LH_C f⁰(h⁴) map_lh_₂(f⁰, t⁴)] | LH_N  => [LH_N]}: 64
-//│ [LH_N]: 211 --->
-//│ 	case ls¹ of {LH_C h⁴ t⁴ => [LH_C f⁰(h⁴) map_lh_₂(f⁰, t⁴)] | LH_N  => [LH_N]}: 64
-//│ [LH_N]: 221 --->
-//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
-//│ [LH_C 'n' [LH_N]]: 222 --->
-//│ 	case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)] | LH_N  => ys⁰}: 10
-//│ [LH_N]: 231 --->
-//│ 	case ls⁵ of {LH_C h⁸ t⁸ => [LH_C f³(h⁸) map_lh_₁(f³, t⁸)] | LH_N  => [LH_N]}: 212
-//│ [LH_N]: 233 --->
-//│ 	case ls⁵ of {LH_C h⁸ t⁸ => [LH_C f³(h⁸) map_lh_₁(f³, t⁸)] | LH_N  => [LH_N]}: 212
-//│ [LH_C take_lh_₁(_lh_collect_arg1⁰, _lh_collect_arg2⁰) collect_lh_₁(_lh_collect_arg1⁰, drop_lh_₁(_lh_collect_arg1⁰, _lh_collect_arg2⁰))]: 248 --->
-//│ 	case ls⁵ of {LH_C h⁸ t⁸ => [LH_C f³(h⁸) map_lh_₁(f³, t⁸)] | LH_N  => [LH_N]}: 212
-//│ ------------------
-//│ case xs⁰ of {LH_C h⁰ t⁰ => [LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)] | LH_N  => ys⁰}: 10 --->
-//│ 	[LH_C h³ mappend_lh_₁(t³, ys¹)]: 48
-//│ 	[LH_N]: 221
-//│ 	[LH_C 'n' [LH_N]]: 222
-//│ case lss⁰ of {LH_C h² t² => mappend_lh_₂(h², concat_lh_₁(t²)) | LH_N  => [LH_N]}: 39 --->
-//│ 	[LH_C f⁰(h⁴) map_lh_₂(f⁰, t⁴)]: 62
-//│ 	[LH_N]: 63
-//│ case ls¹ of {LH_C h⁴ t⁴ => [LH_C f⁰(h⁴) map_lh_₂(f⁰, t⁴)] | LH_N  => [LH_N]}: 64 --->
-//│ 	[LH_C f³(h⁸) map_lh_₁(f³, t⁸)]: 210
-//│ 	[LH_N]: 211
-//│ case ls³ of {LH_C h⁶ t⁶ => foldl_lh_₂(f¹, f¹(i⁰, h⁶), t⁶) | LH_N  => i⁰}: 126 --->
-//│ 	[LH_C h⁵ take_lh_₁((n⁰ - 1), t⁵)]: 83
-//│ 	[LH_N]: 84
-//│ 	[LH_N]: 86
-//│ case ls⁴ of {LH_C h⁷ t⁷ => foldl_lh_₁(f², f²(i¹, h⁷), t⁷) | LH_N  => i¹}: 180 --->
-//│ 	[LH_C h⁰ mappend_lh_₂(t⁰, ys⁰)]: 8
-//│ 	[LH_N]: 38
-//│ case ls⁵ of {LH_C h⁸ t⁸ => [LH_C f³(h⁸) map_lh_₁(f³, t⁸)] | LH_N  => [LH_N]}: 212 --->
-//│ 	[LH_N]: 231
-//│ 	[LH_N]: 233
-//│ 	[LH_C take_lh_₁(_lh_collect_arg1⁰, _lh_collect_arg2⁰) collect_lh_₁(_lh_collect_arg1⁰, drop_lh_₁(_lh_collect_arg1⁰, _lh_collect_arg2⁰))]: 248
-//│ <<<<<<< fusion matches <<<<<<<
-//│ 
 //│ >>>>>>> after fusion >>>>>>>
 //│ testRsa_nofib_lh_₁(primId⁰(0))
 //│ def code_lh_₁(_lh_code_arg1⁰) = foldl_lh_₂((fun x⁰ -> (fun y⁰ -> z_add⁰(z_mul⁰(const128_lh_₁, x⁰), z_of_int⁰(int_of_char⁰(y⁰))))), const0_lh_₃, _lh_code_arg1⁰)
