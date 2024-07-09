@@ -46,9 +46,7 @@ class FusionStrategy(d: Deforest) {
     d.ctorDestinations.foreach { (ctor, dests) => if involvedCtors(ctor.euid) then
       dests.foreach { dest => dest match {
         case c: (NoCons | Destruct | DeadCodeCons) => res += ctor -> (res(ctor) + c)
-        // case cv: ConsVar => res += ctor -> (res(ctor) ++ findToEndCons(cv, Set(cv)))
         case cv: ConsVar => ()
-        // case cv: ConsVar => if d.upperBounds(cv.uid).isEmpty then res += ctor -> (res(ctor) + cv)
         case _ => ??? // unreachable
       }}
     }
@@ -60,9 +58,7 @@ class FusionStrategy(d: Deforest) {
     d.dtorSources.foreach { (dtor, sources) => if involvedDtors(dtor.euid) then 
       sources.foreach { src => src match {
         case s: (NoProd | MkCtor | DeadCodeProd) => res += dtor -> (res(dtor) + s)
-        // case pv: ProdVar => res += dtor -> (res(dtor) ++ findToEndProd(pv))
         case pv: ProdVar => ()
-        // case pv: ProdVar => if d.lowerBounds(pv.uid).isEmpty then res += dtor -> (res(dtor) + pv)
         case _ => ??? // unreachable
       }}
     }
@@ -645,14 +641,6 @@ trait ProgramRewrite { this: Program =>
       using initCtx, Nil, res._1.toMap, res._2, newd, None
     )))
 
-    // println("\n" + res._1.map { case path -> id =>
-    //   path.map(_.pp(using InitPpConfig.showRefEuidOn)).mkString(" · ") + s" :: ${id.tree.name}"
-    // }.mkString("\n"))
-
-    // println("\n" + res._2.map { case later -> knot =>
-    //   later.map(_.pp(using InitPpConfig.showRefEuidOn)).mkString(" · ") + " -> " + knot.map(_.pp(using InitPpConfig.showRefEuidOn)).mkString(" · ")
-    // }.mkString("\n"))
-
     Program(newDefs ::: newTopLevelExprs)(using newd) -> newd
   }
 
@@ -660,7 +648,6 @@ trait ProgramRewrite { this: Program =>
   lazy val copyToNewDeforestWithDeadDefElim = {
     given newd: Deforest(false)
     val newCalls = this.usedDefs
-    // println(newCalls.size)
     val newInitCtx = newCalls.map(
       i => i -> newd.nextIdent(i.isDef, Var(i.tree.name + "_lh"))
     ) ++ newd.lumberhackKeywordsIds.values.map(id => id -> id) |> (_.toMap)
@@ -676,7 +663,6 @@ trait ProgramRewrite { this: Program =>
   }
 
   def rewrite(d: Deforest, fusionStrategy: FusionStrategy): Program = {
-    // given Map[ExprId, ExprId] = d.fusionMatch.map { (p, cs) => p -> cs.head }.toMap
     given Deforest = d
     given Set[ExprId] = d.needImplicitWildCardBranch.toSet
     given Map[ExprId, ExprId] = fusionStrategy.finallyFilteredStrategies._1.map { (ctor, dtors) =>
@@ -710,9 +696,6 @@ trait ProgramRewrite { this: Program =>
         val afterLambdaCnt = afterPoppedOut match {
           case f: Function => f.takeParamsOut._1.length
           case _ => 0
-        }
-        if afterLambdaCnt > preLambdaCnt then {
-          println(s"${id.tree.name}: $preLambdaCnt -> $afterLambdaCnt")
         }
         L(ProgDef(id, afterPoppedOut))
       }.toList

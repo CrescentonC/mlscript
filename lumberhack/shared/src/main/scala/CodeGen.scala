@@ -66,13 +66,13 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
   def apply(program: Str)(using d: Deforest, output: Str => Unit): Program = {
     val parser = new Parser()
     parser.setLanguage(Languages.haskell())
-    // parser.setLanguage(Languages.ocaml())
+
     val tree = parser.parseString(program)
     val treeRootNode = tree.getRootNode()
     val pp = treeRootNode.pp
     if pp.contains("ERROR") then lastWords(s"parse error:\n $pp")
-    // output(treeRootNode.pp)
-    // output(treeRootNode.getNodeString())
+
+
     fromHaskellToPrgm(treeRootNode)(using program)
     // if not copy, some exprids may be shared, but is's ok since it will be expanded and copied later
     // fromHaskellToPrgm(treeRootNode)(using program).copyDefsToNewDeforest(using Deforest(d.debug))._1._1

@@ -230,8 +230,6 @@ class Deforest(var debug: Boolean) {
       case Const(IntLit(_)) => prodInt(using noExprId)
       case Const(DecLit(_)) => prodFloat(using noExprId) // floating point numbers as integers type
       case Const(CharLit(_)) => prodChar(using noExprId)
-      // str lits are handled by fromHaskell; do not handle str lits in mls now
-      // case Const(StrLit(strLit)) => prodString(strLit)(using noExprId) // Strings constants are lists of chars
       case Const(l) => NoProd()(using e.uid)
       case Ref(Ident(_, Var(primitive), _)) if Deforest.lumberhackKeywords(primitive) => {
         if Deforest.lumberhackIntComparisonFun(primitive) || Deforest.lumberhackIntComparisonOps(primitive) then

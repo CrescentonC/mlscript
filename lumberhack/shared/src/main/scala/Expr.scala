@@ -159,7 +159,6 @@ enum Expr(using val deforest: Deforest, val inDef: Option[Ident]) extends ExprRe
           then id.tree.name + (if config.showRefEuid then s"^$uid" else "")
           else id.pp
         case Call(Call(Ref(Ident(_, Var(op), _)), fst), snd) if Deforest.lumberhackBinOps(op) => s"(${fst.pp} $op ${snd.pp})"
-        // case Call(lhs, rhs) => s"(${lhs.pp} ${rhs.pp})"
         case c: Call =>
           val (f, ps) = getAllCallParams(c)
           s"${f.pp}(${ps.map(_.pp).mkString(", ")})"
@@ -335,7 +334,6 @@ object Expr {
       IfThenElse(fromTerm(expr), fromTerm(rhs), fromTerm(elze))
     case Bra(false, t) => fromTerm(t)
     case Blk((e: Term) :: Nil) => fromTerm(e)
-    // case Blk((NuFunDef(_, name, Nil, L(e))) :: Nil) => fromTerm(e) // do not allow let binding at the last
     case Blk((e: Term) :: t) => Sequence(fromTerm(e), fromTerm(Blk(t)))
     case Blk((NuFunDef(_, name, Nil, L(e))) :: t) =>
       val id = d.nextIdent(false, name) // TODO deforest local let bindings? false ~> true
