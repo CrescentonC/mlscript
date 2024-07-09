@@ -74,8 +74,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
 
 
     fromHaskellToPrgm(treeRootNode)(using program)
-    // if not copy, some exprids may be shared, but is's ok since it will be expanded and copied later
-    // fromHaskellToPrgm(treeRootNode)(using program).copyDefsToNewDeforest(using Deforest(d.debug))._1._1
   }
   given NodeExtension with {
     extension (n: Node) override def toPattern(using prgmStr: Str): NestedPat = n.getType() match {
@@ -329,7 +327,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
   ): Expr = {
     if vars.isEmpty then {
       if patList.isEmpty then
-        // elze
         elze match {
           case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => Expr.Ref(ctx("error"))
           case e => e
@@ -400,7 +397,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
             )
           }) ++ { elze match {
             case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => None
-            // case _ => Some((Var("_"), Nil, elze))
             case _ => Some((Var("_"), Nil, elze))
           }} // else branch is still needed, otherwise there maybe type error
         )
@@ -445,7 +441,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
             )
           }) ++ { elze match {
             case Ref(id) if id.tree.name == "internal_tmp_error_for_patmat_ast_conversion" => None
-            // case _ => Some((Var("_"), Nil, elze))
             case _ => Some((Var("_"), Nil, elze))
           }} // else branch is still needed, otherwise there maybe type error
         )
@@ -477,7 +472,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
             accElse
           )
         }
-        // lastWords(s"unsupported: $firstPatterns")
       } else if firstPatterns.forall(!_.isInstanceOf[NestedPat.CtorPat]) then {
         // the mix of literals, vars or wildcards
         val groupedPats = {
@@ -558,14 +552,6 @@ object FromHaskell extends NativeLoader("java-tree-sitter-haskell") {
             (
               Var(BuiltInTypes.ListCons.toLumberhackType),
               recFunLsH :: recFunLsT :: Nil,
-              // handleListComprehension(
-              //   elemGen,
-              //   quals.tail,
-              //   Expr.Call(Ref(recFunName), Ref(recFunLsT)),
-              //   comprehCtx + (
-              //     pat.asInstanceOf[NestedPat.IdPat].n -> recFunLsH
-              //   )
-              // )
               mergeMatchPatterns(
                 recFunLsH :: Nil,
                 (

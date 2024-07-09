@@ -102,13 +102,6 @@ class DiffTestLumberhack extends DiffTests {
                         + "with exact the same parameter following the `testxxx`"
                     )
                   }).emptyOrElse(newp.hashCode().toString())
-                  import sys.process.*
-                  import java.io._
-                  // val pathPrefix = if benchName.contains("_nofib") then s"./new-nofib-haskell-input-extract/$benchName" else s"./haskell-input-extract/$benchName"
-                  // s"mkdir -p $pathPrefix".!
-                  // val fw = new FileWriter(s"$pathPrefix/$benchName.hs", false)
-                  // fw.write(prgmStr.mkString("\n") + "\n")
-                  // fw.close()
                 }
                 newp
               else originalProgram
@@ -121,13 +114,7 @@ class DiffTestLumberhack extends DiffTests {
           output("benchmark file generated")
         } catch { case e =>
           output(s"cannot generate benchmark files: ${e.getMessage()}\n")
-          // e.printStackTrace()
-          // output(s"cannot generate benchmark files: ${e.getMessage()}\n${e.getStackTrace().mkString("\n")}")
           val progStr = ocamlGen(deforestRes._1)
-          // val clipboard = java.awt.Toolkit.getDefaultToolkit.getSystemClipboard
-          // val declClipboard = new java.awt.datatransfer.StringSelection(decl ++ ";;")
-          // val mainExprClipboard = new java.awt.datatransfer.StringSelection(mainExpr)
-          // clipboard.setContents(declClipboard, declClipboard)
           output(progStr)
         }
         output("<<<<<<<<<< Generated OCaml <<<<<<<<<<")
@@ -206,7 +193,6 @@ object DiffTestLumberhack {
   private val allFiles = os.walk(dir)
   private val validExt = Set("mls")
   private val modified: Set[os.RelPath] = DiffTests.findModifiedFiles(dir)
-  // private val lumberhackLocalTest = Set[Str]("_LocalTest")
   private val lumberhackLocalTest = Set[Str]()
 }
 
@@ -268,14 +254,6 @@ ${if !useZarith then "end;;" else "let string_of_z z = listToTaggedList (explode
     )
 
     val largeStrFileString = {
-      // val largeStrDefs = this.largeStrIdents.map { case (s, id) =>
-      //   s"let ${largeStrPrefix}${id} = listToTaggedList (explode_string \"${s}\");;"
-      // }.mkString("\n")
-      // (
-      //   "Lumberhack_LargeStr",
-      //   "open Lumherhack_Common.Lumherhack_Common;;\n" +
-      //   s"module Lumberhack_LargeStr = struct\n$largeStrDefs\nend;;\n"
-      // )
       ("Lumberhack_LargeStr", "")
     }
 
@@ -330,7 +308,6 @@ ${if !useZarith then "end;;" else "let string_of_z z = listToTaggedList (explode
             Program(
               prgm.contents.filter {
                 case Left(ProgDef(id, _)) => true
-                  // (!(id.tree.name.startsWith("_lhManual") || id.tree.name.startsWith("testManual")))
                 case _ => false
               }
             )(using prgm.d),
@@ -473,7 +450,6 @@ ${if !useZarith then "end;;" else "let string_of_z z = listToTaggedList (explode
     originalDefsString ::
     restMergedDefsString :::
     (mainFileString :: Nil)).foreach { case (fileName, fileContent) =>
-      // s"touch $pathPrefix/$fileName.ml".!
       val fw = new FileWriter(s"$pathPrefix/$fileName.ml", false)
       fw.write(fileContent + "\n")
       fw.close()

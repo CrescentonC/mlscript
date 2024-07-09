@@ -382,7 +382,6 @@ trait ExprRewrite { this: Expr =>
                 Function(newId._2, acc)
               }
               val noNeedThunking = {
-                // val nonDeadBranches = newd.isNotDeadBranch(newd.dtorExprToType(matchId))
                 newd.exprs(matchId).asInstanceOf[Match].arms.zipWithIndex.filter(x => true).forall {
                   case ((_, _, body), _) => inexpensiveMatchingArmBody(body)
                 } && !needImplicitWildcardBranch(matchId)
@@ -617,7 +616,6 @@ trait ProgramRewrite { this: Program =>
     lim: Int,
   ): Program -> Deforest = {
     given newd: Deforest(false)
-    // val copiedOriginalProgam -> refMaps -> initContext = this.copyDefsToNewDeforest
     val initCtx: Map[Ident, Ident] = newd.lumberhackKeywordsIds.values.map(id => id -> id).toMap
     val callGraph = this.d.callsInfo
 
