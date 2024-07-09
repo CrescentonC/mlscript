@@ -394,7 +394,7 @@ Estimated testing time 20m (4 benchmarks x 5m). Change using '-quota'.
 ┌─────────────────────────────────────────────┬──────────┬──────────┬───────────────┬─────────┬──────────┬──────────┬────────────┐
 │ Name                                        │ Time R^2 │ Time/Run │          95ci │ mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
 ├─────────────────────────────────────────────┼──────────┼──────────┼───────────────┼─────────┼──────────┼──────────┼────────────┤
-│ original_Secretary_nofib_lh                 │     1.00 │    5.24s │               │  2.05Gw │ 115.45Mw │ 115.45Mw │    100.00% │
+│ original_Secretary_nofib_lh                 │     1.00 │    5.24s │ -0.05% +0.04% │  2.05Gw │ 115.45Mw │ 115.45Mw │    100.00% │
 │ lumberhack_only_expanded_Secretary_nofib_lh │     1.00 │    5.23s │ -0.04% +0.04% │  2.05Gw │ 115.45Mw │ 115.45Mw │     99.82% │
 │ lumberhack_Secretary_nofib_lh               │     1.00 │    5.23s │ -0.10% +0.13% │  2.05Gw │ 114.94Mw │ 114.94Mw │     99.78% │
 │ lumberhack_float_out_Secretary_nofib_lh     │     1.00 │    5.22s │ -0.17% +0.17% │  2.05Gw │ 115.00Mw │ 115.00Mw │     99.48% │
