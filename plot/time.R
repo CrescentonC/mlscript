@@ -7,8 +7,9 @@ library(RColorBrewer)
 library(ggplot2)
 library(gridExtra)
 
-
 data <- read.csv(args[1])
+if(nrow(data) != 38 * 4)
+  stop(c("Corrupted output from ./bench.sh. There should be 38 * 4 = 152 entries in total but now there is only ", nrow(data), " entries."))
 
 # print(data)
 
