@@ -156,6 +156,11 @@ between this artifact and the paper, please refer to [the section below](#corres
     c=$cmd" -q"" <duration_in_seconds>"
   ...
   ```
+  If the duration is not long enough, the following error will be reported by `core_bench`:
+  ```
+   "Columns  Runs per sampled batch(non-zero 8) have less that 10 non-zero values.")
+  Error: Estimating speedup/percentage requires Nanos-vs-Runs analysis.
+  ```
 
 - To test output OCaml benchmark programs individually:
   `cd` to the corresponding sub-directory in `new-nofib-ocaml-gen`
